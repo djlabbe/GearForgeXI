@@ -22,6 +22,10 @@ using (var scope = app.Services.CreateScope())
     GearDbContext.SeedInitialData(context);
 }
 
+// ✅ Serve static files from wwwroot
+app.UseDefaultFiles(); // optional, but helps serve index.html
+app.UseStaticFiles();  // <-- THIS WAS MISSING
+
 app.MapControllers();
 
 // Configure the HTTP request pipeline.
