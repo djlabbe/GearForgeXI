@@ -33,22 +33,22 @@ function App() {
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/gear/head")
+    if (!selectedJob) return;
+
+    fetch(`/api/gear/all?job=${selectedJob}`)
       .then((res) => res.json())
       .then(setGearItems);
-  }, []);
+  }, [selectedJob]);
 
   return (
-    <div className="p-4 max-w-4xl mx-auto">
+    <div className="p-4 max-w-8xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">FFXI Gear Set Comparison</h1>
       <JobSelector
         selectedJob={selectedJob}
         onSelect={setSelectedJob}
         availableJobs={AVAILABLE_JOBS}
       />
-      {selectedJob && (
-        <GearSetComparer gearItems={gearItems} selectedJob={selectedJob} />
-      )}
+      {selectedJob && <GearSetComparer gearItems={gearItems} />}
     </div>
   );
 }

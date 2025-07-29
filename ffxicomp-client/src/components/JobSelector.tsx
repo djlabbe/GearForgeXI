@@ -7,7 +7,7 @@ interface Props {
 export function JobSelector({ selectedJob, onSelect, availableJobs }: Props) {
   return (
     <div className="mb-6">
-      <label className="block font-semibold mb-1">Select Job</label>
+      <label className="block font-semibold mb-1">Job</label>
       <select
         className="border p-2"
         value={selectedJob ?? ""}

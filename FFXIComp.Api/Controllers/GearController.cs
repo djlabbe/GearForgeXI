@@ -13,18 +13,23 @@ public class GearController : ControllerBase
         _context = context;
     }
 
-    // GET: api/gear/head
-    [HttpGet("head")]
-    public async Task<IActionResult> GetHeadGear()
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAllGear([FromQuery] string? job)
     {
-        var gear = await _context.GearItems
-            .Where(g => g.Slot == "Head")
+        var query = _context.GearItems
             .Include(g => g.GearStats)
             .Include(g => g.GearItemJobs)
-            .OrderBy(g => g.Name)
-            .ToListAsync();
+            .AsQueryable();
 
-        return Ok(gear);
+        if (!string.IsNullOrWhiteSpace(job))
+        {
+            query = query.Where(g =>
+                g.GearItemJobs.Any(j => j.JobName.ToLower() == job.ToLower()) ||
+                g.GearItemJobs.Count == 0); // Include items with no job restrictions
+        }
+
+        var result = await query.ToListAsync();
+        return Ok(result);
     }
 
     // GET: api/gear/{id}

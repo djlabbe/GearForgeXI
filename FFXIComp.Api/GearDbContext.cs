@@ -40,8 +40,10 @@ namespace FFXIComp.Api
         {
             if (!context.GearItems.Any())
             {
-                var headItems = GearSeedData.GetHeadGearItems();
+                var headItems = HeadSeedData.GetItems();
                 context.GearItems.AddRange(headItems);
+                var neckItems = NeckSeedData.GetItems();
+                context.GearItems.AddRange(neckItems);
                 context.SaveChanges();
             }
         }

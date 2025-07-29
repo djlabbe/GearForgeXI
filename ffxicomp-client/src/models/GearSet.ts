@@ -1,20 +1,23 @@
 import type { GearItem } from "./GearItem";
 
-export interface GearSet {
-  head?: GearItem;
-  body?: GearItem;
-  hands?: GearItem;
-  legs?: GearItem;
-  feet?: GearItem;
-  ranged?: GearItem;
-  ammo?: GearItem;
-  neck?: GearItem;
-  ear1?: GearItem;
-  ear2?: GearItem;
-  ring1?: GearItem;
-  ring2?: GearItem;
-  back?: GearItem;
-  waist?: GearItem;
-  main?: GearItem;
-  sub?: GearItem;
-}
+export type GearSlot =
+  | "main"
+  | "sub"
+  | "range"
+  | "ammo"
+  | "head"
+  | "neck"
+  | "ear1"
+  | "ear2"
+  | "body"
+  | "hands"
+  | "ring1"
+  | "ring2"
+  | "back"
+  | "waist"
+  | "legs"
+  | "feet";
+
+export type GearSet = {
+  [K in GearSlot]?: GearItem;
+};
