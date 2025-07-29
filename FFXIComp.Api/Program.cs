@@ -38,4 +38,7 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
+// Fallback route to serve React index.html for SPA routing
+app.MapFallbackToFile("index.html");
+
 app.Run();
