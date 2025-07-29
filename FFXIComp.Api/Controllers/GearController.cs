@@ -28,6 +28,7 @@ public class GearController : ControllerBase
                 g.GearItemJobs.Count == 0); // Include items with no job restrictions
         }
 
+        query = query.OrderBy(g => g.Name);
         var result = await query.ToListAsync();
         return Ok(result);
     }

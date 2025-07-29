@@ -1,17 +1,16 @@
-
 Aurgelmir_Orb = {"Name":"Aurgelmir Orb +1", "Type":"Equipment", "STR":7, "DEX":7, "VIT":7, "Attack":10, "Store TP":5, "Jobs":["nin", "drk", "sam", "rdm", "drg", "war", "mnk", "rdm", "thf", "pld", "bst", "brd", "rng", "blu", "cor", "dnc", "run"]}
 Cath_Palug_Stone = {"Name":"Cath Palug Stone", "Type":"Equipment", "DEX":10, "AGI":10, "Accuracy":15, "Jobs":["nin", "thf", "dnc", "run"]}
-Coiste_Bodhar0 = {"Name":"Coiste Bodhar", "Name2":"Coiste Bodhar R0", "Type":"Equipment", "Rank":0, "Attack":0, "STR":0, "DEX":0, "DA":3, "Store TP":3, "Jobs":["nin", "drk", "sam", "drg", "rdm", "war", "mnk", "thf", "pld", "bst", "rng", "blu", "cor", "dnc", "run", "brd"]}
-Coiste_Bodhar15 = {"Name":"Coiste Bodhar", "Name2":"Coiste Bodhar R15", "Type":"Equipment", "Rank":15, "Attack":0+15, "STR":0, "DEX":0, "DA":3, "Store TP":3, "Jobs":["nin", "drk", "sam", "drg", "rdm", "war", "mnk", "thf", "pld", "bst", "rng", "blu", "cor", "dnc", "run", "brd"]}
-Coiste_Bodhar20 = {"Name":"Coiste Bodhar", "Name2":"Coiste Bodhar R20", "Type":"Equipment", "Rank":20, "Attack":0+15, "STR":0+5, "DEX":0, "DA":3, "Store TP":3, "Jobs":["nin", "drk", "sam", "drg", "rdm", "war", "mnk", "thf", "pld", "bst", "rng", "blu", "cor", "dnc", "run", "brd"]}
-Coiste_Bodhar25 = {"Name":"Coiste Bodhar", "Name2":"Coiste Bodhar R25", "Type":"Equipment", "Rank":25, "Attack":0+15, "STR":0+8, "DEX":0+5, "DA":3, "Store TP":3, "Jobs":["nin", "drk", "sam", "drg", "rdm", "war", "mnk", "thf", "pld", "bst", "rng", "blu", "cor", "dnc", "run", "brd"]}
-Coiste_Bodhar30 = {"Name":"Coiste Bodhar", "Name2":"Coiste Bodhar R30", "Type":"Equipment", "Rank":30, "Attack":0+15, "STR":0+10, "DEX":0+5, "DA":3, "Store TP":3, "Jobs":["nin", "drk", "sam", "drg", "rdm", "war", "mnk", "thf", "pld", "bst", "rng", "blu", "cor", "dnc", "run", "brd"]}
-Crepuscular_Pebble = {"Name":"Crepuscular Pebble", "Name2":"Crepuscular Pebble", "Type":"Equipment", "STR":3, "VIT":3, "PDL":3, "DT":-3, "Jobs":all_jobs}
-Ghastly_Tathlum = {"Name":"Ghastly Tathlum +1", "Name2":"Ghastly Tathlum +1 R15", "Type":"Equipment", "Magic Damage":11+10, "INT":6+5, "Jobs":all_jobs}
+Coiste_Bodhar0 = {"Name":"Coiste Bodhar R0", "Type":"Equipment", "Rank":0, "Attack":0, "STR":0, "DEX":0, "DA":3, "Store TP":3, "Jobs":["nin", "drk", "sam", "drg", "rdm", "war", "mnk", "thf", "pld", "bst", "rng", "blu", "cor", "dnc", "run", "brd"]}
+Coiste_Bodhar15 = {"Name":"Coiste Bodhar R15", "Type":"Equipment", "Rank":15, "Attack":0+15, "STR":0, "DEX":0, "DA":3, "Store TP":3, "Jobs":["nin", "drk", "sam", "drg", "rdm", "war", "mnk", "thf", "pld", "bst", "rng", "blu", "cor", "dnc", "run", "brd"]}
+Coiste_Bodhar20 = {"Name":"Coiste Bodhar R20", "Type":"Equipment", "Rank":20, "Attack":0+15, "STR":0+5, "DEX":0, "DA":3, "Store TP":3, "Jobs":["nin", "drk", "sam", "drg", "rdm", "war", "mnk", "thf", "pld", "bst", "rng", "blu", "cor", "dnc", "run", "brd"]}
+Coiste_Bodhar25 = {"Name":"Coiste Bodhar R25", "Type":"Equipment", "Rank":25, "Attack":0+15, "STR":0+8, "DEX":0+5, "DA":3, "Store TP":3, "Jobs":["nin", "drk", "sam", "drg", "rdm", "war", "mnk", "thf", "pld", "bst", "rng", "blu", "cor", "dnc", "run", "brd"]}
+Coiste_Bodhar30 = {"Name":"Coiste Bodhar R30", "Type":"Equipment", "Rank":30, "Attack":0+15, "STR":0+10, "DEX":0+5, "DA":3, "Store TP":3, "Jobs":["nin", "drk", "sam", "drg", "rdm", "war", "mnk", "thf", "pld", "bst", "rng", "blu", "cor", "dnc", "run", "brd"]}
+Crepuscular_Pebble = {"Name":"Crepuscular Pebble", "Type":"Equipment", "STR":3, "VIT":3, "PDL":3, "DT":-3, "Jobs":all_jobs}
+Ghastly_Tathlum = {"Name":"Ghastly Tathlum +1 R15", "Type":"Equipment", "Magic Damage":11+10, "INT":6+5, "Jobs":all_jobs}
 Knobkierrie = {"Name":"Knobkierrie", "Type":"Equipment", "Attack":23, "Weapon Skill Damage":6, "Jobs":["drk", "sam", "war", "mnk", "drg", "run"]}
 Oshashas_Treatise = {"Name":"Oshasha's Treatise", "Type":"Equipment", "Accuracy":5, "Attack":5, "Weapon Skill Damage":3, "Jobs":all_jobs}
 Pemphredo_Tathlum = {"Name":"Pemphredo Tathlum", "Type":"Equipment", "INT":4, "Magic Accuracy":8, "Magic Attack":4, "Jobs":all_jobs}
-Seething_Bomblet = {"Name":"Seething Bomblet +1", "Name2":"Seeth. Bomblet +1 R15", "Type":"Equipment", "Accuracy":13, "Attack":13, "Magic Attack":7, "STR":4+10, "Gear Haste":0+4, "Jobs":["nin", "drk", "war", "run", "thf"]}
+Seething_Bomblet = { "Name":"Seeth. Bomblet +1 R15", "Type":"Equipment", "Accuracy":13, "Attack":13, "Magic Attack":7, "STR":4+10, "Gear Haste":0+4, "Jobs":["nin", "drk", "war", "run", "thf"]}
 Yetshila = {"Name":"Yetshila +1", "Type":"Equipment", "Crit Rate":2, "Crit Damage":6, "Jobs":["nin", "drk", "thf", "rdm", "war", "cor", "run"]}
 Voluspa_Tathlum = {"Name":"Voluspa Tathlum", "Type":"Equipment", "STR":5, "DEX":5, "CHR":5, "Accuracy":10, "Attack":10, "Jobs":["mnk", "rdm", "thf", "bst", "rng", "nin", "drg", "cor", "pup", "dnc", "run"]}
 Amar_Cluster = {"Name":"Amar Cluster", "Type":"Equipment", "STR":2, "Accuracy":10, "Jobs":["war", "mnk", "whm", "blm", "rdm", "thf", "pld", "drk", "bst", "brd", "rng", "sam", "nin", "drg", "smn", "blu", "cor", "pup", "dnc", "sch", "geo", "run"]}
@@ -24,10 +23,9 @@ Seraphic_Ampulla = {"Name":"Seraphic Ampulla", "INT":3, "MND":3, "Occult Acumen"
 White_Tathlum = {"Name":"White Tathlum", "Store TP":2, "Type":"Equipment", "Jobs":all_jobs}
 Ginsen = {"Name":"Ginsen", "Accuracy":5, "Attack":10, "Store TP":3, "Type":"Equipment", "Jobs":["war", "mnk", "rdm", "thf", "pld", "drk", "bst", "brd", "rng", "sam", "nin", "drg", "blu", "cor", "dnc", "run"]}
 Vanir_Battery = {"Name":"Vanir Battery", "Magic Defense":4, "DA":1, "Type":"Equipment", "Jobs":all_jobs}
-
 Living_Bullet = {"Name":"Living Bullet", "Type":"Bullet", "DMG":245, "Delay":240, "Magic Accuracy":25, "Magic Attack":35, "Jobs":["cor"]}
-Test_Bullet = {"Name":"Bullet", "Name2":"Test Bullet", "Type":"Bullet", "DMG":999, "Delay":999, "DEX":150, "STR":150, "Attack":150, "Ranged Attack":150, "Jobs":all_jobs}
-Test_Arrow = {"Name":"Stone Arrow", "Name2":"Test Arrow", "Type":"Arrow", "DMG":999, "Delay":999, "MND":150, "INT":150, "Magic Attack":150, "Jobs":all_jobs}
+Test_Bullet = {"Name":"Test Bullet", "Type":"Bullet", "DMG":999, "Delay":999, "DEX":150, "STR":150, "Attack":150, "Ranged Attack":150, "Jobs":all_jobs}
+Test_Arrow = {"Name":"Test Arrow", "Type":"Arrow", "DMG":999, "Delay":999, "MND":150, "INT":150, "Magic Attack":150, "Jobs":all_jobs}
 Beryllium_Arrow = {"Name":"Beryllium Arrow", "Type":"Arrow", "DMG":77, "Delay":90, "Ranged Accuracy":12, "Jobs":["war", "rdm", "thf", "pld", "drk", "bst", "rng", "sam", "nin"]}
 Beryllium_Bolt = {"Name":"Beryllium Bolt", "Type":"Bolt", "DMG":108, "Delay":192, "Ranged Attack":12, "Jobs":["war", "thf", "drk", "rng"]}
 Raetic_Arrow = {"Name":"Raetic Arrow", "Type":"Arrow", "DMG":80, "Delay":90, "Ranged Accuracy":10, "Jobs":["war", "blm", "rdm", "thf", "pld", "drk", "bst", "brd", "rng", "sam", "nin", "smn", "blu", "sch"]}
@@ -41,6 +39,5 @@ Artemis_Arrow = {"Name":"Artemis's Arrow", "Type":"Arrow", "DMG":101, "Delay":90
 Eradicating_Bullet = {"Name":"Eradicating Bullet", "Type":"Bullet", "DMG":289, "Delay":240, "Ranged Accuracy":30, "Ranged Attack":30, "Jobs":["rng"]}
 Decimating_Bullet = {"Name":"Decimating Bullet", "Type":"Bullet", "DMG":220, "Delay":240, "Ranged Accuracy":10, "Ranged Attack":5, "Jobs":["thf", "rng", "nin", "cor"]}
 Quelling_Bolt = {"Name":"Quelling Bolt", "Type":"Bolt", "DMG":145, "Delay":192, "Ranged Accuracy":30, "Ranged Attack":30, "Magic Accuracy":30, "Magic Attack":30, "Barrage":1, "Jobs":["rng"]}
-
 Bayeux_Arrow = {"Name":"Bayeux Arrow", "Type":"Arrow", "DMG":116, "Delay":90, "Ranged Accuracy":30, "STR":20, "AGI":20, "Jobs":["rng"]}
 Bayeux_Bullet = {"Name":"Bayeux Bullet", "Type":"Bullet", "DMG":315, "Delay":240, "Ranged Accuracy":30, "DEX":20, "AGI":20, "Jobs":["rng", "cor"]}

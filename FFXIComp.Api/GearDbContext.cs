@@ -1,6 +1,6 @@
+using FFXIComp.Api.SeedData;
 using Microsoft.EntityFrameworkCore;
 using FFXIComp.Api.Models;
-using FFXIComp.Api.SeedData;
 
 namespace FFXIComp.Api
 {
@@ -11,13 +11,6 @@ namespace FFXIComp.Api
         public DbSet<GearItem> GearItems { get; set; } = null!;
         public DbSet<GearStat> GearStats { get; set; } = null!;
         public DbSet<GearItemJob> GearItemJobs { get; set; } = null!;
-
-        public string[] allJobs = new[]
-            {
-            "WAR", "MNK", "WHM", "BLM", "RDM", "THF", "PLD", "DRK",
-            "BST", "BRD", "RNG", "SAM", "NIN", "DRG", "SMN", "BLU",
-            "COR", "PUP", "DNC", "SCH", "GEO", "RUN"
-        };
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -42,8 +35,34 @@ namespace FFXIComp.Api
             {
                 var headItems = HeadSeedData.GetItems();
                 context.GearItems.AddRange(headItems);
+
                 var neckItems = NeckSeedData.GetItems();
                 context.GearItems.AddRange(neckItems);
+
+                var ammoItems = AmmoSeedData.GetItems();
+                context.GearItems.AddRange(ammoItems);
+
+                var earItems = EarSeedData.GetItems();
+                context.GearItems.AddRange(earItems);
+
+                var ringItems = RingSeedData.GetItems();
+                context.GearItems.AddRange(ringItems);
+
+                var waistItems = WaistSeedData.GetItems();
+                context.GearItems.AddRange(waistItems);
+
+                var legsItems = LegsSeedData.GetItems();
+                context.GearItems.AddRange(legsItems);
+
+                var legs2Items = Legs2SeedData.GetItems();
+                context.GearItems.AddRange(legs2Items);
+
+                var legs3Items = Legs3SeedData.GetItems();
+                context.GearItems.AddRange(legs3Items);
+
+                var legs4Items = Legs4SeedData.GetItems();
+                context.GearItems.AddRange(legs4Items);
+                
                 context.SaveChanges();
             }
         }

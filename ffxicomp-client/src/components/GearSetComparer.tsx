@@ -33,8 +33,12 @@ export function GearSetComparer({ gearItems }: Props) {
     "feet",
   ];
 
-  const getItemsBySlot = (slot: GearSlot) =>
-    gearItems.filter((item) => item.slot.toLowerCase() === slot.toLowerCase());
+  const getItemsBySlot = (slot: GearSlot) => {
+    let filterSlot: string = slot;
+    if (slot === "ear1" || slot === "ear2") filterSlot = "ear";
+    else if (slot === "ring1" || slot === "ring2") filterSlot = "ring";
+    return gearItems.filter((item) => item.slot.toLowerCase() === filterSlot.toLowerCase());
+  };
 
   useEffect(() => {
     const result = compareGearSets(setA, setB);
@@ -42,10 +46,20 @@ export function GearSetComparer({ gearItems }: Props) {
   }, [setA, setB]);
 
   const handleSelect = (slot: GearSlot, value: string, isSetA: boolean) => {
+    const updater = isSetA ? setSetA : setSetB;
+
+    if (value === "") {
+      updater((prev) => {
+        const updated = { ...prev };
+        updated[slot] = undefined;
+        return updated;
+      });
+      return;
+    }
+
     const item = gearItems.find((g) => g.id === Number(value));
     if (!item) return;
 
-    const updater = isSetA ? setSetA : setSetB;
     updater((prev) => ({
       ...prev,
       [slot]: item,
@@ -120,13 +134,12 @@ export function GearSetComparer({ gearItems }: Props) {
                     <td className="text-right p-2">{stat.a}</td>
                     <td className="text-right p-2">{stat.b}</td>
                     <td
-                      className={`text-right p-2 ${
-                        stat.diff > 0
-                          ? "text-green-600"
-                          : stat.diff < 0
+                      className={`text-right p-2 ${stat.diff > 0
+                        ? "text-green-600"
+                        : stat.diff < 0
                           ? "text-red-600"
                           : ""
-                      }`}
+                        }`}
                     >
                       {stat.diff !== 0 &&
                         `${stat.diff > 0 ? "+" : ""}${stat.diff}`}
