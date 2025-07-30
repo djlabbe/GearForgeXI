@@ -31,9 +31,11 @@
   <ItemGroup>
     <ReactBuildFiles Include="$(ProjectDir)..\ffxicomp-client\dist\**\*" />
   </ItemGroup>
-  <Copy SourceFiles="@(ReactBuildFiles)"
-        DestinationFolder="wwwroot\%(RecursiveDir)"
-        SkipUnchangedFiles="true" />
+<Copy SourceFiles="@(ReactBuildFiles)"
+      DestinationFiles="@(ReactBuildFiles->'wwwroot\%(RecursiveDir)%(Filename)%(Extension)')"
+      SkipUnchangedFiles="true" />
 </Target>
+
+  
 
 </Project>
