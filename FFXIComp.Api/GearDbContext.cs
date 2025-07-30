@@ -62,7 +62,67 @@ namespace FFXIComp.Api
 
                 var legs4Items = Legs4SeedData.GetItems();
                 context.GearItems.AddRange(legs4Items);
-                
+
+                var bodyItems = Body1SeedData.GetItems();
+                context.GearItems.AddRange(bodyItems);
+
+                var body2Items = Body2SeedData.GetItems();
+                context.GearItems.AddRange(body2Items);
+
+                var body3Items = Body3SeedData.GetItems();
+                context.GearItems.AddRange(body3Items);
+
+                var body4Items = Body4SeedData.GetItems();
+                context.GearItems.AddRange(body4Items);
+
+                var handsItems = Hands1SeedData.GetItems();
+                context.GearItems.AddRange(handsItems);
+
+                var hands2Items = Hands2SeedData.GetItems();
+                context.GearItems.AddRange(hands2Items);
+
+                var hands3Items = Hands3SeedData.GetItems();
+                context.GearItems.AddRange(hands3Items);
+
+                var hands4Items = Hands4SeedData.GetItems();
+                context.GearItems.AddRange(hands4Items);
+
+                var feet1Items = Feet1SeedData.GetItems();
+                context.GearItems.AddRange(feet1Items);
+
+                var feet2Items = Feet2SeedData.GetItems();
+                context.GearItems.AddRange(feet2Items);
+
+                var feet3Items = Feet3SeedData.GetItems();
+                context.GearItems.AddRange(feet3Items);
+
+                var feet4Items = Feet4SeedData.GetItems();
+                context.GearItems.AddRange(feet4Items);
+
+                var backItems = BackSeedData.GetItems();
+                context.GearItems.AddRange(backItems);
+
+                var main1Items = Main1SeedData.GetItems();
+                context.GearItems.AddRange(main1Items);
+
+                var main2Items = Main2SeedData.GetItems();
+                context.GearItems.AddRange(main2Items);
+
+                var main3Items = Main3SeedData.GetItems();
+                context.GearItems.AddRange(main3Items);
+
+                var main4Items = Main4SeedData.GetItems();
+                context.GearItems.AddRange(main4Items);
+
+                var main5Items = Main5SeedData.GetItems();
+                context.GearItems.AddRange(main5Items);
+
+                var main6Items = Main6SeedData.GetItems();
+                context.GearItems.AddRange(main6Items);
+
+                var subItems = SubSeedData.GetItems();
+                context.GearItems.AddRange(subItems);
+
                 context.SaveChanges();
             }
         }

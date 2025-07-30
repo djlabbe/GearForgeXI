@@ -220,7 +220,7 @@ namespace FFXIComp.Api.SeedData
                     {
                         new GearStat { Name = "Str", Value = 3 },
                         new GearStat { Name = "Vit", Value = 3 },
-                        new GearStat { Name = "Pdl", Value = 3 },
+                        new GearStat { Name = "PDL", Value = 3 },
                         new GearStat { Name = "DT", Value = -3 }
                     },
                     GearItemJobs = []

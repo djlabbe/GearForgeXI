@@ -384,7 +384,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Ear",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Pdl", Value = 9 },
+                        new GearStat { Name = "PDL", Value = 9 },
                         new GearStat { Name = "ThrowingSkill", Value = 12 },
                         new GearStat { Name = "KatanaSkill", Value = 12 },
                         new GearStat { Name = "Accuracy", Value = 18 },
@@ -404,7 +404,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Ear",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Pdl", Value = 8 },
+                        new GearStat { Name = "PDL", Value = 8 },
                         new GearStat { Name = "ThrowingSkill", Value = 11 },
                         new GearStat { Name = "KatanaSkill", Value = 11 },
                         new GearStat { Name = "Accuracy", Value = 13 },
@@ -423,7 +423,7 @@ namespace FFXIComp.Api.SeedData
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Attack", Value = 20 },
-                        new GearStat { Name = "Pdl", Value = 9 },
+                        new GearStat { Name = "PDL", Value = 9 },
                         new GearStat { Name = "Accuracy", Value = 18 },
                         new GearStat { Name = "MagicAccuracy", Value = 18 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 6 },
@@ -442,7 +442,7 @@ namespace FFXIComp.Api.SeedData
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Attack", Value = 17 },
-                        new GearStat { Name = "Pdl", Value = 8 },
+                        new GearStat { Name = "PDL", Value = 8 },
                         new GearStat { Name = "Accuracy", Value = 13 },
                         new GearStat { Name = "MagicAccuracy", Value = 13 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 3 }
@@ -605,7 +605,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Ear",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Pdl", Value = 9 },
+                        new GearStat { Name = "PDL", Value = 9 },
                         new GearStat { Name = "SubtleBlow", Value = 7 },
                         new GearStat { Name = "Accuracy", Value = 18 },
                         new GearStat { Name = "MagicAccuracy", Value = 18 },
@@ -624,7 +624,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Ear",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Pdl", Value = 8 },
+                        new GearStat { Name = "PDL", Value = 8 },
                         new GearStat { Name = "SubtleBlow", Value = 6 },
                         new GearStat { Name = "Accuracy", Value = 13 },
                         new GearStat { Name = "MagicAccuracy", Value = 13 },
@@ -916,7 +916,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "SkillchainBonus", Value = 7 },
                         new GearStat { Name = "Dex", Value = 11 },
                         new GearStat { Name = "Agi", Value = 11 },
-                        new GearStat { Name = "Pdl", Value = 9 },
+                        new GearStat { Name = "PDL", Value = 9 },
                         new GearStat { Name = "StoreTP", Value = 7 },
                         new GearStat { Name = "Accuracy", Value = 18 },
                         new GearStat { Name = "MagicAccuracy", Value = 18 }
@@ -933,7 +933,7 @@ namespace FFXIComp.Api.SeedData
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Pdl", Value = 8 },
+                        new GearStat { Name = "PDL", Value = 8 },
                         new GearStat { Name = "StoreTP", Value = 4 },
                         new GearStat { Name = "Accuracy", Value = 13 },
                         new GearStat { Name = "MagicAccuracy", Value = 13 }
@@ -952,7 +952,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Str", Value = 11 },
                         new GearStat { Name = "Chr", Value = 11 },
                         new GearStat { Name = "AxeSkill", Value = 12 },
-                        new GearStat { Name = "Pdl", Value = 9 },
+                        new GearStat { Name = "PDL", Value = 9 },
                         new GearStat { Name = "Accuracy", Value = 18 },
                         new GearStat { Name = "MagicAccuracy", Value = 18 }
                     },
@@ -968,7 +968,7 @@ namespace FFXIComp.Api.SeedData
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "AxeSkill", Value = 11 },
-                        new GearStat { Name = "Pdl", Value = 8 },
+                        new GearStat { Name = "PDL", Value = 8 },
                         new GearStat { Name = "Accuracy", Value = 13 },
                         new GearStat { Name = "MagicAccuracy", Value = 13 }
                     },
@@ -1063,7 +1063,7 @@ namespace FFXIComp.Api.SeedData
                     {
                         new GearStat { Name = "Str", Value = 11 },
                         new GearStat { Name = "Agi", Value = 11 },
-                        new GearStat { Name = "Pdl", Value = 9 },
+                        new GearStat { Name = "PDL", Value = 9 },
                         new GearStat { Name = "MagicAccuracy", Value = 18 },
                         new GearStat { Name = "Accuracy", Value = 18 },
                         new GearStat { Name = "CritRate", Value = 7 }
@@ -1079,7 +1079,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Ear",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Pdl", Value = 8 },
+                        new GearStat { Name = "PDL", Value = 8 },
                         new GearStat { Name = "MagicAccuracy", Value = 13 },
                         new GearStat { Name = "Accuracy", Value = 13 },
                         new GearStat { Name = "CritRate", Value = 4 }

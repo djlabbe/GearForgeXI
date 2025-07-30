@@ -747,7 +747,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "GearHaste", Value = 8 },
                         new GearStat { Name = "TA", Value = 5 },
-                        new GearStat { Name = "Pdl", Value = 7 }
+                        new GearStat { Name = "PDL", Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -775,7 +775,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicDefense", Value = 7 },
                         new GearStat { Name = "GearHaste", Value = 8 },
                         new GearStat { Name = "TA", Value = 6 },
-                        new GearStat { Name = "Pdl", Value = 10 }
+                        new GearStat { Name = "PDL", Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -920,7 +920,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Hand-To-HandSkill", Value = 14 },
                         new GearStat { Name = "GearHaste", Value = 8 },
                         new GearStat { Name = "DA", Value = 4 },
-                        new GearStat { Name = "Pdl", Value = 7 },
+                        new GearStat { Name = "PDL", Value = 7 },
                         new GearStat { Name = "Pet:Accuracy", Value = 51 },
                         new GearStat { Name = "Pet:RangedAccuracy", Value = 51 },
                         new GearStat { Name = "Pet:MagicAccuracy", Value = 51 },
@@ -953,7 +953,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Hand-To-HandSkill", Value = 19 },
                         new GearStat { Name = "GearHaste", Value = 8 },
                         new GearStat { Name = "DA", Value = 5 },
-                        new GearStat { Name = "Pdl", Value = 10 },
+                        new GearStat { Name = "PDL", Value = 10 },
                         new GearStat { Name = "Pet:Accuracy", Value = 61 },
                         new GearStat { Name = "Pet:RangedAccuracy", Value = 61 },
                         new GearStat { Name = "Pet:MagicAccuracy", Value = 61 },
@@ -1361,7 +1361,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 7 },
                         new GearStat { Name = "ScytheSkill", Value = 33 },
                         new GearStat { Name = "DA", Value = 5 },
-                        new GearStat { Name = "Pdl", Value = 7 }
+                        new GearStat { Name = "PDL", Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -1390,7 +1390,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 7 },
                         new GearStat { Name = "ScytheSkill", Value = 38 },
                         new GearStat { Name = "DA", Value = 6 },
-                        new GearStat { Name = "Pdl", Value = 10 }
+                        new GearStat { Name = "PDL", Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -3113,7 +3113,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicAccuracy", Value = 50 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "StoreTP", Value = 8 },
-                        new GearStat { Name = "Pdl", Value = 3 }
+                        new GearStat { Name = "PDL", Value = 3 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -3775,7 +3775,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "RangedAttack", Value = 30 },
                         new GearStat { Name = "MagicBurstDamage", Value = 5 },
                         new GearStat { Name = "StoreTP", Value = 9 },
-                        new GearStat { Name = "Pdl", Value = 2 },
+                        new GearStat { Name = "PDL", Value = 2 },
                         new GearStat { Name = "Evasion", Value = 91 },
                         new GearStat { Name = "MagicEvasion", Value = 123 },
                         new GearStat { Name = "MagicDefense", Value = 5 }
@@ -3808,7 +3808,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "RangedAttack", Value = 30 },
                         new GearStat { Name = "MagicBurstDamage", Value = 5 },
                         new GearStat { Name = "StoreTP", Value = 11 },
-                        new GearStat { Name = "Pdl", Value = 4 },
+                        new GearStat { Name = "PDL", Value = 4 },
                         new GearStat { Name = "CritRate", Value = 5 },
                         new GearStat { Name = "Evasion", Value = 91 },
                         new GearStat { Name = "MagicEvasion", Value = 123 },
@@ -3842,7 +3842,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "RangedAttack", Value = 30 },
                         new GearStat { Name = "MagicBurstDamage", Value = 5 },
                         new GearStat { Name = "StoreTP", Value = 13 },
-                        new GearStat { Name = "Pdl", Value = 5 },
+                        new GearStat { Name = "PDL", Value = 5 },
                         new GearStat { Name = "CritRate", Value = 10 },
                         new GearStat { Name = "Evasion", Value = 91 },
                         new GearStat { Name = "MagicEvasion", Value = 123 },
@@ -4132,7 +4132,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "RangedAttack", Value = 40 },
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
                         new GearStat { Name = "StoreTP", Value = 8 },
-                        new GearStat { Name = "Pdl", Value = 4 },
+                        new GearStat { Name = "PDL", Value = 4 },
                         new GearStat { Name = "Evasion", Value = 77 },
                         new GearStat { Name = "MagicEvasion", Value = 96 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
@@ -4161,7 +4161,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "RangedAttack", Value = 55 },
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
                         new GearStat { Name = "StoreTP", Value = 8 },
-                        new GearStat { Name = "Pdl", Value = 4 },
+                        new GearStat { Name = "PDL", Value = 4 },
                         new GearStat { Name = "MagicAttack", Value = 30 },
                         new GearStat { Name = "Evasion", Value = 77 },
                         new GearStat { Name = "MagicEvasion", Value = 96 },
@@ -4191,7 +4191,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "RangedAttack", Value = 60 },
                         new GearStat { Name = "MagicAccuracy", Value = 45 },
                         new GearStat { Name = "StoreTP", Value = 8 },
-                        new GearStat { Name = "Pdl", Value = 4 },
+                        new GearStat { Name = "PDL", Value = 4 },
                         new GearStat { Name = "MagicAttack", Value = 35 },
                         new GearStat { Name = "Evasion", Value = 77 },
                         new GearStat { Name = "MagicEvasion", Value = 96 },
@@ -4221,7 +4221,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "RangedAttack", Value = 65 },
                         new GearStat { Name = "MagicAccuracy", Value = 50 },
                         new GearStat { Name = "StoreTP", Value = 8 },
-                        new GearStat { Name = "Pdl", Value = 4 },
+                        new GearStat { Name = "PDL", Value = 4 },
                         new GearStat { Name = "MagicAttack", Value = 40 },
                         new GearStat { Name = "Evasion", Value = 77 },
                         new GearStat { Name = "MagicEvasion", Value = 96 },
@@ -4251,7 +4251,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "RangedAttack", Value = 70 },
                         new GearStat { Name = "MagicAccuracy", Value = 55 },
                         new GearStat { Name = "StoreTP", Value = 8 },
-                        new GearStat { Name = "Pdl", Value = 4 },
+                        new GearStat { Name = "PDL", Value = 4 },
                         new GearStat { Name = "MagicAttack", Value = 45 },
                         new GearStat { Name = "Evasion", Value = 77 },
                         new GearStat { Name = "MagicEvasion", Value = 96 },
@@ -4282,7 +4282,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Attack", Value = 40 },
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
                         new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Pdl", Value = 6 },
+                        new GearStat { Name = "PDL", Value = 6 },
                         new GearStat { Name = "CritRate", Value = 5 },
                         new GearStat { Name = "Evasion", Value = 83 },
                         new GearStat { Name = "MagicEvasion", Value = 86 },
@@ -4315,7 +4315,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Attack", Value = 55 },
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
                         new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Pdl", Value = 6 },
+                        new GearStat { Name = "PDL", Value = 6 },
                         new GearStat { Name = "CritRate", Value = 5 },
                         new GearStat { Name = "Evasion", Value = 83 },
                         new GearStat { Name = "MagicEvasion", Value = 86 },
@@ -4348,7 +4348,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Attack", Value = 60 },
                         new GearStat { Name = "MagicAccuracy", Value = 45 },
                         new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Pdl", Value = 6 },
+                        new GearStat { Name = "PDL", Value = 6 },
                         new GearStat { Name = "CritRate", Value = 5 },
                         new GearStat { Name = "Evasion", Value = 83 },
                         new GearStat { Name = "MagicEvasion", Value = 86 },
@@ -4381,7 +4381,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Attack", Value = 65 },
                         new GearStat { Name = "MagicAccuracy", Value = 50 },
                         new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Pdl", Value = 6 },
+                        new GearStat { Name = "PDL", Value = 6 },
                         new GearStat { Name = "CritRate", Value = 5 },
                         new GearStat { Name = "Evasion", Value = 83 },
                         new GearStat { Name = "MagicEvasion", Value = 86 },
@@ -4414,7 +4414,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Attack", Value = 70 },
                         new GearStat { Name = "MagicAccuracy", Value = 55 },
                         new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Pdl", Value = 6 },
+                        new GearStat { Name = "PDL", Value = 6 },
                         new GearStat { Name = "CritRate", Value = 5 },
                         new GearStat { Name = "Evasion", Value = 83 },
                         new GearStat { Name = "MagicEvasion", Value = 86 },
@@ -4447,7 +4447,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
                         new GearStat { Name = "GearHaste", Value = 4 },
                         new GearStat { Name = "DA", Value = 5 },
-                        new GearStat { Name = "Pdl", Value = 5 },
+                        new GearStat { Name = "PDL", Value = 5 },
                         new GearStat { Name = "Evasion", Value = 63 },
                         new GearStat { Name = "MagicEvasion", Value = 123 },
                         new GearStat { Name = "MagicDefense", Value = 7 }
@@ -4477,7 +4477,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
                         new GearStat { Name = "GearHaste", Value = 4 },
                         new GearStat { Name = "DA", Value = 5 },
-                        new GearStat { Name = "Pdl", Value = 5 },
+                        new GearStat { Name = "PDL", Value = 5 },
                         new GearStat { Name = "DaDamage%", Value = 8 },
                         new GearStat { Name = "Evasion", Value = 63 },
                         new GearStat { Name = "MagicEvasion", Value = 123 },
@@ -4508,7 +4508,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicAccuracy", Value = 45 },
                         new GearStat { Name = "GearHaste", Value = 4 },
                         new GearStat { Name = "DA", Value = 5 },
-                        new GearStat { Name = "Pdl", Value = 5 },
+                        new GearStat { Name = "PDL", Value = 5 },
                         new GearStat { Name = "DaDamage%", Value = 10 },
                         new GearStat { Name = "Evasion", Value = 63 },
                         new GearStat { Name = "MagicEvasion", Value = 123 },
@@ -4539,7 +4539,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicAccuracy", Value = 50 },
                         new GearStat { Name = "GearHaste", Value = 4 },
                         new GearStat { Name = "DA", Value = 5 },
-                        new GearStat { Name = "Pdl", Value = 5 },
+                        new GearStat { Name = "PDL", Value = 5 },
                         new GearStat { Name = "DaDamage%", Value = 13 },
                         new GearStat { Name = "Evasion", Value = 63 },
                         new GearStat { Name = "MagicEvasion", Value = 123 },
@@ -4570,7 +4570,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicAccuracy", Value = 55 },
                         new GearStat { Name = "GearHaste", Value = 4 },
                         new GearStat { Name = "DA", Value = 5 },
-                        new GearStat { Name = "Pdl", Value = 5 },
+                        new GearStat { Name = "PDL", Value = 5 },
                         new GearStat { Name = "DaDamage%", Value = 15 },
                         new GearStat { Name = "Evasion", Value = 63 },
                         new GearStat { Name = "MagicEvasion", Value = 123 },
