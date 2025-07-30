@@ -22,7 +22,7 @@
   </ItemGroup>
 
    <!-- === React Build === -->
-  <Target Name="BuildReact" BeforeTargets="Build">
+  <!-- <Target Name="BuildReact" BeforeTargets="Build">
     <Exec Command="npm install" WorkingDirectory="$(ProjectDir)..\ffxicomp-client" />
     <Exec Command="npm run build" WorkingDirectory="$(ProjectDir)..\ffxicomp-client" />
   </Target>
@@ -34,6 +34,6 @@
     <Copy SourceFiles="@(ReactBuildFiles)"
           DestinationFolder="wwwroot\%(RecursiveDir)"
           SkipUnchangedFiles="true" />
-  </Target>
+  </Target> -->
 
 </Project>
