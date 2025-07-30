@@ -624,7 +624,7 @@ GearStats = new List<GearStat>
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Subtle Blow", Value = 10 },
+                        new GearStat { Name = "SubtleBlow", Value = 10 },
                         new GearStat { Name = "Evasion", Value = 59 },
                         new GearStat { Name = "MagicEvasion", Value = 139 },
                         new GearStat { Name = "MagicDefense", Value = 8 },
@@ -885,7 +885,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Mnd", Value = 27 },
                         new GearStat { Name = "Chr", Value = 21 },
                         new GearStat { Name = "GearHaste", Value = 8 },
-                        new GearStat { Name = "Katana Skill", Value = 33 },
+                        new GearStat { Name = "KatanaSkill", Value = 33 },
                         new GearStat { Name = "Accuracy", Value = 63 },
                         new GearStat { Name = "RangedAccuracy", Value = 63 },
                         new GearStat { Name = "MagicAccuracy", Value = 63 },
@@ -911,7 +911,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Mnd", Value = 22 },
                         new GearStat { Name = "Chr", Value = 16 },
                         new GearStat { Name = "GearHaste", Value = 8 },
-                        new GearStat { Name = "Katana Skill", Value = 28 },
+                        new GearStat { Name = "KatanaSkill", Value = 28 },
                         new GearStat { Name = "Accuracy", Value = 53 },
                         new GearStat { Name = "RangedAccuracy", Value = 53 },
                         new GearStat { Name = "MagicAccuracy", Value = 53 },

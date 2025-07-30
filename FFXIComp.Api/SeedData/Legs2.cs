@@ -725,7 +725,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Accuracy", Value = 63 },
                         new GearStat { Name = "Attack", Value = 63 },
                         new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "Dagger Skill", Value = 38 },
+                        new GearStat { Name = "DaggerSkill", Value = 38 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "PDL", Value = 10 }
                     }
@@ -750,7 +750,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Accuracy", Value = 53 },
                         new GearStat { Name = "Attack", Value = 53 },
                         new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "Dagger Skill", Value = 33 },
+                        new GearStat { Name = "DaggerSkill", Value = 33 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "PDL", Value = 7 }
                     }
@@ -1025,12 +1025,12 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "MagicEvasion", Value = 119 },
                         new GearStat { Name = "MagicDefense", Value = 8 },
                         new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Martial Arts", Value = 11 },
+                        new GearStat { Name = "MartialArts", Value = 11 },
                         new GearStat { Name = "DT", Value = -12 },
                         new GearStat { Name = "Pet:Accuracy", Value = 63 },
-                        new GearStat { Name = "Pet:Ranged Accuracy", Value = 63 },
+                        new GearStat { Name = "Pet:RangedAccuracy", Value = 63 },
                         new GearStat { Name = "Pet:MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "Automaton Skill", Value = 33 }
+                        new GearStat { Name = "AutomatonCombatSkill", Value = 33 }
                     }
                 },
                 new GearItem
@@ -1053,12 +1053,12 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "MagicEvasion", Value = 109 },
                         new GearStat { Name = "MagicDefense", Value = 7 },
                         new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Martial Arts", Value = 11 },
+                        new GearStat { Name = "MartialArts", Value = 11 },
                         new GearStat { Name = "DT", Value = -11 },
                         new GearStat { Name = "Pet:Accuracy", Value = 53 },
-                        new GearStat { Name = "Pet:Ranged Accuracy", Value = 53 },
+                        new GearStat { Name = "Pet:RangedAccuracy", Value = 53 },
                         new GearStat { Name = "Pet:MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "Automaton Skill", Value = 28 }
+                        new GearStat { Name = "AutomatonCombatSkill", Value = 28 }
                     }
                 },
                 new GearItem
@@ -1149,7 +1149,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "MagicEvasion", Value = 107 },
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "StoreTP", Value = 8 },
-                        new GearStat { Name = "Subtle Blow", Value = 8 },
+                        new GearStat { Name = "SubtleBlow", Value = 8 },
                         new GearStat { Name = "GearHaste", Value = 9 }
                     }
                 },

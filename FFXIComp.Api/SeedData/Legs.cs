@@ -509,7 +509,7 @@ GearStats = new List<GearStat>
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Subtle Blow", Value = 9 },
+                        new GearStat { Name = "SubtleBlow", Value = 9 },
                         new GearStat { Name = "Evasion", Value = 78 },
                         new GearStat { Name = "MagicEvasion", Value = 84 },
                         new GearStat { Name = "MagicDefense", Value = 4 },
@@ -548,7 +548,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "StoreTP", Value = 6 },
                         new GearStat { Name = "Dual Wield", Value = 5 },
-                        new GearStat { Name = "Subtle Blow", Value = 9 }
+                        new GearStat { Name = "SubtleBlow", Value = 9 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "nin" } }
                 },
@@ -558,7 +558,7 @@ GearStats = new List<GearStat>
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Subtle Blow", Value = 10 },
+                        new GearStat { Name = "SubtleBlow", Value = 10 },
                         new GearStat { Name = "Evasion", Value = 53 },
                         new GearStat { Name = "MagicEvasion", Value = 84 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
@@ -599,7 +599,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "Kick Attacks", Value = 19 },
-                        new GearStat { Name = "Subtle Blow", Value = 10 },
+                        new GearStat { Name = "SubtleBlow", Value = 10 },
                         new GearStat { Name = "CritRate", Value = 8 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "mnk" } }
@@ -1063,7 +1063,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "Pet:Accuracy", Value = 53 },
-                        new GearStat { Name = "Pet:Ranged Accuracy", Value = 53 },
+                        new GearStat { Name = "Pet:RangedAccuracy", Value = 53 },
                         new GearStat { Name = "Pet:MagicAccuracy", Value = 53 },
                         new GearStat { Name = "Pet:Magic Attack", Value = 54 }
                     },

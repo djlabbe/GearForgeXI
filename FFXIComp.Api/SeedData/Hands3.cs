@@ -852,12 +852,12 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 5 },
                         new GearStat { Name = "StoreTP", Value = 11 },
                         new GearStat { Name = "DT", Value = -10 },
-                        new GearStat { Name = "PetStr", Value = 26 },
-                        new GearStat { Name = "PetDex", Value = 26 },
-                        new GearStat { Name = "PetAgi", Value = 26 },
-                        new GearStat { Name = "PetAccuracy", Value = 62 },
-                        new GearStat { Name = "PetRangedAccuracy", Value = 62 },
-                        new GearStat { Name = "PetMagicAccuracy", Value = 62 }
+                        new GearStat { Name = "Pet:Str", Value = 26 },
+                        new GearStat { Name = "Pet:Dex", Value = 26 },
+                        new GearStat { Name = "Pet:Agi", Value = 26 },
+                        new GearStat { Name = "Pet:Accuracy", Value = 62 },
+                        new GearStat { Name = "Pet:RangedAccuracy", Value = 62 },
+                        new GearStat { Name = "Pet:MagicAccuracy", Value = 62 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }
                 },
@@ -883,12 +883,12 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 5 },
                         new GearStat { Name = "StoreTP", Value = 10 },
                         new GearStat { Name = "DT", Value = -9 },
-                        new GearStat { Name = "PetStr", Value = 21 },
-                        new GearStat { Name = "PetDex", Value = 21 },
-                        new GearStat { Name = "PetAgi", Value = 21 },
-                        new GearStat { Name = "PetAccuracy", Value = 52 },
-                        new GearStat { Name = "PetRangedAccuracy", Value = 52 },
-                        new GearStat { Name = "PetMagicAccuracy", Value = 52 }
+                        new GearStat { Name = "Pet:Str", Value = 21 },
+                        new GearStat { Name = "Pet:Dex", Value = 21 },
+                        new GearStat { Name = "Pet:Agi", Value = 21 },
+                        new GearStat { Name = "Pet:Accuracy", Value = 52 },
+                        new GearStat { Name = "Pet:RangedAccuracy", Value = 52 },
+                        new GearStat { Name = "Pet:MagicAccuracy", Value = 52 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }
                 },

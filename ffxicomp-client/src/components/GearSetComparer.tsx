@@ -109,7 +109,8 @@ export function GearSetComparer({ gearItems }: Props) {
   };
 
   const coreStatNames = ["Str", "Dex", "Agi", "Vit", "Int", "Mnd", "Chr"];
-  const meleeStatNames = [
+
+  const combatStatNames = [
     "DMG",
     "Delay",
     "Accuracy",
@@ -120,12 +121,21 @@ export function GearSetComparer({ gearItems }: Props) {
     "GearHaste",
     "StoreTP",
     "WeaponSkillDamage",
-  ];
-
-  const rangedStatNames = [
+    "ConserveTP",
     "RangedAccuracy",
     "RangedAttack",
+    "DADamage%",
+    "DualWield",
+    "PDL",
+    "WeaponSkillAccuracy",
+    "SkillchainBonus",
+    "CritRate",
+    "TPBonus",
+    "MartialArts",
+    "SubtleBlow",
+    "SubtleBlowII",
   ];
+
 
   const magicStatNames = [
     "MagicAccuracy",
@@ -135,14 +145,70 @@ export function GearSetComparer({ gearItems }: Props) {
     "MagicBurstAccuracy",
     "MagicBurstDamageII",
     "MagicDamage",
+    "EarthElementalBonus",
+    "EnSpellDamage",
   ];
 
   const defenseStatNames = [
     "DT",
+    "MDT",
+    "PDT",
     "Defense",
     "Evasion",
     "MagicEvasion",
     "MagicDefense",
+  ];
+
+  const statSkillNames = [
+    "SwordSkill",
+    "AxeSkill",
+    "GreatSwordSkill",
+    "GreatAxeSkill",
+    "DaggerSkill",
+    "HandToHandSkill",
+    "StaffSkill",
+    "PolearmSkill",
+    "GreatKatanaSkill",
+    "KatanaSkill",
+    "ClubSkill",
+    "ArcherySkill",
+    "MarksmanshipSkill",
+    "ThrowingSkill",
+    "HealingSkill",
+    "ElementalMagicSkill",
+    "EnhancingSkill",
+    "EnfeeblingSkill",
+    "ElementalSkill",
+    "DarkSkill",
+    "DivineSkill",
+    "BlueMagicSkill",
+    "SummoningSkill",
+    "NinjutsuSkill",
+    "SingingSkill",
+    "StringSkill",
+    "WindSkill",
+    "MagicAccuracySkill",
+  ];
+
+  const petStatNames = [
+    "Pet:Accuracy",
+    "Pet:MagicAccuracy",
+    "Pet:RangedAccuracy",
+    "Pet:Str",
+    "Pet:Dex",
+    "Pet:Agi",
+    "Pet:Vit",
+    "Pet:Int",
+    "Pet:Mnd",
+    "Pet:Chr",
+    "Pet:Attack",
+    "Pet:MagicAttack",
+    "Pet:RangedAttack",
+    "Pet:SubtleBlow",
+    "AutomatonCombatSkill",
+    "Pet:GearHaste",
+    "Pet:DA",
+    "Pet:DT",
   ];
 
   const renderStatTable = (
@@ -209,12 +275,7 @@ export function GearSetComparer({ gearItems }: Props) {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   const meleeStats = comparison
-    .filter((c) => meleeStatNames.includes(c.name))
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name));
-
-  const rangedStats = comparison
-    .filter((c) => rangedStatNames.includes(c.name))
+    .filter((c) => combatStatNames.includes(c.name))
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -228,14 +289,25 @@ export function GearSetComparer({ gearItems }: Props) {
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name));
 
+  const statSkills = comparison
+    .filter((c) => statSkillNames.includes(c.name))
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const petStats = comparison
+    .filter((c) => petStatNames.includes(c.name))
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name));
+
   const otherStats = comparison
     .filter(
       (c) =>
         !coreStatNames.includes(c.name) &&
-        !meleeStatNames.includes(c.name) &&
-        !rangedStatNames.includes(c.name) &&
+        !combatStatNames.includes(c.name) &&
         !defenseStatNames.includes(c.name) &&
-        !magicStatNames.includes(c.name)
+        !magicStatNames.includes(c.name) && 
+        !statSkillNames.includes(c.name) &&
+        !petStatNames.includes(c.name)
     )
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name));
@@ -259,10 +331,11 @@ export function GearSetComparer({ gearItems }: Props) {
       ) : (
         <div className="flex flex-wrap -mx-2">
           {renderStatTable("Core Stats", coreStats)}
-          {renderStatTable("Melee", meleeStats)}
-          {renderStatTable("Ranged", rangedStats)}
+          {renderStatTable("Skills", statSkills)}
+          {renderStatTable("Combat", meleeStats)}
           {renderStatTable("Magic", magicStats)}
           {renderStatTable("Defense", defenseStats)}
+          {renderStatTable("Pet", petStats)}
           {renderStatTable("Other", otherStats)}
         </div>
       )}

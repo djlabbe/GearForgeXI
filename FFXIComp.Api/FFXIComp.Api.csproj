@@ -23,13 +23,13 @@
 
    <!-- === React Build === -->
   <Target Name="BuildReact" BeforeTargets="Build">
-    <Exec Command="npm install" WorkingDirectory="..\ffxicomp-client" />
-    <Exec Command="npm run build" WorkingDirectory="..\ffxicomp-client" />
+    <Exec Command="npm --prefix ../ffxicomp-client install" />
+    <Exec Command="npm --prefix ../ffxicomp-client run build" />
   </Target>
 
   <Target Name="CopyReactBuildToWwwroot" AfterTargets="Build">
     <ItemGroup>
-      <ReactBuildFiles Include="..\ffxicomp-client\dist\**\*" />
+      <ReactBuildFiles Include="$(ProjectDir)..\ffxicomp-client\dist\**\*" />
     </ItemGroup>
     <Copy SourceFiles="@(ReactBuildFiles)" 
           DestinationFolder="wwwroot\%(RecursiveDir)" 

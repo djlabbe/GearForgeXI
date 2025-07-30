@@ -396,7 +396,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Head",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Subtle Blow", Value = 8 },
+                        new GearStat { Name = "SubtleBlow", Value = 8 },
                         new GearStat { Name = "Evasion", Value = 49 },
                         new GearStat { Name = "MagicEvasion", Value = 59 },
                         new GearStat { Name = "MagicDefense", Value = 3 },
@@ -432,7 +432,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Head",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Subtle Blow", Value = 8 },
+                        new GearStat { Name = "SubtleBlow", Value = 8 },
                         new GearStat { Name = "Evasion", Value = 49 },
                         new GearStat { Name = "MagicEvasion", Value = 59 },
                         new GearStat { Name = "MagicDefense", Value = 3 },
@@ -467,7 +467,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Head",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Subtle Blow", Value = 8 },
+                        new GearStat { Name = "SubtleBlow", Value = 8 },
                         new GearStat { Name = "Evasion", Value = 49 },
                         new GearStat { Name = "MagicEvasion", Value = 59 },
                         new GearStat { Name = "MagicDefense", Value = 3 },
@@ -621,7 +621,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Head",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Subtle Blow", Value = 8 },
+                        new GearStat { Name = "SubtleBlow", Value = 8 },
                         new GearStat { Name = "Evasion", Value = 62 },
                         new GearStat { Name = "MagicEvasion", Value = 101 },
                         new GearStat { Name = "MagicDefense", Value = 6 },
@@ -1107,7 +1107,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicDefense", Value = 4 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "StoreTP", Value = 6 },
-                        new GearStat { Name = "Subtle Blow", Value = 6 }
+                        new GearStat { Name = "SubtleBlow", Value = 6 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {

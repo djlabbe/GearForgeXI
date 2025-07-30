@@ -724,8 +724,8 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicEvasion", Value = 63 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "GearHaste", Value = 8 },
-                        new GearStat { Name = "PetAccuracy", Value = 41 },
-                        new GearStat { Name = "PetGearHaste", Value = 7 }
+                        new GearStat { Name = "Pet:Accuracy", Value = 41 },
+                        new GearStat { Name = "Pet:GearHaste", Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }
                 },
@@ -748,10 +748,10 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicEvasion", Value = 88 },
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "GearHaste", Value = 8 },
-                        new GearStat { Name = "PetAccuracy", Value = 57 },
-                        new GearStat { Name = "PetRangedAccuracy", Value = 57 },
-                        new GearStat { Name = "PetMagicAccuracy", Value = 57 },
-                        new GearStat { Name = "PetGearHaste", Value = 7 }
+                        new GearStat { Name = "Pet:Accuracy", Value = 57 },
+                        new GearStat { Name = "Pet:RangedAccuracy", Value = 57 },
+                        new GearStat { Name = "Pet:MagicAccuracy", Value = 57 },
+                        new GearStat { Name = "Pet:GearHaste", Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }
                 },
@@ -775,9 +775,9 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicEvasion", Value = 63 },
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "GearHaste", Value = 8 },
-                        new GearStat { Name = "PetAccuracy", Value = 37 },
+                        new GearStat { Name = "Pet:Accuracy", Value = 37 },
                         new GearStat { Name = "PetAttack", Value = 57 },
-                        new GearStat { Name = "PetRangedAccuracy", Value = 37 },
+                        new GearStat { Name = "Pet:RangedAccuracy", Value = 37 },
                         new GearStat { Name = "PetRangedAttack", Value = 57 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }
@@ -802,11 +802,11 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicEvasion", Value = 103 },
                         new GearStat { Name = "MagicDefense", Value = 7 },
                         new GearStat { Name = "GearHaste", Value = 8 },
-                        new GearStat { Name = "PetAccuracy", Value = 42 },
+                        new GearStat { Name = "Pet:Accuracy", Value = 42 },
                         new GearStat { Name = "PetAttack", Value = 67 },
-                        new GearStat { Name = "PetRangedAccuracy", Value = 42 },
+                        new GearStat { Name = "Pet:RangedAccuracy", Value = 42 },
                         new GearStat { Name = "PetRangedAttack", Value = 67 },
-                        new GearStat { Name = "PetMagicAccuracy", Value = 42 }
+                        new GearStat { Name = "Pet:MagicAccuracy", Value = 42 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }
                 },
@@ -833,9 +833,9 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 8 },
                         new GearStat { Name = "DA", Value = 4 },
                         new GearStat { Name = "PDL", Value = 7 },
-                        new GearStat { Name = "PetAccuracy", Value = 51 },
-                        new GearStat { Name = "PetRangedAccuracy", Value = 51 },
-                        new GearStat { Name = "PetMagicAccuracy", Value = 51 },
+                        new GearStat { Name = "Pet:Accuracy", Value = 51 },
+                        new GearStat { Name = "Pet:RangedAccuracy", Value = 51 },
+                        new GearStat { Name = "Pet:MagicAccuracy", Value = 51 },
                         new GearStat { Name = "PetTPBonus", Value = 575 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }
@@ -863,9 +863,9 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 8 },
                         new GearStat { Name = "DA", Value = 5 },
                         new GearStat { Name = "PDL", Value = 10 },
-                        new GearStat { Name = "PetAccuracy", Value = 61 },
-                        new GearStat { Name = "PetRangedAccuracy", Value = 61 },
-                        new GearStat { Name = "PetMagicAccuracy", Value = 61 },
+                        new GearStat { Name = "Pet:Accuracy", Value = 61 },
+                        new GearStat { Name = "Pet:RangedAccuracy", Value = 61 },
+                        new GearStat { Name = "Pet:MagicAccuracy", Value = 61 },
                         new GearStat { Name = "PetTPBonus", Value = 600 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }

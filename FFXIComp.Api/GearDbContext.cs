@@ -75,15 +75,6 @@ namespace FFXIComp.Api
                 var bodyItems = Body1SeedData.GetItems();
                 context.GearItems.AddRange(bodyItems);
 
-                var body2Items = Body2SeedData.GetItems();
-                context.GearItems.AddRange(body2Items);
-
-                var body3Items = Body3SeedData.GetItems();
-                context.GearItems.AddRange(body3Items);
-
-                var body4Items = Body4SeedData.GetItems();
-                context.GearItems.AddRange(body4Items);
-
                 var handsItems = Hands1SeedData.GetItems();
                 context.GearItems.AddRange(handsItems);
 
@@ -96,17 +87,8 @@ namespace FFXIComp.Api
                 var hands4Items = Hands4SeedData.GetItems();
                 context.GearItems.AddRange(hands4Items);
 
-                var feet1Items = Feet1SeedData.GetItems();
-                context.GearItems.AddRange(feet1Items);
-
                 var feet2Items = Feet2SeedData.GetItems();
                 context.GearItems.AddRange(feet2Items);
-
-                var feet3Items = Feet3SeedData.GetItems();
-                context.GearItems.AddRange(feet3Items);
-
-                var feet4Items = Feet4SeedData.GetItems();
-                context.GearItems.AddRange(feet4Items);
 
                 var backItems = BackSeedData.GetItems();
                 context.GearItems.AddRange(backItems);
