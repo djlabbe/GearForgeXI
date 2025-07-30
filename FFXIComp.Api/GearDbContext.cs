@@ -36,6 +36,15 @@ namespace FFXIComp.Api
                 var head1Items = Head1SeedData.GetItems();
                 context.GearItems.AddRange(head1Items);
 
+                var head2Items = Head2SeedData.GetItems();
+                context.GearItems.AddRange(head2Items);
+
+                var head3Items = Head3SeedData.GetItems();
+                context.GearItems.AddRange(head3Items);
+
+                var head4Items = Head4SeedData.GetItems();
+                context.GearItems.AddRange(head4Items);
+
                 var neckItems = NeckSeedData.GetItems();
                 context.GearItems.AddRange(neckItems);
 
@@ -122,6 +131,9 @@ namespace FFXIComp.Api
 
                 var subItems = SubSeedData.GetItems();
                 context.GearItems.AddRange(subItems);
+
+                var rangeItems = RangeSeedData.GetItems();
+                context.GearItems.AddRange(rangeItems);
 
                 context.SaveChanges();
             }
