@@ -30,7 +30,6 @@ cape_names = {
               "SCH":["Lugh's Cape",{"SkillchainBonus":10, "Jobs":["sch"]},["Str", "DEX", "INT", "MND"]],
               "GEO":["Nantosuelta's Cape",{"Jobs":["geo"]},["Str", "DEX", "INT", "CHR", "MND"]],
               "RUN":["Ogma's cape",{"Jobs":["run"]},["Str", "DEX", "INT", "VIT",]],
-            # Will add more capes as I add more jobs.
               }
 
 # Now list each base stat and the main stats you want to be considered with the base stat.

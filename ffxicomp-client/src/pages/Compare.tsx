@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import type { GearItem } from "../models/GearItem";
-import { JobSelector } from "../components/JobSelector";
+import { ReactSelector } from "../components/ReactSelector";
 import { GearSetComparer } from "../components/GearSetComparer";
+import Card from "../components/Card";
 
 const AVAILABLE_JOBS = [
   "WAR",
@@ -41,14 +42,20 @@ const ComparePage = () => {
   }, [selectedJob]);
 
   return (
-    <div className="max-w-8xl mx-auto">
-      <JobSelector
-        selectedJob={selectedJob}
-        onSelect={setSelectedJob}
-        availableJobs={AVAILABLE_JOBS}
-      />
+    <>
+      <Card className="mb-4">
+        <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200">Job</label>
+        <ReactSelector
+          label="Job"
+          selected={selectedJob}
+          onSelect={setSelectedJob}
+          options={AVAILABLE_JOBS}
+        />
+      </Card>
       {selectedJob && <GearSetComparer gearItems={gearItems} />}
-    </div>
+    </>
+
+
   );
 };
 

@@ -7,14 +7,10 @@ export interface GearItem {
 }
 
 export interface GearStat {
-  id: number;
   name: string;
   value: number;
-  gearItemId: number;
 }
 
 export interface GearItemJob {
-  id: number;
   jobName: string;
-  gearItemId: number;
 }

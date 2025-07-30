@@ -1,21 +1,21 @@
 import ReactSelect from "react-select";
-import Card from "./Card";
 
 interface Props {
-  selectedJob: string | null;
-  onSelect: (job: string) => void;
-  availableJobs: string[];
+  label: string;
+  selected: string | null;
+  onSelect: (value: string) => void;
+  options: string[];
 }
 
-export function JobSelector({ selectedJob, onSelect, availableJobs }: Props) {
+export function ReactSelector({ selected, onSelect, options }: Props) {
 
-  const selectOptions = availableJobs.map((job) => ({
-    value: job,
-    label: job,
+  const selectOptions = options.map((opt) => ({
+    value: opt,
+    label: opt,
   }));
 
-  const selectedOption = selectedJob
-    ? { value: selectedJob, label: selectedJob }
+  const selectedOption = selected
+    ? { value: selected, label: selected }
     : null;
 
     const handleChange = (option: { value: string; label: string } | null) => {
@@ -27,12 +27,10 @@ export function JobSelector({ selectedJob, onSelect, availableJobs }: Props) {
     };
 
   return (
-    <Card className="mb-3">
-      <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200">Job</label>
       <ReactSelect
         className="text-gray-900 dark:text-gray-100"
         classNamePrefix="react-select"
-        value={selectedOption || { value: "", label: "Select a job" }}
+        value={selectedOption || { value: "", label: "Select..." }}
         onChange={handleChange}
         options={selectOptions}
         isClearable
@@ -129,6 +127,5 @@ export function JobSelector({ selectedJob, onSelect, availableJobs }: Props) {
           }),
         }}
       />
-    </Card>
   );
 }

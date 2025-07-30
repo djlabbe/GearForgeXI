@@ -39,6 +39,17 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "StoreTP", Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob>()
+                },
+                new GearItem
+                {
+                    Name = "Cichol's Mantle",
+                    Slot = "Back",
+                    GearStats = new List<GearStat>
+                    {
+                        new GearStat { Name = "DoubleAttackDamage", Value = 20 },
+                        new GearStat { Name = "BerserkDuration", Value = 15 },
+                    },
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "WAR" } }
                 }
             };
 

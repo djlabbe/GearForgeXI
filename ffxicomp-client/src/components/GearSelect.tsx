@@ -9,19 +9,20 @@ interface GearSelectProps {
   placeholder?: string;
 }
 
-export function GearSelect({ 
-  label, 
-  options, 
-  value, 
-  onChange, 
-  placeholder = "Select..." 
+export function GearSelect({
+  label,
+  options,
+  value,
+  onChange,
+  placeholder = "Select..."
 }: GearSelectProps) {
+  
   const selectOptions = options.map((item) => ({
     value: String(item.id),
     label: item.name,
   }));
 
-  const selectedOption = value 
+  const selectedOption = value
     ? { value: String(value.id), label: value.name }
     : null;
 
@@ -60,21 +61,21 @@ export function GearSelect({
             color: "var(--tw-text-opacity,1) #111827", // gray-900
             ...(window.matchMedia &&
               window.matchMedia("(prefers-color-scheme: dark)").matches && {
-                backgroundColor: "#1f2937", // gray-800
-                borderColor: state.isFocused ? "#2563eb" : "#374151", // blue-600 or gray-700
-                color: "#f3f4f6", // gray-100
-              }),
+              backgroundColor: "#1f2937", // gray-800
+              borderColor: state.isFocused ? "#2563eb" : "#374151", // blue-600 or gray-700
+              color: "#f3f4f6", // gray-100
+            }),
           }),
           menu: (base) => ({
             ...base,
             backgroundColor:
               window.matchMedia &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches
+                window.matchMedia("(prefers-color-scheme: dark)").matches
                 ? "#1f2937" // gray-800
                 : "#fff",
             color:
               window.matchMedia &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches
+                window.matchMedia("(prefers-color-scheme: dark)").matches
                 ? "#f3f4f6" // gray-100
                 : "#111827", // gray-900
           }),
@@ -83,23 +84,23 @@ export function GearSelect({
             backgroundColor: state.isSelected
               ? "#2563eb"
               : state.isFocused
-              ? "rgba(37, 99, 235, 0.1)"
-              : window.matchMedia &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "#1f2937"
-              : "#fff",
+                ? "rgba(37, 99, 235, 0.1)"
+                : window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                  ? "#1f2937"
+                  : "#fff",
             color: state.isSelected
               ? "#fff"
               : window.matchMedia &&
                 window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "#f3f4f6"
-              : "#111827",
+                ? "#f3f4f6"
+                : "#111827",
           }),
           singleValue: (base) => ({
             ...base,
             color:
               window.matchMedia &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches
+                window.matchMedia("(prefers-color-scheme: dark)").matches
                 ? "#f3f4f6"
                 : "#111827",
           }),
@@ -107,7 +108,7 @@ export function GearSelect({
             ...base,
             color:
               window.matchMedia &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches
+                window.matchMedia("(prefers-color-scheme: dark)").matches
                 ? "#f3f4f6"
                 : "#111827",
           }),
@@ -115,7 +116,7 @@ export function GearSelect({
             ...base,
             color:
               window.matchMedia &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches
+                window.matchMedia("(prefers-color-scheme: dark)").matches
                 ? "#9ca3af" // gray-400
                 : "#6b7280", // gray-500
           }),
@@ -123,7 +124,7 @@ export function GearSelect({
             ...base,
             color:
               window.matchMedia &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches
+                window.matchMedia("(prefers-color-scheme: dark)").matches
                 ? "#9ca3af"
                 : "#6b7280",
           }),
@@ -131,7 +132,7 @@ export function GearSelect({
             ...base,
             color:
               window.matchMedia &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches
+                window.matchMedia("(prefers-color-scheme: dark)").matches
                 ? "#9ca3af"
                 : "#6b7280",
           }),

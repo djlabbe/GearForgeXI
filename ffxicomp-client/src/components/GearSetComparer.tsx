@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
-import type { GearItem } from "../models/GearItem";
+import { useState, useEffect, useCallback } from "react";
+import type { GearItem, GearStat } from "../models/GearItem";
 import type { GearSet, GearSlot } from "../models/GearSet";
 import { compareGearSets } from "../utils/compare";
 import { coreStatNames, combatStatNames, magicStatNames, defenseStatNames, statSkillNames, petStatNames } from "../utils/statGroups";
 import { GearSelect } from "./GearSelect";
 import StatTable from "./StatTable";
 import Card from "./Card";
+import AmbuCape from "./AmbuCape";
 
 interface Props {
   gearItems: GearItem[];
@@ -14,6 +15,8 @@ interface Props {
 export function GearSetComparer({ gearItems }: Props) {
   const [setA, setSetA] = useState<GearSet>({});
   const [setB, setSetB] = useState<GearSet>({});
+  const [setAAugments, setSetAAugments] = useState<GearStat[]>([]);
+  const [setBaugments, setSetBAugments] = useState<GearStat[]>([]);
   const [comparison, setComparison] = useState<
     { name: string; a: number; b: number; diff: number }[]
   >([]);
@@ -56,18 +59,47 @@ export function GearSetComparer({ gearItems }: Props) {
   };
 
   useEffect(() => {
-    const result = compareGearSets(setA, setB);
-    setComparison(result);
-  }, [setA, setB]);
+    // Create augmented gear sets for comparison
+    const augmentedSetA = { ...setA };
+    const augmentedSetB = { ...setB };
+    
+    // Add augments to Set A back item if it exists
+    if (augmentedSetA.back && setAAugments.length > 0) {
+      augmentedSetA.back = {
+        ...augmentedSetA.back,
+        gearStats: [...augmentedSetA.back.gearStats, ...setAAugments]
+      };
+    }
+    
+    // Add augments to Set B back item if it exists  
+    if (augmentedSetB.back && setBaugments.length > 0) {
+      augmentedSetB.back = {
+        ...augmentedSetB.back,
+        gearStats: [...augmentedSetB.back.gearStats, ...setBaugments]
+      };
+    }
 
-  const handleSelect = (slot: GearSlot, item: GearItem | undefined, isSetA: boolean) => {
+    const result = compareGearSets(augmentedSetA, augmentedSetB);
+    setComparison(result);
+  }, [setA, setB, setAAugments, setBaugments]);
+
+  const handleSelect = useCallback((slot: GearSlot, item: GearItem | undefined, isSetA: boolean) => {
     const updater = isSetA ? setSetA : setSetB;
 
     updater((prev) => ({
       ...prev,
       [slot]: item,
     }));
-  };
+    
+    // Clear augments if changing back item
+    if (slot === "back") {
+      if (isSetA) {
+        setSetAAugments([]);
+      } else {
+        setSetBAugments([]);
+      }
+    }
+  }, []);
 
   const renderGearGrid = (isSetA: boolean) => {
     const currentSet = isSetA ? setA : setB;
@@ -79,13 +111,15 @@ export function GearSetComparer({ gearItems }: Props) {
           const selectedItem = currentSet[slot];
 
           return (
-            <GearSelect
-              key={slot}
-              label={slot}
-              options={options}
-              value={selectedItem}
-              onChange={(item) => handleSelect(slot, item, isSetA)}
-            />
+            <>
+              <GearSelect
+                key={slot}
+                label={slot}
+                options={options}
+                value={selectedItem}
+                onChange={(item) => handleSelect(slot, item, isSetA)}
+              />
+            </>
           );
         })}
       </div>
@@ -122,18 +156,28 @@ export function GearSetComparer({ gearItems }: Props) {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card className="mb-3">
+        <Card className="mb-4">
           <h3 className="font-semibold mb-2">Set A</h3>
           {renderGearGrid(true)}
+          {setA.back?.name === "Cichol's Mantle" && (
+            <AmbuCape 
+              onAugmentChange={setSetAAugments}
+            />
+          )}
         </Card>
-        <Card className="mb-3">
+        <Card className="mb-4">
           <h3 className="text-lg font-semibold mb-3">Set B</h3>
           {renderGearGrid(false)}
+          {setB.back?.name === "Cichol's Mantle" && (
+            <AmbuCape 
+              onAugmentChange={setSetBAugments}
+            />
+          )}
         </Card>
       </div>
 
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <StatTable title="Core Stats" stats={coreStats} />
         <StatTable title="Skills" stats={statSkills} />
         <StatTable title="Combat" stats={meleeStats} />
