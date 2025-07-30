@@ -14,7 +14,6 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 0 },
                         new GearStat { Name = "SkillchainBonus", Value = 5 },
                         new GearStat { Name = "Str", Value = 17 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -44,7 +43,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 15 },
+                        
                         new GearStat { Name = "SkillchainBonus", Value = 5 },
                         new GearStat { Name = "Str", Value = 17 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -75,7 +74,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 15 },
+                        
                         new GearStat { Name = "SkillchainBonus", Value = 5 },
                         new GearStat { Name = "Str", Value = 17 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -106,7 +105,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 15 },
+                        
                         new GearStat { Name = "SkillchainBonus", Value = 5 },
                         new GearStat { Name = "Str", Value = 17 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -137,7 +136,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 20 },
+                        
                         new GearStat { Name = "SkillchainBonus", Value = 5 },
                         new GearStat { Name = "Str", Value = 17 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -169,7 +168,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 20 },
+                        
                         new GearStat { Name = "SkillchainBonus", Value = 5 },
                         new GearStat { Name = "Str", Value = 17 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -201,7 +200,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 20 },
+                        
                         new GearStat { Name = "SkillchainBonus", Value = 5 },
                         new GearStat { Name = "Str", Value = 17 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -233,7 +232,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 25 },
+                        
                         new GearStat { Name = "SkillchainBonus", Value = 5 },
                         new GearStat { Name = "Str", Value = 17 },
                         new GearStat { Name = "Dex", Value = 52 },
@@ -265,7 +264,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 25 },
+                        
                         new GearStat { Name = "SkillchainBonus", Value = 5 },
                         new GearStat { Name = "Str", Value = 17 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -297,7 +296,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 25 },
+                        
                         new GearStat { Name = "SkillchainBonus", Value = 5 },
                         new GearStat { Name = "Str", Value = 17 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -329,7 +328,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 30 },
+                        
                         new GearStat { Name = "SkillchainBonus", Value = 5 },
                         new GearStat { Name = "Str", Value = 17 },
                         new GearStat { Name = "Dex", Value = 57 },
@@ -361,7 +360,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 30 },
+                        
                         new GearStat { Name = "SkillchainBonus", Value = 5 },
                         new GearStat { Name = "Str", Value = 17 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -393,7 +392,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 30 },
+                        
                         new GearStat { Name = "SkillchainBonus", Value = 5 },
                         new GearStat { Name = "Str", Value = 17 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -425,7 +424,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 0 },
+                        
                         new GearStat { Name = "Str", Value = 21 },
                         new GearStat { Name = "Dex", Value = 48 },
                         new GearStat { Name = "Vit", Value = 34 },
@@ -451,7 +450,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 15 },
+                        
                         new GearStat { Name = "Str", Value = 21 },
                         new GearStat { Name = "Dex", Value = 48 },
                         new GearStat { Name = "Vit", Value = 34 },
@@ -477,7 +476,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 20 },
+                        
                         new GearStat { Name = "Str", Value = 21 },
                         new GearStat { Name = "Dex", Value = 48 },
                         new GearStat { Name = "Vit", Value = 34 },
@@ -503,7 +502,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 25 },
+                        
                         new GearStat { Name = "Str", Value = 21 },
                         new GearStat { Name = "Dex", Value = 48 },
                         new GearStat { Name = "Vit", Value = 34 },
@@ -530,7 +529,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 30 },
+                        
                         new GearStat { Name = "Str", Value = 21 },
                         new GearStat { Name = "Dex", Value = 48 },
                         new GearStat { Name = "Vit", Value = 34 },
@@ -557,7 +556,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 0 },
+                        
                         new GearStat { Name = "Regain", Value = 2 },
                         new GearStat { Name = "Str", Value = 20 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -586,7 +585,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 15 },
+                        
                         new GearStat { Name = "Regain", Value = 2 },
                         new GearStat { Name = "Str", Value = 20 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -615,7 +614,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 20 },
+                        
                         new GearStat { Name = "Regain", Value = 2 },
                         new GearStat { Name = "Str", Value = 20 },
                         new GearStat { Name = "Dex", Value = 42 },
@@ -644,7 +643,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 25 },
+                        
                         new GearStat { Name = "Regain", Value = 2 },
                         new GearStat { Name = "Str", Value = 20 },
                         new GearStat { Name = "Dex", Value = 45 },
@@ -673,7 +672,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 30 },
+                        
                         new GearStat { Name = "Regain", Value = 2 },
                         new GearStat { Name = "Str", Value = 20 },
                         new GearStat { Name = "Dex", Value = 47 },
@@ -702,7 +701,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 0 },
+                        
                         new GearStat { Name = "Str", Value = 24 },
                         new GearStat { Name = "Dex", Value = 35 },
                         new GearStat { Name = "Vit", Value = 46 },
@@ -730,7 +729,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 15 },
+                        
                         new GearStat { Name = "Str", Value = 24 },
                         new GearStat { Name = "Dex", Value = 35 },
                         new GearStat { Name = "Vit", Value = 46 },
@@ -759,7 +758,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 20 },
+                        
                         new GearStat { Name = "Str", Value = 24 },
                         new GearStat { Name = "Dex", Value = 35 },
                         new GearStat { Name = "Vit", Value = 46 },
@@ -788,7 +787,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 25 },
+                        
                         new GearStat { Name = "Str", Value = 24 },
                         new GearStat { Name = "Dex", Value = 35 },
                         new GearStat { Name = "Vit", Value = 49 },
@@ -817,7 +816,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 30 },
+                        
                         new GearStat { Name = "Str", Value = 24 },
                         new GearStat { Name = "Dex", Value = 35 },
                         new GearStat { Name = "Vit", Value = 51 },
@@ -846,7 +845,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 0 },
+                        
                         new GearStat { Name = "Str", Value = 20 },
                         new GearStat { Name = "Dex", Value = 44 },
                         new GearStat { Name = "Vit", Value = 38 },
@@ -873,7 +872,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 15 },
+                        
                         new GearStat { Name = "Str", Value = 20 },
                         new GearStat { Name = "Dex", Value = 44 },
                         new GearStat { Name = "Vit", Value = 38 },
@@ -900,7 +899,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 20 },
+                        
                         new GearStat { Name = "Str", Value = 20 },
                         new GearStat { Name = "Dex", Value = 44 },
                         new GearStat { Name = "Vit", Value = 38 },
@@ -927,7 +926,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 25 },
+                        
                         new GearStat { Name = "Str", Value = 20 },
                         new GearStat { Name = "Dex", Value = 47 },
                         new GearStat { Name = "Vit", Value = 38 },
@@ -954,7 +953,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 30 },
+                        
                         new GearStat { Name = "Str", Value = 20 },
                         new GearStat { Name = "Dex", Value = 49 },
                         new GearStat { Name = "Vit", Value = 38 },
@@ -981,7 +980,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 0 },
+                        
                         new GearStat { Name = "Str", Value = 14 },
                         new GearStat { Name = "Dex", Value = 38 },
                         new GearStat { Name = "Vit", Value = 23 },
@@ -1007,7 +1006,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 15 },
+                        
                         new GearStat { Name = "Str", Value = 14 },
                         new GearStat { Name = "Dex", Value = 38 },
                         new GearStat { Name = "Vit", Value = 23 },
@@ -1034,7 +1033,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 20 },
+                        
                         new GearStat { Name = "Str", Value = 14 },
                         new GearStat { Name = "Dex", Value = 38 },
                         new GearStat { Name = "Vit", Value = 23 },
@@ -1061,7 +1060,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 25 },
+                        
                         new GearStat { Name = "Str", Value = 14 },
                         new GearStat { Name = "Dex", Value = 38 },
                         new GearStat { Name = "Vit", Value = 23 },
@@ -1088,7 +1087,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 30 },
+                        
                         new GearStat { Name = "Str", Value = 14 },
                         new GearStat { Name = "Dex", Value = 38 },
                         new GearStat { Name = "Vit", Value = 23 },
@@ -1115,7 +1114,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 0 },
+                        
                         new GearStat { Name = "Str", Value = 10 },
                         new GearStat { Name = "Dex", Value = 29 },
                         new GearStat { Name = "Vit", Value = 26 },
@@ -1144,7 +1143,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 15 },
+                        
                         new GearStat { Name = "Str", Value = 10 },
                         new GearStat { Name = "Dex", Value = 29 },
                         new GearStat { Name = "Vit", Value = 26 },
@@ -1174,7 +1173,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 20 },
+                        
                         new GearStat { Name = "Str", Value = 10 },
                         new GearStat { Name = "Dex", Value = 29 },
                         new GearStat { Name = "Vit", Value = 26 },
@@ -1204,7 +1203,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 25 },
+                        
                         new GearStat { Name = "Str", Value = 10 },
                         new GearStat { Name = "Dex", Value = 29 },
                         new GearStat { Name = "Vit", Value = 26 },
@@ -1234,7 +1233,7 @@ namespace FFXIComp.Api.SeedData
                     Slot = "Hands",
                     GearStats = new List<GearStat>
                     {
-                        new GearStat { Name = "Rank", Value = 30 },
+                        
                         new GearStat { Name = "Str", Value = 10 },
                         new GearStat { Name = "Dex", Value = 29 },
                         new GearStat { Name = "Vit", Value = 26 },

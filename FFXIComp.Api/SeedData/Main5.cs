@@ -482,7 +482,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Accuracy", Value = 50 },
                         new GearStat { Name = "MagicAccuracy", Value = 50 },
                         new GearStat { Name = "MagicDamage", Value = 248 },
-                        new GearStat { Name = "Club Skill", Value = 255 },
+                        new GearStat { Name = "ClubSkill", Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
                         new GearStat { Name = "MagicBurstDamageII", Value = 10 },
                         new GearStat { Name = "Magic Burst Accuracy", Value = 30 }
@@ -500,7 +500,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Accuracy", Value = 50 },
                         new GearStat { Name = "MagicAccuracy", Value = 50 },
                         new GearStat { Name = "MagicDamage", Value = 248 },
-                        new GearStat { Name = "Club Skill", Value = 255 },
+                        new GearStat { Name = "ClubSkill", Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "geo" } }
@@ -516,7 +516,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicAccuracy", Value = 70 },
                         new GearStat { Name = "MagicAttack", Value = 40 },
                         new GearStat { Name = "MagicDamage", Value = 217 },
-                        new GearStat { Name = "Club Skill", Value = 269 },
+                        new GearStat { Name = "ClubSkill", Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
                         new GearStat { Name = "Accuracy", Value = 30 }
                     },
@@ -533,7 +533,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
                         new GearStat { Name = "MagicAttack", Value = 40 },
                         new GearStat { Name = "MagicDamage", Value = 217 },
-                        new GearStat { Name = "Club Skill", Value = 269 },
+                        new GearStat { Name = "ClubSkill", Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
                         new GearStat { Name = "Accuracy", Value = 0 }
                     },

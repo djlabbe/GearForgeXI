@@ -108,8 +108,10 @@ export function GearSetComparer({ gearItems }: Props) {
     );
   };
 
-  const coreStatNames = ["Str", "DEX", "AGI", "VIT", "INT", "MND", "CHR"];
+  const coreStatNames = ["Str", "Dex", "Agi", "Vit", "Int", "Mnd", "Chr"];
   const meleeStatNames = [
+    "DMG",
+    "Delay",
     "Accuracy",
     "Attack",
     "DA",
@@ -118,6 +120,29 @@ export function GearSetComparer({ gearItems }: Props) {
     "GearHaste",
     "StoreTP",
     "WeaponSkillDamage",
+  ];
+
+  const rangedStatNames = [
+    "RangedAccuracy",
+    "RangedAttack",
+  ];
+
+  const magicStatNames = [
+    "MagicAccuracy",
+    "MagicAttack",
+    "MagicBurstDamage",
+    "ElementalBonus",
+    "MagicBurstAccuracy",
+    "MagicBurstDamageII",
+    "MagicDamage",
+  ];
+
+  const defenseStatNames = [
+    "DT",
+    "Defense",
+    "Evasion",
+    "MagicEvasion",
+    "MagicDefense",
   ];
 
   const renderStatTable = (
@@ -140,33 +165,46 @@ export function GearSetComparer({ gearItems }: Props) {
               <th className="text-right p-2 w-1/4">Diff</th>
             </tr>
           </thead>
-          <tbody>
-            {stats.map((stat) => (
+            <tbody>
+            {stats.map((stat) => {
+              const isNegativeStat = stat.a < 0 || stat.b < 0;
+              let diffClass = "";
+              if (stat.diff !== 0) {
+              if (isNegativeStat) {
+                diffClass =
+                stat.diff > 0
+                  ? "text-red-600"
+                  : stat.diff < 0
+                  ? "text-green-600"
+                  : "";
+              } else {
+                diffClass =
+                stat.diff > 0
+                  ? "text-green-600"
+                  : stat.diff < 0
+                  ? "text-red-600"
+                  : "";
+              }
+              }
+              return (
               <tr key={stat.name} className="border-t">
                 <td className="p-2">{stat.name}</td>
                 <td className="text-right p-2">{stat.a}</td>
                 <td className="text-right p-2">{stat.b}</td>
-                <td
-                  className={`text-right p-2 ${
-                    stat.diff > 0
-                      ? "text-green-600"
-                      : stat.diff < 0
-                      ? "text-red-600"
-                      : ""
-                  }`}
-                >
-                  {stat.diff !== 0 && `${stat.diff > 0 ? "+" : ""}${stat.diff}`}
+                <td className={`text-right p-2 ${diffClass}`}>
+                {stat.diff !== 0 && `${stat.diff > 0 ? "+" : ""}${stat.diff}`}
                 </td>
               </tr>
-            ))}
-          </tbody>
+              );
+            })}
+            </tbody>
         </table>
       </div>
     );
   };
 
   const coreStats = comparison
-    .filter((c) => coreStatNames.includes(c.name.toUpperCase()))
+    .filter((c) => coreStatNames.includes(c.name))
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -175,11 +213,29 @@ export function GearSetComparer({ gearItems }: Props) {
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name));
 
+  const rangedStats = comparison
+    .filter((c) => rangedStatNames.includes(c.name))
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const magicStats = comparison
+    .filter((c) => magicStatNames.includes(c.name))
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const defenseStats = comparison
+    .filter((c) => defenseStatNames.includes(c.name))
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name));
+
   const otherStats = comparison
     .filter(
       (c) =>
-        !coreStatNames.includes(c.name.toUpperCase()) &&
-        !meleeStatNames.includes(c.name)
+        !coreStatNames.includes(c.name) &&
+        !meleeStatNames.includes(c.name) &&
+        !rangedStatNames.includes(c.name) &&
+        !defenseStatNames.includes(c.name) &&
+        !magicStatNames.includes(c.name)
     )
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name));
@@ -204,7 +260,10 @@ export function GearSetComparer({ gearItems }: Props) {
         <div className="flex flex-wrap -mx-2">
           {renderStatTable("Core Stats", coreStats)}
           {renderStatTable("Melee", meleeStats)}
-          {renderStatTable("Other Stats", otherStats)}
+          {renderStatTable("Ranged", rangedStats)}
+          {renderStatTable("Magic", magicStats)}
+          {renderStatTable("Defense", defenseStats)}
+          {renderStatTable("Other", otherStats)}
         </div>
       )}
     </div>

@@ -21,7 +21,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "TPBonus", Value = 500 },
                         new GearStat { Name = "MagicDamage", Value = 217 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "Club Skill", Value = 269 },
+                        new GearStat { Name = "ClubSkill", Value = 269 },
                         new GearStat { Name = "StoreTP", Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "whm" }, new GearItemJob { JobName = "geo" } }
@@ -39,7 +39,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "TPBonus", Value = 500 },
                         new GearStat { Name = "MagicDamage", Value = 217 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "Club Skill", Value = 269 },
+                        new GearStat { Name = "ClubSkill", Value = 269 },
                         new GearStat { Name = "StoreTP", Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "whm" }, new GearItemJob { JobName = "geo" } }
@@ -59,7 +59,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Mnd", Value = 6 },
                         new GearStat { Name = "MagicDamage", Value = 90 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 188 },
-                        new GearStat { Name = "Club Skill", Value = 228 }
+                        new GearStat { Name = "ClubSkill", Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "whm" } }
                 },
@@ -675,7 +675,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "DMG", Value = 142 },
                         new GearStat { Name = "Delay", Value = 278 },
                         new GearStat { Name = "Accuracy", Value = 27 },
-                        new GearStat { Name = "Club Skill", Value = 228 },
+                        new GearStat { Name = "ClubSkill", Value = 228 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 188 }
                     },
                     GearItemJobs = new List<GearItemJob> { }

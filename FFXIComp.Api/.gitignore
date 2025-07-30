@@ -70,3 +70,8 @@ _ReSharper*/
 *.dbmdl
 *.jfm
 *.cache
+
+# Ignore React build output in wwwroot
+wwwroot/build/
+wwwroot/static/
+wwwroot/assets/

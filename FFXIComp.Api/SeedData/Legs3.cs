@@ -17,7 +17,7 @@ namespace FFXIComp.Api.SeedData
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvastion", Value = 89 },
+                        new GearStat { Name = "MagicEvasion", Value = 89 },
                         new GearStat { Name = "MagicDefense", Value = 7 },
                         new GearStat { Name = "Str", Value = 42 },
                         new GearStat { Name = "Dex", Value = 21 },
@@ -51,7 +51,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Attack", Value = 74 },
                         new GearStat { Name = "MagicAccuracy", Value = 44 },
                         new GearStat { Name = "Evasion", Value = 83 },
-                        new GearStat { Name = "MagicEvastion", Value = 129 },
+                        new GearStat { Name = "MagicEvasion", Value = 129 },
                         new GearStat { Name = "MagicDefense", Value = 8 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 9 },
@@ -65,7 +65,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 42 },
-                        new GearStat { Name = "MagicEvastion", Value = 95 },
+                        new GearStat { Name = "MagicEvasion", Value = 95 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "Str", Value = 43 },
                         new GearStat { Name = "Dex", Value = 22 },
@@ -98,7 +98,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Attack", Value = 74 },
                         new GearStat { Name = "MagicAccuracy", Value = 44 },
                         new GearStat { Name = "Evasion", Value = 67 },
-                        new GearStat { Name = "MagicEvastion", Value = 135 },
+                        new GearStat { Name = "MagicEvasion", Value = 135 },
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "GearHaste", Value = 5 },
                         new GearStat { Name = "StoreTP", Value = 10 },
@@ -113,7 +113,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 52 },
-                        new GearStat { Name = "MagicEvastion", Value = 100 },
+                        new GearStat { Name = "MagicEvasion", Value = 100 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "PDT", Value = -5 },
                         new GearStat { Name = "Str", Value = 40 },
@@ -143,7 +143,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Accuracy", Value = 66 },
                         new GearStat { Name = "MagicAccuracy", Value = 66 },
                         new GearStat { Name = "Evasion", Value = 92 },
-                        new GearStat { Name = "MagicEvastion", Value = 125 },
+                        new GearStat { Name = "MagicEvasion", Value = 125 },
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "DA", Value = 11 },
@@ -158,7 +158,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 60 },
-                        new GearStat { Name = "MagicEvastion", Value = 95 },
+                        new GearStat { Name = "MagicEvasion", Value = 95 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "MDT", Value = -7 },
                         new GearStat { Name = "Str", Value = 43 },
@@ -190,7 +190,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Attack", Value = 92 },
                         new GearStat { Name = "MagicAccuracy", Value = 44 },
                         new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvastion", Value = 135 },
+                        new GearStat { Name = "MagicEvasion", Value = 135 },
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "GearHaste", Value = 5 },
                         new GearStat { Name = "MDT", Value = -7 },
@@ -204,7 +204,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 47 },
-                        new GearStat { Name = "MagicEvastion", Value = 127 },
+                        new GearStat { Name = "MagicEvasion", Value = 127 },
                         new GearStat { Name = "MagicDefense", Value = 7 },
                         new GearStat { Name = "Str", Value = 35 },
                         new GearStat { Name = "Vit", Value = 22 },
@@ -236,7 +236,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "MagicAttack", Value = 32 },
                         new GearStat { Name = "MagicDamage", Value = 48 },
                         new GearStat { Name = "Evasion", Value = 87 },
-                        new GearStat { Name = "MagicEvastion", Value = 152 },
+                        new GearStat { Name = "MagicEvasion", Value = 152 },
                         new GearStat { Name = "MagicDefense", Value = 8 },
                         new GearStat { Name = "GearHaste", Value = 5 },
                     }
@@ -249,7 +249,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 48 },
-                        new GearStat { Name = "MagicEvastion", Value = 89 },
+                        new GearStat { Name = "MagicEvasion", Value = 89 },
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "Str", Value = 39 },
                         new GearStat { Name = "Vit", Value = 26 },
@@ -277,7 +277,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Accuracy", Value = 59 },
                         new GearStat { Name = "MagicAccuracy", Value = 59 },
                         new GearStat { Name = "Evasion", Value = 98 },
-                        new GearStat { Name = "MagicEvastion", Value = 114 },
+                        new GearStat { Name = "MagicEvasion", Value = 114 },
                         new GearStat { Name = "MagicDefense", Value = 7 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "Pet:Attack", Value = 45 },
@@ -291,7 +291,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 42 },
-                        new GearStat { Name = "MagicEvastion", Value = 95 },
+                        new GearStat { Name = "MagicEvasion", Value = 95 },
                         new GearStat { Name = "MagicDefense", Value = 4 },
                         new GearStat { Name = "Str", Value = 43 },
                         new GearStat { Name = "Dex", Value = 20 },
@@ -322,7 +322,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Accuracy", Value = 59 },
                         new GearStat { Name = "MagicAccuracy", Value = 59 },
                         new GearStat { Name = "Evasion", Value = 82 },
-                        new GearStat { Name = "MagicEvastion", Value = 120 },
+                        new GearStat { Name = "MagicEvasion", Value = 120 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "GearHaste", Value = 5 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 12 },
@@ -336,7 +336,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 47 },
-                        new GearStat { Name = "MagicEvastion", Value = 127 },
+                        new GearStat { Name = "MagicEvasion", Value = 127 },
                         new GearStat { Name = "MagicDefense", Value = 8 },
                         new GearStat { Name = "PDT", Value = -5 },
                         new GearStat { Name = "Str", Value = 35 },
@@ -372,7 +372,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Attack", Value = 74 },
                         new GearStat { Name = "MagicAccuracy", Value = 44 },
                         new GearStat { Name = "Evasion", Value = 72 },
-                        new GearStat { Name = "MagicEvastion", Value = 167 },
+                        new GearStat { Name = "MagicEvasion", Value = 167 },
                         new GearStat { Name = "MagicDefense", Value = 9 },
                         new GearStat { Name = "Elemental Magic Skill", Value = 24 },
                         new GearStat { Name = "GearHaste", Value = 5 },
@@ -388,7 +388,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 42 },
-                        new GearStat { Name = "MagicEvastion", Value = 95 },
+                        new GearStat { Name = "MagicEvasion", Value = 95 },
                         new GearStat { Name = "MagicDefense", Value = 4 },
                         new GearStat { Name = "Str", Value = 44 },
                         new GearStat { Name = "Vit", Value = 29 },
@@ -422,7 +422,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "RangedAttack", Value = 45 },
                         new GearStat { Name = "MagicAccuracy", Value = 59 },
                         new GearStat { Name = "Evasion", Value = 82 },
-                        new GearStat { Name = "MagicEvastion", Value = 120 },
+                        new GearStat { Name = "MagicEvasion", Value = 120 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "GearHaste", Value = 5 },
                         new GearStat { Name = "StoreTP", Value = 9 },
@@ -438,7 +438,7 @@ GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Recycle", Value = 16 },
                         new GearStat { Name = "Evasion", Value = 41 },
-                        new GearStat { Name = "MagicEvastion", Value = 75 },
+                        new GearStat { Name = "MagicEvasion", Value = 75 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "Str", Value = 32 },
                         new GearStat { Name = "Dex", Value = 12 },
@@ -462,7 +462,7 @@ GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Recycle", Value = 16 },
                         new GearStat { Name = "Evasion", Value = 41 },
-                        new GearStat { Name = "MagicEvastion", Value = 75 },
+                        new GearStat { Name = "MagicEvasion", Value = 75 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "Str", Value = 44 },
                         new GearStat { Name = "Dex", Value = 12 },
@@ -487,7 +487,7 @@ GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Recycle", Value = 16 },
                         new GearStat { Name = "Evasion", Value = 41 },
-                        new GearStat { Name = "MagicEvastion", Value = 75 },
+                        new GearStat { Name = "MagicEvasion", Value = 75 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "Str", Value = 44 },
                         new GearStat { Name = "Dex", Value = 0 },
@@ -512,7 +512,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 41 },
-                        new GearStat { Name = "MagicEvastion", Value = 86 },
+                        new GearStat { Name = "MagicEvasion", Value = 86 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "Str", Value = 53 },
                         new GearStat { Name = "Dex", Value = 11 },
@@ -535,7 +535,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 27 },
-                        new GearStat { Name = "MagicEvastion", Value = 107 },
+                        new GearStat { Name = "MagicEvasion", Value = 107 },
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "MDT", Value = -2 },
                         new GearStat { Name = "Str", Value = 19 },
@@ -557,7 +557,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 62 },
-                        new GearStat { Name = "MagicEvastion", Value = 75 },
+                        new GearStat { Name = "MagicEvasion", Value = 75 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "PDT", Value = -2 },
                         new GearStat { Name = "Str", Value = 33 },
@@ -581,7 +581,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 81 },
-                        new GearStat { Name = "MagicEvastion", Value = 75 },
+                        new GearStat { Name = "MagicEvasion", Value = 75 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "Str", Value = 50 },
                         new GearStat { Name = "Dex", Value = 0 },
@@ -604,7 +604,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 24 },
-                        new GearStat { Name = "MagicEvastion", Value = 80 },
+                        new GearStat { Name = "MagicEvasion", Value = 80 },
                         new GearStat { Name = "MagicDefense", Value = 3 },
                         new GearStat { Name = "Str", Value = 29 },
                         new GearStat { Name = "Dex", Value = 35 },
@@ -626,7 +626,7 @@ GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Subtle Blow", Value = 10 },
                         new GearStat { Name = "Evasion", Value = 59 },
-                        new GearStat { Name = "MagicEvastion", Value = 139 },
+                        new GearStat { Name = "MagicEvasion", Value = 139 },
                         new GearStat { Name = "MagicDefense", Value = 8 },
                         new GearStat { Name = "Str", Value = 37 },
                         new GearStat { Name = "Dex", Value = 5 },
@@ -650,7 +650,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvastion", Value = 150 },
+                        new GearStat { Name = "MagicEvasion", Value = 150 },
                         new GearStat { Name = "MagicDefense", Value = 7 },
                         new GearStat { Name = "DT", Value = -7 },
                         new GearStat { Name = "Str", Value = 28 },
@@ -676,7 +676,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 55 },
-                        new GearStat { Name = "MagicEvastion", Value = 107 },
+                        new GearStat { Name = "MagicEvasion", Value = 107 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "DT", Value = -5 },
                         new GearStat { Name = "Str", Value = 33 },
@@ -701,7 +701,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 77 },
-                        new GearStat { Name = "MagicEvastion", Value = 64 },
+                        new GearStat { Name = "MagicEvasion", Value = 64 },
                         new GearStat { Name = "MagicDefense", Value = 3 },
                         new GearStat { Name = "Str", Value = 58 },
                         new GearStat { Name = "Dex", Value = 12 },
@@ -723,7 +723,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 59 },
-                        new GearStat { Name = "MagicEvastion", Value = 139 },
+                        new GearStat { Name = "MagicEvasion", Value = 139 },
                         new GearStat { Name = "MagicDefense", Value = 0 },
                         new GearStat { Name = "DT", Value = 12 },
                         new GearStat { Name = "Str", Value = 52 },
@@ -748,7 +748,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 24 },
-                        new GearStat { Name = "MagicEvastion", Value = 80 },
+                        new GearStat { Name = "MagicEvasion", Value = 80 },
                         new GearStat { Name = "MagicDefense", Value = 3 },
                         new GearStat { Name = "Str", Value = 41 },
                         new GearStat { Name = "Dex", Value = 12 },
@@ -774,7 +774,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 24 },
-                        new GearStat { Name = "MagicEvastion", Value = 80 },
+                        new GearStat { Name = "MagicEvasion", Value = 80 },
                         new GearStat { Name = "MagicDefense", Value = 3 },
                         new GearStat { Name = "Str", Value = 29 },
                         new GearStat { Name = "Vit", Value = 15 },
@@ -800,7 +800,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 41 },
-                        new GearStat { Name = "MagicEvastion", Value = 75 },
+                        new GearStat { Name = "MagicEvasion", Value = 75 },
                         new GearStat { Name = "MagicDefense", Value = 5 },
                         new GearStat { Name = "Str", Value = 48 },
                         new GearStat { Name = "Dex", Value = 16 },
@@ -825,7 +825,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 16 },
-                        new GearStat { Name = "MagicEvastion", Value = 75 },
+                        new GearStat { Name = "MagicEvasion", Value = 75 },
                         new GearStat { Name = "MagicDefense", Value = 2 },
                         new GearStat { Name = "DT", Value = -7 },
                         new GearStat { Name = "Str", Value = 47 },
@@ -849,7 +849,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 24 },
-                        new GearStat { Name = "MagicEvastion", Value = 80 },
+                        new GearStat { Name = "MagicEvasion", Value = 80 },
                         new GearStat { Name = "MagicDefense", Value = 3 },
                         new GearStat { Name = "Str", Value = 55 },
                         new GearStat { Name = "Dex", Value = 10 },
@@ -874,7 +874,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 87 },
-                        new GearStat { Name = "MagicEvastion", Value = 135 },
+                        new GearStat { Name = "MagicEvasion", Value = 135 },
                         new GearStat { Name = "MagicDefense", Value = 9 },
                         new GearStat { Name = "DT", Value = -12 },
                         new GearStat { Name = "Str", Value = 44 },
@@ -900,7 +900,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 77 },
-                        new GearStat { Name = "MagicEvastion", Value = 125 },
+                        new GearStat { Name = "MagicEvasion", Value = 125 },
                         new GearStat { Name = "MagicDefense", Value = 8 },
                         new GearStat { Name = "DT", Value = -11 },
                         new GearStat { Name = "Str", Value = 39 },
@@ -926,7 +926,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 74 },
-                        new GearStat { Name = "MagicEvastion", Value = 119 },
+                        new GearStat { Name = "MagicEvasion", Value = 119 },
                         new GearStat { Name = "MagicDefense", Value = 8 },
                         new GearStat { Name = "DT", Value = -12 },
                         new GearStat { Name = "Str", Value = 53 },
@@ -950,7 +950,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 64 },
-                        new GearStat { Name = "MagicEvastion", Value = 109 },
+                        new GearStat { Name = "MagicEvasion", Value = 109 },
                         new GearStat { Name = "MagicDefense", Value = 7 },
                         new GearStat { Name = "DT", Value = -11 },
                         new GearStat { Name = "Str", Value = 48 },
@@ -974,7 +974,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 24 },
-                        new GearStat { Name = "MagicEvastion", Value = 118 },
+                        new GearStat { Name = "MagicEvasion", Value = 118 },
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "Str", Value = 19 },
                         new GearStat { Name = "Dex", Value = 0 },
@@ -996,7 +996,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 47 },
-                        new GearStat { Name = "MagicEvastion", Value = 147 },
+                        new GearStat { Name = "MagicEvasion", Value = 147 },
                         new GearStat { Name = "MagicDefense", Value = 8 },
                         new GearStat { Name = "Str", Value = 26 },
                         new GearStat { Name = "Dex", Value = 0 },
@@ -1020,7 +1020,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 74 },
-                        new GearStat { Name = "MagicEvastion", Value = 168 },
+                        new GearStat { Name = "MagicEvasion", Value = 168 },
                         new GearStat { Name = "MagicDefense", Value = 10 },
                         new GearStat { Name = "Str", Value = 31 },
                         new GearStat { Name = "Dex", Value = 0 },
@@ -1045,7 +1045,7 @@ GearStats = new List<GearStat>
 GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 64 },
-                        new GearStat { Name = "MagicEvastion", Value = 158 },
+                        new GearStat { Name = "MagicEvasion", Value = 158 },
                         new GearStat { Name = "MagicDefense", Value = 9 },
                         new GearStat { Name = "Str", Value = 26 },
                         new GearStat { Name = "Dex", Value = 0 },
