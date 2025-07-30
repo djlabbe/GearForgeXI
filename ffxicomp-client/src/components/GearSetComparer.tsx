@@ -136,7 +136,6 @@ export function GearSetComparer({ gearItems }: Props) {
     "SubtleBlowII",
   ];
 
-
   const magicStatNames = [
     "MagicAccuracy",
     "MagicAttack",
@@ -231,39 +230,40 @@ export function GearSetComparer({ gearItems }: Props) {
               <th className="text-right p-2 w-1/4">Diff</th>
             </tr>
           </thead>
-            <tbody>
+          <tbody>
             {stats.map((stat) => {
               const isNegativeStat = stat.a < 0 || stat.b < 0;
               let diffClass = "";
               if (stat.diff !== 0) {
-              if (isNegativeStat) {
-                diffClass =
-                stat.diff > 0
-                  ? "text-red-600"
-                  : stat.diff < 0
-                  ? "text-green-600"
-                  : "";
-              } else {
-                diffClass =
-                stat.diff > 0
-                  ? "text-green-600"
-                  : stat.diff < 0
-                  ? "text-red-600"
-                  : "";
-              }
+                if (isNegativeStat) {
+                  diffClass =
+                    stat.diff > 0
+                      ? "text-red-600"
+                      : stat.diff < 0
+                      ? "text-green-600"
+                      : "";
+                } else {
+                  diffClass =
+                    stat.diff > 0
+                      ? "text-green-600"
+                      : stat.diff < 0
+                      ? "text-red-600"
+                      : "";
+                }
               }
               return (
-              <tr key={stat.name} className="border-t">
-                <td className="p-2">{stat.name}</td>
-                <td className="text-right p-2">{stat.a}</td>
-                <td className="text-right p-2">{stat.b}</td>
-                <td className={`text-right p-2 ${diffClass}`}>
-                {stat.diff !== 0 && `${stat.diff > 0 ? "+" : ""}${stat.diff}`}
-                </td>
-              </tr>
+                <tr key={stat.name} className="border-t">
+                  <td className="p-2">{stat.name}</td>
+                  <td className="text-right p-2">{stat.a}</td>
+                  <td className="text-right p-2">{stat.b}</td>
+                  <td className={`text-right p-2 ${diffClass}`}>
+                    {stat.diff !== 0 &&
+                      `${stat.diff > 0 ? "+" : ""}${stat.diff}`}
+                  </td>
+                </tr>
               );
             })}
-            </tbody>
+          </tbody>
         </table>
       </div>
     );
@@ -305,7 +305,7 @@ export function GearSetComparer({ gearItems }: Props) {
         !coreStatNames.includes(c.name) &&
         !combatStatNames.includes(c.name) &&
         !defenseStatNames.includes(c.name) &&
-        !magicStatNames.includes(c.name) && 
+        !magicStatNames.includes(c.name) &&
         !statSkillNames.includes(c.name) &&
         !petStatNames.includes(c.name)
     )
