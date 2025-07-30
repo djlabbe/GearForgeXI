@@ -22,7 +22,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Accuracy", Value = 40 },
                         new GearStat { Name = "Attack", Value = 30 },
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "Magic Attack", Value = 21 },
+                        new GearStat { Name = "MagicAttack", Value = 21 },
                         new GearStat { Name = "MagicDamage", Value = 226 },
                         new GearStat { Name = "PolearmSkill", Value = 250 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 250 }
@@ -46,7 +46,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Accuracy", Value = 40 },
                         new GearStat { Name = "Attack", Value = 30 },
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "Magic Attack", Value = 16 }
+                        new GearStat { Name = "MagicAttack", Value = 16 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "rdm" }, new GearItemJob { JobName = "thf" }, new GearItemJob { JobName = "bst" }, new GearItemJob { JobName = "brd" }, new GearItemJob { JobName = "rng" }, new GearItemJob { JobName = "nin" }, new GearItemJob { JobName = "cor" }, new GearItemJob { JobName = "pup" }, new GearItemJob { JobName = "dnc" } }
                 },
@@ -82,7 +82,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Vit", Value = 15 },
                         new GearStat { Name = "Agi", Value = 15 },
                         new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Ranged Accuracy", Value = 40 },
+                        new GearStat { Name = "RangedAccuracy", Value = 40 },
                         new GearStat { Name = "Katana Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
                         new GearStat { Name = "Evasion", Value = 30 },
@@ -103,7 +103,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Vit", Value = 15 },
                         new GearStat { Name = "Agi", Value = 15 },
                         new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Ranged Accuracy", Value = 40 },
+                        new GearStat { Name = "RangedAccuracy", Value = 40 },
                         new GearStat { Name = "Katana Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
                         new GearStat { Name = "Evasion", Value = 30 },
@@ -124,7 +124,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Vit", Value = 15 },
                         new GearStat { Name = "Agi", Value = 15 },
                         new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Ranged Accuracy", Value = 40 },
+                        new GearStat { Name = "RangedAccuracy", Value = 40 },
                         new GearStat { Name = "Katana Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
                         new GearStat { Name = "Evasion", Value = 30 },
@@ -145,7 +145,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Vit", Value = 15 },
                         new GearStat { Name = "Agi", Value = 15 },
                         new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Ranged Accuracy", Value = 40 },
+                        new GearStat { Name = "RangedAccuracy", Value = 40 },
                         new GearStat { Name = "Katana Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
                         new GearStat { Name = "Evasion", Value = 30 },
@@ -166,7 +166,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Vit", Value = 15 },
                         new GearStat { Name = "Agi", Value = 15 },
                         new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Ranged Accuracy", Value = 40 },
+                        new GearStat { Name = "RangedAccuracy", Value = 40 },
                         new GearStat { Name = "Katana Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
                         new GearStat { Name = "Evasion", Value = 30 },
@@ -185,7 +185,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Delay", Value = 201 },
                         new GearStat { Name = "Int", Value = 10 },
                         new GearStat { Name = "MagicAccuracy", Value = 35 },
-                        new GearStat { Name = "Magic Attack", Value = 44 },
+                        new GearStat { Name = "MagicAttack", Value = 44 },
                         new GearStat { Name = "MagicDamage", Value = 118 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 201 },
                         new GearStat { Name = "Dagger Skill", Value = 242 }
@@ -202,7 +202,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Delay", Value = 201 },
                         new GearStat { Name = "Int", Value = 10 },
                         new GearStat { Name = "MagicAccuracy", Value = 35 },
-                        new GearStat { Name = "Magic Attack", Value = 44 },
+                        new GearStat { Name = "MagicAttack", Value = 44 },
                         new GearStat { Name = "MagicDamage", Value = 118 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 201 },
                         new GearStat { Name = "Dagger Skill", Value = 242 }
@@ -218,7 +218,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Int", Value = 36 },
                         new GearStat { Name = "Mnd", Value = 22 },
                         new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "Magic Attack", Value = 68 },
+                        new GearStat { Name = "MagicAttack", Value = 68 },
                         new GearStat { Name = "MagicDamage", Value = 217 },
                         new GearStat { Name = "Wind Elemental Bonus", Value = 11 },
                         new GearStat { Name = "Staff Skill", Value = 242 },
@@ -239,13 +239,13 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Chr", Value = 15 },
                         new GearStat { Name = "Accuracy", Value = 40 },
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "Magic Attack", Value = 21 },
+                        new GearStat { Name = "MagicAttack", Value = 21 },
                         new GearStat { Name = "MagicDamage", Value = 232 },
                         new GearStat { Name = "Club Skill", Value = 250 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 250 },
                         new GearStat { Name = "DMG", Value = 200 },
                         new GearStat { Name = "Delay", Value = 288 },
-                        new GearStat { Name = "Magic Burst Damage", Value = 4 }
+                        new GearStat { Name = "MagicBurstDamage", Value = 4 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "whm" }, new GearItemJob { JobName = "blm" }, new GearItemJob { JobName = "rdm" }, new GearItemJob { JobName = "blu" }, new GearItemJob { JobName = "sch" }, new GearItemJob { JobName = "geo" } }
                 },
@@ -260,11 +260,11 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "DMG", Value = 152 },
                         new GearStat { Name = "Delay", Value = 216 },
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "Magic Attack", Value = 35 },
+                        new GearStat { Name = "MagicAttack", Value = 35 },
                         new GearStat { Name = "MagicDamage", Value = 248 },
                         new GearStat { Name = "Club Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "Magic Burst Damage", Value = 10 },
+                        new GearStat { Name = "MagicBurstDamage", Value = 10 },
                         new GearStat { Name = "Accuracy", Value = 40 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "blm" }, new GearItemJob { JobName = "rdm" }, new GearItemJob { JobName = "sch" }, new GearItemJob { JobName = "geo" }, new GearItemJob { JobName = "whm" }, new GearItemJob { JobName = "smn" }, new GearItemJob { JobName = "blu" } }
@@ -280,11 +280,11 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "DMG", Value = 152 },
                         new GearStat { Name = "Delay", Value = 216 },
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "Magic Attack", Value = 50 },
+                        new GearStat { Name = "MagicAttack", Value = 50 },
                         new GearStat { Name = "MagicDamage", Value = 248 },
                         new GearStat { Name = "Club Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "Magic Burst Damage", Value = 10 },
+                        new GearStat { Name = "MagicBurstDamage", Value = 10 },
                         new GearStat { Name = "Accuracy", Value = 40 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "blm" }, new GearItemJob { JobName = "rdm" }, new GearItemJob { JobName = "sch" }, new GearItemJob { JobName = "geo" }, new GearItemJob { JobName = "whm" }, new GearItemJob { JobName = "smn" }, new GearItemJob { JobName = "blu" } }
@@ -300,11 +300,11 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "DMG", Value = 153 },
                         new GearStat { Name = "Delay", Value = 216 },
                         new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "Magic Attack", Value = 55 },
+                        new GearStat { Name = "MagicAttack", Value = 55 },
                         new GearStat { Name = "MagicDamage", Value = 248 },
                         new GearStat { Name = "Club Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "Magic Burst Damage", Value = 10 },
+                        new GearStat { Name = "MagicBurstDamage", Value = 10 },
                         new GearStat { Name = "Accuracy", Value = 45 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "blm" }, new GearItemJob { JobName = "rdm" }, new GearItemJob { JobName = "sch" }, new GearItemJob { JobName = "geo" }, new GearItemJob { JobName = "whm" }, new GearItemJob { JobName = "smn" }, new GearItemJob { JobName = "blu" } }
@@ -320,11 +320,11 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "DMG", Value = 154 },
                         new GearStat { Name = "Delay", Value = 216 },
                         new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "Magic Attack", Value = 60 },
+                        new GearStat { Name = "MagicAttack", Value = 60 },
                         new GearStat { Name = "MagicDamage", Value = 248 },
                         new GearStat { Name = "Club Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "Magic Burst Damage", Value = 10 },
+                        new GearStat { Name = "MagicBurstDamage", Value = 10 },
                         new GearStat { Name = "Accuracy", Value = 50 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "blm" }, new GearItemJob { JobName = "rdm" }, new GearItemJob { JobName = "sch" }, new GearItemJob { JobName = "geo" }, new GearItemJob { JobName = "whm" }, new GearItemJob { JobName = "smn" }, new GearItemJob { JobName = "blu" } }
@@ -340,11 +340,11 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "DMG", Value = 155 },
                         new GearStat { Name = "Delay", Value = 216 },
                         new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "Magic Attack", Value = 65 },
+                        new GearStat { Name = "MagicAttack", Value = 65 },
                         new GearStat { Name = "MagicDamage", Value = 248 },
                         new GearStat { Name = "Club Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "Magic Burst Damage", Value = 10 },
+                        new GearStat { Name = "MagicBurstDamage", Value = 10 },
                         new GearStat { Name = "Accuracy", Value = 55 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "blm" }, new GearItemJob { JobName = "rdm" }, new GearItemJob { JobName = "sch" }, new GearItemJob { JobName = "geo" }, new GearItemJob { JobName = "whm" }, new GearItemJob { JobName = "smn" }, new GearItemJob { JobName = "blu" } }
@@ -450,7 +450,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Delay", Value = 240 },
                         new GearStat { Name = "Accuracy", Value = 30 },
                         new GearStat { Name = "MagicAccuracy", Value = 30 },
-                        new GearStat { Name = "TP Bonus", Value = 500 },
+                        new GearStat { Name = "TPBonus", Value = 500 },
                         new GearStat { Name = "MagicDamage", Value = 186 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
                         new GearStat { Name = "SwordSkill", Value = 269 },
@@ -468,7 +468,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Delay", Value = 240 },
                         new GearStat { Name = "Accuracy", Value = 0 },
                         new GearStat { Name = "MagicAccuracy", Value = 0 },
-                        new GearStat { Name = "TP Bonus", Value = 500 },
+                        new GearStat { Name = "TPBonus", Value = 500 },
                         new GearStat { Name = "MagicDamage", Value = 186 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
                         new GearStat { Name = "SwordSkill", Value = 269 },
@@ -516,7 +516,7 @@ namespace FFXIComp.Api.SeedData
                     {
                         new GearStat { Name = "DMG", Value = 55 },
                         new GearStat { Name = "Delay", Value = 238 },
-                        new GearStat { Name = "TP Bonus", Value = 1000 },
+                        new GearStat { Name = "TPBonus", Value = 1000 },
                         new GearStat { Name = "SwordSkill", Value = 0 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "rdm" }, new GearItemJob { JobName = "pld" }, new GearItemJob { JobName = "blu" } }
@@ -565,7 +565,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
                         new GearStat { Name = "PolearmSkill", Value = 269 },
                         new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "TP Bonus", Value = 500 }
+                        new GearStat { Name = "TPBonus", Value = 500 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "drg" } }
                 },
@@ -583,7 +583,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
                         new GearStat { Name = "PolearmSkill", Value = 269 },
                         new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "TP Bonus", Value = 500 }
+                        new GearStat { Name = "TPBonus", Value = 500 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "drg" } }
                 },
@@ -712,7 +712,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Accuracy", Value = 40 },
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
                         new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "Magic Attack", Value = 21 },
+                        new GearStat { Name = "MagicAttack", Value = 21 },
                         new GearStat { Name = "MagicDamage", Value = 226 },
                         new GearStat { Name = "Great SwordSkill", Value = 250 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 250 }
@@ -747,11 +747,11 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Int", Value = 27 },
                         new GearStat { Name = "Mnd", Value = 12 },
                         new GearStat { Name = "MagicAccuracy", Value = 25 },
-                        new GearStat { Name = "Magic Attack", Value = 53 },
+                        new GearStat { Name = "MagicAttack", Value = 53 },
                         new GearStat { Name = "MagicDamage", Value = 217 },
                         new GearStat { Name = "Staff Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                        new GearStat { Name = "Magic Burst Damage", Value = 10 },
+                        new GearStat { Name = "MagicBurstDamage", Value = 10 },
                         new GearStat { Name = "Elemental Bonus", Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "sch" } }
@@ -802,7 +802,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "DMG", Value = 150 },
                         new GearStat { Name = "Delay", Value = 216 },
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "Magic Attack", Value = 40 },
+                        new GearStat { Name = "MagicAttack", Value = 40 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
                         new GearStat { Name = "MagicDamage", Value = 241 },
                         new GearStat { Name = "Club Skill", Value = 228 },

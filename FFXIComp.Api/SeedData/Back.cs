@@ -4,7 +4,7 @@ namespace FFXIComp.Api.SeedData
 {
     public static class BackSeedData
     {
-        
+
 
         public static List<GearItem> GetItems()
         {

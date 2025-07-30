@@ -8,33 +8,33 @@ Andartia_Critagi = {"Name":"Andartia's Mantle", Name2"":"Andartia's Mantle AGI C
 # We define filters so that some cape variants aren't created, such as CHR capes on NIN which would never be used and would only waste computation time if included.
 # This is a simple loop reading from pre-defined lists, but it will save us well over 100 lines of modifying nearly identical capes with different names and jobs.
 cape_names = {
-              "WAR":["Cichol's Mantle",{"DA Damage%":20, "Jobs":["war"]},["STR", "DEX", "VIT", "AGI", "INT", "MND", "CHR"]],
-              "MNK":["Segomo's Mantle",{"Kick Attacks":10, "Kick Attacks DMG":25, "Jobs":["mnk"]},["STR", "DEX", "VIT", "AGI", "INT", "MND", "CHR"]],
-              "WHM":["Alaunus's Cape",{"Jobs":["whm"]},["STR", "DEX", "MND"]],
-              "BLM":["Taranus's Cape",{"Magic Burst Damage":5, "Jobs":["blm"]},["STR", "DEX", "INT", "MND"]],
-              "RDM":["Sucellos's Cape",{"Jobs":["rdm"]},["STR", "DEX", "INT", "MND", "AGI"]],
-              "THF":["Toutatis's Cape",{"Sneak Attack Bonus":10, "TA Damage%":20, "Jobs":["thf"]},["STR", "DEX", "VIT", "AGI", "INT", "MND", "CHR"]],
-              "PLD":["Rudianos's Mantle",{"Jobs":["pld"]},["STR", "DEX", "INT", "AGI", "MND", "VIT",]],
-              "DRK":["Ankou's Mantle",{"Jobs":["drk"]},["STR", "DEX", "VIT", "INT"]],
-              "BST":["Artio's Mantle",{"Jobs":["bst"]},["STR", "DEX", "VIT", "INT", "CHR"]],
-              "BRD":["Intarabus's Cape",{"Jobs":["brd"]},["STR", "DEX", "CHR", "INT", "MND"]],
-              "RNG":["Belenus's Cape",{"Jobs":["rng"]},["STR", "DEX", "INT", "AGI",]],
-              "SMN":["Campestres's Cape",{"Jobs":["smn"]},["STR", "DEX", "INT", "MND", "CHR"]],
-              "SAM":["Smertrios's Mantle",{"Jobs":["sam"]},["STR", "DEX", "VIT", "INT", "AGI"]],
-              "NIN":["Andartia's Mantle",{"Jobs":["nin"]},["STR", "DEX", "INT", "AGI"]],
-              "DRG":["Brigantia's Mantle",{"Jobs":["drg"]},["STR", "DEX", "VIT", "AGI", "INT"]],
-              "BLU":["Rosmerta's Cape",{"Jobs":["blu"]},["STR", "DEX", "INT", "AGI", "MND",]],
-              "COR":["Camulus's Mantle",{"Triple Shot":5, "Jobs":["cor"]},["STR", "DEX", "AGI", "INT"]],
-              "PUP":["Visucius's Mantle",{"Jobs":["pup"]},["STR", "DEX", "INT", "VIT",]],
-              "DNC":["Senuna's Mantle",{"Crit Damage":5, "Jobs":["dnc"]},["STR", "DEX", "VIT", "AGI", "INT", "MND", "CHR"]],
-              "SCH":["Lugh's Cape",{"Skillchain Bonus":10, "Jobs":["sch"]},["STR", "DEX", "INT", "MND"]],
-              "GEO":["Nantosuelta's Cape",{"Jobs":["geo"]},["STR", "DEX", "INT", "CHR", "MND"]],
-              "RUN":["Ogma's cape",{"Jobs":["run"]},["STR", "DEX", "INT", "VIT",]],
+              "WAR":["Cichol's Mantle",{"DA Damage%":20, "Jobs":["war"]},["Str", "DEX", "VIT", "AGI", "INT", "MND", "CHR"]],
+              "MNK":["Segomo's Mantle",{"Kick Attacks":10, "Kick Attacks DMG":25, "Jobs":["mnk"]},["Str", "DEX", "VIT", "AGI", "INT", "MND", "CHR"]],
+              "WHM":["Alaunus's Cape",{"Jobs":["whm"]},["Str", "DEX", "MND"]],
+              "BLM":["Taranus's Cape",{"Magic Burst Damage":5, "Jobs":["blm"]},["Str", "DEX", "INT", "MND"]],
+              "RDM":["Sucellos's Cape",{"Jobs":["rdm"]},["Str", "DEX", "INT", "MND", "AGI"]],
+              "THF":["Toutatis's Cape",{"Sneak Attack Bonus":10, "TA Damage%":20, "Jobs":["thf"]},["Str", "DEX", "VIT", "AGI", "INT", "MND", "CHR"]],
+              "PLD":["Rudianos's Mantle",{"Jobs":["pld"]},["Str", "DEX", "INT", "AGI", "MND", "VIT",]],
+              "DRK":["Ankou's Mantle",{"Jobs":["drk"]},["Str", "DEX", "VIT", "INT"]],
+              "BST":["Artio's Mantle",{"Jobs":["bst"]},["Str", "DEX", "VIT", "INT", "CHR"]],
+              "BRD":["Intarabus's Cape",{"Jobs":["brd"]},["Str", "DEX", "CHR", "INT", "MND"]],
+              "RNG":["Belenus's Cape",{"Jobs":["rng"]},["Str", "DEX", "INT", "AGI",]],
+              "SMN":["Campestres's Cape",{"Jobs":["smn"]},["Str", "DEX", "INT", "MND", "CHR"]],
+              "SAM":["Smertrios's Mantle",{"Jobs":["sam"]},["Str", "DEX", "VIT", "INT", "AGI"]],
+              "NIN":["Andartia's Mantle",{"Jobs":["nin"]},["Str", "DEX", "INT", "AGI"]],
+              "DRG":["Brigantia's Mantle",{"Jobs":["drg"]},["Str", "DEX", "VIT", "AGI", "INT"]],
+              "BLU":["Rosmerta's Cape",{"Jobs":["blu"]},["Str", "DEX", "INT", "AGI", "MND",]],
+              "COR":["Camulus's Mantle",{"Triple Shot":5, "Jobs":["cor"]},["Str", "DEX", "AGI", "INT"]],
+              "PUP":["Visucius's Mantle",{"Jobs":["pup"]},["Str", "DEX", "INT", "VIT",]],
+              "DNC":["Senuna's Mantle",{"Crit Damage":5, "Jobs":["dnc"]},["Str", "DEX", "VIT", "AGI", "INT", "MND", "CHR"]],
+              "SCH":["Lugh's Cape",{"SkillchainBonus":10, "Jobs":["sch"]},["Str", "DEX", "INT", "MND"]],
+              "GEO":["Nantosuelta's Cape",{"Jobs":["geo"]},["Str", "DEX", "INT", "CHR", "MND"]],
+              "RUN":["Ogma's cape",{"Jobs":["run"]},["Str", "DEX", "INT", "VIT",]],
             # Will add more capes as I add more jobs.
               }
 
 # Now list each base stat and the main stats you want to be considered with the base stat.
-ambu_stats = {"STR":["Weapon Skill Damage", "DA", "Crit Rate"],
+ambu_stats = {"Str":["Weapon Skill Damage", "DA", "Crit Rate"],
               "DEX":["Weapon Skill Damage", "DA", "Store TP", "Dual Wield", "Crit Rate"],
               "VIT":["Weapon Skill Damage", "DA"],
               "AGI":["Weapon Skill Damage", "DA", "Store TP", "Crit Rate", "Dual Wield"],
@@ -50,13 +50,13 @@ for job in cape_names:
             continue # Skip stats for jobs that don't use them. (For example: Don't consider ANY capes with CHR, MND, or VIT for NIN)
         for main_stat in ambu_stats[base_stat]:
             capes.append({**{"Name":f"{cape_names[job][0]}", "Name2":f"{cape_names[job][0]} {base_stat} {main_stat}", "Accuracy":20, "Attack":20, "PDT":-10, f"{base_stat}":30, f"{main_stat}":10}, **{i:cape_names[job][1][i] for i in cape_names[job][1]}})
-        if job in ["NIN", "RDM", "WHM", "BLM", "SCH", "GEO", "DRK", "WAR", "SAM", "RNG", "THF"] and base_stat in ["INT", "MND", "STR", "DEX", "AGI"]: # List of jobs that use magic weapon skills
-            if job=="SAM" and base_stat!="STR": # SAM only needs STR+WSD (probably)
+        if job in ["NIN", "RDM", "WHM", "BLM", "SCH", "GEO", "DRK", "WAR", "SAM", "RNG", "THF"] and base_stat in ["INT", "MND", "Str", "DEX", "AGI"]: # List of jobs that use magic weapon skills
+            if job=="SAM" and base_stat!="Str": # SAM only needs STR+WSD (probably)
                 continue
             # Add capes with Macc+Mdmg + WSD + STAT
             capes.append({**{"Name":f"{cape_names[job][0]}", "Name2":f"{cape_names[job][0]} {base_stat} Weapon Skill Damage (Magic)", f"{base_stat}":30, "Weapon Skill Damage":10, "Magic Accuracy":20, "Magic Damage":20, "PDT":-10}, **{i:cape_names[job][1][i] for i in cape_names[job][1]}})
 
-        if job in ["NIN", "RDM", "COR", "RNG", "SAM", "THF"] and base_stat in ["AGI", "STR", "DEX"]: # The list of jobs that might build physical ranged WS sets.
+        if job in ["NIN", "RDM", "COR", "RNG", "SAM", "THF"] and base_stat in ["AGI", "Str", "DEX"]: # The list of jobs that might build physical ranged WS sets.
             # add ranged WS sets with stat+30, WSD+10, Racc/Ratk+20 for a select few jobs. Only RNG gets a DEX cape, but it should use crit rate for jishnus  TODO
             # capes.append({**{"Name":f"{cape_names[job][0]}", "Name2":f"{cape_names[job][0]} {base_stat} Weapon Skill Damage (Ranged)", f"{base_stat}":30, "Weapon Skill Damage":10, "Ranged Accuracy":20, "Ranged Attack":20, "DT":-5}, **{i:cape_names[job][1][i] for i in cape_names[job][1]}})
             for main_stat in ["Weapon Skill Damage", "Crit Rate", "Store TP"]:

@@ -1,5 +1,5 @@
 Alber_Strap = {"Name":"Alber Strap", "Magic Attack":7, "DA":2, "Jobs":[]}
-Rigorous_Grip = {"Name":"Rigorous Grip +1", "Name2":"Rigorous Grip +1 R15", "STR":4+15, "Attack":13+30, "Accuracy":3, "Jobs":[]}
+Rigorous_Grip = {"Name":"Rigorous Grip +1", "Name2":"Rigorous Grip +1 R15", "Str":4+15, "Attack":13+30, "Accuracy":3, "Jobs":[]}
 Utu_Grip = {"Name":"Utu Grip", "Accuracy":30, "Attack":30, "WSC":["DEX",10], "Jobs":["drk", "sam", "war", "drg", "run"]}
 Niobid_Strap = {"Name":"Niobid Strap", "Accuracy":5, "Magic Accuracy":5, "Magic Attack":5, "Jobs":[]}
 Enki_Strap = {"Name":"Enki Strap", "INT":10, "MND":10, "Magic Accuracy":10, "Jobs":["blm", "rdm", "sch", "geo"]}

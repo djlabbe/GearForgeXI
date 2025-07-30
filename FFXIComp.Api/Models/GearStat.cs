@@ -9,7 +9,7 @@ namespace FFXIComp.Api.Models
         [JsonIgnore]
         public int Id { get; set; }
 
-        // Stat name, e.g. "STR", "DEX", "Accuracy"
+        // Stat name, e.g. "Str", "DEX", "Accuracy"
         [Required]
         public string Name { get; set; } = null!;
 

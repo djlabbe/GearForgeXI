@@ -38,10 +38,15 @@ export function GearSetComparer({ gearItems }: Props) {
     if (slot === "ear1" || slot === "ear2") filterSlot = "ear";
     else if (slot === "ring1" || slot === "ring2") filterSlot = "ring";
 
-    let items = gearItems.filter((item) => item.slot.toLowerCase() === filterSlot.toLowerCase());
+    let items = gearItems.filter(
+      (item) => item.slot.toLowerCase() === filterSlot.toLowerCase()
+    );
 
     if (slot === "sub") {
-      items = [...items, ...gearItems.filter((item) => item.slot.toLowerCase() === "main")].sort((a, b) => a.name.localeCompare(b.name));
+      items = [
+        ...items,
+        ...gearItems.filter((item) => item.slot.toLowerCase() === "main"),
+      ].sort((a, b) => a.name.localeCompare(b.name));
     }
     return items;
   };
@@ -103,7 +108,7 @@ export function GearSetComparer({ gearItems }: Props) {
     );
   };
 
-  const coreStatNames = ["STR", "DEX", "AGI", "VIT", "INT", "MND", "CHR"];
+  const coreStatNames = ["Str", "DEX", "AGI", "VIT", "INT", "MND", "CHR"];
   const meleeStatNames = [
     "Accuracy",
     "Attack",
@@ -150,8 +155,7 @@ export function GearSetComparer({ gearItems }: Props) {
                       : ""
                   }`}
                 >
-                  {stat.diff !== 0 &&
-                    `${stat.diff > 0 ? "+" : ""}${stat.diff}`}
+                  {stat.diff !== 0 && `${stat.diff > 0 ? "+" : ""}${stat.diff}`}
                 </td>
               </tr>
             ))}

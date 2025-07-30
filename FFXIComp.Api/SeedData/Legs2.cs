@@ -47,7 +47,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "StoreTP", Value = -5 },
                         new GearStat { Name = "DA", Value = 4 },
                         new GearStat { Name = "TA", Value = 3 },
-                        new GearStat { Name = "Crit Rate", Value = 5 }
+                        new GearStat { Name = "CritRate", Value = 5 }
                     }
                 },
                 new GearItem
@@ -77,7 +77,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Accuracy", Value = 45 },
                         new GearStat { Name = "Attack", Value = 45 },
                         new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "Magic Attack", Value = 42 },
+                        new GearStat { Name = "MagicAttack", Value = 42 },
                         new GearStat { Name = "GearHaste", Value = 2 },
                         new GearStat { Name = "StoreTP", Value = 9 }
                     }
@@ -102,10 +102,10 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Accuracy", Value = 63 },
                         new GearStat { Name = "Attack", Value = 63 },
                         new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "Magic Attack", Value = 58 },
+                        new GearStat { Name = "MagicAttack", Value = 58 },
                         new GearStat { Name = "MagicDamage", Value = 33 },
                         new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "Magic Burst Damage", Value = 15 }
+                        new GearStat { Name = "MagicBurstDamage", Value = 15 }
                     }
                 },
                 new GearItem
@@ -128,10 +128,10 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Accuracy", Value = 53 },
                         new GearStat { Name = "Attack", Value = 53 },
                         new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "Magic Attack", Value = 53 },
+                        new GearStat { Name = "MagicAttack", Value = 53 },
                         new GearStat { Name = "MagicDamage", Value = 23 },
                         new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "Magic Burst Damage", Value = 10 }
+                        new GearStat { Name = "MagicBurstDamage", Value = 10 }
                     }
                 },
                 new GearItem
@@ -232,7 +232,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Chr", Value = 32 },
                         new GearStat { Name = "Accuracy", Value = 63 },
                         new GearStat { Name = "MagicAccuracy", Value = 99 },
-                        new GearStat { Name = "Magic Attack", Value = 53 },
+                        new GearStat { Name = "MagicAttack", Value = 53 },
                         new GearStat { Name = "MagicDamage", Value = 33 },
                         new GearStat { Name = "GearHaste", Value = 5 }
                     }
@@ -257,7 +257,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Chr", Value = 27 },
                         new GearStat { Name = "Accuracy", Value = 53 },
                         new GearStat { Name = "MagicAccuracy", Value = 89 },
-                        new GearStat { Name = "Magic Attack", Value = 48 },
+                        new GearStat { Name = "MagicAttack", Value = 48 },
                         new GearStat { Name = "MagicDamage", Value = 23 },
                         new GearStat { Name = "GearHaste", Value = 5 }
                     }
@@ -286,7 +286,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "DA", Value = 8 },
                         new GearStat { Name = "Fencer", Value = 4 },
                         new GearStat { Name = "PDL", Value = 10 },
-                        new GearStat { Name = "TP Bonus", Value = 100 }
+                        new GearStat { Name = "TPBonus", Value = 100 }
                     }
                 },
                 new GearItem
@@ -386,8 +386,8 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Mnd", Value = 31 },
                         new GearStat { Name = "Chr", Value = 20 },
                         new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Ranged Accuracy", Value = 63 },
-                        new GearStat { Name = "Ranged Attack", Value = 63 },
+                        new GearStat { Name = "RangedAccuracy", Value = 63 },
+                        new GearStat { Name = "RangedAttack", Value = 63 },
                         new GearStat { Name = "MagicAccuracy", Value = 63 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "StoreTP", Value = 12 }
@@ -412,8 +412,8 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Mnd", Value = 26 },
                         new GearStat { Name = "Chr", Value = 15 },
                         new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Ranged Accuracy", Value = 53 },
-                        new GearStat { Name = "Ranged Attack", Value = 53 },
+                        new GearStat { Name = "RangedAccuracy", Value = 53 },
+                        new GearStat { Name = "RangedAttack", Value = 53 },
                         new GearStat { Name = "MagicAccuracy", Value = 53 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "StoreTP", Value = 11 }
@@ -487,7 +487,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Int", Value = 30 },
                         new GearStat { Name = "Mnd", Value = 17 },
                         new GearStat { Name = "Chr", Value = 11 },
-                        new GearStat { Name = "Ranged Attack", Value = 33 },
+                        new GearStat { Name = "RangedAttack", Value = 33 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "Crit Damage", Value = 6 }
                     }
@@ -520,8 +520,8 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Chr", Value = 18 },
                         new GearStat { Name = "Accuracy", Value = 49 },
                         new GearStat { Name = "Attack", Value = 45 },
-                        new GearStat { Name = "Ranged Accuracy", Value = 49 },
-                        new GearStat { Name = "Ranged Attack", Value = 45 },
+                        new GearStat { Name = "RangedAccuracy", Value = 49 },
+                        new GearStat { Name = "RangedAttack", Value = 45 },
                         new GearStat { Name = "GearHaste", Value = 4 },
                         new GearStat { Name = "TA", Value = 5 }
                     }
@@ -547,7 +547,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Int", Value = 29 },
                         new GearStat { Name = "Mnd", Value = 20 },
                         new GearStat { Name = "Chr", Value = 15 },
-                        new GearStat { Name = "Ranged Accuracy", Value = 46 },
+                        new GearStat { Name = "RangedAccuracy", Value = 46 },
                         new GearStat { Name = "MagicAccuracy", Value = 51 },
                         new GearStat { Name = "True Shot", Value = 5 },
                         new GearStat { Name = "Double Shot", Value = 7 },
@@ -600,7 +600,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Dex", Value = 43 },
                         new GearStat { Name = "Attack", Value = 38 },
                         new GearStat { Name = "Accuracy", Value = 20 },
-                        new GearStat { Name = "Crit Rate", Value = 3 }
+                        new GearStat { Name = "CritRate", Value = 3 }
                     }
                 },
                 new GearItem
@@ -625,7 +625,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Attack", Value = 63 },
                         new GearStat { Name = "MagicAccuracy", Value = 63 },
                         new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Crit Rate", Value = 7 }
+                        new GearStat { Name = "CritRate", Value = 7 }
                     }
                 },
                 new GearItem
@@ -650,7 +650,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Attack", Value = 53 },
                         new GearStat { Name = "MagicAccuracy", Value = 53 },
                         new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Crit Rate", Value = 6 }
+                        new GearStat { Name = "CritRate", Value = 6 }
                     }
                 },
                 new GearItem
@@ -822,10 +822,10 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Chr", Value = 32 },
                         new GearStat { Name = "Accuracy", Value = 63 },
                         new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "Magic Attack", Value = 58 },
+                        new GearStat { Name = "MagicAttack", Value = 58 },
                         new GearStat { Name = "MagicDamage", Value = 33 },
                         new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "Magic Burst Damage", Value = 15 }
+                        new GearStat { Name = "MagicBurstDamage", Value = 15 }
                     }
                 },
                 new GearItem
@@ -847,10 +847,10 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Chr", Value = 27 },
                         new GearStat { Name = "Accuracy", Value = 53 },
                         new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "Magic Attack", Value = 53 },
+                        new GearStat { Name = "MagicAttack", Value = 53 },
                         new GearStat { Name = "MagicDamage", Value = 23 },
                         new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "Magic Burst Damage", Value = 10 }
+                        new GearStat { Name = "MagicBurstDamage", Value = 10 }
                     }
                 },
                 new GearItem
@@ -920,13 +920,13 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Mnd", Value = 31 },
                         new GearStat { Name = "Chr", Value = 18 },
                         new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Ranged Accuracy", Value = 63 },
-                        new GearStat { Name = "Ranged Attack", Value = 73 },
+                        new GearStat { Name = "RangedAccuracy", Value = 63 },
+                        new GearStat { Name = "RangedAttack", Value = 73 },
                         new GearStat { Name = "MagicAccuracy", Value = 63 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "True Shot", Value = 8 },
                         new GearStat { Name = "StoreTP", Value = 12 },
-                        new GearStat { Name = "Crit Rate", Value = 6 }
+                        new GearStat { Name = "CritRate", Value = 6 }
                     }
                 },
                 new GearItem
@@ -948,13 +948,13 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Mnd", Value = 26 },
                         new GearStat { Name = "Chr", Value = 13 },
                         new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Ranged Accuracy", Value = 53 },
-                        new GearStat { Name = "Ranged Attack", Value = 63 },
+                        new GearStat { Name = "RangedAccuracy", Value = 53 },
+                        new GearStat { Name = "RangedAttack", Value = 63 },
                         new GearStat { Name = "MagicAccuracy", Value = 53 },
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "True Shot", Value = 6 },
                         new GearStat { Name = "StoreTP", Value = 11 },
-                        new GearStat { Name = "Crit Rate", Value = 5 }
+                        new GearStat { Name = "CritRate", Value = 5 }
                     }
                 },
                 new GearItem
@@ -1082,7 +1082,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Accuracy", Value = 63 },
                         new GearStat { Name = "Attack", Value = 63 },
                         new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "Magic Attack", Value = 53 },
+                        new GearStat { Name = "MagicAttack", Value = 53 },
                         new GearStat { Name = "GearHaste", Value = 5 }
                     }
                 },
@@ -1107,7 +1107,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Accuracy", Value = 53 },
                         new GearStat { Name = "Attack", Value = 53 },
                         new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "Magic Attack", Value = 48 },
+                        new GearStat { Name = "MagicAttack", Value = 48 },
                         new GearStat { Name = "GearHaste", Value = 5 }
                     }
                 },
@@ -1144,7 +1144,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Mnd", Value = 7 },
                         new GearStat { Name = "Chr", Value = 11 },
                         new GearStat { Name = "Accuracy", Value = 38 },
-                        new GearStat { Name = "Ranged Accuracy", Value = 38 },
+                        new GearStat { Name = "RangedAccuracy", Value = 38 },
                         new GearStat { Name = "Evasion", Value = 74 },
                         new GearStat { Name = "MagicEvastion", Value = 107 },
                         new GearStat { Name = "MagicDefense", Value = 6 },
@@ -1175,10 +1175,10 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "MagicDamage", Value = 55 },
                         new GearStat { Name = "Evasion", Value = 24 },
                         new GearStat { Name = "MagicEvastion", Value = 86 },
-                        new GearStat { Name = "Magic Attack", Value = 15 },
+                        new GearStat { Name = "MagicAttack", Value = 15 },
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "GearHaste", Value = 4 },
-                        new GearStat { Name = "Magic Burst Damage", Value = 6 }
+                        new GearStat { Name = "MagicBurstDamage", Value = 6 }
                     }
                 },
                 new GearItem
@@ -1208,7 +1208,7 @@ GearStats = new List<GearStat>
                         new GearStat { Name = "Chr", Value = 19 },
                         new GearStat { Name = "Evasion", Value = 27 },
                         new GearStat { Name = "MagicAccuracy", Value = 13 },
-                        new GearStat { Name = "Magic Attack", Value = 13 },
+                        new GearStat { Name = "MagicAttack", Value = 13 },
                         new GearStat { Name = "MagicEvastion", Value = 107 },
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "GearHaste", Value = 6 },
