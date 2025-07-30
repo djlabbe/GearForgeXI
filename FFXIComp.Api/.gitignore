@@ -75,3 +75,6 @@ _ReSharper*/
 wwwroot/build/
 wwwroot/static/
 wwwroot/assets/
+
+gear.db
+gear.db*
