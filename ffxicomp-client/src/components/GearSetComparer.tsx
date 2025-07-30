@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import type { GearItem } from "../models/GearItem";
 import type { GearSet, GearSlot } from "../models/GearSet";
 import { compareGearSets } from "../utils/compare";
+import { coreStatNames, combatStatNames, magicStatNames, defenseStatNames, statSkillNames, petStatNames } from "../utils/statGroups";
+import { GearSelect } from "./GearSelect";
+import StatTable from "./StatTable";
+import Card from "./Card";
 
 interface Props {
   gearItems: GearItem[];
@@ -56,20 +60,8 @@ export function GearSetComparer({ gearItems }: Props) {
     setComparison(result);
   }, [setA, setB]);
 
-  const handleSelect = (slot: GearSlot, value: string, isSetA: boolean) => {
+  const handleSelect = (slot: GearSlot, item: GearItem | undefined, isSetA: boolean) => {
     const updater = isSetA ? setSetA : setSetB;
-
-    if (value === "") {
-      updater((prev) => {
-        const updated = { ...prev };
-        updated[slot] = undefined;
-        return updated;
-      });
-      return;
-    }
-
-    const item = gearItems.find((g) => g.id === Number(value));
-    if (!item) return;
 
     updater((prev) => ({
       ...prev,
@@ -84,220 +76,35 @@ export function GearSetComparer({ gearItems }: Props) {
       <div className="grid grid-cols-4">
         {allSlots.map((slot) => {
           const options = getItemsBySlot(slot);
-          const selectedId = currentSet[slot]?.id ?? "";
+          const selectedItem = currentSet[slot];
 
           return (
-            <div key={slot} className="p-2">
-              <label className="block capitalize mb-1">{slot}</label>
-              <select
-                className="border w-full"
-                onChange={(e) => handleSelect(slot, e.target.value, isSetA)}
-                value={selectedId}
-              >
-                <option value="">Select...</option>
-                {options.map((item) => (
-                  <option key={item.id} value={item.id}>
-                    {item.name}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <GearSelect
+              key={slot}
+              label={slot}
+              options={options}
+              value={selectedItem}
+              onChange={(item) => handleSelect(slot, item, isSetA)}
+            />
           );
         })}
       </div>
     );
   };
 
-  const coreStatNames = ["Str", "Dex", "Agi", "Vit", "Int", "Mnd", "Chr"];
+  const getStatsByNames = (names: string[]) => {
+    return comparison
+      .filter((c) => names.includes(c.name))
+      .slice()
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }
 
-  const combatStatNames = [
-    "DMG",
-    "Delay",
-    "Accuracy",
-    "Attack",
-    "DA",
-    "TA",
-    "QA",
-    "GearHaste",
-    "StoreTP",
-    "WeaponSkillDamage",
-    "ConserveTP",
-    "RangedAccuracy",
-    "RangedAttack",
-    "DADamage%",
-    "DualWield",
-    "PDL",
-    "WeaponSkillAccuracy",
-    "SkillchainBonus",
-    "CritRate",
-    "TPBonus",
-    "MartialArts",
-    "SubtleBlow",
-    "SubtleBlowII",
-  ];
-
-  const magicStatNames = [
-    "MagicAccuracy",
-    "MagicAttack",
-    "MagicBurstDamage",
-    "ElementalBonus",
-    "MagicBurstAccuracy",
-    "MagicBurstDamageII",
-    "MagicDamage",
-    "EarthElementalBonus",
-    "EnSpellDamage",
-  ];
-
-  const defenseStatNames = [
-    "DT",
-    "MDT",
-    "PDT",
-    "Defense",
-    "Evasion",
-    "MagicEvasion",
-    "MagicDefense",
-  ];
-
-  const statSkillNames = [
-    "SwordSkill",
-    "AxeSkill",
-    "GreatSwordSkill",
-    "GreatAxeSkill",
-    "DaggerSkill",
-    "HandToHandSkill",
-    "StaffSkill",
-    "PolearmSkill",
-    "GreatKatanaSkill",
-    "KatanaSkill",
-    "ClubSkill",
-    "ArcherySkill",
-    "MarksmanshipSkill",
-    "ThrowingSkill",
-    "HealingSkill",
-    "ElementalMagicSkill",
-    "EnhancingSkill",
-    "EnfeeblingSkill",
-    "ElementalSkill",
-    "DarkSkill",
-    "DivineSkill",
-    "BlueMagicSkill",
-    "SummoningSkill",
-    "NinjutsuSkill",
-    "SingingSkill",
-    "StringSkill",
-    "WindSkill",
-    "MagicAccuracySkill",
-  ];
-
-  const petStatNames = [
-    "Pet:Accuracy",
-    "Pet:MagicAccuracy",
-    "Pet:RangedAccuracy",
-    "Pet:Str",
-    "Pet:Dex",
-    "Pet:Agi",
-    "Pet:Vit",
-    "Pet:Int",
-    "Pet:Mnd",
-    "Pet:Chr",
-    "Pet:Attack",
-    "Pet:MagicAttack",
-    "Pet:RangedAttack",
-    "Pet:SubtleBlow",
-    "AutomatonCombatSkill",
-    "Pet:GearHaste",
-    "Pet:DA",
-    "Pet:DT",
-  ];
-
-  const renderStatTable = (
-    title: string,
-    stats: { name: string; a: number; b: number; diff: number }[]
-  ) => {
-    if (stats.length === 0) {
-      return null;
-    }
-
-    return (
-      <div className="w-1/2 mb-8 px-2">
-        <h4 className="text-md font-semibold mb-2">{title}</h4>
-        <table className="table-fixed w-full text-sm border border-gray-300">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="text-left p-2 w-1/4">Stat</th>
-              <th className="text-right p-2 w-1/4">Set A</th>
-              <th className="text-right p-2 w-1/4">Set B</th>
-              <th className="text-right p-2 w-1/4">Diff</th>
-            </tr>
-          </thead>
-          <tbody>
-            {stats.map((stat) => {
-              const isNegativeStat = stat.a < 0 || stat.b < 0;
-              let diffClass = "";
-              if (stat.diff !== 0) {
-                if (isNegativeStat) {
-                  diffClass =
-                    stat.diff > 0
-                      ? "text-red-600"
-                      : stat.diff < 0
-                      ? "text-green-600"
-                      : "";
-                } else {
-                  diffClass =
-                    stat.diff > 0
-                      ? "text-green-600"
-                      : stat.diff < 0
-                      ? "text-red-600"
-                      : "";
-                }
-              }
-              return (
-                <tr key={stat.name} className="border-t">
-                  <td className="p-2">{stat.name}</td>
-                  <td className="text-right p-2">{stat.a}</td>
-                  <td className="text-right p-2">{stat.b}</td>
-                  <td className={`text-right p-2 ${diffClass}`}>
-                    {stat.diff !== 0 &&
-                      `${stat.diff > 0 ? "+" : ""}${stat.diff}`}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    );
-  };
-
-  const coreStats = comparison
-    .filter((c) => coreStatNames.includes(c.name))
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name));
-
-  const meleeStats = comparison
-    .filter((c) => combatStatNames.includes(c.name))
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name));
-
-  const magicStats = comparison
-    .filter((c) => magicStatNames.includes(c.name))
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name));
-
-  const defenseStats = comparison
-    .filter((c) => defenseStatNames.includes(c.name))
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name));
-
-  const statSkills = comparison
-    .filter((c) => statSkillNames.includes(c.name))
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name));
-
-  const petStats = comparison
-    .filter((c) => petStatNames.includes(c.name))
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name));
+  const coreStats = getStatsByNames(coreStatNames);
+  const meleeStats = getStatsByNames(combatStatNames);
+  const magicStats = getStatsByNames(magicStatNames);
+  const defenseStats = getStatsByNames(defenseStatNames);
+  const statSkills = getStatsByNames(statSkillNames);
+  const petStats = getStatsByNames(petStatNames);
 
   const otherStats = comparison
     .filter(
@@ -314,29 +121,28 @@ export function GearSetComparer({ gearItems }: Props) {
 
   return (
     <div>
-      <div className="flex mb-8">
-        <div className="w-1/2 border rounded p-6 mr-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Card className="mb-3">
           <h3 className="font-semibold mb-2">Set A</h3>
           {renderGearGrid(true)}
-        </div>
-        <div className="w-1/2 border rounded p-6">
-          <h3 className="text-lg font-semibold mb-2">Set B</h3>
+        </Card>
+        <Card className="mb-3">
+          <h3 className="text-lg font-semibold mb-3">Set B</h3>
           {renderGearGrid(false)}
-        </div>
+        </Card>
       </div>
 
-      <h3 className="text-lg font-semibold mb-2">Stat Comparison</h3>
       {comparison.length === 0 ? (
-        <p className="text-gray-500 italic">Select gear to compare.</p>
+        <p className="text-gray-500 dark:text-gray-400 italic">Select gear to compare.</p>
       ) : (
-        <div className="flex flex-wrap -mx-2">
-          {renderStatTable("Core Stats", coreStats)}
-          {renderStatTable("Skills", statSkills)}
-          {renderStatTable("Combat", meleeStats)}
-          {renderStatTable("Magic", magicStats)}
-          {renderStatTable("Defense", defenseStats)}
-          {renderStatTable("Pet", petStats)}
-          {renderStatTable("Other", otherStats)}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <StatTable title="Core Stats" stats={coreStats} />
+          <StatTable title="Skills" stats={statSkills} />
+          <StatTable title="Combat" stats={meleeStats} />
+          <StatTable title="Magic" stats={magicStats} />
+          <StatTable title="Defense" stats={defenseStats} />
+          <StatTable title="Pet" stats={petStats} />
+          <StatTable title="Other" stats={otherStats} />
         </div>
       )}
     </div>

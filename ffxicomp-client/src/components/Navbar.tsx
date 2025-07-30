@@ -5,23 +5,23 @@ export function Navbar() {
 
   const isActive = (path: string) =>
     location.pathname === path
-      ? "text-white bg-blue-700"
-      : "text-blue-100 hover:text-white hover:bg-blue-600";
+      ? "bg-primary text-primary-foreground"
+      : "hover:bg-muted hover:text-foreground text-muted-foreground";
 
   return (
-    <header className="bg-black text-white shadow mb-6">
-      <div className=" mx-auto px-4 py-4 flex items-center justify-between">
+    <header className="bg-background text-foreground shadow mb-6 border-b border-border">
+      <div className="mx-auto px-4 py-4 flex items-center justify-between">
         <h1 className="text-2xl font-bold">FFXI Compare</h1>
         <nav className="space-x-2">
           <Link
             to="/"
-            className={`px-4 py-2 rounded transition ${isActive("/")}`}
+            className={`px-4 py-2 rounded transition-colors duration-150 ${isActive("/")}`}
           >
             Compare Sets
           </Link>
           <Link
             to="/browse"
-            className={`px-4 py-2 rounded transition ${isActive("/browse")}`}
+            className={`px-4 py-2 rounded transition-colors duration-150 ${isActive("/browse")}`}
           >
             Browse Gear
           </Link>

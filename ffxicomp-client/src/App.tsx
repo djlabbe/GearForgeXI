@@ -5,7 +5,7 @@ import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
-    <div className="font-inter">
+    <div className="font-inter bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen transition-colors">
       <Router>
         <Navbar />
         <main className="p-4 max-w-8xl mx-auto">
