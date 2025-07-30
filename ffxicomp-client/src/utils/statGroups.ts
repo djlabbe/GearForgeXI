@@ -25,6 +25,7 @@
     "MartialArts",
     "SubtleBlow",
     "SubtleBlowII",
+    "CritDamage",
   ];
 
   export const magicStatNames = [

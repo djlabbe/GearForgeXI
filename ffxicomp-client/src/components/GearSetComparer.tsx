@@ -132,19 +132,16 @@ export function GearSetComparer({ gearItems }: Props) {
         </Card>
       </div>
 
-      {comparison.length === 0 ? (
-        <p className="text-gray-500 dark:text-gray-400 italic">Select gear to compare.</p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <StatTable title="Core Stats" stats={coreStats} />
-          <StatTable title="Skills" stats={statSkills} />
-          <StatTable title="Combat" stats={meleeStats} />
-          <StatTable title="Magic" stats={magicStats} />
-          <StatTable title="Defense" stats={defenseStats} />
-          <StatTable title="Pet" stats={petStats} />
-          <StatTable title="Other" stats={otherStats} />
-        </div>
-      )}
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <StatTable title="Core Stats" stats={coreStats} />
+        <StatTable title="Skills" stats={statSkills} />
+        <StatTable title="Combat" stats={meleeStats} />
+        <StatTable title="Magic" stats={magicStats} />
+        <StatTable title="Defense" stats={defenseStats} />
+        <StatTable title="Pet" stats={petStats} />
+        <StatTable title="Other" stats={otherStats} />
+      </div>
     </div>
   );
 }

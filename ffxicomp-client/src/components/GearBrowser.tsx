@@ -10,13 +10,15 @@ function groupBySlot(items: GearItem[]) {
   }, {});
 }
 
-function getAllJobs(items: GearItem[]) {
-  const jobs = new Set<string>();
-  items.forEach((item) => {
-    item.gearItemJobs.forEach((j) => jobs.add(j.jobName));
-  });
-  return Array.from(jobs).sort();
-}
+const allJobs = ["WAR", "MNK", "WHM", "BLM", "RDM", "THF", "PLD", "DRK", "BST", "BRD", "RNG", "SMN", "SAM", "NIN", "DRG", "BLU", "COR", "PUP", "DNC", "SCH", "GEO", "RUN"]
+
+// function getAllJobs(items: GearItem[]) {
+//   const jobs = new Set<string>();
+//   items.forEach((item) => {
+//     item.gearItemJobs.forEach((j) => jobs.add(j.jobName));
+//   });
+//   return Array.from(jobs).sort();
+// }
 
 export function GearBrowser() {
   const [gearItems, setGearItems] = useState<GearItem[]>([]);
@@ -40,15 +42,14 @@ export function GearBrowser() {
 
   const grouped = groupBySlot(gearItems);
   const slots = Object.keys(grouped);
-  const jobs = getAllJobs(gearItems);
 
   const filteredItems =
     selectedSlot && grouped[selectedSlot]
       ? grouped[selectedSlot].filter((item) =>
-          item.name.toLowerCase().includes(filter.toLowerCase()) &&
-          (selectedJob === "" ||
-            item.gearItemJobs.some((j) => j.jobName === selectedJob))
-        )
+        item.name.toLowerCase().includes(filter.toLowerCase()) &&
+        (selectedJob === "" ||
+          item.gearItemJobs.some((j) => j.jobName === selectedJob))
+      )
       : [];
 
   if (loading) {
@@ -75,10 +76,11 @@ export function GearBrowser() {
             <button
               key={slot}
               onClick={() => setSelectedSlot(slot)}
-              className={`px-4 py-2 rounded ${selectedSlot === slot
+              className={`px-3 py-1 rounded w-24 text-center ${selectedSlot === slot
                 ? "bg-blue-600 text-white"
                 : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                 }`}
+              style={{ minWidth: "6rem" }}
             >
               {slot}
             </button>
@@ -87,18 +89,18 @@ export function GearBrowser() {
         <div className="flex space-x-2 mb-2 flex-wrap">
           <button
             onClick={() => setSelectedJob("")}
-            className={`px-3 py-1 rounded ${selectedJob === ""
+            className={`px-3 py-1 my-1 rounded w-24 ${selectedJob === ""
               ? "bg-blue-600 text-white"
               : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               }`}
           >
             All Jobs
           </button>
-          {jobs.map((job) => (
+          {allJobs.map((job) => (
             <button
               key={job}
               onClick={() => setSelectedJob(job)}
-              className={`px-3 py-1 rounded ${selectedJob === job
+              className={`px-3 py-1 my-1 rounded w-24 ${selectedJob === job
                 ? "bg-blue-600 text-white"
                 : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                 }`}
