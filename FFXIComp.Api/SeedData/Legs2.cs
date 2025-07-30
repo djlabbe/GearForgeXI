@@ -13,21 +13,21 @@ namespace FFXIComp.Api.SeedData
                     Name = "Zoar Subligar +1 R15",
                     GearItemJobs =  new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" },
-                        new GearItemJob { JobName = "rdm" },
-                        new GearItemJob { JobName = "thf" },
-                        new GearItemJob { JobName = "pld" },
-                        new GearItemJob { JobName = "drk" },
-                        new GearItemJob { JobName = "bst" },
-                        new GearItemJob { JobName = "brd" },
-                        new GearItemJob { JobName = "rng" },
-                        new GearItemJob { JobName = "sam" },
-                        new GearItemJob { JobName = "nin" },
-                        new GearItemJob { JobName = "drg" },
-                        new GearItemJob { JobName = "blu" },
-                        new GearItemJob { JobName = "cor" },
-                        new GearItemJob { JobName = "dnc" },
-                        new GearItemJob { JobName = "run" }
+                        new GearItemJob { JobName = "WAR" },
+                        new GearItemJob { JobName = "RDM" },
+                        new GearItemJob { JobName = "THF" },
+                        new GearItemJob { JobName = "PLD" },
+                        new GearItemJob { JobName = "DRK" },
+                        new GearItemJob { JobName = "BST" },
+                        new GearItemJob { JobName = "BRD" },
+                        new GearItemJob { JobName = "RNG" },
+                        new GearItemJob { JobName = "SAM" },
+                        new GearItemJob { JobName = "NIN" },
+                        new GearItemJob { JobName = "DRG" },
+                        new GearItemJob { JobName = "BLU" },
+                        new GearItemJob { JobName = "COR" },
+                        new GearItemJob { JobName = "DNC" },
+                        new GearItemJob { JobName = "RUN" }
                     },
                     Slot = "Legs",
 GearStats = new List<GearStat>
@@ -55,11 +55,11 @@ GearStats = new List<GearStat>
                     Name = "Jhakri Slops +2",
                     GearItemJobs =  new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "blm" },
-                        new GearItemJob { JobName = "rdm" },
-                        new GearItemJob { JobName = "blu" },
-                        new GearItemJob { JobName = "sch" },
-                        new GearItemJob { JobName = "geo" }
+                        new GearItemJob { JobName = "BLM" },
+                        new GearItemJob { JobName = "RDM" },
+                        new GearItemJob { JobName = "BLU" },
+                        new GearItemJob { JobName = "SCH" },
+                        new GearItemJob { JobName = "GEO" }
                     },
                     Slot = "Legs",
 GearStats = new List<GearStat>
@@ -85,7 +85,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Lethargy Fuseau +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "rdm" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "RDM" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -111,7 +111,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Lethargy Fuseau +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "rdm" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "RDM" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -137,7 +137,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Peltast's Cuissots +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "drg" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "DRG" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -161,7 +161,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Peltast's Cuissots +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "drg" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "DRG" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -187,11 +187,11 @@ GearStats = new List<GearStat>
                     Name = "Ayanmo Cosciales +2",
                     GearItemJobs =  new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "whm" },
-                        new GearItemJob { JobName = "rdm" },
-                        new GearItemJob { JobName = "brd" },
-                        new GearItemJob { JobName = "blu" },
-                        new GearItemJob { JobName = "run" }
+                        new GearItemJob { JobName = "WHM" },
+                        new GearItemJob { JobName = "RDM" },
+                        new GearItemJob { JobName = "BRD" },
+                        new GearItemJob { JobName = "BLU" },
+                        new GearItemJob { JobName = "RUN" }
                     },
                     Slot = "Legs",
 GearStats = new List<GearStat>
@@ -215,7 +215,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Arbatel Pants +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "sch" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "SCH" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -240,7 +240,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Arbatel Pants +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "sch" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "SCH" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -265,7 +265,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Boii Cuisses +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "war" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "WAR" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -292,7 +292,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Boii Cuisses +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "war" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "WAR" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -318,7 +318,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Kasuga Haidate +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "sam" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "SAM" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -344,7 +344,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Kasuga Haidate +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "sam" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "SAM" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -370,7 +370,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Chasseur's Culottes +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "cor" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "COR" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -396,7 +396,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Chasseur's Culottes +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "cor" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "COR" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -422,7 +422,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Fili Rhingrave +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "brd" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "BRD" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -445,7 +445,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Fili Rhingrave +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "brd" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "BRD" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -470,9 +470,9 @@ GearStats = new List<GearStat>
                     Name = "Darraigner's Brais",
                     GearItemJobs =  new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "thf" },
-                        new GearItemJob { JobName = "rng" },
-                        new GearItemJob { JobName = "cor" }
+                        new GearItemJob { JobName = "THF" },
+                        new GearItemJob { JobName = "RNG" },
+                        new GearItemJob { JobName = "COR" }
                     },
                     Slot = "Legs",
 GearStats = new List<GearStat>
@@ -497,12 +497,12 @@ GearStats = new List<GearStat>
                     Name = "Meghanada Chausses +2",
                     GearItemJobs =  new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "thf" },
-                        new GearItemJob { JobName = "rng" },
-                        new GearItemJob { JobName = "bst" },
-                        new GearItemJob { JobName = "cor" },
-                        new GearItemJob { JobName = "dnc" },
-                        new GearItemJob { JobName = "run" }
+                        new GearItemJob { JobName = "THF" },
+                        new GearItemJob { JobName = "RNG" },
+                        new GearItemJob { JobName = "BST" },
+                        new GearItemJob { JobName = "COR" },
+                        new GearItemJob { JobName = "DNC" },
+                        new GearItemJob { JobName = "RUN" }
                     },
                     Slot = "Legs",
 GearStats = new List<GearStat>
@@ -531,8 +531,8 @@ GearStats = new List<GearStat>
                     Name = "Oshosi Trousers +1",
                     GearItemJobs =  new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "cor" },
-                        new GearItemJob { JobName = "rng" }
+                        new GearItemJob { JobName = "COR" },
+                        new GearItemJob { JobName = "RNG" }
                     },
                     Slot = "Legs",
 GearStats = new List<GearStat>
@@ -559,15 +559,15 @@ GearStats = new List<GearStat>
                     Name = "Lustratio Subligar +1 R15A",
                     GearItemJobs =  new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" },
-                        new GearItemJob { JobName = "thf" },
-                        new GearItemJob { JobName = "pld" },
-                        new GearItemJob { JobName = "drk" },
-                        new GearItemJob { JobName = "bst" },
-                        new GearItemJob { JobName = "brd" },
-                        new GearItemJob { JobName = "drg" },
-                        new GearItemJob { JobName = "dnc" },
-                        new GearItemJob { JobName = "run" }
+                        new GearItemJob { JobName = "WAR" },
+                        new GearItemJob { JobName = "THF" },
+                        new GearItemJob { JobName = "PLD" },
+                        new GearItemJob { JobName = "DRK" },
+                        new GearItemJob { JobName = "BST" },
+                        new GearItemJob { JobName = "BRD" },
+                        new GearItemJob { JobName = "DRG" },
+                        new GearItemJob { JobName = "DNC" },
+                        new GearItemJob { JobName = "RUN" }
                     },
                     Slot = "Legs",
 GearStats = new List<GearStat>
@@ -583,15 +583,15 @@ GearStats = new List<GearStat>
                     Name = "Lustratio Subligar +1 R15B",
                     GearItemJobs =  new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" },
-                        new GearItemJob { JobName = "thf" },
-                        new GearItemJob { JobName = "pld" },
-                        new GearItemJob { JobName = "drk" },
-                        new GearItemJob { JobName = "bst" },
-                        new GearItemJob { JobName = "brd" },
-                        new GearItemJob { JobName = "drg" },
-                        new GearItemJob { JobName = "dnc" },
-                        new GearItemJob { JobName = "run" }
+                        new GearItemJob { JobName = "WAR" },
+                        new GearItemJob { JobName = "THF" },
+                        new GearItemJob { JobName = "PLD" },
+                        new GearItemJob { JobName = "DRK" },
+                        new GearItemJob { JobName = "BST" },
+                        new GearItemJob { JobName = "BRD" },
+                        new GearItemJob { JobName = "DRG" },
+                        new GearItemJob { JobName = "DNC" },
+                        new GearItemJob { JobName = "RUN" }
                     },
                     Slot = "Legs",
 GearStats = new List<GearStat>
@@ -606,7 +606,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Skulker's Culottes +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "thf" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "THF" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -631,7 +631,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Skulker's Culottes +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "thf" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "THF" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -656,7 +656,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Bhikku Hose +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "mnk" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "MNK" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -682,7 +682,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Bhikku Hose +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "mnk" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "MNK" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -708,7 +708,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Maculele Tights +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "dnc" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "DNC" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -733,7 +733,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Maculele Tights +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "dnc" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "DNC" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -758,7 +758,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Nukumi Quijotes +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "bst" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "BST" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -782,7 +782,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Nukumi Quijotes +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "bst" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "BST" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -806,7 +806,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Azimuth Tights +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "geo" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "GEO" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -831,7 +831,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Azimuth Tights +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "geo" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "GEO" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -856,7 +856,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Chevalier's Cuisses +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "pld" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "PLD" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -880,7 +880,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Chevalier's Cuisses +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "pld" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "PLD" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -904,7 +904,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Amini Bragues +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "rng" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "RNG" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -932,7 +932,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Amini Bragues +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "rng" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "RNG" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -960,7 +960,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Erilaz Leg Guards +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "run" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "RUN" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -984,7 +984,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Erilaz Leg Guards +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "run" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "RUN" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -1008,7 +1008,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Karagoz Pantaloni +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "pup" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "PUP" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -1036,7 +1036,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Karagoz Pantaloni +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "pup" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "PUP" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -1064,7 +1064,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Hashishin Tayt +3",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "blu" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "BLU" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -1089,7 +1089,7 @@ GearStats = new List<GearStat>
                 new GearItem
                 {
                     Name = "Hashishin Tayt +2",
-                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "blu" } },
+                    GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobName = "BLU" } },
                     Slot = "Legs",
 GearStats = new List<GearStat>
                     {
@@ -1116,23 +1116,23 @@ GearStats = new List<GearStat>
                     Name = "Volte Tights",
                     GearItemJobs =  new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" },
-                        new GearItemJob { JobName = "mnk" },
-                        new GearItemJob { JobName = "rdm" },
-                        new GearItemJob { JobName = "thf" },
-                        new GearItemJob { JobName = "pld" },
-                        new GearItemJob { JobName = "drk" },
-                        new GearItemJob { JobName = "bst" },
-                        new GearItemJob { JobName = "brd" },
-                        new GearItemJob { JobName = "rng" },
-                        new GearItemJob { JobName = "sam" },
-                        new GearItemJob { JobName = "nin" },
-                        new GearItemJob { JobName = "drg" },
-                        new GearItemJob { JobName = "blu" },
-                        new GearItemJob { JobName = "cor" },
-                        new GearItemJob { JobName = "pup" },
-                        new GearItemJob { JobName = "dnc" },
-                        new GearItemJob { JobName = "run" }
+                        new GearItemJob { JobName = "WAR" },
+                        new GearItemJob { JobName = "MNK" },
+                        new GearItemJob { JobName = "RDM" },
+                        new GearItemJob { JobName = "THF" },
+                        new GearItemJob { JobName = "PLD" },
+                        new GearItemJob { JobName = "DRK" },
+                        new GearItemJob { JobName = "BST" },
+                        new GearItemJob { JobName = "BRD" },
+                        new GearItemJob { JobName = "RNG" },
+                        new GearItemJob { JobName = "SAM" },
+                        new GearItemJob { JobName = "NIN" },
+                        new GearItemJob { JobName = "DRG" },
+                        new GearItemJob { JobName = "BLU" },
+                        new GearItemJob { JobName = "COR" },
+                        new GearItemJob { JobName = "PUP" },
+                        new GearItemJob { JobName = "DNC" },
+                        new GearItemJob { JobName = "RUN" }
                     },
                     Slot = "Legs",
 GearStats = new List<GearStat>
@@ -1158,9 +1158,9 @@ GearStats = new List<GearStat>
                     Name = "Mallquis Trews +2",
                     GearItemJobs =  new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "blm" },
-                        new GearItemJob { JobName = "sch" },
-                        new GearItemJob { JobName = "geo" }
+                        new GearItemJob { JobName = "BLM" },
+                        new GearItemJob { JobName = "SCH" },
+                        new GearItemJob { JobName = "GEO" }
                     },
                     Slot = "Legs",
 GearStats = new List<GearStat>
@@ -1186,16 +1186,16 @@ GearStats = new List<GearStat>
                     Name = "Perdition Slops",
                     GearItemJobs =  new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "whm" },
-                        new GearItemJob { JobName = "blm" },
-                        new GearItemJob { JobName = "rdm" },
-                        new GearItemJob { JobName = "brd" },
-                        new GearItemJob { JobName = "smn" },
-                        new GearItemJob { JobName = "blu" },
-                        new GearItemJob { JobName = "pup" },
-                        new GearItemJob { JobName = "sch" },
-                        new GearItemJob { JobName = "geo" },
-                        new GearItemJob { JobName = "run" }
+                        new GearItemJob { JobName = "WHM" },
+                        new GearItemJob { JobName = "BLM" },
+                        new GearItemJob { JobName = "RDM" },
+                        new GearItemJob { JobName = "BRD" },
+                        new GearItemJob { JobName = "SMN" },
+                        new GearItemJob { JobName = "BLU" },
+                        new GearItemJob { JobName = "PUP" },
+                        new GearItemJob { JobName = "SCH" },
+                        new GearItemJob { JobName = "GEO" },
+                        new GearItemJob { JobName = "RUN" }
                     },
                     Slot = "Legs",
 GearStats = new List<GearStat>

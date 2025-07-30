@@ -22,7 +22,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "StoreTP", Value = 13 },
                         new GearStat { Name = "Zanshin", Value = 5 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "sam" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "SAM" } }
                 },
                 new GearItem
                 {

@@ -140,12 +140,12 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" },
-                        new GearItemJob { JobName = "pld" },
-                        new GearItemJob { JobName = "drk" },
-                        new GearItemJob { JobName = "bst" },
-                        new GearItemJob { JobName = "sam" },
-                        new GearItemJob { JobName = "nin" }
+                        new GearItemJob { JobName = "WAR" },
+                        new GearItemJob { JobName = "PLD" },
+                        new GearItemJob { JobName = "DRK" },
+                        new GearItemJob { JobName = "BST" },
+                        new GearItemJob { JobName = "SAM" },
+                        new GearItemJob { JobName = "NIN" }
                     }
                 },
                 new GearItem
@@ -162,12 +162,12 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" },
-                        new GearItemJob { JobName = "pld" },
-                        new GearItemJob { JobName = "drk" },
-                        new GearItemJob { JobName = "bst" },
-                        new GearItemJob { JobName = "sam" },
-                        new GearItemJob { JobName = "nin" }
+                        new GearItemJob { JobName = "WAR" },
+                        new GearItemJob { JobName = "PLD" },
+                        new GearItemJob { JobName = "DRK" },
+                        new GearItemJob { JobName = "BST" },
+                        new GearItemJob { JobName = "SAM" },
+                        new GearItemJob { JobName = "NIN" }
                     }
                 },
                 new GearItem
@@ -206,14 +206,14 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "mnk" },
-                        new GearItemJob { JobName = "thf" },
-                        new GearItemJob { JobName = "rng" },
-                        new GearItemJob { JobName = "nin" },
-                        new GearItemJob { JobName = "blu" },
-                        new GearItemJob { JobName = "cor" },
-                        new GearItemJob { JobName = "dnc" },
-                        new GearItemJob { JobName = "run" }
+                        new GearItemJob { JobName = "MNK" },
+                        new GearItemJob { JobName = "THF" },
+                        new GearItemJob { JobName = "RNG" },
+                        new GearItemJob { JobName = "NIN" },
+                        new GearItemJob { JobName = "BLU" },
+                        new GearItemJob { JobName = "COR" },
+                        new GearItemJob { JobName = "DNC" },
+                        new GearItemJob { JobName = "RUN" }
                     }
                 },
                 new GearItem
@@ -228,11 +228,11 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" },
-                        new GearItemJob { JobName = "mnk" },
-                        new GearItemJob { JobName = "drk" },
-                        new GearItemJob { JobName = "sam" },
-                        new GearItemJob { JobName = "pup" }
+                        new GearItemJob { JobName = "WAR" },
+                        new GearItemJob { JobName = "MNK" },
+                        new GearItemJob { JobName = "DRK" },
+                        new GearItemJob { JobName = "SAM" },
+                        new GearItemJob { JobName = "PUP" }
                     }
                 },
                 new GearItem
@@ -248,11 +248,11 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" },
-                        new GearItemJob { JobName = "mnk" },
-                        new GearItemJob { JobName = "drk" },
-                        new GearItemJob { JobName = "sam" },
-                        new GearItemJob { JobName = "pup" }
+                        new GearItemJob { JobName = "WAR" },
+                        new GearItemJob { JobName = "MNK" },
+                        new GearItemJob { JobName = "DRK" },
+                        new GearItemJob { JobName = "SAM" },
+                        new GearItemJob { JobName = "PUP" }
                     }
                 },
                 new GearItem
@@ -269,11 +269,11 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" },
-                        new GearItemJob { JobName = "mnk" },
-                        new GearItemJob { JobName = "drk" },
-                        new GearItemJob { JobName = "sam" },
-                        new GearItemJob { JobName = "pup" }
+                        new GearItemJob { JobName = "WAR" },
+                        new GearItemJob { JobName = "MNK" },
+                        new GearItemJob { JobName = "DRK" },
+                        new GearItemJob { JobName = "SAM" },
+                        new GearItemJob { JobName = "PUP" }
                     }
                 },
                 new GearItem
@@ -291,11 +291,11 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" },
-                        new GearItemJob { JobName = "mnk" },
-                        new GearItemJob { JobName = "drk" },
-                        new GearItemJob { JobName = "sam" },
-                        new GearItemJob { JobName = "pup" }
+                        new GearItemJob { JobName = "WAR" },
+                        new GearItemJob { JobName = "MNK" },
+                        new GearItemJob { JobName = "DRK" },
+                        new GearItemJob { JobName = "SAM" },
+                        new GearItemJob { JobName = "PUP" }
                     }
                 },
                 new GearItem
@@ -313,11 +313,11 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" },
-                        new GearItemJob { JobName = "mnk" },
-                        new GearItemJob { JobName = "drk" },
-                        new GearItemJob { JobName = "sam" },
-                        new GearItemJob { JobName = "pup" }
+                        new GearItemJob { JobName = "WAR" },
+                        new GearItemJob { JobName = "MNK" },
+                        new GearItemJob { JobName = "DRK" },
+                        new GearItemJob { JobName = "SAM" },
+                        new GearItemJob { JobName = "PUP" }
                     }
                 },
                 new GearItem
@@ -370,12 +370,12 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" },
-                        new GearItemJob { JobName = "pld" },
-                        new GearItemJob { JobName = "drk" },
-                        new GearItemJob { JobName = "bst" },
-                        new GearItemJob { JobName = "sam" },
-                        new GearItemJob { JobName = "drg" }
+                        new GearItemJob { JobName = "WAR" },
+                        new GearItemJob { JobName = "PLD" },
+                        new GearItemJob { JobName = "DRK" },
+                        new GearItemJob { JobName = "BST" },
+                        new GearItemJob { JobName = "SAM" },
+                        new GearItemJob { JobName = "DRG" }
                     }
                 },
                 new GearItem
@@ -395,7 +395,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "nin" }
+                        new GearItemJob { JobName = "NIN" }
                     }
                 },
                 new GearItem
@@ -413,7 +413,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "nin" }
+                        new GearItemJob { JobName = "NIN" }
                     }
                 },
                 new GearItem
@@ -432,7 +432,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "drk" }
+                        new GearItemJob { JobName = "DRK" }
                     }
                 },
                 new GearItem
@@ -449,7 +449,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "drk" }
+                        new GearItemJob { JobName = "DRK" }
                     }
                 },
                 new GearItem
@@ -465,13 +465,13 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "blm" },
-                        new GearItemJob { JobName = "rdm" },
-                        new GearItemJob { JobName = "sch" },
-                        new GearItemJob { JobName = "geo" },
-                        new GearItemJob { JobName = "whm" },
-                        new GearItemJob { JobName = "brd" },
-                        new GearItemJob { JobName = "blu" }
+                        new GearItemJob { JobName = "BLM" },
+                        new GearItemJob { JobName = "RDM" },
+                        new GearItemJob { JobName = "SCH" },
+                        new GearItemJob { JobName = "GEO" },
+                        new GearItemJob { JobName = "WHM" },
+                        new GearItemJob { JobName = "BRD" },
+                        new GearItemJob { JobName = "BLU" }
                     }
                 },
                 new GearItem
@@ -487,12 +487,12 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "blm" },
-                        new GearItemJob { JobName = "rdm" },
-                        new GearItemJob { JobName = "sch" },
-                        new GearItemJob { JobName = "geo" },
-                        new GearItemJob { JobName = "drk" },
-                        new GearItemJob { JobName = "whm" }
+                        new GearItemJob { JobName = "BLM" },
+                        new GearItemJob { JobName = "RDM" },
+                        new GearItemJob { JobName = "SCH" },
+                        new GearItemJob { JobName = "GEO" },
+                        new GearItemJob { JobName = "DRK" },
+                        new GearItemJob { JobName = "WHM" }
                     }
                 },
                 new GearItem
@@ -507,9 +507,9 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "blm" },
-                        new GearItemJob { JobName = "sch" },
-                        new GearItemJob { JobName = "geo" }
+                        new GearItemJob { JobName = "BLM" },
+                        new GearItemJob { JobName = "SCH" },
+                        new GearItemJob { JobName = "GEO" }
                     }
                 },
                 new GearItem
@@ -526,7 +526,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "blm" }
+                        new GearItemJob { JobName = "BLM" }
                     }
                 },
                 new GearItem
@@ -541,7 +541,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "blm" }
+                        new GearItemJob { JobName = "BLM" }
                     }
                 },
                 new GearItem
@@ -557,14 +557,14 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "mnk" },
-                        new GearItemJob { JobName = "rdm" },
-                        new GearItemJob { JobName = "thf" },
-                        new GearItemJob { JobName = "bst" },
-                        new GearItemJob { JobName = "rng" },
-                        new GearItemJob { JobName = "drg" },
-                        new GearItemJob { JobName = "dnc" },
-                        new GearItemJob { JobName = "run" }
+                        new GearItemJob { JobName = "MNK" },
+                        new GearItemJob { JobName = "RDM" },
+                        new GearItemJob { JobName = "THF" },
+                        new GearItemJob { JobName = "BST" },
+                        new GearItemJob { JobName = "RNG" },
+                        new GearItemJob { JobName = "DRG" },
+                        new GearItemJob { JobName = "DNC" },
+                        new GearItemJob { JobName = "RUN" }
                     }
                 },
                 new GearItem
@@ -581,7 +581,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "rdm" }
+                        new GearItemJob { JobName = "RDM" }
                     }
                 },
                 new GearItem
@@ -596,7 +596,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "rdm" }
+                        new GearItemJob { JobName = "RDM" }
                     }
                 },
                 new GearItem
@@ -615,7 +615,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "drg" }
+                        new GearItemJob { JobName = "DRG" }
                     }
                 },
                 new GearItem
@@ -632,7 +632,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "drg" }
+                        new GearItemJob { JobName = "DRG" }
                     }
                 },
                 new GearItem
@@ -648,7 +648,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "whm" }
+                        new GearItemJob { JobName = "WHM" }
                     }
                 },
                 new GearItem
@@ -662,7 +662,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "whm" }
+                        new GearItemJob { JobName = "WHM" }
                     }
                 },
                 new GearItem
@@ -680,7 +680,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "sam" }
+                        new GearItemJob { JobName = "SAM" }
                     }
                 },
                 new GearItem
@@ -696,7 +696,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "sam" }
+                        new GearItemJob { JobName = "SAM" }
                     }
                 },
                 new GearItem
@@ -713,7 +713,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "sch" }
+                        new GearItemJob { JobName = "SCH" }
                     }
                 },
                 new GearItem
@@ -728,7 +728,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "sch" }
+                        new GearItemJob { JobName = "SCH" }
                     }
                 },
                 new GearItem
@@ -758,7 +758,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" }
+                        new GearItemJob { JobName = "WAR" }
                     }
                 },
                 new GearItem
@@ -774,7 +774,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "war" }
+                        new GearItemJob { JobName = "WAR" }
                     }
                 },
                 new GearItem
@@ -791,7 +791,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "cor" }
+                        new GearItemJob { JobName = "COR" }
                     }
                 },
                 new GearItem
@@ -806,7 +806,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "cor" }
+                        new GearItemJob { JobName = "COR" }
                     }
                 },
                 new GearItem
@@ -822,7 +822,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "brd" }
+                        new GearItemJob { JobName = "BRD" }
                     }
                 },
                 new GearItem
@@ -836,7 +836,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "brd" }
+                        new GearItemJob { JobName = "BRD" }
                     }
                 },
                 new GearItem
@@ -854,7 +854,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "thf" }
+                        new GearItemJob { JobName = "THF" }
                     }
                 },
                 new GearItem
@@ -870,7 +870,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "thf" }
+                        new GearItemJob { JobName = "THF" }
                     }
                 },
                 new GearItem
@@ -888,7 +888,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "mnk" }
+                        new GearItemJob { JobName = "MNK" }
                     }
                 },
                 new GearItem
@@ -904,7 +904,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "mnk" }
+                        new GearItemJob { JobName = "MNK" }
                     }
                 },
                 new GearItem
@@ -923,7 +923,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "dnc" }
+                        new GearItemJob { JobName = "DNC" }
                     }
                 },
                 new GearItem
@@ -940,7 +940,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "dnc" }
+                        new GearItemJob { JobName = "DNC" }
                     }
                 },
                 new GearItem
@@ -958,7 +958,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "bst" }
+                        new GearItemJob { JobName = "BST" }
                     }
                 },
                 new GearItem
@@ -974,7 +974,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "bst" }
+                        new GearItemJob { JobName = "BST" }
                     }
                 },
                 new GearItem
@@ -990,7 +990,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "geo" }
+                        new GearItemJob { JobName = "GEO" }
                     }
                 },
                 new GearItem
@@ -1004,7 +1004,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "geo" }
+                        new GearItemJob { JobName = "GEO" }
                     }
                 },
                 new GearItem
@@ -1017,10 +1017,10 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "bst" },
-                        new GearItemJob { JobName = "drg" },
-                        new GearItemJob { JobName = "smn" },
-                        new GearItemJob { JobName = "pup" }
+                        new GearItemJob { JobName = "BST" },
+                        new GearItemJob { JobName = "DRG" },
+                        new GearItemJob { JobName = "SMN" },
+                        new GearItemJob { JobName = "PUP" }
                     }
                 },
                 new GearItem
@@ -1037,7 +1037,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "pld" }
+                        new GearItemJob { JobName = "PLD" }
                     }
                 },
                 new GearItem
@@ -1052,7 +1052,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "pld" }
+                        new GearItemJob { JobName = "PLD" }
                     }
                 },
                 new GearItem
@@ -1070,7 +1070,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "rng" }
+                        new GearItemJob { JobName = "RNG" }
                     }
                 },
                 new GearItem
@@ -1086,7 +1086,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "rng" }
+                        new GearItemJob { JobName = "RNG" }
                     }
                 },
                 new GearItem
@@ -1105,7 +1105,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "pup" }
+                        new GearItemJob { JobName = "PUP" }
                     }
                 },
                 new GearItem
@@ -1122,7 +1122,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "pup" }
+                        new GearItemJob { JobName = "PUP" }
                     }
                 },
                 new GearItem
@@ -1140,7 +1140,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "blu" }
+                        new GearItemJob { JobName = "BLU" }
                     }
                 },
                 new GearItem
@@ -1156,7 +1156,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "blu" }
+                        new GearItemJob { JobName = "BLU" }
                     }
                 },
                 new GearItem
@@ -1174,7 +1174,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "run" }
+                        new GearItemJob { JobName = "RUN" }
                     }
                 },
                 new GearItem
@@ -1190,7 +1190,7 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "run" }
+                        new GearItemJob { JobName = "RUN" }
                     }
                 },
                 new GearItem
@@ -1233,8 +1233,8 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "rng" },
-                        new GearItemJob { JobName = "cor" }
+                        new GearItemJob { JobName = "RNG" },
+                        new GearItemJob { JobName = "COR" }
                     }
                 }
             };

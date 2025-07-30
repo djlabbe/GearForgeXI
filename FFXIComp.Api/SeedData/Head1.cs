@@ -30,7 +30,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 8 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 10 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "nin" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "NIN" } }
                 },
                 new GearItem
                 {
@@ -55,7 +55,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 8 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 12 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "nin" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "NIN" } }
                 },
                 new GearItem
                 {
@@ -80,7 +80,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 8 },
                         new GearStat { Name = "NinjutsuMagicAttack", Value = 21 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "nin" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "NIN" } }
                 },
                 new GearItem
                 {
@@ -105,7 +105,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 8 },
                         new GearStat { Name = "NinjutsuMagicAttack", Value = 21 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "nin" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "NIN" } }
                 },
                 new GearItem
                 {
@@ -132,7 +132,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "DualWield", Value = 7 },
                         new GearStat { Name = "InninDA", Value = 12 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "nin" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "NIN" } }
                 },
                 new GearItem
                 {
@@ -159,7 +159,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "DualWield", Value = 7 },
                         new GearStat { Name = "InninDA", Value = 13 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "nin" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "NIN" } }
                 },
                 new GearItem
                 {
@@ -182,7 +182,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "GearHaste", Value = 6 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "blm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "BLM" } }
                 },
                 new GearItem
                 {
@@ -206,7 +206,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicDefense", Value = 7 },
                         new GearStat { Name = "GearHaste", Value = 6 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "blm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "BLM" } }
                 },
                 new GearItem
                 {
@@ -230,7 +230,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Accuracy", Value = 37 },
                         new GearStat { Name = "GearHaste", Value = 6 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "blm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "BLM" } }
                 },
                 new GearItem
                 {
@@ -254,7 +254,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "ElementalMagicSkill", Value = 22 },
                         new GearStat { Name = "GearHaste", Value = 6 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "blm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "BLM" } }
                 },
                 new GearItem
                 {
@@ -280,7 +280,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "ElementalMagicSkill", Value = 30 },
                         new GearStat { Name = "GearHaste", Value = 6 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "blm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "BLM" } }
                 },
                 new GearItem
                 {
@@ -306,7 +306,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "ElementalMagicSkill", Value = 35 },
                         new GearStat { Name = "GearHaste", Value = 6 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "blm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "BLM" } }
                 },
                 new GearItem
                 {
@@ -329,7 +329,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "MagicBurstDamage", Value = 10 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "rdm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "RDM" } }
                 },
                 new GearItem
                 {
@@ -353,7 +353,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "MagicBurstDamage", Value = 10 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "rdm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "RDM" } }
                 },
                 new GearItem
                 {
@@ -377,7 +377,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 6 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "rdm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "RDM" } }
                 },
                 new GearItem
                 {
@@ -401,7 +401,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 9 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "rdm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "RDM" } }
                 },
                 new GearItem
                 {
@@ -427,7 +427,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicDamage", Value = 21 },
                         new GearStat { Name = "GearHaste", Value = 6 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "rdm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "RDM" } }
                 },
                 new GearItem
                 {
@@ -453,7 +453,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicDamage", Value = 31 },
                         new GearStat { Name = "GearHaste", Value = 6 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "rdm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "RDM" } }
                 },
                 new GearItem
                 {
@@ -479,7 +479,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicBurstAccuracy", Value = 15 },
                         new GearStat { Name = "MagicBurstDamageII", Value = 4 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "sch" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "SCH" } }
                 },
                 new GearItem
                 {
@@ -505,7 +505,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicBurstAccuracy", Value = 15 },
                         new GearStat { Name = "MagicBurstDamageII", Value = 4 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "sch" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "SCH" } }
                 },
                 new GearItem
                 {
@@ -531,7 +531,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "EbullienceBonus", Value = 18 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "sch" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "SCH" } }
                 },
                 new GearItem
                 {
@@ -557,7 +557,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 6 },
                         new GearStat { Name = "EbullienceBonus", Value = 21 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "sch" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "SCH" } }
                 },
                 new GearItem
                 {
@@ -581,7 +581,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "CritDamage", Value = 5 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 6 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "thf" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "THF" } }
                 },
                 new GearItem
                 {
@@ -606,7 +606,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "CritDamage", Value = 5 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 9 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "thf" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "THF" } }
                 },
                 new GearItem
                 {
@@ -630,7 +630,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 8 },
                         new GearStat { Name = "TA", Value = 4 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "thf" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "THF" } }
                 },
                 new GearItem
                 {
@@ -654,7 +654,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 8 },
                         new GearStat { Name = "TA", Value = 4 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "thf" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "THF" } }
                 },
                 new GearItem
                 {
@@ -679,7 +679,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "TA", Value = 5 },
                         new GearStat { Name = "PDL", Value = 7 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "thf" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "THF" } }
                 },
                 new GearItem
                 {
@@ -704,7 +704,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "TA", Value = 6 },
                         new GearStat { Name = "PDL", Value = 10 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "thf" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "THF" } }
                 },
                 new GearItem
                 {
@@ -727,7 +727,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Pet:Accuracy", Value = 41 },
                         new GearStat { Name = "Pet:GearHaste", Value = 7 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "PUP" } }
                 },
                 new GearItem
                 {
@@ -753,7 +753,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Pet:MagicAccuracy", Value = 57 },
                         new GearStat { Name = "Pet:GearHaste", Value = 7 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "PUP" } }
                 },
                 new GearItem
                 {
@@ -780,7 +780,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Pet:RangedAccuracy", Value = 37 },
                         new GearStat { Name = "PetRangedAttack", Value = 57 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "PUP" } }
                 },
                 new GearItem
                 {
@@ -808,7 +808,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "PetRangedAttack", Value = 67 },
                         new GearStat { Name = "Pet:MagicAccuracy", Value = 42 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "PUP" } }
                 },
                 new GearItem
                 {
@@ -838,7 +838,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Pet:MagicAccuracy", Value = 51 },
                         new GearStat { Name = "PetTPBonus", Value = 575 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "PUP" } }
                 },
                 new GearItem
                 {
@@ -868,7 +868,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Pet:MagicAccuracy", Value = 61 },
                         new GearStat { Name = "PetTPBonus", Value = 600 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pup" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "PUP" } }
                 },
                 new GearItem
                 {
@@ -890,7 +890,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicDefense", Value = 7 },
                         new GearStat { Name = "GearHaste", Value = 6 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "whm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "WHM" } }
                 },
                 new GearItem
                 {
@@ -913,7 +913,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicDefense", Value = 8 },
                         new GearStat { Name = "GearHaste", Value = 6 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "whm" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "WHM" } }
                 },
                 new GearItem
                 {
@@ -935,7 +935,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicDefense", Value = 3 },
                         new GearStat { Name = "GearHaste", Value = 7 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "drg" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "DRG" } }
                 },
                 new GearItem
                 {
@@ -958,7 +958,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicDefense", Value = 4 },
                         new GearStat { Name = "GearHaste", Value = 7 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "drg" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "DRG" } }
                 },
                 new GearItem
                 {
@@ -982,7 +982,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 7 },
                         new GearStat { Name = "TA", Value = 4 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "drg" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "DRG" } }
                 },
                 new GearItem
                 {
@@ -1006,7 +1006,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 7 },
                         new GearStat { Name = "TA", Value = 4 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "drg" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "DRG" } }
                 },
                 new GearItem
                 {
@@ -1031,7 +1031,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 7 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 8 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "drg" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "DRG" } }
                 },
                 new GearItem
                 {
@@ -1056,7 +1056,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "GearHaste", Value = 7 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 12 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "drg" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "DRG" } }
                 }
             };
         }
