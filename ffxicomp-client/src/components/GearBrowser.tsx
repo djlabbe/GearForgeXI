@@ -51,6 +51,14 @@ export function GearBrowser() {
         )
       : [];
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-gray-600 dark:text-gray-400">Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       <Card className="mb-2">
