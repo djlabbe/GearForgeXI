@@ -1,1 +1,1 @@
-web: bash heroku-start.sh
+web: cd FFXIComp.API && dotnet FFXIComp.API.dll
