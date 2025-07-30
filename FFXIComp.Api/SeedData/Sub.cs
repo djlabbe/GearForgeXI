@@ -214,7 +214,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Vit", Value = 30 },
                         new GearStat { Name = "Mnd", Value = 30 },
                         new GearStat { Name = "Evasion", Value = 30 },
-                        new GearStat { Name = "Magic Evasion", Value = 30 },
+                        new GearStat { Name = "MagicEvasion", Value = 30 },
                         new GearStat { Name = "MDT2", Value = -20 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pld" } }
@@ -228,7 +228,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "Vit", Value = 35 },
                         new GearStat { Name = "Mnd", Value = 35 },
                         new GearStat { Name = "Evasion", Value = 35 },
-                        new GearStat { Name = "Magic Evasion", Value = 35 },
+                        new GearStat { Name = "MagicEvasion", Value = 35 },
                         new GearStat { Name = "MDT2", Value = -25 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "pld" } }
@@ -254,7 +254,7 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicAccuracy", Value = 40 },
                         new GearStat { Name = "Magic Attack", Value = 30 },
                         new GearStat { Name = "Evasion", Value = 30 },
-                        new GearStat { Name = "Magic Evasion", Value = 30 }
+                        new GearStat { Name = "MagicEvasion", Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "war" }, new GearItemJob { JobName = "whm" }, new GearItemJob { JobName = "rdm" }, new GearItemJob { JobName = "thf" }, new GearItemJob { JobName = "pld" }, new GearItemJob { JobName = "bst" } }
                 }
