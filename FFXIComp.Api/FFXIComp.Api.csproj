@@ -27,7 +27,8 @@
     <Exec Command="npm run build" WorkingDirectory="$(ProjectDir)..\ffxicomp-client" />
   </Target> -->
 
-<Target Name="CopyReactBuildToWwwroot" BeforeTargets="Build">
+<Target Name="CopyReactBuildToWwwroot" BeforeTargets="Publish">
+
   <ItemGroup>
     <ReactBuildFiles Include="$(ProjectDir)..\ffxicomp-client\dist\**\*" />
   </ItemGroup>
