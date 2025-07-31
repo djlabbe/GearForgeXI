@@ -2823,8 +2823,8 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicDefense", Value = 7 },
                         new GearStat { Name = "GearHaste", Value = 4 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 12 },
-                        new GearStat { Name = "PetInt", Value = 30 },
-                        new GearStat { Name = "PetMnd", Value = 30 },
+                        new GearStat { Name = "Pet:Int", Value = 30 },
+                        new GearStat { Name = "Pet:Mnd", Value = 30 },
                         new GearStat { Name = "Pet:Accuracy", Value = 60 },
                         new GearStat { Name = "Pet:RangedAccuracy", Value = 60 },
                         new GearStat { Name = "Pet:MagicAccuracy", Value = 60 }
@@ -2852,8 +2852,8 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "MagicDefense", Value = 6 },
                         new GearStat { Name = "GearHaste", Value = 4 },
                         new GearStat { Name = "WeaponSkillDamage", Value = 8 },
-                        new GearStat { Name = "PetInt", Value = 25 },
-                        new GearStat { Name = "PetMnd", Value = 25 },
+                        new GearStat { Name = "Pet:Int", Value = 25 },
+                        new GearStat { Name = "Pet:Mnd", Value = 25 },
                         new GearStat { Name = "Pet:Accuracy", Value = 50 },
                         new GearStat { Name = "Pet:RangedAccuracy", Value = 50 },
                         new GearStat { Name = "Pet:MagicAccuracy", Value = 50 }
