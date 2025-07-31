@@ -213,8 +213,8 @@ export function GearSetComparer({ gearItems }: Props) {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card className="mb-4 relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 mb-4 gap-4">
+        <Card className="relative">
           <button
             className="absolute top-2 right-2 text-gray-500 hover:text-blue-600"
             title="Copy lua to clipboard"
@@ -229,7 +229,7 @@ export function GearSetComparer({ gearItems }: Props) {
             <AmbuCape onAugmentChange={setSetAAugments} />
           )}
         </Card>
-        <Card className="mb-4 relative">
+        <Card className="relative">
           <button
             className="absolute top-2 right-2 text-gray-500 hover:text-blue-600"
             title="Copy lua to clipboard"
@@ -246,7 +246,7 @@ export function GearSetComparer({ gearItems }: Props) {
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {comparison.length > 0 && <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
         <StatTable title="Core Stats" stats={coreStats} icon={<IoIosStats />} />
         <StatTable title="Skills" stats={statSkills} icon={<TbTargetArrow />} />
         <StatTable title="Combat" stats={meleeStats} icon={<RiSwordLine />} />
@@ -262,7 +262,7 @@ export function GearSetComparer({ gearItems }: Props) {
         />
         <StatTable title="Pet" stats={petStats} icon={<MdOutlinePets />} />
         <StatTable title="Other" stats={otherStats} icon={<IoMdHelpCircle />} />
-      </div>
+      </div>}
     </div>
   );
 }
