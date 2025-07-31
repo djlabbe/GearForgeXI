@@ -50,7 +50,7 @@ export function ReactSelector({ selected, onSelect, options }: Props) {
             color: "var(--tw-text-opacity,1) #111827", // gray-900
             ...(window.matchMedia &&
               window.matchMedia("(prefers-color-scheme: dark)").matches && {
-                backgroundColor: "#1f2937", // gray-800
+                backgroundColor: "#1e293b", // slate-800
                 borderColor: state.isFocused ? "#2563eb" : "#374151", // blue-600 or gray-700
                 color: "#f3f4f6", // gray-100
               }),
@@ -60,7 +60,7 @@ export function ReactSelector({ selected, onSelect, options }: Props) {
             backgroundColor:
               window.matchMedia &&
               window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? "#1f2937" // gray-800
+                ? "#1e293b" // slate-800
                 : "#fff",
             color:
               window.matchMedia &&
@@ -76,7 +76,7 @@ export function ReactSelector({ selected, onSelect, options }: Props) {
               ? "rgba(37, 99, 235, 0.1)"
               : window.matchMedia &&
                 window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "#1f2937"
+              ? "#1e293b"
               : "#fff",
             color: state.isSelected
               ? "#fff"

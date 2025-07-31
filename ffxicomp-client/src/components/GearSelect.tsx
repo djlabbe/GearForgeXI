@@ -75,6 +75,13 @@ export function GearSelect({
               window.matchMedia("(prefers-color-scheme: dark)").matches
                 ? "#f3f4f6" // gray-100
                 : "#111827", // gray-900
+            border:
+              window.matchMedia &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "1px solid #374151" // gray-700 for dark mode
+                : "1px solid #d1d5db", // gray-300 for light mode
+            borderRadius: "6px",
+            boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
           }),
           option: (base, state) => ({
             ...base,
