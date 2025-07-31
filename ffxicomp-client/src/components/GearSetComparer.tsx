@@ -146,7 +146,7 @@ export function GearSetComparer({ gearItems }: Props) {
     const currentSet = isSetA ? setA : setB;
 
     return (
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-1 md:grid-cols-4">
         {allSlots.map((slot) => {
           const options = getItemsBySlot(slot);
           const selectedItem = currentSet[slot];
@@ -216,12 +216,12 @@ export function GearSetComparer({ gearItems }: Props) {
       <div className="grid grid-cols-1 md:grid-cols-2 mb-4 gap-4">
         <Card className="relative">
           <button
-            className="absolute top-2 right-2 text-gray-500 hover:text-blue-600"
+            className="absolute top-6 right-6 text-gray-500 hover:text-blue-600"
             title="Copy lua to clipboard"
             onClick={() => handleCopyLua(setA, setAAugments)}
             type="button"
           >
-            <FaCopy className="mt-3 h-7 w-7" />
+            <FaCopy className="h-7 w-7" />
           </button>
           <h3 className="font-semibold mb-2">Set A</h3>
           {renderGearGrid(true)}
@@ -231,12 +231,12 @@ export function GearSetComparer({ gearItems }: Props) {
         </Card>
         <Card className="relative">
           <button
-            className="absolute top-2 right-2 text-gray-500 hover:text-blue-600"
+            className="absolute  top-6 right-6 text-gray-500 hover:text-blue-600"
             title="Copy lua to clipboard"
             onClick={() => handleCopyLua(setB, setBAugments)}
             type="button"
           >
-            <FaCopy className="mt-3 h-7 w-7" />
+            <FaCopy className="h-7 w-7" />
           </button>
           <h3 className="text-lg font-semibold mb-3">Set B</h3>
           {renderGearGrid(false)}

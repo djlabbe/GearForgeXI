@@ -37,7 +37,7 @@ export function GearSelect({
 
   return (
     <div className="p-2">
-      <label className="block capitalize mb-1">{label}</label>
+      <label className="text-xs block font-semibold capitalize mb-1">{label}</label>
       <Select
         options={[{ value: "", label: placeholder }, ...selectOptions]}
         value={selectedOption || { value: "", label: placeholder }}
