@@ -3,6 +3,7 @@ import type { GearItem } from "../models/GearItem";
 import { ReactSelector } from "../components/ReactSelector";
 import { GearSetComparer } from "../components/GearSetComparer";
 import Card from "../components/Card";
+import Notes from "../components/Notes";
 
 const AVAILABLE_JOBS = [
   "WAR",
@@ -53,6 +54,7 @@ const ComparePage = () => {
         />
       </Card>
       {selectedJob && <GearSetComparer gearItems={gearItems} />}
+      <Notes />
     </>
 
 

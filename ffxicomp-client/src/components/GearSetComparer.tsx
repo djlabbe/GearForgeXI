@@ -18,7 +18,7 @@ import { IoIosStats, IoMdHelpCircle } from "react-icons/io";
 import { TbTargetArrow } from "react-icons/tb";
 import { RiSwordLine } from "react-icons/ri";
 import { IoSparklesSharp } from "react-icons/io5";
-import { FaShieldHalved } from "react-icons/fa6";
+import { FaCopy, FaShieldHalved } from "react-icons/fa6";
 import { MdOutlinePets } from "react-icons/md";
 
 interface Props {
@@ -29,7 +29,7 @@ export function GearSetComparer({ gearItems }: Props) {
   const [setA, setSetA] = useState<GearSet>({});
   const [setB, setSetB] = useState<GearSet>({});
   const [setAAugments, setSetAAugments] = useState<GearStat[]>([]);
-  const [setBaugments, setSetBAugments] = useState<GearStat[]>([]);
+  const [setBAugments, setSetBAugments] = useState<GearStat[]>([]);
   const [comparison, setComparison] = useState<
     { name: string; a: number; b: number; diff: number }[]
   >([]);
@@ -110,16 +110,16 @@ export function GearSetComparer({ gearItems }: Props) {
     }
 
     // Add augments to Set B back item if it exists
-    if (augmentedSetB.back && setBaugments.length > 0) {
+    if (augmentedSetB.back && setBAugments.length > 0) {
       augmentedSetB.back = {
         ...augmentedSetB.back,
-        gearStats: [...augmentedSetB.back.gearStats, ...setBaugments],
+        gearStats: [...augmentedSetB.back.gearStats, ...setBAugments],
       };
     }
 
     const result = compareGearSets(augmentedSetA, augmentedSetB);
     setComparison(result);
-  }, [setA, setB, setAAugments, setBaugments]);
+  }, [setA, setB, setAAugments, setBAugments]);
 
   const handleSelect = useCallback(
     (slot: GearSlot, item: GearItem | undefined, isSetA: boolean) => {
@@ -152,15 +152,13 @@ export function GearSetComparer({ gearItems }: Props) {
           const selectedItem = currentSet[slot];
 
           return (
-            <>
-              <GearSelect
-                key={slot}
-                label={slot}
-                options={options}
-                value={selectedItem}
-                onChange={(item) => handleSelect(slot, item, isSetA)}
-              />
-            </>
+            <GearSelect
+              key={slot}
+              label={slot}
+              options={options}
+              value={selectedItem}
+              onChange={(item) => handleSelect(slot, item, isSetA)}
+            />
           );
         })}
       </div>
@@ -194,17 +192,52 @@ export function GearSetComparer({ gearItems }: Props) {
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name));
 
+  const handleCopyLua = (gearSet: GearSet, augments: GearStat[]) => {
+    const luaLines: string[] = [];
+    for (const slot of allSlots) {
+      const item = gearSet[slot];
+      if (item) {
+        if (slot === "back" && augments.length > 0) {
+          const augStr = augments.map(a => `${a.name}+${a.value}`).join(", ");
+          luaLines.push(
+            `    ${slot}="${item.name}" -- augments: ${augStr},`
+          );
+        } else {
+          luaLines.push(`    ${slot}="${item.name}",`);
+        }
+      }
+    }
+    const luaString = `{\n${luaLines.join("\n")}\n}`;
+    navigator.clipboard.writeText(luaString);
+  };
+
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card className="mb-4">
+        <Card className="mb-4 relative">
+          <button
+            className="absolute top-2 right-2 text-gray-500 hover:text-blue-600"
+            title="Copy lua to clipboard"
+            onClick={() => handleCopyLua(setA, setAAugments)}
+            type="button"
+          >
+            <FaCopy className="mt-3 h-7 w-7" />
+          </button>
           <h3 className="font-semibold mb-2">Set A</h3>
           {renderGearGrid(true)}
           {setA.back?.name && ambuCapes.includes(setA.back.name) && (
             <AmbuCape onAugmentChange={setSetAAugments} />
           )}
         </Card>
-        <Card className="mb-4">
+        <Card className="mb-4 relative">
+          <button
+            className="absolute top-2 right-2 text-gray-500 hover:text-blue-600"
+            title="Copy lua to clipboard"
+            onClick={() => handleCopyLua(setB, setBAugments)}
+            type="button"
+          >
+            <FaCopy className="mt-3 h-7 w-7" />
+          </button>
           <h3 className="text-lg font-semibold mb-3">Set B</h3>
           {renderGearGrid(false)}
           {setB.back?.name && ambuCapes.includes(setB.back.name) && (
