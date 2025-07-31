@@ -62,8 +62,7 @@ export function GearBrowser() {
     selectedSlot && grouped[selectedSlot]
       ? grouped[selectedSlot].filter((item) =>
         item.name.toLowerCase().includes(filter.toLowerCase()) &&
-        (selectedJob === "" ||
-          item.gearItemJobs.some((j) => j.jobName === selectedJob))
+        (selectedJob === "" || item.gearItemJobs.some((j) => j.jobName === selectedJob) || item.gearItemJobs.length === 0)
       )
       : [];
 
