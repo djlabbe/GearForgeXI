@@ -53,6 +53,31 @@ export function GearSetComparer({ gearItems }: Props) {
     "feet",
   ];
 
+  const ambuCapes = [
+    "Cichol's Mantle",
+    "Segomo's Mantle",
+    "Alaunus's Cape",
+    "Taranus's Cape",
+    "Sucellos's Cape",
+    "Toutatis's Cape",
+    "Rudianos's Mantle",
+    "Ankou's Mantle",
+    "Artio's Mantle",
+    "Intarabus's Cape",
+    "Belenus's Cape",
+    "Smertrios's Mantle",
+    "Andartia's Mantle",
+    "Brigantia's Mantle",
+    "Campestres's Cape",
+    "Rosmerta's Cape",
+    "Camulus's Mantle",
+    "Visucius's Mantle",
+    "Senuna's Mantle",
+    "Lugh's Cape",
+    "Nantosuelta's Cape",
+    "Ogma's cape",
+  ];
+
   const getItemsBySlot = (slot: GearSlot) => {
     let filterSlot: string = slot;
     if (slot === "ear1" || slot === "ear2") filterSlot = "ear";
@@ -175,14 +200,14 @@ export function GearSetComparer({ gearItems }: Props) {
         <Card className="mb-4">
           <h3 className="font-semibold mb-2">Set A</h3>
           {renderGearGrid(true)}
-          {setA.back?.name === "Cichol's Mantle" && (
+          {setA.back?.name && ambuCapes.includes(setA.back.name) && (
             <AmbuCape onAugmentChange={setSetAAugments} />
           )}
         </Card>
         <Card className="mb-4">
           <h3 className="text-lg font-semibold mb-3">Set B</h3>
           {renderGearGrid(false)}
-          {setB.back?.name === "Cichol's Mantle" && (
+          {setB.back?.name && ambuCapes.includes(setB.back.name) && (
             <AmbuCape onAugmentChange={setSetBAugments} />
           )}
         </Card>

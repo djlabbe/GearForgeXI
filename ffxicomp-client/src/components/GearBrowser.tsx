@@ -11,6 +11,22 @@ function groupBySlot(items: GearItem[]) {
 }
 
 const allJobs = ["WAR", "MNK", "WHM", "BLM", "RDM", "THF", "PLD", "DRK", "BST", "BRD", "RNG", "SMN", "SAM", "NIN", "DRG", "BLU", "COR", "PUP", "DNC", "SCH", "GEO", "RUN"]
+const slots = [
+  "Main",
+  "Sub",
+  "Range",
+  "Ammo",
+  "Head",
+  "Neck",
+  "Ear",
+  "Body",
+  "Hands",
+  "Ring",
+  "Back",
+  "Waist",
+  "Legs",
+  "Feet"
+];
 
 // function getAllJobs(items: GearItem[]) {
 //   const jobs = new Set<string>();
@@ -34,14 +50,13 @@ export function GearBrowser() {
       .then((items: GearItem[]) => {
         setGearItems(items);
         // Set default selected slot to the first slot found
-        const slots = Array.from(new Set(items.map((i: GearItem) => i.slot.toString())));
-        setSelectedSlot(slots[0] || "");
+        // const slots = Array.from(new Set(items.map((i: GearItem) => i.slot.toString())));
+        setSelectedSlot("main");
       })
       .finally(() => setLoading(false));
   }, []);
 
   const grouped = groupBySlot(gearItems);
-  const slots = Object.keys(grouped);
 
   const filteredItems =
     selectedSlot && grouped[selectedSlot]
