@@ -41,7 +41,11 @@ export function GearBrowser() {
   }, []);
 
   const grouped = groupBySlot(gearItems);
-  const slots = Object.keys(grouped);
+  
+  const slots = Object.keys(grouped).sort((a, b) => {
+    const slotOrder = ["main", "sub", "ranged", "ammo", "head", "neck", "ear1", "ear2", "body", "hands", "ring1", "ring2", "back", "waist", "legs", "feet"];
+    return slotOrder.indexOf(a) - slotOrder.indexOf(b);
+  });
 
   const filteredItems =
     selectedSlot && grouped[selectedSlot]

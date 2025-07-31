@@ -15,6 +15,7 @@ export function Navbar() {
         <div className="flex items-center space-x-3">
           <img src={logo} alt="FFXI Compare Logo" className="h-8 w-8" />
           <h1 className="text-2xl">FFXI Compare</h1>
+          <small>(Alpha)</small>
         </div>
         <nav className="space-x-2">
           <Link
