@@ -1,17 +1,21 @@
 using FFXIComp.Api.Models;
 
-namespace FFXIComp.Api.SeedData
+namespace FFXIComp.Api.SeedData;
+
+public static class AmmoSeedData
 {
-    public static class AmmoSeedData
+    public static List<GearItem> GetItems()
     {
-        public static List<GearItem> GetItems()
-        {
-            return new List<GearItem>
+        return new List<GearItem>
             {
                 new GearItem
                 {
                     Name = "Aurgelmir Orb +1",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+                    {
+                        new GearItemSlot { GearSlotId = 4 }
+                    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 7 },
@@ -22,28 +26,32 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "DRG" },
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "BRD" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "BLU" },
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "DNC" },
-                        new GearItemJob { JobName = "RUN" }
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 14},
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 10 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 16},
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 19},
+                        new GearItemJob { JobId= 22}
                     }
                 },
                 new GearItem
                 {
                     Name = "Cath Palug Stone",
-                    Slot = "Ammo",
+                     GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dex", Value = 10 },
@@ -52,16 +60,20 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "DNC" },
-                        new GearItemJob { JobName = "RUN" }
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 19},
+                        new GearItemJob { JobId= 22}
                     }
                 },
                 new GearItem
                 {
                     Name = "Coiste Bodhar R0",
-                    Slot = "Ammo",
+                     GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "DA", Value = 3 },
@@ -69,28 +81,32 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "DRG" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "BLU" },
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "DNC" },
-                        new GearItemJob { JobName = "RUN" },
-                        new GearItemJob { JobName = "BRD" }
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 14},
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 16},
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 19},
+                        new GearItemJob { JobId= 22},
+                        new GearItemJob { JobId= 10 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Coiste Bodhar R15",
-                    Slot = "Ammo",
+                     GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Attack", Value = 15 },
@@ -99,28 +115,32 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "DRG" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "BLU" },
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "DNC" },
-                        new GearItemJob { JobName = "RUN" },
-                        new GearItemJob { JobName = "BRD" }
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 14},
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 16},
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 19},
+                        new GearItemJob { JobId= 22},
+                        new GearItemJob { JobId= 10 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Coiste Bodhar R20",
-                    Slot = "Ammo",
+                     GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Attack", Value = 15 },
@@ -130,28 +150,32 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "DRG" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "BLU" },
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "DNC" },
-                        new GearItemJob { JobName = "RUN" },
-                        new GearItemJob { JobName = "BRD" }
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 14},
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 16},
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 19},
+                        new GearItemJob { JobId= 22},
+                        new GearItemJob { JobId= 10 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Coiste Bodhar R25",
-                    Slot = "Ammo",
+                     GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Attack", Value = 15 },
@@ -162,28 +186,32 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "DRG" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "BLU" },
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "DNC" },
-                        new GearItemJob { JobName = "RUN" },
-                        new GearItemJob { JobName = "BRD" }
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 14},
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 16},
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 19},
+                        new GearItemJob { JobId= 22},
+                        new GearItemJob { JobId= 10 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Coiste Bodhar R30",
-                    Slot = "Ammo",
+                     GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Attack", Value = 15 },
@@ -194,28 +222,32 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "DRG" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "BLU" },
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "DNC" },
-                        new GearItemJob { JobName = "RUN" },
-                        new GearItemJob { JobName = "BRD" }
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 14},
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 16},
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 19},
+                        new GearItemJob { JobId= 22},
+                        new GearItemJob { JobId= 10 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Crepuscular Pebble",
-                    Slot = "Ammo",
+                     GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 3 },
@@ -228,7 +260,11 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Ghastly Tathlum +1 R15",
-                    Slot = "Ammo",
+                     GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "MagicDamage", Value = 21 },
@@ -239,7 +275,11 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Knobkierrie",
-                    Slot = "Ammo",
+                     GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Attack", Value = 23 },
@@ -247,18 +287,22 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "DRG" },
-                        new GearItemJob { JobName = "RUN" }
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 14},
+                        new GearItemJob { JobId= 22}
                     }
                 },
                 new GearItem
                 {
                     Name = "Oshasha's Treatise",
-                    Slot = "Ammo",
+                     GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 5 },
@@ -270,7 +314,11 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Pemphredo Tathlum",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Int", Value = 4 },
@@ -282,7 +330,11 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Seeth. Bomblet +1 R15",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 13 },
@@ -293,17 +345,21 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "RUN" },
-                        new GearItemJob { JobName = "THF" }
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 22},
+                        new GearItemJob { JobId= 6 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Yetshila +1",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "CritRate", Value = 2 },
@@ -311,19 +367,23 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "RUN" }
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 22}
                     }
                 },
                 new GearItem
                 {
                     Name = "Voluspa Tathlum",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 5 },
@@ -334,23 +394,27 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "DRG" },
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "PUP" },
-                        new GearItemJob { JobName = "DNC" },
-                        new GearItemJob { JobName = "RUN" }
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 14},
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 18},
+                        new GearItemJob { JobId= 19},
+                        new GearItemJob { JobId= 22}
                     }
                 },
                 new GearItem
                 {
                     Name = "Amar Cluster",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 2 },
@@ -358,34 +422,38 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "WHM" },
-                        new GearItemJob { JobName = "BLM" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "BRD" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "DRG" },
-                        new GearItemJob { JobName = "SMN" },
-                        new GearItemJob { JobName = "BLU" },
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "PUP" },
-                        new GearItemJob { JobName = "DNC" },
-                        new GearItemJob { JobName = "SCH" },
-                        new GearItemJob { JobName = "GEO" },
-                        new GearItemJob { JobName = "RUN" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 3 },
+                        new GearItemJob { JobId= 4 },
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 10 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 14},
+                        new GearItemJob { JobId= 15},
+                        new GearItemJob { JobId= 16},
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 18},
+                        new GearItemJob { JobId= 19},
+                        new GearItemJob { JobId= 20},
+                        new GearItemJob { JobId= 21},
+                        new GearItemJob { JobId= 22}
                     }
                 },
                 new GearItem
                 {
                     Name = "Floestone",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 3 },
@@ -394,34 +462,38 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "WHM" },
-                        new GearItemJob { JobName = "BLM" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "BRD" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "DRG" },
-                        new GearItemJob { JobName = "SMN" },
-                        new GearItemJob { JobName = "BLU" },
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "PUP" },
-                        new GearItemJob { JobName = "DNC" },
-                        new GearItemJob { JobName = "SCH" },
-                        new GearItemJob { JobName = "GEO" },
-                        new GearItemJob { JobName = "RUN" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 3 },
+                        new GearItemJob { JobId= 4 },
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 10 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 14},
+                        new GearItemJob { JobId= 15},
+                        new GearItemJob { JobId= 16},
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 18},
+                        new GearItemJob { JobId= 19},
+                        new GearItemJob { JobId= 20},
+                        new GearItemJob { JobId= 21},
+                        new GearItemJob { JobId= 22}
                     }
                 },
                 new GearItem
                 {
                     Name = "Hasty Pinion +1",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Attack", Value = 10 },
@@ -434,7 +506,11 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Sroda Tathlum",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "MagicAccuracy", Value = -10 },
@@ -442,16 +518,20 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "BLM" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "SCH" },
-                        new GearItemJob { JobName = "GEO" }
+                        new GearItemJob { JobId= 4 },
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 20},
+                        new GearItemJob { JobId= 21}
                     }
                 },
                 new GearItem
                 {
                     Name = "Neo Animator",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "WeaponSkillDamage", Value = 5 },
@@ -459,13 +539,17 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "PUP" }
+                        new GearItemJob { JobId= 18}
                     }
                 },
                 new GearItem
                 {
                     Name = "Charis Feather",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dex", Value = 5 },
@@ -473,13 +557,17 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "DNC" }
+                        new GearItemJob { JobId= 19}
                     }
                 },
                 new GearItem
                 {
                     Name = "Seraphic Ampulla",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Int", Value = 3 },
@@ -488,18 +576,22 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WHM" },
-                        new GearItemJob { JobName = "BLM" },
-                        new GearItemJob { JobName = "SMN" },
-                        new GearItemJob { JobName = "PUP" },
-                        new GearItemJob { JobName = "SCH" },
-                        new GearItemJob { JobName = "GEO" }
+                        new GearItemJob { JobId= 3 },
+                        new GearItemJob { JobId= 4 },
+                        new GearItemJob { JobId= 15},
+                        new GearItemJob { JobId= 18},
+                        new GearItemJob { JobId= 20},
+                        new GearItemJob { JobId= 21}
                     }
                 },
                 new GearItem
                 {
                     Name = "White Tathlum",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "StoreTP", Value = 2 }
@@ -509,7 +601,11 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Ginsen",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 5 },
@@ -518,28 +614,32 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "BRD" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "DRG" },
-                        new GearItemJob { JobName = "BLU" },
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "DNC" },
-                        new GearItemJob { JobName = "RUN" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 10 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 14},
+                        new GearItemJob { JobId= 16},
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 19},
+                        new GearItemJob { JobId= 22}
                     }
                 },
                 new GearItem
                 {
                     Name = "Vanir Battery",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 13, // Ammo category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "MagicDefense", Value = 4 },
@@ -550,7 +650,11 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Living Bullet",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 12, // Bullet category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 245 },
@@ -560,13 +664,17 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "COR" }
+                        new GearItemJob { JobId= 17}
                     }
                 },
                 new GearItem
                 {
                     Name = "Test Bullet",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 12, // Bullet category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 999 },
@@ -581,7 +689,11 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Test Arrow",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 10, // Arrow category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 999 },
@@ -595,7 +707,11 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Beryllium Arrow",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 10, // Arrow category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 77 },
@@ -604,21 +720,25 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "NIN" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 13}
                     }
                 },
                 new GearItem
                 {
                     Name = "Beryllium Bolt",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 11, // Bolt category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 108 },
@@ -627,16 +747,20 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "RNG" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 11}
                     }
                 },
                 new GearItem
                 {
                     Name = "Raetic Arrow",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 10, // Arrow category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 80 },
@@ -645,26 +769,30 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "BLM" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "BRD" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "SMN" },
-                        new GearItemJob { JobName = "BLU" },
-                        new GearItemJob { JobName = "SCH" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 4 },
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 10 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 15},
+                        new GearItemJob { JobId= 16},
+                        new GearItemJob { JobId= 20}
                     }
                 },
                 new GearItem
                 {
                     Name = "Yoichi's Arrow",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 10, // Arrow category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 89 },
@@ -674,14 +802,18 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "SAM" }
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 12}
                     }
                 },
                 new GearItem
                 {
                     Name = "Devastating Bullet",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 12, // Bullet category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 277 },
@@ -691,14 +823,18 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "RNG" }
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 11}
                     }
                 },
                 new GearItem
                 {
                     Name = "Chrono Bullet",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 12, // Bullet category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 300 },
@@ -708,14 +844,18 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "RNG" }
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 11}
                     }
                 },
                 new GearItem
                 {
                     Name = "Hauksbok Bullet",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 12, // Bullet category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 300 },
@@ -725,14 +865,18 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "RNG" }
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 11}
                     }
                 },
                 new GearItem
                 {
                     Name = "Hauksbok Arrow",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 10, // Arrow category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 110 },
@@ -743,13 +887,17 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RNG" }
+                        new GearItemJob { JobId= 11}
                     }
                 },
                 new GearItem
                 {
                     Name = "Chrono Arrow",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 10, // Arrow category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 110 },
@@ -759,13 +907,17 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RNG" }
+                        new GearItemJob { JobId= 11}
                     }
                 },
                 new GearItem
                 {
                     Name = "Artemis's Arrow",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 10, // Arrow category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 101 },
@@ -775,13 +927,17 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RNG" }
+                        new GearItemJob { JobId= 11}
                     }
                 },
                 new GearItem
                 {
                     Name = "Eradicating Bullet",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 12, // Bullet category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 289 },
@@ -791,13 +947,17 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RNG" }
+                        new GearItemJob { JobId= 11}
                     }
                 },
                 new GearItem
                 {
                     Name = "Decimating Bullet",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 12, // Bullet category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 220 },
@@ -807,16 +967,20 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "COR" }
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 17}
                     }
                 },
                 new GearItem
                 {
                     Name = "Quelling Bolt",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 11, // Bolt category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 145 },
@@ -829,13 +993,17 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RNG" }
+                        new GearItemJob { JobId= 11}
                     }
                 },
                 new GearItem
                 {
                     Name = "Bayeux Arrow",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 10, // Arrow category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 116 },
@@ -846,13 +1014,17 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RNG" }
+                        new GearItemJob { JobId= 11}
                     }
                 },
                 new GearItem
                 {
                     Name = "Bayeux Bullet",
-                    Slot = "Ammo",
+                    GearItemCategoryId = 12, // Bullet category
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 4 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dmg", Value = 315 },
@@ -863,11 +1035,11 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "COR" }
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 17}
                     }
                 }
             };
-        }
     }
 }
+

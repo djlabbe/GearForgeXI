@@ -1,40 +1,10 @@
-import ReactSelect from "react-select";
+import Select, { type GroupBase, type Props } from "react-select";
 
-interface Props {
-  label: string;
-  selected: string | null;
-  onSelect: (value: string) => void;
-  options: string[];
-}
-
-export function ReactSelector({ selected, onSelect, options }: Props) {
-
-  const selectOptions = options.map((opt) => ({
-    value: opt,
-    label: opt,
-  }));
-
-  const selectedOption = selected
-    ? { value: selected, label: selected }
-    : null;
-
-    const handleChange = (option: { value: string; label: string } | null) => {
-      if (!option || option.value === "") {
-        onSelect("");
-        return;
-      }
-      onSelect(option.value);
-    };
+export function ReactSelector<Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>>(props: Props<Option, IsMulti, Group>) {
 
   return (
-      <ReactSelect
-        className="text-gray-900 dark:text-gray-100"
-        classNamePrefix="react-select"
-        value={selectedOption || { value: "", label: "Select..." }}
-        onChange={handleChange}
-        options={selectOptions}
-        isClearable
-        menuPlacement="auto"
+      <Select
+        {...props}
         styles={{
           control: (base, state) => ({
             ...base,

@@ -18,6 +18,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
@@ -31,9 +32,7 @@
     <ItemGroup>
       <ReactBuildFiles Include="$(ProjectDir)..\ffxicomp-client\dist\**\*" />
     </ItemGroup>
-    <Copy SourceFiles="@(ReactBuildFiles)" 
-          DestinationFolder="wwwroot\%(RecursiveDir)" 
-          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(ReactBuildFiles)" DestinationFolder="wwwroot\%(RecursiveDir)" SkipUnchangedFiles="true" />
   </Target>
 
 </Project>

@@ -2,15 +2,43 @@ import { useEffect, useState } from "react";
 import type { GearItem } from "../models/GearItem";
 import Card from "./Card";
 
-function groupBySlot(items: GearItem[]) {
+function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
   return items.reduce<Record<string, GearItem[]>>((acc, item) => {
-    acc[item.slot] = acc[item.slot] || [];
-    acc[item.slot].push(item);
+    item.slots.forEach((slot) => {
+      const normalizedSlot = slot.toLowerCase(); // optional: lowercase for consistent keys
+      if (!acc[normalizedSlot]) {
+        acc[normalizedSlot] = [];
+      }
+      acc[normalizedSlot].push(item);
+    });
     return acc;
   }, {});
 }
 
-const allJobs = ["WAR", "MNK", "WHM", "BLM", "RDM", "THF", "PLD", "DRK", "BST", "BRD", "RNG", "SMN", "SAM", "NIN", "DRG", "BLU", "COR", "PUP", "DNC", "SCH", "GEO", "RUN"]
+const allJobs = [
+  "WAR",
+  "MNK",
+  "WHM",
+  "BLM",
+  "RDM",
+  "THF",
+  "PLD",
+  "DRK",
+  "BST",
+  "BRD",
+  "RNG",
+  "SMN",
+  "SAM",
+  "NIN",
+  "DRG",
+  "BLU",
+  "COR",
+  "PUP",
+  "DNC",
+  "SCH",
+  "GEO",
+  "RUN",
+];
 const slots = [
   "Main",
   "Sub",
@@ -25,16 +53,9 @@ const slots = [
   "Back",
   "Waist",
   "Legs",
-  "Feet"
+  "Feet",
 ];
 
-// function getAllJobs(items: GearItem[]) {
-//   const jobs = new Set<string>();
-//   items.forEach((item) => {
-//     item.gearItemJobs.forEach((j) => jobs.add(j.jobName));
-//   });
-//   return Array.from(jobs).sort();
-// }
 
 export function GearBrowser() {
   const [gearItems, setGearItems] = useState<GearItem[]>([]);
@@ -60,10 +81,13 @@ export function GearBrowser() {
 
   const filteredItems =
     selectedSlot && grouped[selectedSlot]
-      ? grouped[selectedSlot].filter((item) =>
-        item.name.toLowerCase().includes(filter.toLowerCase()) &&
-        (selectedJob === "" || item.gearItemJobs.some((j) => j.jobName === selectedJob) || item.gearItemJobs.length === 0)
-      )
+      ? grouped[selectedSlot].filter(
+          (item) =>
+            item.name.toLowerCase().includes(filter.toLowerCase()) &&
+            (selectedJob === "" ||
+              item.jobs.some((j) => j === selectedJob) ||
+              item.jobs.length === 0)
+        )
       : [];
 
   if (loading) {
@@ -77,7 +101,9 @@ export function GearBrowser() {
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       <Card className="mb-2">
-        <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Filter</h2>
+        <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+          Filter
+        </h2>
         <input
           type="text"
           placeholder="Filter by name..."
@@ -90,10 +116,11 @@ export function GearBrowser() {
             <button
               key={slot}
               onClick={() => setSelectedSlot(slot)}
-              className={`px-3 py-1 rounded w-24 text-center ${selectedSlot === slot
-                ? "bg-blue-600 text-white"
-                : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-                }`}
+              className={`px-3 py-1 rounded w-24 text-center ${
+                selectedSlot === slot
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+              }`}
               style={{ minWidth: "6rem" }}
             >
               {slot}
@@ -103,10 +130,11 @@ export function GearBrowser() {
         <div className="flex space-x-2 mb-2 flex-wrap">
           <button
             onClick={() => setSelectedJob("")}
-            className={`px-3 py-1 my-1 rounded w-24 ${selectedJob === ""
-              ? "bg-blue-600 text-white"
-              : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-              }`}
+            className={`px-3 py-1 my-1 rounded w-24 ${
+              selectedJob === ""
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+            }`}
           >
             All Jobs
           </button>
@@ -114,10 +142,11 @@ export function GearBrowser() {
             <button
               key={job}
               onClick={() => setSelectedJob(job)}
-              className={`px-3 py-1 my-1 rounded w-24 ${selectedJob === job
-                ? "bg-blue-600 text-white"
-                : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-                }`}
+              className={`px-3 py-1 my-1 rounded w-24 ${
+                selectedJob === job
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+              }`}
             >
               {job}
             </button>
@@ -128,18 +157,27 @@ export function GearBrowser() {
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-2">
         {filteredItems.map((item) => (
           <Card key={item.id}>
-            <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100">{item.name}</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Slot: {item.slot}</p>
-            {item.gearItemJobs.length > 0 && (
+            <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100">
+              {item.name}
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+              Slot: {item.slots.join(", ")}
+            </p>
+            {item.jobs.length > 0 && (
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                Jobs: {item.gearItemJobs.map((j) => j.jobName).join(", ")}
+                Jobs: {item.jobs.join(", ")}
               </p>
             )}
             <ul className="text-sm">
-              {item.gearStats.map((stat) => (
-                <li key={stat.name} className="text-gray-800 dark:text-gray-200">
+              {item.stats.map((stat) => (
+                <li
+                  key={stat.name}
+                  className="text-gray-800 dark:text-gray-200"
+                >
                   {stat.name}:{" "}
-                  <span className="font-semibold text-gray-900 dark:text-gray-100">{stat.value}</span>
+                  <span className="font-semibold text-gray-900 dark:text-gray-100">
+                    {stat.value}
+                  </span>
                 </li>
               ))}
             </ul>

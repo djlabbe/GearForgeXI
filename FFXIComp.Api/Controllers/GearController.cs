@@ -1,47 +1,70 @@
-using FFXIComp.Api;
+using FFXIComp.Api.Models.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+namespace FFXIComp.Api.Controllers;
+
 [ApiController]
 [Route("api/[controller]")]
-public class GearController : ControllerBase
+public class GearController(GearDbContext context) : ControllerBase
 {
-    private readonly GearDbContext _context;
+    private readonly GearDbContext _context = context;
 
-    public GearController(GearDbContext context)
+    [HttpGet]
+    public async Task<IActionResult> GetGear([FromQuery] string? job, [FromQuery] string? slot)
     {
-        _context = context;
-    }
+        var jobNormalized = job?.Trim().ToUpper();
+        var slotNormalized = slot?.Trim().ToLower();
 
-    [HttpGet("all")]
-    public async Task<IActionResult> GetAllGear([FromQuery] string? job)
-    {
         var query = _context.GearItems
-            .Include(g => g.GearStats)
-            .Include(g => g.GearItemJobs)
-            .AsQueryable();
+            .Where(g =>
+                (string.IsNullOrWhiteSpace(jobNormalized) ||
+                    g.GearItemJobs.Any(j => j.Job.Abbreviation == jobNormalized) ||
+                    g.GearItemJobs.Count == 0) &&
+                (string.IsNullOrWhiteSpace(slotNormalized) ||
+                    g.GearItemSlots.Any(s => s.GearSlot.Name.ToLower() == slotNormalized)))
+            .OrderBy(g => g.Name)
+            .Select(g => new GearItemDto
+            {
+                Id = g.Id,
+                Name = g.Name,
+                Stats = g.GearStats.Select(s => new GearStatDto
+                {
+                    Name = s.Name,
+                    Value = s.Value
+                }).ToList(),
+                Jobs = g.GearItemJobs.Select(j => j.Job.Abbreviation).ToList(),
+                Slots = g.GearItemSlots.Select(s => s.GearSlot.Name).ToList()
+            });
 
-        if (!string.IsNullOrWhiteSpace(job))
-        {
-            query = query.Where(g =>
-                g.GearItemJobs.Any(j => j.JobName.ToLower() == job.ToLower()) ||
-                g.GearItemJobs.Count == 0); // Include items with no job restrictions
-        }
-
-        query = query.OrderBy(g => g.Name);
         var result = await query.ToListAsync();
         return Ok(result);
     }
 
-    // GET: api/gear/{id}
     [HttpGet("{id}")]
     public async Task<IActionResult> GetGearItem(int id)
     {
-        var item = await _context.GearItems
-            .Include(g => g.GearStats)
-            .Include(g => g.GearItemJobs)
-            .FirstOrDefaultAsync(g => g.Id == id);
+        var itemDto = await _context.GearItems
+            .Where(g => g.Id == id)
+            .Select(g => new GearItemDto
+            {
+                Id = g.Id,
+                Name = g.Name,
+                Stats = g.GearStats
+                    .Select(s => new GearStatDto
+                    {
+                        Name = s.Name,
+                        Value = s.Value
+                    }).ToList(),
+                Jobs = g.GearItemJobs
+                    .Select(j => j.Job.Abbreviation)
+                    .ToList(),
+                Slots = g.GearItemSlots
+                    .Select(s => s.GearSlot.Name)
+                    .ToList()
+            })
+            .FirstOrDefaultAsync();
 
-        return item is null ? NotFound() : Ok(item);
+        return itemDto is null ? NotFound() : Ok(itemDto);
     }
 }

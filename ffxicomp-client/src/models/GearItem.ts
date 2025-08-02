@@ -1,16 +1,13 @@
-export interface GearItem {
-  id: number;
-  name: string;
-  slot: string;
-  gearStats: GearStat[];
-  gearItemJobs: GearItemJob[];
-}
 
 export interface GearStat {
   name: string;
   value: number;
 }
 
-export interface GearItemJob {
-  jobName: string;
+export interface GearItem {
+  id: number;
+  name: string;
+  stats: GearStat[];
+  jobs: string[];   // e.g. ["WAR", "SAM", "NIN"]
+  slots: string[];  // e.g. ["Main", "Sub", "Ammo"]
 }

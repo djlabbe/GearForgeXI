@@ -1,63 +1,60 @@
 import { useState, useEffect } from "react";
-import type { GearItem } from "../models/GearItem";
 import { ReactSelector } from "../components/ReactSelector";
 import { GearSetComparer } from "../components/GearSetComparer";
 import Card from "../components/Card";
 import Notes from "../components/Notes";
-
-const AVAILABLE_JOBS = [
-  "WAR",
-  "MNK",
-  "WHM",
-  "BLM",
-  "RDM",
-  "THF",
-  "PLD",
-  "DRK",
-  "BST",
-  "BRD",
-  "RNG",
-  "SAM",
-  "NIN",
-  "DRG",
-  "SMN",
-  "BLU",
-  "COR",
-  "PUP",
-  "DNC",
-  "SCH",
-  "GEO",
-  "RUN",
-];
+import type { Job } from "../models/Job";
 
 const ComparePage = () => {
-  const [gearItems, setGearItems] = useState<GearItem[]>([]);
-  const [selectedJob, setSelectedJob] = useState<string | null>(null);
+  const [jobs, setJobs] = useState<Job[]>();
+
+  const [selectedJob, setSelectedJob] = useState<Job>();
+  const [loadingJobs, setLoadingJobs] = useState<boolean>(false);
+
+  const jobOptions =
+    jobs?.map((job) => ({
+      value: job.abbreviation,
+      label: `${job.fullName} (${job.abbreviation})`,
+    })) || [];
 
   useEffect(() => {
-    if (!selectedJob) return;
-
-    fetch(`/api/gear/all?job=${selectedJob}`)
+    setLoadingJobs(true);
+    fetch("/api/jobs")
       .then((res) => res.json())
-      .then(setGearItems);
-  }, [selectedJob]);
+      .then((data: Job[]) => {
+        setJobs(data);
+      })
+      .finally(() => setLoadingJobs(false));
+  }, []);
 
   return (
     <>
       <Card className="mb-4">
-        <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200">Job</label>
-        <ReactSelector
-          label="Job"
-          selected={selectedJob}
-          onSelect={setSelectedJob}
-          options={AVAILABLE_JOBS}
-        />
+        {loadingJobs ? (
+          <div className="text-gray-500">Loading...</div>
+        ) : (
+          <>
+            <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200">
+              Job
+            </label>
+
+            <ReactSelector
+              value={jobOptions.find(
+                (opt) => opt.value === selectedJob?.abbreviation
+              )}
+              onChange={(option) =>
+                setSelectedJob(
+                  jobs?.find((job) => job.abbreviation === option?.value)
+                )
+              }
+              options={jobOptions}
+            />
+          </>
+        )}
       </Card>
-      {selectedJob && <GearSetComparer gearItems={gearItems} />}
+      {selectedJob && <GearSetComparer job={selectedJob} />}
       <Notes />
     </>
-
-
   );
 };
 

@@ -7,13 +7,14 @@ namespace FFXIComp.Api.Models
     public class GearItemJob
     {
         [Key]
-        [JsonIgnore]
         public int Id { get; set; }
 
         [Required]
-        public string JobName { get; set; } = null!; // e.g. "WAR", "MNK", "THF"
+        public int JobId { get; set; }
 
-        // Foreign key to GearItem
+        [JsonIgnore]
+        public Job Job { get; set; } = null!;
+
         [JsonIgnore]
         public int GearItemId { get; set; }
 

@@ -9,8 +9,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 builder.Services.AddDbContext<GearDbContext>(options =>
-    options.UseSqlite("Data Source=gear.db"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
@@ -24,7 +25,7 @@ using (var scope = app.Services.CreateScope())
 
 // ✅ Serve static files from wwwroot
 app.UseDefaultFiles(); // optional, but helps serve index.html
-app.UseStaticFiles();  // <-- THIS WAS MISSING
+app.UseStaticFiles();
 
 app.MapControllers();
 

@@ -11,7 +11,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Balder Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Attack", Value = 10 },
@@ -23,7 +26,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Brutal Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "DA", Value = 5 },
@@ -34,7 +40,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Cessance Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 6 },
@@ -46,7 +55,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Crematio Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "MagicAttack", Value = 6 },
@@ -57,7 +69,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Crepuscular Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 10 },
@@ -70,7 +85,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Dedition Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = -10 },
@@ -84,7 +102,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Dignitary's Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 10 },
@@ -97,7 +118,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Eabani Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Evasion", Value = 15 },
@@ -109,7 +133,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Friomisi Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "MagicAttack", Value = 10 }
@@ -119,7 +146,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Ishvara Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "WeaponSkillDamage", Value = 2 }
@@ -129,7 +159,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Lugra Earring +1 R15 (day)",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 8 },
@@ -140,18 +173,21 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "NIN" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 13}
                     }
                 },
                 new GearItem
                 {
                     Name = "Lugra Earring +1 R15 (night)",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 16 },
@@ -162,18 +198,21 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "NIN" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 13}
                     }
                 },
                 new GearItem
                 {
                     Name = "Mache Earring +1A",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dex", Value = 8 },
@@ -186,7 +225,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Moonshade Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 4 },
@@ -197,7 +239,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Odr Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Dex", Value = 10 },
@@ -206,20 +251,23 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "NIN" },
-                        new GearItemJob { JobName = "BLU" },
-                        new GearItemJob { JobName = "COR" },
-                        new GearItemJob { JobName = "DNC" },
-                        new GearItemJob { JobName = "RUN" }
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 13},
+                        new GearItemJob { JobId= 16},
+                        new GearItemJob { JobId= 17},
+                        new GearItemJob { JobId= 19},
+                        new GearItemJob { JobId= 22}
                     }
                 },
                 new GearItem
                 {
                     Name = "Schere Earring R0",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 5 },
@@ -228,17 +276,20 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "PUP" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 18}
                     }
                 },
                 new GearItem
                 {
                     Name = "Schere Earring R15",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 5 },
@@ -248,17 +299,20 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "PUP" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 18}
                     }
                 },
                 new GearItem
                 {
                     Name = "Schere Earring R20",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 5 },
@@ -269,17 +323,20 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "PUP" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 18}
                     }
                 },
                 new GearItem
                 {
                     Name = "Schere Earring R25",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 5 },
@@ -291,17 +348,20 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "PUP" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 18}
                     }
                 },
                 new GearItem
                 {
                     Name = "Schere Earring R30",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 5 },
@@ -313,17 +373,20 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "PUP" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 18}
                     }
                 },
                 new GearItem
                 {
                     Name = "Static Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Mnd", Value = 2 },
@@ -334,7 +397,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Suppanomimi",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Agi", Value = 2 },
@@ -346,7 +412,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Telos Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 10 },
@@ -361,7 +430,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Thrud Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 10 },
@@ -370,18 +442,21 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" },
-                        new GearItemJob { JobName = "PLD" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "SAM" },
-                        new GearItemJob { JobName = "DRG" }
+                        new GearItemJob { JobId= 1 },
+                        new GearItemJob { JobId= 7 },
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 12},
+                        new GearItemJob { JobId= 14}
                     }
                 },
                 new GearItem
                 {
                     Name = "Hattori Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "PDL", Value = 9 },
@@ -395,13 +470,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "NIN" }
+                        new GearItemJob { JobId= 13}
                     }
                 },
                 new GearItem
                 {
                     Name = "Hattori Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "PDL", Value = 8 },
@@ -413,13 +491,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "NIN" }
+                        new GearItemJob { JobId= 13}
                     }
                 },
                 new GearItem
                 {
                     Name = "Heathen's Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Attack", Value = 20 },
@@ -432,13 +513,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "DRK" }
+                        new GearItemJob { JobId= 8 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Heathen's Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Attack", Value = 17 },
@@ -449,13 +533,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "DRK" }
+                        new GearItemJob { JobId= 8 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Regal Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Int", Value = 10 },
@@ -465,19 +552,22 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "BLM" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "SCH" },
-                        new GearItemJob { JobName = "GEO" },
-                        new GearItemJob { JobName = "WHM" },
-                        new GearItemJob { JobName = "BRD" },
-                        new GearItemJob { JobName = "BLU" }
+                        new GearItemJob { JobId= 4 },
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 20},
+                        new GearItemJob { JobId= 21},
+                        new GearItemJob { JobId= 3 },
+                        new GearItemJob { JobId= 10 },
+                        new GearItemJob { JobId= 16}
                     }
                 },
                 new GearItem
                 {
                     Name = "Malignance Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Int", Value = 8 },
@@ -487,18 +577,21 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "BLM" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "SCH" },
-                        new GearItemJob { JobName = "GEO" },
-                        new GearItemJob { JobName = "DRK" },
-                        new GearItemJob { JobName = "WHM" }
+                        new GearItemJob { JobId= 4 },
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 20},
+                        new GearItemJob { JobId= 21},
+                        new GearItemJob { JobId= 8 },
+                        new GearItemJob { JobId= 3 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Barkarole Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Int", Value = 3 },
@@ -507,15 +600,18 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "BLM" },
-                        new GearItemJob { JobName = "SCH" },
-                        new GearItemJob { JobName = "GEO" }
+                        new GearItemJob { JobId= 4 },
+                        new GearItemJob { JobId= 20},
+                        new GearItemJob { JobId= 21}
                     }
                 },
                 new GearItem
                 {
                     Name = "Wicce Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "MagicAttack", Value = 9 },
@@ -526,13 +622,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "BLM" }
+                        new GearItemJob { JobId= 4 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Wicce Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "MagicAttack", Value = 8 },
@@ -541,13 +640,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "BLM" }
+                        new GearItemJob { JobId= 4 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Sherida Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 5 },
@@ -557,20 +659,23 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "MNK" },
-                        new GearItemJob { JobName = "RDM" },
-                        new GearItemJob { JobName = "THF" },
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "DRG" },
-                        new GearItemJob { JobName = "DNC" },
-                        new GearItemJob { JobName = "RUN" }
+                        new GearItemJob { JobId= 2 },
+                        new GearItemJob { JobId= 5 },
+                        new GearItemJob { JobId= 6 },
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 14},
+                        new GearItemJob { JobId= 19},
+                        new GearItemJob { JobId= 22}
                     }
                 },
                 new GearItem
                 {
                     Name = "Lethargy Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 18 },
@@ -581,13 +686,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RDM" }
+                        new GearItemJob { JobId= 5 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Lethargy Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 13 },
@@ -596,13 +704,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RDM" }
+                        new GearItemJob { JobId= 5 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Peltast's Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "PDL", Value = 9 },
@@ -615,13 +726,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "DRG" }
+                        new GearItemJob { JobId= 14}
                     }
                 },
                 new GearItem
                 {
                     Name = "Peltast's Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "PDL", Value = 8 },
@@ -632,13 +746,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "DRG" }
+                        new GearItemJob { JobId= 14}
                     }
                 },
                 new GearItem
                 {
                     Name = "Ebers Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 18 },
@@ -648,13 +765,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WHM" }
+                        new GearItemJob { JobId= 3 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Ebers Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 13 },
@@ -662,13 +782,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WHM" }
+                        new GearItemJob { JobId= 3 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Kasuga Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "StoreTP", Value = 9 },
@@ -680,13 +803,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "SAM" }
+                        new GearItemJob { JobId= 12}
                     }
                 },
                 new GearItem
                 {
                     Name = "Kasuga Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "StoreTP", Value = 8 },
@@ -696,13 +822,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "SAM" }
+                        new GearItemJob { JobId= 12}
                     }
                 },
                 new GearItem
                 {
                     Name = "Arbatel Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "MagicAttack", Value = 9 },
@@ -713,13 +842,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "SCH" }
+                        new GearItemJob { JobId= 20}
                     }
                 },
                 new GearItem
                 {
                     Name = "Arbatel Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "MagicAttack", Value = 8 },
@@ -728,13 +860,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "SCH" }
+                        new GearItemJob { JobId= 20}
                     }
                 },
                 new GearItem
                 {
                     Name = "Enervating Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "RangedAccuracy", Value = 7 },
@@ -746,7 +881,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Boii Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "DA", Value = 9 },
@@ -758,13 +896,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" }
+                        new GearItemJob { JobId= 1 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Boii Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "DA", Value = 8 },
@@ -774,13 +915,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "WAR" }
+                        new GearItemJob { JobId= 1 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Chasseurs Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 18 },
@@ -791,13 +935,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "COR" }
+                        new GearItemJob { JobId= 17}
                     }
                 },
                 new GearItem
                 {
                     Name = "Chasseurs Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 13 },
@@ -806,13 +953,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "COR" }
+                        new GearItemJob { JobId= 17}
                     }
                 },
                 new GearItem
                 {
                     Name = "Fili Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 18 },
@@ -822,13 +972,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "BRD" }
+                        new GearItemJob { JobId= 10 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Fili Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 13 },
@@ -836,13 +989,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "BRD" }
+                        new GearItemJob { JobId= 10 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Skulkers Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "TA", Value = 5 },
@@ -854,13 +1010,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "THF" }
+                        new GearItemJob { JobId= 6 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Skulkers Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "TA", Value = 4 },
@@ -870,13 +1029,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "THF" }
+                        new GearItemJob { JobId= 6 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Bhikku Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Hand-to-HandSkill", Value = 12 },
@@ -888,13 +1050,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "MNK" }
+                        new GearItemJob { JobId= 2 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Bhikku Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Hand-to-HandSkill", Value = 11 },
@@ -904,13 +1069,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "MNK" }
+                        new GearItemJob { JobId= 2 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Maculele Earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "SkillchainBonus", Value = 7 },
@@ -923,13 +1091,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "DNC" }
+                        new GearItemJob { JobId= 19}
                     }
                 },
                 new GearItem
                 {
                     Name = "Maculele Earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "SkillchainBonus", Value = 6 },
@@ -940,13 +1111,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "DNC" }
+                        new GearItemJob { JobId= 19}
                     }
                 },
                 new GearItem
                 {
                     Name = "Nukumi earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 11 },
@@ -958,13 +1132,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "BST" }
+                        new GearItemJob { JobId= 9 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Nukumi earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "AxeSkill", Value = 11 },
@@ -974,13 +1151,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "BST" }
+                        new GearItemJob { JobId= 9 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Azimuth earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Int", Value = 11 },
@@ -990,13 +1170,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "GEO" }
+                        new GearItemJob { JobId= 21}
                     }
                 },
                 new GearItem
                 {
                     Name = "Azimuth earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "MagicAttack", Value = 8 },
@@ -1004,29 +1187,35 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "GEO" }
+                        new GearItemJob { JobId= 21}
                     }
                 },
                 new GearItem
                 {
                     Name = "Sroda Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "DA", Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "BST" },
-                        new GearItemJob { JobName = "DRG" },
-                        new GearItemJob { JobName = "SMN" },
-                        new GearItemJob { JobName = "PUP" }
+                        new GearItemJob { JobId= 9 },
+                        new GearItemJob { JobId= 14},
+                        new GearItemJob { JobId= 15},
+                        new GearItemJob { JobId= 18}
                     }
                 },
                 new GearItem
                 {
                     Name = "Chevalier's earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 11 },
@@ -1037,13 +1226,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "PLD" }
+                        new GearItemJob { JobId= 7 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Chevalier's earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "MagicAccuracy", Value = 13 },
@@ -1052,13 +1244,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "PLD" }
+                        new GearItemJob { JobId= 7 }
                     }
                 },
                 new GearItem
                 {
                     Name = "Amini earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 11 },
@@ -1070,13 +1265,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RNG" }
+                        new GearItemJob { JobId= 11}
                     }
                 },
                 new GearItem
                 {
                     Name = "Amini earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "PDL", Value = 8 },
@@ -1086,13 +1284,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RNG" }
+                        new GearItemJob { JobId= 11}
                     }
                 },
                 new GearItem
                 {
                     Name = "Karagoz earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 11 },
@@ -1105,13 +1306,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "PUP" }
+                        new GearItemJob { JobId= 18}
                     }
                 },
                 new GearItem
                 {
                     Name = "Karagoz earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Hand-to-HandSkill", Value = 11 },
@@ -1122,13 +1326,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "PUP" }
+                        new GearItemJob { JobId= 18}
                     }
                 },
                 new GearItem
                 {
                     Name = "Hashishin earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 11 },
@@ -1140,13 +1347,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "BLU" }
+                        new GearItemJob { JobId= 16}
                     }
                 },
                 new GearItem
                 {
                     Name = "Hashishin earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "SwordSkill", Value = 11 },
@@ -1156,13 +1366,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "BLU" }
+                        new GearItemJob { JobId= 16}
                     }
                 },
                 new GearItem
                 {
                     Name = "Erilaz earring +2",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "MagicEvasion", Value = 11 },
@@ -1174,13 +1387,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RUN" }
+                        new GearItemJob { JobId= 22}
                     }
                 },
                 new GearItem
                 {
                     Name = "Erilaz earring +1",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "MagicEvasion", Value = 11 },
@@ -1190,13 +1406,16 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RUN" }
+                        new GearItemJob { JobId= 22}
                     }
                 },
                 new GearItem
                 {
                     Name = "Odnowa Earring +1 R15",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Str", Value = 3 },
@@ -1214,7 +1433,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Dominance Earring +1 R15",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 14 },
@@ -1225,7 +1447,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Beyla Earring",
-                    Slot = "Ear",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 7 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "RangedAccuracy", Value = 15 },
@@ -1233,8 +1458,8 @@ namespace FFXIComp.Api.SeedData
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
-                        new GearItemJob { JobName = "RNG" },
-                        new GearItemJob { JobName = "COR" }
+                        new GearItemJob { JobId= 11},
+                        new GearItemJob { JobId= 17}
                     }
                 }
             };

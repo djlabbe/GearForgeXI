@@ -5,7 +5,7 @@ export function getTotalStats(set: GearSet): Record<string, number> {
   const total: Record<string, number> = {};
 
   Object.values(set).forEach((item: GearItem) => {
-    item?.gearStats.forEach((stat: GearStat) => {
+    item?.stats.forEach((stat: GearStat) => {
       total[stat.name] = (total[stat.name] || 0) + stat.value;
     });
   });

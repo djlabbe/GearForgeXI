@@ -11,7 +11,10 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Takaha Mantle",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 15 },
@@ -20,12 +23,15 @@ namespace FFXIComp.Api.SeedData
                         new GearStat { Name = "StoreTP", Value = 13 },
                         new GearStat { Name = "Zanshin", Value = 5 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "SAM" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
                 },
                 new GearItem
                 {
                     Name = "Null Shawl",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Accuracy", Value = 50 },
@@ -41,266 +47,332 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Cichol's Mantle",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 18 },
                         new GearStat { Name = "DoubleAttackDamage", Value = 20 },
                         new GearStat { Name = "BerserkDuration", Value = 15 },
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "WAR" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
                 new GearItem
                 {
                     Name = "Segomo's Mantle",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 16 },
                         new GearStat { Name = "KickAttacks", Value = 10 },
                         new GearStat { Name = "KickAttackDamage", Value = 25 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "MNK" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 } }
                 },
                 new GearItem
                 {
                     Name = "Alaunus's Cape",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 15 },
                         new GearStat { Name = "AfflatusSolace", Value = 10 },
                         new GearStat { Name = "Cursna", Value = 25 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "WHM" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 } }
                 },
                 new GearItem
                 {
                     Name = "Taranus's Cape",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 15 },
                         new GearStat { Name = "MagicBurstDamage", Value = 5 },
                         new GearStat { Name = "ManaWall", Value = 10 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "BLM" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 } }
                 },
                 new GearItem
                 {
                     Name = "Sucellos's Cape",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 15 },
                         new GearStat { Name = "EnfeeblingMagicEffect", Value = 10 },
                         new GearStat { Name = "EnhancingMagicDuration", Value = 20 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "RDM" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 } }
                 },
                 new GearItem
                 {
                     Name = "Toutatis's Cape",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 16 },
                         new GearStat { Name = "SneakAttack", Value = 10 },
                         new GearStat { Name = "TripleAttack", Value = 20 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "THF" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 } }
                 },
                 new GearItem
                 {
                     Name = "Rudianos's Mantle",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 20 },
                         new GearStat { Name = "PhysicalDamageToMP", Value = 5 },
                         new GearStat { Name = "BlockSuccessRate", Value = 3 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "PLD" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 7 } }
                 },
                 new GearItem
                 {
                     Name = "Ankou's Mantle",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 18 },
                         new GearStat { Name = "LastResortDuration", Value = 15 },
                         new GearStat { Name = "AbsorbDuration", Value = 10 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "DRK" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
                 new GearItem
                 {
                     Name = "Artio's Mantle",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 18 },
                         new GearStat { Name = "Reward", Value = 30 },
                         new GearStat { Name = "Spur", Value = 10 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "BST" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 9 } }
                 },
                 new GearItem
                 {
                     Name = "Intarabus's Cape",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 15 },
                         new GearStat { Name = "Madrigal", Value = 1 },
                         new GearStat { Name = "Prelude", Value = 1 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "BRD" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 10 } }
                 },
                 new GearItem
                 {
                     Name = "Belenus's Cape",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 16 },
                         new GearStat { Name = "VelocityShot", Value = 2 },
                         new GearStat { Name = "DoubleShotDamage", Value = 20 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "RNG" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} }
                 },
                 new GearItem
                 {
                     Name = "Smertrios's Mantle",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 18 },
                         new GearStat { Name = "MeditateDuration", Value = 8 },
                         new GearStat { Name = "SkillchainBonus", Value = 3 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "SAM" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
                 },
                 new GearItem
                 {
                     Name = "Andartia's Mantle",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 16 },
                         new GearStat { Name = "Utsusemi", Value = 1 },
                         new GearStat { Name = "Migawari", Value = 5 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "NIN" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13} }
                 },
                 new GearItem
                 {
                     Name = "Brigantia's Mantle",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 18 },
                         new GearStat { Name = "JumpDoubleAttack", Value = 20 },
                         new GearStat { Name = "WyvernBreathAttacks", Value = 15 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "DRG" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
                 new GearItem
                 {
                     Name = "Campestres's Cape",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 15 },
                         new GearStat { Name = "AvatarLevel", Value = 1 },
                         new GearStat { Name = "BloodPactDamage", Value = 5 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "SMN" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 15} }
                 },
                 new GearItem
                 {
                     Name = "Rosmerta's Cape",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 16 },
                         new GearStat { Name = "MonsterCorrelationEffects", Value = 10 },
                         new GearStat { Name = "EffluxTPBonus", Value = 250 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "BLU" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 16} }
                 },
                 new GearItem
                 {
                     Name = "Camulus's Mantle",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 16 },
                         new GearStat { Name = "PhantomRollDuration", Value = 30 },
                         new GearStat { Name = "TripleShot", Value = 5 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "COR" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 17} }
                 },
                 new GearItem
                 {
                     Name = "Visucius's Mantle",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 16 },
                         new GearStat { Name = "OverloadRate", Value = -10 },
                         new GearStat { Name = "AutomatonLevel", Value = 1 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "PUP" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 18} }
                 },
                 new GearItem
                 {
                     Name = "Senuna's Mantle",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 16 },
                         new GearStat { Name = "SambaDuration", Value = 15 },
                         new GearStat { Name = "CriticalHitDamage", Value = 5 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "DNC" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 19} }
                 },
                 new GearItem
                 {
                     Name = "Lugh's Cape",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 15 },
                         new GearStat { Name = "SkillchainBonus", Value = 10 },
                         new GearStat { Name = "RegenDuration", Value = 15 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "SCH" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 20} }
                 },
                 new GearItem
                 {
                     Name = "Nantosuelta's Cape",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 15 },
                         new GearStat { Name = "IndicolureDuration", Value = 20 },
                         new GearStat { Name = "LifeCycle", Value = 10 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "GEO" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 21} }
                 },
                 new GearItem
                 {
                     Name = "Ogma's cape",
-                    Slot = "Back",
+                    GearItemSlots = new List<GearItemSlot>
+    {
+        new GearItemSlot { GearSlotId = 11 }
+    },
                     GearStats = new List<GearStat>
                     {
                         new GearStat { Name = "Defense", Value = 18 },
                         new GearStat { Name = "Inquartata", Value = 3 },
                         new GearStat { Name = "VallationValianceDuration", Value = 15 }
                     },
-                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobName = "RUN" } }
+                    GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 22} }
                 }
             };
 
