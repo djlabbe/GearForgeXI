@@ -69,8 +69,8 @@ namespace FFXIComp.Api
                 new GearItemCategory { Id = 1, Name = "1H" }, //Done
                 new GearItemCategory { Id = 2, Name = "2H" }, //Done
                 new GearItemCategory { Id = 3, Name = "H2H" },//Done
-                new GearItemCategory { Id = 4, Name = "Shield" },
-                new GearItemCategory { Id = 5, Name = "Grip" },
+                new GearItemCategory { Id = 4, Name = "Shield" }, //Done
+                new GearItemCategory { Id = 5, Name = "Grip" }, // Done
                 new GearItemCategory { Id = 6, Name = "Instrument" },
                 new GearItemCategory { Id = 7, Name = "Bow" },
                 new GearItemCategory { Id = 8, Name = "Crossbow" },
@@ -79,7 +79,8 @@ namespace FFXIComp.Api
                 new GearItemCategory { Id = 11, Name = "Bolt" }, //Done
                 new GearItemCategory { Id = 12, Name = "Bullet" }, //Done
                 new GearItemCategory { Id = 13, Name = "Ammo" }, //Done
-                new GearItemCategory { Id = 14, Name = "Cloak" }//Done
+                new GearItemCategory { Id = 14, Name = "Cloak" }, //Done
+                new GearItemCategory { Id = 15, Name = "Thrown" } //Done
             );
 
             // GearItem → GearCategory

@@ -11,6 +11,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Antitail +1 R15",
+                    GearItemCategoryId = 15, // Thrown category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -30,6 +31,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Date Shuriken",
+                    GearItemCategoryId = 15, // Thrown category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -50,6 +52,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Happo Shuriken",
+                    GearItemCategoryId = 15, // Thrown category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -69,6 +72,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Seki Shuriken",
+                    GearItemCategoryId = 15, // Thrown category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -86,6 +90,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Donar Gun",
+                    GearItemCategoryId = 9, // Gun category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -104,6 +109,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Ullr",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -125,6 +131,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Yoichinoyumi R15",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -143,6 +150,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Yoichinoyumi",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -161,6 +169,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Armageddon R15",
+                    GearItemCategoryId = 9, // Gun category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -179,6 +188,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Armageddon",
+                    GearItemCategoryId = 9, // Gun category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -196,6 +206,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Fomalhaut R15",
+                    GearItemCategoryId = 9, // Gun category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -216,6 +227,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Fomalhaut",
+                    GearItemCategoryId = 9, // Gun category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -235,6 +247,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Death Penalty R15",
+                    GearItemCategoryId = 9, // Gun category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -255,6 +268,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Death Penalty",
+                    GearItemCategoryId = 9, // Gun category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -273,6 +287,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Ataktos",
+                    GearItemCategoryId = 9, // Gun category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -288,6 +303,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Molybdosis",
+                    GearItemCategoryId = 9, // Gun category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -307,6 +323,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Gandiva R15",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -324,6 +341,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Gandiva",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -340,6 +358,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Fail-not R15",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -360,6 +379,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Fail-not",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -379,6 +399,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Accipiter",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -394,6 +415,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Annihilator R15",
+                    GearItemCategoryId = 9, // Gun category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -413,6 +435,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Annihilator",
+                    GearItemCategoryId = 9, // Gun category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -431,6 +454,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Gastraphetes R15",
+                    GearItemCategoryId = 8, // Crossbow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -450,6 +474,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Gastraphetes",
+                    GearItemCategoryId = 8, // Crossbow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -468,6 +493,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Exalted Crossbow +1",
+                    GearItemCategoryId = 8, // Crossbow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -485,6 +511,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Mpaca's Bow R0",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -507,6 +534,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Mpaca's Bow R15",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -529,6 +557,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Mpaca's Bow R20",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -551,6 +580,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Mpaca's Bow R25",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -573,6 +603,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Mpaca's Bow R30",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -595,6 +626,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Gleti's Crossbow R0",
+                    GearItemCategoryId = 8, // Crossbow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -618,6 +650,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Gleti's Crossbow R15",
+                    GearItemCategoryId = 8, // Crossbow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -641,6 +674,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Gleti's Crossbow R20",
+                    GearItemCategoryId = 8, // Crossbow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -664,6 +698,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Gleti's Crossbow R25",
+                    GearItemCategoryId = 8, // Crossbow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -687,6 +722,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Gleti's Crossbow R30",
+                    GearItemCategoryId = 8, // Crossbow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -710,6 +746,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Earp V",
+                    GearItemCategoryId = 9, // Gun category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -731,6 +768,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Earp IV",
+                    GearItemCategoryId = 9, // Gun category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -752,6 +790,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Pinaka V",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
@@ -773,6 +812,7 @@ namespace FFXIComp.Api.SeedData
                 new GearItem
                 {
                     Name = "Pinaka IV",
+                    GearItemCategoryId = 7, // Bow category
                     GearItemSlots = new List<GearItemSlot>
     {
         new GearItemSlot { GearSlotId = 3 }
