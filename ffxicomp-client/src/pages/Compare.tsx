@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
 import { ReactSelector } from "../components/ReactSelector";
 import { GearSetComparer } from "../components/GearSetComparer";
 import Card from "../components/Card";
 import Notes from "../components/Notes";
+import { useJobs } from "../contexts/JobsContext";
+import { useState } from "react";
 import type { Job } from "../models/Job";
 
 const ComparePage = () => {
-  const [jobs, setJobs] = useState<Job[]>();
+  const { jobs, loading: loadingJobs, error } = useJobs();
 
-  const [selectedJob, setSelectedJob] = useState<Job>();
-  const [loadingJobs, setLoadingJobs] = useState<boolean>(false);
+    const [selectedJob, setSelectedJob] = useState<Job | undefined>();
+  
 
   const jobOptions =
     jobs?.map((job) => ({
@@ -17,21 +18,13 @@ const ComparePage = () => {
       label: `${job.fullName} (${job.abbreviation})`,
     })) || [];
 
-  useEffect(() => {
-    setLoadingJobs(true);
-    fetch("/api/jobs")
-      .then((res) => res.json())
-      .then((data: Job[]) => {
-        setJobs(data);
-      })
-      .finally(() => setLoadingJobs(false));
-  }, []);
-
   return (
     <>
       <Card className="mb-4">
         {loadingJobs ? (
           <div className="text-gray-500">Loading...</div>
+        ) : error ? (
+          <div className="text-red-500">Error: {error}</div>
         ) : (
           <>
             <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200">

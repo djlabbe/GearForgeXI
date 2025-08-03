@@ -28,13 +28,14 @@ public class GearController(GearDbContext context) : ControllerBase
             {
                 Id = g.Id,
                 Name = g.Name,
+                Category = g.Category != null ? g.Category.Name : null,
                 Stats = g.GearStats.Select(s => new GearStatDto
                 {
                     Name = s.Name,
                     Value = s.Value
                 }).ToList(),
                 Jobs = g.GearItemJobs.Select(j => j.Job.Abbreviation).ToList(),
-                Slots = g.GearItemSlots.Select(s => s.GearSlot.Name).ToList()
+                Slots = g.GearItemSlots.Select(s => s.GearSlot.Name).ToList(),
             });
 
         var result = await query.ToListAsync();
@@ -50,6 +51,7 @@ public class GearController(GearDbContext context) : ControllerBase
             {
                 Id = g.Id,
                 Name = g.Name,
+                Category = g.Category != null ? g.Category.Name : null,
                 Stats = g.GearStats
                     .Select(s => new GearStatDto
                     {

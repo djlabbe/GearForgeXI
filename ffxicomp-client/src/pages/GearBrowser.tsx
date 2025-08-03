@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import type { GearItem } from "../models/GearItem";
-import Card from "./Card";
+import Card from "../components/Card";
+import { useJobs } from "../contexts/JobsContext";
+import GearItemCard from "../components/GearItemCard";
 
 function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
   return items.reduce<Record<string, GearItem[]>>((acc, item) => {
@@ -15,30 +17,6 @@ function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
   }, {});
 }
 
-const allJobs = [
-  "WAR",
-  "MNK",
-  "WHM",
-  "BLM",
-  "RDM",
-  "THF",
-  "PLD",
-  "DRK",
-  "BST",
-  "BRD",
-  "RNG",
-  "SMN",
-  "SAM",
-  "NIN",
-  "DRG",
-  "BLU",
-  "COR",
-  "PUP",
-  "DNC",
-  "SCH",
-  "GEO",
-  "RUN",
-];
 const slots = [
   "Main",
   "Sub",
@@ -56,41 +34,56 @@ const slots = [
   "Feet",
 ];
 
-
 export function GearBrowser() {
+  const { jobs, loading: loadingJobs } = useJobs();
+
   const [gearItems, setGearItems] = useState<GearItem[]>([]);
   const [filter, setFilter] = useState("");
   const [loading, setLoading] = useState(true);
-  const [selectedSlot, setSelectedSlot] = useState<string>("");
+  const [selectedSlot, setSelectedSlot] = useState<string>("Main");
   const [selectedJob, setSelectedJob] = useState<string>("");
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/gear/all")
+    fetch("/api/gear")
       .then((res) => res.json())
       .then((items: GearItem[]) => {
         setGearItems(items);
-        // Set default selected slot to the first slot found
-        // const slots = Array.from(new Set(items.map((i: GearItem) => i.slot.toString())));
-        setSelectedSlot("main");
       })
       .finally(() => setLoading(false));
   }, []);
 
-  const grouped = groupBySlot(gearItems);
+  const grouped = useMemo(() => groupBySlot(gearItems), [gearItems]);
 
-  const filteredItems =
-    selectedSlot && grouped[selectedSlot]
-      ? grouped[selectedSlot].filter(
-          (item) =>
-            item.name.toLowerCase().includes(filter.toLowerCase()) &&
-            (selectedJob === "" ||
-              item.jobs.some((j) => j === selectedJob) ||
-              item.jobs.length === 0)
-        )
-      : [];
+  const filteredItems = useMemo(() => {
+    if (selectedSlot && grouped[selectedSlot.toLowerCase()]) {
+      return grouped[selectedSlot.toLowerCase()].filter(
+        (item) =>
+          item.name.toLowerCase().includes(filter.toLowerCase()) &&
+          (selectedJob === "" ||
+            item.jobs.some((j) => j === selectedJob) ||
+            item.jobs.length === 0)
+      );
+    }
+    
+    if (selectedSlot === "" && filter === "" && selectedJob === "") {
+      return gearItems; // Show all items when no filters are selected
+    }
+    
+    if (selectedSlot === "") {
+      return gearItems.filter(
+        (item) =>
+          item.name.toLowerCase().includes(filter.toLowerCase()) &&
+          (selectedJob === "" ||
+            item.jobs.some((j) => j === selectedJob) ||
+            item.jobs.length === 0)
+      );
+    }
+    
+    return [];
+  }, [gearItems, grouped, selectedSlot, filter, selectedJob]);
 
-  if (loading) {
+  if (loading || loadingJobs) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-gray-600 dark:text-gray-400">Loading...</div>
@@ -112,11 +105,21 @@ export function GearBrowser() {
           className="mb-4 p-2 border border-gray-300 dark:border-gray-700 rounded w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
         />
         <div className="flex space-x-2 mb-2">
+          {/* <button
+            onClick={() => setSelectedSlot("")}
+            className={`px-3 py-1 rounded w-24 text-center cursor-pointer ${
+              selectedSlot === ""
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+            }`}
+          >
+            All Slots
+          </button> */}
           {slots.map((slot) => (
             <button
               key={slot}
               onClick={() => setSelectedSlot(slot)}
-              className={`px-3 py-1 rounded w-24 text-center ${
+              className={`px-3 py-1 rounded w-24 text-center cursor-pointer ${
                 selectedSlot === slot
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
@@ -130,7 +133,7 @@ export function GearBrowser() {
         <div className="flex space-x-2 mb-2 flex-wrap">
           <button
             onClick={() => setSelectedJob("")}
-            className={`px-3 py-1 my-1 rounded w-24 ${
+            className={`px-3 py-1 my-1 rounded w-24 cursor-pointer ${
               selectedJob === ""
                 ? "bg-blue-600 text-white"
                 : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
@@ -138,17 +141,17 @@ export function GearBrowser() {
           >
             All Jobs
           </button>
-          {allJobs.map((job) => (
+          {jobs.map((job) => (
             <button
-              key={job}
-              onClick={() => setSelectedJob(job)}
-              className={`px-3 py-1 my-1 rounded w-24 ${
-                selectedJob === job
+              key={job.abbreviation}
+              onClick={() => setSelectedJob(job.abbreviation)}
+              className={`px-3 py-1 my-1 rounded w-24 cursor-pointer ${
+                selectedJob === job.abbreviation
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               }`}
             >
-              {job}
+              {job.abbreviation}
             </button>
           ))}
         </div>
@@ -156,32 +159,7 @@ export function GearBrowser() {
 
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-2">
         {filteredItems.map((item) => (
-          <Card key={item.id}>
-            <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100">
-              {item.name}
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
-              Slot: {item.slots.join(", ")}
-            </p>
-            {item.jobs.length > 0 && (
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                Jobs: {item.jobs.join(", ")}
-              </p>
-            )}
-            <ul className="text-sm">
-              {item.stats.map((stat) => (
-                <li
-                  key={stat.name}
-                  className="text-gray-800 dark:text-gray-200"
-                >
-                  {stat.name}:{" "}
-                  <span className="font-semibold text-gray-900 dark:text-gray-100">
-                    {stat.value}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </Card>
+            <GearItemCard key={item.id} item={item} />
         ))}
       </div>
     </div>
