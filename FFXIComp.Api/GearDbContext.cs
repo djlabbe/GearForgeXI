@@ -146,6 +146,7 @@ namespace FFXIComp.Api
                 new Stat { Id = 52, Name = "Zanshin", Category = "Combat" },
                 new Stat { Id = 53, Name = "SkillchainBonus", DisplayName = "Skillchain Bonus", Category = "Combat" },
                 new Stat { Id = 54, Name = "WeaponSkillDamage", DisplayName = "Weapon Skill Damage", Category = "Combat" },
+                new Stat { Id = 54, Name = "WeaponSkillAccuracy", DisplayName = "Weapon Skill Accuracy", Category = "Combat" },
                 new Stat { Id = 55, Name = "PhysicalDamageLimit", DisplayName = "Physical Damage Limit+", Category = "Combat" },
                 new Stat { Id = 56, Name = "TPBonus", DisplayName = "TP Bonus", Category = "Combat" },
                 new Stat { Id = 57, Name = "WSDMG+", DisplayName = "Weapon Skill Damage +%", Category = "Combat" },
@@ -163,7 +164,9 @@ namespace FFXIComp.Api
                 new Stat { Id = 64, Name = "MagicAccuracy", DisplayName = "Magic Accuracy", Category = "Magic" },
                 new Stat { Id = 65, Name = "MagicAttackBonus", DisplayName = "Magic Attack Bonus", Category = "Magic" },
                 new Stat { Id = 66, Name = "MagicDamage", DisplayName = "Magic Damage", Category = "Magic" },
-                new Stat { Id = 67, Name = "MagicCritRateII", DisplayName = "Magic Crit Rate II", Category = "Magic" },
+                new Stat { Id = 67, Name = "MagicCriticalHitRate", DisplayName = "Magic Critical Hit Rate", Category = "Magic" },
+                new Stat { Id = 67, Name = "MagicCriticalHitRateII", DisplayName = "Magic Critical Hit Rate II", Category = "Magic" },
+                new Stat { Id = 67, Name = "MagicCriticalHitDamage", DisplayName = "Magic Critical Hit Damage", Category = "Magic" },
                 new Stat { Id = 68, Name = "FastCast", DisplayName = "Fast Cast", Category = "Magic" },
                 new Stat { Id = 69, Name = "ConserveMP", DisplayName = "Conserve MP", Category = "Magic" },
                 new Stat { Id = 70, Name = "EnhancingMagicDuration", DisplayName = "Enhancing Magic Duration", Category = "Magic" },
@@ -174,9 +177,15 @@ namespace FFXIComp.Api
                 new Stat { Id = 75, Name = "RegenDuration", DisplayName = "Regen Duration", Category = "Magic" },
                 new Stat { Id = 76, Name = "CurePotency", DisplayName = "Cure Potency", Category = "Magic" },
                 new Stat { Id = 76, Name = "CurePotencyII", DisplayName = "Cure Potency II", Category = "Magic" },
+                new Stat { Id = 76, Name = "ConserveMP", DisplayName = "Conserve MP", Category = "Magic" },
+                new Stat { Id = 76, Name = "RefreshPotency", DisplayName = "Refresh Potency", Category = "Magic" },
+                new Stat { Id = 76, Name = "DrainAspirPotency", DisplayName = "Drain and Aspir Potency", Category = "Magic" },
 
                 new Stat { Id = 76, Name = "CureToMana", DisplayName = "Cure to Mana", Category = "Magic" },
-                new Stat { Id = 76, Name = "HealingFastCast", DisplayName = "Healing Fast Cast", Category = "Magic" },
+                new Stat { Id = 76, Name = "HealingMagicCastingTime", DisplayName = "Healing Magic Casting Time", Category = "Magic" },
+                new Stat { Id = 76, Name = "ElementalMagicCastingTime", DisplayName = "Elemental Magic Casting Time", Category = "Magic" },
+                new Stat { Id = 76, Name = "EnfeeblingMagicCastingTime", DisplayName = "Enfeebling Magic Casting Time", Category = "Magic" },
+                new Stat { Id = 76, Name = "ElementalMagicRecastDelay", DisplayName = "Elemental Magic Recast Delay", Category = "Magic" },
 
 
                 // Defensive Stats
@@ -192,6 +201,10 @@ namespace FFXIComp.Api
                 new Stat { Id = 85, Name = "MDT", DisplayName = "Magic Damage Taken -%", Category = "Defense" },
                 new Stat { Id = 86, Name = "Enmity+", Category = "Defense" },
                 new Stat { Id = 87, Name = "Enmity-", Category = "Defense" },
+                new Stat { Id = 105, Name = "ResistSilence", DisplayName = "Resist Silence", Category = "Defense" },
+                new Stat { Id = 88, Name = "MitigatesDamageTakenEnmity", Description = "Gives -% Damage Taken as Enmity increases.", DisplayName = "Mitigates Damage Taken Based on Enmity", Category = "Defense" },
+                new Stat { Id = 102, Name = "ShieldDefBonus", Description = "Reduces blocked damage taken", DisplayName = "Shield Defense Bonus", Category = "Defense" },
+                new Stat { Id = 103, Name = "BoostsEnmityRetentionWhenTakingDamage", DisplayName = "Boosts Enmity Retention When Taking Damage", Category = "Defense" },
 
                 // Ranged Stats
                 new Stat { Id = 88, Name = "Snapshot", Category = "Ranged" },
@@ -222,53 +235,107 @@ namespace FFXIComp.Api
                 new Stat { Id = 109, Name = "OccultAcumen", Category = "Utility" },
 
                 // Job Specific
-                new Stat { Id = 110, Name = "BerserkDuration", DisplayName = "Berserk Duration", Category = "Job" },
                 new Stat { Id = 111, Name = "JobAbilityDuration", DisplayName = "Job Ability Duration", Category = "Job" },
+
+                // WAR
+                new Stat { Id = 110, Name = "BerserkDuration", DisplayName = "Berserk Duration", Category = "Job" },
+                new Stat { Id = 76, Name = "Retaliation", DisplayName = "Retaliation", Category = "Job" },
+                new Stat { Id = 76, Name = "Restraint", DisplayName = "Restraint", Category = "Job" },
+                new Stat { Id = 76, Name = "BloodRageDuration", DisplayName = "Blood Rage Duration", Category = "Job" },
+
+                // MNK
                 new Stat { Id = 112, Name = "KickAttacks", DisplayName = "Kick Attacks", Category = "Job" },
                 new Stat { Id = 113, Name = "KickAttacksAttack", DisplayName = "Kick Attack Attack", Category = "Job" },
+                new Stat { Id = 76, Name = "PerfectCounterAttack", DisplayName = "Perfect Counter Attack", Category = "Job" },
+                new Stat { Id = 76, Name = "AugmentsImpetus", DisplayName = "Augments Impetus", Description = "Increases Critical Hit Damage by 1% and Accuracy by 2 for each consecutive successful attack while worn", Category = "Job" },
+                new Stat { Id = 76, Name = "TacticalGuard", DisplayName = "Tactical Guard", Category = "Job" },
+                new Stat { Id = 76, Name = "Footwork%", DisplayName = "Footwork %", Description = "Increases Footwork's Attack modifier by 16% if worn during Job Ability activation.", Category = "Job" },
+
+                // WHM
                 new Stat { Id = 114, Name = "AfflatusSolace", DisplayName = "Afflatus Solace", Category = "Job" },
                 new Stat { Id = 115, Name = "Cursna", DisplayName = "Cursna", Category = "Job" },
-                new Stat { Id = 116, Name = "ManaWall", DisplayName = "Mana Wall", Category = "Job" },
-                new Stat { Id = 117, Name = "SneakAttack", DisplayName = "Sneak Attack", Category = "Job" },
-                new Stat { Id = 118, Name = "LastResortDuration", DisplayName = "Last Resort Duration", Category = "Job" },
-                new Stat { Id = 119, Name = "AbsorbDuration", DisplayName = "Absorb Duration", Category = "Job" },
-                new Stat { Id = 120, Name = "Reward", DisplayName = "Reward", Category = "Job" },
-                new Stat { Id = 121, Name = "Spur", DisplayName = "Spur", Category = "Job" },
-                new Stat { Id = 122, Name = "Madrigal", DisplayName = "Madrigal", Category = "Job" },
-                new Stat { Id = 123, Name = "Prelude", DisplayName = "Prelude", Category = "Job" },
-                new Stat { Id = 124, Name = "VelocityShot", DisplayName = "Velocity Shot", Category = "Job" },
-                new Stat { Id = 125, Name = "DoubleShotDamage", DisplayName = "Double Shot Damage", Category = "Job" },
-                new Stat { Id = 126, Name = "MeditateDuration", DisplayName = "Meditate Duration", Category = "Job" },
-                new Stat { Id = 127, Name = "Utsusemi", DisplayName = "Utsusemi", Category = "Job" },
-                new Stat { Id = 128, Name = "Migawari", DisplayName = "Migawari", Category = "Job" },
-                new Stat { Id = 129, Name = "AvatarLevel", DisplayName = "Avatar Level", Category = "Job" },
-                new Stat { Id = 130, Name = "BloodPactDamage", DisplayName = "Blood Pact Damage", Category = "Job" },
-                new Stat { Id = 131, Name = "MonsterCorrelationEffects", DisplayName = "Monster Correlation Effects", Category = "Job" },
-                new Stat { Id = 132, Name = "EffluxTPBonus", DisplayName = "Efflux TP Bonus", Category = "Job" },
-                new Stat { Id = 133, Name = "PhantomRollDuration", DisplayName = "Phantom Roll Duration", Category = "Job" },
-                new Stat { Id = 134, Name = "TripleShot", DisplayName = "Triple Shot", Category = "Job" },
-                new Stat { Id = 135, Name = "OverloadRate", DisplayName = "Overload Rate", Category = "Job" },
-                new Stat { Id = 136, Name = "AutomatonLevel", DisplayName = "Automaton Level", Category = "Job" },
-                new Stat { Id = 137, Name = "SambaDuration", DisplayName = "Samba Duration", Category = "Job" },
-                new Stat { Id = 138, Name = "IndicolureDuration", DisplayName = "Indicolure Duration", Category = "Job" },
-                new Stat { Id = 139, Name = "LifeCycle", DisplayName = "Life Cycle", Category = "Job" },
-                new Stat { Id = 140, Name = "Inquartata", DisplayName = "Inquartata", Category = "Job" },
-                new Stat { Id = 141, Name = "VallationValianceDuration", DisplayName = "Vallation Valiance Duration", Category = "Job" },
-                new Stat { Id = 142, Name = "Rapture", DisplayName = "Rapture", Category = "Job" },
-                new Stat { Id = 143, Name = "Ebullience", DisplayName = "Ebullience", Category = "Job" },
                 new Stat { Id = 76, Name = "DivineVeil", DisplayName = "Divine Veil", Category = "Job" },
                 new Stat { Id = 76, Name = "AfflatusSolace", DisplayName = "Afflatus Solace", Category = "Job" },
                 new Stat { Id = 76, Name = "DivineCaress", DisplayName = "Divine Caress", Category = "Job" },
                 new Stat { Id = 76, Name = "DivineBenison", DisplayName = "Divine Benison", Category = "Job" },
                 new Stat { Id = 76, Name = "Auspice", DisplayName = "Auspice", Category = "Job" },
-                new Stat { Id = 76, Name = "Retaliation", DisplayName = "Retaliation", Category = "Job" },
-                new Stat { Id = 76, Name = "Restraint", DisplayName = "Restraint", Category = "Job" },
-                new Stat { Id = 76, Name = "BloodRageDuration", DisplayName = "Blood Rage Duration", Category = "Job" },
-                new Stat { Id = 76, Name = "PerfectCounterAttack", DisplayName = "Perfect Counter Attack", Category = "Job" },
-                new Stat { Id = 76, Name = "AugmentsImpetus", Description = "Increases Critical Hit Damage by 1% and Accuracy by 2 for each consecutive successful attack while worn", Category = "Job" },
-                new Stat { Id = 76, Name = "TacticalGuard", DisplayName = "Tactical Guard", Category = "Job" },
-                new Stat { Id = 76, Name = "Footwork%", DisplayName = "Footwork %", Description = "Increases Footwork's Attack modifier by 16% if worn during Job Ability activation.", Category = "Job" }
 
+                // BLM
+                new Stat { Id = 116, Name = "ManaWall", DisplayName = "Mana Wall", Category = "Job" },
+                new Stat { Id = 76, Name = "IncreasesMagicEffectDuration", DisplayName = "Increases Magic Effect Duration", Category = "Job" },
+
+
+                // RDM
+                new Stat { Id = 76, Name = "Saboteur", DisplayName = "Saboteur", Category = "Job" },
+
+                // THF
+                new Stat { Id = 117, Name = "SneakAttack", DisplayName = "Sneak Attack", Category = "Job" },
+                new Stat { Id = 117, Name = "Accomplice", DisplayName = "Accomplice", Category = "Job" },
+                new Stat { Id = 117, Name = "Collaborator", DisplayName = "Collaborator", Category = "Job" },
+                new Stat { Id = 117, Name = "Despoil", Description = "Success rate when using Despoil", DisplayName = "Despoil", Category = "Job" },
+                new Stat { Id = 117, Name = "DespoilEffect", Description = "Enhances Despoil enfeeble potency", DisplayName = "Despoil Effect", Category = "Job" },
+                new Stat { Id = 117, Name = "AugmentsConspirator", Description = "Grants an attack bonus equal to the accuracy bonus. Grants a store TP bonus equal to store TP +2 for each party member with enmity on the target. (Wearer only, must remain equipped.)", DisplayName = "Augments Conspirator", Category = "Job" },
+
+                // PLD
+                new Stat { Id = 104, Name = "DivineEmblem", DisplayName = "Divine Emblem", Category = "Defense" },
+
+
+                // DRK
+                new Stat { Id = 118, Name = "LastResortDuration", DisplayName = "Last Resort Duration", Category = "Job" },
+                new Stat { Id = 119, Name = "AbsorbDuration", DisplayName = "Absorb Duration", Category = "Job" },
+
+                // BST
+                new Stat { Id = 120, Name = "Reward", DisplayName = "Reward", Category = "Job" },
+                new Stat { Id = 121, Name = "Spur", DisplayName = "Spur", Category = "Job" },
+
+                // BRD
+                new Stat { Id = 122, Name = "Madrigal", DisplayName = "Madrigal", Category = "Job" },
+                new Stat { Id = 123, Name = "Prelude", DisplayName = "Prelude", Category = "Job" },
+
+                // RNG
+                new Stat { Id = 124, Name = "VelocityShot", DisplayName = "Velocity Shot", Category = "Job" },
+                new Stat { Id = 125, Name = "DoubleShotDamage", DisplayName = "Double Shot Damage", Category = "Job" },
+
+                // SAM
+                new Stat { Id = 126, Name = "MeditateDuration", DisplayName = "Meditate Duration", Category = "Job" },
+
+                // NIN
+                new Stat { Id = 127, Name = "Utsusemi", DisplayName = "Utsusemi", Category = "Job" },
+                new Stat { Id = 128, Name = "Migawari", DisplayName = "Migawari", Category = "Job" },
+
+                // DRG
+
+                // SMN
+                new Stat { Id = 129, Name = "AvatarLevel", DisplayName = "Avatar Level", Category = "Job" },
+                new Stat { Id = 130, Name = "BloodPactDamage", DisplayName = "Blood Pact Damage", Category = "Job" },
+
+                // BLU
+                new Stat { Id = 131, Name = "MonsterCorrelationEffects", DisplayName = "Monster Correlation Effects", Category = "Job" },
+                new Stat { Id = 132, Name = "EffluxTPBonus", DisplayName = "Efflux TP Bonus", Category = "Job" },
+
+                // COR
+                new Stat { Id = 133, Name = "PhantomRollDuration", DisplayName = "Phantom Roll Duration", Category = "Job" },
+                new Stat { Id = 134, Name = "TripleShot", DisplayName = "Triple Shot", Category = "Job" },
+
+                // PUP
+                new Stat { Id = 135, Name = "OverloadRate", DisplayName = "Overload Rate", Category = "Job" },
+                new Stat { Id = 136, Name = "AutomatonLevel", DisplayName = "Automaton Level", Category = "Job" },
+
+                // DNC
+                new Stat { Id = 137, Name = "SambaDuration", DisplayName = "Samba Duration", Category = "Job" },
+
+                // SCH
+                new Stat { Id = 142, Name = "Rapture", DisplayName = "Rapture", Category = "Job" },
+                new Stat { Id = 143, Name = "Ebullience", DisplayName = "Ebullience", Category = "Job" },
+
+
+                // GEO
+                new Stat { Id = 138, Name = "IndicolureDuration", DisplayName = "Indicolure Duration", Category = "Job" },
+                new Stat { Id = 139, Name = "LifeCycle", DisplayName = "Life Cycle", Category = "Job" },
+
+                // RUN
+                new Stat { Id = 140, Name = "Inquartata", DisplayName = "Inquartata", Category = "Job" },
+                new Stat { Id = 141, Name = "VallationValianceDuration", DisplayName = "Vallation Valiance Duration", Category = "Job" },
 
             );
 
