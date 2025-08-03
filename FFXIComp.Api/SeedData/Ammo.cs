@@ -16,13 +16,13 @@ public static class AmmoSeedData
                     {
                         new GearItemSlot { GearSlotId = 4 }
                     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 7 },
-                        new GearStat { Name = "Dex", Value = 7 },
-                        new GearStat { Name = "Vit", Value = 7 },
-                        new GearStat { Name = "Attack", Value = 10 },
-                        new GearStat { Name = "StoreTP", Value = 5 }
+                        new GearItemStat { Id = 1, Value = 7 },
+                        new GearItemStat { Id = 2, Value = 7 },
+                        new GearItemStat { Id = 3, Value = 7 },
+                        new GearItemStat { Id = 44, Value = 10 },
+                        new GearItemStat { Id = 50, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -52,11 +52,11 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dex", Value = 10 },
-                        new GearStat { Name = "Agi", Value = 10 },
-                        new GearStat { Name = "Accuracy", Value = 15 }
+                        new GearItemStat { Id = 2, Value = 10 },
+                        new GearItemStat { Id = 4, Value = 10 },
+                        new GearItemStat { Id = 43, Value = 15 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -74,10 +74,10 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DA", Value = 3 },
-                        new GearStat { Name = "StoreTP", Value = 3 }
+                        new GearItemStat { Id = 47, Value = 3 },
+                        new GearItemStat { Id = 50, Value = 3 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -107,11 +107,11 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Attack", Value = 15 },
-                        new GearStat { Name = "DA", Value = 3 },
-                        new GearStat { Name = "StoreTP", Value = 3 }
+                        new GearItemStat { Id = 44, Value = 15 },
+                        new GearItemStat { Id = 47, Value = 3 },
+                        new GearItemStat { Id = 50, Value = 3 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -141,12 +141,12 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Attack", Value = 15 },
-                        new GearStat { Name = "Str", Value = 5 },
-                        new GearStat { Name = "DA", Value = 3 },
-                        new GearStat { Name = "StoreTP", Value = 3 }
+                        new GearItemStat { Id = 44, Value = 15 },
+                        new GearItemStat { Id = 1, Value = 5 },
+                        new GearItemStat { Id = 47, Value = 3 },
+                        new GearItemStat { Id = 50, Value = 3 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -176,13 +176,13 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Attack", Value = 15 },
-                        new GearStat { Name = "Str", Value = 8 },
-                        new GearStat { Name = "Dex", Value = 5 },
-                        new GearStat { Name = "DA", Value = 3 },
-                        new GearStat { Name = "StoreTP", Value = 3 }
+                        new GearItemStat { Id = 44, Value = 15 },
+                        new GearItemStat { Id = 1, Value = 8 },
+                        new GearItemStat { Id = 2, Value = 5 },
+                        new GearItemStat { Id = 47, Value = 3 },
+                        new GearItemStat { Id = 50, Value = 3 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -212,13 +212,13 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Attack", Value = 15 },
-                        new GearStat { Name = "Str", Value = 10 },
-                        new GearStat { Name = "Dex", Value = 5 },
-                        new GearStat { Name = "DA", Value = 3 },
-                        new GearStat { Name = "StoreTP", Value = 3 }
+                        new GearItemStat { Id = 44, Value = 15 },
+                        new GearItemStat { Id = 1, Value = 10 },
+                        new GearItemStat { Id = 2, Value = 5 },
+                        new GearItemStat { Id = 47, Value = 3 },
+                        new GearItemStat { Id = 50, Value = 3 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -248,12 +248,12 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 3 },
-                        new GearStat { Name = "Vit", Value = 3 },
-                        new GearStat { Name = "PDL", Value = 3 },
-                        new GearStat { Name = "DT", Value = -3 }
+                        new GearItemStat { Id = 1, Value = 3 },
+                        new GearItemStat { Id = 3, Value = 3 },
+                        new GearItemStat { Id = 56, Value = 3 },
+                        new GearItemStat { Id = 98, Value = -3 }
                     },
                     GearItemJobs = []
                 },
@@ -265,10 +265,10 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "MagicDamage", Value = 21 },
-                        new GearStat { Name = "Int", Value = 11 }
+                        new GearItemStat { Id = 70, Value = 21 },
+                        new GearItemStat { Id = 5, Value = 11 }
                     },
                     GearItemJobs = []
                 },
@@ -280,10 +280,10 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Attack", Value = 23 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 6 }
+                        new GearItemStat { Id = 44, Value = 23 },
+                        new GearItemStat { Id = 54, Value = 6 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -303,11 +303,11 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Accuracy", Value = 5 },
-                        new GearStat { Name = "Attack", Value = 5 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 3 }
+                        new GearItemStat { Id = 43, Value = 5 },
+                        new GearItemStat { Id = 44, Value = 5 },
+                        new GearItemStat { Id = 54, Value = 3 }
                     },
                     GearItemJobs = []
                 },
@@ -319,11 +319,11 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Int", Value = 4 },
-                        new GearStat { Name = "MagicAccuracy", Value = 8 },
-                        new GearStat { Name = "MagicAttack", Value = 4 }
+                        new GearItemStat { Id = 5, Value = 4 },
+                        new GearItemStat { Id = 68, Value = 8 },
+                        new GearItemStat { Id = 69, Value = 4 }
                     },
                     GearItemJobs = []
                 },
@@ -335,13 +335,13 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Accuracy", Value = 13 },
-                        new GearStat { Name = "Attack", Value = 13 },
-                        new GearStat { Name = "MagicAttack", Value = 7 },
-                        new GearStat { Name = "Str", Value = 14 },
-                        new GearStat { Name = "GearHaste", Value = 4 }
+                        new GearItemStat { Id = 43, Value = 13 },
+                        new GearItemStat { Id = 44, Value = 13 },
+                        new GearItemStat { Id = 69, Value = 7 },
+                        new GearItemStat { Id = 1, Value = 14 },
+                        new GearItemStat { Id = 59, Value = 4 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -360,10 +360,10 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "CritRate", Value = 2 },
-                        new GearStat { Name = "CritDamage", Value = 6 }
+                        new GearItemStat { Id = 45, Value = 2 },
+                        new GearItemStat { Id = 46, Value = 6 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -384,13 +384,13 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 5 },
-                        new GearStat { Name = "Dex", Value = 5 },
-                        new GearStat { Name = "Chr", Value = 5 },
-                        new GearStat { Name = "Accuracy", Value = 10 },
-                        new GearStat { Name = "Attack", Value = 10 }
+                        new GearItemStat { Id = 1, Value = 5 },
+                        new GearItemStat { Id = 2, Value = 5 },
+                        new GearItemStat { Id = 7, Value = 5 },
+                        new GearItemStat { Id = 43, Value = 10 },
+                        new GearItemStat { Id = 44, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -415,10 +415,10 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 2 },
-                        new GearStat { Name = "Accuracy", Value = 10 }
+                        new GearItemStat { Id = 1, Value = 2 },
+                        new GearItemStat { Id = 43, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -454,11 +454,11 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 3 },
-                        new GearStat { Name = "Int", Value = 5 },
-                        new GearStat { Name = "Attack", Value = 10 }
+                        new GearItemStat { Id = 1, Value = 3 },
+                        new GearItemStat { Id = 5, Value = 5 },
+                        new GearItemStat { Id = 44, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -494,12 +494,12 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Attack", Value = 10 },
-                        new GearStat { Name = "Accuracy", Value = 10 },
-                        new GearStat { Name = "GearHaste", Value = 2 },
-                        new GearStat { Name = "StoreTP", Value = -3 }
+                        new GearItemStat { Id = 44, Value = 10 },
+                        new GearItemStat { Id = 43, Value = 10 },
+                        new GearItemStat { Id = 59, Value = 2 },
+                        new GearItemStat { Id = 50, Value = -3 }
                     },
                     GearItemJobs = []
                 },
@@ -511,10 +511,10 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "MagicAccuracy", Value = -10 },
-                        new GearStat { Name = "MagicCritRateII", Value = 10 }
+                        new GearItemStat { Id = 68, Value = -10 },
+                        new GearItemStat { Id = 72, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -532,10 +532,10 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "WeaponSkillDamage", Value = 5 },
-                        new GearStat { Name = "Accuracy", Value = 10 }
+                        new GearItemStat { Id = 54, Value = 5 },
+                        new GearItemStat { Id = 43, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -550,10 +550,10 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dex", Value = 5 },
-                        new GearStat { Name = "CritDamage", Value = 5 }
+                        new GearItemStat { Id = 2, Value = 5 },
+                        new GearItemStat { Id = 46, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -568,11 +568,11 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Int", Value = 3 },
-                        new GearStat { Name = "Mnd", Value = 3 },
-                        new GearStat { Name = "OccultAcumen", Value = 7 }
+                        new GearItemStat { Id = 5, Value = 3 },
+                        new GearItemStat { Id = 6, Value = 3 },
+                        new GearItemStat { Id = 129, Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -592,9 +592,9 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "StoreTP", Value = 2 }
+                        new GearItemStat { Id = 50, Value = 2 }
                     },
                     GearItemJobs = []
                 },
@@ -606,11 +606,11 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Accuracy", Value = 5 },
-                        new GearStat { Name = "Attack", Value = 10 },
-                        new GearStat { Name = "StoreTP", Value = 3 }
+                        new GearItemStat { Id = 43, Value = 5 },
+                        new GearItemStat { Id = 44, Value = 10 },
+                        new GearItemStat { Id = 50, Value = 3 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -640,10 +640,10 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "MagicDefense", Value = 4 },
-                        new GearStat { Name = "DA", Value = 1 }
+                        new GearItemStat { Id = 94, Value = 4 },
+                        new GearItemStat { Id = 47, Value = 1 }
                     },
                     GearItemJobs = []
                 },
@@ -655,12 +655,12 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 245 },
-                        new GearStat { Name = "Delay", Value = 240 },
-                        new GearStat { Name = "MagicAccuracy", Value = 25 },
-                        new GearStat { Name = "MagicAttack", Value = 35 }
+                        new GearItemStat { Id = 42, Value = 245 },
+                        new GearItemStat { Id = 41, Value = 240 },
+                        new GearItemStat { Id = 68, Value = 25 },
+                        new GearItemStat { Id = 69, Value = 35 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -675,14 +675,14 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 999 },
-                        new GearStat { Name = "Delay", Value = 999 },
-                        new GearStat { Name = "Dex", Value = 150 },
-                        new GearStat { Name = "Str", Value = 150 },
-                        new GearStat { Name = "Attack", Value = 150 },
-                        new GearStat { Name = "RangedAttack", Value = 150 }
+                        new GearItemStat { Id = 42, Value = 999 },
+                        new GearItemStat { Id = 41, Value = 999 },
+                        new GearItemStat { Id = 2, Value = 150 },
+                        new GearItemStat { Id = 1, Value = 150 },
+                        new GearItemStat { Id = 44, Value = 150 },
+                        new GearItemStat { Id = 111, Value = 150 }
                     },
                     GearItemJobs = []
                 },
@@ -694,13 +694,13 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 999 },
-                        new GearStat { Name = "Delay", Value = 999 },
-                        new GearStat { Name = "Mnd", Value = 150 },
-                        new GearStat { Name = "Int", Value = 150 },
-                        new GearStat { Name = "MagicAttack", Value = 150 }
+                        new GearItemStat { Id = 42, Value = 999 },
+                        new GearItemStat { Id = 41, Value = 999 },
+                        new GearItemStat { Id = 6, Value = 150 },
+                        new GearItemStat { Id = 5, Value = 150 },
+                        new GearItemStat { Id = 69, Value = 150 }
                     },
                     GearItemJobs = []
                 },
@@ -712,11 +712,11 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 77 },
-                        new GearStat { Name = "Delay", Value = 90 },
-                        new GearStat { Name = "RangedAccuracy", Value = 12 }
+                        new GearItemStat { Id = 42, Value = 77 },
+                        new GearItemStat { Id = 41, Value = 90 },
+                        new GearItemStat { Id = 110, Value = 12 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -739,11 +739,11 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 108 },
-                        new GearStat { Name = "Delay", Value = 192 },
-                        new GearStat { Name = "RangedAttack", Value = 12 }
+                        new GearItemStat { Id = 42, Value = 108 },
+                        new GearItemStat { Id = 41, Value = 192 },
+                        new GearItemStat { Id = 111, Value = 12 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -761,11 +761,11 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 80 },
-                        new GearStat { Name = "Delay", Value = 90 },
-                        new GearStat { Name = "RangedAccuracy", Value = 10 }
+                        new GearItemStat { Id = 42, Value = 80 },
+                        new GearItemStat { Id = 41, Value = 90 },
+                        new GearItemStat { Id = 110, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -793,12 +793,12 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 89 },
-                        new GearStat { Name = "Delay", Value = 90 },
-                        new GearStat { Name = "RangedAccuracy", Value = 35 },
-                        new GearStat { Name = "RangedAttack", Value = 25 }
+                        new GearItemStat { Id = 42, Value = 89 },
+                        new GearItemStat { Id = 41, Value = 90 },
+                        new GearItemStat { Id = 110, Value = 35 },
+                        new GearItemStat { Id = 111, Value = 25 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -814,12 +814,12 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 277 },
-                        new GearStat { Name = "Delay", Value = 240 },
-                        new GearStat { Name = "RangedAccuracy", Value = 35 },
-                        new GearStat { Name = "MagicAccuracy", Value = 35 }
+                        new GearItemStat { Id = 42, Value = 277 },
+                        new GearItemStat { Id = 41, Value = 240 },
+                        new GearItemStat { Id = 110, Value = 35 },
+                        new GearItemStat { Id = 68, Value = 35 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -835,12 +835,12 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 300 },
-                        new GearStat { Name = "Delay", Value = 240 },
-                        new GearStat { Name = "RangedAccuracy", Value = 20 },
-                        new GearStat { Name = "RangedAttack", Value = 20 }
+                        new GearItemStat { Id = 42, Value = 300 },
+                        new GearItemStat { Id = 41, Value = 240 },
+                        new GearItemStat { Id = 110, Value = 20 },
+                        new GearItemStat { Id = 111, Value = 20 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -856,12 +856,12 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 300 },
-                        new GearStat { Name = "Delay", Value = 240 },
-                        new GearStat { Name = "Agi", Value = 10 },
-                        new GearStat { Name = "MagicAttack", Value = 40 }
+                        new GearItemStat { Id = 42, Value = 300 },
+                        new GearItemStat { Id = 41, Value = 240 },
+                        new GearItemStat { Id = 4, Value = 10 },
+                        new GearItemStat { Id = 69, Value = 40 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -877,13 +877,13 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 110 },
-                        new GearStat { Name = "Delay", Value = 90 },
-                        new GearStat { Name = "Str", Value = 10 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 20 },
-                        new GearStat { Name = "RangedAccuracy", Value = 20 }
+                        new GearItemStat { Id = 42, Value = 110 },
+                        new GearItemStat { Id = 41, Value = 90 },
+                        new GearItemStat { Id = 1, Value = 10 },
+                        new GearItemStat { Id = 54, Value = 20 },
+                        new GearItemStat { Id = 110, Value = 20 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -898,12 +898,12 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 110 },
-                        new GearStat { Name = "Delay", Value = 90 },
-                        new GearStat { Name = "RangedAccuracy", Value = 20 },
-                        new GearStat { Name = "RangedAttack", Value = 20 }
+                        new GearItemStat { Id = 42, Value = 110 },
+                        new GearItemStat { Id = 41, Value = 90 },
+                        new GearItemStat { Id = 110, Value = 20 },
+                        new GearItemStat { Id = 111, Value = 20 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -918,12 +918,12 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 101 },
-                        new GearStat { Name = "Delay", Value = 90 },
-                        new GearStat { Name = "RangedAccuracy", Value = 25 },
-                        new GearStat { Name = "RangedAttack", Value = 35 }
+                        new GearItemStat { Id = 42, Value = 101 },
+                        new GearItemStat { Id = 41, Value = 90 },
+                        new GearItemStat { Id = 110, Value = 25 },
+                        new GearItemStat { Id = 111, Value = 35 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -938,12 +938,12 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 289 },
-                        new GearStat { Name = "Delay", Value = 240 },
-                        new GearStat { Name = "RangedAccuracy", Value = 30 },
-                        new GearStat { Name = "RangedAttack", Value = 30 }
+                        new GearItemStat { Id = 42, Value = 289 },
+                        new GearItemStat { Id = 41, Value = 240 },
+                        new GearItemStat { Id = 110, Value = 30 },
+                        new GearItemStat { Id = 111, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -958,12 +958,12 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 220 },
-                        new GearStat { Name = "Delay", Value = 240 },
-                        new GearStat { Name = "RangedAccuracy", Value = 10 },
-                        new GearStat { Name = "RangedAttack", Value = 5 }
+                        new GearItemStat { Id = 42, Value = 220 },
+                        new GearItemStat { Id = 41, Value = 240 },
+                        new GearItemStat { Id = 110, Value = 10 },
+                        new GearItemStat { Id = 111, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -981,15 +981,15 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 145 },
-                        new GearStat { Name = "Delay", Value = 192 },
-                        new GearStat { Name = "RangedAccuracy", Value = 30 },
-                        new GearStat { Name = "RangedAttack", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "Barrage", Value = 1 }
+                        new GearItemStat { Id = 42, Value = 145 },
+                        new GearItemStat { Id = 41, Value = 192 },
+                        new GearItemStat { Id = 110, Value = 30 },
+                        new GearItemStat { Id = 111, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 112, Value = 1 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -1004,13 +1004,13 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 116 },
-                        new GearStat { Name = "Delay", Value = 90 },
-                        new GearStat { Name = "RangedAccuracy", Value = 30 },
-                        new GearStat { Name = "Str", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 20 }
+                        new GearItemStat { Id = 42, Value = 116 },
+                        new GearItemStat { Id = 41, Value = 90 },
+                        new GearItemStat { Id = 110, Value = 30 },
+                        new GearItemStat { Id = 1, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 20 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {
@@ -1025,13 +1025,13 @@ public static class AmmoSeedData
     {
         new GearItemSlot { GearSlotId = 4 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dmg", Value = 315 },
-                        new GearStat { Name = "Delay", Value = 240 },
-                        new GearStat { Name = "RangedAccuracy", Value = 30 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 20 }
+                        new GearItemStat { Id = 42, Value = 315 },
+                        new GearItemStat { Id = 41, Value = 240 },
+                        new GearItemStat { Id = 110, Value = 30 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 20 }
                     },
                     GearItemJobs = new List<GearItemJob>
                     {

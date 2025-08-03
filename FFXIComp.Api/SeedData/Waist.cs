@@ -15,14 +15,14 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Accuracy", Value = 15 },
-                        new GearStat { Name = "RangedAccuracy", Value = 15 },
-                        new GearStat { Name = "Attack", Value = 15 },
-                        new GearStat { Name = "RangedAttack", Value = 15 },
-                        new GearStat { Name = "MagicAccuracy", Value = 7 },
-                        new GearStat { Name = "MagicAttack", Value = 7 }
+                        new GearItemStat { Id = 43, Value = 15 },
+                        new GearItemStat { Id = 110, Value = 15 },
+                        new GearItemStat { Id = 44, Value = 15 },
+                        new GearItemStat { Id = 111, Value = 15 },
+                        new GearItemStat { Id = 68, Value = 7 },
+                        new GearItemStat { Id = 69, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -33,10 +33,10 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "WeaponSkillAccuracy", Value = 10 },
-                        new GearStat { Name = "ConserveTP", Value = 7 }
+                        new GearItemStat { Id = 55, Value = 10 },
+                        new GearItemStat { Id = 201, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -47,13 +47,13 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 5 },
-                        new GearStat { Name = "Dex", Value = 5 },
-                        new GearStat { Name = "Accuracy", Value = 10 },
-                        new GearStat { Name = "Attack", Value = 20 },
-                        new GearStat { Name = "DA", Value = 2 }
+                        new GearItemStat { Id = 1, Value = 5 },
+                        new GearItemStat { Id = 2, Value = 5 },
+                        new GearItemStat { Id = 43, Value = 10 },
+                        new GearItemStat { Id = 44, Value = 20 },
+                        new GearItemStat { Id = 47, Value = 2 }
                     },
                     GearItemJobs = []
                 },
@@ -64,9 +64,9 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DayWeatherBonus", Value = 1 },
+                        new GearItemStat { Id = 212, Value = 1 },
                     },
                     GearItemJobs = []
                 },
@@ -77,11 +77,11 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Accuracy", Value = 17 },
-                        new GearStat { Name = "DA", Value = 9 },
-                        new GearStat { Name = "GearHaste", Value = 8 }
+                        new GearItemStat { Id = 43, Value = 17 },
+                        new GearItemStat { Id = 47, Value = 9 },
+                        new GearItemStat { Id = 59, Value = 8 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 22} }
                 },
@@ -92,13 +92,13 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 10 },
-                        new GearStat { Name = "Dex", Value = 10 },
-                        new GearStat { Name = "Accuracy", Value = 14 },
-                        new GearStat { Name = "DA", Value = 3 },
-                        new GearStat { Name = "StoreTP", Value = 5 }
+                        new GearItemStat { Id = 1, Value = 10 },
+                        new GearItemStat { Id = 2, Value = 10 },
+                        new GearItemStat { Id = 43, Value = 14 },
+                        new GearItemStat { Id = 47, Value = 3 },
+                        new GearItemStat { Id = 50, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13}, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 19}, new GearItemJob { JobId= 22} }
                 },
@@ -109,9 +109,9 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "ElementalBonus", Value = 15 }
+                        new GearItemStat { Id = 213, Value = 15 }
                     },
                     GearItemJobs = []
                 },
@@ -122,12 +122,12 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Accuracy", Value = 10 },
-                        new GearStat { Name = "RangedAccuracy", Value = 10 },
-                        new GearStat { Name = "StoreTP", Value = 4 },
-                        new GearStat { Name = "DualWield", Value = 7 }
+                        new GearItemStat { Id = 43, Value = 10 },
+                        new GearItemStat { Id = 110, Value = 10 },
+                        new GearItemStat { Id = 50, Value = 4 },
+                        new GearItemStat { Id = 67, Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13}, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 19}, new GearItemJob { JobId= 22} }
                 },
@@ -138,13 +138,13 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "GearHaste", Value = 9 },
-                        new GearStat { Name = "TA", Value = 2 },
-                        new GearStat { Name = "Attack", Value = 14 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "DA", Value = 5 }
+                        new GearItemStat { Id = 59, Value = 9 },
+                        new GearItemStat { Id = 48, Value = 2 },
+                        new GearItemStat { Id = 44, Value = 14 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13}, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 19}, new GearItemJob { JobId= 22} }
                 },
@@ -155,11 +155,11 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Accuracy", Value = 2 },
-                        new GearStat { Name = "TA", Value = 2 },
-                        new GearStat { Name = "QA", Value = 2 }
+                        new GearItemStat { Id = 43, Value = 2 },
+                        new GearItemStat { Id = 48, Value = 2 },
+                        new GearItemStat { Id = 49, Value = 2 }
                     },
                     GearItemJobs = []
                 },
@@ -170,11 +170,11 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "MagicAccuracy", Value = 7 },
-                        new GearStat { Name = "MagicAttack", Value = 7 },
-                        new GearStat { Name = "MagicDamage", Value = 35 }
+                        new GearItemStat { Id = 68, Value = 7 },
+                        new GearItemStat { Id = 69, Value = 7 },
+                        new GearItemStat { Id = 70, Value = 35 }
                     },
                     GearItemJobs = []
                 },
@@ -185,12 +185,12 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Int", Value = 8 },
-                        new GearStat { Name = "Mnd", Value = 8 },
-                        new GearStat { Name = "MagicAccuracy", Value = 8 },
-                        new GearStat { Name = "MagicAttack", Value = 8 }
+                        new GearItemStat { Id = 5, Value = 8 },
+                        new GearItemStat { Id = 6, Value = 8 },
+                        new GearItemStat { Id = 68, Value = 8 },
+                        new GearItemStat { Id = 69, Value = 8 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
                 },
@@ -201,10 +201,10 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Int", Value = 16 },
-                        new GearStat { Name = "MagicAccuracy", Value = 15 }
+                        new GearItemStat { Id = 5, Value = 16 },
+                        new GearItemStat { Id = 68, Value = 15 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 18}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21}, new GearItemJob { JobId= 22} }
                 },
@@ -215,10 +215,10 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Mnd", Value = 10 },
-                        new GearStat { Name = "MagicAccuracy", Value = 10 }
+                        new GearItemStat { Id = 6, Value = 10 },
+                        new GearItemStat { Id = 68, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 18}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21}, new GearItemJob { JobId= 22} }
                 },
@@ -229,12 +229,12 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Agi", Value = 7 },
-                        new GearStat { Name = "RangedAccuracy", Value = 10 },
-                        new GearStat { Name = "RangedAttack", Value = 10 },
-                        new GearStat { Name = "StoreTP", Value = 4 }
+                        new GearItemStat { Id = 4, Value = 7 },
+                        new GearItemStat { Id = 110, Value = 10 },
+                        new GearItemStat { Id = 111, Value = 10 },
+                        new GearItemStat { Id = 50, Value = 4 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 19}, new GearItemJob { JobId= 22} }
                 },
@@ -245,12 +245,12 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 10 },
-                        new GearStat { Name = "Attack", Value = 28 },
-                        new GearStat { Name = "DA", Value = -5 },
-                        new GearStat { Name = "WeaponSkillAccuracy", Value = 5 }
+                        new GearItemStat { Id = 1, Value = 10 },
+                        new GearItemStat { Id = 44, Value = 28 },
+                        new GearItemStat { Id = 47, Value = -5 },
+                        new GearItemStat { Id = 55, Value = 5 }
                     },
                     GearItemJobs = []
                 },
@@ -261,12 +261,12 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Agi", Value = 8 },
-                        new GearStat { Name = "RangedAccuracy", Value = 20 },
-                        new GearStat { Name = "MagicAccuracy", Value = 20 },
-                        new GearStat { Name = "CritRate", Value = 5 }
+                        new GearItemStat { Id = 4, Value = 8 },
+                        new GearItemStat { Id = 110, Value = 20 },
+                        new GearItemStat { Id = 68, Value = 20 },
+                        new GearItemStat { Id = 45, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} }
                 },
@@ -277,10 +277,10 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Agi", Value = 5 },
-                        new GearStat { Name = "TrueShot", Value = 5 }
+                        new GearItemStat { Id = 4, Value = 5 },
+                        new GearItemStat { Id = 187, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} }
                 },
@@ -291,11 +291,11 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Agi", Value = 5 },
-                        new GearStat { Name = "RangedAccuracy", Value = 15 },
-                        new GearStat { Name = "TrueShot", Value = 5 }
+                        new GearItemStat { Id = 4, Value = 5 },
+                        new GearItemStat { Id = 110, Value = 15 },
+                        new GearItemStat { Id = 187, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} }
                 },
@@ -306,12 +306,12 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Agi", Value = 5 },
-                        new GearStat { Name = "RangedAttack", Value = 5 },
-                        new GearStat { Name = "RangedAccuracy", Value = 15 },
-                        new GearStat { Name = "TrueShot", Value = 5 }
+                        new GearItemStat { Id = 4, Value = 5 },
+                        new GearItemStat { Id = 111, Value = 5 },
+                        new GearItemStat { Id = 110, Value = 15 },
+                        new GearItemStat { Id = 187, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} }
                 },
@@ -322,12 +322,12 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Agi", Value = 5 },
-                        new GearStat { Name = "RangedAttack", Value = 10 },
-                        new GearStat { Name = "RangedAccuracy", Value = 15 },
-                        new GearStat { Name = "TrueShot", Value = 5 }
+                        new GearItemStat { Id = 4, Value = 5 },
+                        new GearItemStat { Id = 111, Value = 10 },
+                        new GearItemStat { Id = 110, Value = 15 },
+                        new GearItemStat { Id = 187, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} }
                 },
@@ -338,12 +338,12 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Agi", Value = 5 },
-                        new GearStat { Name = "RangedAttack", Value = 15 },
-                        new GearStat { Name = "RangedAccuracy", Value = 15 },
-                        new GearStat { Name = "TrueShot", Value = 5 }
+                        new GearItemStat { Id = 4, Value = 5 },
+                        new GearItemStat { Id = 111, Value = 15 },
+                        new GearItemStat { Id = 110, Value = 15 },
+                        new GearItemStat { Id = 187, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} }
                 },
@@ -354,13 +354,13 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 20 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "TA", Value = 8 },
-                        new GearStat { Name = "DT", Value = -6 },
-                        new GearStat { Name = "SubtleBlowII", Value = 15 }
+                        new GearItemStat { Id = 1, Value = 20 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 48, Value = 8 },
+                        new GearItemStat { Id = 98, Value = -6 },
+                        new GearItemStat { Id = 186, Value = 15 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 18} }
                 },
@@ -371,13 +371,13 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dex", Value = 7 },
-                        new GearStat { Name = "Agi", Value = 7 },
-                        new GearStat { Name = "StoreTP", Value = 6 },
-                        new GearStat { Name = "DualWield", Value = 4 },
-                        new GearStat { Name = "CritRate", Value = 4 }
+                        new GearItemStat { Id = 2, Value = 7 },
+                        new GearItemStat { Id = 4, Value = 7 },
+                        new GearItemStat { Id = 50, Value = 6 },
+                        new GearItemStat { Id = 67, Value = 4 },
+                        new GearItemStat { Id = 45, Value = 4 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 19}, new GearItemJob { JobId= 22} }
                 },
@@ -388,13 +388,13 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dex", Value = 5 },
-                        new GearStat { Name = "Agi", Value = 5 },
-                        new GearStat { Name = "StoreTP", Value = 5 },
-                        new GearStat { Name = "DualWield", Value = 3 },
-                        new GearStat { Name = "CritRate", Value = 3 }
+                        new GearItemStat { Id = 2, Value = 5 },
+                        new GearItemStat { Id = 4, Value = 5 },
+                        new GearItemStat { Id = 50, Value = 5 },
+                        new GearItemStat { Id = 67, Value = 3 },
+                        new GearItemStat { Id = 45, Value = 3 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 19}, new GearItemJob { JobId= 22} }
                 },
@@ -405,10 +405,10 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "GearHaste", Value = 10 },
-                        new GearStat { Name = "Str", Value = 10 }
+                        new GearItemStat { Id = 59, Value = 10 },
+                        new GearItemStat { Id = 1, Value = 10 }
                     },
                     GearItemJobs = []
                 },
@@ -419,10 +419,10 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "StoreTP", Value = 5 }
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 50, Value = 5 }
                     },
                     GearItemJobs = []
                 },
@@ -433,9 +433,9 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "GearHaste", Value = 15 }
+                        new GearItemStat { Id = 59, Value = 15 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 19}, new GearItemJob { JobId= 22} }
                 },
@@ -446,11 +446,11 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "GearHaste", Value = 7 },
-                        new GearStat { Name = "SubtleBlow", Value = 6 },
-                        new GearStat { Name = "Attack", Value = 6 }
+                        new GearItemStat { Id = 59, Value = 7 },
+                        new GearItemStat { Id = 51, Value = 6 },
+                        new GearItemStat { Id = 44, Value = 6 }
                     },
                     GearItemJobs = []
                 },
@@ -461,11 +461,11 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Attack", Value = 18 },
-                        new GearStat { Name = "GearHaste", Value = 4 },
-                        new GearStat { Name = "StoreTP", Value = 6 }
+                        new GearItemStat { Id = 44, Value = 18 },
+                        new GearItemStat { Id = 59, Value = 4 },
+                        new GearItemStat { Id = 50, Value = 6 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 19}, new GearItemJob { JobId= 22} }
                 },
@@ -476,10 +476,10 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "StoreTP", Value = 2 },
-                        new GearStat { Name = "OccultAcumen", Value = 20 }
+                        new GearItemStat { Id = 50, Value = 2 },
+                        new GearItemStat { Id = 129, Value = 20 }
                     },
                     GearItemJobs = []
                 },
@@ -490,11 +490,11 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Accuracy", Value = 20 },
-                        new GearStat { Name = "Attack", Value = -5 },
-                        new GearStat { Name = "StoreTP", Value = 3 }
+                        new GearItemStat { Id = 43, Value = 20 },
+                        new GearItemStat { Id = 44, Value = -5 },
+                        new GearItemStat { Id = 50, Value = 3 }
                     },
                     GearItemJobs = []
                 },
@@ -505,11 +505,11 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 4 },
-                        new GearStat { Name = "Agi", Value = 9 },
-                        new GearStat { Name = "RangedAttack", Value = 15 }
+                        new GearItemStat { Id = 1, Value = 4 },
+                        new GearItemStat { Id = 4, Value = 9 },
+                        new GearItemStat { Id = 111, Value = 15 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} }
                 },
@@ -520,14 +520,14 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 12 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 },
-                        new GearStat { Name = "Evasion", Value = 30 },
-                        new GearStat { Name = "RangedAccuracy", Value = 30 },
-                        new GearStat { Name = "MagicEvasion", Value = 30 },
-                        new GearStat { Name = "MagicDefense", Value = 3 }
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 },
+                        new GearItemStat { Id = 91, Value = 30 },
+                        new GearItemStat { Id = 110, Value = 30 },
+                        new GearItemStat { Id = 93, Value = 30 },
+                        new GearItemStat { Id = 94, Value = 3 }
                     },
                     GearItemJobs = []
                 }

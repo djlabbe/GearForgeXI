@@ -16,14 +16,14 @@ public static class Main2H
             {
                 new GearItemSlot { GearSlotId = 1 }
             },
-            GearStats = new List<GearStat>
+            GearItemStats = new List<GearItemStat>
             {
-                new GearStat { Name = "DMG", Value = 326 },
-                new GearStat { Name = "Delay", Value = 437 },
-                new GearStat { Name = "Accuracy", Value = 60 },
+                new GearItemStat { Id = 42, Value = 326 },
+                new GearItemStat { Id = 41, Value = 437 },
+                new GearItemStat { Id = 43, Value = 60 },
                 new GearStat { Name = "Great Katana Skill", Value = 269 },
                 new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                new GearStat { Name = "SkillchainBonus", Value = 5 }
+                new GearItemStat { Id = 53, Value = 5 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 12 } }
             },
@@ -35,14 +35,14 @@ public static class Main2H
             {
                 new GearItemSlot { GearSlotId = 1 }
             },
-            GearStats = new List<GearStat>
+            GearItemStats = new List<GearItemStat>
             {
-                new GearStat { Name = "DMG", Value = 308 },
-                new GearStat { Name = "Delay", Value = 437 },
-                new GearStat { Name = "Accuracy", Value = 60 },
+                new GearItemStat { Id = 42, Value = 308 },
+                new GearItemStat { Id = 41, Value = 437 },
+                new GearItemStat { Id = 43, Value = 60 },
                 new GearStat { Name = "Great Katana Skill", Value = 269 },
                 new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                new GearStat { Name = "SkillchainBonus", Value = 0 }
+                new GearItemStat { Id = 53, Value = 0 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 12 } }
             },
@@ -54,17 +54,17 @@ public static class Main2H
             {
                 new GearItemSlot { GearSlotId = 1 }
             },
-            GearStats = new List<GearStat>
+            GearItemStats = new List<GearItemStat>
             {
-                new GearStat { Name = "DMG", Value = 387 },
-                new GearStat { Name = "Delay", Value = 528 },
-                new GearStat { Name = "MagicDamage", Value = 186 },
+                new GearItemStat { Id = 42, Value = 387 },
+                new GearItemStat { Id = 41, Value = 528 },
+                new GearItemStat { Id = 70, Value = 186 },
                 new GearStat { Name = "Scythe Skill", Value = 269 },
-                new GearStat { Name = "TPBonus", Value = 500 },
+                new GearItemStat { Id = 57, Value = 500 },
                 new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                new GearStat { Name = "Accuracy", Value = 30 },
-                new GearStat { Name = "MagicAccuracy", Value = 30 },
-                new GearStat { Name = "StoreTP", Value = 10 }
+                new GearItemStat { Id = 43, Value = 30 },
+                new GearItemStat { Id = 68, Value = 30 },
+                new GearItemStat { Id = 50, Value = 10 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 8 } }
             },
@@ -76,17 +76,17 @@ public static class Main2H
             {
                 new GearItemSlot { GearSlotId = 1 }
             },
-            GearStats = new List<GearStat>
+            GearItemStats = new List<GearItemStat>
             {
-                new GearStat { Name = "DMG", Value = 370 },
-                new GearStat { Name = "Delay", Value = 528 },
-                new GearStat { Name = "MagicDamage", Value = 186 },
+                new GearItemStat { Id = 42, Value = 370 },
+                new GearItemStat { Id = 41, Value = 528 },
+                new GearItemStat { Id = 70, Value = 186 },
                 new GearStat { Name = "Scythe Skill", Value = 269 },
-                new GearStat { Name = "TPBonus", Value = 500 },
+                new GearItemStat { Id = 57, Value = 500 },
                 new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                new GearStat { Name = "Accuracy", Value = 0 },
-                new GearStat { Name = "MagicAccuracy", Value = 0 },
-                new GearStat { Name = "StoreTP", Value = 10 }
+                new GearItemStat { Id = 43, Value = 0 },
+                new GearItemStat { Id = 68, Value = 0 },
+                new GearItemStat { Id = 50, Value = 10 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 8 } }
             },
@@ -98,14 +98,14 @@ public static class Main2H
             {
                 new GearItemSlot { GearSlotId = 1 }
             },
-            GearStats = new List<GearStat>
+            GearItemStats = new List<GearItemStat>
             {
-                new GearStat { Name = "DMG", Value = 383 },
-                new GearStat { Name = "Delay", Value = 513 },
-                new GearStat { Name = "MagicDamage", Value = 217 },
+                new GearItemStat { Id = 42, Value = 383 },
+                new GearItemStat { Id = 41, Value = 513 },
+                new GearItemStat { Id = 70, Value = 217 },
                 new GearStat { Name = "Scythe Skill", Value = 269 },
                 new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                new GearStat { Name = "Accuracy", Value = 60 }
+                new GearItemStat { Id = 43, Value = 60 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 8 } }
             },
@@ -117,14 +117,14 @@ public static class Main2H
             {
                 new GearItemSlot { GearSlotId = 1 }
             },
-            GearStats = new List<GearStat>
+            GearItemStats = new List<GearItemStat>
             {
-                new GearStat { Name = "DMG", Value = 362 },
-                new GearStat { Name = "Delay", Value = 513 },
-                new GearStat { Name = "MagicDamage", Value = 217 },
+                new GearItemStat { Id = 42, Value = 362 },
+                new GearItemStat { Id = 41, Value = 513 },
+                new GearItemStat { Id = 70, Value = 217 },
                 new GearStat { Name = "Scythe Skill", Value = 269 },
                 new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                new GearStat { Name = "Accuracy", Value = 60 }
+                new GearItemStat { Id = 43, Value = 60 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 8 } }
             },
@@ -136,15 +136,15 @@ public static class Main2H
             {
                 new GearItemSlot { GearSlotId = 1 }
             },
-            GearStats = new List<GearStat>
+            GearItemStats = new List<GearItemStat>
             {
-                new GearStat { Name = "DMG", Value = 314 },
-                new GearStat { Name = "Delay", Value = 430 },
-                new GearStat { Name = "MagicDamage", Value = 155 },
-                new GearStat { Name = "GreatSwordSkill", Value = 269 },
+                new GearItemStat { Id = 42, Value = 314 },
+                new GearItemStat { Id = 41, Value = 430 },
+                new GearItemStat { Id = 70, Value = 155 },
+                new GearItemStat { Id = 11, Value = 269 },
                 new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                new GearStat { Name = "Vit", Value = 70 },
-                new GearStat { Name = "Str", Value = 20 }
+                new GearItemStat { Id = 3, Value = 70 },
+                new GearItemStat { Id = 1, Value = 20 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 8 }, new GearItemJob { JobId = 7 } }
             },
@@ -156,15 +156,15 @@ public static class Main2H
             {
                 new GearItemSlot { GearSlotId = 1 }
             },
-            GearStats = new List<GearStat>
+            GearItemStats = new List<GearItemStat>
             {
-                new GearStat { Name = "DMG", Value = 303 },
-                new GearStat { Name = "Delay", Value = 430 },
-                new GearStat { Name = "MagicDamage", Value = 155 },
-                new GearStat { Name = "GreatSwordSkill", Value = 269 },
+                new GearItemStat { Id = 42, Value = 303 },
+                new GearItemStat { Id = 41, Value = 430 },
+                new GearItemStat { Id = 70, Value = 155 },
+                new GearItemStat { Id = 11, Value = 269 },
                 new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                new GearStat { Name = "Vit", Value = 50 },
-                new GearStat { Name = "Str", Value = 0 }
+                new GearItemStat { Id = 3, Value = 50 },
+                new GearItemStat { Id = 1, Value = 0 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 8 }, new GearItemJob { JobId = 7 } }
             },
@@ -176,18 +176,18 @@ public static class Main2H
             {
                 new GearItemSlot { GearSlotId = 1 }
             },
-            GearStats = new List<GearStat>
+            GearItemStats = new List<GearItemStat>
             {
-                new GearStat { Name = "DMG", Value = 133 },
-                new GearStat { Name = "Delay", Value = 190 },
-                new GearStat { Name = "Dex", Value = 15 },
-                new GearStat { Name = "Agi", Value = 15 },
-                new GearStat { Name = "Chr", Value = 15 },
-                new GearStat { Name = "Accuracy", Value = 40 },
-                new GearStat { Name = "MagicAccuracy", Value = 40 },
-                new GearStat { Name = "DaggerSkill", Value = 248 },
+                new GearItemStat { Id = 42, Value = 133 },
+                new GearItemStat { Id = 41, Value = 190 },
+                new GearItemStat { Id = 2, Value = 15 },
+                new GearItemStat { Id = 4, Value = 15 },
+                new GearItemStat { Id = 7, Value = 15 },
+                new GearItemStat { Id = 43, Value = 40 },
+                new GearItemStat { Id = 68, Value = 40 },
+                new GearItemStat { Id = 9, Value = 248 },
                 new GearStat { Name = "MagicAccuracySkill", Value = 248 },
-                new GearStat { Name = "QA", Value = 5 },
+                new GearItemStat { Id = 49, Value = 5 },
                 new GearStat { Name = "WSC_CHR", Value = 3 }
             },
             GearItemJobs = new List<GearItemJob>
@@ -211,17 +211,17 @@ public static class Main2H
             {
                 new GearItemSlot { GearSlotId = 1 }
             },
-            GearStats = new List<GearStat>
+            GearItemStats = new List<GearItemStat>
             {
-                new GearStat { Name = "DMG", Value = 330 },
-                new GearStat { Name = "Delay", Value = 450 },
-                new GearStat { Name = "StoreTP", Value = 10 },
-                new GearStat { Name = "Accuracy", Value = 30 },
-                new GearStat { Name = "MagicAccuracy", Value = 30 },
-                new GearStat { Name = "TPBonus", Value = 500 },
+                new GearItemStat { Id = 42, Value = 330 },
+                new GearItemStat { Id = 41, Value = 450 },
+                new GearItemStat { Id = 50, Value = 10 },
+                new GearItemStat { Id = 43, Value = 30 },
+                new GearItemStat { Id = 68, Value = 30 },
+                new GearItemStat { Id = 57, Value = 500 },
                 new GearStat { Name = "Great Katana Skill", Value = 269 },
                 new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                new GearStat { Name = "MagicDamage", Value = 155 }
+                new GearItemStat { Id = 70, Value = 155 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 12 } }
             },
@@ -233,17 +233,17 @@ public static class Main2H
             {
                 new GearItemSlot { GearSlotId = 1 }
             },
-            GearStats = new List<GearStat>
+            GearItemStats = new List<GearItemStat>
             {
-                new GearStat { Name = "DMG", Value = 315 },
-                new GearStat { Name = "Delay", Value = 450 },
-                new GearStat { Name = "StoreTP", Value = 10 },
-                new GearStat { Name = "Accuracy", Value = 0 },
-                new GearStat { Name = "MagicAccuracy", Value = 0 },
-                new GearStat { Name = "TPBonus", Value = 500 },
+                new GearItemStat { Id = 42, Value = 315 },
+                new GearItemStat { Id = 41, Value = 450 },
+                new GearItemStat { Id = 50, Value = 10 },
+                new GearItemStat { Id = 43, Value = 0 },
+                new GearItemStat { Id = 68, Value = 0 },
+                new GearItemStat { Id = 57, Value = 500 },
                 new GearStat { Name = "Great Katana Skill", Value = 269 },
                 new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                new GearStat { Name = "MagicDamage", Value = 155 }
+                new GearItemStat { Id = 70, Value = 155 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 12 } }
             },
@@ -255,16 +255,16 @@ public static class Main2H
             {
                 new GearItemSlot { GearSlotId = 1 }
             },
-            GearStats = new List<GearStat>
+            GearItemStats = new List<GearItemStat>
             {
-                new GearStat { Name = "DMG", Value = 318 },
-                new GearStat { Name = "Delay", Value = 450 },
-                new GearStat { Name = "Str", Value = 20 },
-                new GearStat { Name = "Dex", Value = 20 },
-                new GearStat { Name = "Vit", Value = 20 },
-                new GearStat { Name = "Accuracy", Value = 40 },
-                new GearStat { Name = "Attack", Value = 30 },
-                new GearStat { Name = "MagicAccuracy", Value = 40 },
+                new GearItemStat { Id = 42, Value = 318 },
+                new GearItemStat { Id = 41, Value = 450 },
+                new GearItemStat { Id = 1, Value = 20 },
+                new GearItemStat { Id = 2, Value = 20 },
+                new GearItemStat { Id = 3, Value = 20 },
+                new GearItemStat { Id = 43, Value = 40 },
+                new GearItemStat { Id = 44, Value = 30 },
+                new GearItemStat { Id = 68, Value = 40 },
                 new GearStat { Name = "Great Katana Skill", Value = 250 },
                 new GearStat { Name = "MagicAccuracySkill", Value = 250 }
             },
@@ -278,13 +278,13 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
 
-                        new GearStat { Name = "DMG", Value = 310 },
-                        new GearStat { Name = "Delay", Value = 450 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 },
+                        new GearItemStat { Id = 42, Value = 310 },
+                        new GearItemStat { Id = 41, Value = 450 },
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 },
                         new GearStat { Name = "Great Katana Skill", Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 }
                     },
@@ -298,13 +298,13 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
 
-                        new GearStat { Name = "DMG", Value = 281 },
-                        new GearStat { Name = "Delay", Value = 450 },
-                        new GearStat { Name = "Accuracy", Value = 0 },
-                        new GearStat { Name = "MagicAccuracy", Value = 0 },
+                        new GearItemStat { Id = 42, Value = 281 },
+                        new GearItemStat { Id = 41, Value = 450 },
+                        new GearItemStat { Id = 43, Value = 0 },
+                        new GearItemStat { Id = 68, Value = 0 },
                         new GearStat { Name = "Great Katana Skill", Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 }
                     },
@@ -318,16 +318,16 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
 
-                        new GearStat { Name = "DMG", Value = 364 },
-                        new GearStat { Name = "Delay", Value = 528 },
-                        new GearStat { Name = "MagicAccuracy", Value = 80 },
-                        new GearStat { Name = "MagicDamage", Value = 217 },
+                        new GearItemStat { Id = 42, Value = 364 },
+                        new GearItemStat { Id = 41, Value = 528 },
+                        new GearItemStat { Id = 68, Value = 80 },
+                        new GearItemStat { Id = 70, Value = 217 },
                         new GearStat { Name = "Scythe Skill", Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "Accuracy", Value = 30 }
+                        new GearItemStat { Id = 43, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -339,16 +339,16 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
 
-                        new GearStat { Name = "DMG", Value = 330 },
-                        new GearStat { Name = "Delay", Value = 528 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "MagicDamage", Value = 217 },
+                        new GearItemStat { Id = 42, Value = 330 },
+                        new GearItemStat { Id = 41, Value = 528 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 70, Value = 217 },
                         new GearStat { Name = "Scythe Skill", Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "Accuracy", Value = 0 }
+                        new GearItemStat { Id = 43, Value = 0 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -360,15 +360,15 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
 
-                        new GearStat { Name = "DMG", Value = 319 },
-                        new GearStat { Name = "Delay", Value = 437 },
+                        new GearItemStat { Id = 42, Value = 319 },
+                        new GearItemStat { Id = 41, Value = 437 },
                         new GearStat { Name = "Great Katana Skill", Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                        new GearStat { Name = "Agi", Value = 20 },
-                        new GearStat { Name = "Str", Value = 70 }
+                        new GearItemStat { Id = 4, Value = 20 },
+                        new GearItemStat { Id = 1, Value = 70 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
                 },
@@ -380,15 +380,15 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
 
-                        new GearStat { Name = "DMG", Value = 308 },
-                        new GearStat { Name = "Delay", Value = 437 },
+                        new GearItemStat { Id = 42, Value = 308 },
+                        new GearItemStat { Id = 41, Value = 437 },
                         new GearStat { Name = "Great Katana Skill", Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                        new GearStat { Name = "Agi", Value = 0 },
-                        new GearStat { Name = "Str", Value = 50 }
+                        new GearItemStat { Id = 4, Value = 0 },
+                        new GearItemStat { Id = 1, Value = 50 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
                 },
@@ -400,16 +400,16 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
 
-                        new GearStat { Name = "DMG", Value = 321 },
-                        new GearStat { Name = "Delay", Value = 431 },
-                        new GearStat { Name = "MagicDamage", Value = 155 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 321 },
+                        new GearItemStat { Id = 41, Value = 431 },
+                        new GearItemStat { Id = 70, Value = 155 },
+                        new GearItemStat { Id = 11, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
                         new GearStat { Name = "Crit Damage", Value = 5 },
-                        new GearStat { Name = "CritRate", Value = 14 }
+                        new GearItemStat { Id = 45, Value = 14 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 1 } }
                 },
@@ -421,16 +421,16 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
 
-                        new GearStat { Name = "DMG", Value = 304 },
-                        new GearStat { Name = "Delay", Value = 431 },
-                        new GearStat { Name = "MagicDamage", Value = 155 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 304 },
+                        new GearItemStat { Id = 41, Value = 431 },
+                        new GearItemStat { Id = 70, Value = 155 },
+                        new GearItemStat { Id = 11, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
                         new GearStat { Name = "Crit Damage", Value = 5 },
-                        new GearStat { Name = "CritRate", Value = 14 }
+                        new GearItemStat { Id = 45, Value = 14 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 1 } }
                 },
@@ -442,18 +442,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
 
-                        new GearStat { Name = "DMG", Value = 367 },
-                        new GearStat { Name = "Delay", Value = 502 },
-                        new GearStat { Name = "MagicDamage", Value = 217 },
+                        new GearItemStat { Id = 42, Value = 367 },
+                        new GearItemStat { Id = 41, Value = 502 },
+                        new GearItemStat { Id = 70, Value = 217 },
                         new GearStat { Name = "Scythe Skill", Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "Dex", Value = 15 },
-                        new GearStat { Name = "Str", Value = 50 },
-                        new GearStat { Name = "Mnd", Value = 50 },
-                        new GearStat { Name = "Int", Value = 15 }
+                        new GearItemStat { Id = 2, Value = 15 },
+                        new GearItemStat { Id = 1, Value = 50 },
+                        new GearItemStat { Id = 6, Value = 50 },
+                        new GearItemStat { Id = 5, Value = 15 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -465,18 +465,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
 
-                        new GearStat { Name = "DMG", Value = 354 },
-                        new GearStat { Name = "Delay", Value = 502 },
-                        new GearStat { Name = "MagicDamage", Value = 217 },
+                        new GearItemStat { Id = 42, Value = 354 },
+                        new GearItemStat { Id = 41, Value = 502 },
+                        new GearItemStat { Id = 70, Value = 217 },
                         new GearStat { Name = "Scythe Skill", Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Str", Value = 35 },
-                        new GearStat { Name = "Mnd", Value = 35 },
-                        new GearStat { Name = "Int", Value = 0 }
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 1, Value = 35 },
+                        new GearItemStat { Id = 6, Value = 35 },
+                        new GearItemStat { Id = 5, Value = 0 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -488,19 +488,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 333 },
-                        new GearStat { Name = "Delay", Value = 480 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "Int", Value = 20 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 21 },
-                        new GearStat { Name = "MagicDamage", Value = 226 },
-                        new GearStat { Name = "PolearmSkill", Value = 250 },
+                        new GearItemStat { Id = 42, Value = 333 },
+                        new GearItemStat { Id = 41, Value = 480 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 5, Value = 20 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 21 },
+                        new GearItemStat { Id = 70, Value = 226 },
+                       new GearItemStat { Id = 15, Value = 250 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 250 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 } }
@@ -513,17 +513,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Int", Value = 36 },
-                        new GearStat { Name = "Mnd", Value = 22 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "MagicAttack", Value = 68 },
-                        new GearStat { Name = "MagicDamage", Value = 217 },
+                        new GearItemStat { Id = 5, Value = 36 },
+                        new GearItemStat { Id = 6, Value = 22 },
+                        new GearItemStat { Id = 68, Value = 55 },
+                        new GearItemStat { Id = 69, Value = 68 },
+                        new GearItemStat { Id = 70, Value = 217 },
                         new GearStat { Name = "Wind Elemental Bonus", Value = 11 },
-                        new GearStat { Name = "StaffSkill", Value = 242 },
-                        new GearStat { Name = "DMG", Value = 199 },
-                        new GearStat { Name = "Delay", Value = 356 },
+                        new GearItemStat { Id = 19, Value = 242 },
+                        new GearItemStat { Id = 42, Value = 199 },
+                        new GearItemStat { Id = 41, Value = 356 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
@@ -536,17 +536,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 360 },
-                        new GearStat { Name = "Delay", Value = 492 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 },
-                        new GearStat { Name = "MagicDamage", Value = 155 },
+                        new GearItemStat { Id = 42, Value = 360 },
+                        new GearItemStat { Id = 41, Value = 492 },
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 },
+                        new GearItemStat { Id = 70, Value = 155 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                        new GearStat { Name = "PolearmSkill", Value = 269 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "TPBonus", Value = 500 }
+                       new GearItemStat { Id = 15, Value = 269 },
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 57, Value = 500 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
@@ -558,17 +558,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 345 },
-                        new GearStat { Name = "Delay", Value = 492 },
-                        new GearStat { Name = "Accuracy", Value = 0 },
-                        new GearStat { Name = "MagicAccuracy", Value = 0 },
-                        new GearStat { Name = "MagicDamage", Value = 155 },
+                        new GearItemStat { Id = 42, Value = 345 },
+                        new GearItemStat { Id = 41, Value = 492 },
+                        new GearItemStat { Id = 43, Value = 0 },
+                        new GearItemStat { Id = 68, Value = 0 },
+                        new GearItemStat { Id = 70, Value = 155 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                        new GearStat { Name = "PolearmSkill", Value = 269 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "TPBonus", Value = 500 }
+                       new GearItemStat { Id = 15, Value = 269 },
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 57, Value = 500 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
@@ -580,15 +580,15 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 339 },
-                        new GearStat { Name = "Delay", Value = 492 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 },
-                        new GearStat { Name = "MagicDamage", Value = 155 },
+                        new GearItemStat { Id = 42, Value = 339 },
+                        new GearItemStat { Id = 41, Value = 492 },
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 },
+                        new GearItemStat { Id = 70, Value = 155 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                        new GearStat { Name = "PolearmSkill", Value = 269 }
+                       new GearItemStat { Id = 15, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
@@ -600,15 +600,15 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 307 },
-                        new GearStat { Name = "Delay", Value = 492 },
-                        new GearStat { Name = "Accuracy", Value = 0 },
-                        new GearStat { Name = "MagicAccuracy", Value = 0 },
-                        new GearStat { Name = "MagicDamage", Value = 155 },
+                        new GearItemStat { Id = 42, Value = 307 },
+                        new GearItemStat { Id = 41, Value = 492 },
+                        new GearItemStat { Id = 43, Value = 0 },
+                        new GearItemStat { Id = 68, Value = 0 },
+                        new GearItemStat { Id = 70, Value = 155 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                        new GearStat { Name = "PolearmSkill", Value = 269 }
+                       new GearItemStat { Id = 15, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
@@ -620,15 +620,15 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 359 },
-                        new GearStat { Name = "Delay", Value = 492 },
-                        new GearStat { Name = "Vit", Value = 70 },
-                        new GearStat { Name = "Str", Value = 20 },
-                        new GearStat { Name = "MagicDamage", Value = 155 },
+                        new GearItemStat { Id = 42, Value = 359 },
+                        new GearItemStat { Id = 41, Value = 492 },
+                        new GearItemStat { Id = 3, Value = 70 },
+                        new GearItemStat { Id = 1, Value = 20 },
+                        new GearItemStat { Id = 70, Value = 155 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                        new GearStat { Name = "PolearmSkill", Value = 269 }
+                       new GearItemStat { Id = 15, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
@@ -640,14 +640,14 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 347 },
-                        new GearStat { Name = "Delay", Value = 492 },
-                        new GearStat { Name = "Vit", Value = 50 },
-                        new GearStat { Name = "MagicDamage", Value = 155 },
+                        new GearItemStat { Id = 42, Value = 347 },
+                        new GearItemStat { Id = 41, Value = 492 },
+                        new GearItemStat { Id = 3, Value = 50 },
+                        new GearItemStat { Id = 70, Value = 155 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                        new GearStat { Name = "PolearmSkill", Value = 269 }
+                       new GearItemStat { Id = 15, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
@@ -659,19 +659,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 333 },
-                        new GearStat { Name = "Delay", Value = 480 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "Int", Value = 20 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "MagicAttack", Value = 21 },
-                        new GearStat { Name = "MagicDamage", Value = 226 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 250 },
+                        new GearItemStat { Id = 42, Value = 333 },
+                        new GearItemStat { Id = 41, Value = 480 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 5, Value = 20 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 69, Value = 21 },
+                        new GearItemStat { Id = 70, Value = 226 },
+                        new GearItemStat { Id = 11, Value = 250 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 250 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
@@ -684,16 +684,16 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 319 },
-                        new GearStat { Name = "Delay", Value = 475 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 242 },
+                        new GearItemStat { Id = 42, Value = 319 },
+                        new GearItemStat { Id = 41, Value = 475 },
+                        new GearItemStat { Id = 11, Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 188 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 34 },
-                        new GearStat { Name = "TA", Value = 5 }
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 34 },
+                        new GearItemStat { Id = 48, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
                 },
@@ -705,18 +705,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 198 },
-                        new GearStat { Name = "Delay", Value = 366 },
-                        new GearStat { Name = "Int", Value = 27 },
-                        new GearStat { Name = "Mnd", Value = 12 },
-                        new GearStat { Name = "MagicAccuracy", Value = 25 },
-                        new GearStat { Name = "MagicAttack", Value = 53 },
-                        new GearStat { Name = "MagicDamage", Value = 217 },
-                        new GearStat { Name = "StaffSkill", Value = 242 },
+                        new GearItemStat { Id = 42, Value = 198 },
+                        new GearItemStat { Id = 41, Value = 366 },
+                        new GearItemStat { Id = 5, Value = 27 },
+                        new GearItemStat { Id = 6, Value = 12 },
+                        new GearItemStat { Id = 68, Value = 25 },
+                        new GearItemStat { Id = 69, Value = 53 },
+                        new GearItemStat { Id = 70, Value = 217 },
+                        new GearItemStat { Id = 19, Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 10 },
+                        new GearItemStat { Id = 77, Value = 10 },
                         new GearStat { Name = "Elemental Bonus", Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 20} }
@@ -729,17 +729,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 352 },
-                        new GearStat { Name = "Delay", Value = 480 },
-                        new GearStat { Name = "MagicDamage", Value = 155 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 352 },
+                        new GearItemStat { Id = 41, Value = 480 },
+                        new GearItemStat { Id = 70, Value = 155 },
+                        new GearItemStat { Id = 13, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "TPBonus", Value = 500 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 }
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 57, Value = 500 },
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -751,17 +751,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 336 },
-                        new GearStat { Name = "Delay", Value = 480 },
-                        new GearStat { Name = "MagicDamage", Value = 155 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 336 },
+                        new GearItemStat { Id = 41, Value = 480 },
+                        new GearItemStat { Id = 70, Value = 155 },
+                        new GearItemStat { Id = 13, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "TPBonus", Value = 500 },
-                        new GearStat { Name = "Accuracy", Value = 0 },
-                        new GearStat { Name = "MagicAccuracy", Value = 0 }
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 57, Value = 500 },
+                        new GearItemStat { Id = 43, Value = 0 },
+                        new GearItemStat { Id = 68, Value = 0 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -773,13 +773,13 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 70 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "DMG", Value = 352 },
-                        new GearStat { Name = "Delay", Value = 482 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 269 }
+                        new GearItemStat { Id = 1, Value = 70 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 42, Value = 352 },
+                        new GearItemStat { Id = 41, Value = 482 },
+                        new GearItemStat { Id = 13, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -791,13 +791,13 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 50 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "DMG", Value = 340 },
-                        new GearStat { Name = "Delay", Value = 482 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 269 }
+                        new GearItemStat { Id = 1, Value = 50 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 42, Value = 340 },
+                        new GearItemStat { Id = 41, Value = 482 },
+                        new GearItemStat { Id = 13, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -809,13 +809,13 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 347 },
-                        new GearStat { Name = "Delay", Value = 504 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 347 },
+                        new GearItemStat { Id = 41, Value = 504 },
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 },
+                        new GearItemStat { Id = 13, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
@@ -828,13 +828,13 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 315 },
-                        new GearStat { Name = "Delay", Value = 504 },
-                        new GearStat { Name = "Accuracy", Value = 0 },
-                        new GearStat { Name = "MagicAccuracy", Value = 0 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 315 },
+                        new GearItemStat { Id = 41, Value = 504 },
+                        new GearItemStat { Id = 43, Value = 0 },
+                        new GearItemStat { Id = 68, Value = 0 },
+                        new GearItemStat { Id = 13, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
@@ -847,13 +847,13 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 364 },
-                        new GearStat { Name = "Delay", Value = 488 },
-                        new GearStat { Name = "Accuracy", Value = 60 },
+                        new GearItemStat { Id = 42, Value = 364 },
+                        new GearItemStat { Id = 41, Value = 488 },
+                        new GearItemStat { Id = 43, Value = 60 },
                         new GearStat { Name = "DADamage%", Value = 20 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 269 },
+                        new GearItemStat { Id = 13, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
@@ -866,13 +866,13 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 344 },
-                        new GearStat { Name = "Delay", Value = 488 },
-                        new GearStat { Name = "Accuracy", Value = 60 },
+                        new GearItemStat { Id = 42, Value = 344 },
+                        new GearItemStat { Id = 41, Value = 488 },
+                        new GearItemStat { Id = 43, Value = 60 },
                         new GearStat { Name = "DADamage%", Value = 20 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 269 },
+                        new GearItemStat { Id = 13, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
@@ -885,16 +885,16 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 277 },
-                        new GearStat { Name = "Delay", Value = 402 },
-                        new GearStat { Name = "Accuracy", Value = 60 },
-                        new GearStat { Name = "MagicAccuracy", Value = 60 },
-                        new GearStat { Name = "MagicAttack", Value = 70 },
-                        new GearStat { Name = "MagicDamage", Value = 279 },
+                        new GearItemStat { Id = 42, Value = 277 },
+                        new GearItemStat { Id = 41, Value = 402 },
+                        new GearItemStat { Id = 43, Value = 60 },
+                        new GearItemStat { Id = 68, Value = 60 },
+                        new GearItemStat { Id = 69, Value = 70 },
+                        new GearItemStat { Id = 70, Value = 279 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "StaffSkill", Value = 269 }
+                        new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 } }
                 },
@@ -906,16 +906,16 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 251 },
-                        new GearStat { Name = "Delay", Value = 402 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 },
-                        new GearStat { Name = "MagicAttack", Value = 70 },
-                        new GearStat { Name = "MagicDamage", Value = 279 },
+                        new GearItemStat { Id = 42, Value = 251 },
+                        new GearItemStat { Id = 41, Value = 402 },
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 },
+                        new GearItemStat { Id = 69, Value = 70 },
+                        new GearItemStat { Id = 70, Value = 279 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "StaffSkill", Value = 269 }
+                        new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 } }
                 },
@@ -927,17 +927,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 276 },
-                        new GearStat { Name = "Delay", Value = 402 },
-                        new GearStat { Name = "MagicDamage", Value = 279 },
+                        new GearItemStat { Id = 42, Value = 276 },
+                        new GearItemStat { Id = 41, Value = 402 },
+                        new GearItemStat { Id = 70, Value = 279 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 },
-                        new GearStat { Name = "TPBonus", Value = 500 },
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 },
+                        new GearItemStat { Id = 57, Value = 500 },
                         new GearStat { Name = "Occult Acumen", Value = 30 },
-                        new GearStat { Name = "StaffSkill", Value = 269 }
+                        new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20} }
                 },
@@ -949,17 +949,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 268 },
-                        new GearStat { Name = "Delay", Value = 402 },
-                        new GearStat { Name = "MagicDamage", Value = 279 },
+                        new GearItemStat { Id = 42, Value = 268 },
+                        new GearItemStat { Id = 41, Value = 402 },
+                        new GearItemStat { Id = 70, Value = 279 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "Accuracy", Value = 0 },
-                        new GearStat { Name = "MagicAccuracy", Value = 0 },
-                        new GearStat { Name = "TPBonus", Value = 500 },
+                        new GearItemStat { Id = 43, Value = 0 },
+                        new GearItemStat { Id = 68, Value = 0 },
+                        new GearItemStat { Id = 57, Value = 500 },
                         new GearStat { Name = "Occult Acumen", Value = 30 },
-                        new GearStat { Name = "StaffSkill", Value = 269 }
+                        new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20} }
                 },
@@ -971,13 +971,13 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 285 },
-                        new GearStat { Name = "Delay", Value = 390 },
-                        new GearStat { Name = "MagicDamage", Value = 279 },
+                        new GearItemStat { Id = 42, Value = 285 },
+                        new GearItemStat { Id = 41, Value = 390 },
+                        new GearItemStat { Id = 70, Value = 279 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "StaffSkill", Value = 269 }
+                        new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20} }
                 },
@@ -989,13 +989,13 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 275 },
-                        new GearStat { Name = "Delay", Value = 390 },
-                        new GearStat { Name = "MagicDamage", Value = 279 },
+                        new GearItemStat { Id = 42, Value = 275 },
+                        new GearItemStat { Id = 41, Value = 390 },
+                        new GearItemStat { Id = 70, Value = 279 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "StaffSkill", Value = 269 }
+                        new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20} }
                 },
@@ -1007,14 +1007,14 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 291 },
-                        new GearStat { Name = "Delay", Value = 390 },
-                        new GearStat { Name = "Accuracy", Value = 60 },
-                        new GearStat { Name = "MagicDamage", Value = 279 },
+                        new GearItemStat { Id = 42, Value = 291 },
+                        new GearItemStat { Id = 41, Value = 390 },
+                        new GearItemStat { Id = 43, Value = 60 },
+                        new GearItemStat { Id = 70, Value = 279 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "StaffSkill", Value = 269 }
+                        new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15} }
                 },
@@ -1026,14 +1026,14 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 275 },
-                        new GearStat { Name = "Delay", Value = 390 },
-                        new GearStat { Name = "Accuracy", Value = 60 },
-                        new GearStat { Name = "MagicDamage", Value = 279 },
+                        new GearItemStat { Id = 42, Value = 275 },
+                        new GearItemStat { Id = 41, Value = 390 },
+                        new GearItemStat { Id = 43, Value = 60 },
+                        new GearItemStat { Id = 70, Value = 279 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "StaffSkill", Value = 269 }
+                        new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15} }
                 },
@@ -1045,15 +1045,15 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 277 },
-                        new GearStat { Name = "Delay", Value = 402 },
-                        new GearStat { Name = "Accuracy", Value = 60 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 },
-                        new GearStat { Name = "MagicDamage", Value = 279 },
+                        new GearItemStat { Id = 42, Value = 277 },
+                        new GearItemStat { Id = 41, Value = 402 },
+                        new GearItemStat { Id = 43, Value = 60 },
+                        new GearItemStat { Id = 68, Value = 30 },
+                        new GearItemStat { Id = 70, Value = 279 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "StaffSkill", Value = 269 }
+                        new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 15} }
                 },
@@ -1065,14 +1065,14 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 251 },
-                        new GearStat { Name = "Delay", Value = 402 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicDamage", Value = 279 },
+                        new GearItemStat { Id = 42, Value = 251 },
+                        new GearItemStat { Id = 41, Value = 402 },
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 70, Value = 279 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "StaffSkill", Value = 269 }
+                        new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 15} }
                 },
@@ -1084,16 +1084,16 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 277 },
-                        new GearStat { Name = "Delay", Value = 402 },
-                        new GearStat { Name = "Accuracy", Value = 70 },
-                        new GearStat { Name = "MagicAccuracy", Value = 70 },
-                        new GearStat { Name = "MagicAttack", Value = 50 },
-                        new GearStat { Name = "MagicDamage", Value = 279 },
+                        new GearItemStat { Id = 42, Value = 277 },
+                        new GearItemStat { Id = 41, Value = 402 },
+                        new GearItemStat { Id = 43, Value = 70 },
+                        new GearItemStat { Id = 68, Value = 70 },
+                        new GearItemStat { Id = 69, Value = 50 },
+                        new GearItemStat { Id = 70, Value = 279 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "StaffSkill", Value = 269 }
+                        new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 20} }
                 },
@@ -1105,16 +1105,16 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 251 },
-                        new GearStat { Name = "Delay", Value = 402 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 50 },
-                        new GearStat { Name = "MagicDamage", Value = 279 },
+                        new GearItemStat { Id = 42, Value = 251 },
+                        new GearItemStat { Id = 41, Value = 402 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 50 },
+                        new GearItemStat { Id = 70, Value = 279 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "StaffSkill", Value = 269 }
+                        new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 20} }
                 },
@@ -1126,16 +1126,16 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = -20 },
-                        new GearStat { Name = "Vit", Value = 40 },
-                        new GearStat { Name = "DMG", Value = 286 },
-                        new GearStat { Name = "Delay", Value = 412 },
-                        new GearStat { Name = "StaffSkill", Value = 255 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
+                        new GearItemStat { Id = 98, Value = -20 },
+                        new GearItemStat { Id = 3, Value = 40 },
+                        new GearItemStat { Id = 42, Value = 286 },
+                        new GearItemStat { Id = 41, Value = 412 },
+                        new GearItemStat { Id = 19, Value = 255 },
+                        new GearItemStat { Id = 43, Value = 40 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 215 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 15 }
+                        new GearItemStat { Id = 54, Value = 15 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
                 },
@@ -1147,16 +1147,16 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 266 },
-                        new GearStat { Name = "Delay", Value = 412 },
-                        new GearStat { Name = "Str", Value = 20 },
-                        new GearStat { Name = "StaffSkill", Value = 242 },
-                        new GearStat { Name = "Accuracy", Value = 43 },
-                        new GearStat { Name = "Attack", Value = 43 },
-                        new GearStat { Name = "DA", Value = 3 },
-                        new GearStat { Name = "TA", Value = 2 },
+                        new GearItemStat { Id = 42, Value = 266 },
+                        new GearItemStat { Id = 41, Value = 412 },
+                        new GearItemStat { Id = 1, Value = 20 },
+                        new GearItemStat { Id = 19, Value = 242 },
+                        new GearItemStat { Id = 43, Value = 43 },
+                        new GearItemStat { Id = 44, Value = 43 },
+                        new GearItemStat { Id = 47, Value = 3 },
+                        new GearItemStat { Id = 48, Value = 2 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 188 }
                     },
                     GearItemJobs = new List<GearItemJob> { }
@@ -1169,18 +1169,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "Int", Value = 20 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "DMG", Value = 366 },
-                        new GearStat { Name = "Delay", Value = 528 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 21 },
-                        new GearStat { Name = "MagicDamage", Value = 226 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 5, Value = 20 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 42, Value = 366 },
+                        new GearItemStat { Id = 41, Value = 528 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 21 },
+                        new GearItemStat { Id = 70, Value = 226 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 250 },
                         new GearStat { Name = "Scythe Skill", Value = 250 }
                     },
@@ -1194,19 +1194,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Int", Value = 20 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "DMG", Value = 254 },
-                        new GearStat { Name = "Delay", Value = 366 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 26 },
-                        new GearStat { Name = "MagicDamage", Value = 241 },
+                        new GearItemStat { Id = 5, Value = 20 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 42, Value = 254 },
+                        new GearItemStat { Id = 41, Value = 366 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 26 },
+                        new GearItemStat { Id = 70, Value = 241 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 250 },
-                        new GearStat { Name = "StaffSkill", Value = 250 }
+                        new GearItemStat { Id = 19, Value = 250 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
                 },
@@ -1218,19 +1218,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "MagicEvasion", Value = 20 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Int", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 320 },
-                        new GearStat { Name = "Delay", Value = 480 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 255 },
+                        new GearItemStat { Id = 93, Value = 20 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 5, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 320 },
+                        new GearItemStat { Id = 41, Value = 480 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 11, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "DA", Value = 5 }
+                        new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
                 },
@@ -1242,19 +1242,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "MagicEvasion", Value = 20 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Int", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 335 },
-                        new GearStat { Name = "Delay", Value = 480 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 60 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 255 },
+                        new GearItemStat { Id = 93, Value = 20 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 5, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 335 },
+                        new GearItemStat { Id = 41, Value = 480 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 60 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 11, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "DA", Value = 5 }
+                        new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
                 },
@@ -1266,19 +1266,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "MagicEvasion", Value = 20 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Int", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 340 },
-                        new GearStat { Name = "Delay", Value = 480 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "Attack", Value = 65 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 255 },
+                        new GearItemStat { Id = 93, Value = 20 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 5, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 340 },
+                        new GearItemStat { Id = 41, Value = 480 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 44, Value = 65 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 11, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "DA", Value = 5 }
+                        new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
                 },
@@ -1290,19 +1290,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "MagicEvasion", Value = 20 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Int", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 343 },
-                        new GearStat { Name = "Delay", Value = 480 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "Attack", Value = 70 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 255 },
+                        new GearItemStat { Id = 93, Value = 20 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 5, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 343 },
+                        new GearItemStat { Id = 41, Value = 480 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 44, Value = 70 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 11, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "DA", Value = 5 }
+                        new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
                 },
@@ -1314,19 +1314,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "MagicEvasion", Value = 20 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Int", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 346 },
-                        new GearStat { Name = "Delay", Value = 480 },
-                        new GearStat { Name = "Accuracy", Value = 55 },
-                        new GearStat { Name = "Attack", Value = 75 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 255 },
+                        new GearItemStat { Id = 93, Value = 20 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 5, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 346 },
+                        new GearItemStat { Id = 41, Value = 480 },
+                        new GearItemStat { Id = 43, Value = 55 },
+                        new GearItemStat { Id = 44, Value = 75 },
+                        new GearItemStat { Id = 68, Value = 55 },
+                        new GearItemStat { Id = 11, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "DA", Value = 5 }
+                        new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
                 },
@@ -1338,19 +1338,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = 0 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Int", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 352 },
-                        new GearStat { Name = "Delay", Value = 528 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
+                        new GearItemStat { Id = 98, Value = 0 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 5, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 352 },
+                        new GearItemStat { Id = 41, Value = 528 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 40 },
                         new GearStat { Name = "Scythe Skill", Value = 248 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 248 },
-                        new GearStat { Name = "DA", Value = 5 }
+                        new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -1362,19 +1362,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = 0 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Int", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 367 },
-                        new GearStat { Name = "Delay", Value = 528 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 60 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
+                        new GearItemStat { Id = 98, Value = 0 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 5, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 367 },
+                        new GearItemStat { Id = 41, Value = 528 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 60 },
+                        new GearItemStat { Id = 68, Value = 40 },
                         new GearStat { Name = "Scythe Skill", Value = 248 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 248 },
-                        new GearStat { Name = "DA", Value = 5 }
+                        new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -1386,19 +1386,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = 0 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Int", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 372 },
-                        new GearStat { Name = "Delay", Value = 528 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "Attack", Value = 65 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
+                        new GearItemStat { Id = 98, Value = 0 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 5, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 372 },
+                        new GearItemStat { Id = 41, Value = 528 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 44, Value = 65 },
+                        new GearItemStat { Id = 68, Value = 45 },
                         new GearStat { Name = "Scythe Skill", Value = 248 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 248 },
-                        new GearStat { Name = "DA", Value = 5 }
+                        new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -1410,19 +1410,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = -5 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Int", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 377 },
-                        new GearStat { Name = "Delay", Value = 528 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "Attack", Value = 70 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
+                        new GearItemStat { Id = 98, Value = -5 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 5, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 377 },
+                        new GearItemStat { Id = 41, Value = 528 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 44, Value = 70 },
+                        new GearItemStat { Id = 68, Value = 50 },
                         new GearStat { Name = "Scythe Skill", Value = 248 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 248 },
-                        new GearStat { Name = "DA", Value = 5 }
+                        new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -1434,19 +1434,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = -10 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Int", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 380 },
-                        new GearStat { Name = "Delay", Value = 528 },
-                        new GearStat { Name = "Accuracy", Value = 55 },
-                        new GearStat { Name = "Attack", Value = 75 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
+                        new GearItemStat { Id = 98, Value = -10 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 5, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 380 },
+                        new GearItemStat { Id = 41, Value = 528 },
+                        new GearItemStat { Id = 43, Value = 55 },
+                        new GearItemStat { Id = 44, Value = 75 },
+                        new GearItemStat { Id = 68, Value = 55 },
                         new GearStat { Name = "Scythe Skill", Value = 248 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 248 },
-                        new GearStat { Name = "DA", Value = 5 }
+                        new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -1458,19 +1458,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = -10 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 336 },
-                        new GearStat { Name = "Delay", Value = 504 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 255 },
+                        new GearItemStat { Id = 98, Value = -10 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 336 },
+                        new GearItemStat { Id = 41, Value = 504 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 13, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "StoreTP", Value = 5 }
+                        new GearItemStat { Id = 50, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -1482,19 +1482,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = -10 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 351 },
-                        new GearStat { Name = "Delay", Value = 504 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 60 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 255 },
+                        new GearItemStat { Id = 98, Value = -10 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 351 },
+                        new GearItemStat { Id = 41, Value = 504 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 60 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 13, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "StoreTP", Value = 5 }
+                        new GearItemStat { Id = 50, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -1506,19 +1506,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = -10 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 356 },
-                        new GearStat { Name = "Delay", Value = 504 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "Attack", Value = 65 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 255 },
+                        new GearItemStat { Id = 98, Value = -10 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 356 },
+                        new GearItemStat { Id = 41, Value = 504 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 44, Value = 65 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 13, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "StoreTP", Value = 5 }
+                        new GearItemStat { Id = 50, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -1530,19 +1530,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = -10 },
-                        new GearStat { Name = "Str", Value = 18 },
-                        new GearStat { Name = "Vit", Value = 18 },
-                        new GearStat { Name = "DMG", Value = 360 },
-                        new GearStat { Name = "Delay", Value = 504 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "Attack", Value = 70 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 255 },
+                        new GearItemStat { Id = 98, Value = -10 },
+                        new GearItemStat { Id = 1, Value = 18 },
+                        new GearItemStat { Id = 3, Value = 18 },
+                        new GearItemStat { Id = 42, Value = 360 },
+                        new GearItemStat { Id = 41, Value = 504 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 44, Value = 70 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 13, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "StoreTP", Value = 5 }
+                        new GearItemStat { Id = 50, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -1554,19 +1554,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = -10 },
-                        new GearStat { Name = "Str", Value = 20 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "DMG", Value = 363 },
-                        new GearStat { Name = "Delay", Value = 504 },
-                        new GearStat { Name = "Accuracy", Value = 55 },
-                        new GearStat { Name = "Attack", Value = 75 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 255 },
+                        new GearItemStat { Id = 98, Value = -10 },
+                        new GearItemStat { Id = 1, Value = 20 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 42, Value = 363 },
+                        new GearItemStat { Id = 41, Value = 504 },
+                        new GearItemStat { Id = 43, Value = 55 },
+                        new GearItemStat { Id = 44, Value = 75 },
+                        new GearItemStat { Id = 68, Value = 55 },
+                        new GearItemStat { Id = 13, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "StoreTP", Value = 5 }
+                        new GearItemStat { Id = 50, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -1578,18 +1578,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Dex", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 300 },
-                        new GearStat { Name = "Delay", Value = 450 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 2, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 300 },
+                        new GearItemStat { Id = 41, Value = 450 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 40 },
                         new GearStat { Name = "Great Katana Skill", Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "DA", Value = 10 }
+                        new GearItemStat { Id = 47, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
                 },
@@ -1601,18 +1601,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Dex", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 315 },
-                        new GearStat { Name = "Delay", Value = 450 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 60 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 2, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 315 },
+                        new GearItemStat { Id = 41, Value = 450 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 60 },
+                        new GearItemStat { Id = 68, Value = 40 },
                         new GearStat { Name = "Great Katana Skill", Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "DA", Value = 10 }
+                        new GearItemStat { Id = 47, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
                 },
@@ -1624,18 +1624,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Dex", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 319 },
-                        new GearStat { Name = "Delay", Value = 450 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "Attack", Value = 65 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 2, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 319 },
+                        new GearItemStat { Id = 41, Value = 450 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 44, Value = 65 },
+                        new GearItemStat { Id = 68, Value = 45 },
                         new GearStat { Name = "Great Katana Skill", Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "DA", Value = 10 }
+                        new GearItemStat { Id = 47, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
                 },
@@ -1647,18 +1647,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 18 },
-                        new GearStat { Name = "Dex", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 321 },
-                        new GearStat { Name = "Delay", Value = 450 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "Attack", Value = 70 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
+                        new GearItemStat { Id = 1, Value = 18 },
+                        new GearItemStat { Id = 2, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 321 },
+                        new GearItemStat { Id = 41, Value = 450 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 44, Value = 70 },
+                        new GearItemStat { Id = 68, Value = 50 },
                         new GearStat { Name = "Great Katana Skill", Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "DA", Value = 10 }
+                        new GearItemStat { Id = 47, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
                 },
@@ -1670,18 +1670,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 20 },
-                        new GearStat { Name = "Dex", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 324 },
-                        new GearStat { Name = "Delay", Value = 450 },
-                        new GearStat { Name = "Accuracy", Value = 55 },
-                        new GearStat { Name = "Attack", Value = 75 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
+                        new GearItemStat { Id = 1, Value = 20 },
+                        new GearItemStat { Id = 2, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 324 },
+                        new GearItemStat { Id = 41, Value = 450 },
+                        new GearItemStat { Id = 43, Value = 55 },
+                        new GearItemStat { Id = 44, Value = 75 },
+                        new GearItemStat { Id = 68, Value = 55 },
                         new GearStat { Name = "Great Katana Skill", Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "DA", Value = 10 }
+                        new GearItemStat { Id = 47, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
                 },
@@ -1693,18 +1693,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = -5 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 328 },
-                        new GearStat { Name = "Delay", Value = 492 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "PolearmSkill", Value = 255 },
+                        new GearItemStat { Id = 98, Value = -5 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 328 },
+                        new GearItemStat { Id = 41, Value = 492 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                       new GearItemStat { Id = 15, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "TA", Value = 5 }
+                        new GearItemStat { Id = 48, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
@@ -1716,18 +1716,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = -5 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 343 },
-                        new GearStat { Name = "Delay", Value = 492 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 60 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "PolearmSkill", Value = 255 },
+                        new GearItemStat { Id = 98, Value = -5 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 343 },
+                        new GearItemStat { Id = 41, Value = 492 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 60 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                       new GearItemStat { Id = 15, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "TA", Value = 5 }
+                        new GearItemStat { Id = 48, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
@@ -1739,18 +1739,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = -5 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 348 },
-                        new GearStat { Name = "Delay", Value = 492 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "Attack", Value = 65 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "PolearmSkill", Value = 255 },
+                        new GearItemStat { Id = 98, Value = -5 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 348 },
+                        new GearItemStat { Id = 41, Value = 492 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 44, Value = 65 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                       new GearItemStat { Id = 15, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "TA", Value = 5 }
+                        new GearItemStat { Id = 48, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
@@ -1762,18 +1762,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = -5 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 351 },
-                        new GearStat { Name = "Delay", Value = 492 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "Attack", Value = 70 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "PolearmSkill", Value = 255 },
+                        new GearItemStat { Id = 98, Value = -5 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 351 },
+                        new GearItemStat { Id = 41, Value = 492 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 44, Value = 70 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                       new GearItemStat { Id = 15, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "TA", Value = 5 }
+                        new GearItemStat { Id = 48, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
@@ -1785,18 +1785,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DT", Value = -5 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 354 },
-                        new GearStat { Name = "Delay", Value = 492 },
-                        new GearStat { Name = "Accuracy", Value = 55 },
-                        new GearStat { Name = "Attack", Value = 75 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "PolearmSkill", Value = 255 },
+                        new GearItemStat { Id = 98, Value = -5 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 354 },
+                        new GearItemStat { Id = 41, Value = 492 },
+                        new GearItemStat { Id = 43, Value = 55 },
+                        new GearItemStat { Id = 44, Value = 75 },
+                        new GearItemStat { Id = 68, Value = 55 },
+                       new GearItemStat { Id = 15, Value = 255 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "TA", Value = 5 }
+                        new GearItemStat { Id = 48, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
@@ -1808,19 +1808,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Int", Value = 15 },
-                        new GearStat { Name = "Mnd", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 268 },
-                        new GearStat { Name = "Delay", Value = 402 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 35 },
-                        new GearStat { Name = "MagicDamage", Value = 263 },
-                        new GearStat { Name = "StaffSkill", Value = 242 },
+                        new GearItemStat { Id = 5, Value = 15 },
+                        new GearItemStat { Id = 6, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 268 },
+                        new GearItemStat { Id = 41, Value = 402 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 35 },
+                        new GearItemStat { Id = 70, Value = 263 },
+                        new GearItemStat { Id = 19, Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "MagicBurstDamageII", Value = 2 }
+                        new GearItemStat { Id = 78, Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
                 },
@@ -1832,19 +1832,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Int", Value = 15 },
-                        new GearStat { Name = "Mnd", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 283 },
-                        new GearStat { Name = "Delay", Value = 402 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 50 },
-                        new GearStat { Name = "MagicDamage", Value = 263 },
-                        new GearStat { Name = "StaffSkill", Value = 242 },
+                        new GearItemStat { Id = 5, Value = 15 },
+                        new GearItemStat { Id = 6, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 283 },
+                        new GearItemStat { Id = 41, Value = 402 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 50 },
+                        new GearItemStat { Id = 70, Value = 263 },
+                        new GearItemStat { Id = 19, Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "MagicBurstDamageII", Value = 2 }
+                        new GearItemStat { Id = 78, Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
                 },
@@ -1856,19 +1856,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Int", Value = 15 },
-                        new GearStat { Name = "Mnd", Value = 15 },
-                        new GearStat { Name = "DMG", Value = 285 },
-                        new GearStat { Name = "Delay", Value = 402 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "MagicAttack", Value = 55 },
-                        new GearStat { Name = "MagicDamage", Value = 263 },
-                        new GearStat { Name = "StaffSkill", Value = 242 },
+                        new GearItemStat { Id = 5, Value = 15 },
+                        new GearItemStat { Id = 6, Value = 15 },
+                        new GearItemStat { Id = 42, Value = 285 },
+                        new GearItemStat { Id = 41, Value = 402 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 69, Value = 55 },
+                        new GearItemStat { Id = 70, Value = 263 },
+                        new GearItemStat { Id = 19, Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "MagicBurstDamageII", Value = 2 }
+                        new GearItemStat { Id = 78, Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
                 },
@@ -1880,19 +1880,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Int", Value = 18 },
-                        new GearStat { Name = "Mnd", Value = 18 },
-                        new GearStat { Name = "DMG", Value = 287 },
-                        new GearStat { Name = "Delay", Value = 402 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "MagicAttack", Value = 60 },
-                        new GearStat { Name = "MagicDamage", Value = 263 },
-                        new GearStat { Name = "StaffSkill", Value = 242 },
+                        new GearItemStat { Id = 5, Value = 18 },
+                        new GearItemStat { Id = 6, Value = 18 },
+                        new GearItemStat { Id = 42, Value = 287 },
+                        new GearItemStat { Id = 41, Value = 402 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 69, Value = 60 },
+                        new GearItemStat { Id = 70, Value = 263 },
+                        new GearItemStat { Id = 19, Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "MagicBurstDamageII", Value = 2 }
+                        new GearItemStat { Id = 78, Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
                 },
@@ -1904,19 +1904,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Int", Value = 20 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "DMG", Value = 289 },
-                        new GearStat { Name = "Delay", Value = 402 },
-                        new GearStat { Name = "Accuracy", Value = 55 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "MagicAttack", Value = 65 },
-                        new GearStat { Name = "MagicDamage", Value = 263 },
-                        new GearStat { Name = "StaffSkill", Value = 242 },
+                        new GearItemStat { Id = 5, Value = 20 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 42, Value = 289 },
+                        new GearItemStat { Id = 41, Value = 402 },
+                        new GearItemStat { Id = 43, Value = 55 },
+                        new GearItemStat { Id = 68, Value = 55 },
+                        new GearItemStat { Id = 69, Value = 65 },
+                        new GearItemStat { Id = 70, Value = 263 },
+                        new GearItemStat { Id = 19, Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "MagicBurstDamageII", Value = 2 }
+                        new GearItemStat { Id = 78, Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
                 },
@@ -1928,17 +1928,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 352 },
-                        new GearStat { Name = "Delay", Value = 480 },
-                        new GearStat { Name = "MagicDamage", Value = 186 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 352 },
+                        new GearItemStat { Id = 41, Value = 480 },
+                        new GearItemStat { Id = 70, Value = 186 },
+                        new GearItemStat { Id = 11, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "TPBonus", Value = 500 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 }
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 57, Value = 500 },
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 22} }
                 },
@@ -1950,17 +1950,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 336 },
-                        new GearStat { Name = "Delay", Value = 480 },
-                        new GearStat { Name = "MagicDamage", Value = 186 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 336 },
+                        new GearItemStat { Id = 41, Value = 480 },
+                        new GearItemStat { Id = 70, Value = 186 },
+                        new GearItemStat { Id = 11, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "TPBonus", Value = 500 },
-                        new GearStat { Name = "Accuracy", Value = 0 },
-                        new GearStat { Name = "MagicAccuracy", Value = 0 }
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 57, Value = 500 },
+                        new GearItemStat { Id = 43, Value = 0 },
+                        new GearItemStat { Id = 68, Value = 0 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 22} }
                 },
@@ -1972,15 +1972,15 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 344 },
-                        new GearStat { Name = "Delay", Value = 489 },
-                        new GearStat { Name = "MagicDamage", Value = 186 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 344 },
+                        new GearItemStat { Id = 41, Value = 489 },
+                        new GearItemStat { Id = 70, Value = 186 },
+                        new GearItemStat { Id = 11, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 },
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 },
                         new GearStat { Name = "PDT2", Value = -25 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 22} }
@@ -1993,15 +1993,15 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 305 },
-                        new GearStat { Name = "Delay", Value = 489 },
-                        new GearStat { Name = "MagicDamage", Value = 186 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 305 },
+                        new GearItemStat { Id = 41, Value = 489 },
+                        new GearItemStat { Id = 70, Value = 186 },
+                        new GearItemStat { Id = 11, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "Accuracy", Value = 0 },
-                        new GearStat { Name = "MagicAccuracy", Value = 0 },
+                        new GearItemStat { Id = 43, Value = 0 },
+                        new GearItemStat { Id = 68, Value = 0 },
                         new GearStat { Name = "PDT2", Value = -25 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 22} }
@@ -2014,14 +2014,14 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 346 },
-                        new GearStat { Name = "Delay", Value = 480 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "MagicDamage", Value = 217 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 346 },
+                        new GearItemStat { Id = 41, Value = 480 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 70, Value = 217 },
+                        new GearItemStat { Id = 11, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 22} }
@@ -2034,15 +2034,15 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 352 },
-                        new GearStat { Name = "Delay", Value = 489 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 352 },
+                        new GearItemStat { Id = 41, Value = 489 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 13, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "CritRate", Value = 20 }
+                        new GearItemStat { Id = 45, Value = 20 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -2054,16 +2054,16 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 328 },
-                        new GearStat { Name = "Delay", Value = 490 },
-                        new GearStat { Name = "Str", Value = 15 },
-                        new GearStat { Name = "Mnd", Value = 15 },
-                        new GearStat { Name = "Accuracy", Value = 32 },
+                        new GearItemStat { Id = 42, Value = 328 },
+                        new GearItemStat { Id = 41, Value = 490 },
+                        new GearItemStat { Id = 1, Value = 15 },
+                        new GearItemStat { Id = 6, Value = 15 },
+                        new GearItemStat { Id = 43, Value = 32 },
                         new GearStat { Name = "Scythe Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 188 },
-                        new GearStat { Name = "Weapon Skill Accuracy", Value = 30 }
+                        new GearItemStat { Id = 55, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 } }
                 },
@@ -2075,15 +2075,15 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 275 },
-                        new GearStat { Name = "Delay", Value = 407 },
-                        new GearStat { Name = "Str", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 52 },
+                        new GearItemStat { Id = 42, Value = 275 },
+                        new GearItemStat { Id = 41, Value = 407 },
+                        new GearItemStat { Id = 1, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 52 },
                         new GearStat { Name = "Great Katana Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 188 },
-                        new GearStat { Name = "Weapon Skill Accuracy", Value = 30 }
+                        new GearItemStat { Id = 55, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13} }
                 },
@@ -2095,19 +2095,19 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 359 },
-                        new GearStat { Name = "Delay", Value = 508 },
-                        new GearStat { Name = "Str", Value = 20 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 250 },
+                        new GearItemStat { Id = 42, Value = 359 },
+                        new GearItemStat { Id = 41, Value = 508 },
+                        new GearItemStat { Id = 1, Value = 20 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 13, Value = 250 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 250 },
-                        new GearStat { Name = "TPBonus", Value = 400 }
+                        new GearItemStat { Id = 57, Value = 400 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
                 },
@@ -2119,20 +2119,20 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 277 },
-                        new GearStat { Name = "Delay", Value = 489 },
-                        new GearStat { Name = "Attack", Value = 21 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 242 },
+                        new GearItemStat { Id = 42, Value = 277 },
+                        new GearItemStat { Id = 41, Value = 489 },
+                        new GearItemStat { Id = 44, Value = 21 },
+                        new GearItemStat { Id = 13, Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 188 },
-                        new GearStat { Name = "StoreTP", Value = 4 },
-                        new GearStat { Name = "MDT", Value = -4 },
-                        new GearStat { Name = "DA", Value = 4 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "TA", Value = 3 },
-                        new GearStat { Name = "QA", Value = 3 }
+                        new GearItemStat { Id = 50, Value = 4 },
+                        new GearItemStat { Id = 100, Value = -4 },
+                        new GearItemStat { Id = 47, Value = 4 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 48, Value = 3 },
+                        new GearItemStat { Id = 49, Value = 3 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -2144,16 +2144,16 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 263 },
-                        new GearStat { Name = "Delay", Value = 480 },
-                        new GearStat { Name = "GreatSwordSkill", Value = 242 },
+                        new GearItemStat { Id = 42, Value = 263 },
+                        new GearItemStat { Id = 41, Value = 480 },
+                        new GearItemStat { Id = 11, Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 188 },
                         new GearStat { Name = "PDT2", Value = -5 },
-                        new GearStat { Name = "Accuracy", Value = 70 },
-                        new GearStat { Name = "MagicEvasion", Value = 50 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 10 }
+                        new GearItemStat { Id = 43, Value = 70 },
+                        new GearItemStat { Id = 93, Value = 50 },
+                        new GearItemStat { Id = 54, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 22} }
                 },
@@ -2165,18 +2165,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 327 },
-                        new GearStat { Name = "Delay", Value = 490 },
-                        new GearStat { Name = "Str", Value = 16 },
-                        new GearStat { Name = "Int", Value = 16 },
+                        new GearItemStat { Id = 42, Value = 327 },
+                        new GearItemStat { Id = 41, Value = 490 },
+                        new GearItemStat { Id = 1, Value = 16 },
+                        new GearItemStat { Id = 5, Value = 16 },
                         new GearStat { Name = "Scythe Skill", Value = 242 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 215 },
-                        new GearStat { Name = "Accuracy", Value = 66 },
-                        new GearStat { Name = "MagicAccuracy", Value = 66 },
-                        new GearStat { Name = "MagicDamage", Value = 186 },
-                        new GearStat { Name = "MagicAttack", Value = 72 }
+                        new GearItemStat { Id = 43, Value = 66 },
+                        new GearItemStat { Id = 68, Value = 66 },
+                        new GearItemStat { Id = 70, Value = 186 },
+                        new GearItemStat { Id = 69, Value = 72 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 } }
                 },
@@ -2188,17 +2188,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 380 },
-                        new GearStat { Name = "Delay", Value = 488 },
-                        new GearStat { Name = "Str", Value = 35 },
-                        new GearStat { Name = "Vit", Value = 35 },
-                        new GearStat { Name = "DA", Value = 10 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 277 },
+                        new GearItemStat { Id = 42, Value = 380 },
+                        new GearItemStat { Id = 41, Value = 488 },
+                        new GearItemStat { Id = 1, Value = 35 },
+                        new GearItemStat { Id = 3, Value = 35 },
+                        new GearItemStat { Id = 47, Value = 10 },
+                        new GearItemStat { Id = 13, Value = 277 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 277 },
-                        new GearStat { Name = "Accuracy", Value = 35 },
-                        new GearStat { Name = "MagicAccuracy", Value = 35 }
+                        new GearItemStat { Id = 43, Value = 35 },
+                        new GearItemStat { Id = 68, Value = 35 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -2210,17 +2210,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 361 },
-                        new GearStat { Name = "Delay", Value = 488 },
-                        new GearStat { Name = "Str", Value = 30 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "DA", Value = 7 },
-                        new GearStat { Name = "GreatAxeSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 361 },
+                        new GearItemStat { Id = 41, Value = 488 },
+                        new GearItemStat { Id = 1, Value = 30 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 47, Value = 7 },
+                        new GearItemStat { Id = 13, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 }
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -2232,17 +2232,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 400 },
-                        new GearStat { Name = "Delay", Value = 513 },
-                        new GearStat { Name = "Str", Value = 35 },
-                        new GearStat { Name = "Int", Value = 35 },
-                        new GearStat { Name = "TA", Value = 6 },
+                        new GearItemStat { Id = 42, Value = 400 },
+                        new GearItemStat { Id = 41, Value = 513 },
+                        new GearItemStat { Id = 1, Value = 35 },
+                        new GearItemStat { Id = 5, Value = 35 },
+                        new GearItemStat { Id = 48, Value = 6 },
                         new GearStat { Name = "Scythe Skill", Value = 277 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 277 },
-                        new GearStat { Name = "Accuracy", Value = 35 },
-                        new GearStat { Name = "MagicAccuracy", Value = 35 }
+                        new GearItemStat { Id = 43, Value = 35 },
+                        new GearItemStat { Id = 68, Value = 35 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -2254,17 +2254,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 379 },
-                        new GearStat { Name = "Delay", Value = 513 },
-                        new GearStat { Name = "Str", Value = 30 },
-                        new GearStat { Name = "Int", Value = 30 },
-                        new GearStat { Name = "TA", Value = 4 },
+                        new GearItemStat { Id = 42, Value = 379 },
+                        new GearItemStat { Id = 41, Value = 513 },
+                        new GearItemStat { Id = 1, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 30 },
+                        new GearItemStat { Id = 48, Value = 4 },
                         new GearStat { Name = "Scythe Skill", Value = 260 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 }
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -2276,17 +2276,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 383 },
-                        new GearStat { Name = "Delay", Value = 492 },
-                        new GearStat { Name = "Str", Value = 35 },
-                        new GearStat { Name = "Vit", Value = 35 },
-                        new GearStat { Name = "DA", Value = 10 },
-                        new GearStat { Name = "PolearmSkill", Value = 277 },
+                        new GearItemStat { Id = 42, Value = 383 },
+                        new GearItemStat { Id = 41, Value = 492 },
+                        new GearItemStat { Id = 1, Value = 35 },
+                        new GearItemStat { Id = 3, Value = 35 },
+                        new GearItemStat { Id = 47, Value = 10 },
+                       new GearItemStat { Id = 15, Value = 277 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 277 },
-                        new GearStat { Name = "Accuracy", Value = 35 },
-                        new GearStat { Name = "MagicAccuracy", Value = 35 }
+                        new GearItemStat { Id = 43, Value = 35 },
+                        new GearItemStat { Id = 68, Value = 35 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
@@ -2298,17 +2298,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 364 },
-                        new GearStat { Name = "Delay", Value = 492 },
-                        new GearStat { Name = "Str", Value = 30 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "DA", Value = 7 },
-                        new GearStat { Name = "PolearmSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 364 },
+                        new GearItemStat { Id = 41, Value = 492 },
+                        new GearItemStat { Id = 1, Value = 30 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 47, Value = 7 },
+                       new GearItemStat { Id = 15, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 }
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
                 },
@@ -2320,17 +2320,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 340 },
-                        new GearStat { Name = "Delay", Value = 437 },
-                        new GearStat { Name = "Str", Value = 35 },
-                        new GearStat { Name = "Dex", Value = 35 },
-                        new GearStat { Name = "DA", Value = 10 },
+                        new GearItemStat { Id = 42, Value = 340 },
+                        new GearItemStat { Id = 41, Value = 437 },
+                        new GearItemStat { Id = 1, Value = 35 },
+                        new GearItemStat { Id = 2, Value = 35 },
+                        new GearItemStat { Id = 47, Value = 10 },
                         new GearStat { Name = "Great Katana Skill", Value = 277 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 277 },
-                        new GearStat { Name = "Accuracy", Value = 35 },
-                        new GearStat { Name = "MagicAccuracy", Value = 35 }
+                        new GearItemStat { Id = 43, Value = 35 },
+                        new GearItemStat { Id = 68, Value = 35 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
                 },
@@ -2342,17 +2342,17 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 323 },
-                        new GearStat { Name = "Delay", Value = 437 },
-                        new GearStat { Name = "Str", Value = 30 },
-                        new GearStat { Name = "Dex", Value = 30 },
-                        new GearStat { Name = "DA", Value = 7 },
+                        new GearItemStat { Id = 42, Value = 323 },
+                        new GearItemStat { Id = 41, Value = 437 },
+                        new GearItemStat { Id = 1, Value = 30 },
+                        new GearItemStat { Id = 2, Value = 30 },
+                        new GearItemStat { Id = 47, Value = 7 },
                         new GearStat { Name = "Great Katana Skill", Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 }
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
                 },
@@ -2364,18 +2364,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 304 },
-                        new GearStat { Name = "Delay", Value = 390 },
-                        new GearStat { Name = "Int", Value = 35 },
-                        new GearStat { Name = "Mnd", Value = 35 },
-                        new GearStat { Name = "MagicAttack", Value = 80 },
-                        new GearStat { Name = "MagicDamage", Value = 325 },
-                        new GearStat { Name = "StaffSkill", Value = 277 },
+                        new GearItemStat { Id = 42, Value = 304 },
+                        new GearItemStat { Id = 41, Value = 390 },
+                        new GearItemStat { Id = 5, Value = 35 },
+                        new GearItemStat { Id = 6, Value = 35 },
+                        new GearItemStat { Id = 69, Value = 80 },
+                        new GearItemStat { Id = 70, Value = 325 },
+                        new GearItemStat { Id = 19, Value = 277 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 277 },
-                        new GearStat { Name = "Accuracy", Value = 35 },
-                        new GearStat { Name = "MagicAccuracy", Value = 35 }
+                        new GearItemStat { Id = 43, Value = 35 },
+                        new GearItemStat { Id = 68, Value = 35 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20} }
                 },
@@ -2387,18 +2387,18 @@ public static class Main2H
     {
         new GearItemSlot { GearSlotId = 1 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "DMG", Value = 288 },
-                        new GearStat { Name = "Delay", Value = 390 },
-                        new GearStat { Name = "Int", Value = 30 },
-                        new GearStat { Name = "Mnd", Value = 30 },
-                        new GearStat { Name = "MagicAttack", Value = 70 },
-                        new GearStat { Name = "MagicDamage", Value = 310 },
-                        new GearStat { Name = "StaffSkill", Value = 269 },
+                        new GearItemStat { Id = 42, Value = 288 },
+                        new GearItemStat { Id = 41, Value = 390 },
+                        new GearItemStat { Id = 5, Value = 30 },
+                        new GearItemStat { Id = 6, Value = 30 },
+                        new GearItemStat { Id = 69, Value = 70 },
+                        new GearItemStat { Id = 70, Value = 310 },
+                        new GearItemStat { Id = 19, Value = 269 },
                         new GearStat { Name = "MagicAccuracySkill", Value = 269 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "MagicAccuracy", Value = 30 }
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 68, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20} }
                 },

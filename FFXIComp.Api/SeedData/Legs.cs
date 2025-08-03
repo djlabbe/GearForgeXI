@@ -15,22 +15,22 @@ namespace FFXIComp.Api.SeedData
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 47 },
-                        new GearStat { Name = "MagicEvasion", Value = 100 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 24 },
-                        new GearStat { Name = "Int", Value = 36 },
-                        new GearStat { Name = "Mnd", Value = 23 },
-                        new GearStat { Name = "Chr", Value = 23 },
-                        new GearStat { Name = "Accuracy", Value = 39 },
-                        new GearStat { Name = "Attack", Value = 64 },
-                        new GearStat { Name = "MagicAccuracy", Value = 39 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "DA", Value = 6 },
+                        new GearItemStat { Id = 91, Value = 47 },
+                        new GearItemStat { Id = 93, Value = 100 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 24 },
+                        new GearItemStat { Id = 5, Value = 36 },
+                        new GearItemStat { Id = 6, Value = 23 },
+                        new GearItemStat { Id = 7, Value = 23 },
+                        new GearItemStat { Id = 43, Value = 39 },
+                        new GearItemStat { Id = 44, Value = 64 },
+                        new GearItemStat { Id = 68, Value = 39 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 47, Value = 6 },
                         new GearStat { Name = "DADamage%", Value = 11 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 1 } }
@@ -42,22 +42,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 48 },
-                        new GearStat { Name = "Vit", Value = 35 },
-                        new GearStat { Name = "Agi", Value = 24 },
-                        new GearStat { Name = "Int", Value = 39 },
-                        new GearStat { Name = "Mnd", Value = 23 },
-                        new GearStat { Name = "Chr", Value = 23 },
-                        new GearStat { Name = "Accuracy", Value = 44 },
-                        new GearStat { Name = "Attack", Value = 74 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 72 },
-                        new GearStat { Name = "MagicEvasion", Value = 140 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "DA", Value = 6 },
+                        new GearItemStat { Id = 1, Value = 48 },
+                        new GearItemStat { Id = 3, Value = 35 },
+                        new GearItemStat { Id = 4, Value = 24 },
+                        new GearItemStat { Id = 5, Value = 39 },
+                        new GearItemStat { Id = 6, Value = 23 },
+                        new GearItemStat { Id = 7, Value = 23 },
+                        new GearItemStat { Id = 43, Value = 44 },
+                        new GearItemStat { Id = 44, Value = 74 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 72 },
+                        new GearItemStat { Id = 93, Value = 140 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 47, Value = 6 },
                         new GearStat { Name = "DADamage%", Value = 11 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 1 } }
@@ -69,19 +69,19 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 53 },
-                        new GearStat { Name = "MagicEvasion", Value = 84 },
-                        new GearStat { Name = "MagicDefense", Value = 4 },
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Vit", Value = 29 },
-                        new GearStat { Name = "Agi", Value = 31 },
-                        new GearStat { Name = "Int", Value = 42 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 49 },
-                        new GearStat { Name = "GearHaste", Value = 6 }
+                        new GearItemStat { Id = 91, Value = 53 },
+                        new GearItemStat { Id = 93, Value = 84 },
+                        new GearItemStat { Id = 94, Value = 4 },
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 3, Value = 29 },
+                        new GearItemStat { Id = 4, Value = 31 },
+                        new GearItemStat { Id = 5, Value = 42 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 49 },
+                        new GearItemStat { Id = 59, Value = 6 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 2 } }
                 },
@@ -92,20 +92,20 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Vit", Value = 29 },
-                        new GearStat { Name = "Agi", Value = 36 },
-                        new GearStat { Name = "Int", Value = 42 },
-                        new GearStat { Name = "Mnd", Value = 35 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 59 },
-                        new GearStat { Name = "MagicAccuracy", Value = 59 },
-                        new GearStat { Name = "Evasion", Value = 93 },
-                        new GearStat { Name = "MagicEvasion", Value = 109 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "GearHaste", Value = 6 }
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 3, Value = 29 },
+                        new GearItemStat { Id = 4, Value = 36 },
+                        new GearItemStat { Id = 5, Value = 42 },
+                        new GearItemStat { Id = 6, Value = 35 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 59 },
+                        new GearItemStat { Id = 68, Value = 59 },
+                        new GearItemStat { Id = 91, Value = 93 },
+                        new GearItemStat { Id = 93, Value = 109 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 59, Value = 6 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 2 } }
                 },
@@ -116,22 +116,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 89 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 39 },
-                        new GearStat { Name = "Attack", Value = 64 },
-                        new GearStat { Name = "MagicAccuracy", Value = 39 },
-                        new GearStat { Name = "GearHaste", Value = 6 }
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 89 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 39 },
+                        new GearItemStat { Id = 44, Value = 64 },
+                        new GearItemStat { Id = 68, Value = 39 },
+                        new GearItemStat { Id = 59, Value = 6 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 9 } }
                 },
@@ -142,24 +142,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 44 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "Vit", Value = 31 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 44 },
-                        new GearStat { Name = "Attack", Value = 74 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 83 },
-                        new GearStat { Name = "MagicEvasion", Value = 129 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Pet:GearHaste", Value = 6 },
-                        new GearStat { Name = "Pet:StoreTP", Value = 7 }
+                        new GearItemStat { Id = 1, Value = 44 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 3, Value = 31 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 44 },
+                        new GearItemStat { Id = 44, Value = 74 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 83 },
+                        new GearItemStat { Id = 93, Value = 129 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 116, Value = 6 },
+                        new GearItemStat { Id = 121, Value = 7 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 9 } }
                 },
@@ -170,22 +170,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 89 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Vit", Value = 24 },
-                        new GearStat { Name = "Agi", Value = 33 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "RangedAccuracy", Value = 47 },
-                        new GearStat { Name = "RangedAttack", Value = 81 },
-                        new GearStat { Name = "MagicAccuracy", Value = 39 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 10 }
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 89 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 3, Value = 24 },
+                        new GearItemStat { Id = 4, Value = 33 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 110, Value = 47 },
+                        new GearItemStat { Id = 111, Value = 81 },
+                        new GearItemStat { Id = 68, Value = 39 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 54, Value = 10 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 11} }
                 },
@@ -196,22 +196,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 44 },
-                        new GearStat { Name = "Vit", Value = 29 },
-                        new GearStat { Name = "Agi", Value = 33 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "RangedAccuracy", Value = 52 },
-                        new GearStat { Name = "RangedAttack", Value = 91 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 83 },
-                        new GearStat { Name = "MagicEvasion", Value = 129 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 12 }
+                        new GearItemStat { Id = 1, Value = 44 },
+                        new GearItemStat { Id = 3, Value = 29 },
+                        new GearItemStat { Id = 4, Value = 33 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 110, Value = 52 },
+                        new GearItemStat { Id = 111, Value = 91 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 83 },
+                        new GearItemStat { Id = 93, Value = 129 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 54, Value = 12 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 11} }
                 },
@@ -222,22 +222,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 47 },
-                        new GearStat { Name = "MagicEvasion", Value = 127 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "Str", Value = 35 },
-                        new GearStat { Name = "Vit", Value = 22 },
-                        new GearStat { Name = "Agi", Value = 27 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 34 },
-                        new GearStat { Name = "Chr", Value = 29 },
-                        new GearStat { Name = "MagicAccuracy", Value = 46 },
-                        new GearStat { Name = "MagicAttack", Value = 58 },
-                        new GearStat { Name = "MagicBurstDamageII", Value = 3 },
-                        new GearStat { Name = "Accuracy", Value = 39 },
-                        new GearStat { Name = "GearHaste", Value = 5 }
+                        new GearItemStat { Id = 91, Value = 47 },
+                        new GearItemStat { Id = 93, Value = 127 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 1, Value = 35 },
+                        new GearItemStat { Id = 3, Value = 22 },
+                        new GearItemStat { Id = 4, Value = 27 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 34 },
+                        new GearItemStat { Id = 7, Value = 29 },
+                        new GearItemStat { Id = 68, Value = 46 },
+                        new GearItemStat { Id = 69, Value = 58 },
+                        new GearItemStat { Id = 78, Value = 3 },
+                        new GearItemStat { Id = 43, Value = 39 },
+                        new GearItemStat { Id = 59, Value = 5 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 4 } }
                 },
@@ -248,22 +248,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 38 },
-                        new GearStat { Name = "Vit", Value = 27 },
-                        new GearStat { Name = "Agi", Value = 27 },
-                        new GearStat { Name = "Int", Value = 55 },
-                        new GearStat { Name = "Mnd", Value = 34 },
-                        new GearStat { Name = "Chr", Value = 29 },
-                        new GearStat { Name = "Accuracy", Value = 44 },
-                        new GearStat { Name = "MagicAccuracy", Value = 51 },
-                        new GearStat { Name = "MagicAttack", Value = 61 },
-                        new GearStat { Name = "Evasion", Value = 72 },
-                        new GearStat { Name = "MagicEvasion", Value = 167 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamageII", Value = 3 }
+                        new GearItemStat { Id = 1, Value = 38 },
+                        new GearItemStat { Id = 3, Value = 27 },
+                        new GearItemStat { Id = 4, Value = 27 },
+                        new GearItemStat { Id = 5, Value = 55 },
+                        new GearItemStat { Id = 6, Value = 34 },
+                        new GearItemStat { Id = 7, Value = 29 },
+                        new GearItemStat { Id = 43, Value = 44 },
+                        new GearItemStat { Id = 68, Value = 51 },
+                        new GearItemStat { Id = 69, Value = 61 },
+                        new GearItemStat { Id = 91, Value = 72 },
+                        new GearItemStat { Id = 93, Value = 167 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 78, Value = 3 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 4 } }
                 },
@@ -274,20 +274,20 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 89 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "MagicAccuracy", Value = 49 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 10 }
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 89 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 68, Value = 49 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 77, Value = 10 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 16} }
                 },
@@ -298,21 +298,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 35 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 30 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 59 },
-                        new GearStat { Name = "MagicAccuracy", Value = 59 },
-                        new GearStat { Name = "Evasion", Value = 98 },
-                        new GearStat { Name = "MagicEvasion", Value = 114 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 10 }
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 35 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 30 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 59 },
+                        new GearItemStat { Id = 68, Value = 59 },
+                        new GearItemStat { Id = 91, Value = 98 },
+                        new GearItemStat { Id = 93, Value = 114 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 77, Value = 10 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 16} }
                 },
@@ -323,22 +323,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 33 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 27 },
-                        new GearStat { Name = "Int", Value = 54 },
-                        new GearStat { Name = "Mnd", Value = 43 },
-                        new GearStat { Name = "Chr", Value = 43 },
-                        new GearStat { Name = "Accuracy", Value = 39 },
-                        new GearStat { Name = "Attack", Value = 64 },
-                        new GearStat { Name = "MagicAccuracy", Value = 52 },
-                        new GearStat { Name = "Evasion", Value = 50 },
-                        new GearStat { Name = "MagicEvasion", Value = 127 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "PDT", Value = -6 },
-                        new GearStat { Name = "GearHaste", Value = 5 }
+                        new GearItemStat { Id = 1, Value = 33 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 27 },
+                        new GearItemStat { Id = 5, Value = 54 },
+                        new GearItemStat { Id = 6, Value = 43 },
+                        new GearItemStat { Id = 7, Value = 43 },
+                        new GearItemStat { Id = 43, Value = 39 },
+                        new GearItemStat { Id = 44, Value = 64 },
+                        new GearItemStat { Id = 68, Value = 52 },
+                        new GearItemStat { Id = 91, Value = 50 },
+                        new GearItemStat { Id = 93, Value = 127 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 99, Value = -6 },
+                        new GearItemStat { Id = 59, Value = 5 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 10 } }
                 },
@@ -349,22 +349,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 36 },
-                        new GearStat { Name = "Vit", Value = 25 },
-                        new GearStat { Name = "Agi", Value = 27 },
-                        new GearStat { Name = "Int", Value = 57 },
-                        new GearStat { Name = "Mnd", Value = 43 },
-                        new GearStat { Name = "Chr", Value = 45 },
-                        new GearStat { Name = "Accuracy", Value = 44 },
-                        new GearStat { Name = "Attack", Value = 74 },
-                        new GearStat { Name = "MagicAccuracy", Value = 57 },
-                        new GearStat { Name = "Evasion", Value = 75 },
-                        new GearStat { Name = "MagicEvasion", Value = 167 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "PDT", Value = -6 }
+                        new GearItemStat { Id = 1, Value = 36 },
+                        new GearItemStat { Id = 3, Value = 25 },
+                        new GearItemStat { Id = 4, Value = 27 },
+                        new GearItemStat { Id = 5, Value = 57 },
+                        new GearItemStat { Id = 6, Value = 43 },
+                        new GearItemStat { Id = 7, Value = 45 },
+                        new GearItemStat { Id = 43, Value = 44 },
+                        new GearItemStat { Id = 44, Value = 74 },
+                        new GearItemStat { Id = 68, Value = 57 },
+                        new GearItemStat { Id = 91, Value = 75 },
+                        new GearItemStat { Id = 93, Value = 167 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 99, Value = -6 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 10 } }
                 },
@@ -375,20 +375,20 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 50 },
-                        new GearStat { Name = "MagicEvasion", Value = 127 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Str", Value = 33 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 27 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 33 },
-                        new GearStat { Name = "Chr", Value = 33 },
-                        new GearStat { Name = "MagicAccuracy", Value = 56 },
-                        new GearStat { Name = "GearHaste", Value = 5 }
+                        new GearItemStat { Id = 91, Value = 50 },
+                        new GearItemStat { Id = 93, Value = 127 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 1, Value = 33 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 27 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 33 },
+                        new GearItemStat { Id = 7, Value = 33 },
+                        new GearItemStat { Id = 68, Value = 56 },
+                        new GearItemStat { Id = 59, Value = 5 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 10 } }
                 },
@@ -399,21 +399,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 33 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 32 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 36 },
-                        new GearStat { Name = "Chr", Value = 35 },
-                        new GearStat { Name = "Accuracy", Value = 66 },
-                        new GearStat { Name = "MagicAccuracy", Value = 66 },
-                        new GearStat { Name = "Evasion", Value = 90 },
-                        new GearStat { Name = "MagicEvasion", Value = 152 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "DT", Value = -8 }
+                        new GearItemStat { Id = 1, Value = 33 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 32 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 36 },
+                        new GearItemStat { Id = 7, Value = 35 },
+                        new GearItemStat { Id = 43, Value = 66 },
+                        new GearItemStat { Id = 68, Value = 66 },
+                        new GearItemStat { Id = 91, Value = 90 },
+                        new GearItemStat { Id = 93, Value = 152 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 98, Value = -8 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 10 } }
                 },
@@ -424,21 +424,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 42 },
-                        new GearStat { Name = "MagicEvasion", Value = 84 },
-                        new GearStat { Name = "MagicDefense", Value = 10 },
-                        new GearStat { Name = "Str", Value = 45 },
-                        new GearStat { Name = "Vit", Value = 31 },
-                        new GearStat { Name = "Agi", Value = 26 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 39 },
-                        new GearStat { Name = "Attack", Value = 64 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 10 }
+                        new GearItemStat { Id = 91, Value = 42 },
+                        new GearItemStat { Id = 93, Value = 84 },
+                        new GearItemStat { Id = 94, Value = 10 },
+                        new GearItemStat { Id = 1, Value = 45 },
+                        new GearItemStat { Id = 3, Value = 31 },
+                        new GearItemStat { Id = 4, Value = 26 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 39 },
+                        new GearItemStat { Id = 44, Value = 64 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 54, Value = 10 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -449,22 +449,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 50 },
-                        new GearStat { Name = "Vit", Value = 36 },
-                        new GearStat { Name = "Agi", Value = 26 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 44 },
-                        new GearStat { Name = "Attack", Value = 74 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 67 },
-                        new GearStat { Name = "MagicEvasion", Value = 124 },
-                        new GearStat { Name = "MagicDefense", Value = 11 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 12 }
+                        new GearItemStat { Id = 1, Value = 50 },
+                        new GearItemStat { Id = 3, Value = 36 },
+                        new GearItemStat { Id = 4, Value = 26 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 44 },
+                        new GearItemStat { Id = 44, Value = 74 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 67 },
+                        new GearItemStat { Id = 93, Value = 124 },
+                        new GearItemStat { Id = 94, Value = 11 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 54, Value = 12 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -475,21 +475,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Vit", Value = 24 },
-                        new GearStat { Name = "Agi", Value = 31 },
-                        new GearStat { Name = "Int", Value = 42 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 49 },
-                        new GearStat { Name = "Evasion", Value = 63 },
-                        new GearStat { Name = "MagicEvasion", Value = 84 },
-                        new GearStat { Name = "MagicDefense", Value = 4 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Pet:GearHaste", Value = 5 },
-                        new GearStat { Name = "Pet:DT", Value = -6 }
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 3, Value = 24 },
+                        new GearItemStat { Id = 4, Value = 31 },
+                        new GearItemStat { Id = 5, Value = 42 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 49 },
+                        new GearItemStat { Id = 91, Value = 63 },
+                        new GearItemStat { Id = 93, Value = 84 },
+                        new GearItemStat { Id = 94, Value = 4 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 116, Value = 5 },
+                        new GearItemStat { Id = 122, Value = -6 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 18} }
                 },
@@ -500,22 +500,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Vit", Value = 24 },
-                        new GearStat { Name = "Agi", Value = 36 },
-                        new GearStat { Name = "Int", Value = 42 },
-                        new GearStat { Name = "Mnd", Value = 30 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 59 },
-                        new GearStat { Name = "MagicAccuracy", Value = 59 },
-                        new GearStat { Name = "Evasion", Value = 103 },
-                        new GearStat { Name = "MagicEvasion", Value = 109 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Pet:GearHaste", Value = 5 },
-                        new GearStat { Name = "Pet:DT", Value = -6 }
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 3, Value = 24 },
+                        new GearItemStat { Id = 4, Value = 36 },
+                        new GearItemStat { Id = 5, Value = 42 },
+                        new GearItemStat { Id = 6, Value = 30 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 59 },
+                        new GearItemStat { Id = 68, Value = 59 },
+                        new GearItemStat { Id = 91, Value = 103 },
+                        new GearItemStat { Id = 93, Value = 109 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 116, Value = 5 },
+                        new GearItemStat { Id = 122, Value = -6 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 18} }
                 },
@@ -526,21 +526,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 89 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 39 },
-                        new GearStat { Name = "Attack", Value = 64 },
-                        new GearStat { Name = "MagicAccuracy", Value = 39 },
-                        new GearStat { Name = "GearHaste", Value = 6 }
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 89 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 39 },
+                        new GearItemStat { Id = 44, Value = 64 },
+                        new GearItemStat { Id = 68, Value = 39 },
+                        new GearItemStat { Id = 59, Value = 6 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 22} }
                 },
@@ -551,21 +551,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Vit", Value = 31 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 45 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 44 },
-                        new GearStat { Name = "Attack", Value = 74 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 83 },
-                        new GearStat { Name = "MagicEvasion", Value = 129 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "GearHaste", Value = 6 }
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 3, Value = 31 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 45 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 44 },
+                        new GearItemStat { Id = 44, Value = 74 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 83 },
+                        new GearItemStat { Id = 93, Value = 129 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 59, Value = 6 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 22} }
                 },
@@ -576,22 +576,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SubtleBlow", Value = 9 },
-                        new GearStat { Name = "Evasion", Value = 78 },
-                        new GearStat { Name = "MagicEvasion", Value = 84 },
-                        new GearStat { Name = "MagicDefense", Value = 4 },
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Vit", Value = 24 },
-                        new GearStat { Name = "Agi", Value = 31 },
-                        new GearStat { Name = "Int", Value = 42 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 56 },
-                        new GearStat { Name = "RangedAccuracy", Value = 35 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 6 },
+                        new GearItemStat { Id = 51, Value = 9 },
+                        new GearItemStat { Id = 91, Value = 78 },
+                        new GearItemStat { Id = 93, Value = 84 },
+                        new GearItemStat { Id = 94, Value = 4 },
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 3, Value = 24 },
+                        new GearItemStat { Id = 4, Value = 31 },
+                        new GearItemStat { Id = 5, Value = 42 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 56 },
+                        new GearItemStat { Id = 110, Value = 35 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 6 },
                         new GearStat { Name = "Dual Wield", Value = 5 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 13} }
@@ -603,24 +603,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Vit", Value = 24 },
-                        new GearStat { Name = "Agi", Value = 36 },
-                        new GearStat { Name = "Int", Value = 42 },
-                        new GearStat { Name = "Mnd", Value = 30 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 66 },
-                        new GearStat { Name = "RangedAccuracy", Value = 45 },
-                        new GearStat { Name = "MagicAccuracy", Value = 66 },
-                        new GearStat { Name = "Evasion", Value = 118 },
-                        new GearStat { Name = "MagicEvasion", Value = 109 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 6 },
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 3, Value = 24 },
+                        new GearItemStat { Id = 4, Value = 36 },
+                        new GearItemStat { Id = 5, Value = 42 },
+                        new GearItemStat { Id = 6, Value = 30 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 66 },
+                        new GearItemStat { Id = 110, Value = 45 },
+                        new GearItemStat { Id = 68, Value = 66 },
+                        new GearItemStat { Id = 91, Value = 118 },
+                        new GearItemStat { Id = 93, Value = 109 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 6 },
                         new GearStat { Name = "Dual Wield", Value = 5 },
-                        new GearStat { Name = "SubtleBlow", Value = 9 }
+                        new GearItemStat { Id = 51, Value = 9 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 13} }
                 },
@@ -631,25 +631,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SubtleBlow", Value = 10 },
-                        new GearStat { Name = "Evasion", Value = 53 },
-                        new GearStat { Name = "MagicEvasion", Value = 84 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Dex", Value = 21 },
-                        new GearStat { Name = "Vit", Value = 24 },
-                        new GearStat { Name = "Agi", Value = 31 },
-                        new GearStat { Name = "Int", Value = 42 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 39 },
-                        new GearStat { Name = "Attack", Value = 64 },
-                        new GearStat { Name = "MagicAccuracy", Value = 39 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Kick Attacks", Value = 19 },
-                        new GearStat { Name = "CritRate", Value = 8 }
+                        new GearItemStat { Id = 51, Value = 10 },
+                        new GearItemStat { Id = 91, Value = 53 },
+                        new GearItemStat { Id = 93, Value = 84 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 2, Value = 21 },
+                        new GearItemStat { Id = 3, Value = 24 },
+                        new GearItemStat { Id = 4, Value = 31 },
+                        new GearItemStat { Id = 5, Value = 42 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 39 },
+                        new GearItemStat { Id = 44, Value = 64 },
+                        new GearItemStat { Id = 68, Value = 39 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 135, Value = 19 },
+                        new GearItemStat { Id = 45, Value = 8 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 2 } }
                 },
@@ -660,25 +660,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 47 },
-                        new GearStat { Name = "Dex", Value = 21 },
-                        new GearStat { Name = "Vit", Value = 29 },
-                        new GearStat { Name = "Agi", Value = 31 },
-                        new GearStat { Name = "Int", Value = 45 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 44 },
-                        new GearStat { Name = "Attack", Value = 74 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 78 },
-                        new GearStat { Name = "MagicEvasion", Value = 124 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Kick Attacks", Value = 19 },
-                        new GearStat { Name = "SubtleBlow", Value = 10 },
-                        new GearStat { Name = "CritRate", Value = 8 }
+                        new GearItemStat { Id = 1, Value = 47 },
+                        new GearItemStat { Id = 2, Value = 21 },
+                        new GearItemStat { Id = 3, Value = 29 },
+                        new GearItemStat { Id = 4, Value = 31 },
+                        new GearItemStat { Id = 5, Value = 45 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 44 },
+                        new GearItemStat { Id = 44, Value = 74 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 78 },
+                        new GearItemStat { Id = 93, Value = 124 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 135, Value = 19 },
+                        new GearItemStat { Id = 51, Value = 10 },
+                        new GearItemStat { Id = 45, Value = 8 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 2 } }
                 },
@@ -689,22 +689,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 89 },
-                        new GearStat { Name = "MagicDefense", Value = 10 },
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "Attack", Value = 64 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 10 }
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 89 },
+                        new GearItemStat { Id = 94, Value = 10 },
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 44, Value = 64 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 54, Value = 10 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 19} }
                 },
@@ -715,22 +715,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 45 },
-                        new GearStat { Name = "Vit", Value = 31 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 26 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "Attack", Value = 74 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "Evasion", Value = 83 },
-                        new GearStat { Name = "MagicEvasion", Value = 129 },
-                        new GearStat { Name = "MagicDefense", Value = 11 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 12 }
+                        new GearItemStat { Id = 1, Value = 45 },
+                        new GearItemStat { Id = 3, Value = 31 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 26 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 44, Value = 74 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 91, Value = 83 },
+                        new GearItemStat { Id = 93, Value = 129 },
+                        new GearItemStat { Id = 94, Value = 11 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 54, Value = 12 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 19} }
                 },
@@ -741,22 +741,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 47 },
-                        new GearStat { Name = "MagicEvasion", Value = 84 },
-                        new GearStat { Name = "MagicDefense", Value = 4 },
-                        new GearStat { Name = "Str", Value = 50 },
-                        new GearStat { Name = "Dex", Value = 15 },
-                        new GearStat { Name = "Vit", Value = 31 },
-                        new GearStat { Name = "Agi", Value = 26 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 22 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 49 },
-                        new GearStat { Name = "Attack", Value = 45 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "DA", Value = 10 }
+                        new GearItemStat { Id = 91, Value = 47 },
+                        new GearItemStat { Id = 93, Value = 84 },
+                        new GearItemStat { Id = 94, Value = 4 },
+                        new GearItemStat { Id = 1, Value = 50 },
+                        new GearItemStat { Id = 2, Value = 15 },
+                        new GearItemStat { Id = 3, Value = 31 },
+                        new GearItemStat { Id = 4, Value = 26 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 22 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 49 },
+                        new GearItemStat { Id = 44, Value = 45 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 47, Value = 10 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -767,23 +767,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 50 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "Vit", Value = 31 },
-                        new GearStat { Name = "Agi", Value = 31 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 25 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 59 },
-                        new GearStat { Name = "Attack", Value = 50 },
-                        new GearStat { Name = "MagicAccuracy", Value = 59 },
-                        new GearStat { Name = "Evasion", Value = 87 },
-                        new GearStat { Name = "MagicEvasion", Value = 109 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "DA", Value = 10 }
+                        new GearItemStat { Id = 1, Value = 50 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 3, Value = 31 },
+                        new GearItemStat { Id = 4, Value = 31 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 25 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 59 },
+                        new GearItemStat { Id = 44, Value = 50 },
+                        new GearItemStat { Id = 68, Value = 59 },
+                        new GearItemStat { Id = 91, Value = 87 },
+                        new GearItemStat { Id = 93, Value = 109 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 47, Value = 10 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 8 } }
                 },
@@ -794,21 +794,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 89 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Vit", Value = 24 },
-                        new GearStat { Name = "Agi", Value = 33 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Attack", Value = 35 },
-                        new GearStat { Name = "MagicAttack", Value = 25 },
-                        new GearStat { Name = "RangedAccuracy", Value = 49 },
-                        new GearStat { Name = "GearHaste", Value = 6 }
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 89 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 3, Value = 24 },
+                        new GearItemStat { Id = 4, Value = 33 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 44, Value = 35 },
+                        new GearItemStat { Id = 69, Value = 25 },
+                        new GearItemStat { Id = 110, Value = 49 },
+                        new GearItemStat { Id = 59, Value = 6 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 17} }
                 },
@@ -819,22 +819,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Vit", Value = 24 },
-                        new GearStat { Name = "Agi", Value = 38 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 30 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Attack", Value = 40 },
-                        new GearStat { Name = "RangedAccuracy", Value = 59 },
-                        new GearStat { Name = "MagicAccuracy", Value = 59 },
-                        new GearStat { Name = "MagicAttack", Value = 27 },
-                        new GearStat { Name = "Evasion", Value = 98 },
-                        new GearStat { Name = "MagicEvasion", Value = 114 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "GearHaste", Value = 6 }
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 3, Value = 24 },
+                        new GearItemStat { Id = 4, Value = 38 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 30 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 44, Value = 40 },
+                        new GearItemStat { Id = 110, Value = 59 },
+                        new GearItemStat { Id = 68, Value = 59 },
+                        new GearItemStat { Id = 69, Value = 27 },
+                        new GearItemStat { Id = 91, Value = 98 },
+                        new GearItemStat { Id = 93, Value = 114 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 59, Value = 6 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 17} }
                 },
@@ -845,22 +845,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 72 },
-                        new GearStat { Name = "MagicEvasion", Value = 89 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Vit", Value = 24 },
-                        new GearStat { Name = "Agi", Value = 36 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Attack", Value = 78 },
-                        new GearStat { Name = "RangedAccuracy", Value = 46 },
-                        new GearStat { Name = "RangedAttack", Value = 78 },
-                        new GearStat { Name = "MagicAccuracy", Value = 39 },
-                        new GearStat { Name = "GearHaste", Value = 6 }
+                        new GearItemStat { Id = 91, Value = 72 },
+                        new GearItemStat { Id = 93, Value = 89 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 3, Value = 24 },
+                        new GearItemStat { Id = 4, Value = 36 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 44, Value = 78 },
+                        new GearItemStat { Id = 110, Value = 46 },
+                        new GearItemStat { Id = 111, Value = 78 },
+                        new GearItemStat { Id = 68, Value = 39 },
+                        new GearItemStat { Id = 59, Value = 6 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 17} }
                 },
@@ -871,22 +871,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 47 },
-                        new GearStat { Name = "Vit", Value = 29 },
-                        new GearStat { Name = "Agi", Value = 36 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Attack", Value = 88 },
-                        new GearStat { Name = "RangedAccuracy", Value = 51 },
-                        new GearStat { Name = "RangedAttack", Value = 88 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 97 },
-                        new GearStat { Name = "MagicEvasion", Value = 129 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "GearHaste", Value = 6 }
+                        new GearItemStat { Id = 1, Value = 47 },
+                        new GearItemStat { Id = 3, Value = 29 },
+                        new GearItemStat { Id = 4, Value = 36 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 44, Value = 88 },
+                        new GearItemStat { Id = 110, Value = 51 },
+                        new GearItemStat { Id = 111, Value = 88 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 97 },
+                        new GearItemStat { Id = 93, Value = 129 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 59, Value = 6 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 17} }
                 },
@@ -897,22 +897,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 38 },
-                        new GearStat { Name = "MagicEvasion", Value = 69 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "Str", Value = 41 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 32 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "MagicAttack", Value = 57 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 10 }
+                        new GearItemStat { Id = 91, Value = 38 },
+                        new GearItemStat { Id = 93, Value = 69 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 1, Value = 41 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 32 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 69, Value = 57 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 54, Value = 10 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 16} }
                 },
@@ -923,22 +923,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 46 },
-                        new GearStat { Name = "Vit", Value = 31 },
-                        new GearStat { Name = "Agi", Value = 32 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "MagicAttack", Value = 60 },
-                        new GearStat { Name = "Evasion", Value = 83 },
-                        new GearStat { Name = "MagicEvasion", Value = 129 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 12 }
+                        new GearItemStat { Id = 1, Value = 46 },
+                        new GearItemStat { Id = 3, Value = 31 },
+                        new GearItemStat { Id = 4, Value = 32 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 69, Value = 60 },
+                        new GearItemStat { Id = 91, Value = 83 },
+                        new GearItemStat { Id = 93, Value = 129 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 54, Value = 12 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 16} }
                 },
@@ -949,21 +949,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 78 },
-                        new GearStat { Name = "MagicEvasion", Value = 89 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 56 },
-                        new GearStat { Name = "Attack", Value = 35 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "SkillchainBonus", Value = 16 }
+                        new GearItemStat { Id = 91, Value = 78 },
+                        new GearItemStat { Id = 93, Value = 89 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 56 },
+                        new GearItemStat { Id = 44, Value = 35 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 53, Value = 16 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 19} }
                 },
@@ -974,22 +974,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 35 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 30 },
-                        new GearStat { Name = "Chr", Value = 23 },
-                        new GearStat { Name = "Accuracy", Value = 66 },
-                        new GearStat { Name = "Attack", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 66 },
-                        new GearStat { Name = "Evasion", Value = 118 },
-                        new GearStat { Name = "MagicEvasion", Value = 114 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "SkillchainBonus", Value = 16 }
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 35 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 30 },
+                        new GearItemStat { Id = 7, Value = 23 },
+                        new GearItemStat { Id = 43, Value = 66 },
+                        new GearItemStat { Id = 44, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 66 },
+                        new GearItemStat { Id = 91, Value = 118 },
+                        new GearItemStat { Id = 93, Value = 114 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 53, Value = 16 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 19} }
                 },
@@ -1000,23 +1000,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 63 },
-                        new GearStat { Name = "MagicEvasion", Value = 84 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Vit", Value = 24 },
-                        new GearStat { Name = "Agi", Value = 36 },
-                        new GearStat { Name = "Int", Value = 42 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 39 },
-                        new GearStat { Name = "Attack", Value = 64 },
-                        new GearStat { Name = "MagicAccuracy", Value = 39 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
+                        new GearItemStat { Id = 91, Value = 63 },
+                        new GearItemStat { Id = 93, Value = 84 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 3, Value = 24 },
+                        new GearItemStat { Id = 4, Value = 36 },
+                        new GearItemStat { Id = 5, Value = 42 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 39 },
+                        new GearItemStat { Id = 44, Value = 64 },
+                        new GearItemStat { Id = 68, Value = 39 },
+                        new GearItemStat { Id = 59, Value = 6 },
                         new GearStat { Name = "Dual Wield", Value = 10 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 10 }
+                        new GearItemStat { Id = 54, Value = 10 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 13} }
                 },
@@ -1027,23 +1027,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 47 },
-                        new GearStat { Name = "Vit", Value = 29 },
-                        new GearStat { Name = "Agi", Value = 36 },
-                        new GearStat { Name = "Int", Value = 45 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 44 },
-                        new GearStat { Name = "Attack", Value = 74 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 88 },
-                        new GearStat { Name = "MagicEvasion", Value = 124 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
+                        new GearItemStat { Id = 1, Value = 47 },
+                        new GearItemStat { Id = 3, Value = 29 },
+                        new GearItemStat { Id = 4, Value = 36 },
+                        new GearItemStat { Id = 5, Value = 45 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 44 },
+                        new GearItemStat { Id = 44, Value = 74 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 88 },
+                        new GearItemStat { Id = 93, Value = 124 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 59, Value = 6 },
                         new GearStat { Name = "Dual Wield", Value = 10 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 12 }
+                        new GearItemStat { Id = 54, Value = 12 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 13} }
                 },
@@ -1054,20 +1054,20 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 47 },
-                        new GearStat { Name = "MagicEvasion", Value = 127 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "Str", Value = 35 },
-                        new GearStat { Name = "Vit", Value = 22 },
-                        new GearStat { Name = "Agi", Value = 27 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 34 },
-                        new GearStat { Name = "Chr", Value = 29 },
-                        new GearStat { Name = "Accuracy", Value = 39 },
-                        new GearStat { Name = "Attack", Value = 64 },
-                        new GearStat { Name = "GearHaste", Value = 5 }
+                        new GearItemStat { Id = 91, Value = 47 },
+                        new GearItemStat { Id = 93, Value = 127 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 1, Value = 35 },
+                        new GearItemStat { Id = 3, Value = 22 },
+                        new GearItemStat { Id = 4, Value = 27 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 34 },
+                        new GearItemStat { Id = 7, Value = 29 },
+                        new GearItemStat { Id = 43, Value = 39 },
+                        new GearItemStat { Id = 44, Value = 64 },
+                        new GearItemStat { Id = 59, Value = 5 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 3 } }
                 },
@@ -1078,21 +1078,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 38 },
-                        new GearStat { Name = "Vit", Value = 27 },
-                        new GearStat { Name = "Agi", Value = 27 },
-                        new GearStat { Name = "Int", Value = 49 },
-                        new GearStat { Name = "Mnd", Value = 34 },
-                        new GearStat { Name = "Chr", Value = 29 },
-                        new GearStat { Name = "Accuracy", Value = 44 },
-                        new GearStat { Name = "Attack", Value = 74 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 72 },
-                        new GearStat { Name = "MagicEvasion", Value = 167 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "GearHaste", Value = 5 }
+                        new GearItemStat { Id = 1, Value = 38 },
+                        new GearItemStat { Id = 3, Value = 27 },
+                        new GearItemStat { Id = 4, Value = 27 },
+                        new GearItemStat { Id = 5, Value = 49 },
+                        new GearItemStat { Id = 6, Value = 34 },
+                        new GearItemStat { Id = 7, Value = 29 },
+                        new GearItemStat { Id = 43, Value = 44 },
+                        new GearItemStat { Id = 44, Value = 74 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 72 },
+                        new GearItemStat { Id = 93, Value = 167 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 59, Value = 5 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 3 } }
                 },
@@ -1103,22 +1103,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 68 },
-                        new GearStat { Name = "MagicEvasion", Value = 99 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Dex", Value = 15 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 54 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "TA", Value = 5 },
+                        new GearItemStat { Id = 91, Value = 68 },
+                        new GearItemStat { Id = 93, Value = 99 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 2, Value = 15 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 54 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 48, Value = 5 },
                         new GearStat { Name = "Crit Damage", Value = 5 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 6 } }
@@ -1130,23 +1130,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 35 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 30 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 64 },
-                        new GearStat { Name = "Attack", Value = 35 },
-                        new GearStat { Name = "MagicAccuracy", Value = 64 },
-                        new GearStat { Name = "Evasion", Value = 108 },
-                        new GearStat { Name = "MagicEvasion", Value = 124 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "TA", Value = 5 },
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 35 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 30 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 64 },
+                        new GearItemStat { Id = 44, Value = 35 },
+                        new GearItemStat { Id = 68, Value = 64 },
+                        new GearItemStat { Id = 91, Value = 108 },
+                        new GearItemStat { Id = 93, Value = 124 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 48, Value = 5 },
                         new GearStat { Name = "Crit Damage", Value = 5 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 6 } }
@@ -1158,22 +1158,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 45 },
-                        new GearStat { Name = "Vit", Value = 27 },
-                        new GearStat { Name = "Agi", Value = 31 },
-                        new GearStat { Name = "Int", Value = 42 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 46 },
-                        new GearStat { Name = "Attack", Value = 64 },
-                        new GearStat { Name = "MagicAccuracy", Value = 39 },
-                        new GearStat { Name = "Evasion", Value = 53 },
-                        new GearStat { Name = "MagicEvasion", Value = 84 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Pet:MagicAccuracy", Value = 48 },
+                        new GearItemStat { Id = 1, Value = 45 },
+                        new GearItemStat { Id = 3, Value = 27 },
+                        new GearItemStat { Id = 4, Value = 31 },
+                        new GearItemStat { Id = 5, Value = 42 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 46 },
+                        new GearItemStat { Id = 44, Value = 64 },
+                        new GearItemStat { Id = 68, Value = 39 },
+                        new GearItemStat { Id = 91, Value = 53 },
+                        new GearItemStat { Id = 93, Value = 84 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 113, Value = 48 },
                         new GearStat { Name = "Pet:Magic Attack", Value = 51 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 18} }
@@ -1185,24 +1185,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 50 },
-                        new GearStat { Name = "Vit", Value = 32 },
-                        new GearStat { Name = "Agi", Value = 31 },
-                        new GearStat { Name = "Int", Value = 45 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 51 },
-                        new GearStat { Name = "Attack", Value = 74 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 78 },
-                        new GearStat { Name = "MagicEvasion", Value = 124 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Pet:Accuracy", Value = 53 },
-                        new GearStat { Name = "Pet:RangedAccuracy", Value = 53 },
-                        new GearStat { Name = "Pet:MagicAccuracy", Value = 53 },
+                        new GearItemStat { Id = 1, Value = 50 },
+                        new GearItemStat { Id = 3, Value = 32 },
+                        new GearItemStat { Id = 4, Value = 31 },
+                        new GearItemStat { Id = 5, Value = 45 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 51 },
+                        new GearItemStat { Id = 44, Value = 74 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 78 },
+                        new GearItemStat { Id = 93, Value = 124 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 117, Value = 53 },
+                        new GearItemStat { Id = 119, Value = 53 },
+                        new GearItemStat { Id = 113, Value = 53 },
                         new GearStat { Name = "Pet:Magic Attack", Value = 54 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 18} }
@@ -1232,24 +1232,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 38 },
-                        new GearStat { Name = "MagicEvasion", Value = 69 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Dex", Value = 10 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 30 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = -5 },
-                        new GearStat { Name = "DA", Value = 4 },
-                        new GearStat { Name = "TA", Value = 3 },
-                        new GearStat { Name = "CritRate", Value = 5 }
+                        new GearItemStat { Id = 91, Value = 38 },
+                        new GearItemStat { Id = 93, Value = 69 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 2, Value = 10 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 30 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 50, Value = -5 },
+                        new GearItemStat { Id = 47, Value = 4 },
+                        new GearItemStat { Id = 48, Value = 3 },
+                        new GearItemStat { Id = 45, Value = 5 }
                     }
                 },
                 new GearItem
@@ -1267,24 +1267,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 13 },
-                        new GearStat { Name = "MagicEvasion", Value = 69 },
-                        new GearStat { Name = "MagicDefense", Value = 4 },
-                        new GearStat { Name = "Str", Value = 47 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 3 },
-                        new GearStat { Name = "Agi", Value = 14 },
-                        new GearStat { Name = "Int", Value = 52 },
-                        new GearStat { Name = "Mnd", Value = 26 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "Attack", Value = 45 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "MagicAttack", Value = 42 },
-                        new GearStat { Name = "GearHaste", Value = 2 },
-                        new GearStat { Name = "StoreTP", Value = 9 }
+                        new GearItemStat { Id = 91, Value = 13 },
+                        new GearItemStat { Id = 93, Value = 69 },
+                        new GearItemStat { Id = 94, Value = 4 },
+                        new GearItemStat { Id = 1, Value = 47 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 3 },
+                        new GearItemStat { Id = 4, Value = 14 },
+                        new GearItemStat { Id = 5, Value = 52 },
+                        new GearItemStat { Id = 6, Value = 26 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 44, Value = 45 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 69, Value = 42 },
+                        new GearItemStat { Id = 59, Value = 2 },
+                        new GearItemStat { Id = 50, Value = 9 }
                     }
                 },
                 new GearItem
@@ -1295,25 +1295,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 77 },
-                        new GearStat { Name = "MagicEvasion", Value = 162 },
-                        new GearStat { Name = "MagicDefense", Value = 10 },
-                        new GearStat { Name = "Str", Value = 38 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 48 },
-                        new GearStat { Name = "Mnd", Value = 43 },
-                        new GearStat { Name = "Chr", Value = 30 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "MagicAttack", Value = 58 },
-                        new GearStat { Name = "MagicDamage", Value = 33 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 15 }
+                        new GearItemStat { Id = 91, Value = 77 },
+                        new GearItemStat { Id = 93, Value = 162 },
+                        new GearItemStat { Id = 94, Value = 10 },
+                        new GearItemStat { Id = 1, Value = 38 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 48 },
+                        new GearItemStat { Id = 6, Value = 43 },
+                        new GearItemStat { Id = 7, Value = 30 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 69, Value = 58 },
+                        new GearItemStat { Id = 70, Value = 33 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 15 }
                     }
                 },
                 new GearItem
@@ -1324,25 +1324,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 67 },
-                        new GearStat { Name = "MagicEvasion", Value = 152 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "Str", Value = 33 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 38 },
-                        new GearStat { Name = "Chr", Value = 25 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "MagicAttack", Value = 53 },
-                        new GearStat { Name = "MagicDamage", Value = 23 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 10 }
+                        new GearItemStat { Id = 91, Value = 67 },
+                        new GearItemStat { Id = 93, Value = 152 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 1, Value = 33 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 38 },
+                        new GearItemStat { Id = 7, Value = 25 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 69, Value = 53 },
+                        new GearItemStat { Id = 70, Value = 23 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 10 }
                     }
                 },
                 new GearItem
@@ -1353,22 +1353,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 74 },
-                        new GearStat { Name = "MagicEvasion", Value = 130 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "DT", Value = -13 },
-                        new GearStat { Name = "Str", Value = 53 },
-                        new GearStat { Name = "Vit", Value = 40 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 38 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 25 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 73 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
+                        new GearItemStat { Id = 91, Value = 74 },
+                        new GearItemStat { Id = 93, Value = 130 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 98, Value = -13 },
+                        new GearItemStat { Id = 1, Value = 53 },
+                        new GearItemStat { Id = 3, Value = 40 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 38 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 25 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 73 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 59, Value = 5 },
                         new GearStat { Name = "Crit Damage", Value = 13 }
                     }
                 },
@@ -1380,22 +1380,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 64 },
-                        new GearStat { Name = "MagicEvasion", Value = 120 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "DT", Value = -12 },
-                        new GearStat { Name = "Str", Value = 48 },
-                        new GearStat { Name = "Vit", Value = 35 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 33 },
-                        new GearStat { Name = "Mnd", Value = 22 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
+                        new GearItemStat { Id = 91, Value = 64 },
+                        new GearItemStat { Id = 93, Value = 120 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -12 },
+                        new GearItemStat { Id = 1, Value = 48 },
+                        new GearItemStat { Id = 3, Value = 35 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 33 },
+                        new GearItemStat { Id = 6, Value = 22 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 59, Value = 5 },
                         new GearStat { Name = "Crit Damage", Value = 12 }
                     }
                 },
@@ -1414,22 +1414,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 24 },
-                        new GearStat { Name = "MagicEvasion", Value = 69 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "DT", Value = -5 },
-                        new GearStat { Name = "Str", Value = 33 },
-                        new GearStat { Name = "Dex", Value = 11 },
-                        new GearStat { Name = "Vit", Value = 16 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 29 },
-                        new GearStat { Name = "Mnd", Value = 26 },
-                        new GearStat { Name = "Chr", Value = 10 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "GearHaste", Value = 9 }
+                        new GearItemStat { Id = 91, Value = 24 },
+                        new GearItemStat { Id = 93, Value = 69 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 98, Value = -5 },
+                        new GearItemStat { Id = 1, Value = 33 },
+                        new GearItemStat { Id = 2, Value = 11 },
+                        new GearItemStat { Id = 3, Value = 16 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 29 },
+                        new GearItemStat { Id = 6, Value = 26 },
+                        new GearItemStat { Id = 7, Value = 10 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 59, Value = 9 }
                     }
                 },
                 new GearItem
@@ -1440,24 +1440,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 74 },
-                        new GearStat { Name = "MagicEvasion", Value = 168 },
-                        new GearStat { Name = "MagicDefense", Value = 10 },
-                        new GearStat { Name = "DT", Value = -12 },
-                        new GearStat { Name = "Str", Value = 31 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 23 },
-                        new GearStat { Name = "Agi", Value = 31 },
-                        new GearStat { Name = "Int", Value = 53 },
-                        new GearStat { Name = "Mnd", Value = 38 },
-                        new GearStat { Name = "Chr", Value = 32 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 99 },
-                        new GearStat { Name = "MagicAttack", Value = 53 },
-                        new GearStat { Name = "MagicDamage", Value = 33 },
-                        new GearStat { Name = "GearHaste", Value = 5 }
+                        new GearItemStat { Id = 91, Value = 74 },
+                        new GearItemStat { Id = 93, Value = 168 },
+                        new GearItemStat { Id = 94, Value = 10 },
+                        new GearItemStat { Id = 98, Value = -12 },
+                        new GearItemStat { Id = 1, Value = 31 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 23 },
+                        new GearItemStat { Id = 4, Value = 31 },
+                        new GearItemStat { Id = 5, Value = 53 },
+                        new GearItemStat { Id = 6, Value = 38 },
+                        new GearItemStat { Id = 7, Value = 32 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 99 },
+                        new GearItemStat { Id = 69, Value = 53 },
+                        new GearItemStat { Id = 70, Value = 33 },
+                        new GearItemStat { Id = 59, Value = 5 }
                     }
                 },
                 new GearItem
@@ -1468,24 +1468,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 64 },
-                        new GearStat { Name = "MagicEvasion", Value = 158 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "DT", Value = -11 },
-                        new GearStat { Name = "Str", Value = 26 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 18 },
-                        new GearStat { Name = "Agi", Value = 26 },
-                        new GearStat { Name = "Int", Value = 48 },
-                        new GearStat { Name = "Mnd", Value = 33 },
-                        new GearStat { Name = "Chr", Value = 27 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 89 },
-                        new GearStat { Name = "MagicAttack", Value = 48 },
-                        new GearStat { Name = "MagicDamage", Value = 23 },
-                        new GearStat { Name = "GearHaste", Value = 5 }
+                        new GearItemStat { Id = 91, Value = 64 },
+                        new GearItemStat { Id = 93, Value = 158 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -11 },
+                        new GearItemStat { Id = 1, Value = 26 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 18 },
+                        new GearItemStat { Id = 4, Value = 26 },
+                        new GearItemStat { Id = 5, Value = 48 },
+                        new GearItemStat { Id = 6, Value = 33 },
+                        new GearItemStat { Id = 7, Value = 27 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 89 },
+                        new GearItemStat { Id = 69, Value = 48 },
+                        new GearItemStat { Id = 70, Value = 23 },
+                        new GearItemStat { Id = 59, Value = 5 }
                     }
                 },
                 new GearItem
@@ -1496,26 +1496,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 74 },
-                        new GearStat { Name = "MagicEvasion", Value = 130 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "Str", Value = 53 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 40 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 38 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 25 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 73 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "GearHaste", Value = 8 },
-                        new GearStat { Name = "DA", Value = 8 },
-                        new GearStat { Name = "Fencer", Value = 4 },
-                        new GearStat { Name = "PDL", Value = 10 },
-                        new GearStat { Name = "TPBonus", Value = 100 }
+                        new GearItemStat { Id = 91, Value = 74 },
+                        new GearItemStat { Id = 93, Value = 130 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 1, Value = 53 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 40 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 38 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 25 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 73 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 59, Value = 8 },
+                        new GearItemStat { Id = 47, Value = 8 },
+                        new GearItemStat { Id = 65, Value = 4 },
+                        new GearItemStat { Id = 56, Value = 10 },
+                        new GearItemStat { Id = 57, Value = 100 }
                     }
                 },
                 new GearItem
@@ -1526,25 +1526,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 64 },
-                        new GearStat { Name = "MagicEvasion", Value = 120 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "Str", Value = 48 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 35 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 33 },
-                        new GearStat { Name = "Mnd", Value = 22 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "GearHaste", Value = 8 },
-                        new GearStat { Name = "DA", Value = 7 },
-                        new GearStat { Name = "Fencer", Value = 3 },
-                        new GearStat { Name = "PDL", Value = 7 }
+                        new GearItemStat { Id = 91, Value = 64 },
+                        new GearItemStat { Id = 93, Value = 120 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 48 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 35 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 33 },
+                        new GearItemStat { Id = 6, Value = 22 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 59, Value = 8 },
+                        new GearItemStat { Id = 47, Value = 7 },
+                        new GearItemStat { Id = 65, Value = 3 },
+                        new GearItemStat { Id = 56, Value = 7 }
                     }
                 },
                 new GearItem
@@ -1555,25 +1555,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 74 },
-                        new GearStat { Name = "MagicEvasion", Value = 130 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "DT", Value = -11 },
-                        new GearStat { Name = "Str", Value = 53 },
-                        new GearStat { Name = "Dex", Value = 19 },
-                        new GearStat { Name = "Vit", Value = 40 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 38 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 25 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "StoreTP", Value = 11 },
-                        new GearStat { Name = "Hasso+ JA Haste", Value = 3 }
+                        new GearItemStat { Id = 91, Value = 74 },
+                        new GearItemStat { Id = 93, Value = 130 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 98, Value = -11 },
+                        new GearItemStat { Id = 1, Value = 53 },
+                        new GearItemStat { Id = 2, Value = 19 },
+                        new GearItemStat { Id = 3, Value = 40 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 38 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 25 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 50, Value = 11 },
+                        new GearItemStat { Id = 198, Value = 3 }
                     }
                 },
                 new GearItem
@@ -1584,25 +1584,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 64 },
-                        new GearStat { Name = "MagicEvasion", Value = 120 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "DT", Value = -10 },
-                        new GearStat { Name = "Str", Value = 48 },
-                        new GearStat { Name = "Dex", Value = 14 },
-                        new GearStat { Name = "Vit", Value = 35 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 33 },
-                        new GearStat { Name = "Mnd", Value = 22 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "Hasso+ JA Haste", Value = 3 }
+                        new GearItemStat { Id = 91, Value = 64 },
+                        new GearItemStat { Id = 93, Value = 120 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -10 },
+                        new GearItemStat { Id = 1, Value = 48 },
+                        new GearItemStat { Id = 2, Value = 14 },
+                        new GearItemStat { Id = 3, Value = 35 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 33 },
+                        new GearItemStat { Id = 6, Value = 22 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 198, Value = 3 }
                     }
                 },
                 new GearItem
@@ -1613,25 +1613,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 91 },
-                        new GearStat { Name = "MagicEvasion", Value = 125 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "DT", Value = -12 },
-                        new GearStat { Name = "Str", Value = 45 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "Vit", Value = 27 },
-                        new GearStat { Name = "Agi", Value = 43 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 31 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "RangedAccuracy", Value = 63 },
-                        new GearStat { Name = "RangedAttack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 12 }
+                        new GearItemStat { Id = 91, Value = 91 },
+                        new GearItemStat { Id = 93, Value = 125 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -12 },
+                        new GearItemStat { Id = 1, Value = 45 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 3, Value = 27 },
+                        new GearItemStat { Id = 4, Value = 43 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 31 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 110, Value = 63 },
+                        new GearItemStat { Id = 111, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 12 }
                     }
                 },
                 new GearItem
@@ -1642,25 +1642,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 81 },
-                        new GearStat { Name = "MagicEvasion", Value = 115 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "DT", Value = -11 },
-                        new GearStat { Name = "Str", Value = 40 },
-                        new GearStat { Name = "Dex", Value = 15 },
-                        new GearStat { Name = "Vit", Value = 22 },
-                        new GearStat { Name = "Agi", Value = 38 },
-                        new GearStat { Name = "Int", Value = 38 },
-                        new GearStat { Name = "Mnd", Value = 26 },
-                        new GearStat { Name = "Chr", Value = 15 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "RangedAccuracy", Value = 53 },
-                        new GearStat { Name = "RangedAttack", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 11 }
+                        new GearItemStat { Id = 91, Value = 81 },
+                        new GearItemStat { Id = 93, Value = 115 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 98, Value = -11 },
+                        new GearItemStat { Id = 1, Value = 40 },
+                        new GearItemStat { Id = 2, Value = 15 },
+                        new GearItemStat { Id = 3, Value = 22 },
+                        new GearItemStat { Id = 4, Value = 38 },
+                        new GearItemStat { Id = 5, Value = 38 },
+                        new GearItemStat { Id = 6, Value = 26 },
+                        new GearItemStat { Id = 7, Value = 15 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 110, Value = 53 },
+                        new GearItemStat { Id = 111, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 11 }
                     }
                 },
                 new GearItem
@@ -1671,22 +1671,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 88 },
-                        new GearStat { Name = "MagicEvasion", Value = 157 },
-                        new GearStat { Name = "MagicDefense", Value = 10 },
-                        new GearStat { Name = "DT", Value = -13 },
-                        new GearStat { Name = "Str", Value = 33 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 38 },
-                        new GearStat { Name = "Chr", Value = 38 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "GearHaste", Value = 5 }
+                        new GearItemStat { Id = 91, Value = 88 },
+                        new GearItemStat { Id = 93, Value = 157 },
+                        new GearItemStat { Id = 94, Value = 10 },
+                        new GearItemStat { Id = 98, Value = -13 },
+                        new GearItemStat { Id = 1, Value = 33 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 38 },
+                        new GearItemStat { Id = 7, Value = 38 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 59, Value = 5 }
                     }
                 },
                 new GearItem
@@ -1697,22 +1697,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 78 },
-                        new GearStat { Name = "MagicEvasion", Value = 147 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "DT", Value = -12 },
-                        new GearStat { Name = "Str", Value = 28 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 39 },
-                        new GearStat { Name = "Mnd", Value = 33 },
-                        new GearStat { Name = "Chr", Value = 33 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "GearHaste", Value = 5 }
+                        new GearItemStat { Id = 91, Value = 78 },
+                        new GearItemStat { Id = 93, Value = 147 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -12 },
+                        new GearItemStat { Id = 1, Value = 28 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 39 },
+                        new GearItemStat { Id = 6, Value = 33 },
+                        new GearItemStat { Id = 7, Value = 33 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 59, Value = 5 }
                     }
                 },
                 new GearItem
@@ -1728,20 +1728,20 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 38 },
-                        new GearStat { Name = "MagicEvasion", Value = 69 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "Str", Value = 29 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 16 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 30 },
-                        new GearStat { Name = "Mnd", Value = 17 },
-                        new GearStat { Name = "Chr", Value = 11 },
-                        new GearStat { Name = "RangedAttack", Value = 33 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
+                        new GearItemStat { Id = 91, Value = 38 },
+                        new GearItemStat { Id = 93, Value = 69 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 1, Value = 29 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 16 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 30 },
+                        new GearItemStat { Id = 6, Value = 17 },
+                        new GearItemStat { Id = 7, Value = 11 },
+                        new GearItemStat { Id = 111, Value = 33 },
+                        new GearItemStat { Id = 59, Value = 6 },
                         new GearStat { Name = "Crit Damage", Value = 6 }
                     }
                 },
@@ -1761,25 +1761,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 41 },
-                        new GearStat { Name = "MagicEvasion", Value = 69 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "PDT", Value = -6 },
-                        new GearStat { Name = "Str", Value = 40 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "Agi", Value = 42 },
-                        new GearStat { Name = "Int", Value = 26 },
-                        new GearStat { Name = "Mnd", Value = 23 },
-                        new GearStat { Name = "Chr", Value = 18 },
-                        new GearStat { Name = "Accuracy", Value = 49 },
-                        new GearStat { Name = "Attack", Value = 45 },
-                        new GearStat { Name = "RangedAccuracy", Value = 49 },
-                        new GearStat { Name = "RangedAttack", Value = 45 },
-                        new GearStat { Name = "GearHaste", Value = 4 },
-                        new GearStat { Name = "TA", Value = 5 }
+                        new GearItemStat { Id = 91, Value = 41 },
+                        new GearItemStat { Id = 93, Value = 69 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 99, Value = -6 },
+                        new GearItemStat { Id = 1, Value = 40 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 4, Value = 42 },
+                        new GearItemStat { Id = 5, Value = 26 },
+                        new GearItemStat { Id = 6, Value = 23 },
+                        new GearItemStat { Id = 7, Value = 18 },
+                        new GearItemStat { Id = 43, Value = 49 },
+                        new GearItemStat { Id = 44, Value = 45 },
+                        new GearItemStat { Id = 110, Value = 49 },
+                        new GearItemStat { Id = 111, Value = 45 },
+                        new GearItemStat { Id = 59, Value = 4 },
+                        new GearItemStat { Id = 48, Value = 5 }
                     }
                 },
                 new GearItem
@@ -1794,20 +1794,20 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 54 },
-                        new GearStat { Name = "MagicEvasion", Value = 131 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 19 },
-                        new GearStat { Name = "Agi", Value = 43 },
-                        new GearStat { Name = "Int", Value = 29 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 15 },
-                        new GearStat { Name = "RangedAccuracy", Value = 46 },
-                        new GearStat { Name = "MagicAccuracy", Value = 51 },
+                        new GearItemStat { Id = 91, Value = 54 },
+                        new GearItemStat { Id = 93, Value = 131 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 19 },
+                        new GearItemStat { Id = 4, Value = 43 },
+                        new GearItemStat { Id = 5, Value = 29 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 15 },
+                        new GearItemStat { Id = 110, Value = 46 },
+                        new GearItemStat { Id = 68, Value = 51 },
                         new GearStat { Name = "True Shot", Value = 5 },
                         new GearStat { Name = "Double Shot", Value = 7 },
                         new GearStat { Name = "Triple Shot", Value = 6 }
@@ -1832,12 +1832,12 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 8 },
-                        new GearStat { Name = "Dex", Value = 35 },
-                        new GearStat { Name = "Attack", Value = 58 },
-                        new GearStat { Name = "DA", Value = 3 }
+                        new GearItemStat { Id = 1, Value = 8 },
+                        new GearItemStat { Id = 2, Value = 35 },
+                        new GearItemStat { Id = 44, Value = 58 },
+                        new GearItemStat { Id = 47, Value = 3 }
                     }
                 },
                 new GearItem
@@ -1859,13 +1859,13 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 0 },
-                        new GearStat { Name = "Dex", Value = 43 },
-                        new GearStat { Name = "Attack", Value = 38 },
-                        new GearStat { Name = "Accuracy", Value = 20 },
-                        new GearStat { Name = "CritRate", Value = 3 }
+                        new GearItemStat { Id = 1, Value = 0 },
+                        new GearItemStat { Id = 2, Value = 43 },
+                        new GearItemStat { Id = 44, Value = 38 },
+                        new GearItemStat { Id = 43, Value = 20 },
+                        new GearItemStat { Id = 45, Value = 3 }
                     }
                 },
                 new GearItem
@@ -1876,24 +1876,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 97 },
-                        new GearStat { Name = "MagicEvasion", Value = 125 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "DT", Value = -13 },
-                        new GearStat { Name = "Str", Value = 44 },
-                        new GearStat { Name = "Dex", Value = 18 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "CritRate", Value = 7 }
+                        new GearItemStat { Id = 91, Value = 97 },
+                        new GearItemStat { Id = 93, Value = 125 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -13 },
+                        new GearItemStat { Id = 1, Value = 44 },
+                        new GearItemStat { Id = 2, Value = 18 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 45, Value = 7 }
                     }
                 },
                 new GearItem
@@ -1904,24 +1904,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 87 },
-                        new GearStat { Name = "MagicEvasion", Value = 115 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "DT", Value = -12 },
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Dex", Value = 13 },
-                        new GearStat { Name = "Vit", Value = 21 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 35 },
-                        new GearStat { Name = "Mnd", Value = 22 },
-                        new GearStat { Name = "Chr", Value = 16 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "CritRate", Value = 6 }
+                        new GearItemStat { Id = 91, Value = 87 },
+                        new GearItemStat { Id = 93, Value = 115 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 98, Value = -12 },
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 2, Value = 13 },
+                        new GearItemStat { Id = 3, Value = 21 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 35 },
+                        new GearItemStat { Id = 6, Value = 22 },
+                        new GearItemStat { Id = 7, Value = 16 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 45, Value = 6 }
                     }
                 },
                 new GearItem
@@ -1932,25 +1932,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 86 },
-                        new GearStat { Name = "MagicEvasion", Value = 119 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "DT", Value = -14 },
-                        new GearStat { Name = "Str", Value = 49 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 28 },
-                        new GearStat { Name = "Agi", Value = 35 },
-                        new GearStat { Name = "Int", Value = 37 },
-                        new GearStat { Name = "Mnd", Value = 34 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 73 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "GearHaste", Value = 7 },
-                        new GearStat { Name = "Kick Attacks", Value = 30 },
-                        new GearStat { Name = "StoreTP", Value = 10 }
+                        new GearItemStat { Id = 91, Value = 86 },
+                        new GearItemStat { Id = 93, Value = 119 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 98, Value = -14 },
+                        new GearItemStat { Id = 1, Value = 49 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 28 },
+                        new GearItemStat { Id = 4, Value = 35 },
+                        new GearItemStat { Id = 5, Value = 37 },
+                        new GearItemStat { Id = 6, Value = 34 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 73 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 59, Value = 7 },
+                        new GearItemStat { Id = 135, Value = 30 },
+                        new GearItemStat { Id = 50, Value = 10 }
                     }
                 },
                 new GearItem
@@ -1961,25 +1961,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 76 },
-                        new GearStat { Name = "MagicEvasion", Value = 109 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "DT", Value = -13 },
-                        new GearStat { Name = "Str", Value = 44 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 23 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 29 },
-                        new GearStat { Name = "Chr", Value = 16 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "GearHaste", Value = 7 },
-                        new GearStat { Name = "Kick Attacks", Value = 25 },
-                        new GearStat { Name = "StoreTP", Value = 9 }
+                        new GearItemStat { Id = 91, Value = 76 },
+                        new GearItemStat { Id = 93, Value = 109 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 98, Value = -13 },
+                        new GearItemStat { Id = 1, Value = 44 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 23 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 29 },
+                        new GearItemStat { Id = 7, Value = 16 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 59, Value = 7 },
+                        new GearItemStat { Id = 135, Value = 25 },
+                        new GearItemStat { Id = 50, Value = 9 }
                     }
                 },
                 new GearItem
@@ -1990,24 +1990,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 107 },
-                        new GearStat { Name = "MagicEvasion", Value = 115 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "Str", Value = 44 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 40 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "DaggerSkill", Value = 38 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "PDL", Value = 10 }
+                        new GearItemStat { Id = 91, Value = 107 },
+                        new GearItemStat { Id = 93, Value = 115 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 1, Value = 44 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 40 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 9, Value = 38 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 56, Value = 10 }
                     }
                 },
                 new GearItem
@@ -2018,24 +2018,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 97 },
-                        new GearStat { Name = "MagicEvasion", Value = 105 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 21 },
-                        new GearStat { Name = "Agi", Value = 35 },
-                        new GearStat { Name = "Int", Value = 35 },
-                        new GearStat { Name = "Mnd", Value = 22 },
-                        new GearStat { Name = "Chr", Value = 16 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "DaggerSkill", Value = 33 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "PDL", Value = 7 }
+                        new GearItemStat { Id = 91, Value = 97 },
+                        new GearItemStat { Id = 93, Value = 105 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 21 },
+                        new GearItemStat { Id = 4, Value = 35 },
+                        new GearItemStat { Id = 5, Value = 35 },
+                        new GearItemStat { Id = 6, Value = 22 },
+                        new GearItemStat { Id = 7, Value = 16 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 9, Value = 33 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 56, Value = 7 }
                     }
                 },
                 new GearItem
@@ -2046,23 +2046,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 74 },
-                        new GearStat { Name = "MagicEvasion", Value = 130 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "DT", Value = -13 },
-                        new GearStat { Name = "Str", Value = 53 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 40 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 38 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 25 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 73 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "GearHaste", Value = 8 }
+                        new GearItemStat { Id = 91, Value = 74 },
+                        new GearItemStat { Id = 93, Value = 130 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 98, Value = -13 },
+                        new GearItemStat { Id = 1, Value = 53 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 40 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 38 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 25 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 73 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 59, Value = 8 }
                     }
                 },
                 new GearItem
@@ -2073,23 +2073,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 64 },
-                        new GearStat { Name = "MagicEvasion", Value = 120 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "DT", Value = -12 },
-                        new GearStat { Name = "Str", Value = 48 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 35 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 33 },
-                        new GearStat { Name = "Mnd", Value = 22 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "GearHaste", Value = 8 }
+                        new GearItemStat { Id = 91, Value = 64 },
+                        new GearItemStat { Id = 93, Value = 120 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -12 },
+                        new GearItemStat { Id = 1, Value = 48 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 35 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 33 },
+                        new GearItemStat { Id = 6, Value = 22 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 59, Value = 8 }
                     }
                 },
                 new GearItem
@@ -2100,24 +2100,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 74 },
-                        new GearStat { Name = "MagicEvasion", Value = 168 },
-                        new GearStat { Name = "MagicDefense", Value = 10 },
-                        new GearStat { Name = "Str", Value = 31 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 23 },
-                        new GearStat { Name = "Agi", Value = 31 },
-                        new GearStat { Name = "Int", Value = 55 },
-                        new GearStat { Name = "Mnd", Value = 38 },
-                        new GearStat { Name = "Chr", Value = 32 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "MagicAttack", Value = 58 },
-                        new GearStat { Name = "MagicDamage", Value = 33 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 15 }
+                        new GearItemStat { Id = 91, Value = 74 },
+                        new GearItemStat { Id = 93, Value = 168 },
+                        new GearItemStat { Id = 94, Value = 10 },
+                        new GearItemStat { Id = 1, Value = 31 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 23 },
+                        new GearItemStat { Id = 4, Value = 31 },
+                        new GearItemStat { Id = 5, Value = 55 },
+                        new GearItemStat { Id = 6, Value = 38 },
+                        new GearItemStat { Id = 7, Value = 32 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 69, Value = 58 },
+                        new GearItemStat { Id = 70, Value = 33 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 15 }
                     }
                 },
                 new GearItem
@@ -2128,24 +2128,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 64 },
-                        new GearStat { Name = "MagicEvasion", Value = 158 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "Str", Value = 26 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 18 },
-                        new GearStat { Name = "Agi", Value = 26 },
-                        new GearStat { Name = "Int", Value = 50 },
-                        new GearStat { Name = "Mnd", Value = 33 },
-                        new GearStat { Name = "Chr", Value = 27 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "MagicAttack", Value = 53 },
-                        new GearStat { Name = "MagicDamage", Value = 23 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 10 }
+                        new GearItemStat { Id = 91, Value = 64 },
+                        new GearItemStat { Id = 93, Value = 158 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 1, Value = 26 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 18 },
+                        new GearItemStat { Id = 4, Value = 26 },
+                        new GearItemStat { Id = 5, Value = 50 },
+                        new GearItemStat { Id = 6, Value = 33 },
+                        new GearItemStat { Id = 7, Value = 27 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 69, Value = 53 },
+                        new GearItemStat { Id = 70, Value = 23 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 10 }
                     }
                 },
                 new GearItem
@@ -2156,23 +2156,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 69 },
-                        new GearStat { Name = "MagicEvasion", Value = 136 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "DT", Value = -13 },
-                        new GearStat { Name = "Str", Value = 50 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 43 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 41 },
-                        new GearStat { Name = "Mnd", Value = 25 },
-                        new GearStat { Name = "Chr", Value = 22 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "GearHaste", Value = 5 }
+                        new GearItemStat { Id = 91, Value = 69 },
+                        new GearItemStat { Id = 93, Value = 136 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 98, Value = -13 },
+                        new GearItemStat { Id = 1, Value = 50 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 43 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 41 },
+                        new GearItemStat { Id = 6, Value = 25 },
+                        new GearItemStat { Id = 7, Value = 22 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 59, Value = 5 }
                     }
                 },
                 new GearItem
@@ -2183,23 +2183,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 59 },
-                        new GearStat { Name = "MagicEvasion", Value = 126 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "DT", Value = -12 },
-                        new GearStat { Name = "Str", Value = 45 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 38 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 36 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 17 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "GearHaste", Value = 5 }
+                        new GearItemStat { Id = 91, Value = 59 },
+                        new GearItemStat { Id = 93, Value = 126 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -12 },
+                        new GearItemStat { Id = 1, Value = 45 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 38 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 36 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 17 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 59, Value = 5 }
                     }
                 },
                 new GearItem
@@ -2210,27 +2210,27 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 91 },
-                        new GearStat { Name = "MagicEvasion", Value = 125 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "DT", Value = -13 },
-                        new GearStat { Name = "Str", Value = 45 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 25 },
-                        new GearStat { Name = "Agi", Value = 43 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 31 },
-                        new GearStat { Name = "Chr", Value = 18 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "RangedAccuracy", Value = 63 },
-                        new GearStat { Name = "RangedAttack", Value = 73 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
+                        new GearItemStat { Id = 91, Value = 91 },
+                        new GearItemStat { Id = 93, Value = 125 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -13 },
+                        new GearItemStat { Id = 1, Value = 45 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 25 },
+                        new GearItemStat { Id = 4, Value = 43 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 31 },
+                        new GearItemStat { Id = 7, Value = 18 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 110, Value = 63 },
+                        new GearItemStat { Id = 111, Value = 73 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 59, Value = 6 },
                         new GearStat { Name = "True Shot", Value = 8 },
-                        new GearStat { Name = "StoreTP", Value = 12 },
-                        new GearStat { Name = "CritRate", Value = 6 }
+                        new GearItemStat { Id = 50, Value = 12 },
+                        new GearItemStat { Id = 45, Value = 6 }
                     }
                 },
                 new GearItem
@@ -2241,27 +2241,27 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 81 },
-                        new GearStat { Name = "MagicEvasion", Value = 115 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "DT", Value = -12 },
-                        new GearStat { Name = "Str", Value = 40 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 38 },
-                        new GearStat { Name = "Int", Value = 38 },
-                        new GearStat { Name = "Mnd", Value = 26 },
-                        new GearStat { Name = "Chr", Value = 13 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "RangedAccuracy", Value = 53 },
-                        new GearStat { Name = "RangedAttack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
+                        new GearItemStat { Id = 91, Value = 81 },
+                        new GearItemStat { Id = 93, Value = 115 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 98, Value = -12 },
+                        new GearItemStat { Id = 1, Value = 40 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 38 },
+                        new GearItemStat { Id = 5, Value = 38 },
+                        new GearItemStat { Id = 6, Value = 26 },
+                        new GearItemStat { Id = 7, Value = 13 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 110, Value = 53 },
+                        new GearItemStat { Id = 111, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 59, Value = 6 },
                         new GearStat { Name = "True Shot", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 11 },
-                        new GearStat { Name = "CritRate", Value = 5 }
+                        new GearItemStat { Id = 50, Value = 11 },
+                        new GearItemStat { Id = 45, Value = 5 }
                     }
                 },
                 new GearItem
@@ -2272,23 +2272,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 89 },
-                        new GearStat { Name = "MagicEvasion", Value = 157 },
-                        new GearStat { Name = "MagicDefense", Value = 10 },
-                        new GearStat { Name = "DT", Value = -13 },
-                        new GearStat { Name = "Str", Value = 47 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 25 },
-                        new GearStat { Name = "Agi", Value = 31 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 22 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "GearHaste", Value = 6 }
+                        new GearItemStat { Id = 91, Value = 89 },
+                        new GearItemStat { Id = 93, Value = 157 },
+                        new GearItemStat { Id = 94, Value = 10 },
+                        new GearItemStat { Id = 98, Value = -13 },
+                        new GearItemStat { Id = 1, Value = 47 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 25 },
+                        new GearItemStat { Id = 4, Value = 31 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 22 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 59, Value = 6 }
                     }
                 },
                 new GearItem
@@ -2299,23 +2299,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 79 },
-                        new GearStat { Name = "MagicEvasion", Value = 147 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "DT", Value = -12 },
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 26 },
-                        new GearStat { Name = "Int", Value = 38 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 17 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "GearHaste", Value = 6 }
+                        new GearItemStat { Id = 91, Value = 79 },
+                        new GearItemStat { Id = 93, Value = 147 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -12 },
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 26 },
+                        new GearItemStat { Id = 5, Value = 38 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 17 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 59, Value = 6 }
                     }
                 },
                 new GearItem
@@ -2326,26 +2326,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 49 },
-                        new GearStat { Name = "Vit", Value = 28 },
-                        new GearStat { Name = "Agi", Value = 35 },
-                        new GearStat { Name = "Int", Value = 37 },
-                        new GearStat { Name = "Mnd", Value = 34 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 73 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "Evasion", Value = 86 },
-                        new GearStat { Name = "MagicEvasion", Value = 119 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "MartialArts", Value = 11 },
-                        new GearStat { Name = "DT", Value = -12 },
-                        new GearStat { Name = "Pet:Accuracy", Value = 63 },
-                        new GearStat { Name = "Pet:RangedAccuracy", Value = 63 },
-                        new GearStat { Name = "Pet:MagicAccuracy", Value = 63 },
+                        new GearItemStat { Id = 1, Value = 49 },
+                        new GearItemStat { Id = 3, Value = 28 },
+                        new GearItemStat { Id = 4, Value = 35 },
+                        new GearItemStat { Id = 5, Value = 37 },
+                        new GearItemStat { Id = 6, Value = 34 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 73 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 91, Value = 86 },
+                        new GearItemStat { Id = 93, Value = 119 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 66, Value = 11 },
+                        new GearItemStat { Id = 98, Value = -12 },
+                        new GearItemStat { Id = 117, Value = 63 },
+                        new GearItemStat { Id = 119, Value = 63 },
+                        new GearItemStat { Id = 113, Value = 63 },
                         new GearStat { Name = "AutomatonCombatSkill", Value = 33 }
                     }
                 },
@@ -2357,26 +2357,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 44 },
-                        new GearStat { Name = "Vit", Value = 23 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 29 },
-                        new GearStat { Name = "Chr", Value = 16 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "Evasion", Value = 76 },
-                        new GearStat { Name = "MagicEvasion", Value = 109 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "MartialArts", Value = 11 },
-                        new GearStat { Name = "DT", Value = -11 },
-                        new GearStat { Name = "Pet:Accuracy", Value = 53 },
-                        new GearStat { Name = "Pet:RangedAccuracy", Value = 53 },
-                        new GearStat { Name = "Pet:MagicAccuracy", Value = 53 },
+                        new GearItemStat { Id = 1, Value = 44 },
+                        new GearItemStat { Id = 3, Value = 23 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 29 },
+                        new GearItemStat { Id = 7, Value = 16 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 91, Value = 76 },
+                        new GearItemStat { Id = 93, Value = 109 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 66, Value = 11 },
+                        new GearItemStat { Id = 98, Value = -11 },
+                        new GearItemStat { Id = 117, Value = 53 },
+                        new GearItemStat { Id = 119, Value = 53 },
+                        new GearItemStat { Id = 113, Value = 53 },
                         new GearStat { Name = "AutomatonCombatSkill", Value = 28 }
                     }
                 },
@@ -2388,24 +2388,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 77 },
-                        new GearStat { Name = "MagicEvasion", Value = 162 },
-                        new GearStat { Name = "MagicDefense", Value = 10 },
-                        new GearStat { Name = "DT", Value = -12 },
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 48 },
-                        new GearStat { Name = "Mnd", Value = 43 },
-                        new GearStat { Name = "Chr", Value = 30 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "MagicAttack", Value = 53 },
-                        new GearStat { Name = "GearHaste", Value = 5 }
+                        new GearItemStat { Id = 91, Value = 77 },
+                        new GearItemStat { Id = 93, Value = 162 },
+                        new GearItemStat { Id = 94, Value = 10 },
+                        new GearItemStat { Id = 98, Value = -12 },
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 48 },
+                        new GearItemStat { Id = 6, Value = 43 },
+                        new GearItemStat { Id = 7, Value = 30 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 69, Value = 53 },
+                        new GearItemStat { Id = 59, Value = 5 }
                     }
                 },
                 new GearItem
@@ -2416,24 +2416,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 67 },
-                        new GearStat { Name = "MagicEvasion", Value = 152 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "DT", Value = -11 },
-                        new GearStat { Name = "Str", Value = 37 },
-                        new GearStat { Name = "Dex", Value = 15 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 38 },
-                        new GearStat { Name = "Chr", Value = 25 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "MagicAttack", Value = 48 },
-                        new GearStat { Name = "GearHaste", Value = 5 }
+                        new GearItemStat { Id = 91, Value = 67 },
+                        new GearItemStat { Id = 93, Value = 152 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -11 },
+                        new GearItemStat { Id = 1, Value = 37 },
+                        new GearItemStat { Id = 2, Value = 15 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 38 },
+                        new GearItemStat { Id = 7, Value = 25 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 69, Value = 48 },
+                        new GearItemStat { Id = 59, Value = 5 }
                     }
                 },
                 new GearItem
@@ -2463,22 +2463,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 46 },
-                        new GearStat { Name = "Vit", Value = 8 },
-                        new GearStat { Name = "Agi", Value = 47 },
-                        new GearStat { Name = "Int", Value = 21 },
-                        new GearStat { Name = "Mnd", Value = 7 },
-                        new GearStat { Name = "Chr", Value = 11 },
-                        new GearStat { Name = "Accuracy", Value = 38 },
-                        new GearStat { Name = "RangedAccuracy", Value = 38 },
-                        new GearStat { Name = "Evasion", Value = 74 },
-                        new GearStat { Name = "MagicEvasion", Value = 107 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 8 },
-                        new GearStat { Name = "SubtleBlow", Value = 8 },
-                        new GearStat { Name = "GearHaste", Value = 9 }
+                        new GearItemStat { Id = 1, Value = 46 },
+                        new GearItemStat { Id = 3, Value = 8 },
+                        new GearItemStat { Id = 4, Value = 47 },
+                        new GearItemStat { Id = 5, Value = 21 },
+                        new GearItemStat { Id = 6, Value = 7 },
+                        new GearItemStat { Id = 7, Value = 11 },
+                        new GearItemStat { Id = 43, Value = 38 },
+                        new GearItemStat { Id = 110, Value = 38 },
+                        new GearItemStat { Id = 91, Value = 74 },
+                        new GearItemStat { Id = 93, Value = 107 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 8 },
+                        new GearItemStat { Id = 51, Value = 8 },
+                        new GearItemStat { Id = 59, Value = 9 }
                     }
                 },
                 new GearItem
@@ -2494,22 +2494,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 19 },
-                        new GearStat { Name = "Vit", Value = 19 },
-                        new GearStat { Name = "Agi", Value = 14 },
-                        new GearStat { Name = "Int", Value = 57 },
-                        new GearStat { Name = "Mnd", Value = 28 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "MagicDamage", Value = 55 },
-                        new GearStat { Name = "Evasion", Value = 24 },
-                        new GearStat { Name = "MagicEvasion", Value = 86 },
-                        new GearStat { Name = "MagicAttack", Value = 15 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "GearHaste", Value = 4 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 }
+                        new GearItemStat { Id = 1, Value = 19 },
+                        new GearItemStat { Id = 3, Value = 19 },
+                        new GearItemStat { Id = 4, Value = 14 },
+                        new GearItemStat { Id = 5, Value = 57 },
+                        new GearItemStat { Id = 6, Value = 28 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 70, Value = 55 },
+                        new GearItemStat { Id = 91, Value = 24 },
+                        new GearItemStat { Id = 93, Value = 86 },
+                        new GearItemStat { Id = 69, Value = 15 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 59, Value = 4 },
+                        new GearItemStat { Id = 77, Value = 6 }
                     }
                 },
                 new GearItem
@@ -2532,20 +2532,20 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 25 },
-                        new GearStat { Name = "Vit", Value = 12 },
-                        new GearStat { Name = "Agi", Value = 17 },
-                        new GearStat { Name = "Int", Value = 39 },
-                        new GearStat { Name = "Mnd", Value = 29 },
-                        new GearStat { Name = "Chr", Value = 19 },
-                        new GearStat { Name = "Evasion", Value = 27 },
-                        new GearStat { Name = "MagicAccuracy", Value = 13 },
-                        new GearStat { Name = "MagicAttack", Value = 13 },
-                        new GearStat { Name = "MagicEvasion", Value = 107 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
+                        new GearItemStat { Id = 1, Value = 25 },
+                        new GearItemStat { Id = 3, Value = 12 },
+                        new GearItemStat { Id = 4, Value = 17 },
+                        new GearItemStat { Id = 5, Value = 39 },
+                        new GearItemStat { Id = 6, Value = 29 },
+                        new GearItemStat { Id = 7, Value = 19 },
+                        new GearItemStat { Id = 91, Value = 27 },
+                        new GearItemStat { Id = 68, Value = 13 },
+                        new GearItemStat { Id = 69, Value = 13 },
+                        new GearItemStat { Id = 93, Value = 107 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 59, Value = 6 },
                         new GearStat { Name = "Occult Acumen", Value = 30 }
                     }
                 },
@@ -2557,23 +2557,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 89 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "Str", Value = 42 },
-                        new GearStat { Name = "Dex", Value = 21 },
-                        new GearStat { Name = "Vit", Value = 29 },
-                        new GearStat { Name = "Agi", Value = 33 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 30 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 46 },
-                        new GearStat { Name = "Attack", Value = 64 },
-                        new GearStat { Name = "MagicAccuracy", Value = 39 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 6 },
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 89 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 1, Value = 42 },
+                        new GearItemStat { Id = 2, Value = 21 },
+                        new GearItemStat { Id = 3, Value = 29 },
+                        new GearItemStat { Id = 4, Value = 33 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 30 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 46 },
+                        new GearItemStat { Id = 44, Value = 64 },
+                        new GearItemStat { Id = 68, Value = 39 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 54, Value = 6 },
                     }
                 },
                 new GearItem
@@ -2584,23 +2584,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 47 },
-                        new GearStat { Name = "Dex", Value = 21 },
-                        new GearStat { Name = "Vit", Value = 34 },
-                        new GearStat { Name = "Agi", Value = 33 },
-                        new GearStat { Name = "Int", Value = 46 },
-                        new GearStat { Name = "Mnd", Value = 30 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 51 },
-                        new GearStat { Name = "Attack", Value = 74 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 83 },
-                        new GearStat { Name = "MagicEvasion", Value = 129 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 9 },
+                        new GearItemStat { Id = 1, Value = 47 },
+                        new GearItemStat { Id = 2, Value = 21 },
+                        new GearItemStat { Id = 3, Value = 34 },
+                        new GearItemStat { Id = 4, Value = 33 },
+                        new GearItemStat { Id = 5, Value = 46 },
+                        new GearItemStat { Id = 6, Value = 30 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 51 },
+                        new GearItemStat { Id = 44, Value = 74 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 83 },
+                        new GearItemStat { Id = 93, Value = 129 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 54, Value = 9 },
                     }
                 },
                 new GearItem
@@ -2611,22 +2611,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 42 },
-                        new GearStat { Name = "MagicEvasion", Value = 95 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Dex", Value = 22 },
-                        new GearStat { Name = "Vit", Value = 41 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 36 },
-                        new GearStat { Name = "Mnd", Value = 26 },
-                        new GearStat { Name = "Chr", Value = 22 },
-                        new GearStat { Name = "Accuracy", Value = 39 },
-                        new GearStat { Name = "Attack", Value = 64 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
+                        new GearItemStat { Id = 91, Value = 42 },
+                        new GearItemStat { Id = 93, Value = 95 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 2, Value = 22 },
+                        new GearItemStat { Id = 3, Value = 41 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 36 },
+                        new GearItemStat { Id = 6, Value = 26 },
+                        new GearItemStat { Id = 7, Value = 22 },
+                        new GearItemStat { Id = 43, Value = 39 },
+                        new GearItemStat { Id = 44, Value = 64 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 50, Value = 10 },
                     }
                 },
                 new GearItem
@@ -2637,24 +2637,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 48 },
-                        new GearStat { Name = "Dex", Value = 22 },
-                        new GearStat { Name = "Vit", Value = 46 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 39 },
-                        new GearStat { Name = "Mnd", Value = 26 },
-                        new GearStat { Name = "Chr", Value = 22 },
-                        new GearStat { Name = "Accuracy", Value = 44 },
-                        new GearStat { Name = "Attack", Value = 74 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 67 },
-                        new GearStat { Name = "MagicEvasion", Value = 135 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "Pet:PDT", Value = -11 },
+                        new GearItemStat { Id = 1, Value = 48 },
+                        new GearItemStat { Id = 2, Value = 22 },
+                        new GearItemStat { Id = 3, Value = 46 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 39 },
+                        new GearItemStat { Id = 6, Value = 26 },
+                        new GearItemStat { Id = 7, Value = 22 },
+                        new GearItemStat { Id = 43, Value = 44 },
+                        new GearItemStat { Id = 44, Value = 74 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 67 },
+                        new GearItemStat { Id = 93, Value = 135 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 192, Value = -11 },
                     }
                 },
                 new GearItem
@@ -2665,21 +2665,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 52 },
-                        new GearStat { Name = "MagicEvasion", Value = 100 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "PDT", Value = -5 },
-                        new GearStat { Name = "Str", Value = 40 },
-                        new GearStat { Name = "Vit", Value = 27 },
-                        new GearStat { Name = "Agi", Value = 27 },
-                        new GearStat { Name = "Int", Value = 39 },
-                        new GearStat { Name = "Mnd", Value = 26 },
-                        new GearStat { Name = "Chr", Value = 26 },
-                        new GearStat { Name = "Accuracy", Value = 56 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "DA", Value = 11 },
+                        new GearItemStat { Id = 91, Value = 52 },
+                        new GearItemStat { Id = 93, Value = 100 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 99, Value = -5 },
+                        new GearItemStat { Id = 1, Value = 40 },
+                        new GearItemStat { Id = 3, Value = 27 },
+                        new GearItemStat { Id = 4, Value = 27 },
+                        new GearItemStat { Id = 5, Value = 39 },
+                        new GearItemStat { Id = 6, Value = 26 },
+                        new GearItemStat { Id = 7, Value = 26 },
+                        new GearItemStat { Id = 43, Value = 56 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 47, Value = 11 },
                     }
                 },
                 new GearItem
@@ -2690,22 +2690,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 40 },
-                        new GearStat { Name = "Vit", Value = 27 },
-                        new GearStat { Name = "Agi", Value = 32 },
-                        new GearStat { Name = "Int", Value = 39 },
-                        new GearStat { Name = "Mnd", Value = 29 },
-                        new GearStat { Name = "Chr", Value = 26 },
-                        new GearStat { Name = "Accuracy", Value = 66 },
-                        new GearStat { Name = "MagicAccuracy", Value = 66 },
-                        new GearStat { Name = "Evasion", Value = 92 },
-                        new GearStat { Name = "MagicEvasion", Value = 125 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "DA", Value = 11 },
-                        new GearStat { Name = "PDT", Value = -5 },
+                        new GearItemStat { Id = 1, Value = 40 },
+                        new GearItemStat { Id = 3, Value = 27 },
+                        new GearItemStat { Id = 4, Value = 32 },
+                        new GearItemStat { Id = 5, Value = 39 },
+                        new GearItemStat { Id = 6, Value = 29 },
+                        new GearItemStat { Id = 7, Value = 26 },
+                        new GearItemStat { Id = 43, Value = 66 },
+                        new GearItemStat { Id = 68, Value = 66 },
+                        new GearItemStat { Id = 91, Value = 92 },
+                        new GearItemStat { Id = 93, Value = 125 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 47, Value = 11 },
+                        new GearItemStat { Id = 99, Value = -5 },
                     }
                 },
                 new GearItem
@@ -2716,22 +2716,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 60 },
-                        new GearStat { Name = "MagicEvasion", Value = 95 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "MDT", Value = -7 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 29 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 36 },
-                        new GearStat { Name = "Mnd", Value = 26 },
-                        new GearStat { Name = "Chr", Value = 22 },
-                        new GearStat { Name = "Accuracy", Value = 39 },
-                        new GearStat { Name = "Attack", Value = 82 },
-                        new GearStat { Name = "MagicAccuracy", Value = 39 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
+                        new GearItemStat { Id = 91, Value = 60 },
+                        new GearItemStat { Id = 93, Value = 95 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 100, Value = -7 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 29 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 36 },
+                        new GearItemStat { Id = 6, Value = 26 },
+                        new GearItemStat { Id = 7, Value = 22 },
+                        new GearItemStat { Id = 43, Value = 39 },
+                        new GearItemStat { Id = 44, Value = 82 },
+                        new GearItemStat { Id = 68, Value = 39 },
+                        new GearItemStat { Id = 59, Value = 5 },
                     }
                 },
                 new GearItem
@@ -2742,22 +2742,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 48 },
-                        new GearStat { Name = "Vit", Value = 34 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 39 },
-                        new GearStat { Name = "Mnd", Value = 26 },
-                        new GearStat { Name = "Chr", Value = 22 },
-                        new GearStat { Name = "Accuracy", Value = 44 },
-                        new GearStat { Name = "Attack", Value = 92 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 135 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MDT", Value = -7 },
+                        new GearItemStat { Id = 1, Value = 48 },
+                        new GearItemStat { Id = 3, Value = 34 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 39 },
+                        new GearItemStat { Id = 6, Value = 26 },
+                        new GearItemStat { Id = 7, Value = 22 },
+                        new GearItemStat { Id = 43, Value = 44 },
+                        new GearItemStat { Id = 44, Value = 92 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 135 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 100, Value = -7 },
                     }
                 },
                 new GearItem
@@ -2768,21 +2768,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 47 },
-                        new GearStat { Name = "MagicEvasion", Value = 127 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "Str", Value = 35 },
-                        new GearStat { Name = "Vit", Value = 22 },
-                        new GearStat { Name = "Agi", Value = 27 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 34 },
-                        new GearStat { Name = "Chr", Value = 29 },
-                        new GearStat { Name = "MagicAccuracy", Value = 49 },
-                        new GearStat { Name = "MagicDamage", Value = 46 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
+                        new GearItemStat { Id = 91, Value = 47 },
+                        new GearItemStat { Id = 93, Value = 127 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 1, Value = 35 },
+                        new GearItemStat { Id = 3, Value = 22 },
+                        new GearItemStat { Id = 4, Value = 27 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 34 },
+                        new GearItemStat { Id = 7, Value = 29 },
+                        new GearItemStat { Id = 68, Value = 49 },
+                        new GearItemStat { Id = 70, Value = 46 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 59, Value = 5 },
                     }
                 },
                 new GearItem
@@ -2793,22 +2793,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 35 },
-                        new GearStat { Name = "Vit", Value = 22 },
-                        new GearStat { Name = "Agi", Value = 32 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 39 },
-                        new GearStat { Name = "Chr", Value = 29 },
-                        new GearStat { Name = "Accuracy", Value = 59 },
-                        new GearStat { Name = "MagicAccuracy", Value = 59 },
-                        new GearStat { Name = "MagicAttack", Value = 32 },
-                        new GearStat { Name = "MagicDamage", Value = 48 },
-                        new GearStat { Name = "Evasion", Value = 87 },
-                        new GearStat { Name = "MagicEvasion", Value = 152 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
+                        new GearItemStat { Id = 1, Value = 35 },
+                        new GearItemStat { Id = 3, Value = 22 },
+                        new GearItemStat { Id = 4, Value = 32 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 39 },
+                        new GearItemStat { Id = 7, Value = 29 },
+                        new GearItemStat { Id = 43, Value = 59 },
+                        new GearItemStat { Id = 68, Value = 59 },
+                        new GearItemStat { Id = 69, Value = 32 },
+                        new GearItemStat { Id = 70, Value = 48 },
+                        new GearItemStat { Id = 91, Value = 87 },
+                        new GearItemStat { Id = 93, Value = 152 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 59, Value = 5 },
                     }
                 },
                 new GearItem
@@ -2819,19 +2819,19 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 48 },
-                        new GearStat { Name = "MagicEvasion", Value = 89 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 49 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
+                        new GearItemStat { Id = 91, Value = 48 },
+                        new GearItemStat { Id = 93, Value = 89 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 49 },
+                        new GearItemStat { Id = 59, Value = 6 },
                     }
                 },
                 new GearItem
@@ -2842,21 +2842,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 35 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 30 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "Accuracy", Value = 59 },
-                        new GearStat { Name = "MagicAccuracy", Value = 59 },
-                        new GearStat { Name = "Evasion", Value = 98 },
-                        new GearStat { Name = "MagicEvasion", Value = 114 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "Pet:Attack", Value = 45 },
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 35 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 30 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 43, Value = 59 },
+                        new GearItemStat { Id = 68, Value = 59 },
+                        new GearItemStat { Id = 91, Value = 98 },
+                        new GearItemStat { Id = 93, Value = 114 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 118, Value = 45 },
                     }
                 },
                 new GearItem
@@ -2867,21 +2867,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 42 },
-                        new GearStat { Name = "MagicEvasion", Value = 95 },
-                        new GearStat { Name = "MagicDefense", Value = 4 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Dex", Value = 20 },
-                        new GearStat { Name = "Vit", Value = 29 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 36 },
-                        new GearStat { Name = "Mnd", Value = 26 },
-                        new GearStat { Name = "Chr", Value = 22 },
-                        new GearStat { Name = "Accuracy", Value = 49 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 10 },
+                        new GearItemStat { Id = 91, Value = 42 },
+                        new GearItemStat { Id = 93, Value = 95 },
+                        new GearItemStat { Id = 94, Value = 4 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 2, Value = 20 },
+                        new GearItemStat { Id = 3, Value = 29 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 36 },
+                        new GearItemStat { Id = 6, Value = 26 },
+                        new GearItemStat { Id = 7, Value = 22 },
+                        new GearItemStat { Id = 43, Value = 49 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 54, Value = 10 },
                     }
                 },
                 new GearItem
@@ -2892,22 +2892,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Dex", Value = 25 },
-                        new GearStat { Name = "Vit", Value = 29 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 36 },
-                        new GearStat { Name = "Mnd", Value = 29 },
-                        new GearStat { Name = "Chr", Value = 22 },
-                        new GearStat { Name = "Accuracy", Value = 59 },
-                        new GearStat { Name = "MagicAccuracy", Value = 59 },
-                        new GearStat { Name = "Evasion", Value = 82 },
-                        new GearStat { Name = "MagicEvasion", Value = 120 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 12 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 2, Value = 25 },
+                        new GearItemStat { Id = 3, Value = 29 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 36 },
+                        new GearItemStat { Id = 6, Value = 29 },
+                        new GearItemStat { Id = 7, Value = 22 },
+                        new GearItemStat { Id = 43, Value = 59 },
+                        new GearItemStat { Id = 68, Value = 59 },
+                        new GearItemStat { Id = 91, Value = 82 },
+                        new GearItemStat { Id = 93, Value = 120 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 54, Value = 12 },
                     }
                 },
                 new GearItem
@@ -2918,23 +2918,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 47 },
-                        new GearStat { Name = "MagicEvasion", Value = 127 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "PDT", Value = -5 },
-                        new GearStat { Name = "Str", Value = 35 },
-                        new GearStat { Name = "Dex", Value = 22 },
-                        new GearStat { Name = "Vit", Value = 22 },
-                        new GearStat { Name = "Agi", Value = 27 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 34 },
-                        new GearStat { Name = "Chr", Value = 29 },
-                        new GearStat { Name = "Accuracy", Value = 39 },
-                        new GearStat { Name = "Attack", Value = 64 },
-                        new GearStat { Name = "MagicAccuracy", Value = 39 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
+                        new GearItemStat { Id = 91, Value = 47 },
+                        new GearItemStat { Id = 93, Value = 127 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 99, Value = -5 },
+                        new GearItemStat { Id = 1, Value = 35 },
+                        new GearItemStat { Id = 2, Value = 22 },
+                        new GearItemStat { Id = 3, Value = 22 },
+                        new GearItemStat { Id = 4, Value = 27 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 34 },
+                        new GearItemStat { Id = 7, Value = 29 },
+                        new GearItemStat { Id = 43, Value = 39 },
+                        new GearItemStat { Id = 44, Value = 64 },
+                        new GearItemStat { Id = 68, Value = 39 },
+                        new GearItemStat { Id = 59, Value = 5 },
                         new GearStat { Name = "Elemental Magic Skill", Value = 23 },
                         new GearStat { Name = "EnSpell Damage", Value = 5 },
                     }
@@ -2947,24 +2947,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 38 },
-                        new GearStat { Name = "Dex", Value = 22 },
-                        new GearStat { Name = "Vit", Value = 27 },
-                        new GearStat { Name = "Agi", Value = 27 },
-                        new GearStat { Name = "Int", Value = 49 },
-                        new GearStat { Name = "Mnd", Value = 34 },
-                        new GearStat { Name = "Chr", Value = 29 },
-                        new GearStat { Name = "Accuracy", Value = 44 },
-                        new GearStat { Name = "Attack", Value = 74 },
-                        new GearStat { Name = "MagicAccuracy", Value = 44 },
-                        new GearStat { Name = "Evasion", Value = 72 },
-                        new GearStat { Name = "MagicEvasion", Value = 167 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
+                        new GearItemStat { Id = 1, Value = 38 },
+                        new GearItemStat { Id = 2, Value = 22 },
+                        new GearItemStat { Id = 3, Value = 27 },
+                        new GearItemStat { Id = 4, Value = 27 },
+                        new GearItemStat { Id = 5, Value = 49 },
+                        new GearItemStat { Id = 6, Value = 34 },
+                        new GearItemStat { Id = 7, Value = 29 },
+                        new GearItemStat { Id = 43, Value = 44 },
+                        new GearItemStat { Id = 44, Value = 74 },
+                        new GearItemStat { Id = 68, Value = 44 },
+                        new GearItemStat { Id = 91, Value = 72 },
+                        new GearItemStat { Id = 93, Value = 167 },
+                        new GearItemStat { Id = 94, Value = 9 },
                         new GearStat { Name = "Elemental Magic Skill", Value = 24 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "PDT", Value = -5 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 99, Value = -5 },
                         new GearStat { Name = "EnSpell Damage", Value = 5 },
                     }
                 },
@@ -2976,23 +2976,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 42 },
-                        new GearStat { Name = "MagicEvasion", Value = 95 },
-                        new GearStat { Name = "MagicDefense", Value = 4 },
-                        new GearStat { Name = "Str", Value = 44 },
-                        new GearStat { Name = "Vit", Value = 29 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 37 },
-                        new GearStat { Name = "Mnd", Value = 26 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 49 },
-                        new GearStat { Name = "Attack", Value = 40 },
-                        new GearStat { Name = "RangedAttack", Value = 40 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "StoreTP", Value = 9 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 10 },
+                        new GearItemStat { Id = 91, Value = 42 },
+                        new GearItemStat { Id = 93, Value = 95 },
+                        new GearItemStat { Id = 94, Value = 4 },
+                        new GearItemStat { Id = 1, Value = 44 },
+                        new GearItemStat { Id = 3, Value = 29 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 37 },
+                        new GearItemStat { Id = 6, Value = 26 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 49 },
+                        new GearItemStat { Id = 44, Value = 40 },
+                        new GearItemStat { Id = 111, Value = 40 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 50, Value = 9 },
+                        new GearItemStat { Id = 54, Value = 10 },
                     }
                 },
                 new GearItem
@@ -3003,24 +3003,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 44 },
-                        new GearStat { Name = "Vit", Value = 29 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 37 },
-                        new GearStat { Name = "Mnd", Value = 29 },
-                        new GearStat { Name = "Chr", Value = 22 },
-                        new GearStat { Name = "Accuracy", Value = 59 },
-                        new GearStat { Name = "Attack", Value = 45 },
-                        new GearStat { Name = "RangedAttack", Value = 45 },
-                        new GearStat { Name = "MagicAccuracy", Value = 59 },
-                        new GearStat { Name = "Evasion", Value = 82 },
-                        new GearStat { Name = "MagicEvasion", Value = 120 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "StoreTP", Value = 9 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 12 },
+                        new GearItemStat { Id = 1, Value = 44 },
+                        new GearItemStat { Id = 3, Value = 29 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 37 },
+                        new GearItemStat { Id = 6, Value = 29 },
+                        new GearItemStat { Id = 7, Value = 22 },
+                        new GearItemStat { Id = 43, Value = 59 },
+                        new GearItemStat { Id = 44, Value = 45 },
+                        new GearItemStat { Id = 111, Value = 45 },
+                        new GearItemStat { Id = 68, Value = 59 },
+                        new GearItemStat { Id = 91, Value = 82 },
+                        new GearItemStat { Id = 93, Value = 120 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 50, Value = 9 },
+                        new GearItemStat { Id = 54, Value = 12 },
                     }
                 },
                 new GearItem
@@ -3031,23 +3031,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Recycle", Value = 16 },
-                        new GearStat { Name = "Evasion", Value = 41 },
-                        new GearStat { Name = "MagicEvasion", Value = 75 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "Str", Value = 32 },
-                        new GearStat { Name = "Dex", Value = 12 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "Agi", Value = 42 },
-                        new GearStat { Name = "Int", Value = 28 },
-                        new GearStat { Name = "Mnd", Value = 16 },
-                        new GearStat { Name = "Chr", Value = 8 },
-                        new GearStat { Name = "Accuracy", Value = 54 },
-                        new GearStat { Name = "RangedAccuracy", Value = 34 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 8 },
+                        new GearItemStat { Id = 182, Value = 16 },
+                        new GearItemStat { Id = 91, Value = 41 },
+                        new GearItemStat { Id = 93, Value = 75 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 1, Value = 32 },
+                        new GearItemStat { Id = 2, Value = 12 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 4, Value = 42 },
+                        new GearItemStat { Id = 5, Value = 28 },
+                        new GearItemStat { Id = 6, Value = 16 },
+                        new GearItemStat { Id = 7, Value = 8 },
+                        new GearItemStat { Id = 43, Value = 54 },
+                        new GearItemStat { Id = 110, Value = 34 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 8 },
                     }
                 },
                 new GearItem
@@ -3058,24 +3058,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Recycle", Value = 16 },
-                        new GearStat { Name = "Evasion", Value = 41 },
-                        new GearStat { Name = "MagicEvasion", Value = 75 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "Str", Value = 44 },
-                        new GearStat { Name = "Dex", Value = 12 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 28 },
-                        new GearStat { Name = "Mnd", Value = 16 },
-                        new GearStat { Name = "Chr", Value = 8 },
-                        new GearStat { Name = "Accuracy", Value = 34 },
-                        new GearStat { Name = "RangedAccuracy", Value = 34 },
-                        new GearStat { Name = "Attack", Value = 20 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 8 },
+                        new GearItemStat { Id = 182, Value = 16 },
+                        new GearItemStat { Id = 91, Value = 41 },
+                        new GearItemStat { Id = 93, Value = 75 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 1, Value = 44 },
+                        new GearItemStat { Id = 2, Value = 12 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 28 },
+                        new GearItemStat { Id = 6, Value = 16 },
+                        new GearItemStat { Id = 7, Value = 8 },
+                        new GearItemStat { Id = 43, Value = 34 },
+                        new GearItemStat { Id = 110, Value = 34 },
+                        new GearItemStat { Id = 44, Value = 20 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 8 },
                     }
                 },
                 new GearItem
@@ -3086,25 +3086,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Recycle", Value = 16 },
-                        new GearStat { Name = "Evasion", Value = 41 },
-                        new GearStat { Name = "MagicEvasion", Value = 75 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "Str", Value = 44 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "Agi", Value = 42 },
-                        new GearStat { Name = "Int", Value = 28 },
-                        new GearStat { Name = "Mnd", Value = 16 },
-                        new GearStat { Name = "Chr", Value = 8 },
-                        new GearStat { Name = "Accuracy", Value = 34 },
-                        new GearStat { Name = "RangedAccuracy", Value = 54 },
-                        new GearStat { Name = "RangedAttack", Value = 20 },
-                        new GearStat { Name = "Attack", Value = 20 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 8 },
+                        new GearItemStat { Id = 182, Value = 16 },
+                        new GearItemStat { Id = 91, Value = 41 },
+                        new GearItemStat { Id = 93, Value = 75 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 1, Value = 44 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 4, Value = 42 },
+                        new GearItemStat { Id = 5, Value = 28 },
+                        new GearItemStat { Id = 6, Value = 16 },
+                        new GearItemStat { Id = 7, Value = 8 },
+                        new GearItemStat { Id = 43, Value = 34 },
+                        new GearItemStat { Id = 110, Value = 54 },
+                        new GearItemStat { Id = 111, Value = 20 },
+                        new GearItemStat { Id = 44, Value = 20 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 8 },
                     }
                 },
                 new GearItem
@@ -3115,22 +3115,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 41 },
-                        new GearStat { Name = "MagicEvasion", Value = 86 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "Str", Value = 53 },
-                        new GearStat { Name = "Dex", Value = 11 },
-                        new GearStat { Name = "Vit", Value = 29 },
-                        new GearStat { Name = "Agi", Value = 16 },
-                        new GearStat { Name = "Int", Value = 24 },
-                        new GearStat { Name = "Mnd", Value = 14 },
-                        new GearStat { Name = "Chr", Value = 11 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "GearHaste", Value = 4 },
-                        new GearStat { Name = "StoreTP", Value = 8 },
+                        new GearItemStat { Id = 91, Value = 41 },
+                        new GearItemStat { Id = 93, Value = 86 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 1, Value = 53 },
+                        new GearItemStat { Id = 2, Value = 11 },
+                        new GearItemStat { Id = 3, Value = 29 },
+                        new GearItemStat { Id = 4, Value = 16 },
+                        new GearItemStat { Id = 5, Value = 24 },
+                        new GearItemStat { Id = 6, Value = 14 },
+                        new GearItemStat { Id = 7, Value = 11 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 59, Value = 4 },
+                        new GearItemStat { Id = 50, Value = 8 },
                     }
                 },
                 new GearItem
@@ -3141,21 +3141,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 27 },
-                        new GearStat { Name = "MagicEvasion", Value = 107 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "MDT", Value = -2 },
-                        new GearStat { Name = "Str", Value = 19 },
-                        new GearStat { Name = "Dex", Value = 12 },
-                        new GearStat { Name = "Vit", Value = 19 },
-                        new GearStat { Name = "Agi", Value = 5 },
-                        new GearStat { Name = "Int", Value = 35 },
-                        new GearStat { Name = "Mnd", Value = 25 },
-                        new GearStat { Name = "Chr", Value = 23 },
-                        new GearStat { Name = "MagicAttack", Value = 40 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
+                        new GearItemStat { Id = 91, Value = 27 },
+                        new GearItemStat { Id = 93, Value = 107 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 100, Value = -2 },
+                        new GearItemStat { Id = 1, Value = 19 },
+                        new GearItemStat { Id = 2, Value = 12 },
+                        new GearItemStat { Id = 3, Value = 19 },
+                        new GearItemStat { Id = 4, Value = 5 },
+                        new GearItemStat { Id = 5, Value = 35 },
+                        new GearItemStat { Id = 6, Value = 25 },
+                        new GearItemStat { Id = 7, Value = 23 },
+                        new GearItemStat { Id = 69, Value = 40 },
+                        new GearItemStat { Id = 59, Value = 5 },
                     }
                 },
                 new GearItem
@@ -3166,23 +3166,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 62 },
-                        new GearStat { Name = "MagicEvasion", Value = 75 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "PDT", Value = -2 },
-                        new GearStat { Name = "Str", Value = 33 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 16 },
-                        new GearStat { Name = "Agi", Value = 32 },
-                        new GearStat { Name = "Int", Value = 29 },
-                        new GearStat { Name = "Mnd", Value = 15 },
-                        new GearStat { Name = "Chr", Value = 10 },
-                        new GearStat { Name = "Attack", Value = 15 },
-                        new GearStat { Name = "RangedAttack", Value = 15 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 4 },
+                        new GearItemStat { Id = 91, Value = 62 },
+                        new GearItemStat { Id = 93, Value = 75 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 99, Value = -2 },
+                        new GearItemStat { Id = 1, Value = 33 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 16 },
+                        new GearItemStat { Id = 4, Value = 32 },
+                        new GearItemStat { Id = 5, Value = 29 },
+                        new GearItemStat { Id = 6, Value = 15 },
+                        new GearItemStat { Id = 7, Value = 10 },
+                        new GearItemStat { Id = 44, Value = 15 },
+                        new GearItemStat { Id = 111, Value = 15 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 4 },
                     }
                 },
                 new GearItem
@@ -3193,22 +3193,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 81 },
-                        new GearStat { Name = "MagicEvasion", Value = 75 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "Str", Value = 50 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 32 },
-                        new GearStat { Name = "Agi", Value = 24 },
-                        new GearStat { Name = "Int", Value = 24 },
-                        new GearStat { Name = "Mnd", Value = 11 },
-                        new GearStat { Name = "Chr", Value = 19 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "Attack", Value = 27 },
-                        new GearStat { Name = "GearHaste", Value = 9 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 7 },
+                        new GearItemStat { Id = 91, Value = 81 },
+                        new GearItemStat { Id = 93, Value = 75 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 1, Value = 50 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 32 },
+                        new GearItemStat { Id = 4, Value = 24 },
+                        new GearItemStat { Id = 5, Value = 24 },
+                        new GearItemStat { Id = 6, Value = 11 },
+                        new GearItemStat { Id = 7, Value = 19 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 44, Value = 27 },
+                        new GearItemStat { Id = 59, Value = 9 },
+                        new GearItemStat { Id = 54, Value = 7 },
                     }
                 },
                 new GearItem
@@ -3219,20 +3219,20 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 24 },
-                        new GearStat { Name = "MagicEvasion", Value = 80 },
-                        new GearStat { Name = "MagicDefense", Value = 3 },
-                        new GearStat { Name = "Str", Value = 29 },
-                        new GearStat { Name = "Dex", Value = 35 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "Agi", Value = 21 },
-                        new GearStat { Name = "Int", Value = 30 },
-                        new GearStat { Name = "Mnd", Value = 17 },
-                        new GearStat { Name = "Chr", Value = 11 },
-                        new GearStat { Name = "GearHaste", Value = 20 },
-                        new GearStat { Name = "CritRate", Value = 4 },
+                        new GearItemStat { Id = 91, Value = 24 },
+                        new GearItemStat { Id = 93, Value = 80 },
+                        new GearItemStat { Id = 94, Value = 3 },
+                        new GearItemStat { Id = 1, Value = 29 },
+                        new GearItemStat { Id = 2, Value = 35 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 4, Value = 21 },
+                        new GearItemStat { Id = 5, Value = 30 },
+                        new GearItemStat { Id = 6, Value = 17 },
+                        new GearItemStat { Id = 7, Value = 11 },
+                        new GearItemStat { Id = 59, Value = 20 },
+                        new GearItemStat { Id = 45, Value = 4 },
                     }
                 },
                 new GearItem
@@ -3243,24 +3243,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SubtleBlow", Value = 10 },
-                        new GearStat { Name = "Evasion", Value = 59 },
-                        new GearStat { Name = "MagicEvasion", Value = 139 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "Str", Value = 37 },
-                        new GearStat { Name = "Dex", Value = 5 },
-                        new GearStat { Name = "Vit", Value = 25 },
-                        new GearStat { Name = "Agi", Value = 33 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 16 },
-                        new GearStat { Name = "Chr", Value = 12 },
-                        new GearStat { Name = "Accuracy", Value = 51 },
-                        new GearStat { Name = "RangedAccuracy", Value = 46 },
-                        new GearStat { Name = "GearHaste", Value = 9 },
-                        new GearStat { Name = "TA", Value = 5 },
-                        new GearStat { Name = "CritRate", Value = 7 },
+                        new GearItemStat { Id = 51, Value = 10 },
+                        new GearItemStat { Id = 91, Value = 59 },
+                        new GearItemStat { Id = 93, Value = 139 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 1, Value = 37 },
+                        new GearItemStat { Id = 2, Value = 5 },
+                        new GearItemStat { Id = 3, Value = 25 },
+                        new GearItemStat { Id = 4, Value = 33 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 16 },
+                        new GearItemStat { Id = 7, Value = 12 },
+                        new GearItemStat { Id = 43, Value = 51 },
+                        new GearItemStat { Id = 110, Value = 46 },
+                        new GearItemStat { Id = 59, Value = 9 },
+                        new GearItemStat { Id = 48, Value = 5 },
+                        new GearItemStat { Id = 45, Value = 7 },
                     }
                 },
                 new GearItem
@@ -3271,25 +3271,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "DT", Value = -7 },
-                        new GearStat { Name = "Str", Value = 28 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 17 },
-                        new GearStat { Name = "Agi", Value = 42 },
-                        new GearStat { Name = "Int", Value = 26 },
-                        new GearStat { Name = "Mnd", Value = 19 },
-                        new GearStat { Name = "Chr", Value = 12 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "RangedAccuracy", Value = 50 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "GearHaste", Value = 9 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "PDL", Value = 5 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 98, Value = -7 },
+                        new GearItemStat { Id = 1, Value = 28 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 17 },
+                        new GearItemStat { Id = 4, Value = 42 },
+                        new GearItemStat { Id = 5, Value = 26 },
+                        new GearItemStat { Id = 6, Value = 19 },
+                        new GearItemStat { Id = 7, Value = 12 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 110, Value = 50 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 59, Value = 9 },
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 56, Value = 5 },
                     }
                 },
                 new GearItem
@@ -3300,24 +3300,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 55 },
-                        new GearStat { Name = "MagicEvasion", Value = 107 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "DT", Value = -5 },
-                        new GearStat { Name = "Str", Value = 33 },
-                        new GearStat { Name = "Dex", Value = 11 },
-                        new GearStat { Name = "Vit", Value = 16 },
-                        new GearStat { Name = "Agi", Value = 45 },
-                        new GearStat { Name = "Int", Value = 29 },
-                        new GearStat { Name = "Mnd", Value = 15 },
-                        new GearStat { Name = "Chr", Value = 12 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "RangedAccuracy", Value = 45 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "CritRate", Value = 7 },
+                        new GearItemStat { Id = 91, Value = 55 },
+                        new GearItemStat { Id = 93, Value = 107 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 98, Value = -5 },
+                        new GearItemStat { Id = 1, Value = 33 },
+                        new GearItemStat { Id = 2, Value = 11 },
+                        new GearItemStat { Id = 3, Value = 16 },
+                        new GearItemStat { Id = 4, Value = 45 },
+                        new GearItemStat { Id = 5, Value = 29 },
+                        new GearItemStat { Id = 6, Value = 15 },
+                        new GearItemStat { Id = 7, Value = 12 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 110, Value = 45 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 45, Value = 7 },
                     }
                 },
                 new GearItem
@@ -3328,21 +3328,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 77 },
-                        new GearStat { Name = "MagicEvasion", Value = 64 },
-                        new GearStat { Name = "MagicDefense", Value = 3 },
-                        new GearStat { Name = "Str", Value = 58 },
-                        new GearStat { Name = "Dex", Value = 12 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "Agi", Value = 21 },
-                        new GearStat { Name = "Int", Value = 30 },
-                        new GearStat { Name = "Mnd", Value = 31 },
-                        new GearStat { Name = "Chr", Value = 8 },
-                        new GearStat { Name = "Attack", Value = 63 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 8 },
+                        new GearItemStat { Id = 91, Value = 77 },
+                        new GearItemStat { Id = 93, Value = 64 },
+                        new GearItemStat { Id = 94, Value = 3 },
+                        new GearItemStat { Id = 1, Value = 58 },
+                        new GearItemStat { Id = 2, Value = 12 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 4, Value = 21 },
+                        new GearItemStat { Id = 5, Value = 30 },
+                        new GearItemStat { Id = 6, Value = 31 },
+                        new GearItemStat { Id = 7, Value = 8 },
+                        new GearItemStat { Id = 44, Value = 63 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 8 },
                     }
                 },
                 new GearItem
@@ -3353,24 +3353,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 59 },
-                        new GearStat { Name = "MagicEvasion", Value = 139 },
-                        new GearStat { Name = "MagicDefense", Value = 0 },
-                        new GearStat { Name = "DT", Value = 12 },
-                        new GearStat { Name = "Str", Value = 52 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 21 },
-                        new GearStat { Name = "Agi", Value = 19 },
-                        new GearStat { Name = "Int", Value = 37 },
-                        new GearStat { Name = "Mnd", Value = 19 },
-                        new GearStat { Name = "Chr", Value = 15 },
-                        new GearStat { Name = "MagicAccuracy", Value = 46 },
+                        new GearItemStat { Id = 91, Value = 59 },
+                        new GearItemStat { Id = 93, Value = 139 },
+                        new GearItemStat { Id = 94, Value = 0 },
+                        new GearItemStat { Id = 98, Value = 12 },
+                        new GearItemStat { Id = 1, Value = 52 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 21 },
+                        new GearItemStat { Id = 4, Value = 19 },
+                        new GearItemStat { Id = 5, Value = 37 },
+                        new GearItemStat { Id = 6, Value = 19 },
+                        new GearItemStat { Id = 7, Value = 15 },
+                        new GearItemStat { Id = 68, Value = 46 },
                         new GearStat { Name = "Scythe Skill", Value = 55 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 9 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 54, Value = 9 },
+                        new GearItemStat { Id = 50, Value = 10 },
                     }
                 },
                 new GearItem
@@ -3381,25 +3381,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 24 },
-                        new GearStat { Name = "MagicEvasion", Value = 80 },
-                        new GearStat { Name = "MagicDefense", Value = 3 },
-                        new GearStat { Name = "Str", Value = 41 },
-                        new GearStat { Name = "Dex", Value = 12 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "Agi", Value = 21 },
-                        new GearStat { Name = "Int", Value = 30 },
-                        new GearStat { Name = "Mnd", Value = 17 },
-                        new GearStat { Name = "Chr", Value = 11 },
-                        new GearStat { Name = "Accuracy", Value = 20 },
-                        new GearStat { Name = "Attack", Value = 33 },
-                        new GearStat { Name = "RangedAttack", Value = 33 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "StoreTP", Value = 8 },
-                        new GearStat { Name = "DA", Value = 4 },
-                        new GearStat { Name = "SkillchainBonus", Value = 11 },
+                        new GearItemStat { Id = 91, Value = 24 },
+                        new GearItemStat { Id = 93, Value = 80 },
+                        new GearItemStat { Id = 94, Value = 3 },
+                        new GearItemStat { Id = 1, Value = 41 },
+                        new GearItemStat { Id = 2, Value = 12 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 4, Value = 21 },
+                        new GearItemStat { Id = 5, Value = 30 },
+                        new GearItemStat { Id = 6, Value = 17 },
+                        new GearItemStat { Id = 7, Value = 11 },
+                        new GearItemStat { Id = 43, Value = 20 },
+                        new GearItemStat { Id = 44, Value = 33 },
+                        new GearItemStat { Id = 111, Value = 33 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 50, Value = 8 },
+                        new GearItemStat { Id = 47, Value = 4 },
+                        new GearItemStat { Id = 53, Value = 11 },
                     }
                 },
                 new GearItem
@@ -3410,25 +3410,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 24 },
-                        new GearStat { Name = "MagicEvasion", Value = 80 },
-                        new GearStat { Name = "MagicDefense", Value = 3 },
-                        new GearStat { Name = "Str", Value = 29 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "Agi", Value = 21 },
-                        new GearStat { Name = "Int", Value = 30 },
-                        new GearStat { Name = "Mnd", Value = 17 },
-                        new GearStat { Name = "Chr", Value = 11 },
-                        new GearStat { Name = "Accuracy", Value = 25 },
-                        new GearStat { Name = "Attack", Value = 33 },
-                        new GearStat { Name = "RangedAttack", Value = 33 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "StoreTP", Value = 13 },
-                        new GearStat { Name = "DA", Value = 4 },
-                        new GearStat { Name = "PDT", Value = -4 },
-                        new GearStat { Name = "SkillchainBonus", Value = 11 },
+                        new GearItemStat { Id = 91, Value = 24 },
+                        new GearItemStat { Id = 93, Value = 80 },
+                        new GearItemStat { Id = 94, Value = 3 },
+                        new GearItemStat { Id = 1, Value = 29 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 4, Value = 21 },
+                        new GearItemStat { Id = 5, Value = 30 },
+                        new GearItemStat { Id = 6, Value = 17 },
+                        new GearItemStat { Id = 7, Value = 11 },
+                        new GearItemStat { Id = 43, Value = 25 },
+                        new GearItemStat { Id = 44, Value = 33 },
+                        new GearItemStat { Id = 111, Value = 33 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 50, Value = 13 },
+                        new GearItemStat { Id = 47, Value = 4 },
+                        new GearItemStat { Id = 99, Value = -4 },
+                        new GearItemStat { Id = 53, Value = 11 },
                     }
                 },
                 new GearItem
@@ -3439,24 +3439,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 41 },
-                        new GearStat { Name = "MagicEvasion", Value = 75 },
-                        new GearStat { Name = "MagicDefense", Value = 5 },
-                        new GearStat { Name = "Str", Value = 48 },
-                        new GearStat { Name = "Dex", Value = 16 },
-                        new GearStat { Name = "Vit", Value = 15 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 28 },
-                        new GearStat { Name = "Mnd", Value = 16 },
-                        new GearStat { Name = "Chr", Value = 8 },
-                        new GearStat { Name = "Accuracy", Value = 15 },
-                        new GearStat { Name = "RangedAccuracy", Value = 15 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 7 },
-                        new GearStat { Name = "DA", Value = 3 },
-                        new GearStat { Name = "TA", Value = 3 },
+                        new GearItemStat { Id = 91, Value = 41 },
+                        new GearItemStat { Id = 93, Value = 75 },
+                        new GearItemStat { Id = 94, Value = 5 },
+                        new GearItemStat { Id = 1, Value = 48 },
+                        new GearItemStat { Id = 2, Value = 16 },
+                        new GearItemStat { Id = 3, Value = 15 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 28 },
+                        new GearItemStat { Id = 6, Value = 16 },
+                        new GearItemStat { Id = 7, Value = 8 },
+                        new GearItemStat { Id = 43, Value = 15 },
+                        new GearItemStat { Id = 110, Value = 15 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 7 },
+                        new GearItemStat { Id = 47, Value = 3 },
+                        new GearItemStat { Id = 48, Value = 3 },
                     }
                 },
                 new GearItem
@@ -3467,23 +3467,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 16 },
-                        new GearStat { Name = "MagicEvasion", Value = 75 },
-                        new GearStat { Name = "MagicDefense", Value = 2 },
-                        new GearStat { Name = "DT", Value = -7 },
-                        new GearStat { Name = "Str", Value = 47 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 33 },
-                        new GearStat { Name = "Agi", Value = 14 },
-                        new GearStat { Name = "Int", Value = 24 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 18 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "Attack", Value = 49 },
-                        new GearStat { Name = "GearHaste", Value = 2 },
-                        new GearStat { Name = "TA", Value = 4 },
+                        new GearItemStat { Id = 91, Value = 16 },
+                        new GearItemStat { Id = 93, Value = 75 },
+                        new GearItemStat { Id = 94, Value = 2 },
+                        new GearItemStat { Id = 98, Value = -7 },
+                        new GearItemStat { Id = 1, Value = 47 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 33 },
+                        new GearItemStat { Id = 4, Value = 14 },
+                        new GearItemStat { Id = 5, Value = 24 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 18 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 44, Value = 49 },
+                        new GearItemStat { Id = 59, Value = 2 },
+                        new GearItemStat { Id = 48, Value = 4 },
                     }
                 },
                 new GearItem
@@ -3494,24 +3494,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 24 },
-                        new GearStat { Name = "MagicEvasion", Value = 80 },
-                        new GearStat { Name = "MagicDefense", Value = 3 },
-                        new GearStat { Name = "Str", Value = 55 },
-                        new GearStat { Name = "Dex", Value = 10 },
-                        new GearStat { Name = "Vit", Value = 35 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 33 },
-                        new GearStat { Name = "Mnd", Value = 22 },
-                        new GearStat { Name = "Chr", Value = 20 },
-                        new GearStat { Name = "Accuracy", Value = 60 },
-                        new GearStat { Name = "Attack", Value = 31 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "StoreTP", Value = 7 },
-                        new GearStat { Name = "TA", Value = 3 },
-                        new GearStat { Name = "Zanshin", Value = 6 },
+                        new GearItemStat { Id = 91, Value = 24 },
+                        new GearItemStat { Id = 93, Value = 80 },
+                        new GearItemStat { Id = 94, Value = 3 },
+                        new GearItemStat { Id = 1, Value = 55 },
+                        new GearItemStat { Id = 2, Value = 10 },
+                        new GearItemStat { Id = 3, Value = 35 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 33 },
+                        new GearItemStat { Id = 6, Value = 22 },
+                        new GearItemStat { Id = 7, Value = 20 },
+                        new GearItemStat { Id = 43, Value = 60 },
+                        new GearItemStat { Id = 44, Value = 31 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 50, Value = 7 },
+                        new GearItemStat { Id = 48, Value = 3 },
+                        new GearItemStat { Id = 52, Value = 6 },
                     }
                 },
                 new GearItem
@@ -3522,25 +3522,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 87 },
-                        new GearStat { Name = "MagicEvasion", Value = 135 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "DT", Value = -12 },
-                        new GearStat { Name = "Str", Value = 44 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 27 },
-                        new GearStat { Name = "Agi", Value = 35 },
-                        new GearStat { Name = "Int", Value = 45 },
-                        new GearStat { Name = "Mnd", Value = 27 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "GearHaste", Value = 8 },
-                        new GearStat { Name = "KatanaSkill", Value = 33 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "RangedAccuracy", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 63 },
+                        new GearItemStat { Id = 91, Value = 87 },
+                        new GearItemStat { Id = 93, Value = 135 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -12 },
+                        new GearItemStat { Id = 1, Value = 44 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 27 },
+                        new GearItemStat { Id = 4, Value = 35 },
+                        new GearItemStat { Id = 5, Value = 45 },
+                        new GearItemStat { Id = 6, Value = 27 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 59, Value = 8 },
+                        new GearItemStat { Id = 16, Value = 33 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 110, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 63 },
                     }
                 },
                 new GearItem
@@ -3551,25 +3551,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 77 },
-                        new GearStat { Name = "MagicEvasion", Value = 125 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "DT", Value = -11 },
-                        new GearStat { Name = "Str", Value = 39 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 22 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 22 },
-                        new GearStat { Name = "Chr", Value = 16 },
-                        new GearStat { Name = "GearHaste", Value = 8 },
-                        new GearStat { Name = "KatanaSkill", Value = 28 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "RangedAccuracy", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 53 },
+                        new GearItemStat { Id = 91, Value = 77 },
+                        new GearItemStat { Id = 93, Value = 125 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 98, Value = -11 },
+                        new GearItemStat { Id = 1, Value = 39 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 22 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 22 },
+                        new GearItemStat { Id = 7, Value = 16 },
+                        new GearItemStat { Id = 59, Value = 8 },
+                        new GearItemStat { Id = 16, Value = 28 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 110, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 53 },
                     }
                 },
                 new GearItem
@@ -3580,23 +3580,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 74 },
-                        new GearStat { Name = "MagicEvasion", Value = 119 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "DT", Value = -12 },
-                        new GearStat { Name = "Str", Value = 53 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 35 },
-                        new GearStat { Name = "Agi", Value = 30 },
-                        new GearStat { Name = "Int", Value = 41 },
-                        new GearStat { Name = "Mnd", Value = 29 },
-                        new GearStat { Name = "Chr", Value = 26 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "Attack", Value = 73 },
+                        new GearItemStat { Id = 91, Value = 74 },
+                        new GearItemStat { Id = 93, Value = 119 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 98, Value = -12 },
+                        new GearItemStat { Id = 1, Value = 53 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 35 },
+                        new GearItemStat { Id = 4, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 41 },
+                        new GearItemStat { Id = 6, Value = 29 },
+                        new GearItemStat { Id = 7, Value = 26 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 44, Value = 73 },
                     }
                 },
                 new GearItem
@@ -3607,23 +3607,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 64 },
-                        new GearStat { Name = "MagicEvasion", Value = 109 },
-                        new GearStat { Name = "MagicDefense", Value = 7 },
-                        new GearStat { Name = "DT", Value = -11 },
-                        new GearStat { Name = "Str", Value = 48 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 36 },
-                        new GearStat { Name = "Mnd", Value = 24 },
-                        new GearStat { Name = "Chr", Value = 21 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "Attack", Value = 63 },
+                        new GearItemStat { Id = 91, Value = 64 },
+                        new GearItemStat { Id = 93, Value = 109 },
+                        new GearItemStat { Id = 94, Value = 7 },
+                        new GearItemStat { Id = 98, Value = -11 },
+                        new GearItemStat { Id = 1, Value = 48 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 36 },
+                        new GearItemStat { Id = 6, Value = 24 },
+                        new GearItemStat { Id = 7, Value = 21 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 44, Value = 63 },
                     }
                 },
                 new GearItem
@@ -3634,21 +3634,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 24 },
-                        new GearStat { Name = "MagicEvasion", Value = 118 },
-                        new GearStat { Name = "MagicDefense", Value = 6 },
-                        new GearStat { Name = "Str", Value = 19 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 6 },
-                        new GearStat { Name = "Agi", Value = 14 },
-                        new GearStat { Name = "Int", Value = 40 },
-                        new GearStat { Name = "Mnd", Value = 25 },
-                        new GearStat { Name = "Chr", Value = 19 },
-                        new GearStat { Name = "MagicAccuracy", Value = 20 },
-                        new GearStat { Name = "MagicAttack", Value = 60 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
+                        new GearItemStat { Id = 91, Value = 24 },
+                        new GearItemStat { Id = 93, Value = 118 },
+                        new GearItemStat { Id = 94, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 19 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 6 },
+                        new GearItemStat { Id = 4, Value = 14 },
+                        new GearItemStat { Id = 5, Value = 40 },
+                        new GearItemStat { Id = 6, Value = 25 },
+                        new GearItemStat { Id = 7, Value = 19 },
+                        new GearItemStat { Id = 68, Value = 20 },
+                        new GearItemStat { Id = 69, Value = 60 },
+                        new GearItemStat { Id = 59, Value = 5 },
                     }
                 },
                 new GearItem
@@ -3659,23 +3659,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 47 },
-                        new GearStat { Name = "MagicEvasion", Value = 147 },
-                        new GearStat { Name = "MagicDefense", Value = 8 },
-                        new GearStat { Name = "Str", Value = 26 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 17 },
-                        new GearStat { Name = "Agi", Value = 24 },
-                        new GearStat { Name = "Int", Value = 48 },
-                        new GearStat { Name = "Mnd", Value = 31 },
-                        new GearStat { Name = "Chr", Value = 23 },
-                        new GearStat { Name = "MagicAccuracy", Value = 51 },
-                        new GearStat { Name = "MagicAttack", Value = 41 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 8 },
-                        new GearStat { Name = "MagicBurstDamageII", Value = 8 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
+                        new GearItemStat { Id = 91, Value = 47 },
+                        new GearItemStat { Id = 93, Value = 147 },
+                        new GearItemStat { Id = 94, Value = 8 },
+                        new GearItemStat { Id = 1, Value = 26 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 17 },
+                        new GearItemStat { Id = 4, Value = 24 },
+                        new GearItemStat { Id = 5, Value = 48 },
+                        new GearItemStat { Id = 6, Value = 31 },
+                        new GearItemStat { Id = 7, Value = 23 },
+                        new GearItemStat { Id = 68, Value = 51 },
+                        new GearItemStat { Id = 69, Value = 41 },
+                        new GearItemStat { Id = 77, Value = 8 },
+                        new GearItemStat { Id = 78, Value = 8 },
+                        new GearItemStat { Id = 59, Value = 5 },
                     }
                 },
                 new GearItem
@@ -3686,24 +3686,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 74 },
-                        new GearStat { Name = "MagicEvasion", Value = 168 },
-                        new GearStat { Name = "MagicDefense", Value = 10 },
-                        new GearStat { Name = "Str", Value = 31 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 31 },
-                        new GearStat { Name = "Agi", Value = 31 },
-                        new GearStat { Name = "Int", Value = 53 },
-                        new GearStat { Name = "Mnd", Value = 38 },
-                        new GearStat { Name = "Chr", Value = 32 },
-                        new GearStat { Name = "Accuracy", Value = 63 },
-                        new GearStat { Name = "MagicAccuracy", Value = 63 },
-                        new GearStat { Name = "MagicAttack", Value = 58 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 15 },
-                        new GearStat { Name = "MagicDamage", Value = 33 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
+                        new GearItemStat { Id = 91, Value = 74 },
+                        new GearItemStat { Id = 93, Value = 168 },
+                        new GearItemStat { Id = 94, Value = 10 },
+                        new GearItemStat { Id = 1, Value = 31 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 31 },
+                        new GearItemStat { Id = 4, Value = 31 },
+                        new GearItemStat { Id = 5, Value = 53 },
+                        new GearItemStat { Id = 6, Value = 38 },
+                        new GearItemStat { Id = 7, Value = 32 },
+                        new GearItemStat { Id = 43, Value = 63 },
+                        new GearItemStat { Id = 68, Value = 63 },
+                        new GearItemStat { Id = 69, Value = 58 },
+                        new GearItemStat { Id = 77, Value = 15 },
+                        new GearItemStat { Id = 70, Value = 33 },
+                        new GearItemStat { Id = 59, Value = 5 },
                     }
                 },
                 new GearItem
@@ -3714,24 +3714,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-GearStats = new List<GearStat>
+GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Evasion", Value = 64 },
-                        new GearStat { Name = "MagicEvasion", Value = 158 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "Str", Value = 26 },
-                        new GearStat { Name = "Dex", Value = 0 },
-                        new GearStat { Name = "Vit", Value = 26 },
-                        new GearStat { Name = "Agi", Value = 26 },
-                        new GearStat { Name = "Int", Value = 48 },
-                        new GearStat { Name = "Mnd", Value = 33 },
-                        new GearStat { Name = "Chr", Value = 27 },
-                        new GearStat { Name = "Accuracy", Value = 53 },
-                        new GearStat { Name = "MagicAccuracy", Value = 53 },
-                        new GearStat { Name = "MagicAttack", Value = 53 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 10 },
-                        new GearStat { Name = "MagicDamage", Value = 23 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
+                        new GearItemStat { Id = 91, Value = 64 },
+                        new GearItemStat { Id = 93, Value = 158 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 1, Value = 26 },
+                        new GearItemStat { Id = 2, Value = 0 },
+                        new GearItemStat { Id = 3, Value = 26 },
+                        new GearItemStat { Id = 4, Value = 26 },
+                        new GearItemStat { Id = 5, Value = 48 },
+                        new GearItemStat { Id = 6, Value = 33 },
+                        new GearItemStat { Id = 7, Value = 27 },
+                        new GearItemStat { Id = 43, Value = 53 },
+                        new GearItemStat { Id = 68, Value = 53 },
+                        new GearItemStat { Id = 69, Value = 53 },
+                        new GearItemStat { Id = 77, Value = 10 },
+                        new GearItemStat { Id = 70, Value = 23 },
+                        new GearItemStat { Id = 59, Value = 5 },
                     }
                 },
                  new GearItem
@@ -3741,12 +3741,12 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Dex", Value = 2 },
-                        new GearStat { Name = "Agi", Value = 2 },
-                        new GearStat { Name = "Barrage", Value = 1 },
-                        new GearStat { Name = "RangedAccuracy", Value = 7 }
+                        new GearItemStat { Id = 2, Value = 2 },
+                        new GearItemStat { Id = 4, Value = 2 },
+                        new GearItemStat { Id = 112, Value = 1 },
+                        new GearItemStat { Id = 110, Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 18}, new GearItemJob { JobId= 19}, new GearItemJob { JobId= 22} }
                 },
@@ -3757,21 +3757,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Vit", Value = 17 },
-                        new GearStat { Name = "Agi", Value = 17 },
-                        new GearStat { Name = "Str", Value = 30 },
-                        new GearStat { Name = "Int", Value = 29 },
-                        new GearStat { Name = "Mnd", Value = 16 },
-                        new GearStat { Name = "Chr", Value = 16 },
-                        new GearStat { Name = "Accuracy", Value = 55 },
-                        new GearStat { Name = "Attack", Value = 47 },
-                        new GearStat { Name = "DualWield", Value = 6 },
-                        new GearStat { Name = "Evasion", Value = 27 },
-                        new GearStat { Name = "MagicEvasion", Value = 80 },
-                        new GearStat { Name = "MagicDefense", Value = 4 },
-                        new GearStat { Name = "GearHaste", Value = 6 }
+                        new GearItemStat { Id = 3, Value = 17 },
+                        new GearItemStat { Id = 4, Value = 17 },
+                        new GearItemStat { Id = 1, Value = 30 },
+                        new GearItemStat { Id = 5, Value = 29 },
+                        new GearItemStat { Id = 6, Value = 16 },
+                        new GearItemStat { Id = 7, Value = 16 },
+                        new GearItemStat { Id = 43, Value = 55 },
+                        new GearItemStat { Id = 44, Value = 47 },
+                        new GearItemStat { Id = 67, Value = 6 },
+                        new GearItemStat { Id = 91, Value = 27 },
+                        new GearItemStat { Id = 93, Value = 80 },
+                        new GearItemStat { Id = 94, Value = 4 },
+                        new GearItemStat { Id = 59, Value = 6 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 22} }
                 },
@@ -3782,22 +3782,22 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 40 },
-                        new GearStat { Name = "Dex", Value = 10 },
-                        new GearStat { Name = "Vit", Value = 27 },
-                        new GearStat { Name = "Agi", Value = 27 },
-                        new GearStat { Name = "Int", Value = 43 },
-                        new GearStat { Name = "Mnd", Value = 30 },
-                        new GearStat { Name = "Chr", Value = 26 },
-                        new GearStat { Name = "Attack", Value = 76 },
-                        new GearStat { Name = "MagicAttack", Value = 46 },
-                        new GearStat { Name = "Evasion", Value = 27 },
-                        new GearStat { Name = "MagicEvasion", Value = 80 },
-                        new GearStat { Name = "MagicDefense", Value = 4 },
-                        new GearStat { Name = "GearHaste", Value = 6 },
-                        new GearStat { Name = "DA", Value = 2 }
+                        new GearItemStat { Id = 1, Value = 40 },
+                        new GearItemStat { Id = 2, Value = 10 },
+                        new GearItemStat { Id = 3, Value = 27 },
+                        new GearItemStat { Id = 4, Value = 27 },
+                        new GearItemStat { Id = 5, Value = 43 },
+                        new GearItemStat { Id = 6, Value = 30 },
+                        new GearItemStat { Id = 7, Value = 26 },
+                        new GearItemStat { Id = 44, Value = 76 },
+                        new GearItemStat { Id = 69, Value = 46 },
+                        new GearItemStat { Id = 91, Value = 27 },
+                        new GearItemStat { Id = 93, Value = 80 },
+                        new GearItemStat { Id = 94, Value = 4 },
+                        new GearItemStat { Id = 59, Value = 6 },
+                        new GearItemStat { Id = 47, Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 22} }
                 },
@@ -3808,21 +3808,21 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 30 },
-                        new GearStat { Name = "Dex", Value = 5 },
-                        new GearStat { Name = "Vit", Value = 16 },
-                        new GearStat { Name = "Agi", Value = 37 },
-                        new GearStat { Name = "Int", Value = 30 },
-                        new GearStat { Name = "Mnd", Value = 17 },
-                        new GearStat { Name = "Chr", Value = 17 },
-                        new GearStat { Name = "Accuracy", Value = 51 },
-                        new GearStat { Name = "Evasion", Value = 84 },
-                        new GearStat { Name = "MagicEvasion", Value = 147 },
-                        new GearStat { Name = "MagicDefense", Value = 9 },
-                        new GearStat { Name = "GearHaste", Value = 9 },
-                        new GearStat { Name = "CritRate", Value = 8 }
+                        new GearItemStat { Id = 1, Value = 30 },
+                        new GearItemStat { Id = 2, Value = 5 },
+                        new GearItemStat { Id = 3, Value = 16 },
+                        new GearItemStat { Id = 4, Value = 37 },
+                        new GearItemStat { Id = 5, Value = 30 },
+                        new GearItemStat { Id = 6, Value = 17 },
+                        new GearItemStat { Id = 7, Value = 17 },
+                        new GearItemStat { Id = 43, Value = 51 },
+                        new GearItemStat { Id = 91, Value = 84 },
+                        new GearItemStat { Id = 93, Value = 147 },
+                        new GearItemStat { Id = 94, Value = 9 },
+                        new GearItemStat { Id = 59, Value = 9 },
+                        new GearItemStat { Id = 45, Value = 8 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 19}, new GearItemJob { JobId= 22} }
                 },
@@ -3833,27 +3833,27 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "RangedAccuracy", Value = 40 },
-                        new GearStat { Name = "RangedAttack", Value = 30 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 53, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 110, Value = 40 },
+                        new GearItemStat { Id = 111, Value = 30 },
+                        new GearItemStat { Id = 77, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -3864,28 +3864,28 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 55 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "RangedAccuracy", Value = 55 },
-                        new GearStat { Name = "RangedAttack", Value = 30 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 8 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 53, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 55 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 68, Value = 55 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 110, Value = 55 },
+                        new GearItemStat { Id = 111, Value = 30 },
+                        new GearItemStat { Id = 77, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 8 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -3896,28 +3896,28 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 49 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "RangedAccuracy", Value = 40 },
-                        new GearStat { Name = "RangedAttack", Value = 49 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 7 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 53, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 49 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 110, Value = 40 },
+                        new GearItemStat { Id = 111, Value = 49 },
+                        new GearItemStat { Id = 77, Value = 6 },
+                        new GearItemStat { Id = 54, Value = 7 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -3928,28 +3928,28 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 50 },
-                        new GearStat { Name = "MagicDamage", Value = 20 },
-                        new GearStat { Name = "RangedAccuracy", Value = 40 },
-                        new GearStat { Name = "RangedAttack", Value = 30 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 53, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 50 },
+                        new GearItemStat { Id = 70, Value = 20 },
+                        new GearItemStat { Id = 110, Value = 40 },
+                        new GearItemStat { Id = 111, Value = 30 },
+                        new GearItemStat { Id = 77, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -3960,29 +3960,29 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 60 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicAccuracy", Value = 60 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "RangedAccuracy", Value = 60 },
-                        new GearStat { Name = "RangedAttack", Value = 30 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 9 },
-                        new GearStat { Name = "PDL", Value = 3 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 53, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 60 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 68, Value = 60 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 110, Value = 60 },
+                        new GearItemStat { Id = 111, Value = 30 },
+                        new GearItemStat { Id = 77, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 9 },
+                        new GearItemStat { Id = 56, Value = 3 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -3993,29 +3993,29 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 55 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "RangedAccuracy", Value = 40 },
-                        new GearStat { Name = "RangedAttack", Value = 55 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 9 },
-                        new GearStat { Name = "DA", Value = 3 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 53, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 55 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 110, Value = 40 },
+                        new GearItemStat { Id = 111, Value = 55 },
+                        new GearItemStat { Id = 77, Value = 6 },
+                        new GearItemStat { Id = 54, Value = 9 },
+                        new GearItemStat { Id = 47, Value = 3 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -4026,29 +4026,29 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 55 },
-                        new GearStat { Name = "MagicDamage", Value = 25 },
-                        new GearStat { Name = "MagicBurstDamageII", Value = 2 },
-                        new GearStat { Name = "RangedAccuracy", Value = 40 },
-                        new GearStat { Name = "RangedAttack", Value = 30 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 53, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 55 },
+                        new GearItemStat { Id = 70, Value = 25 },
+                        new GearItemStat { Id = 78, Value = 2 },
+                        new GearItemStat { Id = 110, Value = 40 },
+                        new GearItemStat { Id = 111, Value = 30 },
+                        new GearItemStat { Id = 77, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -4059,30 +4059,30 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 65 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicAccuracy", Value = 65 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "RangedAccuracy", Value = 65 },
-                        new GearStat { Name = "RangedAttack", Value = 30 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 11 },
-                        new GearStat { Name = "PDL", Value = 5 },
-                        new GearStat { Name = "CritRate", Value = 8 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 53, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 65 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 68, Value = 65 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 110, Value = 65 },
+                        new GearItemStat { Id = 111, Value = 30 },
+                        new GearItemStat { Id = 77, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 11 },
+                        new GearItemStat { Id = 56, Value = 5 },
+                        new GearItemStat { Id = 45, Value = 8 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -4093,29 +4093,29 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Str", Value = 53 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 60 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "RangedAccuracy", Value = 40 },
-                        new GearStat { Name = "RangedAttack", Value = 60 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 11 },
-                        new GearStat { Name = "DA", Value = 5 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 53, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 53 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 60 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 110, Value = 40 },
+                        new GearItemStat { Id = 111, Value = 60 },
+                        new GearItemStat { Id = 77, Value = 6 },
+                        new GearItemStat { Id = 54, Value = 11 },
+                        new GearItemStat { Id = 47, Value = 5 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -4126,29 +4126,29 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 54 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 60 },
-                        new GearStat { Name = "MagicDamage", Value = 30 },
-                        new GearStat { Name = "MagicBurstDamageII", Value = 4 },
-                        new GearStat { Name = "RangedAccuracy", Value = 40 },
-                        new GearStat { Name = "RangedAttack", Value = 30 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 53, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 54 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 60 },
+                        new GearItemStat { Id = 70, Value = 30 },
+                        new GearItemStat { Id = 78, Value = 4 },
+                        new GearItemStat { Id = 110, Value = 40 },
+                        new GearItemStat { Id = 111, Value = 30 },
+                        new GearItemStat { Id = 77, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -4159,30 +4159,30 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 70 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicAccuracy", Value = 70 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "RangedAccuracy", Value = 70 },
-                        new GearStat { Name = "RangedAttack", Value = 30 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 },
-                        new GearStat { Name = "StoreTP", Value = 13 },
-                        new GearStat { Name = "PDL", Value = 6 },
-                        new GearStat { Name = "CritRate", Value = 13 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 53, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 70 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 68, Value = 70 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 110, Value = 70 },
+                        new GearItemStat { Id = 111, Value = 30 },
+                        new GearItemStat { Id = 77, Value = 6 },
+                        new GearItemStat { Id = 50, Value = 13 },
+                        new GearItemStat { Id = 56, Value = 6 },
+                        new GearItemStat { Id = 45, Value = 13 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -4193,29 +4193,29 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Str", Value = 58 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 44 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 65 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "RangedAccuracy", Value = 40 },
-                        new GearStat { Name = "RangedAttack", Value = 65 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 },
-                        new GearStat { Name = "WeaponSkillDamage", Value = 12 },
-                        new GearStat { Name = "DA", Value = 6 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 53, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 58 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 44 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 65 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 110, Value = 40 },
+                        new GearItemStat { Id = 111, Value = 65 },
+                        new GearItemStat { Id = 77, Value = 6 },
+                        new GearItemStat { Id = 54, Value = 12 },
+                        new GearItemStat { Id = 47, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -4226,29 +4226,29 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "SkillchainBonus", Value = 6 },
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 30 },
-                        new GearStat { Name = "Agi", Value = 34 },
-                        new GearStat { Name = "Int", Value = 59 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 24 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 30 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 65 },
-                        new GearStat { Name = "MagicDamage", Value = 35 },
-                        new GearStat { Name = "MagicBurstDamageII", Value = 5 },
-                        new GearStat { Name = "RangedAccuracy", Value = 40 },
-                        new GearStat { Name = "RangedAttack", Value = 30 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 6 },
-                        new GearStat { Name = "DT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 53, Value = 6 },
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 30 },
+                        new GearItemStat { Id = 4, Value = 34 },
+                        new GearItemStat { Id = 5, Value = 59 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 24 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 30 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 65 },
+                        new GearItemStat { Id = 70, Value = 35 },
+                        new GearItemStat { Id = 78, Value = 5 },
+                        new GearItemStat { Id = 110, Value = 40 },
+                        new GearItemStat { Id = 111, Value = 30 },
+                        new GearItemStat { Id = 77, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = []
                 },
@@ -4259,23 +4259,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 38 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 40 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 15 },
-                        new GearStat { Name = "RangedAccuracy", Value = 40 },
-                        new GearStat { Name = "RangedAttack", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "PDL", Value = 6 },
-                        new GearStat { Name = "DT", Value = -5 },
-                        new GearStat { Name = "Evasion", Value = 72 },
-                        new GearStat { Name = "MagicEvasion", Value = 123 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 1, Value = 38 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 40 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 15 },
+                        new GearItemStat { Id = 110, Value = 40 },
+                        new GearItemStat { Id = 111, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 56, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -5 },
+                        new GearItemStat { Id = 91, Value = 72 },
+                        new GearItemStat { Id = 93, Value = 123 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} }
                 },
@@ -4286,23 +4286,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 38 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 40 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 15 },
-                        new GearStat { Name = "RangedAccuracy", Value = 40 },
-                        new GearStat { Name = "RangedAttack", Value = 55 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "PDL", Value = 6 },
-                        new GearStat { Name = "DT", Value = -5 },
-                        new GearStat { Name = "Evasion", Value = 72 },
-                        new GearStat { Name = "MagicEvasion", Value = 123 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 1, Value = 38 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 40 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 15 },
+                        new GearItemStat { Id = 110, Value = 40 },
+                        new GearItemStat { Id = 111, Value = 55 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 56, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -5 },
+                        new GearItemStat { Id = 91, Value = 72 },
+                        new GearItemStat { Id = 93, Value = 123 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} }
                 },
@@ -4313,23 +4313,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 38 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 40 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 15 },
-                        new GearStat { Name = "RangedAccuracy", Value = 45 },
-                        new GearStat { Name = "RangedAttack", Value = 60 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "PDL", Value = 6 },
-                        new GearStat { Name = "DT", Value = -7 },
-                        new GearStat { Name = "Evasion", Value = 72 },
-                        new GearStat { Name = "MagicEvasion", Value = 123 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 1, Value = 38 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 40 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 15 },
+                        new GearItemStat { Id = 110, Value = 45 },
+                        new GearItemStat { Id = 111, Value = 60 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 56, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -7 },
+                        new GearItemStat { Id = 91, Value = 72 },
+                        new GearItemStat { Id = 93, Value = 123 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} }
                 },
@@ -4340,23 +4340,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 41 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 40 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 15 },
-                        new GearStat { Name = "RangedAccuracy", Value = 50 },
-                        new GearStat { Name = "RangedAttack", Value = 65 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "PDL", Value = 6 },
-                        new GearStat { Name = "DT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 72 },
-                        new GearStat { Name = "MagicEvasion", Value = 123 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 1, Value = 41 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 40 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 15 },
+                        new GearItemStat { Id = 110, Value = 50 },
+                        new GearItemStat { Id = 111, Value = 65 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 56, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 72 },
+                        new GearItemStat { Id = 93, Value = 123 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} }
                 },
@@ -4367,23 +4367,23 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 20 },
-                        new GearStat { Name = "Agi", Value = 40 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 15 },
-                        new GearStat { Name = "RangedAccuracy", Value = 55 },
-                        new GearStat { Name = "RangedAttack", Value = 70 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "StoreTP", Value = 10 },
-                        new GearStat { Name = "PDL", Value = 6 },
-                        new GearStat { Name = "DT", Value = -10 },
-                        new GearStat { Name = "Evasion", Value = 72 },
-                        new GearStat { Name = "MagicEvasion", Value = 123 },
-                        new GearStat { Name = "MagicDefense", Value = 7 }
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 20 },
+                        new GearItemStat { Id = 4, Value = 40 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 15 },
+                        new GearItemStat { Id = 110, Value = 55 },
+                        new GearItemStat { Id = 111, Value = 70 },
+                        new GearItemStat { Id = 68, Value = 55 },
+                        new GearItemStat { Id = 50, Value = 10 },
+                        new GearItemStat { Id = 56, Value = 6 },
+                        new GearItemStat { Id = 98, Value = -10 },
+                        new GearItemStat { Id = 91, Value = 72 },
+                        new GearItemStat { Id = 93, Value = 123 },
+                        new GearItemStat { Id = 94, Value = 7 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} }
                 },
@@ -4394,26 +4394,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Regain", Value = 3 },
-                        new GearStat { Name = "Str", Value = 49 },
-                        new GearStat { Name = "Vit", Value = 37 },
-                        new GearStat { Name = "Agi", Value = 23 },
-                        new GearStat { Name = "Int", Value = 30 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 17 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "PDL", Value = 8 },
-                        new GearStat { Name = "CritRate", Value = 7 },
-                        new GearStat { Name = "PDT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 77 },
-                        new GearStat { Name = "MagicEvasion", Value = 112 },
-                        new GearStat { Name = "MagicDefense", Value = 14 },
-                        new GearStat { Name = "SubtleBlow", Value = 8 }
+                        new GearItemStat { Id = 124, Value = 3 },
+                        new GearItemStat { Id = 1, Value = 49 },
+                        new GearItemStat { Id = 3, Value = 37 },
+                        new GearItemStat { Id = 4, Value = 23 },
+                        new GearItemStat { Id = 5, Value = 30 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 17 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 56, Value = 8 },
+                        new GearItemStat { Id = 45, Value = 7 },
+                        new GearItemStat { Id = 99, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 77 },
+                        new GearItemStat { Id = 93, Value = 112 },
+                        new GearItemStat { Id = 94, Value = 14 },
+                        new GearItemStat { Id = 51, Value = 8 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 19} }
                 },
@@ -4424,26 +4424,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Regain", Value = 3 },
-                        new GearStat { Name = "Str", Value = 49 },
-                        new GearStat { Name = "Vit", Value = 37 },
-                        new GearStat { Name = "Agi", Value = 23 },
-                        new GearStat { Name = "Int", Value = 30 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 17 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 55 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "PDL", Value = 8 },
-                        new GearStat { Name = "CritRate", Value = 7 },
-                        new GearStat { Name = "PDT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 77 },
-                        new GearStat { Name = "MagicEvasion", Value = 112 },
-                        new GearStat { Name = "MagicDefense", Value = 14 },
-                        new GearStat { Name = "SubtleBlow", Value = 8 }
+                        new GearItemStat { Id = 124, Value = 3 },
+                        new GearItemStat { Id = 1, Value = 49 },
+                        new GearItemStat { Id = 3, Value = 37 },
+                        new GearItemStat { Id = 4, Value = 23 },
+                        new GearItemStat { Id = 5, Value = 30 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 17 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 55 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 56, Value = 8 },
+                        new GearItemStat { Id = 45, Value = 7 },
+                        new GearItemStat { Id = 99, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 77 },
+                        new GearItemStat { Id = 93, Value = 112 },
+                        new GearItemStat { Id = 94, Value = 14 },
+                        new GearItemStat { Id = 51, Value = 8 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 19} }
                 },
@@ -4454,26 +4454,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Regain", Value = 3 },
-                        new GearStat { Name = "Str", Value = 49 },
-                        new GearStat { Name = "Vit", Value = 37 },
-                        new GearStat { Name = "Agi", Value = 23 },
-                        new GearStat { Name = "Int", Value = 30 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 17 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "Attack", Value = 60 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "PDL", Value = 8 },
-                        new GearStat { Name = "CritRate", Value = 7 },
-                        new GearStat { Name = "PDT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 77 },
-                        new GearStat { Name = "MagicEvasion", Value = 112 },
-                        new GearStat { Name = "MagicDefense", Value = 14 },
-                        new GearStat { Name = "SubtleBlow", Value = 10 }
+                        new GearItemStat { Id = 124, Value = 3 },
+                        new GearItemStat { Id = 1, Value = 49 },
+                        new GearItemStat { Id = 3, Value = 37 },
+                        new GearItemStat { Id = 4, Value = 23 },
+                        new GearItemStat { Id = 5, Value = 30 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 17 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 44, Value = 60 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 56, Value = 8 },
+                        new GearItemStat { Id = 45, Value = 7 },
+                        new GearItemStat { Id = 99, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 77 },
+                        new GearItemStat { Id = 93, Value = 112 },
+                        new GearItemStat { Id = 94, Value = 14 },
+                        new GearItemStat { Id = 51, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 19} }
                 },
@@ -4484,27 +4484,27 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Regain", Value = 3 },
-                        new GearStat { Name = "Str", Value = 49 },
-                        new GearStat { Name = "Vit", Value = 37 },
-                        new GearStat { Name = "Agi", Value = 23 },
-                        new GearStat { Name = "Int", Value = 30 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 17 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "Attack", Value = 65 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "PDL", Value = 8 },
-                        new GearStat { Name = "CritRate", Value = 7 },
-                        new GearStat { Name = "TA", Value = 3 },
-                        new GearStat { Name = "PDT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 77 },
-                        new GearStat { Name = "MagicEvasion", Value = 112 },
-                        new GearStat { Name = "MagicDefense", Value = 14 },
-                        new GearStat { Name = "SubtleBlow", Value = 13 }
+                        new GearItemStat { Id = 124, Value = 3 },
+                        new GearItemStat { Id = 1, Value = 49 },
+                        new GearItemStat { Id = 3, Value = 37 },
+                        new GearItemStat { Id = 4, Value = 23 },
+                        new GearItemStat { Id = 5, Value = 30 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 17 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 44, Value = 65 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 56, Value = 8 },
+                        new GearItemStat { Id = 45, Value = 7 },
+                        new GearItemStat { Id = 48, Value = 3 },
+                        new GearItemStat { Id = 99, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 77 },
+                        new GearItemStat { Id = 93, Value = 112 },
+                        new GearItemStat { Id = 94, Value = 14 },
+                        new GearItemStat { Id = 51, Value = 13 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 19} }
                 },
@@ -4515,27 +4515,27 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Regain", Value = 3 },
-                        new GearStat { Name = "Str", Value = 49 },
-                        new GearStat { Name = "Vit", Value = 37 },
-                        new GearStat { Name = "Agi", Value = 23 },
-                        new GearStat { Name = "Int", Value = 30 },
-                        new GearStat { Name = "Mnd", Value = 20 },
-                        new GearStat { Name = "Chr", Value = 17 },
-                        new GearStat { Name = "Accuracy", Value = 55 },
-                        new GearStat { Name = "Attack", Value = 70 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "PDL", Value = 8 },
-                        new GearStat { Name = "CritRate", Value = 7 },
-                        new GearStat { Name = "TA", Value = 5 },
-                        new GearStat { Name = "PDT", Value = -8 },
-                        new GearStat { Name = "Evasion", Value = 77 },
-                        new GearStat { Name = "MagicEvasion", Value = 112 },
-                        new GearStat { Name = "MagicDefense", Value = 14 },
-                        new GearStat { Name = "SubtleBlow", Value = 15 }
+                        new GearItemStat { Id = 124, Value = 3 },
+                        new GearItemStat { Id = 1, Value = 49 },
+                        new GearItemStat { Id = 3, Value = 37 },
+                        new GearItemStat { Id = 4, Value = 23 },
+                        new GearItemStat { Id = 5, Value = 30 },
+                        new GearItemStat { Id = 6, Value = 20 },
+                        new GearItemStat { Id = 7, Value = 17 },
+                        new GearItemStat { Id = 43, Value = 55 },
+                        new GearItemStat { Id = 44, Value = 70 },
+                        new GearItemStat { Id = 68, Value = 55 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 56, Value = 8 },
+                        new GearItemStat { Id = 45, Value = 7 },
+                        new GearItemStat { Id = 48, Value = 5 },
+                        new GearItemStat { Id = 99, Value = -8 },
+                        new GearItemStat { Id = 91, Value = 77 },
+                        new GearItemStat { Id = 93, Value = 112 },
+                        new GearItemStat { Id = 94, Value = 14 },
+                        new GearItemStat { Id = 51, Value = 15 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 19} }
                 },
@@ -4546,24 +4546,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 48 },
-                        new GearStat { Name = "Vit", Value = 34 },
-                        new GearStat { Name = "Agi", Value = 23 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 21 },
-                        new GearStat { Name = "Chr", Value = 17 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "GearHaste", Value = 4 },
-                        new GearStat { Name = "DA", Value = 7 },
-                        new GearStat { Name = "PDL", Value = 7 },
-                        new GearStat { Name = "DT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 9 }
+                        new GearItemStat { Id = 1, Value = 48 },
+                        new GearItemStat { Id = 3, Value = 34 },
+                        new GearItemStat { Id = 4, Value = 23 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 21 },
+                        new GearItemStat { Id = 7, Value = 17 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 59, Value = 4 },
+                        new GearItemStat { Id = 47, Value = 7 },
+                        new GearItemStat { Id = 56, Value = 7 },
+                        new GearItemStat { Id = 98, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 9 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 } }
                 },
@@ -4574,25 +4574,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 48 },
-                        new GearStat { Name = "Vit", Value = 34 },
-                        new GearStat { Name = "Agi", Value = 23 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 21 },
-                        new GearStat { Name = "Chr", Value = 17 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 55 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "GearHaste", Value = 4 },
-                        new GearStat { Name = "DA", Value = 7 },
-                        new GearStat { Name = "PDL", Value = 7 },
-                        new GearStat { Name = "SkillchainBonus", Value = 8 },
-                        new GearStat { Name = "DT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 9 }
+                        new GearItemStat { Id = 1, Value = 48 },
+                        new GearItemStat { Id = 3, Value = 34 },
+                        new GearItemStat { Id = 4, Value = 23 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 21 },
+                        new GearItemStat { Id = 7, Value = 17 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 55 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 59, Value = 4 },
+                        new GearItemStat { Id = 47, Value = 7 },
+                        new GearItemStat { Id = 56, Value = 7 },
+                        new GearItemStat { Id = 53, Value = 8 },
+                        new GearItemStat { Id = 98, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 9 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 } }
                 },
@@ -4603,25 +4603,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 48 },
-                        new GearStat { Name = "Vit", Value = 34 },
-                        new GearStat { Name = "Agi", Value = 23 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 21 },
-                        new GearStat { Name = "Chr", Value = 17 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "Attack", Value = 60 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "GearHaste", Value = 4 },
-                        new GearStat { Name = "DA", Value = 7 },
-                        new GearStat { Name = "PDL", Value = 7 },
-                        new GearStat { Name = "SkillchainBonus", Value = 10 },
-                        new GearStat { Name = "DT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 9 }
+                        new GearItemStat { Id = 1, Value = 48 },
+                        new GearItemStat { Id = 3, Value = 34 },
+                        new GearItemStat { Id = 4, Value = 23 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 21 },
+                        new GearItemStat { Id = 7, Value = 17 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 44, Value = 60 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 59, Value = 4 },
+                        new GearItemStat { Id = 47, Value = 7 },
+                        new GearItemStat { Id = 56, Value = 7 },
+                        new GearItemStat { Id = 53, Value = 10 },
+                        new GearItemStat { Id = 98, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 9 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 } }
                 },
@@ -4632,25 +4632,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 51 },
-                        new GearStat { Name = "Vit", Value = 34 },
-                        new GearStat { Name = "Agi", Value = 23 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 21 },
-                        new GearStat { Name = "Chr", Value = 17 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "Attack", Value = 65 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "GearHaste", Value = 4 },
-                        new GearStat { Name = "DA", Value = 7 },
-                        new GearStat { Name = "PDL", Value = 7 },
-                        new GearStat { Name = "SkillchainBonus", Value = 13 },
-                        new GearStat { Name = "DT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 9 }
+                        new GearItemStat { Id = 1, Value = 51 },
+                        new GearItemStat { Id = 3, Value = 34 },
+                        new GearItemStat { Id = 4, Value = 23 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 21 },
+                        new GearItemStat { Id = 7, Value = 17 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 44, Value = 65 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 59, Value = 4 },
+                        new GearItemStat { Id = 47, Value = 7 },
+                        new GearItemStat { Id = 56, Value = 7 },
+                        new GearItemStat { Id = 53, Value = 13 },
+                        new GearItemStat { Id = 98, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 9 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 } }
                 },
@@ -4661,25 +4661,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 53 },
-                        new GearStat { Name = "Vit", Value = 34 },
-                        new GearStat { Name = "Agi", Value = 23 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 21 },
-                        new GearStat { Name = "Chr", Value = 17 },
-                        new GearStat { Name = "Accuracy", Value = 55 },
-                        new GearStat { Name = "Attack", Value = 70 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "GearHaste", Value = 4 },
-                        new GearStat { Name = "DA", Value = 7 },
-                        new GearStat { Name = "PDL", Value = 7 },
-                        new GearStat { Name = "SkillchainBonus", Value = 15 },
-                        new GearStat { Name = "DT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 9 }
+                        new GearItemStat { Id = 1, Value = 53 },
+                        new GearItemStat { Id = 3, Value = 34 },
+                        new GearItemStat { Id = 4, Value = 23 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 21 },
+                        new GearItemStat { Id = 7, Value = 17 },
+                        new GearItemStat { Id = 43, Value = 55 },
+                        new GearItemStat { Id = 44, Value = 70 },
+                        new GearItemStat { Id = 68, Value = 55 },
+                        new GearItemStat { Id = 59, Value = 4 },
+                        new GearItemStat { Id = 47, Value = 7 },
+                        new GearItemStat { Id = 56, Value = 7 },
+                        new GearItemStat { Id = 53, Value = 15 },
+                        new GearItemStat { Id = 98, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 9 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 } }
                 },
@@ -4690,25 +4690,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 49 },
-                        new GearStat { Name = "Vit", Value = 32 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 19 },
-                        new GearStat { Name = "Chr", Value = 19 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "GearHaste", Value = 9 },
-                        new GearStat { Name = "TA", Value = 4 },
-                        new GearStat { Name = "CritRate", Value = 6 },
-                        new GearStat { Name = "PDT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 106 },
-                        new GearStat { Name = "MagicDefense", Value = 13 },
-                        new GearStat { Name = "SubtleBlowII", Value = 5 }
+                        new GearItemStat { Id = 1, Value = 49 },
+                        new GearItemStat { Id = 3, Value = 32 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 19 },
+                        new GearItemStat { Id = 7, Value = 19 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 59, Value = 9 },
+                        new GearItemStat { Id = 48, Value = 4 },
+                        new GearItemStat { Id = 45, Value = 6 },
+                        new GearItemStat { Id = 99, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 106 },
+                        new GearItemStat { Id = 94, Value = 13 },
+                        new GearItemStat { Id = 186, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 18} }
                 },
@@ -4719,26 +4719,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 49 },
-                        new GearStat { Name = "Vit", Value = 32 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 19 },
-                        new GearStat { Name = "Chr", Value = 19 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 55 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "GearHaste", Value = 9 },
-                        new GearStat { Name = "TA", Value = 4 },
-                        new GearStat { Name = "CritRate", Value = 6 },
-                        new GearStat { Name = "PDL", Value = 4 },
-                        new GearStat { Name = "PDT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 106 },
-                        new GearStat { Name = "MagicDefense", Value = 13 },
-                        new GearStat { Name = "SubtleBlowII", Value = 5 }
+                        new GearItemStat { Id = 1, Value = 49 },
+                        new GearItemStat { Id = 3, Value = 32 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 19 },
+                        new GearItemStat { Id = 7, Value = 19 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 55 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 59, Value = 9 },
+                        new GearItemStat { Id = 48, Value = 4 },
+                        new GearItemStat { Id = 45, Value = 6 },
+                        new GearItemStat { Id = 56, Value = 4 },
+                        new GearItemStat { Id = 99, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 106 },
+                        new GearItemStat { Id = 94, Value = 13 },
+                        new GearItemStat { Id = 186, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 18} }
                 },
@@ -4749,26 +4749,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 49 },
-                        new GearStat { Name = "Vit", Value = 32 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 19 },
-                        new GearStat { Name = "Chr", Value = 19 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "Attack", Value = 60 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "GearHaste", Value = 9 },
-                        new GearStat { Name = "TA", Value = 4 },
-                        new GearStat { Name = "CritRate", Value = 6 },
-                        new GearStat { Name = "PDL", Value = 5 },
-                        new GearStat { Name = "PDT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 106 },
-                        new GearStat { Name = "MagicDefense", Value = 13 },
-                        new GearStat { Name = "SubtleBlowII", Value = 5 }
+                        new GearItemStat { Id = 1, Value = 49 },
+                        new GearItemStat { Id = 3, Value = 32 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 19 },
+                        new GearItemStat { Id = 7, Value = 19 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 44, Value = 60 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 59, Value = 9 },
+                        new GearItemStat { Id = 48, Value = 4 },
+                        new GearItemStat { Id = 45, Value = 6 },
+                        new GearItemStat { Id = 56, Value = 5 },
+                        new GearItemStat { Id = 99, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 106 },
+                        new GearItemStat { Id = 94, Value = 13 },
+                        new GearItemStat { Id = 186, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 18} }
                 },
@@ -4779,26 +4779,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 49 },
-                        new GearStat { Name = "Vit", Value = 32 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 19 },
-                        new GearStat { Name = "Chr", Value = 19 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "Attack", Value = 65 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "GearHaste", Value = 9 },
-                        new GearStat { Name = "TA", Value = 4 },
-                        new GearStat { Name = "CritRate", Value = 6 },
-                        new GearStat { Name = "PDL", Value = 7 },
-                        new GearStat { Name = "PDT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 106 },
-                        new GearStat { Name = "MagicDefense", Value = 13 },
-                        new GearStat { Name = "SubtleBlowII", Value = 5 }
+                        new GearItemStat { Id = 1, Value = 49 },
+                        new GearItemStat { Id = 3, Value = 32 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 19 },
+                        new GearItemStat { Id = 7, Value = 19 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 44, Value = 65 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 59, Value = 9 },
+                        new GearItemStat { Id = 48, Value = 4 },
+                        new GearItemStat { Id = 45, Value = 6 },
+                        new GearItemStat { Id = 56, Value = 7 },
+                        new GearItemStat { Id = 99, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 106 },
+                        new GearItemStat { Id = 94, Value = 13 },
+                        new GearItemStat { Id = 186, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 18} }
                 },
@@ -4809,26 +4809,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 49 },
-                        new GearStat { Name = "Vit", Value = 32 },
-                        new GearStat { Name = "Agi", Value = 25 },
-                        new GearStat { Name = "Int", Value = 32 },
-                        new GearStat { Name = "Mnd", Value = 19 },
-                        new GearStat { Name = "Chr", Value = 19 },
-                        new GearStat { Name = "Accuracy", Value = 55 },
-                        new GearStat { Name = "Attack", Value = 70 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "GearHaste", Value = 9 },
-                        new GearStat { Name = "TA", Value = 4 },
-                        new GearStat { Name = "CritRate", Value = 6 },
-                        new GearStat { Name = "PDL", Value = 8 },
-                        new GearStat { Name = "PDT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 85 },
-                        new GearStat { Name = "MagicEvasion", Value = 106 },
-                        new GearStat { Name = "MagicDefense", Value = 13 },
-                        new GearStat { Name = "SubtleBlowII", Value = 5 }
+                        new GearItemStat { Id = 1, Value = 49 },
+                        new GearItemStat { Id = 3, Value = 32 },
+                        new GearItemStat { Id = 4, Value = 25 },
+                        new GearItemStat { Id = 5, Value = 32 },
+                        new GearItemStat { Id = 6, Value = 19 },
+                        new GearItemStat { Id = 7, Value = 19 },
+                        new GearItemStat { Id = 43, Value = 55 },
+                        new GearItemStat { Id = 44, Value = 70 },
+                        new GearItemStat { Id = 68, Value = 55 },
+                        new GearItemStat { Id = 59, Value = 9 },
+                        new GearItemStat { Id = 48, Value = 4 },
+                        new GearItemStat { Id = 45, Value = 6 },
+                        new GearItemStat { Id = 56, Value = 8 },
+                        new GearItemStat { Id = 99, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 85 },
+                        new GearItemStat { Id = 93, Value = 106 },
+                        new GearItemStat { Id = 94, Value = 13 },
+                        new GearItemStat { Id = 186, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 18} }
                 },
@@ -4839,24 +4839,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 8 },
-                        new GearStat { Name = "Agi", Value = 17 },
-                        new GearStat { Name = "Int", Value = 49 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 25 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 35 },
-                        new GearStat { Name = "MagicDamage", Value = 20 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 9 },
-                        new GearStat { Name = "DT", Value = -5 },
-                        new GearStat { Name = "Evasion", Value = 66 },
-                        new GearStat { Name = "MagicEvasion", Value = 134 },
-                        new GearStat { Name = "MagicDefense", Value = 8 }
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 8 },
+                        new GearItemStat { Id = 4, Value = 17 },
+                        new GearItemStat { Id = 5, Value = 49 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 25 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 35 },
+                        new GearItemStat { Id = 70, Value = 20 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -5 },
+                        new GearItemStat { Id = 91, Value = 66 },
+                        new GearItemStat { Id = 93, Value = 134 },
+                        new GearItemStat { Id = 94, Value = 8 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21}, new GearItemJob { JobId= 22} }
                 },
@@ -4867,24 +4867,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 8 },
-                        new GearStat { Name = "Agi", Value = 17 },
-                        new GearStat { Name = "Int", Value = 49 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 25 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 50 },
-                        new GearStat { Name = "MagicDamage", Value = 20 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 9 },
-                        new GearStat { Name = "DT", Value = -5 },
-                        new GearStat { Name = "Evasion", Value = 66 },
-                        new GearStat { Name = "MagicEvasion", Value = 134 },
-                        new GearStat { Name = "MagicDefense", Value = 8 }
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 8 },
+                        new GearItemStat { Id = 4, Value = 17 },
+                        new GearItemStat { Id = 5, Value = 49 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 25 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 50 },
+                        new GearItemStat { Id = 70, Value = 20 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -5 },
+                        new GearItemStat { Id = 91, Value = 66 },
+                        new GearItemStat { Id = 93, Value = 134 },
+                        new GearItemStat { Id = 94, Value = 8 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21}, new GearItemJob { JobId= 22} }
                 },
@@ -4895,24 +4895,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 8 },
-                        new GearStat { Name = "Agi", Value = 17 },
-                        new GearStat { Name = "Int", Value = 49 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 25 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "MagicAttack", Value = 55 },
-                        new GearStat { Name = "MagicDamage", Value = 20 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 9 },
-                        new GearStat { Name = "DT", Value = -7 },
-                        new GearStat { Name = "Evasion", Value = 66 },
-                        new GearStat { Name = "MagicEvasion", Value = 134 },
-                        new GearStat { Name = "MagicDefense", Value = 8 }
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 8 },
+                        new GearItemStat { Id = 4, Value = 17 },
+                        new GearItemStat { Id = 5, Value = 49 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 25 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 69, Value = 55 },
+                        new GearItemStat { Id = 70, Value = 20 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -7 },
+                        new GearItemStat { Id = 91, Value = 66 },
+                        new GearItemStat { Id = 93, Value = 134 },
+                        new GearItemStat { Id = 94, Value = 8 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21}, new GearItemJob { JobId= 22} }
                 },
@@ -4923,24 +4923,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 8 },
-                        new GearStat { Name = "Agi", Value = 17 },
-                        new GearStat { Name = "Int", Value = 52 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 25 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "MagicAttack", Value = 58 },
-                        new GearStat { Name = "MagicDamage", Value = 20 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 9 },
-                        new GearStat { Name = "DT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 66 },
-                        new GearStat { Name = "MagicEvasion", Value = 134 },
-                        new GearStat { Name = "MagicDefense", Value = 8 }
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 8 },
+                        new GearItemStat { Id = 4, Value = 17 },
+                        new GearItemStat { Id = 5, Value = 52 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 25 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 69, Value = 58 },
+                        new GearItemStat { Id = 70, Value = 20 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 66 },
+                        new GearItemStat { Id = 93, Value = 134 },
+                        new GearItemStat { Id = 94, Value = 8 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21}, new GearItemJob { JobId= 22} }
                 },
@@ -4951,24 +4951,24 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 43 },
-                        new GearStat { Name = "Vit", Value = 8 },
-                        new GearStat { Name = "Agi", Value = 17 },
-                        new GearStat { Name = "Int", Value = 54 },
-                        new GearStat { Name = "Mnd", Value = 32 },
-                        new GearStat { Name = "Chr", Value = 25 },
-                        new GearStat { Name = "Accuracy", Value = 55 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "MagicAttack", Value = 60 },
-                        new GearStat { Name = "MagicDamage", Value = 20 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 9 },
-                        new GearStat { Name = "DT", Value = -10 },
-                        new GearStat { Name = "Evasion", Value = 66 },
-                        new GearStat { Name = "MagicEvasion", Value = 134 },
-                        new GearStat { Name = "MagicDefense", Value = 8 }
+                        new GearItemStat { Id = 1, Value = 43 },
+                        new GearItemStat { Id = 3, Value = 8 },
+                        new GearItemStat { Id = 4, Value = 17 },
+                        new GearItemStat { Id = 5, Value = 54 },
+                        new GearItemStat { Id = 6, Value = 32 },
+                        new GearItemStat { Id = 7, Value = 25 },
+                        new GearItemStat { Id = 43, Value = 55 },
+                        new GearItemStat { Id = 68, Value = 55 },
+                        new GearItemStat { Id = 69, Value = 60 },
+                        new GearItemStat { Id = 70, Value = 20 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -10 },
+                        new GearItemStat { Id = 91, Value = 66 },
+                        new GearItemStat { Id = 93, Value = 134 },
+                        new GearItemStat { Id = 94, Value = 8 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21}, new GearItemJob { JobId= 22} }
                 },
@@ -4979,25 +4979,25 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 25 },
-                        new GearStat { Name = "Vit", Value = 12 },
-                        new GearStat { Name = "Agi", Value = 19 },
-                        new GearStat { Name = "Int", Value = 51 },
-                        new GearStat { Name = "Mnd", Value = 38 },
-                        new GearStat { Name = "Chr", Value = 30 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 40 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "MagicDamage", Value = 30 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 9 },
-                        new GearStat { Name = "DT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 10 }
+                        new GearItemStat { Id = 1, Value = 25 },
+                        new GearItemStat { Id = 3, Value = 12 },
+                        new GearItemStat { Id = 4, Value = 19 },
+                        new GearItemStat { Id = 5, Value = 51 },
+                        new GearItemStat { Id = 6, Value = 38 },
+                        new GearItemStat { Id = 7, Value = 30 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 40 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 70, Value = 30 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 9 },
+                        new GearItemStat { Id = 98, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15} }
                 },
@@ -5008,26 +5008,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 25 },
-                        new GearStat { Name = "Vit", Value = 12 },
-                        new GearStat { Name = "Agi", Value = 19 },
-                        new GearStat { Name = "Int", Value = 51 },
-                        new GearStat { Name = "Mnd", Value = 38 },
-                        new GearStat { Name = "Chr", Value = 30 },
-                        new GearStat { Name = "Accuracy", Value = 40 },
-                        new GearStat { Name = "Attack", Value = 55 },
-                        new GearStat { Name = "MagicAccuracy", Value = 40 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "MagicDamage", Value = 45 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 9 },
+                        new GearItemStat { Id = 1, Value = 25 },
+                        new GearItemStat { Id = 3, Value = 12 },
+                        new GearItemStat { Id = 4, Value = 19 },
+                        new GearItemStat { Id = 5, Value = 51 },
+                        new GearItemStat { Id = 6, Value = 38 },
+                        new GearItemStat { Id = 7, Value = 30 },
+                        new GearItemStat { Id = 43, Value = 40 },
+                        new GearItemStat { Id = 44, Value = 55 },
+                        new GearItemStat { Id = 68, Value = 40 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 70, Value = 45 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 9 },
                         new GearStat { Name = "BloodPactDamage", Value = 4 },
-                        new GearStat { Name = "DT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 10 }
+                        new GearItemStat { Id = 98, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15} }
                 },
@@ -5038,26 +5038,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 25 },
-                        new GearStat { Name = "Vit", Value = 12 },
-                        new GearStat { Name = "Agi", Value = 19 },
-                        new GearStat { Name = "Int", Value = 51 },
-                        new GearStat { Name = "Mnd", Value = 38 },
-                        new GearStat { Name = "Chr", Value = 30 },
-                        new GearStat { Name = "Accuracy", Value = 45 },
-                        new GearStat { Name = "Attack", Value = 60 },
-                        new GearStat { Name = "MagicAccuracy", Value = 45 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "MagicDamage", Value = 50 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 9 },
+                        new GearItemStat { Id = 1, Value = 25 },
+                        new GearItemStat { Id = 3, Value = 12 },
+                        new GearItemStat { Id = 4, Value = 19 },
+                        new GearItemStat { Id = 5, Value = 51 },
+                        new GearItemStat { Id = 6, Value = 38 },
+                        new GearItemStat { Id = 7, Value = 30 },
+                        new GearItemStat { Id = 43, Value = 45 },
+                        new GearItemStat { Id = 44, Value = 60 },
+                        new GearItemStat { Id = 68, Value = 45 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 70, Value = 50 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 9 },
                         new GearStat { Name = "BloodPactDamage", Value = 5 },
-                        new GearStat { Name = "DT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 10 }
+                        new GearItemStat { Id = 98, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15} }
                 },
@@ -5068,26 +5068,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 25 },
-                        new GearStat { Name = "Vit", Value = 12 },
-                        new GearStat { Name = "Agi", Value = 19 },
-                        new GearStat { Name = "Int", Value = 51 },
-                        new GearStat { Name = "Mnd", Value = 38 },
-                        new GearStat { Name = "Chr", Value = 30 },
-                        new GearStat { Name = "Accuracy", Value = 50 },
-                        new GearStat { Name = "Attack", Value = 65 },
-                        new GearStat { Name = "MagicAccuracy", Value = 50 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "MagicDamage", Value = 55 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 9 },
+                        new GearItemStat { Id = 1, Value = 25 },
+                        new GearItemStat { Id = 3, Value = 12 },
+                        new GearItemStat { Id = 4, Value = 19 },
+                        new GearItemStat { Id = 5, Value = 51 },
+                        new GearItemStat { Id = 6, Value = 38 },
+                        new GearItemStat { Id = 7, Value = 30 },
+                        new GearItemStat { Id = 43, Value = 50 },
+                        new GearItemStat { Id = 44, Value = 65 },
+                        new GearItemStat { Id = 68, Value = 50 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 70, Value = 55 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 9 },
                         new GearStat { Name = "BloodPactDamage", Value = 7 },
-                        new GearStat { Name = "DT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 10 }
+                        new GearItemStat { Id = 98, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15} }
                 },
@@ -5098,26 +5098,26 @@ GearStats = new List<GearStat>
     {
         new GearItemSlot { GearSlotId = 13 }
     },
-                    GearStats = new List<GearStat>
+                    GearItemStats = new List<GearItemStat>
                     {
-                        new GearStat { Name = "Str", Value = 25 },
-                        new GearStat { Name = "Vit", Value = 12 },
-                        new GearStat { Name = "Agi", Value = 19 },
-                        new GearStat { Name = "Int", Value = 51 },
-                        new GearStat { Name = "Mnd", Value = 38 },
-                        new GearStat { Name = "Chr", Value = 30 },
-                        new GearStat { Name = "Accuracy", Value = 55 },
-                        new GearStat { Name = "Attack", Value = 70 },
-                        new GearStat { Name = "MagicAccuracy", Value = 55 },
-                        new GearStat { Name = "MagicAttack", Value = 30 },
-                        new GearStat { Name = "MagicDamage", Value = 60 },
-                        new GearStat { Name = "GearHaste", Value = 5 },
-                        new GearStat { Name = "MagicBurstDamage", Value = 9 },
+                        new GearItemStat { Id = 1, Value = 25 },
+                        new GearItemStat { Id = 3, Value = 12 },
+                        new GearItemStat { Id = 4, Value = 19 },
+                        new GearItemStat { Id = 5, Value = 51 },
+                        new GearItemStat { Id = 6, Value = 38 },
+                        new GearItemStat { Id = 7, Value = 30 },
+                        new GearItemStat { Id = 43, Value = 55 },
+                        new GearItemStat { Id = 44, Value = 70 },
+                        new GearItemStat { Id = 68, Value = 55 },
+                        new GearItemStat { Id = 69, Value = 30 },
+                        new GearItemStat { Id = 70, Value = 60 },
+                        new GearItemStat { Id = 59, Value = 5 },
+                        new GearItemStat { Id = 77, Value = 9 },
                         new GearStat { Name = "BloodPactDamage", Value = 8 },
-                        new GearStat { Name = "DT", Value = -9 },
-                        new GearStat { Name = "Evasion", Value = 58 },
-                        new GearStat { Name = "MagicEvasion", Value = 150 },
-                        new GearStat { Name = "MagicDefense", Value = 10 }
+                        new GearItemStat { Id = 98, Value = -9 },
+                        new GearItemStat { Id = 91, Value = 58 },
+                        new GearItemStat { Id = 93, Value = 150 },
+                        new GearItemStat { Id = 94, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15} }
                 }
