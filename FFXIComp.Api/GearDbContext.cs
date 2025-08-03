@@ -9,12 +9,13 @@ namespace FFXIComp.Api
     {
         public GearDbContext(DbContextOptions<GearDbContext> options) : base(options) { }
         public DbSet<GearItem> GearItems { get; set; }
-        public DbSet<GearStat> GearStats { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<GearSlot> GearSlots { get; set; }
         public DbSet<GearItemCategory> GearItemCategories { get; set; }
         public DbSet<GearItemJob> GearItemJobs { get; set; }
         public DbSet<GearItemSlot> GearItemSlots { get; set; }
+        public DbSet<Stat> Stats { get; set; }
+        public DbSet<GearItemStat> GearItemStats { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -83,6 +84,166 @@ namespace FFXIComp.Api
                 new GearItemCategory { Id = 15, Name = "Thrown" } //Done
             );
 
+            modelBuilder.Entity<Stat>().HasData(
+                // Base Stats
+                new Stat { Id = 1, Name = "STR", DisplayName = "Strength", Category = "Base" },
+                new Stat { Id = 2, Name = "DEX", DisplayName = "Dexterity", Category = "Base" },
+                new Stat { Id = 3, Name = "VIT", DisplayName = "Vitality", Category = "Base" },
+                new Stat { Id = 4, Name = "AGI", DisplayName = "Agility", Category = "Base" },
+                new Stat { Id = 5, Name = "INT", DisplayName = "Intelligence", Category = "Base" },
+                new Stat { Id = 6, Name = "MND", DisplayName = "Mind", Category = "Base" },
+                new Stat { Id = 7, Name = "CHR", DisplayName = "Charisma", Category = "Base" },
+
+                // Skills
+                new Stat { Id = 8, Name = "HandToHandSkill", DisplayName = "Hand-to-Hand Skill", Category = "Skill" },
+                new Stat { Id = 9, Name = "DaggerSkill", DisplayName = "Dagger Skill", Category = "Skill" },
+                new Stat { Id = 10, Name = "SwordSkill", DisplayName = "Sword Skill", Category = "Skill" },
+                new Stat { Id = 11, Name = "GreatSwordSkill", DisplayName = "Great Sword Skill", Category = "Skill" },
+                new Stat { Id = 12, Name = "AxeSkill", DisplayName = "Axe Skill", Category = "Skill" },
+                new Stat { Id = 13, Name = "GreatAxeSkill", DisplayName = "Great Axe Skill", Category = "Skill" },
+                new Stat { Id = 14, Name = "ScytheSkill", DisplayName = "Scythe Skill", Category = "Skill" },
+                new Stat { Id = 15, Name = "PolearmSkill", DisplayName = "Polearm Skill", Category = "Skill" },
+                new Stat { Id = 16, Name = "KatanaSkill", DisplayName = "Katana Skill", Category = "Skill" },
+                new Stat { Id = 17, Name = "GreatKatanaSkill", DisplayName = "Great Katana Skill", Category = "Skill" },
+                new Stat { Id = 18, Name = "ClubSkill", DisplayName = "Club Skill", Category = "Skill" },
+                new Stat { Id = 19, Name = "StaffSkill", DisplayName = "Staff Skill", Category = "Skill" },
+                new Stat { Id = 20, Name = "ArcherySkill", DisplayName = "Archery Skill", Category = "Skill" },
+                new Stat { Id = 21, Name = "MarksmanshipSkill", DisplayName = "Marksmanship Skill", Category = "Skill" },
+                new Stat { Id = 22, Name = "ThrowingSkill", DisplayName = "Throwing Skill", Category = "Skill" },
+                new Stat { Id = 23, Name = "EvasionSkill", DisplayName = "Evasion Skill", Category = "Skill" },
+                new Stat { Id = 24, Name = "GuardSkill", DisplayName = "Guard Skill", Category = "Skill" },
+                new Stat { Id = 25, Name = "ParryingSkill", DisplayName = "Parrying Skill", Category = "Skill" },
+                new Stat { Id = 26, Name = "ShieldSkill", DisplayName = "Shield Skill", Category = "Skill" },
+                new Stat { Id = 27, Name = "DivineSkill", DisplayName = "Divine Skill", Category = "Skill" },
+                new Stat { Id = 28, Name = "HealingSkill", DisplayName = "Healing Skill", Category = "Skill" },
+                new Stat { Id = 29, Name = "EnhancingSkill", DisplayName = "Enhancing Skill", Category = "Skill" },
+                new Stat { Id = 30, Name = "EnfeeblingSkill", DisplayName = "Enfeebling Skill", Category = "Skill" },
+                new Stat { Id = 31, Name = "ElementalSkill", DisplayName = "Elemental Skill", Category = "Skill" },
+                new Stat { Id = 32, Name = "DarkSkill", DisplayName = "Dark Skill", Category = "Skill" },
+                new Stat { Id = 33, Name = "SingingSkill", DisplayName = "Singing Skill", Category = "Skill" },
+                new Stat { Id = 34, Name = "StringedSkill", DisplayName = "Stringed Skill", Category = "Skill" },
+                new Stat { Id = 35, Name = "WindSkill", DisplayName = "Wind Skill", Category = "Skill" },
+                new Stat { Id = 36, Name = "NinjutsuSkill", DisplayName = "Ninjutsu Skill", Category = "Skill" },
+                new Stat { Id = 37, Name = "SummoningSkill", DisplayName = "Summoning Skill", Category = "Skill" },
+                new Stat { Id = 38, Name = "BlueSkill", DisplayName = "Blue Skill", Category = "Skill" },
+                new Stat { Id = 39, Name = "GeomancySkill", DisplayName = "Geomancy Skill", Category = "Skill" },
+                new Stat { Id = 40, Name = "HandbellSkill", DisplayName = "Handbell Skill", Category = "Skill" },
+
+                // Weapon Stats
+                new Stat { Id = 41, Name = "Delay", DisplayName = "Delay", Category = "Weapon" },
+                new Stat { Id = 42, Name = "DMG", DisplayName = "Damage", Category = "Weapon" },
+
+                // Combat Stats
+                new Stat { Id = 43, Name = "Accuracy", Category = "Combat" },
+                new Stat { Id = 44, Name = "Attack", Category = "Combat" },
+                new Stat { Id = 45, Name = "CritRate", DisplayName = "Critical Hit Rate", Category = "Combat" },
+                new Stat { Id = 46, Name = "CritDamage", DisplayName = "Critical Hit Damage", Category = "Combat" },
+                new Stat { Id = 47, Name = "DoubleAttack", DisplayName = "Double Attack", Category = "Combat" },
+                new Stat { Id = 48, Name = "TripleAttack", DisplayName = "Triple Attack", Category = "Combat" },
+                new Stat { Id = 49, Name = "QuadrupleAttack", DisplayName = "Quadruple Attack", Category = "Combat" },
+                new Stat { Id = 50, Name = "StoreTP", DisplayName = "Store TP", Category = "Combat" },
+                new Stat { Id = 51, Name = "SubtleBlow", DisplayName = "Subtle Blow", Category = "Combat" },
+                new Stat { Id = 52, Name = "Zanshin", Category = "Combat" },
+                new Stat { Id = 53, Name = "SkillchainBonus", DisplayName = "Skillchain Bonus", Category = "Combat" },
+                new Stat { Id = 54, Name = "WeaponSkillDamage", DisplayName = "Weapon Skill Damage", Category = "Combat" },
+                new Stat { Id = 55, Name = "PhysicalDamageLimit", DisplayName = "Physical Damage Limit+", Category = "Combat" },
+                new Stat { Id = 56, Name = "TPBonus", DisplayName = "TP Bonus", Category = "Combat" },
+                new Stat { Id = 57, Name = "WSDMG+", DisplayName = "Weapon Skill Damage +%", Category = "Combat" },
+                new Stat { Id = 58, Name = "Haste", Category = "Combat" },
+                new Stat { Id = 59, Name = "Zanshin2", DisplayName = "Zanshin", Category = "Combat" },
+                new Stat { Id = 60, Name = "DoubleAttackDamage", DisplayName = "Double Attack Damage", Category = "Combat" },
+
+                // Magic Stats
+                new Stat { Id = 61, Name = "MagicAccuracy", DisplayName = "Magic Accuracy", Category = "Magic" },
+                new Stat { Id = 62, Name = "MagicAttackBonus", DisplayName = "Magic Attack Bonus", Category = "Magic" },
+                new Stat { Id = 63, Name = "MagicDamage", DisplayName = "Magic Damage", Category = "Magic" },
+                new Stat { Id = 64, Name = "MagicCritRateII", DisplayName = "Magic Crit Rate II", Category = "Magic" },
+                new Stat { Id = 65, Name = "FastCast", DisplayName = "Fast Cast", Category = "Magic" },
+                new Stat { Id = 66, Name = "ConserveMP", DisplayName = "Conserve MP", Category = "Magic" },
+                new Stat { Id = 67, Name = "EnhancingMagicDuration", DisplayName = "Enhancing Magic Duration", Category = "Magic" },
+                new Stat { Id = 68, Name = "MagicBurstBonus", DisplayName = "Magic Burst Bonus", Category = "Magic" },
+                new Stat { Id = 69, Name = "MagicBurstBonusII", DisplayName = "Magic Burst Bonus II", Category = "Magic" },
+                new Stat { Id = 70, Name = "EnfeeblingMagicEffect", DisplayName = "Enfeebling Magic Effect", Category = "Magic" },
+                new Stat { Id = 71, Name = "PhysicalDamageToMP", DisplayName = "Physical Damage to MP", Category = "Magic" },
+                new Stat { Id = 72, Name = "RegenDuration", DisplayName = "Regen Duration", Category = "Job" },
+
+                // Defensive Stats
+                new Stat { Id = 73, Name = "Evasion", Category = "Defense" },
+                new Stat { Id = 74, Name = "Defense", Category = "Defense" },
+                new Stat { Id = 75, Name = "MagicEvasion", DisplayName = "Magic Evasion", Category = "Defense" },
+                new Stat { Id = 76, Name = "MagicDefenseBonus", DisplayName = "Magic Defense Bonus", Category = "Defense" },
+                new Stat { Id = 77, Name = "Regen", Category = "Defense" },
+                new Stat { Id = 78, Name = "ShieldBlock", DisplayName = "Shield Block Rate", Category = "Defense" },
+                new Stat { Id = 79, Name = "BlockSuccessRate", DisplayName = "Shield Block Rate", Category = "Defense" },
+                new Stat { Id = 80, Name = "DT-", DisplayName = "Damage Taken -%", Category = "Defense" },
+                new Stat { Id = 81, Name = "PDT-", DisplayName = "Physical Damage Taken -%", Category = "Defense" },
+                new Stat { Id = 82, Name = "MDT-", DisplayName = "Magic Damage Taken -%", Category = "Defense" },
+                new Stat { Id = 83, Name = "Enmity+", Category = "Defense" },
+                new Stat { Id = 84, Name = "Enmity-", Category = "Defense" },
+
+                // Ranged Stats
+                new Stat { Id = 85, Name = "Snapshot", Category = "Ranged" },
+                new Stat { Id = 86, Name = "RapidShot", DisplayName = "Rapid Shot", Category = "Ranged" },
+                new Stat { Id = 87, Name = "RangedAccuracy", DisplayName = "Ranged Accuracy", Category = "Ranged" },
+                new Stat { Id = 88, Name = "RangedAttack", DisplayName = "Ranged Attack", Category = "Ranged" },
+                new Stat { Id = 89, Name = "Barrage", DisplayName = "Barrage", Category = "Ranged" },
+
+                // Pet Stats
+                new Stat { Id = 90, Name = "PetMagicAccuracy", DisplayName = "Pet Magic Accuracy", Category = "Pet" },
+                new Stat { Id = 91, Name = "PetMagicAttack", DisplayName = "Pet Magic Attack", Category = "Pet" },
+                new Stat { Id = 92, Name = "PetDoubleAttack", DisplayName = "Pet Double Attack", Category = "Pet" },
+                new Stat { Id = 93, Name = "PetHaste", DisplayName = "Pet Haste", Category = "Pet" },
+                new Stat { Id = 94, Name = "PetAccuracy", DisplayName = "Pet Accuracy", Category = "Pet" },
+                new Stat { Id = 95, Name = "PetAttack", DisplayName = "Pet Attack", Category = "Pet" },
+                new Stat { Id = 96, Name = "PetRangedAccuracy", DisplayName = "Pet Ranged Accuracy", Category = "Pet" },
+                new Stat { Id = 97, Name = "PetRangedAttack", DisplayName = "Pet Ranged Attack", Category = "Pet" },
+                new Stat { Id = 98, Name = "PetStoreTP", DisplayName = "Pet Store TP", Category = "Pet" },
+                new Stat { Id = 99, Name = "PetDT", DisplayName = "Pet Store TP", Category = "Pet" },
+
+                // Utility Stats
+                new Stat { Id = 100, Name = "Refresh", Category = "Utility" },
+                new Stat { Id = 101, Name = "Regain", Category = "Utility" },
+                new Stat { Id = 102, Name = "TreasureHunter", DisplayName = "Treasure Hunter", Category = "Utility" },
+                new Stat { Id = 103, Name = "MovementSpeed", DisplayName = "Movement Speed", Category = "Utility" },
+                new Stat { Id = 104, Name = "SIRD", DisplayName = "Spell Interruption Rate Down", Category = "Utility" },
+                new Stat { Id = 105, Name = "Throwing", Category = "Utility" },
+                new Stat { Id = 106, Name = "OccultAcumen", Category = "Utility" },
+
+                // Job Specific
+                new Stat { Id = 107, Name = "BerserkDuration", DisplayName = "Berserk Duration", Category = "Job" },
+                new Stat { Id = 108, Name = "JobAbilityDuration", DisplayName = "Job Ability Duration", Category = "Job" },
+                new Stat { Id = 109, Name = "KickAttacks", DisplayName = "Kick Attacks", Category = "Job" },
+                new Stat { Id = 110, Name = "KickAttackDamage", DisplayName = "Kick Attack Damage", Category = "Job" },
+                new Stat { Id = 111, Name = "AfflatusSolace", DisplayName = "Afflatus Solace", Category = "Job" },
+                new Stat { Id = 112, Name = "Cursna", DisplayName = "Cursna", Category = "Job" },
+                new Stat { Id = 113, Name = "ManaWall", DisplayName = "Mana Wall", Category = "Job" },
+                new Stat { Id = 114, Name = "SneakAttack", DisplayName = "Sneak Attack", Category = "Job" },
+                new Stat { Id = 115, Name = "LastResortDuration", DisplayName = "Last Resort Duration", Category = "Job" },
+                new Stat { Id = 116, Name = "AbsorbDuration", DisplayName = "Absorb Duration", Category = "Job" },
+                new Stat { Id = 117, Name = "Reward", DisplayName = "Reward", Category = "Job" },
+                new Stat { Id = 118, Name = "Spur", DisplayName = "Spur", Category = "Job" },
+                new Stat { Id = 119, Name = "Madrigal", DisplayName = "Madrigal", Category = "Job" },
+                new Stat { Id = 120, Name = "Prelude", DisplayName = "Prelude", Category = "Job" },
+                new Stat { Id = 121, Name = "VelocityShot", DisplayName = "Velocity Shot", Category = "Job" },
+                new Stat { Id = 122, Name = "DoubleShotDamage", DisplayName = "Double Shot Damage", Category = "Job" },
+                new Stat { Id = 123, Name = "MeditateDuration", DisplayName = "Meditate Duration", Category = "Job" },
+                new Stat { Id = 124, Name = "Utsusemi", DisplayName = "Utsusemi", Category = "Job" },
+                new Stat { Id = 125, Name = "Migawari", DisplayName = "Migawari", Category = "Job" },
+                new Stat { Id = 126, Name = "AvatarLevel", DisplayName = "Avatar Level", Category = "Job" },
+                new Stat { Id = 127, Name = "BloodPactDamage", DisplayName = "Blood Pact Damage", Category = "Job" },
+                new Stat { Id = 128, Name = "MonsterCorrelationEffects", DisplayName = "Monster Correlation Effects", Category = "Job" },
+                new Stat { Id = 129, Name = "EffluxTPBonus", DisplayName = "Efflux TP Bonus", Category = "Job" },
+                new Stat { Id = 130, Name = "PhantomRollDuration", DisplayName = "Phantom Roll Duration", Category = "Job" },
+                new Stat { Id = 131, Name = "TripleShot", DisplayName = "Triple Shot", Category = "Job" },
+                new Stat { Id = 132, Name = "OverloadRate", DisplayName = "Overload Rate", Category = "Job" },
+                new Stat { Id = 133, Name = "AutomatonLevel", DisplayName = "Automaton Level", Category = "Job" },
+                new Stat { Id = 134, Name = "SambaDuration", DisplayName = "Samba Duration", Category = "Job" },
+                new Stat { Id = 135, Name = "IndicolureDuration", DisplayName = "Indicolure Duration", Category = "Job" },
+                new Stat { Id = 136, Name = "LifeCycle", DisplayName = "Life Cycle", Category = "Job" },
+                new Stat { Id = 137, Name = "Inquartata", DisplayName = "Inquartata", Category = "Job" },
+                new Stat { Id = 138, Name = "VallationValianceDuration", DisplayName = "Vallation Valiance Duration", Category = "Job" }
+            );
+
             // GearItem → GearCategory
             modelBuilder.Entity<GearItem>()
               .HasOne(g => g.Category)
@@ -90,39 +251,45 @@ namespace FFXIComp.Api
               .HasForeignKey(g => g.GearItemCategoryId)
               .IsRequired(false);
 
-            // GearItem → GearStats
-            modelBuilder.Entity<GearStat>()
-                .HasOne(gs => gs.GearItem)
-                .WithMany(gi => gi.GearStats)
-                .HasForeignKey(gs => gs.GearItemId);
-
-            // GearItem → GearItemJobs
+            // GearItem -> GearItemJob (1:M)
             modelBuilder.Entity<GearItemJob>()
                 .HasOne(gij => gij.GearItem)
                 .WithMany(gi => gi.GearItemJobs)
                 .HasForeignKey(gij => gij.GearItemId);
 
-            // GearItemJob → Job
             modelBuilder.Entity<GearItemJob>()
                 .HasOne(gij => gij.Job)
                 .WithMany(j => j.GearItemJobs)
                 .HasForeignKey(gij => gij.JobId);
 
-            // GearItem → GearItemSlots
+            // GearItem -> GearItemSlot (1:M)
             modelBuilder.Entity<GearItemSlot>()
                 .HasOne(gis => gis.GearItem)
                 .WithMany(gi => gi.GearItemSlots)
                 .HasForeignKey(gis => gis.GearItemId);
 
-            // GearItemSlot → GearSlot
             modelBuilder.Entity<GearItemSlot>()
                 .HasOne(gis => gis.GearSlot)
                 .WithMany(gs => gs.GearItemSlots)
                 .HasForeignKey(gis => gis.GearSlotId);
 
+            // GearItem -> GearItemStat (1:M)
+            modelBuilder.Entity<GearItemStat>()
+                .HasOne(gis => gis.GearItem)
+                .WithMany(gi => gi.GearItemStats)
+                .HasForeignKey(gis => gis.GearItemId);
 
+            modelBuilder.Entity<GearItemStat>()
+                .HasOne(gis => gis.Stat)
+                .WithMany(s => s.GearItemStats)
+                .HasForeignKey(gis => gis.StatId);
 
-            // Optional: Prevent duplicates
+            // Optional: Unique constraint on Stat.Name
+            modelBuilder.Entity<Stat>()
+                .HasIndex(s => s.Name)
+                .IsUnique();
+
+            // Optional: Unique constraints for GearItemJob and GearItemSlot
             modelBuilder.Entity<GearItemSlot>()
                 .HasIndex(gis => new { gis.GearItemId, gis.GearSlotId })
                 .IsUnique();

@@ -17,6 +17,6 @@ namespace FFXIComp.Api.Models
         [Required]
         public ICollection<GearItemSlot> GearItemSlots { get; set; } = new List<GearItemSlot>(); // Many-to-many relationship with GearSlot
         public ICollection<GearItemJob> GearItemJobs { get; set; } = new List<GearItemJob>();  // Many-to-many relationship with Job
-        public ICollection<GearStat> GearStats { get; set; } = new List<GearStat>(); // One-to-many relationship with GearStat
+        public ICollection<GearItemStat> GearItemStats { get; set; } = new List<GearItemStat>(); // Many-to-many relationship with GearItemStat
     }
 }
