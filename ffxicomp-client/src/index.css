@@ -4,3 +4,17 @@
 @theme {
   --font-inter: "Inter", sans-serif;
 }
+
+.ag-theme-alpine,
+.ag-theme-alpine-dark {
+  font-family: theme("fontFamily.sans"), sans-serif;
+  font-size: 0.875rem; /* text-sm */
+  background-color: transparent;
+}
+
+.ag-theme-alpine-dark {
+  --ag-background-color: #1f2937; /* Tailwind gray-800 */
+  --ag-header-background-color: #111827; /* Tailwind gray-900 */
+  --ag-foreground-color: #f9fafb; /* Tailwind gray-50 */
+  --ag-border-color: #374151; /* Tailwind gray-700 */
+}

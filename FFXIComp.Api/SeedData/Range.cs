@@ -19,13 +19,13 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 71 },
-                        new GearItemStat { Id = 41, Value = 252 },
-                        new GearItemStat { Id = 111, Value = 21 },
-                        new GearItemStat { Id = 22, Value = 242 },
-                        new GearItemStat { Id = 110, Value = 21 },
-                        new GearItemStat { Id = 47, Value = 6 },
-                        new GearItemStat { Id = 93, Value = 15 }
+                        new GearItemStat { StatId = 42, Value = 71 },
+                        new GearItemStat { StatId = 41, Value = 252 },
+                        new GearItemStat { StatId = 111, Value = 21 },
+                        new GearItemStat { StatId = 22, Value = 242 },
+                        new GearItemStat { StatId = 110, Value = 21 },
+                        new GearItemStat { StatId = 47, Value = 6 },
+                        new GearItemStat { StatId = 93, Value = 15 }
                     }
                 },
                 new GearItem
@@ -39,14 +39,14 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 125 },
-                        new GearItemStat { Id = 41, Value = 192 },
-                        new GearItemStat { Id = 91, Value = 5 },
-                        new GearItemStat { Id = 43, Value = 5 },
-                        new GearItemStat { Id = 110, Value = 5 },
-                        new GearItemStat { Id = 22, Value = 242 },
-                        new GearItemStat { Id = 2, Value = 5 },
-                        new GearItemStat { Id = 4, Value = 5 }
+                        new GearItemStat { StatId = 42, Value = 125 },
+                        new GearItemStat { StatId = 41, Value = 192 },
+                        new GearItemStat { StatId = 91, Value = 5 },
+                        new GearItemStat { StatId = 43, Value = 5 },
+                        new GearItemStat { StatId = 110, Value = 5 },
+                        new GearItemStat { StatId = 22, Value = 242 },
+                        new GearItemStat { StatId = 2, Value = 5 },
+                        new GearItemStat { StatId = 4, Value = 5 }
                     }
                 },
                 new GearItem
@@ -60,13 +60,13 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 99 },
-                        new GearItemStat { Id = 41, Value = 188 },
-                        new GearItemStat { Id = 43, Value = 6 },
-                        new GearItemStat { Id = 44, Value = 6 },
-                        new GearItemStat { Id = 110, Value = 11 },
-                        new GearItemStat { Id = 22, Value = 228 },
-                        new GearItemStat { Id = 45, Value = 2 }
+                        new GearItemStat { StatId = 42, Value = 99 },
+                        new GearItemStat { StatId = 41, Value = 188 },
+                        new GearItemStat { StatId = 43, Value = 6 },
+                        new GearItemStat { StatId = 44, Value = 6 },
+                        new GearItemStat { StatId = 110, Value = 11 },
+                        new GearItemStat { StatId = 22, Value = 228 },
+                        new GearItemStat { StatId = 45, Value = 2 }
                     }
                 },
                 new GearItem
@@ -80,11 +80,11 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 101 },
-                        new GearItemStat { Id = 41, Value = 192 },
-                        new GearItemStat { Id = 44, Value = 13 },
-                        new GearItemStat { Id = 50, Value = 2 },
-                        new GearItemStat { Id = 22, Value = 242 }
+                        new GearItemStat { StatId = 42, Value = 101 },
+                        new GearItemStat { StatId = 41, Value = 192 },
+                        new GearItemStat { StatId = 44, Value = 13 },
+                        new GearItemStat { StatId = 50, Value = 2 },
+                        new GearItemStat { StatId = 22, Value = 242 }
                     }
                 },
                 new GearItem
@@ -98,12 +98,12 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13}, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 17} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 103 },
-                        new GearItemStat { Id = 41, Value = 548 },
-                        new GearItemStat { Id = 21, Value = 228 },
-                        new GearItemStat { Id = 2, Value = 5 },
-                        new GearItemStat { Id = 4, Value = 5 },
-                        new GearItemStat { Id = 241, Value = 15 }
+                        new GearItemStat { StatId = 42, Value = 103 },
+                        new GearItemStat { StatId = 41, Value = 548 },
+                        new GearItemStat { StatId = 21, Value = 228 },
+                        new GearItemStat { StatId = 2, Value = 5 },
+                        new GearItemStat { StatId = 4, Value = 5 },
+                        new GearItemStat { StatId = 241, Value = 15 }
                     }
                 },
                 new GearItem
@@ -117,15 +117,15 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 20, Value = 250 },
-                        new GearItemStat { Id = 42, Value = 178 },
-                        new GearItemStat { Id = 41, Value = 360 },
-                        new GearItemStat { Id = 1, Value = 15 },
-                        new GearItemStat { Id = 2, Value = 15 },
-                        new GearItemStat { Id = 4, Value = 15 },
-                        new GearItemStat { Id = 110, Value = 40 },
-                        new GearItemStat { Id = 111, Value = 30 },
-                        new GearItemStat { Id = 68, Value = 40 }
+                        new GearItemStat { StatId = 20, Value = 250 },
+                        new GearItemStat { StatId = 42, Value = 178 },
+                        new GearItemStat { StatId = 41, Value = 360 },
+                        new GearItemStat { StatId = 1, Value = 15 },
+                        new GearItemStat { StatId = 2, Value = 15 },
+                        new GearItemStat { StatId = 4, Value = 15 },
+                        new GearItemStat { StatId = 110, Value = 40 },
+                        new GearItemStat { StatId = 111, Value = 30 },
+                        new GearItemStat { StatId = 68, Value = 40 }
                     }
                 },
                 new GearItem
@@ -139,12 +139,12 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 12} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 310 },
-                        new GearItemStat { Id = 41, Value = 524 },
-                        new GearItemStat { Id = 110, Value = 60 },
-                        new GearItemStat { Id = 111, Value = 45 },
-                        new GearItemStat { Id = 20, Value = 269 },
-                        new GearItemStat { Id = 45, Value = 5 }
+                        new GearItemStat { StatId = 42, Value = 310 },
+                        new GearItemStat { StatId = 41, Value = 524 },
+                        new GearItemStat { StatId = 110, Value = 60 },
+                        new GearItemStat { StatId = 111, Value = 45 },
+                        new GearItemStat { StatId = 20, Value = 269 },
+                        new GearItemStat { StatId = 45, Value = 5 }
                     }
                 },
                 new GearItem
@@ -158,12 +158,12 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 12} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 303 },
-                        new GearItemStat { Id = 41, Value = 524 },
-                        new GearItemStat { Id = 110, Value = 60 },
-                        new GearItemStat { Id = 111, Value = 45 },
-                        new GearItemStat { Id = 20, Value = 269 },
-                        new GearItemStat { Id = 45, Value = 5 }
+                        new GearItemStat { StatId = 42, Value = 303 },
+                        new GearItemStat { StatId = 41, Value = 524 },
+                        new GearItemStat { StatId = 110, Value = 60 },
+                        new GearItemStat { StatId = 111, Value = 45 },
+                        new GearItemStat { StatId = 20, Value = 269 },
+                        new GearItemStat { StatId = 45, Value = 5 }
                     }
                 },
                 new GearItem
@@ -177,12 +177,12 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 1, Value = 20 },
-                        new GearItemStat { Id = 4, Value = 70 },
-                        new GearItemStat { Id = 42, Value = 151 },
-                        new GearItemStat { Id = 41, Value = 582 },
-                        new GearItemStat { Id = 70, Value = 217 },
-                        new GearItemStat { Id = 21, Value = 269 }
+                        new GearItemStat { StatId = 1, Value = 20 },
+                        new GearItemStat { StatId = 4, Value = 70 },
+                        new GearItemStat { StatId = 42, Value = 151 },
+                        new GearItemStat { StatId = 41, Value = 582 },
+                        new GearItemStat { StatId = 70, Value = 217 },
+                        new GearItemStat { StatId = 21, Value = 269 }
                     }
                 },
                 new GearItem
@@ -196,11 +196,11 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 4, Value = 50 },
-                        new GearItemStat { Id = 42, Value = 143 },
-                        new GearItemStat { Id = 41, Value = 582 },
-                        new GearItemStat { Id = 70, Value = 217 },
-                        new GearItemStat { Id = 21, Value = 269 }
+                        new GearItemStat { StatId = 4, Value = 50 },
+                        new GearItemStat { StatId = 42, Value = 143 },
+                        new GearItemStat { StatId = 41, Value = 582 },
+                        new GearItemStat { StatId = 70, Value = 217 },
+                        new GearItemStat { StatId = 21, Value = 269 }
                     }
                 },
                 new GearItem
@@ -214,14 +214,14 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 176 },
-                        new GearItemStat { Id = 41, Value = 600 },
-                        new GearItemStat { Id = 110, Value = 30 },
-                        new GearItemStat { Id = 68, Value = 70 },
-                        new GearItemStat { Id = 70, Value = 155 },
-                        new GearItemStat { Id = 21, Value = 269 },
-                        new GearItemStat { Id = 50, Value = 10 },
-                        new GearItemStat { Id = 57, Value = 500 }
+                        new GearItemStat { StatId = 42, Value = 176 },
+                        new GearItemStat { StatId = 41, Value = 600 },
+                        new GearItemStat { StatId = 110, Value = 30 },
+                        new GearItemStat { StatId = 68, Value = 70 },
+                        new GearItemStat { StatId = 70, Value = 155 },
+                        new GearItemStat { StatId = 21, Value = 269 },
+                        new GearItemStat { StatId = 50, Value = 10 },
+                        new GearItemStat { StatId = 57, Value = 500 }
                     }
                 },
                 new GearItem
@@ -235,13 +235,13 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 167 },
-                        new GearItemStat { Id = 41, Value = 600 },
-                        new GearItemStat { Id = 68, Value = 40 },
-                        new GearItemStat { Id = 70, Value = 155 },
-                        new GearItemStat { Id = 21, Value = 269 },
-                        new GearItemStat { Id = 50, Value = 10 },
-                        new GearItemStat { Id = 57, Value = 500 }
+                        new GearItemStat { StatId = 42, Value = 167 },
+                        new GearItemStat { StatId = 41, Value = 600 },
+                        new GearItemStat { StatId = 68, Value = 40 },
+                        new GearItemStat { StatId = 70, Value = 155 },
+                        new GearItemStat { StatId = 21, Value = 269 },
+                        new GearItemStat { StatId = 50, Value = 10 },
+                        new GearItemStat { StatId = 57, Value = 500 }
                     }
                 },
                 new GearItem
@@ -255,14 +255,14 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 17} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 110, Value = 30 },
-                        new GearItemStat { Id = 68, Value = 30 },
-                        new GearItemStat { Id = 42, Value = 107 },
-                        new GearItemStat { Id = 41, Value = 480 },
-                        new GearItemStat { Id = 70, Value = 217 },
-                        new GearItemStat { Id = 21, Value = 269 },
-                        new GearItemStat { Id = 242, Value = 60 },
-                        new GearItemStat { Id = 194, Value = 60 }
+                        new GearItemStat { StatId = 110, Value = 30 },
+                        new GearItemStat { StatId = 68, Value = 30 },
+                        new GearItemStat { StatId = 42, Value = 107 },
+                        new GearItemStat { StatId = 41, Value = 480 },
+                        new GearItemStat { StatId = 70, Value = 217 },
+                        new GearItemStat { StatId = 21, Value = 269 },
+                        new GearItemStat { StatId = 242, Value = 60 },
+                        new GearItemStat { StatId = 194, Value = 60 }
                     }
                 },
                 new GearItem
@@ -276,12 +276,12 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 17} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 101 },
-                        new GearItemStat { Id = 41, Value = 480 },
-                        new GearItemStat { Id = 70, Value = 217 },
-                        new GearItemStat { Id = 21, Value = 269 },
-                        new GearItemStat { Id = 242, Value = 60 },
-                        new GearItemStat { Id = 194, Value = 60 }
+                        new GearItemStat { StatId = 42, Value = 101 },
+                        new GearItemStat { StatId = 41, Value = 480 },
+                        new GearItemStat { StatId = 70, Value = 217 },
+                        new GearItemStat { StatId = 21, Value = 269 },
+                        new GearItemStat { StatId = 242, Value = 60 },
+                        new GearItemStat { StatId = 194, Value = 60 }
                     }
                 },
                 new GearItem
@@ -295,9 +295,9 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 17}, new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 53 },
-                        new GearItemStat { Id = 41, Value = 600 },
-                        new GearItemStat { Id = 57, Value = 1000 }
+                        new GearItemStat { StatId = 42, Value = 53 },
+                        new GearItemStat { StatId = 41, Value = 600 },
+                        new GearItemStat { StatId = 57, Value = 1000 }
                     }
                 },
                 new GearItem
@@ -311,13 +311,13 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 17} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 4, Value = 25 },
-                        new GearItemStat { Id = 42, Value = 103 },
-                        new GearItemStat { Id = 41, Value = 480 },
-                        new GearItemStat { Id = 111, Value = 45 },
-                        new GearItemStat { Id = 69, Value = 30 },
-                        new GearItemStat { Id = 21, Value = 242 },
-                        new GearItemStat { Id = 46, Value = 10 }
+                        new GearItemStat { StatId = 4, Value = 25 },
+                        new GearItemStat { StatId = 42, Value = 103 },
+                        new GearItemStat { StatId = 41, Value = 480 },
+                        new GearItemStat { StatId = 111, Value = 45 },
+                        new GearItemStat { StatId = 69, Value = 30 },
+                        new GearItemStat { StatId = 21, Value = 242 },
+                        new GearItemStat { StatId = 46, Value = 10 }
                     }
                 },
                 new GearItem
@@ -331,11 +331,11 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 1, Value = 20 },
-                        new GearItemStat { Id = 2, Value = 70 },
-                        new GearItemStat { Id = 42, Value = 293 },
-                        new GearItemStat { Id = 41, Value = 490 },
-                        new GearItemStat { Id = 20, Value = 269 }
+                        new GearItemStat { StatId = 1, Value = 20 },
+                        new GearItemStat { StatId = 2, Value = 70 },
+                        new GearItemStat { StatId = 42, Value = 293 },
+                        new GearItemStat { StatId = 41, Value = 490 },
+                        new GearItemStat { StatId = 20, Value = 269 }
                     }
                 },
                 new GearItem
@@ -349,10 +349,10 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 2, Value = 50 },
-                        new GearItemStat { Id = 42, Value = 286 },
-                        new GearItemStat { Id = 41, Value = 490 },
-                        new GearItemStat { Id = 20, Value = 269 }
+                        new GearItemStat { StatId = 2, Value = 50 },
+                        new GearItemStat { StatId = 42, Value = 286 },
+                        new GearItemStat { StatId = 41, Value = 490 },
+                        new GearItemStat { StatId = 20, Value = 269 }
                     }
                 },
                 new GearItem
@@ -366,14 +366,14 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 337 },
-                        new GearItemStat { Id = 41, Value = 600 },
-                        new GearItemStat { Id = 68, Value = 70 },
-                        new GearItemStat { Id = 70, Value = 155 },
-                        new GearItemStat { Id = 20, Value = 269 },
-                        new GearItemStat { Id = 50, Value = 10 },
-                        new GearItemStat { Id = 57, Value = 500 },
-                        new GearItemStat { Id = 110, Value = 30 }
+                        new GearItemStat { StatId = 42, Value = 337 },
+                        new GearItemStat { StatId = 41, Value = 600 },
+                        new GearItemStat { StatId = 68, Value = 70 },
+                        new GearItemStat { StatId = 70, Value = 155 },
+                        new GearItemStat { StatId = 20, Value = 269 },
+                        new GearItemStat { StatId = 50, Value = 10 },
+                        new GearItemStat { StatId = 57, Value = 500 },
+                        new GearItemStat { StatId = 110, Value = 30 }
                     }
                 },
                 new GearItem
@@ -387,13 +387,13 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 330 },
-                        new GearItemStat { Id = 41, Value = 600 },
-                        new GearItemStat { Id = 68, Value = 40 },
-                        new GearItemStat { Id = 70, Value = 155 },
-                        new GearItemStat { Id = 20, Value = 269 },
-                        new GearItemStat { Id = 50, Value = 10 },
-                        new GearItemStat { Id = 57, Value = 500 }
+                        new GearItemStat { StatId = 42, Value = 330 },
+                        new GearItemStat { StatId = 41, Value = 600 },
+                        new GearItemStat { StatId = 68, Value = 40 },
+                        new GearItemStat { StatId = 70, Value = 155 },
+                        new GearItemStat { StatId = 20, Value = 269 },
+                        new GearItemStat { StatId = 50, Value = 10 },
+                        new GearItemStat { StatId = 57, Value = 500 }
                     }
                 },
                 new GearItem
@@ -407,9 +407,9 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 94 },
-                        new GearItemStat { Id = 41, Value = 524 },
-                        new GearItemStat { Id = 57, Value = 1000 }
+                        new GearItemStat { StatId = 42, Value = 94 },
+                        new GearItemStat { StatId = 41, Value = 524 },
+                        new GearItemStat { StatId = 57, Value = 1000 }
                     }
                 },
                 new GearItem
@@ -423,13 +423,13 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 155 },
-                        new GearItemStat { Id = 41, Value = 582 },
-                        new GearItemStat { Id = 110, Value = 60 },
-                        new GearItemStat { Id = 111, Value = 45 },
-                        new GearItemStat { Id = 70, Value = 155 },
-                        new GearItemStat { Id = 21, Value = 269 },
-                        new GearItemStat { Id = 50, Value = 5 }
+                        new GearItemStat { StatId = 42, Value = 155 },
+                        new GearItemStat { StatId = 41, Value = 582 },
+                        new GearItemStat { StatId = 110, Value = 60 },
+                        new GearItemStat { StatId = 111, Value = 45 },
+                        new GearItemStat { StatId = 70, Value = 155 },
+                        new GearItemStat { StatId = 21, Value = 269 },
+                        new GearItemStat { StatId = 50, Value = 5 }
                     }
                 },
                 new GearItem
@@ -443,12 +443,12 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 143 },
-                        new GearItemStat { Id = 41, Value = 582 },
-                        new GearItemStat { Id = 110, Value = 60 },
-                        new GearItemStat { Id = 111, Value = 45 },
-                        new GearItemStat { Id = 70, Value = 155 },
-                        new GearItemStat { Id = 21, Value = 269 }
+                        new GearItemStat { StatId = 42, Value = 143 },
+                        new GearItemStat { StatId = 41, Value = 582 },
+                        new GearItemStat { StatId = 110, Value = 60 },
+                        new GearItemStat { StatId = 111, Value = 45 },
+                        new GearItemStat { StatId = 70, Value = 155 },
+                        new GearItemStat { StatId = 21, Value = 269 }
                     }
                 },
                 new GearItem
@@ -462,13 +462,13 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 181 },
-                        new GearItemStat { Id = 41, Value = 432 },
-                        new GearItemStat { Id = 110, Value = 50 },
-                        new GearItemStat { Id = 70, Value = 217 },
-                        new GearItemStat { Id = 21, Value = 269 },
-                        new GearItemStat { Id = 68, Value = 30 },
-                        new GearItemStat { Id = 204, Value = 70 }
+                        new GearItemStat { StatId = 42, Value = 181 },
+                        new GearItemStat { StatId = 41, Value = 432 },
+                        new GearItemStat { StatId = 110, Value = 50 },
+                        new GearItemStat { StatId = 70, Value = 217 },
+                        new GearItemStat { StatId = 21, Value = 269 },
+                        new GearItemStat { StatId = 68, Value = 30 },
+                        new GearItemStat { StatId = 204, Value = 70 }
                     }
                 },
                 new GearItem
@@ -482,12 +482,12 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 176 },
-                        new GearItemStat { Id = 41, Value = 432 },
-                        new GearItemStat { Id = 110, Value = 20 },
-                        new GearItemStat { Id = 70, Value = 217 },
-                        new GearItemStat { Id = 21, Value = 269 },
-                        new GearItemStat { Id = 204, Value = 70 }
+                        new GearItemStat { StatId = 42, Value = 176 },
+                        new GearItemStat { StatId = 41, Value = 432 },
+                        new GearItemStat { StatId = 110, Value = 20 },
+                        new GearItemStat { StatId = 70, Value = 217 },
+                        new GearItemStat { StatId = 21, Value = 269 },
+                        new GearItemStat { StatId = 204, Value = 70 }
                     }
                 },
                 new GearItem
@@ -501,11 +501,11 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 42, Value = 111 },
-                        new GearItemStat { Id = 41, Value = 227 },
-                        new GearItemStat { Id = 4, Value = 15 },
-                        new GearItemStat { Id = 110, Value = 37 },
-                        new GearItemStat { Id = 21, Value = 242 }
+                        new GearItemStat { StatId = 42, Value = 111 },
+                        new GearItemStat { StatId = 41, Value = 227 },
+                        new GearItemStat { StatId = 4, Value = 15 },
+                        new GearItemStat { StatId = 110, Value = 37 },
+                        new GearItemStat { StatId = 21, Value = 242 }
                     }
                 },
                 new GearItem
@@ -519,16 +519,16 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 1, Value = 15 },
-                        new GearItemStat { Id = 4, Value = 15 },
-                        new GearItemStat { Id = 42, Value = 271 },
-                        new GearItemStat { Id = 41, Value = 540 },
-                        new GearItemStat { Id = 110, Value = 40 },
-                        new GearItemStat { Id = 111, Value = 30 },
-                        new GearItemStat { Id = 20, Value = 255 },
-                        new GearItemStat { Id = 187, Value = 5 },
-                        new GearItemStat { Id = 50, Value = 5 },
-                        new GearItemStat { Id = 68, Value = 0 }
+                        new GearItemStat { StatId = 1, Value = 15 },
+                        new GearItemStat { StatId = 4, Value = 15 },
+                        new GearItemStat { StatId = 42, Value = 271 },
+                        new GearItemStat { StatId = 41, Value = 540 },
+                        new GearItemStat { StatId = 110, Value = 40 },
+                        new GearItemStat { StatId = 111, Value = 30 },
+                        new GearItemStat { StatId = 20, Value = 255 },
+                        new GearItemStat { StatId = 187, Value = 5 },
+                        new GearItemStat { StatId = 50, Value = 5 },
+                        new GearItemStat { StatId = 68, Value = 0 }
                     }
                 },
                 new GearItem
@@ -542,16 +542,16 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 1, Value = 15 },
-                        new GearItemStat { Id = 4, Value = 15 },
-                        new GearItemStat { Id = 42, Value = 286 },
-                        new GearItemStat { Id = 41, Value = 540 },
-                        new GearItemStat { Id = 110, Value = 40 },
-                        new GearItemStat { Id = 111, Value = 60 },
-                        new GearItemStat { Id = 20, Value = 255 },
-                        new GearItemStat { Id = 187, Value = 5 },
-                        new GearItemStat { Id = 50, Value = 5 },
-                        new GearItemStat { Id = 68, Value = 0 }
+                        new GearItemStat { StatId = 1, Value = 15 },
+                        new GearItemStat { StatId = 4, Value = 15 },
+                        new GearItemStat { StatId = 42, Value = 286 },
+                        new GearItemStat { StatId = 41, Value = 540 },
+                        new GearItemStat { StatId = 110, Value = 40 },
+                        new GearItemStat { StatId = 111, Value = 60 },
+                        new GearItemStat { StatId = 20, Value = 255 },
+                        new GearItemStat { StatId = 187, Value = 5 },
+                        new GearItemStat { StatId = 50, Value = 5 },
+                        new GearItemStat { StatId = 68, Value = 0 }
                     }
                 },
                 new GearItem
@@ -565,16 +565,16 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 1, Value = 15 },
-                        new GearItemStat { Id = 4, Value = 15 },
-                        new GearItemStat { Id = 42, Value = 288 },
-                        new GearItemStat { Id = 41, Value = 540 },
-                        new GearItemStat { Id = 110, Value = 45 },
-                        new GearItemStat { Id = 111, Value = 65 },
-                        new GearItemStat { Id = 20, Value = 255 },
-                        new GearItemStat { Id = 187, Value = 5 },
-                        new GearItemStat { Id = 50, Value = 5 },
-                        new GearItemStat { Id = 68, Value = 5 }
+                        new GearItemStat { StatId = 1, Value = 15 },
+                        new GearItemStat { StatId = 4, Value = 15 },
+                        new GearItemStat { StatId = 42, Value = 288 },
+                        new GearItemStat { StatId = 41, Value = 540 },
+                        new GearItemStat { StatId = 110, Value = 45 },
+                        new GearItemStat { StatId = 111, Value = 65 },
+                        new GearItemStat { StatId = 20, Value = 255 },
+                        new GearItemStat { StatId = 187, Value = 5 },
+                        new GearItemStat { StatId = 50, Value = 5 },
+                        new GearItemStat { StatId = 68, Value = 5 }
                     }
                 },
                 new GearItem
@@ -588,16 +588,16 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 1, Value = 15 },
-                        new GearItemStat { Id = 4, Value = 15 },
-                        new GearItemStat { Id = 42, Value = 290 },
-                        new GearItemStat { Id = 41, Value = 540 },
-                        new GearItemStat { Id = 110, Value = 50 },
-                        new GearItemStat { Id = 111, Value = 70 },
-                        new GearItemStat { Id = 20, Value = 255 },
-                        new GearItemStat { Id = 187, Value = 5 },
-                        new GearItemStat { Id = 50, Value = 5 },
-                        new GearItemStat { Id = 68, Value = 10 }
+                        new GearItemStat { StatId = 1, Value = 15 },
+                        new GearItemStat { StatId = 4, Value = 15 },
+                        new GearItemStat { StatId = 42, Value = 290 },
+                        new GearItemStat { StatId = 41, Value = 540 },
+                        new GearItemStat { StatId = 110, Value = 50 },
+                        new GearItemStat { StatId = 111, Value = 70 },
+                        new GearItemStat { StatId = 20, Value = 255 },
+                        new GearItemStat { StatId = 187, Value = 5 },
+                        new GearItemStat { StatId = 50, Value = 5 },
+                        new GearItemStat { StatId = 68, Value = 10 }
                     }
                 },
                 new GearItem
@@ -611,16 +611,16 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 1, Value = 15 },
-                        new GearItemStat { Id = 4, Value = 15 },
-                        new GearItemStat { Id = 42, Value = 292 },
-                        new GearItemStat { Id = 41, Value = 540 },
-                        new GearItemStat { Id = 110, Value = 55 },
-                        new GearItemStat { Id = 111, Value = 75 },
-                        new GearItemStat { Id = 20, Value = 255 },
-                        new GearItemStat { Id = 187, Value = 5 },
-                        new GearItemStat { Id = 50, Value = 5 },
-                        new GearItemStat { Id = 68, Value = 15 }
+                        new GearItemStat { StatId = 1, Value = 15 },
+                        new GearItemStat { StatId = 4, Value = 15 },
+                        new GearItemStat { StatId = 42, Value = 292 },
+                        new GearItemStat { StatId = 41, Value = 540 },
+                        new GearItemStat { StatId = 110, Value = 55 },
+                        new GearItemStat { StatId = 111, Value = 75 },
+                        new GearItemStat { StatId = 20, Value = 255 },
+                        new GearItemStat { StatId = 187, Value = 5 },
+                        new GearItemStat { StatId = 50, Value = 5 },
+                        new GearItemStat { StatId = 68, Value = 15 }
                     }
                 },
                 new GearItem
@@ -634,17 +634,17 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 4, Value = 15 },
-                        new GearItemStat { Id = 6, Value = 15 },
-                        new GearItemStat { Id = 42, Value = 115 },
-                        new GearItemStat { Id = 41, Value = 432 },
-                        new GearItemStat { Id = 110, Value = 40 },
-                        new GearItemStat { Id = 111, Value = 30 },
-                        new GearItemStat { Id = 21, Value = 255 },
-                        new GearItemStat { Id = 50, Value = 5 },
-                        new GearItemStat { Id = 45, Value = 5 },
-                        new GearItemStat { Id = 54, Value = 10 },
-                        new GearItemStat { Id = 68, Value = 0 }
+                        new GearItemStat { StatId = 4, Value = 15 },
+                        new GearItemStat { StatId = 6, Value = 15 },
+                        new GearItemStat { StatId = 42, Value = 115 },
+                        new GearItemStat { StatId = 41, Value = 432 },
+                        new GearItemStat { StatId = 110, Value = 40 },
+                        new GearItemStat { StatId = 111, Value = 30 },
+                        new GearItemStat { StatId = 21, Value = 255 },
+                        new GearItemStat { StatId = 50, Value = 5 },
+                        new GearItemStat { StatId = 45, Value = 5 },
+                        new GearItemStat { StatId = 54, Value = 10 },
+                        new GearItemStat { StatId = 68, Value = 0 }
                     }
                 },
                 new GearItem
@@ -658,17 +658,17 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 4, Value = 15 },
-                        new GearItemStat { Id = 6, Value = 15 },
-                        new GearItemStat { Id = 42, Value = 120 },
-                        new GearItemStat { Id = 41, Value = 432 },
-                        new GearItemStat { Id = 110, Value = 40 },
-                        new GearItemStat { Id = 111, Value = 60 },
-                        new GearItemStat { Id = 21, Value = 255 },
-                        new GearItemStat { Id = 50, Value = 5 },
-                        new GearItemStat { Id = 45, Value = 5 },
-                        new GearItemStat { Id = 54, Value = 10 },
-                        new GearItemStat { Id = 68, Value = 0 }
+                        new GearItemStat { StatId = 4, Value = 15 },
+                        new GearItemStat { StatId = 6, Value = 15 },
+                        new GearItemStat { StatId = 42, Value = 120 },
+                        new GearItemStat { StatId = 41, Value = 432 },
+                        new GearItemStat { StatId = 110, Value = 40 },
+                        new GearItemStat { StatId = 111, Value = 60 },
+                        new GearItemStat { StatId = 21, Value = 255 },
+                        new GearItemStat { StatId = 50, Value = 5 },
+                        new GearItemStat { StatId = 45, Value = 5 },
+                        new GearItemStat { StatId = 54, Value = 10 },
+                        new GearItemStat { StatId = 68, Value = 0 }
                     }
                 },
                 new GearItem
@@ -682,17 +682,17 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 4, Value = 15 },
-                        new GearItemStat { Id = 6, Value = 15 },
-                        new GearItemStat { Id = 42, Value = 121 },
-                        new GearItemStat { Id = 41, Value = 432 },
-                        new GearItemStat { Id = 110, Value = 45 },
-                        new GearItemStat { Id = 111, Value = 65 },
-                        new GearItemStat { Id = 21, Value = 255 },
-                        new GearItemStat { Id = 50, Value = 5 },
-                        new GearItemStat { Id = 45, Value = 5 },
-                        new GearItemStat { Id = 54, Value = 10 },
-                        new GearItemStat { Id = 68, Value = 5 }
+                        new GearItemStat { StatId = 4, Value = 15 },
+                        new GearItemStat { StatId = 6, Value = 15 },
+                        new GearItemStat { StatId = 42, Value = 121 },
+                        new GearItemStat { StatId = 41, Value = 432 },
+                        new GearItemStat { StatId = 110, Value = 45 },
+                        new GearItemStat { StatId = 111, Value = 65 },
+                        new GearItemStat { StatId = 21, Value = 255 },
+                        new GearItemStat { StatId = 50, Value = 5 },
+                        new GearItemStat { StatId = 45, Value = 5 },
+                        new GearItemStat { StatId = 54, Value = 10 },
+                        new GearItemStat { StatId = 68, Value = 5 }
                     }
                 },
                 new GearItem
@@ -706,17 +706,17 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 4, Value = 15 },
-                        new GearItemStat { Id = 6, Value = 15 },
-                        new GearItemStat { Id = 42, Value = 123 },
-                        new GearItemStat { Id = 41, Value = 432 },
-                        new GearItemStat { Id = 110, Value = 50 },
-                        new GearItemStat { Id = 111, Value = 70 },
-                        new GearItemStat { Id = 21, Value = 255 },
-                        new GearItemStat { Id = 50, Value = 5 },
-                        new GearItemStat { Id = 45, Value = 5 },
-                        new GearItemStat { Id = 54, Value = 10 },
-                        new GearItemStat { Id = 68, Value = 10 }
+                        new GearItemStat { StatId = 4, Value = 15 },
+                        new GearItemStat { StatId = 6, Value = 15 },
+                        new GearItemStat { StatId = 42, Value = 123 },
+                        new GearItemStat { StatId = 41, Value = 432 },
+                        new GearItemStat { StatId = 110, Value = 50 },
+                        new GearItemStat { StatId = 111, Value = 70 },
+                        new GearItemStat { StatId = 21, Value = 255 },
+                        new GearItemStat { StatId = 50, Value = 5 },
+                        new GearItemStat { StatId = 45, Value = 5 },
+                        new GearItemStat { StatId = 54, Value = 10 },
+                        new GearItemStat { StatId = 68, Value = 10 }
                     }
                 },
                 new GearItem
@@ -730,17 +730,17 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 4, Value = 15 },
-                        new GearItemStat { Id = 6, Value = 15 },
-                        new GearItemStat { Id = 42, Value = 124 },
-                        new GearItemStat { Id = 41, Value = 432 },
-                        new GearItemStat { Id = 110, Value = 55 },
-                        new GearItemStat { Id = 111, Value = 75 },
-                        new GearItemStat { Id = 21, Value = 255 },
-                        new GearItemStat { Id = 50, Value = 5 },
-                        new GearItemStat { Id = 45, Value = 5 },
-                        new GearItemStat { Id = 54, Value = 10 },
-                        new GearItemStat { Id = 68, Value = 15 }
+                        new GearItemStat { StatId = 4, Value = 15 },
+                        new GearItemStat { StatId = 6, Value = 15 },
+                        new GearItemStat { StatId = 42, Value = 124 },
+                        new GearItemStat { StatId = 41, Value = 432 },
+                        new GearItemStat { StatId = 110, Value = 55 },
+                        new GearItemStat { StatId = 111, Value = 75 },
+                        new GearItemStat { StatId = 21, Value = 255 },
+                        new GearItemStat { StatId = 50, Value = 5 },
+                        new GearItemStat { StatId = 45, Value = 5 },
+                        new GearItemStat { StatId = 54, Value = 10 },
+                        new GearItemStat { StatId = 68, Value = 15 }
                     }
                 },
                 new GearItem
@@ -754,15 +754,15 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 21, Value = 277 },
-                        new GearItemStat { Id = 42, Value = 162 },
-                        new GearItemStat { Id = 41, Value = 582 },
-                        new GearItemStat { Id = 2, Value = 35 },
-                        new GearItemStat { Id = 4, Value = 35 },
-                        new GearItemStat { Id = 231, Value = 277 },
-                        new GearItemStat { Id = 45, Value = 15 },
-                        new GearItemStat { Id = 68, Value = 35 },
-                        new GearItemStat { Id = 110, Value = 35 }
+                        new GearItemStat { StatId = 21, Value = 277 },
+                        new GearItemStat { StatId = 42, Value = 162 },
+                        new GearItemStat { StatId = 41, Value = 582 },
+                        new GearItemStat { StatId = 2, Value = 35 },
+                        new GearItemStat { StatId = 4, Value = 35 },
+                        new GearItemStat { StatId = 231, Value = 277 },
+                        new GearItemStat { StatId = 45, Value = 15 },
+                        new GearItemStat { StatId = 68, Value = 35 },
+                        new GearItemStat { StatId = 110, Value = 35 }
                     }
                 },
                 new GearItem
@@ -776,15 +776,15 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11}, new GearItemJob { JobId= 17} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 21, Value = 269 },
-                        new GearItemStat { Id = 42, Value = 151 },
-                        new GearItemStat { Id = 41, Value = 582 },
-                        new GearItemStat { Id = 2, Value = 30 },
-                        new GearItemStat { Id = 4, Value = 30 },
-                        new GearItemStat { Id = 231, Value = 269 },
-                        new GearItemStat { Id = 45, Value = 12 },
-                        new GearItemStat { Id = 68, Value = 30 },
-                        new GearItemStat { Id = 110, Value = 30 }
+                        new GearItemStat { StatId = 21, Value = 269 },
+                        new GearItemStat { StatId = 42, Value = 151 },
+                        new GearItemStat { StatId = 41, Value = 582 },
+                        new GearItemStat { StatId = 2, Value = 30 },
+                        new GearItemStat { StatId = 4, Value = 30 },
+                        new GearItemStat { StatId = 231, Value = 269 },
+                        new GearItemStat { StatId = 45, Value = 12 },
+                        new GearItemStat { StatId = 68, Value = 30 },
+                        new GearItemStat { StatId = 110, Value = 30 }
                     }
                 },
                 new GearItem
@@ -798,15 +798,15 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 20, Value = 277 },
-                        new GearItemStat { Id = 42, Value = 324 },
-                        new GearItemStat { Id = 41, Value = 524 },
-                        new GearItemStat { Id = 1, Value = 35 },
-                        new GearItemStat { Id = 4, Value = 35 },
-                        new GearItemStat { Id = 50, Value = 10 },
-                        new GearItemStat { Id = 231, Value = 277 },
-                        new GearItemStat { Id = 68, Value = 35 },
-                        new GearItemStat { Id = 110, Value = 35 }
+                        new GearItemStat { StatId = 20, Value = 277 },
+                        new GearItemStat { StatId = 42, Value = 324 },
+                        new GearItemStat { StatId = 41, Value = 524 },
+                        new GearItemStat { StatId = 1, Value = 35 },
+                        new GearItemStat { StatId = 4, Value = 35 },
+                        new GearItemStat { StatId = 50, Value = 10 },
+                        new GearItemStat { StatId = 231, Value = 277 },
+                        new GearItemStat { StatId = 68, Value = 35 },
+                        new GearItemStat { StatId = 110, Value = 35 }
                     }
                 },
                 new GearItem
@@ -820,15 +820,15 @@ namespace FFXIComp.Api.SeedData
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 11} },
                     GearItemStats = new List<GearItemStat>
                     {
-                        new GearItemStat { Id = 20, Value = 269 },
-                        new GearItemStat { Id = 42, Value = 309 },
-                        new GearItemStat { Id = 41, Value = 524 },
-                        new GearItemStat { Id = 1, Value = 30 },
-                        new GearItemStat { Id = 4, Value = 30 },
-                        new GearItemStat { Id = 50, Value = 7 },
-                        new GearItemStat { Id = 231, Value = 269 },
-                        new GearItemStat { Id = 68, Value = 30 },
-                        new GearItemStat { Id = 110, Value = 30 }
+                        new GearItemStat { StatId = 20, Value = 269 },
+                        new GearItemStat { StatId = 42, Value = 309 },
+                        new GearItemStat { StatId = 41, Value = 524 },
+                        new GearItemStat { StatId = 1, Value = 30 },
+                        new GearItemStat { StatId = 4, Value = 30 },
+                        new GearItemStat { StatId = 50, Value = 7 },
+                        new GearItemStat { StatId = 231, Value = 269 },
+                        new GearItemStat { StatId = 68, Value = 30 },
+                        new GearItemStat { StatId = 110, Value = 30 }
                     }
                 }
             };

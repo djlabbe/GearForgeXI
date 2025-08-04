@@ -151,7 +151,7 @@ namespace FFXIComp.Api
                 new Stat { Id = 55, Name = "WeaponSkillAccuracy", DisplayName = "Weapon Skill Accuracy", Category = "Combat" },
                 new Stat { Id = 56, Name = "PhysicalDamageLimit", DisplayName = "Physical Damage Limit+", Category = "Combat" },
                 new Stat { Id = 57, Name = "TPBonus", DisplayName = "TP Bonus", Category = "Combat" },
-                new Stat { Id = 58, Name = "WSDMG+", DisplayName = "Weapon Skill Damage +%", Category = "Combat" },
+                new Stat { Id = 58, Name = "WSDMG+", DisplayName = "Weapon Skill Damage +%", Category = "Combat" }, // Not used?
                 new Stat { Id = 59, Name = "Haste", Category = "Combat" },
                 new Stat { Id = 60, Name = "Zanshin2", DisplayName = "Zanshin", Category = "Combat" },
                 new Stat { Id = 61, Name = "DoubleAttackDamage", DisplayName = "Double Attack Damage", Category = "Combat" },
@@ -330,7 +330,7 @@ namespace FFXIComp.Api
 
                 // RNG
                 new Stat { Id = 162, Name = "VelocityShot", DisplayName = "Velocity Shot", Category = "Job" },
-                new Stat { Id = 163, Name = "DoubleShotDamage", DisplayName = "Double Shot Damage", Category = "Job" },
+                // new Stat { Id = 163, Name = "DoubleShotDamage", DisplayName = "Double Shot Damage", Category = "Job" },
                 new Stat { Id = 182, Name = "Recycle", DisplayName = "Recycle", Category = "Job" },
 
                 // SAM
@@ -362,7 +362,7 @@ namespace FFXIComp.Api
 
                 // COR
                 new Stat { Id = 171, Name = "PhantomRollDuration", DisplayName = "Phantom Roll Duration", Category = "Job" },
-                new Stat { Id = 172, Name = "TripleShot", DisplayName = "Triple Shot", Category = "Job" },
+                // new Stat { Id = 172, Name = "TripleShot", DisplayName = "Triple Shot", Category = "Job" },
                 new Stat { Id = 193, Name = "QuickDrawDamage", DisplayName = "Quick Draw Damage", Category = "Job" },
                 new Stat { Id = 242, Name = "QuickDrawDamage%", DisplayName = "Quick Draw Damage %", Category = "Job" },
                 new Stat { Id = 194, Name = "QuickDrawMagicAccuracy", DisplayName = "Quick Draw Magic Accuracy", Category = "Job" },

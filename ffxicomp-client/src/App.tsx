@@ -3,6 +3,11 @@ import { GearBrowser } from "./pages/GearBrowser";
 import ComparePage from "./pages/Compare";
 import { Navbar } from "./components/Navbar";
 import { JobsProvider } from "./contexts/JobsContext";
+import { Stats } from "./pages/Stats";
+
+import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
+// Register all Community features
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 function App() {
   return (
@@ -14,6 +19,7 @@ function App() {
             <Routes>
               <Route path="/" element={<ComparePage />} />
               <Route path="/browse" element={<GearBrowser />} />
+              <Route path="/stats" element={<Stats />} />
             </Routes>
           </main>
         </Router>

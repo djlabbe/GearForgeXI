@@ -11,12 +11,20 @@ public class GearController(GearDbContext context) : ControllerBase
     private readonly GearDbContext _context = context;
 
     [HttpGet]
+    [HttpGet]
     public async Task<IActionResult> GetGear([FromQuery] string? job, [FromQuery] string? slot)
     {
         var jobNormalized = job?.Trim().ToUpper();
         var slotNormalized = slot?.Trim().ToLower();
 
         var query = _context.GearItems
+            .Include(g => g.GearItemStats)
+                .ThenInclude(gis => gis.Stat)
+            .Include(g => g.GearItemJobs)
+                .ThenInclude(gj => gj.Job)
+            .Include(g => g.GearItemSlots)
+                .ThenInclude(gs => gs.GearSlot)
+            .Include(g => g.Category)
             .Where(g =>
                 (string.IsNullOrWhiteSpace(jobNormalized) ||
                     g.GearItemJobs.Any(j => j.Job.Abbreviation == jobNormalized) ||
@@ -29,9 +37,9 @@ public class GearController(GearDbContext context) : ControllerBase
                 Id = g.Id,
                 Name = g.Name,
                 Category = g.Category != null ? g.Category.Name : null,
-                Stats = g.GearStats.Select(s => new GearStatDto
+                Stats = g.GearItemStats.Select(s => new GearStatDto
                 {
-                    Name = s.Name,
+                    Name = s.Stat.Name,
                     Value = s.Value
                 }).ToList(),
                 Jobs = g.GearItemJobs.Select(j => j.Job.Abbreviation).ToList(),
@@ -41,6 +49,7 @@ public class GearController(GearDbContext context) : ControllerBase
         var result = await query.ToListAsync();
         return Ok(result);
     }
+
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetGearItem(int id)
@@ -52,10 +61,10 @@ public class GearController(GearDbContext context) : ControllerBase
                 Id = g.Id,
                 Name = g.Name,
                 Category = g.Category != null ? g.Category.Name : null,
-                Stats = g.GearStats
+                Stats = g.GearItemStats
                     .Select(s => new GearStatDto
                     {
-                        Name = s.Name,
+                        Name = s.Stat.Name,
                         Value = s.Value
                     }).ToList(),
                 Jobs = g.GearItemJobs
@@ -69,4 +78,5 @@ public class GearController(GearDbContext context) : ControllerBase
 
         return itemDto is null ? NotFound() : Ok(itemDto);
     }
+
 }
