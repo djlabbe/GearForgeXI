@@ -21,8 +21,8 @@ public static class Main2H
                 new GearItemStat { Id = 42, Value = 326 },
                 new GearItemStat { Id = 41, Value = 437 },
                 new GearItemStat { Id = 43, Value = 60 },
-                new GearStat { Name = "Great Katana Skill", Value = 269 },
-                new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                new GearItemStat { Id = 17, Value = 269 },
+                new GearItemStat { Id = 231, Value = 228 },
                 new GearItemStat { Id = 53, Value = 5 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 12 } }
@@ -40,8 +40,8 @@ public static class Main2H
                 new GearItemStat { Id = 42, Value = 308 },
                 new GearItemStat { Id = 41, Value = 437 },
                 new GearItemStat { Id = 43, Value = 60 },
-                new GearStat { Name = "Great Katana Skill", Value = 269 },
-                new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                new GearItemStat { Id = 17, Value = 269 },
+                new GearItemStat { Id = 231, Value = 228 },
                 new GearItemStat { Id = 53, Value = 0 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 12 } }
@@ -59,9 +59,9 @@ public static class Main2H
                 new GearItemStat { Id = 42, Value = 387 },
                 new GearItemStat { Id = 41, Value = 528 },
                 new GearItemStat { Id = 70, Value = 186 },
-                new GearStat { Name = "Scythe Skill", Value = 269 },
+                new GearItemStat { Id = 14, Value = 269 },
                 new GearItemStat { Id = 57, Value = 500 },
-                new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                new GearItemStat { Id = 231, Value = 242 },
                 new GearItemStat { Id = 43, Value = 30 },
                 new GearItemStat { Id = 68, Value = 30 },
                 new GearItemStat { Id = 50, Value = 10 }
@@ -81,9 +81,9 @@ public static class Main2H
                 new GearItemStat { Id = 42, Value = 370 },
                 new GearItemStat { Id = 41, Value = 528 },
                 new GearItemStat { Id = 70, Value = 186 },
-                new GearStat { Name = "Scythe Skill", Value = 269 },
+                new GearItemStat { Id = 14, Value = 269 },
                 new GearItemStat { Id = 57, Value = 500 },
-                new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                new GearItemStat { Id = 231, Value = 242 },
                 new GearItemStat { Id = 43, Value = 0 },
                 new GearItemStat { Id = 68, Value = 0 },
                 new GearItemStat { Id = 50, Value = 10 }
@@ -103,8 +103,8 @@ public static class Main2H
                 new GearItemStat { Id = 42, Value = 383 },
                 new GearItemStat { Id = 41, Value = 513 },
                 new GearItemStat { Id = 70, Value = 217 },
-                new GearStat { Name = "Scythe Skill", Value = 269 },
-                new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                new GearItemStat { Id = 14, Value = 269 },
+                new GearItemStat { Id = 231, Value = 242 },
                 new GearItemStat { Id = 43, Value = 60 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 8 } }
@@ -122,8 +122,8 @@ public static class Main2H
                 new GearItemStat { Id = 42, Value = 362 },
                 new GearItemStat { Id = 41, Value = 513 },
                 new GearItemStat { Id = 70, Value = 217 },
-                new GearStat { Name = "Scythe Skill", Value = 269 },
-                new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                new GearItemStat { Id = 14, Value = 269 },
+                new GearItemStat { Id = 231, Value = 242 },
                 new GearItemStat { Id = 43, Value = 60 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 8 } }
@@ -142,7 +142,7 @@ public static class Main2H
                 new GearItemStat { Id = 41, Value = 430 },
                 new GearItemStat { Id = 70, Value = 155 },
                 new GearItemStat { Id = 11, Value = 269 },
-                new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                new GearItemStat { Id = 231, Value = 242 },
                 new GearItemStat { Id = 3, Value = 70 },
                 new GearItemStat { Id = 1, Value = 20 }
             },
@@ -162,7 +162,7 @@ public static class Main2H
                 new GearItemStat { Id = 41, Value = 430 },
                 new GearItemStat { Id = 70, Value = 155 },
                 new GearItemStat { Id = 11, Value = 269 },
-                new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                new GearItemStat { Id = 231, Value = 242 },
                 new GearItemStat { Id = 3, Value = 50 },
                 new GearItemStat { Id = 1, Value = 0 }
             },
@@ -186,9 +186,9 @@ public static class Main2H
                 new GearItemStat { Id = 43, Value = 40 },
                 new GearItemStat { Id = 68, Value = 40 },
                 new GearItemStat { Id = 9, Value = 248 },
-                new GearStat { Name = "MagicAccuracySkill", Value = 248 },
+                new GearItemStat { Id = 231, Value = 248 },
                 new GearItemStat { Id = 49, Value = 5 },
-                new GearStat { Name = "WSC_CHR", Value = 3 }
+                new GearItemStat { Id = 239, Value = 3 }
             },
             GearItemJobs = new List<GearItemJob>
             {
@@ -219,8 +219,8 @@ public static class Main2H
                 new GearItemStat { Id = 43, Value = 30 },
                 new GearItemStat { Id = 68, Value = 30 },
                 new GearItemStat { Id = 57, Value = 500 },
-                new GearStat { Name = "Great Katana Skill", Value = 269 },
-                new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                new GearItemStat { Id = 17, Value = 269 },
+                new GearItemStat { Id = 231, Value = 228 },
                 new GearItemStat { Id = 70, Value = 155 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 12 } }
@@ -241,8 +241,8 @@ public static class Main2H
                 new GearItemStat { Id = 43, Value = 0 },
                 new GearItemStat { Id = 68, Value = 0 },
                 new GearItemStat { Id = 57, Value = 500 },
-                new GearStat { Name = "Great Katana Skill", Value = 269 },
-                new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                new GearItemStat { Id = 17, Value = 269 },
+                new GearItemStat { Id = 231, Value = 228 },
                 new GearItemStat { Id = 70, Value = 155 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 12 } }
@@ -265,8 +265,8 @@ public static class Main2H
                 new GearItemStat { Id = 43, Value = 40 },
                 new GearItemStat { Id = 44, Value = 30 },
                 new GearItemStat { Id = 68, Value = 40 },
-                new GearStat { Name = "Great Katana Skill", Value = 250 },
-                new GearStat { Name = "MagicAccuracySkill", Value = 250 }
+                new GearItemStat { Id = 17, Value = 250 },
+                new GearItemStat { Id = 231, Value = 250 }
             },
             GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId = 13 }, new GearItemJob { JobId = 12 } }
             },
@@ -285,8 +285,8 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 450 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 },
-                        new GearStat { Name = "Great Katana Skill", Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 17, Value = 269 },
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
                 },
@@ -305,8 +305,8 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 450 },
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 0 },
-                        new GearStat { Name = "Great Katana Skill", Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 17, Value = 269 },
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
                 },
@@ -325,8 +325,8 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 528 },
                         new GearItemStat { Id = 68, Value = 80 },
                         new GearItemStat { Id = 70, Value = 217 },
-                        new GearStat { Name = "Scythe Skill", Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 14, Value = 269 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 43, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
@@ -346,8 +346,8 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 528 },
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
-                        new GearStat { Name = "Scythe Skill", Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 14, Value = 269 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 43, Value = 0 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
@@ -365,8 +365,8 @@ public static class Main2H
 
                         new GearItemStat { Id = 42, Value = 319 },
                         new GearItemStat { Id = 41, Value = 437 },
-                        new GearStat { Name = "Great Katana Skill", Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 17, Value = 269 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 4, Value = 20 },
                         new GearItemStat { Id = 1, Value = 70 }
                     },
@@ -385,8 +385,8 @@ public static class Main2H
 
                         new GearItemStat { Id = 42, Value = 308 },
                         new GearItemStat { Id = 41, Value = 437 },
-                        new GearStat { Name = "Great Katana Skill", Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 17, Value = 269 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 4, Value = 0 },
                         new GearItemStat { Id = 1, Value = 50 }
                     },
@@ -407,8 +407,8 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 431 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 11, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "Crit Damage", Value = 5 },
+                        new GearItemStat { Id = 231, Value = 242 },
+                        new GearItemStat { Id = 46, Value = 5 },
                         new GearItemStat { Id = 45, Value = 14 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 1 } }
@@ -428,8 +428,8 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 431 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 11, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
-                        new GearStat { Name = "Crit Damage", Value = 5 },
+                        new GearItemStat { Id = 231, Value = 242 },
+                        new GearItemStat { Id = 46, Value = 5 },
                         new GearItemStat { Id = 45, Value = 14 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 1 } }
@@ -448,8 +448,8 @@ public static class Main2H
                         new GearItemStat { Id = 42, Value = 367 },
                         new GearItemStat { Id = 41, Value = 502 },
                         new GearItemStat { Id = 70, Value = 217 },
-                        new GearStat { Name = "Scythe Skill", Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 14, Value = 269 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 2, Value = 15 },
                         new GearItemStat { Id = 1, Value = 50 },
                         new GearItemStat { Id = 6, Value = 50 },
@@ -471,8 +471,8 @@ public static class Main2H
                         new GearItemStat { Id = 42, Value = 354 },
                         new GearItemStat { Id = 41, Value = 502 },
                         new GearItemStat { Id = 70, Value = 217 },
-                        new GearStat { Name = "Scythe Skill", Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 14, Value = 269 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 2, Value = 0 },
                         new GearItemStat { Id = 1, Value = 35 },
                         new GearItemStat { Id = 6, Value = 35 },
@@ -501,7 +501,7 @@ public static class Main2H
                         new GearItemStat { Id = 69, Value = 21 },
                         new GearItemStat { Id = 70, Value = 226 },
                        new GearItemStat { Id = 15, Value = 250 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 250 }
+                        new GearItemStat { Id = 231, Value = 250 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 } }
                 },
@@ -520,11 +520,11 @@ public static class Main2H
                         new GearItemStat { Id = 68, Value = 55 },
                         new GearItemStat { Id = 69, Value = 68 },
                         new GearItemStat { Id = 70, Value = 217 },
-                        new GearStat { Name = "Wind Elemental Bonus", Value = 11 },
+                        new GearItemStat { Id = 238, Value = 11 },
                         new GearItemStat { Id = 19, Value = 242 },
                         new GearItemStat { Id = 42, Value = 199 },
                         new GearItemStat { Id = 41, Value = 356 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
                 },
@@ -543,7 +543,7 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 70, Value = 155 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                        new GearItemStat { Id = 15, Value = 269 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 57, Value = 500 }
@@ -565,7 +565,7 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 0 },
                         new GearItemStat { Id = 70, Value = 155 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                        new GearItemStat { Id = 15, Value = 269 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 57, Value = 500 }
@@ -587,7 +587,7 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 70, Value = 155 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                        new GearItemStat { Id = 15, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
@@ -607,7 +607,7 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 0 },
                         new GearItemStat { Id = 70, Value = 155 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                        new GearItemStat { Id = 15, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
@@ -627,7 +627,7 @@ public static class Main2H
                         new GearItemStat { Id = 3, Value = 70 },
                         new GearItemStat { Id = 1, Value = 20 },
                         new GearItemStat { Id = 70, Value = 155 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                        new GearItemStat { Id = 15, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
@@ -646,7 +646,7 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 492 },
                         new GearItemStat { Id = 3, Value = 50 },
                         new GearItemStat { Id = 70, Value = 155 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                        new GearItemStat { Id = 15, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
@@ -672,7 +672,7 @@ public static class Main2H
                         new GearItemStat { Id = 69, Value = 21 },
                         new GearItemStat { Id = 70, Value = 226 },
                         new GearItemStat { Id = 11, Value = 250 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 250 }
+                        new GearItemStat { Id = 231, Value = 250 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
                 },
@@ -689,7 +689,7 @@ public static class Main2H
                         new GearItemStat { Id = 42, Value = 319 },
                         new GearItemStat { Id = 41, Value = 475 },
                         new GearItemStat { Id = 11, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 44, Value = 34 },
@@ -715,9 +715,10 @@ public static class Main2H
                         new GearItemStat { Id = 69, Value = 53 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 19, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 77, Value = 10 },
-                        new GearStat { Name = "Elemental Bonus", Value = 2 }
+                        new GearItemStat { Id = 77, Value = 10 },
+                        new GearItemStat { Id = 240, Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 20} }
                 },
@@ -735,7 +736,7 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 480 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 13, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 43, Value = 30 },
@@ -757,7 +758,7 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 480 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 13, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 43, Value = 0 },
@@ -816,7 +817,7 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 13, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -835,7 +836,7 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 0 },
                         new GearItemStat { Id = 13, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -852,9 +853,9 @@ public static class Main2H
                         new GearItemStat { Id = 42, Value = 364 },
                         new GearItemStat { Id = 41, Value = 488 },
                         new GearItemStat { Id = 43, Value = 60 },
-                        new GearStat { Name = "DADamage%", Value = 20 },
+                        new GearItemStat { Id = 61, Value = 20 },
                         new GearItemStat { Id = 13, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -871,9 +872,9 @@ public static class Main2H
                         new GearItemStat { Id = 42, Value = 344 },
                         new GearItemStat { Id = 41, Value = 488 },
                         new GearItemStat { Id = 43, Value = 60 },
-                        new GearStat { Name = "DADamage%", Value = 20 },
+                        new GearItemStat { Id = 61, Value = 20 },
                         new GearItemStat { Id = 13, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -893,7 +894,7 @@ public static class Main2H
                         new GearItemStat { Id = 68, Value = 60 },
                         new GearItemStat { Id = 69, Value = 70 },
                         new GearItemStat { Id = 70, Value = 279 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 } }
@@ -914,7 +915,7 @@ public static class Main2H
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 69, Value = 70 },
                         new GearItemStat { Id = 70, Value = 279 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 } }
@@ -932,11 +933,11 @@ public static class Main2H
                         new GearItemStat { Id = 42, Value = 276 },
                         new GearItemStat { Id = 41, Value = 402 },
                         new GearItemStat { Id = 70, Value = 279 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 57, Value = 500 },
-                        new GearStat { Name = "Occult Acumen", Value = 30 },
+                        new GearItemStat { Id = 129, Value = 30 },
                         new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20} }
@@ -954,11 +955,11 @@ public static class Main2H
                         new GearItemStat { Id = 42, Value = 268 },
                         new GearItemStat { Id = 41, Value = 402 },
                         new GearItemStat { Id = 70, Value = 279 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 0 },
                         new GearItemStat { Id = 57, Value = 500 },
-                        new GearStat { Name = "Occult Acumen", Value = 30 },
+                        new GearItemStat { Id = 129, Value = 30 },
                         new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20} }
@@ -976,7 +977,7 @@ public static class Main2H
                         new GearItemStat { Id = 42, Value = 285 },
                         new GearItemStat { Id = 41, Value = 390 },
                         new GearItemStat { Id = 70, Value = 279 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20} }
@@ -994,7 +995,7 @@ public static class Main2H
                         new GearItemStat { Id = 42, Value = 275 },
                         new GearItemStat { Id = 41, Value = 390 },
                         new GearItemStat { Id = 70, Value = 279 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20} }
@@ -1013,7 +1014,7 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 390 },
                         new GearItemStat { Id = 43, Value = 60 },
                         new GearItemStat { Id = 70, Value = 279 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15} }
@@ -1032,7 +1033,7 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 390 },
                         new GearItemStat { Id = 43, Value = 60 },
                         new GearItemStat { Id = 70, Value = 279 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15} }
@@ -1052,7 +1053,7 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 60 },
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 70, Value = 279 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 15} }
@@ -1071,7 +1072,7 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 402 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 70, Value = 279 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 15} }
@@ -1092,7 +1093,7 @@ public static class Main2H
                         new GearItemStat { Id = 68, Value = 70 },
                         new GearItemStat { Id = 69, Value = 50 },
                         new GearItemStat { Id = 70, Value = 279 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 20} }
@@ -1113,7 +1114,7 @@ public static class Main2H
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 69, Value = 50 },
                         new GearItemStat { Id = 70, Value = 279 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 19, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 20} }
@@ -1134,7 +1135,7 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 412 },
                         new GearItemStat { Id = 19, Value = 255 },
                         new GearItemStat { Id = 43, Value = 40 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 215 },
+                        new GearItemStat { Id = 231, Value = 215 },
                         new GearItemStat { Id = 54, Value = 15 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
@@ -1157,7 +1158,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 43 },
                         new GearItemStat { Id = 47, Value = 3 },
                         new GearItemStat { Id = 48, Value = 2 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 }
+                        new GearItemStat { Id = 231, Value = 188 }
                     },
                     GearItemJobs = new List<GearItemJob> { }
                 },
@@ -1181,8 +1182,8 @@ public static class Main2H
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 69, Value = 21 },
                         new GearItemStat { Id = 70, Value = 226 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 250 },
-                        new GearStat { Name = "Scythe Skill", Value = 250 }
+                        new GearItemStat { Id = 231, Value = 250 },
+                        new GearItemStat { Id = 14, Value = 250 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 } }
                 },
@@ -1205,7 +1206,7 @@ public static class Main2H
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 69, Value = 26 },
                         new GearItemStat { Id = 70, Value = 241 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 250 },
+                        new GearItemStat { Id = 231, Value = 250 },
                         new GearItemStat { Id = 19, Value = 250 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
@@ -1229,7 +1230,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 30 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 11, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
@@ -1253,7 +1254,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 11, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
@@ -1277,7 +1278,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 65 },
                         new GearItemStat { Id = 68, Value = 45 },
                         new GearItemStat { Id = 11, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
@@ -1301,7 +1302,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 70 },
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 11, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
@@ -1325,7 +1326,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 75 },
                         new GearItemStat { Id = 68, Value = 55 },
                         new GearItemStat { Id = 11, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
@@ -1348,8 +1349,8 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 44, Value = 30 },
                         new GearItemStat { Id = 68, Value = 40 },
-                        new GearStat { Name = "Scythe Skill", Value = 248 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 },
+                        new GearItemStat { Id = 14, Value = 248 },
+                        new GearItemStat { Id = 231, Value = 248 },
                         new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
@@ -1372,8 +1373,8 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 68, Value = 40 },
-                        new GearStat { Name = "Scythe Skill", Value = 248 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 },
+                        new GearItemStat { Id = 14, Value = 248 },
+                        new GearItemStat { Id = 231, Value = 248 },
                         new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
@@ -1396,8 +1397,8 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 45 },
                         new GearItemStat { Id = 44, Value = 65 },
                         new GearItemStat { Id = 68, Value = 45 },
-                        new GearStat { Name = "Scythe Skill", Value = 248 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 },
+                        new GearItemStat { Id = 14, Value = 248 },
+                        new GearItemStat { Id = 231, Value = 248 },
                         new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
@@ -1420,8 +1421,8 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 50 },
                         new GearItemStat { Id = 44, Value = 70 },
                         new GearItemStat { Id = 68, Value = 50 },
-                        new GearStat { Name = "Scythe Skill", Value = 248 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 },
+                        new GearItemStat { Id = 14, Value = 248 },
+                        new GearItemStat { Id = 231, Value = 248 },
                         new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
@@ -1444,8 +1445,8 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 55 },
                         new GearItemStat { Id = 44, Value = 75 },
                         new GearItemStat { Id = 68, Value = 55 },
-                        new GearStat { Name = "Scythe Skill", Value = 248 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 },
+                        new GearItemStat { Id = 14, Value = 248 },
+                        new GearItemStat { Id = 231, Value = 248 },
                         new GearItemStat { Id = 47, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 8 } }
@@ -1469,7 +1470,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 30 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 13, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 50, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
@@ -1493,7 +1494,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 13, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 50, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
@@ -1517,7 +1518,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 65 },
                         new GearItemStat { Id = 68, Value = 45 },
                         new GearItemStat { Id = 13, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 50, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
@@ -1541,7 +1542,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 70 },
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 13, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 50, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
@@ -1565,7 +1566,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 75 },
                         new GearItemStat { Id = 68, Value = 55 },
                         new GearItemStat { Id = 13, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 50, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
@@ -1587,8 +1588,8 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 44, Value = 30 },
                         new GearItemStat { Id = 68, Value = 40 },
-                        new GearStat { Name = "Great Katana Skill", Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 17, Value = 255 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 47, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
@@ -1610,8 +1611,8 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 68, Value = 40 },
-                        new GearStat { Name = "Great Katana Skill", Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 17, Value = 255 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 47, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
@@ -1633,8 +1634,8 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 45 },
                         new GearItemStat { Id = 44, Value = 65 },
                         new GearItemStat { Id = 68, Value = 45 },
-                        new GearStat { Name = "Great Katana Skill", Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 17, Value = 255 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 47, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
@@ -1656,8 +1657,8 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 50 },
                         new GearItemStat { Id = 44, Value = 70 },
                         new GearItemStat { Id = 68, Value = 50 },
-                        new GearStat { Name = "Great Katana Skill", Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 17, Value = 255 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 47, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
@@ -1679,8 +1680,8 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 55 },
                         new GearItemStat { Id = 44, Value = 75 },
                         new GearItemStat { Id = 68, Value = 55 },
-                        new GearStat { Name = "Great Katana Skill", Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 17, Value = 255 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 47, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12} }
@@ -1703,7 +1704,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 30 },
                         new GearItemStat { Id = 68, Value = 40 },
                        new GearItemStat { Id = 15, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 48, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
@@ -1726,7 +1727,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 68, Value = 40 },
                        new GearItemStat { Id = 15, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 48, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
@@ -1749,7 +1750,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 65 },
                         new GearItemStat { Id = 68, Value = 45 },
                        new GearItemStat { Id = 15, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 48, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
@@ -1772,7 +1773,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 70 },
                         new GearItemStat { Id = 68, Value = 50 },
                        new GearItemStat { Id = 15, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 48, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
@@ -1795,7 +1796,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 75 },
                         new GearItemStat { Id = 68, Value = 55 },
                        new GearItemStat { Id = 15, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 48, Value = 5 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
@@ -1819,7 +1820,7 @@ public static class Main2H
                         new GearItemStat { Id = 69, Value = 35 },
                         new GearItemStat { Id = 70, Value = 263 },
                         new GearItemStat { Id = 19, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 78, Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
@@ -1843,7 +1844,7 @@ public static class Main2H
                         new GearItemStat { Id = 69, Value = 50 },
                         new GearItemStat { Id = 70, Value = 263 },
                         new GearItemStat { Id = 19, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 78, Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
@@ -1867,7 +1868,7 @@ public static class Main2H
                         new GearItemStat { Id = 69, Value = 55 },
                         new GearItemStat { Id = 70, Value = 263 },
                         new GearItemStat { Id = 19, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 78, Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
@@ -1891,7 +1892,7 @@ public static class Main2H
                         new GearItemStat { Id = 69, Value = 60 },
                         new GearItemStat { Id = 70, Value = 263 },
                         new GearItemStat { Id = 19, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 78, Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
@@ -1915,7 +1916,7 @@ public static class Main2H
                         new GearItemStat { Id = 69, Value = 65 },
                         new GearItemStat { Id = 70, Value = 263 },
                         new GearItemStat { Id = 19, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 78, Value = 2 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
@@ -1934,7 +1935,7 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 480 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 11, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 43, Value = 30 },
@@ -1956,7 +1957,7 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 480 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 11, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 43, Value = 0 },
@@ -1978,10 +1979,10 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 489 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 11, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 },
-                        new GearStat { Name = "PDT2", Value = -25 }
+                       new GearItemStat { Id = 236, Value = -25 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 22} }
                 },
@@ -1999,10 +2000,10 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 489 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 11, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 0 },
-                        new GearStat { Name = "PDT2", Value = -25 }
+                       new GearItemStat { Id = 236, Value = -25 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 22} }
                 },
@@ -2022,7 +2023,7 @@ public static class Main2H
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 11, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 22} }
                 },
@@ -2041,7 +2042,7 @@ public static class Main2H
                         new GearItemStat { Id = 43, Value = 50 },
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 13, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 45, Value = 20 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 } }
@@ -2061,8 +2062,8 @@ public static class Main2H
                         new GearItemStat { Id = 1, Value = 15 },
                         new GearItemStat { Id = 6, Value = 15 },
                         new GearItemStat { Id = 43, Value = 32 },
-                        new GearStat { Name = "Scythe Skill", Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 14, Value = 242 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 55, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 } }
@@ -2081,8 +2082,8 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 407 },
                         new GearItemStat { Id = 1, Value = 20 },
                         new GearItemStat { Id = 43, Value = 52 },
-                        new GearStat { Name = "Great Katana Skill", Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 17, Value = 242 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 55, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13} }
@@ -2106,7 +2107,7 @@ public static class Main2H
                         new GearItemStat { Id = 44, Value = 30 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 13, Value = 250 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 250 },
+                        new GearItemStat { Id = 231, Value = 250 },
                         new GearItemStat { Id = 57, Value = 400 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
@@ -2125,7 +2126,7 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 489 },
                         new GearItemStat { Id = 44, Value = 21 },
                         new GearItemStat { Id = 13, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 50, Value = 4 },
                         new GearItemStat { Id = 100, Value = -4 },
                         new GearItemStat { Id = 47, Value = 4 },
@@ -2149,8 +2150,8 @@ public static class Main2H
                         new GearItemStat { Id = 42, Value = 263 },
                         new GearItemStat { Id = 41, Value = 480 },
                         new GearItemStat { Id = 11, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
-                        new GearStat { Name = "PDT2", Value = -5 },
+                        new GearItemStat { Id = 231, Value = 188 },
+                       new GearItemStat { Id = 236, Value = -5 },
                         new GearItemStat { Id = 43, Value = 70 },
                         new GearItemStat { Id = 93, Value = 50 },
                         new GearItemStat { Id = 54, Value = 10 }
@@ -2171,8 +2172,8 @@ public static class Main2H
                         new GearItemStat { Id = 41, Value = 490 },
                         new GearItemStat { Id = 1, Value = 16 },
                         new GearItemStat { Id = 5, Value = 16 },
-                        new GearStat { Name = "Scythe Skill", Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 215 },
+                        new GearItemStat { Id = 14, Value = 242 },
+                        new GearItemStat { Id = 231, Value = 215 },
                         new GearItemStat { Id = 43, Value = 66 },
                         new GearItemStat { Id = 68, Value = 66 },
                         new GearItemStat { Id = 70, Value = 186 },
@@ -2196,7 +2197,7 @@ public static class Main2H
                         new GearItemStat { Id = 3, Value = 35 },
                         new GearItemStat { Id = 47, Value = 10 },
                         new GearItemStat { Id = 13, Value = 277 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 43, Value = 35 },
                         new GearItemStat { Id = 68, Value = 35 }
                     },
@@ -2218,7 +2219,7 @@ public static class Main2H
                         new GearItemStat { Id = 3, Value = 30 },
                         new GearItemStat { Id = 47, Value = 7 },
                         new GearItemStat { Id = 13, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -2239,8 +2240,8 @@ public static class Main2H
                         new GearItemStat { Id = 1, Value = 35 },
                         new GearItemStat { Id = 5, Value = 35 },
                         new GearItemStat { Id = 48, Value = 6 },
-                        new GearStat { Name = "Scythe Skill", Value = 277 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 277 },
+                        new GearItemStat { Id = 14, Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 43, Value = 35 },
                         new GearItemStat { Id = 68, Value = 35 }
                     },
@@ -2261,8 +2262,8 @@ public static class Main2H
                         new GearItemStat { Id = 1, Value = 30 },
                         new GearItemStat { Id = 5, Value = 30 },
                         new GearItemStat { Id = 48, Value = 4 },
-                        new GearStat { Name = "Scythe Skill", Value = 260 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 14, Value = 260 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -2284,7 +2285,7 @@ public static class Main2H
                         new GearItemStat { Id = 3, Value = 35 },
                         new GearItemStat { Id = 47, Value = 10 },
                        new GearItemStat { Id = 15, Value = 277 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 43, Value = 35 },
                         new GearItemStat { Id = 68, Value = 35 }
                     },
@@ -2306,7 +2307,7 @@ public static class Main2H
                         new GearItemStat { Id = 3, Value = 30 },
                         new GearItemStat { Id = 47, Value = 7 },
                        new GearItemStat { Id = 15, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -2327,8 +2328,8 @@ public static class Main2H
                         new GearItemStat { Id = 1, Value = 35 },
                         new GearItemStat { Id = 2, Value = 35 },
                         new GearItemStat { Id = 47, Value = 10 },
-                        new GearStat { Name = "Great Katana Skill", Value = 277 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 277 },
+                        new GearItemStat { Id = 17, Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 43, Value = 35 },
                         new GearItemStat { Id = 68, Value = 35 }
                     },
@@ -2349,8 +2350,8 @@ public static class Main2H
                         new GearItemStat { Id = 1, Value = 30 },
                         new GearItemStat { Id = 2, Value = 30 },
                         new GearItemStat { Id = 47, Value = 7 },
-                        new GearStat { Name = "Great Katana Skill", Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 17, Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -2373,7 +2374,7 @@ public static class Main2H
                         new GearItemStat { Id = 69, Value = 80 },
                         new GearItemStat { Id = 70, Value = 325 },
                         new GearItemStat { Id = 19, Value = 277 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 43, Value = 35 },
                         new GearItemStat { Id = 68, Value = 35 }
                     },
@@ -2396,7 +2397,7 @@ public static class Main2H
                         new GearItemStat { Id = 69, Value = 70 },
                         new GearItemStat { Id = 70, Value = 310 },
                         new GearItemStat { Id = 19, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },

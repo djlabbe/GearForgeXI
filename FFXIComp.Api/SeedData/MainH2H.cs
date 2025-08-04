@@ -44,7 +44,7 @@ new GearItem
                         new GearItemStat { Id = 41, Value = 138 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 43, Value = 30 },
@@ -66,7 +66,7 @@ new GearItem
                         new GearItemStat { Id = 41, Value = 138 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 43, Value = 0 },
@@ -87,7 +87,7 @@ new GearItem
                         new GearItemStat { Id = 42, Value = 199 },
                         new GearItemStat { Id = 41, Value = 126 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -106,7 +106,7 @@ new GearItem
                         new GearItemStat { Id = 42, Value = 170 },
                         new GearItemStat { Id = 41, Value = 126 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 0 }
                     },
@@ -127,7 +127,7 @@ new GearItem
                         new GearItemStat { Id = 42, Value = 178 },
                         new GearItemStat { Id = 41, Value = 81 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 18} }
                 },
@@ -146,7 +146,7 @@ new GearItem
                         new GearItemStat { Id = 42, Value = 158 },
                         new GearItemStat { Id = 41, Value = 81 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 18} }
                 },
@@ -164,7 +164,7 @@ new GearItem
                         new GearItemStat { Id = 41, Value = 116 },
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 } }
                 },
@@ -182,7 +182,7 @@ new GearItem
                         new GearItemStat { Id = 41, Value = 116 },
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 } }
                 },
@@ -204,7 +204,7 @@ new GearItem
                         new GearItemStat { Id = 44, Value = 30 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 8, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 59, Value = 4 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 54, Value = 5 },
@@ -230,7 +230,7 @@ new GearItem
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 8, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 59, Value = 4 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 54, Value = 5 },
@@ -256,7 +256,7 @@ new GearItem
                         new GearItemStat { Id = 44, Value = 65 },
                         new GearItemStat { Id = 68, Value = 45 },
                         new GearItemStat { Id = 8, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 59, Value = 4 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 54, Value = 5 },
@@ -282,7 +282,7 @@ new GearItem
                         new GearItemStat { Id = 44, Value = 70 },
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 8, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 59, Value = 4 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 54, Value = 5 },
@@ -308,7 +308,7 @@ new GearItem
                         new GearItemStat { Id = 44, Value = 75 },
                         new GearItemStat { Id = 68, Value = 55 },
                         new GearItemStat { Id = 8, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 59, Value = 4 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 54, Value = 5 },
@@ -329,7 +329,7 @@ new GearItem
                         new GearItemStat { Id = 42, Value = 168 },
                         new GearItemStat { Id = 41, Value = 79 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 66, Value = 55 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
@@ -349,7 +349,7 @@ new GearItem
                         new GearItemStat { Id = 42, Value = 144 },
                         new GearItemStat { Id = 41, Value = 79 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 66, Value = 55 },
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 0 }
@@ -372,7 +372,7 @@ new GearItem
                         new GearItemStat { Id = 43, Value = 50 },
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 54, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 18} }
@@ -392,7 +392,7 @@ new GearItem
                         new GearItemStat { Id = 43, Value = 50 },
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 } }
                 },
@@ -412,7 +412,7 @@ new GearItem
                         new GearItemStat { Id = 3, Value = 15 },
                         new GearItemStat { Id = 43, Value = 32 },
                         new GearItemStat { Id = 8, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 55, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 18}, new GearItemJob { JobId= 19} }
@@ -433,7 +433,7 @@ new GearItem
                         new GearItemStat { Id = 2, Value = 20 },
                         new GearItemStat { Id = 43, Value = 81 },
                         new GearItemStat { Id = 8, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 51, Value = 12 },
                         new GearItemStat { Id = 47, Value = 4 },
                         new GearItemStat { Id = 50, Value = 10 },
@@ -456,7 +456,7 @@ new GearItem
                         new GearItemStat { Id = 2, Value = 30 },
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 }
+                        new GearItemStat { Id = 231, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 18} }
                 },
@@ -476,7 +476,7 @@ new GearItem
                         new GearItemStat { Id = 2, Value = 35 },
                         new GearItemStat { Id = 45, Value = 15 },
                         new GearItemStat { Id = 8, Value = 277 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 43, Value = 35 },
                         new GearItemStat { Id = 68, Value = 35 }
                     },
@@ -498,7 +498,7 @@ new GearItem
                         new GearItemStat { Id = 2, Value = 30 },
                         new GearItemStat { Id = 45, Value = 12 },
                         new GearItemStat { Id = 8, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },

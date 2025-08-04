@@ -30,7 +30,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 91, Value = 20 },
                         new GearItemStat { Id = 9, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 45, Value = 5 },
                         new GearItemStat { Id = 48, Value = 6 },
                         new GearItemStat { Id = 186, Value = 0 }
@@ -58,7 +58,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 91, Value = 20 },
                         new GearItemStat { Id = 9, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 45, Value = 5 },
                         new GearItemStat { Id = 48, Value = 6 },
                         new GearItemStat { Id = 186, Value = 0 }
@@ -86,7 +86,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 45 },
                         new GearItemStat { Id = 91, Value = 20 },
                         new GearItemStat { Id = 9, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 45, Value = 5 },
                         new GearItemStat { Id = 48, Value = 6 },
                         new GearItemStat { Id = 186, Value = 0 }
@@ -114,7 +114,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 91, Value = 20 },
                         new GearItemStat { Id = 9, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 45, Value = 5 },
                         new GearItemStat { Id = 48, Value = 6 },
                         new GearItemStat { Id = 186, Value = 5 }
@@ -142,7 +142,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 55 },
                         new GearItemStat { Id = 91, Value = 20 },
                         new GearItemStat { Id = 9, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 45, Value = 5 },
                         new GearItemStat { Id = 48, Value = 6 },
                         new GearItemStat { Id = 186, Value = 10 }
@@ -163,7 +163,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 42, Value = 157 },
                         new GearItemStat { Id = 41, Value = 227 },
                         new GearItemStat { Id = 16, Value = 250 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 250 },
+                        new GearItemStat { Id = 231, Value = 250 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 2, Value = 15 },
                         new GearItemStat { Id = 4, Value = 15 },
@@ -195,7 +195,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 16, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 70, Value = 186 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13} }
@@ -218,7 +218,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 0 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 16, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 70, Value = 186 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13} }
@@ -273,7 +273,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 42, Value = 153 },
                         new GearItemStat { Id = 41, Value = 210 },
                         new GearItemStat { Id = 16, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 2, Value = 20 },
                         new GearItemStat { Id = 4, Value = 70 }
@@ -294,7 +294,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 42, Value = 148 },
                         new GearItemStat { Id = 41, Value = 210 },
                         new GearItemStat { Id = 16, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 2, Value = 0 },
                         new GearItemStat { Id = 4, Value = 50 }
@@ -315,7 +315,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 42, Value = 153 },
                         new GearItemStat { Id = 41, Value = 210 },
                         new GearItemStat { Id = 16, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 2, Value = 0 },
                         new GearItemStat { Id = 4, Value = 50 }
@@ -336,7 +336,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 42, Value = 148 },
                         new GearItemStat { Id = 41, Value = 210 },
                         new GearItemStat { Id = 16, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 2, Value = 0 },
                         new GearItemStat { Id = 4, Value = 50 }
@@ -358,7 +358,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 210 },
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 16, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 70, Value = 186 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13} }
@@ -378,7 +378,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 210 },
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 16, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 70, Value = 186 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13} }
@@ -397,13 +397,7 @@ namespace FFXIComp.Api.SeedData
 
                         new GearItemStat { Id = 42, Value = 11 },
                         new GearItemStat { Id = 41, Value = 264 },
-                        new GearStat { Name = "OA2", Value = 15 },
-                        new GearStat { Name = "OA3", Value = 25 },
-                        new GearStat { Name = "OA4", Value = 25 },
-                        new GearStat { Name = "OA5", Value = 15 },
-                        new GearStat { Name = "OA6", Value = 10 },
-                        new GearStat { Name = "OA7", Value = 3 },
-                        new GearStat { Name = "OA8", Value = 2 }
+                        new GearItemStat { Id = 232, Value = 1 },
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 2 }, new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 15} }
                 },
@@ -430,7 +424,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 77, Value = 10 },
                         new GearItemStat { Id = 50, Value = 5 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 },
+                        new GearItemStat { Id = 231, Value = 248 },
                         new GearItemStat { Id = 16, Value = 248 },
                         new GearItemStat { Id = 54, Value = 5 },
                         new GearItemStat { Id = 183, Value = 0 },
@@ -461,7 +455,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 77, Value = 10 },
                         new GearItemStat { Id = 50, Value = 5 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 },
+                        new GearItemStat { Id = 231, Value = 248 },
                         new GearItemStat { Id = 16, Value = 248 },
                         new GearItemStat { Id = 54, Value = 5 },
                         new GearItemStat { Id = 183, Value = 0 },
@@ -492,7 +486,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 77, Value = 10 },
                         new GearItemStat { Id = 50, Value = 5 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 },
+                        new GearItemStat { Id = 231, Value = 248 },
                         new GearItemStat { Id = 16, Value = 248 },
                         new GearItemStat { Id = 54, Value = 5 },
                         new GearItemStat { Id = 183, Value = 0 },
@@ -523,7 +517,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 77, Value = 10 },
                         new GearItemStat { Id = 50, Value = 5 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 },
+                        new GearItemStat { Id = 231, Value = 248 },
                         new GearItemStat { Id = 16, Value = 248 },
                         new GearItemStat { Id = 54, Value = 5 },
                         new GearItemStat { Id = 183, Value = 3 },
@@ -554,7 +548,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 77, Value = 10 },
                         new GearItemStat { Id = 50, Value = 5 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 },
+                        new GearItemStat { Id = 231, Value = 248 },
                         new GearItemStat { Id = 16, Value = 248 },
                         new GearItemStat { Id = 54, Value = 5 },
                         new GearItemStat { Id = 183, Value = 5 },
@@ -577,7 +571,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 42, Value = 166 },
                         new GearItemStat { Id = 41, Value = 240 },
                         new GearItemStat { Id = 10, Value = 250 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 250 },
+                        new GearItemStat { Id = 231, Value = 250 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 2, Value = 15 },
                         new GearItemStat { Id = 6, Value = 15 },
@@ -605,7 +599,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 70 },
                         new GearItemStat { Id = 16, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 70, Value = 186 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13} }
@@ -626,7 +620,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 16, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 70, Value = 186 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13} }
@@ -646,7 +640,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 42, Value = 125 },
                         new GearItemStat { Id = 41, Value = 180 },
                         new GearItemStat { Id = 9, Value = 250 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 250 },
+                        new GearItemStat { Id = 231, Value = 250 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 2, Value = 15 },
                         new GearItemStat { Id = 6, Value = 15 },
@@ -675,7 +669,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 67 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 9, Value = 228 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 48, Value = 4 },
                         new GearItemStat { Id = 4, Value = 14 },
                         new GearItemStat { Id = 54, Value = 5 }
@@ -700,7 +694,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 110, Value = 40 },
                         new GearItemStat { Id = 16, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 91, Value = 30 },
                         new GearItemStat { Id = 93, Value = 30 },
                         new GearItemStat { Id = 183, Value = 0 }
@@ -725,7 +719,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 110, Value = 40 },
                         new GearItemStat { Id = 16, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 91, Value = 30 },
                         new GearItemStat { Id = 93, Value = 30 },
                         new GearItemStat { Id = 183, Value = 0 }
@@ -750,7 +744,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 110, Value = 40 },
                         new GearItemStat { Id = 16, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 91, Value = 30 },
                         new GearItemStat { Id = 93, Value = 30 },
                         new GearItemStat { Id = 183, Value = 5 }
@@ -775,7 +769,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 110, Value = 40 },
                         new GearItemStat { Id = 16, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 91, Value = 30 },
                         new GearItemStat { Id = 93, Value = 35 },
                         new GearItemStat { Id = 183, Value = 8 }
@@ -800,7 +794,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 110, Value = 40 },
                         new GearItemStat { Id = 16, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 91, Value = 30 },
                         new GearItemStat { Id = 93, Value = 40 },
                         new GearItemStat { Id = 183, Value = 10 }
@@ -823,7 +817,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 35 },
                         new GearItemStat { Id = 69, Value = 44 },
                         new GearItemStat { Id = 70, Value = 118 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 201 },
+                        new GearItemStat { Id = 231, Value = 201 },
                         new GearItemStat { Id = 9, Value = 242 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
@@ -844,7 +838,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 35 },
                         new GearItemStat { Id = 69, Value = 44 },
                         new GearItemStat { Id = 70, Value = 118 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 201 },
+                        new GearItemStat { Id = 231, Value = 201 },
                         new GearItemStat { Id = 9, Value = 242 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
@@ -868,7 +862,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 21 },
                         new GearItemStat { Id = 70, Value = 232 },
                         new GearItemStat { Id = 18, Value = 250 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 250 },
+                        new GearItemStat { Id = 231, Value = 250 },
                         new GearItemStat { Id = 42, Value = 200 },
                         new GearItemStat { Id = 41, Value = 288 },
                         new GearItemStat { Id = 77, Value = 4 }
@@ -893,7 +887,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 35 },
                         new GearItemStat { Id = 70, Value = 248 },
                         new GearItemStat { Id = 18, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 77, Value = 10 },
                         new GearItemStat { Id = 43, Value = 40 }
                     },
@@ -917,7 +911,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 50 },
                         new GearItemStat { Id = 70, Value = 248 },
                         new GearItemStat { Id = 18, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 77, Value = 10 },
                         new GearItemStat { Id = 43, Value = 40 }
                     },
@@ -941,7 +935,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 55 },
                         new GearItemStat { Id = 70, Value = 248 },
                         new GearItemStat { Id = 18, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 77, Value = 10 },
                         new GearItemStat { Id = 43, Value = 45 }
                     },
@@ -965,7 +959,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 60 },
                         new GearItemStat { Id = 70, Value = 248 },
                         new GearItemStat { Id = 18, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 77, Value = 10 },
                         new GearItemStat { Id = 43, Value = 50 }
                     },
@@ -989,7 +983,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 65 },
                         new GearItemStat { Id = 70, Value = 248 },
                         new GearItemStat { Id = 18, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 77, Value = 10 },
                         new GearItemStat { Id = 43, Value = 55 }
                     },
@@ -1011,7 +1005,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 6, Value = 20 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 7 } }
                 },
@@ -1030,7 +1024,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 2, Value = 50 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 7 } }
                 },
@@ -1049,7 +1043,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 2, Value = 50 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 7 } }
                 },
@@ -1068,7 +1062,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 2, Value = 50 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 7 } }
                 },
@@ -1087,7 +1081,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 } }
                 },
@@ -1106,7 +1100,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 } }
                 },
@@ -1126,7 +1120,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 70, Value = 186 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 10, Value = 269 },
                         new GearItemStat { Id = 50, Value = 10 }
                     },
@@ -1148,7 +1142,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 0 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 70, Value = 186 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 10, Value = 269 },
                         new GearItemStat { Id = 50, Value = 10 }
                     },
@@ -1169,7 +1163,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 70 },
                         new GearItemStat { Id = 70, Value = 217 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 10, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 } }
@@ -1189,7 +1183,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 70, Value = 217 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 10, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 } }
@@ -1225,7 +1219,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 492 },
                         new GearItemStat { Id = 43, Value = 60 },
                         new GearItemStat { Id = 70, Value = 155 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                        new GearItemStat { Id = 15, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
@@ -1244,7 +1238,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 492 },
                         new GearItemStat { Id = 43, Value = 60 },
                         new GearItemStat { Id = 70, Value = 155 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                        new GearItemStat { Id = 15, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 14} }
@@ -1266,7 +1260,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 61 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 44, Value = 21 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 2, Value = 9 },
                         new GearItemStat { Id = 54, Value = 10 }
                     },
@@ -1287,7 +1281,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 197, Value = 10 },
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 10 } }
                 },
@@ -1306,7 +1300,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 197, Value = 10 },
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 10 } }
                 },
@@ -1328,9 +1322,9 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
-                        new GearStat { Name = "Elemental WS Damage%", Value = 100 },
-                        new GearStat { Name = "EnSpell Damage%", Value = 500 }
+                        new GearItemStat { Id = 231, Value = 255 },
+                        new GearItemStat { Id = 233, Value = 100 },
+                        new GearItemStat { Id = 234, Value = 500 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 } }
                 },
@@ -1349,9 +1343,9 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 10, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
-                        new GearStat { Name = "EnSpell Damage%", Value = 150 },
-                        new GearStat { Name = "EnSpell Damage", Value = 11 },
+                        new GearItemStat { Id = 231, Value = 188 },
+                        new GearItemStat { Id = 234, Value = 250 },
+                        new GearItemStat { Id = 208, Value = 11 },
                         new GearItemStat { Id = 5, Value = 14 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 22} }
@@ -1371,11 +1365,11 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 216 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 69, Value = 40 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 70, Value = 241 },
                         new GearItemStat { Id = 18, Value = 228 },
                         new GearItemStat { Id = 6, Value = 30 },
-                        new GearStat { Name = "Light Elemental Bonus", Value = 50 }
+                        new GearItemStat { Id = 218, Value = 50 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
                 },
@@ -1394,7 +1388,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 18, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 } }
                 },
@@ -1413,7 +1407,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 18, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 } }
                 },
@@ -1432,7 +1426,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 70 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 18, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 43, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 } }
@@ -1452,7 +1446,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 18, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 43, Value = 0 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 } }
@@ -1472,7 +1466,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 6, Value = 20 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 18, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 } }
                 },
@@ -1491,7 +1485,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 6, Value = 20 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 18, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 } }
                 },
@@ -1511,7 +1505,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 70, Value = 217 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 18, Value = 269 },
                         new GearItemStat { Id = 50, Value = 10 }
                     },
@@ -1533,7 +1527,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 0 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 70, Value = 217 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 18, Value = 269 },
                         new GearItemStat { Id = 50, Value = 10 }
                     },
@@ -1557,7 +1551,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 5, Value = 6 },
                         new GearItemStat { Id = 6, Value = 6 },
                         new GearItemStat { Id = 70, Value = 90 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 18, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 3 } }
@@ -1584,7 +1578,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 16 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 12, Value = 250 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 250 }
+                        new GearItemStat { Id = 231, Value = 250 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 22} }
                 },
@@ -1604,7 +1598,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 70 },
                         new GearItemStat { Id = 70, Value = 186 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 10, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 16} }
@@ -1624,7 +1618,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 70, Value = 186 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 10, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 16} }
@@ -1643,7 +1637,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 205 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -1663,7 +1657,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 205 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 0 }
                     },
@@ -1686,7 +1680,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 10 } }
                 },
@@ -1706,7 +1700,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 10 } }
                 },
@@ -1726,7 +1720,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 57, Value = 500 }
                     },
@@ -1748,7 +1742,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 0 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 57, Value = 500 }
                     },
@@ -1770,7 +1764,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 110, Value = 65 },
                         new GearItemStat { Id = 111, Value = 36 },
                         new GearItemStat { Id = 9, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 68, Value = 40 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 18}, new GearItemJob { JobId= 19} }
@@ -1791,7 +1785,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 176 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 19} }
                 },
@@ -1811,7 +1805,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 176 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 19} }
                 },
@@ -1831,7 +1825,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 176 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 19} }
                 },
@@ -1851,7 +1845,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 176 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 19} }
                 },
@@ -1891,7 +1885,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 278 },
                         new GearItemStat { Id = 43, Value = 27 },
                         new GearItemStat { Id = 18, Value = 228 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 }
+                        new GearItemStat { Id = 231, Value = 188 }
                     },
                     GearItemJobs = new List<GearItemJob> { }
                 },
@@ -1909,7 +1903,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 200 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -1929,7 +1923,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 200 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 0 }
                     },
@@ -2076,7 +2070,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 44, Value = 30 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 12, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 45, Value = 10 },
                         new GearItemStat { Id = 54, Value = 5 },
                         new GearItemStat { Id = 57, Value = 0 }
@@ -2101,7 +2095,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 12, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 45, Value = 10 },
                         new GearItemStat { Id = 54, Value = 5 },
                         new GearItemStat { Id = 57, Value = 0 }
@@ -2126,7 +2120,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 44, Value = 65 },
                         new GearItemStat { Id = 68, Value = 45 },
                         new GearItemStat { Id = 12, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 45, Value = 10 },
                         new GearItemStat { Id = 54, Value = 5 },
                         new GearItemStat { Id = 57, Value = 0 }
@@ -2151,7 +2145,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 44, Value = 70 },
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 12, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 45, Value = 10 },
                         new GearItemStat { Id = 54, Value = 5 },
                         new GearItemStat { Id = 57, Value = 300 }
@@ -2176,7 +2170,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 44, Value = 75 },
                         new GearItemStat { Id = 68, Value = 55 },
                         new GearItemStat { Id = 12, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 242 },
+                        new GearItemStat { Id = 231, Value = 242 },
                         new GearItemStat { Id = 45, Value = 10 },
                         new GearItemStat { Id = 54, Value = 5 },
                         new GearItemStat { Id = 57, Value = 500 }
@@ -2206,7 +2200,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 20 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 10, Value = 248 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 }
+                        new GearItemStat { Id = 231, Value = 248 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 16} }
                 },
@@ -2231,7 +2225,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 20 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 10, Value = 248 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 }
+                        new GearItemStat { Id = 231, Value = 248 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 16} }
                 },
@@ -2256,7 +2250,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 20 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 10, Value = 248 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 }
+                        new GearItemStat { Id = 231, Value = 248 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 16} }
                 },
@@ -2281,7 +2275,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 20 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 10, Value = 248 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 }
+                        new GearItemStat { Id = 231, Value = 248 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 16} }
                 },
@@ -2306,7 +2300,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 20 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 10, Value = 248 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 248 }
+                        new GearItemStat { Id = 231, Value = 248 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 16} }
                 },
@@ -2328,7 +2322,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 9, Value = 247 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 234 },
+                        new GearItemStat { Id = 231, Value = 234 },
                         new GearItemStat { Id = 50, Value = 3 },
                         new GearItemStat { Id = 94, Value = 0 }
                     },
@@ -2352,7 +2346,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 9, Value = 247 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 234 },
+                        new GearItemStat { Id = 231, Value = 234 },
                         new GearItemStat { Id = 50, Value = 3 },
                         new GearItemStat { Id = 94, Value = 0 }
                     },
@@ -2376,7 +2370,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 9, Value = 247 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 234 },
+                        new GearItemStat { Id = 231, Value = 234 },
                         new GearItemStat { Id = 50, Value = 3 },
                         new GearItemStat { Id = 94, Value = 0 }
                     },
@@ -2400,7 +2394,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 9, Value = 247 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 234 },
+                        new GearItemStat { Id = 231, Value = 234 },
                         new GearItemStat { Id = 50, Value = 3 },
                         new GearItemStat { Id = 94, Value = 3 }
                     },
@@ -2424,7 +2418,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 9, Value = 247 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 234 },
+                        new GearItemStat { Id = 231, Value = 234 },
                         new GearItemStat { Id = 50, Value = 3 },
                         new GearItemStat { Id = 94, Value = 5 }
                     },
@@ -2448,7 +2442,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 9, Value = 269 },
                         new GearItemStat { Id = 50, Value = 25 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 98, Value = -12 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 17} }
@@ -2470,10 +2464,10 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 186, Value = 25 },
                         new GearItemStat { Id = 98, Value = -12 },
-                        new GearStat { Name = "OA2", Value = 50 }
+                        new GearItemStat { Id = 235, Value = 50 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 17} }
                 },
@@ -2494,7 +2488,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 98, Value = -12 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 17} }
@@ -2516,7 +2510,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 98, Value = -12 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 17} }
@@ -2537,9 +2531,9 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 12, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 186, Value = 25 },
-                        new GearStat { Name = "OA2", Value = 50 }
+                        new GearItemStat { Id = 235, Value = 50 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 9 } }
                 },
@@ -2559,7 +2553,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 12, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 9 } }
                 },
@@ -2577,7 +2571,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 288 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 12, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 43, Value = 30 },
@@ -2599,7 +2593,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 288 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 12, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 57, Value = 500 },
                         new GearItemStat { Id = 43, Value = 0 },
@@ -2621,7 +2615,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 312 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 12, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -2641,7 +2635,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 312 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 12, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 43, Value = 0 },
                         new GearItemStat { Id = 68, Value = 0 }
                     },
@@ -2665,7 +2659,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 276 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 12, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 1 } }
                 },
@@ -2687,7 +2681,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 276 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 12, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 1 } }
                 },
@@ -2709,7 +2703,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 276 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 12, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 1 } }
                 },
@@ -2731,7 +2725,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 276 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 12, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 1 } }
                 },
@@ -2750,7 +2744,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 12, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 9 } }
                 },
@@ -2769,7 +2763,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 70, Value = 155 },
                         new GearItemStat { Id = 12, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 }
+                        new GearItemStat { Id = 231, Value = 228 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 9 } }
                 },
@@ -2789,9 +2783,9 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 248 },
                         new GearItemStat { Id = 18, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 78, Value = 10 },
-                        new GearStat { Name = "Magic Burst Accuracy", Value = 30 }
+                        new GearItemStat { Id = 219, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 21} }
                 },
@@ -2811,7 +2805,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 248 },
                         new GearItemStat { Id = 18, Value = 255 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 }
+                        new GearItemStat { Id = 231, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 21} }
                 },
@@ -2831,7 +2825,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 40 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 18, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 43, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 21} }
@@ -2852,7 +2846,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 40 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 18, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 43, Value = 0 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 21} }
@@ -2869,10 +2863,10 @@ namespace FFXIComp.Api.SeedData
                     {
                         new GearItemStat { Id = 42, Value = 185 },
                         new GearItemStat { Id = 41, Value = 264 },
-                        new GearStat { Name = "PDT2", Value = -18 },
+                        new GearItemStat { Id = 236, Value = -18 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 43, Value = 30 }
                     },
@@ -2890,10 +2884,10 @@ namespace FFXIComp.Api.SeedData
                     {
                         new GearItemStat { Id = 42, Value = 165 },
                         new GearItemStat { Id = 41, Value = 264 },
-                        new GearStat { Name = "PDT2", Value = -18 },
+                        new GearItemStat { Id = 236, Value = -18 },
                         new GearItemStat { Id = 70, Value = 186 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 68, Value = 0 },
                         new GearItemStat { Id = 43, Value = 0 }
                     },
@@ -2912,7 +2906,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 42, Value = 30 },
                         new GearItemStat { Id = 41, Value = 150 },
                         new GearItemStat { Id = 4, Value = 6 },
-                        new GearStat { Name = "Crit Damage", Value = 10 }
+                        new GearItemStat { Id = 46, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 13} }
                 },
@@ -2932,7 +2926,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 110, Value = 45 },
                         new GearItemStat { Id = 111, Value = 60 },
                         new GearItemStat { Id = 12, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 50, Value = 4 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -2957,9 +2951,9 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 186, Value = 25 },
-                        new GearStat { Name = "OA2", Value = 50 }
+                        new GearItemStat { Id = 235, Value = 50 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 } }
                 },
@@ -2980,7 +2974,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 } }
                 },
@@ -3000,7 +2994,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 }
+                        new GearItemStat { Id = 231, Value = 255 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 7 } }
                 },
@@ -3021,9 +3015,9 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 186, Value = 25 },
-                        new GearStat { Name = "OA2", Value = 50 }
+                        new GearItemStat { Id = 235, Value = 50 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 10 } }
                 },
@@ -3044,7 +3038,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 47, Value = 4 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 10 } }
@@ -3066,7 +3060,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 98, Value = -3 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 10 } }
@@ -3088,7 +3082,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 98, Value = -3 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 10 } }
@@ -3111,10 +3105,10 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 110, Value = 50 },
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 44, Value = 45 },
                         new GearItemStat { Id = 186, Value = 25 },
-                        new GearStat { Name = "OA2", Value = 50 },
+                        new GearItemStat { Id = 235, Value = 50 },
                         new GearItemStat { Id = 16, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13} }
@@ -3135,7 +3129,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 110, Value = 50 },
                         new GearItemStat { Id = 68, Value = 50 },
                         new GearItemStat { Id = 70, Value = 217 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 255 },
+                        new GearItemStat { Id = 231, Value = 255 },
                         new GearItemStat { Id = 44, Value = 45 },
                         new GearItemStat { Id = 16, Value = 269 }
                     },
@@ -3189,7 +3183,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 281 },
                         new GearItemStat { Id = 44, Value = 26 },
                         new GearItemStat { Id = 10, Value = 228 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 47, Value = 3 },
                         new GearItemStat { Id = 48, Value = 3 },
                         new GearItemStat { Id = 49, Value = 3 },
@@ -3214,7 +3208,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 2, Value = 30 },
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 }
+                        new GearItemStat { Id = 231, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> {}
                 },
@@ -3235,7 +3229,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 6, Value = 12 },
                         new GearItemStat { Id = 43, Value = 32 },
                         new GearItemStat { Id = 10, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 55, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 16}, new GearItemJob { JobId= 17} }
@@ -3258,7 +3252,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 14 },
                         new GearItemStat { Id = 70, Value = 108 },
                         new GearItemStat { Id = 10, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 201 },
+                        new GearItemStat { Id = 231, Value = 201 },
                         new GearItemStat { Id = 55, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 19} }
@@ -3278,7 +3272,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 1, Value = 20 },
                         new GearItemStat { Id = 43, Value = 52 },
                        new GearItemStat { Id = 15, Value = 228 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 55, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 14} }
@@ -3300,7 +3294,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 4, Value = 12 },
                         new GearItemStat { Id = 43, Value = 52 },
                         new GearItemStat { Id = 9, Value = 228 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 55, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
@@ -3320,7 +3314,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 1, Value = 15 },
                         new GearItemStat { Id = 43, Value = 32 },
                         new GearItemStat { Id = 12, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 55, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 22} }
@@ -3342,7 +3336,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 5, Value = 15 },
                         new GearItemStat { Id = 43, Value = 52 },
                         new GearItemStat { Id = 11, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 55, Value = 30 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 22} }
@@ -3364,7 +3358,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 27 },
                         new GearItemStat { Id = 44, Value = 33 },
                         new GearItemStat { Id = 10, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 228 },
+                        new GearItemStat { Id = 231, Value = 228 },
                         new GearItemStat { Id = 59, Value = 4 },
                         new GearItemStat { Id = 49, Value = 3 }
                     },
@@ -3385,7 +3379,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 76 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 10, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 45, Value = 4 },
                         new GearItemStat { Id = 44, Value = 40 }
                     },
@@ -3407,7 +3401,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 4, Value = 10 },
                         new GearItemStat { Id = 91, Value = 22 },
                         new GearItemStat { Id = 9, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 54, Value = 5 },
                         new GearItemStat { Id = 43, Value = 50 },
                         new GearItemStat { Id = 45, Value = 5 },
@@ -3430,7 +3424,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 124, Value = 10 },
                         new GearItemStat { Id = 91, Value = 22 },
                         new GearItemStat { Id = 9, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 54, Value = 5 },
                         new GearItemStat { Id = 43, Value = 50 },
                         new GearItemStat { Id = 50, Value = 8 },
@@ -3455,10 +3449,10 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 45 },
                         new GearItemStat { Id = 68, Value = 45 },
                         new GearItemStat { Id = 10, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
-                        new GearStat { Name = "OA2", Value = 45 },
+                        new GearItemStat { Id = 231, Value = 188 },
+                        new GearItemStat { Id = 235, Value = 45 },
                         new GearItemStat { Id = 2, Value = 10 },
-                        new GearStat { Name = "EnSpell Damage%", Value = 50 }
+                        new GearItemStat { Id = 234, Value = 50 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 19} }
                 },
@@ -3478,7 +3472,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 68, Value = 61 },
                         new GearItemStat { Id = 9, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 48, Value = 3 },
                         new GearItemStat { Id = 4, Value = 14 }
                     },
@@ -3498,7 +3492,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 268 },
                         new GearItemStat { Id = 44, Value = 43 },
                         new GearItemStat { Id = 10, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 124, Value = 30 },
                         new GearItemStat { Id = 45, Value = 5 },
                         new GearItemStat { Id = 54, Value = 4 }
@@ -3519,9 +3513,9 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 236 },
                         new GearItemStat { Id = 1, Value = 15 },
                         new GearItemStat { Id = 10, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 43, Value = 20 },
-                        new GearStat { Name = "Fire Elemental Bonus", Value = 15 }
+                        new GearItemStat { Id = 237, Value = 15 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 16} }
                 },
@@ -3539,11 +3533,11 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 183 },
                         new GearItemStat { Id = 4, Value = 15 },
                         new GearItemStat { Id = 9, Value = 228 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 43, Value = 27 },
                         new GearItemStat { Id = 44, Value = 15 },
                         new GearItemStat { Id = 91, Value = 27 },
-                        new GearStat { Name = "Wind Elemental Bonus", Value = 15 }
+                        new GearItemStat { Id = 238, Value = 15 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 8 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 12}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 14}, new GearItemJob { JobId= 15}, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
                 },
@@ -3563,7 +3557,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 1, Value = 28 },
                         new GearItemStat { Id = 44, Value = 50 },
                         new GearItemStat { Id = 12, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 54, Value = 8 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 9 } }
@@ -3585,7 +3579,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 12 },
                         new GearItemStat { Id = 70, Value = 93 },
                         new GearItemStat { Id = 18, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 201 },
+                        new GearItemStat { Id = 231, Value = 201 },
                         new GearItemStat { Id = 48, Value = 3 },
                         new GearItemStat { Id = 50, Value = 7 }
                     },
@@ -3608,7 +3602,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 44, Value = 24 },
                         new GearItemStat { Id = 70, Value = 110 },
                         new GearItemStat { Id = 18, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -3630,7 +3624,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 40 },
                         new GearItemStat { Id = 91, Value = 40 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 59, Value = 10 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 19} }
@@ -3653,7 +3647,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 56, Value = 5 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 }
+                        new GearItemStat { Id = 231, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 16} }
                 },
@@ -3674,7 +3668,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 110, Value = 40 },
                         new GearItemStat { Id = 68, Value = 40 },
                         new GearItemStat { Id = 16, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 }
+                        new GearItemStat { Id = 231, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 13} }
                 },
@@ -3695,7 +3689,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 40 },
                         new GearItemStat { Id = 70, Value = 263 },
                         new GearItemStat { Id = 18, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 78, Value = 8 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 4 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 20}, new GearItemJob { JobId= 21} }
@@ -3718,7 +3712,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 40 },
                         new GearItemStat { Id = 70, Value = 248 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 }
+                        new GearItemStat { Id = 231, Value = 269 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 7 }, new GearItemJob { JobId= 16} }
                 },
@@ -3740,7 +3734,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 7, Value = 35 },
                         new GearItemStat { Id = 48, Value = 6 },
                         new GearItemStat { Id = 9, Value = 277 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 43, Value = 35 },
                         new GearItemStat { Id = 68, Value = 35 }
                     },
@@ -3763,7 +3757,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 7, Value = 30 },
                         new GearItemStat { Id = 48, Value = 4 },
                         new GearItemStat { Id = 9, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -3787,7 +3781,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 35 },
                         new GearItemStat { Id = 44, Value = 70 },
                         new GearItemStat { Id = 10, Value = 277 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 98, Value = -10 },
                         new GearItemStat { Id = 68, Value = 35 }
                     },
@@ -3811,7 +3805,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 44, Value = 60 },
                         new GearItemStat { Id = 10, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 98, Value = -7 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -3833,7 +3827,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 3, Value = 35 },
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 11, Value = 277 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 43, Value = 35 },
                         new GearItemStat { Id = 68, Value = 35 }
                     },
@@ -3855,7 +3849,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 3, Value = 30 },
                         new GearItemStat { Id = 50, Value = 7 },
                         new GearItemStat { Id = 11, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -3878,7 +3872,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 7, Value = 35 },
                         new GearItemStat { Id = 45, Value = 15 },
                         new GearItemStat { Id = 12, Value = 277 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 43, Value = 35 },
                         new GearItemStat { Id = 68, Value = 35 }
                     },
@@ -3901,7 +3895,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 7, Value = 30 },
                         new GearItemStat { Id = 45, Value = 12 },
                         new GearItemStat { Id = 12, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -3925,7 +3919,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 50, Value = 10 },
                         new GearItemStat { Id = 70, Value = 263 },
                         new GearItemStat { Id = 16, Value = 277 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 43, Value = 35 },
                         new GearItemStat { Id = 68, Value = 35 }
                     },
@@ -3948,7 +3942,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 50, Value = 7 },
                         new GearItemStat { Id = 70, Value = 248 },
                         new GearItemStat { Id = 16, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -3973,7 +3967,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 60 },
                         new GearItemStat { Id = 70, Value = 263 },
                         new GearItemStat { Id = 18, Value = 277 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 43, Value = 35 },
                         new GearItemStat { Id = 68, Value = 35 }
                     },
@@ -3997,7 +3991,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 69, Value = 50 },
                         new GearItemStat { Id = 70, Value = 248 },
                         new GearItemStat { Id = 18, Value = 269 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 43, Value = 30 },
                         new GearItemStat { Id = 68, Value = 30 }
                     },
@@ -4027,7 +4021,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 44, Value = 13 },
                         new GearItemStat { Id = 91, Value = 13 },
                         new GearItemStat { Id = 9, Value = 242 },
-                        new GearStat { Name = "MagicAccuracySkill", Value = 188 },
+                        new GearItemStat { Id = 231, Value = 188 },
                         new GearItemStat { Id = 93, Value = 13 }
                     },
                     GearItemJobs = new List<GearItemJob> { new GearItemJob { JobId= 1 }, new GearItemJob { JobId= 5 }, new GearItemJob { JobId= 6 }, new GearItemJob { JobId= 9 }, new GearItemJob { JobId= 10 }, new GearItemJob { JobId= 11}, new GearItemJob { JobId= 13}, new GearItemJob { JobId= 17}, new GearItemJob { JobId= 19} }

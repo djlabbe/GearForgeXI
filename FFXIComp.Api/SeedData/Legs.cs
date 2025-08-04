@@ -31,7 +31,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 68, Value = 39 },
                         new GearItemStat { Id = 59, Value = 6 },
                         new GearItemStat { Id = 47, Value = 6 },
-                        new GearStat { Name = "DADamage%", Value = 11 }
+                        new GearItemStat { Id = 61, Value = 11 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -58,7 +58,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 94, Value = 7 },
                         new GearItemStat { Id = 59, Value = 6 },
                         new GearItemStat { Id = 47, Value = 6 },
-                        new GearStat { Name = "DADamage%", Value = 11 }
+                        new GearItemStat { Id = 61, Value = 11 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 1 } }
                 },
@@ -592,7 +592,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 110, Value = 35 },
                         new GearItemStat { Id = 59, Value = 6 },
                         new GearItemStat { Id = 50, Value = 6 },
-                        new GearStat { Name = "Dual Wield", Value = 5 }
+                        new GearItemStat { Id = 67, Value = 5 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 13} }
                 },
@@ -619,7 +619,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 94, Value = 5 },
                         new GearItemStat { Id = 59, Value = 6 },
                         new GearItemStat { Id = 50, Value = 6 },
-                        new GearStat { Name = "Dual Wield", Value = 5 },
+                        new GearItemStat { Id = 67, Value = 5 },
                         new GearItemStat { Id = 51, Value = 9 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 13} }
@@ -1015,7 +1015,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 44, Value = 64 },
                         new GearItemStat { Id = 68, Value = 39 },
                         new GearItemStat { Id = 59, Value = 6 },
-                        new GearStat { Name = "Dual Wield", Value = 10 },
+                        new GearItemStat { Id = 67, Value = 10 },
                         new GearItemStat { Id = 54, Value = 10 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 13} }
@@ -1042,7 +1042,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 93, Value = 124 },
                         new GearItemStat { Id = 94, Value = 6 },
                         new GearItemStat { Id = 59, Value = 6 },
-                        new GearStat { Name = "Dual Wield", Value = 10 },
+                        new GearItemStat { Id = 67, Value = 10 },
                         new GearItemStat { Id = 54, Value = 12 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 13} }
@@ -1119,7 +1119,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 44, Value = 30 },
                         new GearItemStat { Id = 59, Value = 6 },
                         new GearItemStat { Id = 48, Value = 5 },
-                        new GearStat { Name = "Crit Damage", Value = 5 }
+                        new GearItemStat { Id = 46, Value = 5 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 6 } }
                 },
@@ -1147,7 +1147,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 94, Value = 7 },
                         new GearItemStat { Id = 59, Value = 6 },
                         new GearItemStat { Id = 48, Value = 5 },
-                        new GearStat { Name = "Crit Damage", Value = 5 }
+                        new GearItemStat { Id = 46, Value = 5 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 6 } }
                 },
@@ -1174,7 +1174,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 94, Value = 5 },
                         new GearItemStat { Id = 59, Value = 6 },
                         new GearItemStat { Id = 113, Value = 48 },
-                        new GearStat { Name = "Pet:Magic Attack", Value = 51 }
+                        new GearItemStat { Id = 114, Value = 51 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 18} }
                 },
@@ -1203,7 +1203,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 117, Value = 53 },
                         new GearItemStat { Id = 119, Value = 53 },
                         new GearItemStat { Id = 113, Value = 53 },
-                        new GearStat { Name = "Pet:Magic Attack", Value = 54 }
+                        new GearItemStat { Id = 114, Value = 54 }
                     },
                     GearItemJobs =  new List<GearItemJob> { new GearItemJob { JobId= 18} }
                 },
@@ -1369,7 +1369,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 44, Value = 73 },
                         new GearItemStat { Id = 68, Value = 63 },
                         new GearItemStat { Id = 59, Value = 5 },
-                        new GearStat { Name = "Crit Damage", Value = 13 }
+                        new GearItemStat { Id = 46, Value = 13 }
                     }
                 },
                 new GearItem
@@ -1396,7 +1396,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 44, Value = 63 },
                         new GearItemStat { Id = 68, Value = 53 },
                         new GearItemStat { Id = 59, Value = 5 },
-                        new GearStat { Name = "Crit Damage", Value = 12 }
+                        new GearItemStat { Id = 46, Value = 12 }
                     }
                 },
                 new GearItem
@@ -1742,7 +1742,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 7, Value = 11 },
                         new GearItemStat { Id = 111, Value = 33 },
                         new GearItemStat { Id = 59, Value = 6 },
-                        new GearStat { Name = "Crit Damage", Value = 6 }
+                        new GearItemStat { Id = 46, Value = 6 }
                     }
                 },
                 new GearItem
@@ -1808,9 +1808,9 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 7, Value = 15 },
                         new GearItemStat { Id = 110, Value = 46 },
                         new GearItemStat { Id = 68, Value = 51 },
-                        new GearStat { Name = "True Shot", Value = 5 },
-                        new GearStat { Name = "Double Shot", Value = 7 },
-                        new GearStat { Name = "Triple Shot", Value = 6 }
+                        new GearItemStat { Id = 187, Value = 5 },
+                        new GearItemStat { Id = 188, Value = 7 },
+                        new GearItemStat { Id = 189, Value = 6 }
                     }
                 },
                 new GearItem
@@ -2228,7 +2228,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 111, Value = 73 },
                         new GearItemStat { Id = 68, Value = 63 },
                         new GearItemStat { Id = 59, Value = 6 },
-                        new GearStat { Name = "True Shot", Value = 8 },
+                        new GearItemStat { Id = 187, Value = 8 },
                         new GearItemStat { Id = 50, Value = 12 },
                         new GearItemStat { Id = 45, Value = 6 }
                     }
@@ -2259,7 +2259,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 111, Value = 63 },
                         new GearItemStat { Id = 68, Value = 53 },
                         new GearItemStat { Id = 59, Value = 6 },
-                        new GearStat { Name = "True Shot", Value = 6 },
+                        new GearItemStat { Id = 187, Value = 6 },
                         new GearItemStat { Id = 50, Value = 11 },
                         new GearItemStat { Id = 45, Value = 5 }
                     }
@@ -2346,7 +2346,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 117, Value = 63 },
                         new GearItemStat { Id = 119, Value = 63 },
                         new GearItemStat { Id = 113, Value = 63 },
-                        new GearStat { Name = "AutomatonCombatSkill", Value = 33 }
+                        new GearItemStat { Id = 230, Value = 33 }
                     }
                 },
                 new GearItem
@@ -2377,7 +2377,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 117, Value = 53 },
                         new GearItemStat { Id = 119, Value = 53 },
                         new GearItemStat { Id = 113, Value = 53 },
-                        new GearStat { Name = "AutomatonCombatSkill", Value = 28 }
+                        new GearItemStat { Id = 230, Value = 28 }
                     }
                 },
                 new GearItem
@@ -2546,7 +2546,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 93, Value = 107 },
                         new GearItemStat { Id = 94, Value = 6 },
                         new GearItemStat { Id = 59, Value = 6 },
-                        new GearStat { Name = "Occult Acumen", Value = 30 }
+                        new GearItemStat { Id = 129, Value = 30 }
                     }
                 },
                 new GearItem
@@ -2935,8 +2935,8 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 44, Value = 64 },
                         new GearItemStat { Id = 68, Value = 39 },
                         new GearItemStat { Id = 59, Value = 5 },
-                        new GearStat { Name = "Elemental Magic Skill", Value = 23 },
-                        new GearStat { Name = "EnSpell Damage", Value = 5 },
+                        new GearItemStat { Id = 31, Value = 23 },
+                        new GearItemStat { Id = 208, Value = 5 },
                     }
                 },
                 new GearItem
@@ -2962,10 +2962,10 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 91, Value = 72 },
                         new GearItemStat { Id = 93, Value = 167 },
                         new GearItemStat { Id = 94, Value = 9 },
-                        new GearStat { Name = "Elemental Magic Skill", Value = 24 },
+                        new GearItemStat { Id = 31, Value = 24 },
                         new GearItemStat { Id = 59, Value = 5 },
                         new GearItemStat { Id = 99, Value = -5 },
-                        new GearStat { Name = "EnSpell Damage", Value = 5 },
+                        new GearItemStat { Id = 208, Value = 5 },
                     }
                 },
                 new GearItem
@@ -3367,7 +3367,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 6, Value = 19 },
                         new GearItemStat { Id = 7, Value = 15 },
                         new GearItemStat { Id = 68, Value = 46 },
-                        new GearStat { Name = "Scythe Skill", Value = 55 },
+                        new GearItemStat { Id = 14, Value = 55 },
                         new GearItemStat { Id = 59, Value = 5 },
                         new GearItemStat { Id = 54, Value = 9 },
                         new GearItemStat { Id = 50, Value = 10 },
@@ -5023,7 +5023,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 70, Value = 45 },
                         new GearItemStat { Id = 59, Value = 5 },
                         new GearItemStat { Id = 77, Value = 9 },
-                        new GearStat { Name = "BloodPactDamage", Value = 4 },
+                        new GearItemStat { Id = 168, Value = 4 },
                         new GearItemStat { Id = 98, Value = -9 },
                         new GearItemStat { Id = 91, Value = 58 },
                         new GearItemStat { Id = 93, Value = 150 },
@@ -5053,7 +5053,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 70, Value = 50 },
                         new GearItemStat { Id = 59, Value = 5 },
                         new GearItemStat { Id = 77, Value = 9 },
-                        new GearStat { Name = "BloodPactDamage", Value = 5 },
+                        new GearItemStat { Id = 168, Value = 5 },
                         new GearItemStat { Id = 98, Value = -9 },
                         new GearItemStat { Id = 91, Value = 58 },
                         new GearItemStat { Id = 93, Value = 150 },
@@ -5083,7 +5083,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 70, Value = 55 },
                         new GearItemStat { Id = 59, Value = 5 },
                         new GearItemStat { Id = 77, Value = 9 },
-                        new GearStat { Name = "BloodPactDamage", Value = 7 },
+                        new GearItemStat { Id = 168, Value = 7 },
                         new GearItemStat { Id = 98, Value = -9 },
                         new GearItemStat { Id = 91, Value = 58 },
                         new GearItemStat { Id = 93, Value = 150 },
@@ -5113,7 +5113,7 @@ GearItemStats = new List<GearItemStat>
                         new GearItemStat { Id = 70, Value = 60 },
                         new GearItemStat { Id = 59, Value = 5 },
                         new GearItemStat { Id = 77, Value = 9 },
-                        new GearStat { Name = "BloodPactDamage", Value = 8 },
+                        new GearItemStat { Id = 168, Value = 8 },
                         new GearItemStat { Id = 98, Value = -9 },
                         new GearItemStat { Id = 91, Value = 58 },
                         new GearItemStat { Id = 93, Value = 150 },

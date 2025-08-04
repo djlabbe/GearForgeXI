@@ -132,6 +132,7 @@ namespace FFXIComp.Api
                 // Weapon Stats
                 new Stat { Id = 41, Name = "Delay", DisplayName = "Delay", Category = "Weapon" },
                 new Stat { Id = 42, Name = "DMG", DisplayName = "Damage", Category = "Weapon" },
+                new Stat { Id = 231, Name = "MagicAccuracySkill", DisplayName = "Magic Accuracy Skill", Category = "Weapon" },
 
                 // Combat Stats
                 new Stat { Id = 43, Name = "Accuracy", Category = "Combat" },
@@ -158,10 +159,14 @@ namespace FFXIComp.Api
                 new Stat { Id = 62, Name = "FTP", DisplayName = "fTP", Category = "Combat" },
                 new Stat { Id = 63, Name = "TpNotDepleted", DisplayName = "TP not depleted when weapon skill used", Category = "Combat" },
                 new Stat { Id = 64, Name = "WSC(Dex)", DisplayName = "Weapon skill DEX", Category = "Combat" },
+                new Stat { Id = 239, Name = "WSC(CHR)", DisplayName = "Weapon skill CHR", Category = "Combat" },
                 new Stat { Id = 65, Name = "Fencer", DisplayName = "Fencer", Category = "Combat" },
                 new Stat { Id = 66, Name = "MartialArts", DisplayName = "Martial Arts", Category = "Combat" },
                 new Stat { Id = 67, Name = "DualWield", DisplayName = "Dual Wield", Category = "Combat" },
                 new Stat { Id = 201, Name = "ConserveTP", DisplayName = "Conserve TP", Category = "Combat" },
+                new Stat { Id = 232, Name = "OA2-8", DisplayName = "Occasionally Attacks 2-8 Times", Category = "Combat" },
+                new Stat { Id = 233, Name = "ElementalWeaponSkillDamage", DisplayName = "Elemental Weapon Skill Damage %", Category = "Combat" },
+                new Stat { Id = 235, Name = "FollowUpAttackChance", DisplayName = "Follow Up Attack Chance", Category = "Combat" },
 
                 // Magic Stats
                 new Stat { Id = 68, Name = "MagicAccuracy", DisplayName = "Magic Accuracy", Category = "Magic" },
@@ -188,12 +193,17 @@ namespace FFXIComp.Api
                 new Stat { Id = 89, Name = "EnfeeblingMagicCastingTime", DisplayName = "Enfeebling Magic Casting Time", Category = "Magic" },
                 new Stat { Id = 90, Name = "ElementalMagicRecastDelay", DisplayName = "Elemental Magic Recast Delay", Category = "Magic" },
                 new Stat { Id = 208, Name = "EnspellDamage", DisplayName = "Enspell Damage", Category = "Magic" },
+                new Stat { Id = 234, Name = "EnspellDamage%", DisplayName = "Enspell Damage %", Category = "Magic" },
+                new Stat { Id = 240, Name = "DayWeatherBonus", DisplayName = "Day Weather Bonus", Category = "Magic" },
                 new Stat { Id = 212, Name = "FullDayWeatherBonus", DisplayName = "Full Day Weather Bonus", Category = "Magic" },
                 new Stat { Id = 213, Name = "ElementalDistanceBonus", DisplayName = "Elemental Distance Bonus", Category = "Magic" },
                 new Stat { Id = 215, Name = "DarkElementalBonus", DisplayName = "Dark Elemental Bonus", Category = "Magic" },
                 new Stat { Id = 218, Name = "LightElementalBonus", DisplayName = "Light Elemental Bonus", Category = "Magic" },
                 new Stat { Id = 219, Name = "MagicBurstAccuracy", DisplayName = "Magic Burst Accuracy", Category = "Magic" },
                 new Stat { Id = 220, Name = "EarthElementalBonus", DisplayName = "Earth Elemental Bonus", Category = "Magic" },
+                new Stat { Id = 237, Name = "FireElementalBonus", DisplayName = "Fire Elemental Bonus", Category = "Magic" },
+                new Stat { Id = 238, Name = "WindElementalBonus", DisplayName = "Wind Elemental Bonus", Category = "Magic" },
+                new Stat { Id = 241, Name = "ThunderElementalBonus", DisplayName = "Thunder Elemental Bonus", Category = "Magic" },
 
                 // Defensive Stats
                 new Stat { Id = 91, Name = "Evasion", Category = "Defense" },
@@ -205,6 +215,7 @@ namespace FFXIComp.Api
                 new Stat { Id = 97, Name = "BlockSuccessRate", DisplayName = "Shield Block Rate", Category = "Defense" },
                 new Stat { Id = 98, Name = "DT", DisplayName = "Damage Taken -%", Category = "Defense" },
                 new Stat { Id = 99, Name = "PDT", DisplayName = "Physical Damage Taken -%", Category = "Defense" },
+                new Stat { Id = 236, Name = "PDTII", DisplayName = "Physical Damage Taken -% II", Category = "Defense" },
                 new Stat { Id = 100, Name = "MDT", DisplayName = "Magic Damage Taken -%", Category = "Defense" },
                 new Stat { Id = 214, Name = "MDTII", DisplayName = "Magic Damage Taken -% II", Category = "Defense" },
                 new Stat { Id = 101, Name = "Enmity+", Category = "Defense" },
@@ -226,6 +237,9 @@ namespace FFXIComp.Api
                 new Stat { Id = 187, Name = "TrueShot", DisplayName = "True Shot", Category = "Ranged" },
                 new Stat { Id = 188, Name = "DoubleShot", DisplayName = "Double Shot", Category = "Ranged" },
                 new Stat { Id = 189, Name = "TripleShot", DisplayName = "Triple Shot", Category = "Ranged" },
+                new Stat { Id = 227, Name = "RangedCritDamage", DisplayName = "Ranged Crit Damage", Category = "Ranged" },
+                new Stat { Id = 228, Name = "DoubleShotDamage", DisplayName = "Double Shot Damage", Category = "Ranged" },
+                new Stat { Id = 229, Name = "TripleShotDamage", DisplayName = "Triple Shot Damage", Category = "Ranged" },
 
                 // Pet Stats
                 new Stat { Id = 113, Name = "PetMagicAccuracy", DisplayName = "Pet Magic Accuracy", Category = "Pet" },
@@ -247,6 +261,7 @@ namespace FFXIComp.Api
                 new Stat { Id = 210, Name = "PetDEX", DisplayName = "Pet DEX", Category = "Pet" },
                 new Stat { Id = 211, Name = "PetAGI", DisplayName = "Pet AGI", Category = "Pet" },
                 new Stat { Id = 205, Name = "PetSubtleBlow", DisplayName = "Pet Subtle Blow", Category = "Pet" },
+                new Stat { Id = 225, Name = "PetTPBonus", DisplayName = "Pet TP Bonus", Category = "Pet" },
 
                 // Utility Stats
                 new Stat { Id = 123, Name = "Refresh", Category = "Utility" },
@@ -330,6 +345,12 @@ namespace FFXIComp.Api
                 new Stat { Id = 195, Name = "NinjutsuDamagePercent", DisplayName = "Ninjutsu Damage Percent", Category = "Job" },
                 new Stat { Id = 196, Name = "NinjutsuMagicAttack", DisplayName = "Ninjutsu Magic Attack", Category = "Job" },
                 new Stat { Id = 207, Name = "Futae", DisplayName = "Futae", Category = "Job" },
+                new Stat { Id = 223, Name = "InninDoubleAttack", DisplayName = "Innin Double Attack", Category = "Job" },
+
+                // DRG
+                new Stat { Id = 221, Name = "JumpDoubleAttack", DisplayName = "Jump Double Attack", Category = "Job" },
+                new Stat { Id = 222, Name = "WyvernBreathAttacks", DisplayName = "Wyvern Breath Attacks", Category = "Job" },
+
 
                 // SMN
                 new Stat { Id = 167, Name = "AvatarLevel", DisplayName = "Avatar Level", Category = "Job" },
@@ -343,15 +364,18 @@ namespace FFXIComp.Api
                 new Stat { Id = 171, Name = "PhantomRollDuration", DisplayName = "Phantom Roll Duration", Category = "Job" },
                 new Stat { Id = 172, Name = "TripleShot", DisplayName = "Triple Shot", Category = "Job" },
                 new Stat { Id = 193, Name = "QuickDrawDamage", DisplayName = "Quick Draw Damage", Category = "Job" },
+                new Stat { Id = 242, Name = "QuickDrawDamage%", DisplayName = "Quick Draw Damage %", Category = "Job" },
                 new Stat { Id = 194, Name = "QuickDrawMagicAccuracy", DisplayName = "Quick Draw Magic Accuracy", Category = "Job" },
 
                 // PUP
                 new Stat { Id = 173, Name = "OverloadRate", DisplayName = "Overload Rate", Category = "Job" },
                 new Stat { Id = 174, Name = "AutomatonLevel", DisplayName = "Automaton Level", Category = "Job" },
+                new Stat { Id = 230, Name = "AutomatonCombatSkill", DisplayName = "Automaton Combat Skill", Category = "Job" },
 
                 // DNC
                 new Stat { Id = 175, Name = "SambaDuration", DisplayName = "Samba Duration", Category = "Job" },
-                new Stat { Id = 190, Name = "StrikingCritRate", Description = "Increases the Critical Hit Rate of Striking Flourish for the main hit and Double Attack of the stacked attack round or Weapon Skill to +70%.", DisplayName = "Striking Flourish: Critical Rate", Category = "Job" },
+                new Stat { Id = 190, Name = "StrikingCritRate", Description = "Increases the Critical Hit Rate of Striking Flourish for the main hit and Double Attack of the stacked attack round or Weapon Skill", DisplayName = "Striking Flourish: Critical Rate", Category = "Job" },
+                new Stat { Id = 226, Name = "ClimacticCritDamage", Description = "Increases the Critical Damage of Climactic Flourish ", DisplayName = "Climactic Flourish: Critical Damage", Category = "Job" },
 
                 // GEO
                 new Stat { Id = 176, Name = "IndicolureDuration", DisplayName = "Indicolure Duration", Category = "Job" },
@@ -364,6 +388,7 @@ namespace FFXIComp.Api
                 // SCH
                 new Stat { Id = 180, Name = "Rapture", DisplayName = "Rapture", Category = "Job" },
                 new Stat { Id = 181, Name = "Ebullience", DisplayName = "Ebullience", Category = "Job" },
+                new Stat { Id = 224, Name = "EbullienceBonus", DisplayName = "Ebullience", Category = "Job" },
                 new Stat { Id = 200, Name = "KlimaformDamage", Description = "Klimaform Damage %", DisplayName = "Klimaform Damage", Category = "Job" }
             );
 

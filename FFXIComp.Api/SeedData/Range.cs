@@ -22,10 +22,10 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 42, Value = 71 },
                         new GearItemStat { Id = 41, Value = 252 },
                         new GearItemStat { Id = 111, Value = 21 },
-                        new GearStat { Name = "Throwing Skill", Value = 242 },
+                        new GearItemStat { Id = 22, Value = 242 },
                         new GearItemStat { Id = 110, Value = 21 },
                         new GearItemStat { Id = 47, Value = 6 },
-                        new GearStat { Name = "Magic Evasion", Value = 15 }
+                        new GearItemStat { Id = 93, Value = 15 }
                     }
                 },
                 new GearItem
@@ -44,7 +44,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 91, Value = 5 },
                         new GearItemStat { Id = 43, Value = 5 },
                         new GearItemStat { Id = 110, Value = 5 },
-                        new GearStat { Name = "Throwing Skill", Value = 242 },
+                        new GearItemStat { Id = 22, Value = 242 },
                         new GearItemStat { Id = 2, Value = 5 },
                         new GearItemStat { Id = 4, Value = 5 }
                     }
@@ -65,7 +65,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 43, Value = 6 },
                         new GearItemStat { Id = 44, Value = 6 },
                         new GearItemStat { Id = 110, Value = 11 },
-                        new GearStat { Name = "Throwing Skill", Value = 228 },
+                        new GearItemStat { Id = 22, Value = 228 },
                         new GearItemStat { Id = 45, Value = 2 }
                     }
                 },
@@ -84,7 +84,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 192 },
                         new GearItemStat { Id = 44, Value = 13 },
                         new GearItemStat { Id = 50, Value = 2 },
-                        new GearStat { Name = "Throwing Skill", Value = 242 }
+                        new GearItemStat { Id = 22, Value = 242 }
                     }
                 },
                 new GearItem
@@ -103,7 +103,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 21, Value = 228 },
                         new GearItemStat { Id = 2, Value = 5 },
                         new GearItemStat { Id = 4, Value = 5 },
-                        new GearStat { Name = "Thunder Elemental Bonus", Value = 15 }
+                        new GearItemStat { Id = 241, Value = 15 }
                     }
                 },
                 new GearItem
@@ -261,7 +261,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 480 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 21, Value = 269 },
-                        new GearStat { Name = "QuickDrawDamage%", Value = 60 },
+                        new GearItemStat { Id = 242, Value = 60 },
                         new GearItemStat { Id = 194, Value = 60 }
                     }
                 },
@@ -280,7 +280,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 480 },
                         new GearItemStat { Id = 70, Value = 217 },
                         new GearItemStat { Id = 21, Value = 269 },
-                        new GearStat { Name = "QuickDrawDamage%", Value = 60 },
+                        new GearItemStat { Id = 242, Value = 60 },
                         new GearItemStat { Id = 194, Value = 60 }
                     }
                 },
@@ -759,7 +759,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 582 },
                         new GearItemStat { Id = 2, Value = 35 },
                         new GearItemStat { Id = 4, Value = 35 },
-                        new GearStat { Name = "MagicAccuracy Skill", Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 45, Value = 15 },
                         new GearItemStat { Id = 68, Value = 35 },
                         new GearItemStat { Id = 110, Value = 35 }
@@ -781,7 +781,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 41, Value = 582 },
                         new GearItemStat { Id = 2, Value = 30 },
                         new GearItemStat { Id = 4, Value = 30 },
-                        new GearStat { Name = "MagicAccuracy Skill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 45, Value = 12 },
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 110, Value = 30 }
@@ -804,7 +804,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 1, Value = 35 },
                         new GearItemStat { Id = 4, Value = 35 },
                         new GearItemStat { Id = 50, Value = 10 },
-                        new GearStat { Name = "MagicAccuracy Skill", Value = 277 },
+                        new GearItemStat { Id = 231, Value = 277 },
                         new GearItemStat { Id = 68, Value = 35 },
                         new GearItemStat { Id = 110, Value = 35 }
                     }
@@ -826,7 +826,7 @@ namespace FFXIComp.Api.SeedData
                         new GearItemStat { Id = 1, Value = 30 },
                         new GearItemStat { Id = 4, Value = 30 },
                         new GearItemStat { Id = 50, Value = 7 },
-                        new GearStat { Name = "MagicAccuracy Skill", Value = 269 },
+                        new GearItemStat { Id = 231, Value = 269 },
                         new GearItemStat { Id = 68, Value = 30 },
                         new GearItemStat { Id = 110, Value = 30 }
                     }
