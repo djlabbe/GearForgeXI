@@ -1,2 +1,0 @@
-Tahaka_Mantle = {"Name":"Takaha Mantle", "Accuracy":15, "Attack":15, "Str":5, "Store TP":10+3, "Zanshin":5, "Jobs":["sam"]}
-Null_Shawl = {"Name":"Null Shawl", "Accuracy":50, "Ranged Accuracy":50, "Magic Accuracy":50, "Evasion":50, "Magic Evasion":50, "DA":7, "Store TP":7, "Jobs":[]}

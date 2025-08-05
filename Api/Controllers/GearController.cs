@@ -105,6 +105,10 @@ public class GearController(GearDbContext context) : ControllerBase
 
         // Validate that all slots exist
         var allSlotNames = dto.Slots.Select(s => s.Trim().ToLower()).ToList();
+
+        if (allSlotNames.Count == 0)
+            return BadRequest("At least one slot must be specified.");
+
         var validSlots = await _context.GearSlots
             .Where(gs => allSlotNames.Contains(gs.Name.ToLower()))
             .ToListAsync();
@@ -114,6 +118,22 @@ public class GearController(GearDbContext context) : ControllerBase
             var foundNames = validSlots.Select(s => s.Name.ToLower());
             var missing = allSlotNames.Except(foundNames);
             return BadRequest($"Invalid slot(s): {string.Join(", ", missing)}");
+        }
+
+        // Validate slot assignment rules
+        var slotNames = validSlots.Select(s => s.Name.ToLower()).ToList();
+
+        // Check if gear item can only have one slot, except it can have both "Main" and "Sub"
+        if (slotNames.Count > 1)
+        {
+            // Only allow multiple slots if they are exactly "main" and "sub"
+            var hasMain = slotNames.Contains("main");
+            var hasSub = slotNames.Contains("sub");
+
+            if (!(hasMain && hasSub && slotNames.Count == 2))
+            {
+                return BadRequest("A gear item can only have one slot, except it can have both 'Main' and 'Sub' slots.");
+            }
         }
 
         // Remove old slots
