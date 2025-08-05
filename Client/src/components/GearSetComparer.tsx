@@ -95,11 +95,23 @@ export function GearSetComparer({ job, subJob }: Props) {
       }
 
       if (mainItem && mainItem.category === "1H") {
-        if (job.canDualWield || subJob?.canDualWield) {
+        if (job.canDualWield || subJob?.abbreviation === "NIN" || subJob?.abbreviation === "DNC") {
           items = items.filter(
             (item) => item.category === "1H" || item.category === "Shield"
           );
         } else items = items.filter((item) => item.category === "Shield");
+      }
+    }
+
+    if (slot.toLowerCase() === "ammo") {
+      const rangeItem = getItemAtPosition(currentSet, "range");
+
+      if (rangeItem && rangeItem.category === "Gun") {
+        items = items.filter((item) => item.category === "Bullet");
+      } else if (rangeItem && rangeItem.category === "Crossbow") {
+        items = items.filter((item) => item.category === "Bolt");
+      } else if (rangeItem && rangeItem.category === "Bow") {
+        items = items.filter((item) => item.category === "Arrow");
       }
     }
 
@@ -121,6 +133,7 @@ export function GearSetComparer({ job, subJob }: Props) {
       augmentedSetA.slots = setA.slots.map((slot) =>
         slot.position === "back" ? { ...slot, gearItem: augmentedBackA } : slot
       );
+      console.log("Augmented Set A Back Item:", augmentedBackA);
     }
 
     // Add augments to Set B back item if it exists
@@ -136,6 +149,7 @@ export function GearSetComparer({ job, subJob }: Props) {
     }
 
     const result = compareGearSets(augmentedSetA, augmentedSetB);
+    console.log("Comparison Result:", result);
     setComparison(result);
   }, [setA, setB, setAAugments, setBAugments]);
 

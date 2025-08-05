@@ -2,12 +2,12 @@ import { ReactSelector } from "../components/ReactSelector";
 import { GearSetComparer } from "../components/GearSetComparer";
 import Card from "../components/Card";
 import Notes from "../components/Notes";
-import { useJobs } from "../contexts/JobsContext";
 import { useState, useEffect } from "react";
 import type { Job } from "../models/Job";
+import { useAppData } from "../contexts/AppDataContext";
 
 const ComparePage = () => {
-  const { jobs, loading: loadingJobs, error } = useJobs();
+  const { jobs, loading: loadingAppData, error } = useAppData();
 
   const [selectedJob, setSelectedJob] = useState<Job | undefined>();
   const [selectedSubJob, setSelectedSubJob] = useState<Job | undefined>();
@@ -57,7 +57,7 @@ const ComparePage = () => {
   return (
     <>
       <Card className="mb-4">
-        {loadingJobs ? (
+        {loadingAppData ? (
           <div className="text-gray-500">Loading...</div>
         ) : error ? (
           <div className="text-red-500">Error: {error}</div>
@@ -102,7 +102,9 @@ const ComparePage = () => {
           </div>
         )}
       </Card>
-      {selectedJob && <GearSetComparer job={selectedJob} subJob={selectedSubJob} />}
+      {selectedJob && (
+        <GearSetComparer job={selectedJob} subJob={selectedSubJob} />
+      )}
       <Notes />
     </>
   );

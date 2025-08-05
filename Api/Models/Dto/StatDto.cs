@@ -15,5 +15,6 @@ namespace FFXIComp.Api.Models.Dto
 
         public string? Description { get; set; }        // Optional tooltip text
 
+        public int GearItemCount { get; set; }
     }
 }

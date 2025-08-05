@@ -17,13 +17,18 @@ const Modal = ({ isOpen, onClose, children, size = "md" }: ModalProps) => {
     };
 
     if (isOpen) {
+      // Calculate scrollbar width before hiding overflow
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      
       document.addEventListener("keydown", handleEscape);
       document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
     }
 
     return () => {
       document.removeEventListener("keydown", handleEscape);
       document.body.style.overflow = "unset";
+      document.body.style.paddingRight = "0px";
     };
   }, [isOpen, onClose]);
 
@@ -38,21 +43,22 @@ const Modal = ({ isOpen, onClose, children, size = "md" }: ModalProps) => {
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
+      {/* Background overlay */}
+      <div
+        className="fixed inset-0 transition-opacity"
+        style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+        onClick={onClose}
+      />
+      
       <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-        {/* Background overlay */}
-        <div
-          className="fixed inset-0 z-40 transition-opacity bg-gray-500 bg-opacity-30 dark:bg-gray-900 dark:bg-opacity-40"
-          onClick={onClose}
-        />
-
         {/* Modal panel */}
         <div
-          className={`relative z-50 inline-block w-full ${sizeClasses[size]} p-0 my-8 overflow-hidden text-left align-middle transition-all transform 
+          className={`relative z-10 inline-block w-full ${sizeClasses[size]} p-0 my-8 overflow-hidden text-left align-middle transition-all transform 
   bg-white shadow-xl rounded-lg dark:bg-gray-800`}
         >
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-1 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 dark:hover:text-gray-300 dark:hover:bg-gray-700 transition-colors"
+            className="absolute top-4 right-4 p-1 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 dark:hover:text-gray-300 dark:hover:bg-gray-700 transition-colors cursor-pointer"
           >
             <svg
               className="w-5 h-5"

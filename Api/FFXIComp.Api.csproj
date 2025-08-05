@@ -22,17 +22,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
-   <!-- === React Build === -->
-  <Target Name="BuildReact" BeforeTargets="Build">
-    <Exec Command="npm --prefix ../Client install" />
-    <Exec Command="npm --prefix ../Client run build" />
-  </Target>
-
-  <Target Name="CopyReactBuildToWwwroot" AfterTargets="Build">
-    <ItemGroup>
-      <ReactBuildFiles Include="$(ProjectDir)..\Client\dist\**\*" />
-    </ItemGroup>
-    <Copy SourceFiles="@(ReactBuildFiles)" DestinationFolder="wwwroot\%(RecursiveDir)" SkipUnchangedFiles="true" />
-  </Target>
-
 </Project>

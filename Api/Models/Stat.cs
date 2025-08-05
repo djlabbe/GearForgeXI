@@ -11,7 +11,7 @@ public class Stat
 
     public string? DisplayName { get; set; }        // Optional: full name like "Strength"
 
-    public string? Category { get; set; }           // e.g. "Base", "Combat", "Magic", etc.
+    public StatCategory? Category { get; set; }     // e.g. "Base", "Combat", "Magic", etc.
 
     public string? Description { get; set; }        // Optional tooltip text
 

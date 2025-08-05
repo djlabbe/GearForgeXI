@@ -40,7 +40,7 @@ namespace FFXIComp.Api.Migrations
 
                     b.HasIndex("GearItemCategoryId");
 
-                    b.ToTable("GearItems");
+                    b.ToTable("GearItems", (string)null);
                 });
 
             modelBuilder.Entity("FFXIComp.Api.Models.GearItemCategory", b =>
@@ -57,7 +57,7 @@ namespace FFXIComp.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GearItemCategories");
+                    b.ToTable("GearItemCategories", (string)null);
 
                     b.HasData(
                         new
@@ -158,7 +158,7 @@ namespace FFXIComp.Api.Migrations
                     b.HasIndex("GearItemId", "JobId")
                         .IsUnique();
 
-                    b.ToTable("GearItemJobs");
+                    b.ToTable("GearItemJobs", (string)null);
                 });
 
             modelBuilder.Entity("FFXIComp.Api.Models.GearItemSlot", b =>
@@ -182,7 +182,7 @@ namespace FFXIComp.Api.Migrations
                     b.HasIndex("GearItemId", "GearSlotId")
                         .IsUnique();
 
-                    b.ToTable("GearItemSlots");
+                    b.ToTable("GearItemSlots", (string)null);
                 });
 
             modelBuilder.Entity("FFXIComp.Api.Models.GearItemStat", b =>
@@ -208,7 +208,7 @@ namespace FFXIComp.Api.Migrations
 
                     b.HasIndex("StatId");
 
-                    b.ToTable("GearItemStats");
+                    b.ToTable("GearItemStats", (string)null);
                 });
 
             modelBuilder.Entity("FFXIComp.Api.Models.GearSet", b =>
@@ -228,7 +228,7 @@ namespace FFXIComp.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GearSets");
+                    b.ToTable("GearSets", (string)null);
                 });
 
             modelBuilder.Entity("FFXIComp.Api.Models.GearSetSlot", b =>
@@ -261,7 +261,7 @@ namespace FFXIComp.Api.Migrations
                     b.HasIndex("GearSetId", "Position")
                         .IsUnique();
 
-                    b.ToTable("GearSetSlots");
+                    b.ToTable("GearSetSlots", (string)null);
                 });
 
             modelBuilder.Entity("FFXIComp.Api.Models.GearSlot", b =>
@@ -278,7 +278,7 @@ namespace FFXIComp.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GearSlots");
+                    b.ToTable("GearSlots", (string)null);
 
                     b.HasData(
                         new
@@ -374,7 +374,7 @@ namespace FFXIComp.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Jobs");
+                    b.ToTable("Jobs", (string)null);
 
                     b.HasData(
                         new
@@ -559,7 +559,7 @@ namespace FFXIComp.Api.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Stats");
+                    b.ToTable("Stats", (string)null);
 
                     b.HasData(
                         new

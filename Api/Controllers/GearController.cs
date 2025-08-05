@@ -15,11 +15,21 @@ public class GearController(GearDbContext context) : ControllerBase
     public async Task<IActionResult> GetAvailableSlots()
     {
         var slots = await _context.GearSlots
-            .OrderBy(s => s.Name)
             .Select(s => s.Name)
             .ToListAsync();
 
         return Ok(slots);
+    }
+
+    [HttpGet("categories")]
+    public async Task<IActionResult> GetAvailableCategories()
+    {
+        var categories = await _context.GearItemCategories
+            .OrderBy(c => c.Name)
+            .Select(c => c.Name)
+            .ToListAsync();
+
+        return Ok(categories);
     }
 
     [HttpGet]
@@ -52,7 +62,7 @@ public class GearController(GearDbContext context) : ControllerBase
                 {
                     Name = s.Stat.Name,
                     DisplayName = s.Stat.DisplayName,
-                    Category = s.Stat.Category,
+                    Category = s.Stat.Category != null ? s.Stat.Category.ToString() : null,
                     Description = s.Stat.Description,
                     Value = s.Value
                 }).ToList(),
@@ -153,5 +163,33 @@ public class GearController(GearDbContext context) : ControllerBase
         return NoContent();
     }
 
+    [HttpPut("{id}/category")]
+    public async Task<IActionResult> UpdateGearItemCategory(int id, [FromBody] GearItemCategoryUpdateDto dto)
+    {
+        var gearItem = await _context.GearItems
+            .FirstOrDefaultAsync(g => g.Id == id);
 
+        if (gearItem == null)
+            return NotFound($"GearItem with ID {id} not found.");
+
+        // If categoryName is null or empty, remove the category
+        if (string.IsNullOrWhiteSpace(dto.CategoryName))
+        {
+            gearItem.GearItemCategoryId = null;
+        }
+        else
+        {
+            // Find the category by name
+            var category = await _context.GearItemCategories
+                .FirstOrDefaultAsync(c => c.Name.ToLower() == dto.CategoryName.Trim().ToLower());
+
+            if (category == null)
+                return BadRequest($"Category '{dto.CategoryName}' not found.");
+
+            gearItem.GearItemCategoryId = category.Id;
+        }
+
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
 }

@@ -1,9 +1,8 @@
 import { useEffect, useState, useMemo } from "react";
 import type { GearItem } from "../models/GearItem";
 import Card from "../components/Card";
-import { useJobs } from "../contexts/JobsContext";
 import GearItemCard from "../components/GearItemCard";
-import { useSlots } from "../contexts/SlotsContext";
+import { useAppData } from "../contexts/AppDataContext";
 
 function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
   return items.reduce<Record<string, GearItem[]>>((acc, item) => {
@@ -20,8 +19,7 @@ function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
 
 
 export function GearBrowser() {
-  const { jobs, loading: loadingJobs } = useJobs();
-  const { slots, loading: loadingSlots } = useSlots();
+  const { jobs, slots, loading: loadingAppData } = useAppData();
 
   const [gearItems, setGearItems] = useState<GearItem[]>([]);
   const [filter, setFilter] = useState("");
@@ -78,7 +76,7 @@ export function GearBrowser() {
     return [];
   }, [gearItems, grouped, selectedSlot, filter, selectedJob]);
 
-  if (loading || loadingJobs || loadingSlots) {
+  if (loading || loadingAppData) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-gray-600 dark:text-gray-400">Loading...</div>
