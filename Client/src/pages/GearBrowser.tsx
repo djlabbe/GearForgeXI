@@ -3,6 +3,7 @@ import type { GearItem } from "../models/GearItem";
 import Card from "../components/Card";
 import { useJobs } from "../contexts/JobsContext";
 import GearItemCard from "../components/GearItemCard";
+import { useSlots } from "../contexts/SlotsContext";
 
 function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
   return items.reduce<Record<string, GearItem[]>>((acc, item) => {
@@ -17,31 +18,25 @@ function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
   }, {});
 }
 
-const slots = [
-  "Main",
-  "Sub",
-  "Range",
-  "Ammo",
-  "Head",
-  "Neck",
-  "Ear",
-  "Body",
-  "Hands",
-  "Ring",
-  "Back",
-  "Waist",
-  "Legs",
-  "Feet",
-];
 
 export function GearBrowser() {
   const { jobs, loading: loadingJobs } = useJobs();
+  const { slots, loading: loadingSlots } = useSlots();
 
   const [gearItems, setGearItems] = useState<GearItem[]>([]);
   const [filter, setFilter] = useState("");
   const [loading, setLoading] = useState(true);
   const [selectedSlot, setSelectedSlot] = useState<string>("Main");
   const [selectedJob, setSelectedJob] = useState<string>("");
+
+
+  const handleItemUpdate = (updatedItem: GearItem) => {
+    setGearItems(prevItems => 
+      prevItems.map(item => 
+        item.id === updatedItem.id ? updatedItem : item
+      )
+    );
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -83,7 +78,7 @@ export function GearBrowser() {
     return [];
   }, [gearItems, grouped, selectedSlot, filter, selectedJob]);
 
-  if (loading || loadingJobs) {
+  if (loading || loadingJobs || loadingSlots) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-gray-600 dark:text-gray-400">Loading...</div>
@@ -105,16 +100,6 @@ export function GearBrowser() {
           className="mb-4 p-2 border border-gray-300 dark:border-gray-700 rounded w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
         />
         <div className="flex space-x-2 mb-2">
-          {/* <button
-            onClick={() => setSelectedSlot("")}
-            className={`px-3 py-1 rounded w-24 text-center cursor-pointer ${
-              selectedSlot === ""
-                ? "bg-blue-600 text-white"
-                : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-            }`}
-          >
-            All Slots
-          </button> */}
           {slots.map((slot) => (
             <button
               key={slot}
@@ -159,7 +144,12 @@ export function GearBrowser() {
 
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-2">
         {filteredItems.map((item) => (
-            <GearItemCard key={item.id} item={item} />
+            <GearItemCard 
+              key={item.id} 
+              item={item} 
+              onItemUpdate={handleItemUpdate}
+              showEditButton={true}
+            />
         ))}
       </div>
     </div>

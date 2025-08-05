@@ -1,6 +1,32 @@
 import { useState, useEffect } from "react";
-import type { GearStat } from "../models/GearItem";
 import { ReactSelector } from "./ReactSelector";
+import type { GearStat } from "../models/GearStat";
+
+
+export const ambuCapes = [
+    "Cichol's Mantle",
+    "Segomo's Mantle",
+    "Alaunus's Cape",
+    "Taranus's Cape",
+    "Sucellos's Cape",
+    "Toutatis's Cape",
+    "Rudianos's Mantle",
+    "Ankou's Mantle",
+    "Artio's Mantle",
+    "Intarabus's Cape",
+    "Belenus's Cape",
+    "Smertrios's Mantle",
+    "Andartia's Mantle",
+    "Brigantia's Mantle",
+    "Campestres's Cape",
+    "Rosmerta's Cape",
+    "Camulus's Mantle",
+    "Visucius's Mantle",
+    "Senuna's Mantle",
+    "Lugh's Cape",
+    "Nantosuelta's Cape",
+    "Ogma's cape",
+  ];
 
 interface CapeOption {
   label: string;

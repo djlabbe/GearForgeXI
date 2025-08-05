@@ -9,9 +9,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Load config from appsettings and environment
+builder.Configuration.AddEnvironmentVariables();
 
-builder.Services.AddDbContext<GearDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")?
+    .Replace("{FFXICOMP_DB_PASSWORD}", Environment.GetEnvironmentVariable("FFXICOMP_DB_PASSWORD") ?? throw new Exception("FFXICOMP_DB_PASSWORD not set"));
+
+// Register your DbContext with PostgreSQL + EF Core
+builder.Services.AddDbContext<GearDbContext>(options => options.UseNpgsql(connectionString));
 
 var app = builder.Build();
 

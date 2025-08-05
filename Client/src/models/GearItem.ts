@@ -1,8 +1,4 @@
-
-export interface GearStat {
-  name: string;
-  value: number;
-}
+import type { GearStat } from "./GearStat";
 
 export interface GearItem {
   id: number;

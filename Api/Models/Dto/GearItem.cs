@@ -10,8 +10,3 @@ public class GearItemDto
     public List<string> Slots { get; set; } = [];        // e.g., ["Main", "Sub"]
 }
 
-public class GearStatDto
-{
-    public string Name { get; set; } = null!;
-    public int Value { get; set; }
-}

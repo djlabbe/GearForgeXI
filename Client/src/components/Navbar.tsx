@@ -64,13 +64,22 @@ export function Navbar() {
             Compare Sets
           </Link>
           <Link
-            to="/browse"
+            to="/stats"
             className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
-              "/browse"
+              "/stats"
             )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
             onClick={() => setMenuOpen(false)}
           >
-            Browse Gear
+            Stats
+          </Link>
+          <Link
+            to="/gear"
+            className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
+              "/gear"
+            )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
+            onClick={() => setMenuOpen(false)}
+          >
+            Gear
           </Link>
         </nav>
       </div>

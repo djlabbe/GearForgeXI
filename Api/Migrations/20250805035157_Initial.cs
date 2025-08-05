@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FFXIComp.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -24,6 +24,20 @@ namespace FFXIComp.Api.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_GearItemCategories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GearSets",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GearSets", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -46,7 +60,8 @@ namespace FFXIComp.Api.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Abbreviation = table.Column<string>(type: "text", nullable: false),
-                    FullName = table.Column<string>(type: "text", nullable: false)
+                    FullName = table.Column<string>(type: "text", nullable: false),
+                    CanDualWield = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -167,6 +182,40 @@ namespace FFXIComp.Api.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "GearSetSlots",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    GearSetId = table.Column<int>(type: "integer", nullable: false),
+                    GearSlotId = table.Column<int>(type: "integer", nullable: false),
+                    GearItemId = table.Column<int>(type: "integer", nullable: false),
+                    Position = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GearSetSlots", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_GearSetSlots_GearItems_GearItemId",
+                        column: x => x.GearItemId,
+                        principalTable: "GearItems",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GearSetSlots_GearSets_GearSetId",
+                        column: x => x.GearSetId,
+                        principalTable: "GearSets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_GearSetSlots_GearSlots_GearSlotId",
+                        column: x => x.GearSlotId,
+                        principalTable: "GearSlots",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "GearItemCategories",
                 columns: new[] { "Id", "Name" },
@@ -212,31 +261,31 @@ namespace FFXIComp.Api.Migrations
 
             migrationBuilder.InsertData(
                 table: "Jobs",
-                columns: new[] { "Id", "Abbreviation", "FullName" },
+                columns: new[] { "Id", "Abbreviation", "CanDualWield", "FullName" },
                 values: new object[,]
                 {
-                    { 1, "WAR", "Warrior" },
-                    { 2, "MNK", "Monk" },
-                    { 3, "WHM", "White Mage" },
-                    { 4, "BLM", "Black Mage" },
-                    { 5, "RDM", "Red Mage" },
-                    { 6, "THF", "Thief" },
-                    { 7, "PLD", "Paladin" },
-                    { 8, "DRK", "Dark Knight" },
-                    { 9, "BST", "Beastmaster" },
-                    { 10, "BRD", "Bard" },
-                    { 11, "RNG", "Ranger" },
-                    { 12, "SAM", "Samurai" },
-                    { 13, "NIN", "Ninja" },
-                    { 14, "DRG", "Dragoon" },
-                    { 15, "SMN", "Summoner" },
-                    { 16, "BLU", "Blue Mage" },
-                    { 17, "COR", "Corsair" },
-                    { 18, "PUP", "Puppetmaster" },
-                    { 19, "DNC", "Dancer" },
-                    { 20, "SCH", "Scholar" },
-                    { 21, "GEO", "Geomancer" },
-                    { 22, "RUN", "Rune Fencer" }
+                    { 1, "WAR", false, "Warrior" },
+                    { 2, "MNK", false, "Monk" },
+                    { 3, "WHM", false, "White Mage" },
+                    { 4, "BLM", false, "Black Mage" },
+                    { 5, "RDM", false, "Red Mage" },
+                    { 6, "THF", false, "Thief" },
+                    { 7, "PLD", false, "Paladin" },
+                    { 8, "DRK", false, "Dark Knight" },
+                    { 9, "BST", false, "Beastmaster" },
+                    { 10, "BRD", false, "Bard" },
+                    { 11, "RNG", false, "Ranger" },
+                    { 12, "SAM", false, "Samurai" },
+                    { 13, "NIN", false, "Ninja" },
+                    { 14, "DRG", false, "Dragoon" },
+                    { 15, "SMN", false, "Summoner" },
+                    { 16, "BLU", false, "Blue Mage" },
+                    { 17, "COR", false, "Corsair" },
+                    { 18, "PUP", false, "Puppetmaster" },
+                    { 19, "DNC", false, "Dancer" },
+                    { 20, "SCH", false, "Scholar" },
+                    { 21, "GEO", false, "Geomancer" },
+                    { 22, "RUN", false, "Rune Fencer" }
                 });
 
             migrationBuilder.InsertData(
@@ -524,6 +573,22 @@ namespace FFXIComp.Api.Migrations
                 column: "GearItemCategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_GearSetSlots_GearItemId",
+                table: "GearSetSlots",
+                column: "GearItemId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GearSetSlots_GearSetId_Position",
+                table: "GearSetSlots",
+                columns: new[] { "GearSetId", "Position" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GearSetSlots_GearSlotId",
+                table: "GearSetSlots",
+                column: "GearSlotId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Stats_Name",
                 table: "Stats",
                 column: "Name",
@@ -543,16 +608,22 @@ namespace FFXIComp.Api.Migrations
                 name: "GearItemStats");
 
             migrationBuilder.DropTable(
+                name: "GearSetSlots");
+
+            migrationBuilder.DropTable(
                 name: "Jobs");
 
             migrationBuilder.DropTable(
-                name: "GearSlots");
+                name: "Stats");
 
             migrationBuilder.DropTable(
                 name: "GearItems");
 
             migrationBuilder.DropTable(
-                name: "Stats");
+                name: "GearSets");
+
+            migrationBuilder.DropTable(
+                name: "GearSlots");
 
             migrationBuilder.DropTable(
                 name: "GearItemCategories");

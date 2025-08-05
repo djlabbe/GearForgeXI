@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FFXIComp.Api.Migrations
 {
     [DbContext(typeof(GearDbContext))]
-    [Migration("20250804070933_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250805035157_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -214,6 +214,59 @@ namespace FFXIComp.Api.Migrations
                     b.ToTable("GearItemStats");
                 });
 
+            modelBuilder.Entity("FFXIComp.Api.Models.GearSet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GearSets");
+                });
+
+            modelBuilder.Entity("FFXIComp.Api.Models.GearSetSlot", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("GearItemId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("GearSetId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("GearSlotId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GearItemId");
+
+                    b.HasIndex("GearSlotId");
+
+                    b.HasIndex("GearSetId", "Position")
+                        .IsUnique();
+
+                    b.ToTable("GearSetSlots");
+                });
+
             modelBuilder.Entity("FFXIComp.Api.Models.GearSlot", b =>
                 {
                     b.Property<int>("Id")
@@ -315,6 +368,9 @@ namespace FFXIComp.Api.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<bool>("CanDualWield")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("text");
@@ -328,132 +384,154 @@ namespace FFXIComp.Api.Migrations
                         {
                             Id = 1,
                             Abbreviation = "WAR",
+                            CanDualWield = false,
                             FullName = "Warrior"
                         },
                         new
                         {
                             Id = 2,
                             Abbreviation = "MNK",
+                            CanDualWield = false,
                             FullName = "Monk"
                         },
                         new
                         {
                             Id = 3,
                             Abbreviation = "WHM",
+                            CanDualWield = false,
                             FullName = "White Mage"
                         },
                         new
                         {
                             Id = 4,
                             Abbreviation = "BLM",
+                            CanDualWield = false,
                             FullName = "Black Mage"
                         },
                         new
                         {
                             Id = 5,
                             Abbreviation = "RDM",
+                            CanDualWield = false,
                             FullName = "Red Mage"
                         },
                         new
                         {
                             Id = 6,
                             Abbreviation = "THF",
+                            CanDualWield = false,
                             FullName = "Thief"
                         },
                         new
                         {
                             Id = 7,
                             Abbreviation = "PLD",
+                            CanDualWield = false,
                             FullName = "Paladin"
                         },
                         new
                         {
                             Id = 8,
                             Abbreviation = "DRK",
+                            CanDualWield = false,
                             FullName = "Dark Knight"
                         },
                         new
                         {
                             Id = 9,
                             Abbreviation = "BST",
+                            CanDualWield = false,
                             FullName = "Beastmaster"
                         },
                         new
                         {
                             Id = 10,
                             Abbreviation = "BRD",
+                            CanDualWield = false,
                             FullName = "Bard"
                         },
                         new
                         {
                             Id = 11,
                             Abbreviation = "RNG",
+                            CanDualWield = false,
                             FullName = "Ranger"
                         },
                         new
                         {
                             Id = 12,
                             Abbreviation = "SAM",
+                            CanDualWield = false,
                             FullName = "Samurai"
                         },
                         new
                         {
                             Id = 13,
                             Abbreviation = "NIN",
+                            CanDualWield = false,
                             FullName = "Ninja"
                         },
                         new
                         {
                             Id = 14,
                             Abbreviation = "DRG",
+                            CanDualWield = false,
                             FullName = "Dragoon"
                         },
                         new
                         {
                             Id = 15,
                             Abbreviation = "SMN",
+                            CanDualWield = false,
                             FullName = "Summoner"
                         },
                         new
                         {
                             Id = 16,
                             Abbreviation = "BLU",
+                            CanDualWield = false,
                             FullName = "Blue Mage"
                         },
                         new
                         {
                             Id = 17,
                             Abbreviation = "COR",
+                            CanDualWield = false,
                             FullName = "Corsair"
                         },
                         new
                         {
                             Id = 18,
                             Abbreviation = "PUP",
+                            CanDualWield = false,
                             FullName = "Puppetmaster"
                         },
                         new
                         {
                             Id = 19,
                             Abbreviation = "DNC",
+                            CanDualWield = false,
                             FullName = "Dancer"
                         },
                         new
                         {
                             Id = 20,
                             Abbreviation = "SCH",
+                            CanDualWield = false,
                             FullName = "Scholar"
                         },
                         new
                         {
                             Id = 21,
                             Abbreviation = "GEO",
+                            CanDualWield = false,
                             FullName = "Geomancer"
                         },
                         new
                         {
                             Id = 22,
                             Abbreviation = "RUN",
+                            CanDualWield = false,
                             FullName = "Rune Fencer"
                         });
                 });
@@ -2233,6 +2311,33 @@ namespace FFXIComp.Api.Migrations
                     b.Navigation("Stat");
                 });
 
+            modelBuilder.Entity("FFXIComp.Api.Models.GearSetSlot", b =>
+                {
+                    b.HasOne("FFXIComp.Api.Models.GearItem", "GearItem")
+                        .WithMany()
+                        .HasForeignKey("GearItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FFXIComp.Api.Models.GearSet", "GearSet")
+                        .WithMany("GearSetSlots")
+                        .HasForeignKey("GearSetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FFXIComp.Api.Models.GearSlot", "GearSlot")
+                        .WithMany()
+                        .HasForeignKey("GearSlotId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("GearItem");
+
+                    b.Navigation("GearSet");
+
+                    b.Navigation("GearSlot");
+                });
+
             modelBuilder.Entity("FFXIComp.Api.Models.GearItem", b =>
                 {
                     b.Navigation("GearItemJobs");
@@ -2245,6 +2350,11 @@ namespace FFXIComp.Api.Migrations
             modelBuilder.Entity("FFXIComp.Api.Models.GearItemCategory", b =>
                 {
                     b.Navigation("GearItems");
+                });
+
+            modelBuilder.Entity("FFXIComp.Api.Models.GearSet", b =>
+                {
+                    b.Navigation("GearSetSlots");
                 });
 
             modelBuilder.Entity("FFXIComp.Api.Models.GearSlot", b =>

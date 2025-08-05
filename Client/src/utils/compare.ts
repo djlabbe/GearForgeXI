@@ -1,12 +1,17 @@
-import type { GearItem, GearStat } from "../models/GearItem";
 import type { GearSet } from "../models/GearSet";
+import type { GearStat } from "../models/GearStat";
 
-export function getTotalStats(set: GearSet): Record<string, number> {
-  const total: Record<string, number> = {};
+export function getTotalStats(set: GearSet): Map<string, { stat: GearStat; value: number }> {
+  const total = new Map<string, { stat: GearStat; value: number }>();
 
-  Object.values(set).forEach((item: GearItem) => {
-    item?.stats.forEach((stat: GearStat) => {
-      total[stat.name] = (total[stat.name] || 0) + stat.value;
+  set.slots.forEach((slot) => {
+    slot.gearItem?.stats.forEach((stat: GearStat) => {
+      const existing = total.get(stat.name);
+      if (existing) {
+        existing.value += stat.value;
+      } else {
+        total.set(stat.name, { stat, value: stat.value });
+      }
     });
   });
 
@@ -18,14 +23,20 @@ export function compareGearSets(setA: GearSet, setB: GearSet) {
   const statsB = getTotalStats(setB);
 
   const allStatNames = new Set([
-    ...Object.keys(statsA),
-    ...Object.keys(statsB),
+    ...statsA.keys(),
+    ...statsB.keys(),
   ]);
 
-  return Array.from(allStatNames).map((name) => ({
-    name,
-    a: statsA[name] ?? 0,
-    b: statsB[name] ?? 0,
-    diff: (statsB[name] ?? 0) - (statsA[name] ?? 0),
-  }));
+  return Array.from(allStatNames).map((name) => {
+    const statA = statsA.get(name);
+    const statB = statsB.get(name);
+    const stat = statA?.stat || statB?.stat!;
+    
+    return {
+      stat,
+      a: statA?.value ?? 0,
+      b: statB?.value ?? 0,
+      diff: (statB?.value ?? 0) - (statA?.value ?? 0),
+    };
+  });
 }

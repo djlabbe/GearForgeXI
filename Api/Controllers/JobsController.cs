@@ -18,7 +18,8 @@ public class JobsController(GearDbContext context) : ControllerBase
            {
                Id = j.Id,
                Abbreviation = j.Abbreviation,
-               FullName = j.FullName
+               FullName = j.FullName,
+               CanDualWield = j.CanDualWield
            });
 
         var jobs = await query.ToListAsync();

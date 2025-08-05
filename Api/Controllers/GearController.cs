@@ -1,3 +1,4 @@
+using FFXIComp.Api.Models;
 using FFXIComp.Api.Models.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +11,17 @@ public class GearController(GearDbContext context) : ControllerBase
 {
     private readonly GearDbContext _context = context;
 
-    [HttpGet]
+    [HttpGet("slots")]
+    public async Task<IActionResult> GetAvailableSlots()
+    {
+        var slots = await _context.GearSlots
+            .OrderBy(s => s.Name)
+            .Select(s => s.Name)
+            .ToListAsync();
+
+        return Ok(slots);
+    }
+
     [HttpGet]
     public async Task<IActionResult> GetGear([FromQuery] string? job, [FromQuery] string? slot)
     {
@@ -40,6 +51,9 @@ public class GearController(GearDbContext context) : ControllerBase
                 Stats = g.GearItemStats.Select(s => new GearStatDto
                 {
                     Name = s.Stat.Name,
+                    DisplayName = s.Stat.DisplayName,
+                    Category = s.Stat.Category,
+                    Description = s.Stat.Description,
                     Value = s.Value
                 }).ToList(),
                 Jobs = g.GearItemJobs.Select(j => j.Job.Abbreviation).ToList(),
@@ -78,5 +92,46 @@ public class GearController(GearDbContext context) : ControllerBase
 
         return itemDto is null ? NotFound() : Ok(itemDto);
     }
+
+    [HttpPut("{id}/slots")]
+    public async Task<IActionResult> UpdateGearItemSlots(int id, [FromBody] GearItemSlotUpdateDto dto)
+    {
+        var gearItem = await _context.GearItems
+            .Include(g => g.GearItemSlots)
+            .FirstOrDefaultAsync(g => g.Id == id);
+
+        if (gearItem == null)
+            return NotFound($"GearItem with ID {id} not found.");
+
+        // Validate that all slots exist
+        var allSlotNames = dto.Slots.Select(s => s.Trim().ToLower()).ToList();
+        var validSlots = await _context.GearSlots
+            .Where(gs => allSlotNames.Contains(gs.Name.ToLower()))
+            .ToListAsync();
+
+        if (validSlots.Count != allSlotNames.Count)
+        {
+            var foundNames = validSlots.Select(s => s.Name.ToLower());
+            var missing = allSlotNames.Except(foundNames);
+            return BadRequest($"Invalid slot(s): {string.Join(", ", missing)}");
+        }
+
+        // Remove old slots
+        _context.GearItemSlots.RemoveRange(gearItem.GearItemSlots);
+
+        // Add new slots
+        foreach (var slot in validSlots)
+        {
+            _context.GearItemSlots.Add(new GearItemSlot
+            {
+                GearItemId = id,
+                GearSlotId = slot.Id
+            });
+        }
+
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
+
 
 }

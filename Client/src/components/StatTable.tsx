@@ -1,13 +1,14 @@
+import type { GearStat } from "../models/GearStat";
 import Card from "./Card";
 
 interface Props {
   title: string;
   icon?: React.ReactNode;
-  stats: { name: string; a: number; b: number; diff: number }[];
+  statComparison: { stat: GearStat; a: number; b: number; diff: number }[];
 }
 
-const StatTable = ({ title, stats, icon }: Props) => {
-  if (stats.length === 0) {
+const StatTable = ({ title, statComparison, icon }: Props) => {
+  if (statComparison.length === 0) {
     return null;
   }
   return (
@@ -26,36 +27,36 @@ const StatTable = ({ title, stats, icon }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {stats.map((stat) => {
-            const isNegativeStat = stat.a < 0 || stat.b < 0;
+          {statComparison.map((comparison) => {
+            const isNegativeStat = comparison.a < 0 || comparison.b < 0;
             let diffClass = "";
-            if (stat.diff !== 0) {
+            if (comparison.diff !== 0) {
               if (isNegativeStat) {
                 diffClass =
-                  stat.diff > 0
+                  comparison.diff > 0
                     ? "text-red-600 dark:text-red-400"
-                    : stat.diff < 0
+                    : comparison.diff < 0
                     ? "text-green-600 dark:text-green-400"
                     : "";
               } else {
                 diffClass =
-                  stat.diff > 0
+                  comparison.diff > 0
                     ? "text-green-600 dark:text-green-400"
-                    : stat.diff < 0
+                    : comparison.diff < 0
                     ? "text-red-600 dark:text-red-400"
                     : "";
               }
             }
             return (
               <tr
-                key={stat.name}
+                key={comparison.stat.name}
                 className="bg-gray-50 dark:bg-slate-800 border-t border-gray-400 dark:border-gray-700"
               >
-                <td className="p-2">{stat.name}</td>
-                <td className="text-right p-2">{stat.a}</td>
-                <td className="text-right p-2">{stat.b}</td>
+                <td className="p-2">{comparison.stat.displayName || comparison.stat.name}</td>
+                <td className="text-right p-2">{comparison.a}</td>
+                <td className="text-right p-2">{comparison.b}</td>
                 <td className={`text-right p-2 ${diffClass}`}>
-                  {stat.diff !== 0 && `${stat.diff > 0 ? "+" : ""}${stat.diff}`}
+                  {comparison.diff !== 0 && `${comparison.diff > 0 ? "+" : ""}${comparison.diff}`}
                 </td>
               </tr>
             );

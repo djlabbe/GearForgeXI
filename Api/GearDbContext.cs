@@ -16,6 +16,10 @@ namespace FFXIComp.Api
         public DbSet<GearItemSlot> GearItemSlots { get; set; }
         public DbSet<Stat> Stats { get; set; }
         public DbSet<GearItemStat> GearItemStats { get; set; }
+        public DbSet<GearSet> GearSets { get; set; } = null!;
+        public DbSet<GearSetSlot> GearSetSlots { get; set; } = null!;
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -437,6 +441,29 @@ namespace FFXIComp.Api
                 .HasIndex(s => s.Name)
                 .IsUnique();
 
+            // GearSetSlot: many-to-one with GearSet
+            modelBuilder.Entity<GearSetSlot>()
+                .HasOne(gss => gss.GearSet)
+                .WithMany(gs => gs.GearSetSlots)
+                .HasForeignKey(gss => gss.GearSetId);
+
+            // GearSetSlot: many-to-one with GearItem
+            modelBuilder.Entity<GearSetSlot>()
+                .HasOne(gss => gss.GearItem)
+                .WithMany()  // No backref needed
+                .HasForeignKey(gss => gss.GearItemId);
+
+            // GearSetSlot: many-to-one with GearSlot
+            modelBuilder.Entity<GearSetSlot>()
+                .HasOne(gss => gss.GearSlot)
+                .WithMany()  // No backref needed
+                .HasForeignKey(gss => gss.GearSlotId);
+
+            // Store GearSetSlot.Position as string
+            modelBuilder.Entity<GearSetSlot>()
+                .Property(gss => gss.Position)
+                .HasConversion<string>();
+
             // Optional: Unique constraints for GearItemJob and GearItemSlot
             modelBuilder.Entity<GearItemSlot>()
                 .HasIndex(gis => new { gis.GearItemId, gis.GearSlotId })
@@ -445,6 +472,11 @@ namespace FFXIComp.Api
             modelBuilder.Entity<GearItemJob>()
                 .HasIndex(gij => new { gij.GearItemId, gij.JobId })
                 .IsUnique();
+
+            modelBuilder.Entity<GearSetSlot>()
+                .HasIndex(gss => new { gss.GearSetId, gss.Position })
+                .IsUnique();
+
 
         }
 

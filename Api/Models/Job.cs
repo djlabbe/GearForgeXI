@@ -11,6 +11,8 @@ public class Job
 
     public string FullName { get; set; } = null!;      // e.g., "Warrior"
 
+    public bool CanDualWield { get; set; } = false; // Can this job dual wield?
+
     // Navigation
     public ICollection<GearItemJob> GearItemJobs { get; set; } = new List<GearItemJob>();
 }

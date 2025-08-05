@@ -1,39 +1,53 @@
 import { useState, useEffect, useCallback } from "react";
-import type { GearItem, GearStat } from "../models/GearItem";
-import type { GearSet, GearSlot } from "../models/GearSet";
-import { compareGearSets } from "../utils/compare";
+import type { GearItem } from "../models/GearItem";
 import {
-  coreStatNames,
-  combatStatNames,
-  magicStatNames,
-  defenseStatNames,
-  statSkillNames,
-  petStatNames,
-} from "../utils/statGroups";
+  getItemAtPosition,
+  setItemAtPosition,
+  type GearSet,
+} from "../models/GearSet";
+import {
+  ALL_GEAR_POSITIONS,
+  type GearSetPosition,
+} from "../models/GearSetPosition";
+import { compareGearSets } from "../utils/compare";
 import { GearSelect } from "./GearSelect";
 import StatTable from "./StatTable";
 import Card from "./Card";
-import AmbuCape from "./AmbuCape";
-import { IoIosStats, IoMdHelpCircle } from "react-icons/io";
+import AmbuCape, { ambuCapes } from "./AmbuCape";
+import { IoIosStats } from "react-icons/io";
 import { TbTargetArrow } from "react-icons/tb";
 import { RiSwordLine } from "react-icons/ri";
 import { IoSparklesSharp } from "react-icons/io5";
-import { FaCopy, FaShieldHalved } from "react-icons/fa6";
+import { FaCopy, FaShieldHalved, FaSuperpowers } from "react-icons/fa6";
 import { MdOutlinePets } from "react-icons/md";
+import { GiBatteredAxe, GiPocketBow } from "react-icons/gi";
+import { BsBriefcase } from "react-icons/bs";
 import type { Job } from "../models/Job";
+import type { GearStat } from "../models/GearStat";
 
 interface Props {
   job: Job;
+  subJob?: Job;
 }
 
-export function GearSetComparer({ job }: Props) {
+export function GearSetComparer({ job, subJob }: Props) {
   const [gearItems, setGearItems] = useState<GearItem[]>([]);
-  const [setA, setSetA] = useState<GearSet>({});
-  const [setB, setSetB] = useState<GearSet>({});
+
+  // Initialize sets properly using helper function
+  const [setA, setSetA] = useState<GearSet>(() => ({
+    name: "Set A",
+    slots: [],
+  }));
   const [setAAugments, setSetAAugments] = useState<GearStat[]>([]);
+
+  const [setB, setSetB] = useState<GearSet>(() => ({
+    name: "Set B",
+    slots: [],
+  }));
   const [setBAugments, setSetBAugments] = useState<GearStat[]>([]);
+
   const [comparison, setComparison] = useState<
-    { name: string; a: number; b: number; diff: number }[]
+    { stat: GearStat; a: number; b: number; diff: number }[]
   >([]);
 
   useEffect(() => {
@@ -43,96 +57,50 @@ export function GearSetComparer({ job }: Props) {
       .then((res) => res.json())
       .then(setGearItems);
 
-    // When job changes, keep only items in SetA and SetB where item.jobs contains the new job
-    setSetA((prev) => {
-      const filtered: GearSet = {};
-      for (const slot in prev) {
-        const item = prev[slot as GearSlot];
-        if (item && item.jobs && (item.jobs.includes(job.abbreviation) || item.jobs.length === 0)) {
-          filtered[slot as GearSlot] = item;
-        }
-      }
-      return filtered;
-    });
-    setSetB((prev) => {
-      const filtered: GearSet = {};
-      for (const slot in prev) {
-        const item = prev[slot as GearSlot];
-        if (item && item.jobs && (item.jobs.includes(job.abbreviation) || item.jobs.length === 0)) {
-          filtered[slot as GearSlot] = item;
-        }
-      }
-      return filtered;
+    // Initialize sets with all slots when job changes
+    const initSet = (name: string): GearSet => ({
+      name,
+      slots: ALL_GEAR_POSITIONS.map((position) => ({
+        position,
+        gearItem: null,
+      })),
     });
 
+    setSetA(initSet("Set A"));
+    setSetB(initSet("Set B"));
     setSetAAugments([]);
     setSetBAugments([]);
   }, [job]);
 
-  const allSlots: GearSlot[] = [
-    "main",
-    "sub",
-    "range",
-    "ammo",
-    "head",
-    "neck",
-    "ear1",
-    "ear2",
-    "body",
-    "hands",
-    "ring1",
-    "ring2",
-    "back",
-    "waist",
-    "legs",
-    "feet",
-  ];
-
-  const ambuCapes = [
-    "Cichol's Mantle",
-    "Segomo's Mantle",
-    "Alaunus's Cape",
-    "Taranus's Cape",
-    "Sucellos's Cape",
-    "Toutatis's Cape",
-    "Rudianos's Mantle",
-    "Ankou's Mantle",
-    "Artio's Mantle",
-    "Intarabus's Cape",
-    "Belenus's Cape",
-    "Smertrios's Mantle",
-    "Andartia's Mantle",
-    "Brigantia's Mantle",
-    "Campestres's Cape",
-    "Rosmerta's Cape",
-    "Camulus's Mantle",
-    "Visucius's Mantle",
-    "Senuna's Mantle",
-    "Lugh's Cape",
-    "Nantosuelta's Cape",
-    "Ogma's cape",
-  ];
-
-  const getItemsBySlot = (slot: GearSlot): GearItem[] => {
+  const getItemsBySlot = (
+    currentSet: GearSet,
+    slot: GearSetPosition
+  ): GearItem[] => {
     let filterSlot: string = slot.toLowerCase();
 
     // Normalize dual-slot cases
     if (filterSlot === "ear1" || filterSlot === "ear2") filterSlot = "ear";
-    else if (filterSlot === "ring1" || filterSlot === "ring2")
-      filterSlot = "ring";
+    if (filterSlot === "ring1" || filterSlot === "ring2") filterSlot = "ring";
 
     let items = gearItems.filter((item) =>
       item.slots.map((s) => s.toLowerCase()).includes(filterSlot)
     );
 
-    // Special logic: sub can use main-hand 1H weapons too
+    // If currentSet main is 2H, then sub should only include filterSlot = 'sub' and category = 'Grip'
     if (slot.toLowerCase() === "sub") {
-      const mainItems = gearItems.filter((item) =>
-        item.slots.map((s) => s.toLowerCase()).includes("main")
-      );
-      items = [...items, ...mainItems].sort((a, b) =>
-        a.name.localeCompare(b.name)
-      );
+      const mainItem = getItemAtPosition(currentSet, "main");
+
+      if (mainItem && mainItem.category === "2H") {
+        items = items.filter((item) => item.category === "Grip");
+      }
+
+      if (mainItem && mainItem.category === "1H") {
+        if (job.canDualWield || subJob?.canDualWield) {
+          items = items.filter(
+            (item) => item.category === "1H" || item.category === "Shield"
+          );
+        } else items = items.filter((item) => item.category === "Shield");
+      }
     }
 
     return items;
@@ -144,19 +112,27 @@ export function GearSetComparer({ job }: Props) {
     const augmentedSetB = { ...setB };
 
     // Add augments to Set A back item if it exists
-    if (augmentedSetA.back && setAAugments.length > 0) {
-      augmentedSetA.back = {
-        ...augmentedSetA.back,
-        stats: [...augmentedSetA.back.stats, ...setAAugments],
+    const backItemA = getItemAtPosition(setA, "back");
+    if (backItemA && setAAugments.length > 0) {
+      const augmentedBackA = {
+        ...backItemA,
+        stats: [...backItemA.stats, ...setAAugments],
       };
+      augmentedSetA.slots = setA.slots.map((slot) =>
+        slot.position === "back" ? { ...slot, gearItem: augmentedBackA } : slot
+      );
     }
 
     // Add augments to Set B back item if it exists
-    if (augmentedSetB.back && setBAugments.length > 0) {
-      augmentedSetB.back = {
-        ...augmentedSetB.back,
-        stats: [...augmentedSetB.back.stats, ...setBAugments],
+    const backItemB = getItemAtPosition(setB, "back");
+    if (backItemB && setBAugments.length > 0) {
+      const augmentedBackB = {
+        ...backItemB,
+        stats: [...backItemB.stats, ...setBAugments],
       };
+      augmentedSetB.slots = setB.slots.map((slot) =>
+        slot.position === "back" ? { ...slot, gearItem: augmentedBackB } : slot
+      );
     }
 
     const result = compareGearSets(augmentedSetA, augmentedSetB);
@@ -164,13 +140,10 @@ export function GearSetComparer({ job }: Props) {
   }, [setA, setB, setAAugments, setBAugments]);
 
   const handleSelect = useCallback(
-    (slot: GearSlot, item: GearItem | undefined, isSetA: boolean) => {
+    (slot: GearSetPosition, item: GearItem | undefined, isSetA: boolean) => {
       const updater = isSetA ? setSetA : setSetB;
 
-      updater((prev) => ({
-        ...prev,
-        [slot]: item,
-      }));
+      updater((prev) => setItemAtPosition(prev, slot, item || null));
 
       // Clear augments if changing back item
       if (slot === "back") {
@@ -189,16 +162,16 @@ export function GearSetComparer({ job }: Props) {
 
     return (
       <div className="grid grid-cols-1 md:grid-cols-4">
-        {allSlots.map((slot) => {
-          const options = getItemsBySlot(slot);
-          const selectedItem = currentSet[slot];
+        {ALL_GEAR_POSITIONS.map((slot) => {
+          const options = getItemsBySlot(currentSet, slot);
+          const selectedItem = getItemAtPosition(currentSet, slot);
 
           return (
             <GearSelect
               key={slot}
               label={slot}
               options={options}
-              value={selectedItem}
+              value={selectedItem || undefined}
               onChange={(item) => handleSelect(slot, item, isSetA)}
             />
           );
@@ -207,37 +180,35 @@ export function GearSetComparer({ job }: Props) {
     );
   };
 
-  const getStatsByNames = (names: string[]) => {
+  const statCategories = [
+    { key: "Base", title: "Base Stats", icon: <IoIosStats /> },
+    { key: "Weapon", title: "Weapon", icon: <GiBatteredAxe /> },
+    { key: "Skill", title: "Skills", icon: <TbTargetArrow /> },
+    { key: "Combat", title: "Combat", icon: <RiSwordLine /> },
+    { key: "Ranged", title: "Ranged", icon: <GiPocketBow /> },
+    { key: "Magic", title: "Magic", icon: <IoSparklesSharp /> },
+    { key: "Defense", title: "Defense", icon: <FaShieldHalved /> },
+    { key: "Pet", title: "Pet", icon: <MdOutlinePets /> },
+    { key: "Utility", title: "Utility", icon: <FaSuperpowers /> },
+    { key: "Job", title: "Job", icon: <BsBriefcase /> },
+  ];
+
+  const getStatsByCategory = (category: string) => {
     return comparison
-      .filter((c) => names.includes(c.name))
+      .filter((c) => c.stat.category === category)
       .slice()
-      .sort((a, b) => a.name.localeCompare(b.name));
+      .sort((a, b) => a.stat.name.localeCompare(b.stat.name));
   };
 
-  const coreStats = getStatsByNames(coreStatNames);
-  const meleeStats = getStatsByNames(combatStatNames);
-  const magicStats = getStatsByNames(magicStatNames);
-  const defenseStats = getStatsByNames(defenseStatNames);
-  const statSkills = getStatsByNames(statSkillNames);
-  const petStats = getStatsByNames(petStatNames);
-
-  const otherStats = comparison
-    .filter(
-      (c) =>
-        !coreStatNames.includes(c.name) &&
-        !combatStatNames.includes(c.name) &&
-        !defenseStatNames.includes(c.name) &&
-        !magicStatNames.includes(c.name) &&
-        !statSkillNames.includes(c.name) &&
-        !petStatNames.includes(c.name)
-    )
-    .slice()
-    .sort((a, b) => a.name.localeCompare(b.name));
+  const categorizedStats = statCategories.map((category) => ({
+    ...category,
+    stats: getStatsByCategory(category.key),
+  }));
 
   const handleCopyLua = (gearSet: GearSet, augments: GearStat[]) => {
     const luaLines: string[] = [];
-    for (const slot of allSlots) {
-      const item = gearSet[slot];
+    for (const slot of ALL_GEAR_POSITIONS) {
+      const item = getItemAtPosition(gearSet, slot);
       if (item) {
         if (slot === "back" && augments.length > 0) {
           const augStr = augments.map((a) => `${a.name}+${a.value}`).join(", ");
@@ -265,9 +236,15 @@ export function GearSetComparer({ job }: Props) {
           </button>
           <h3 className="font-semibold mb-2">Set A</h3>
           {renderGearGrid(true)}
-          {setA.back?.name && ambuCapes.includes(setA.back.name) && (
-            <AmbuCape onAugmentChange={setSetAAugments} />
-          )}
+          {(() => {
+            const backItem = getItemAtPosition(setA, "back");
+            return (
+              backItem?.name &&
+              ambuCapes.includes(backItem.name) && (
+                <AmbuCape onAugmentChange={setSetAAugments} />
+              )
+            );
+          })()}
         </Card>
         <Card className="relative">
           <button
@@ -280,41 +257,28 @@ export function GearSetComparer({ job }: Props) {
           </button>
           <h3 className="text-lg font-semibold mb-3">Set B</h3>
           {renderGearGrid(false)}
-          {setB.back?.name && ambuCapes.includes(setB.back.name) && (
-            <AmbuCape onAugmentChange={setSetBAugments} />
-          )}
+          {(() => {
+            const backItem = getItemAtPosition(setB, "back");
+            return (
+              backItem?.name &&
+              ambuCapes.includes(backItem.name) && (
+                <AmbuCape onAugmentChange={setSetBAugments} />
+              )
+            );
+          })()}
         </Card>
       </div>
 
       {comparison.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-          <StatTable
-            title="Core Stats"
-            stats={coreStats}
-            icon={<IoIosStats />}
-          />
-          <StatTable
-            title="Skills"
-            stats={statSkills}
-            icon={<TbTargetArrow />}
-          />
-          <StatTable title="Combat" stats={meleeStats} icon={<RiSwordLine />} />
-          <StatTable
-            title="Magic"
-            stats={magicStats}
-            icon={<IoSparklesSharp />}
-          />
-          <StatTable
-            title="Defense"
-            stats={defenseStats}
-            icon={<FaShieldHalved />}
-          />
-          <StatTable title="Pet" stats={petStats} icon={<MdOutlinePets />} />
-          <StatTable
-            title="Other"
-            stats={otherStats}
-            icon={<IoMdHelpCircle />}
-          />
+          {categorizedStats.map((category) => (
+            <StatTable
+              key={category.key}
+              title={category.title}
+              statComparison={category.stats}
+              icon={category.icon}
+            />
+          ))}
         </div>
       )}
     </div>
