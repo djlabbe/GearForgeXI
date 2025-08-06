@@ -22,7 +22,7 @@ public class JobsController(GearDbContext context) : ControllerBase
                CanDualWield = j.CanDualWield
            });
 
-        var jobs = await query.ToListAsync();
+        var jobs = await query.OrderBy(j => j.Id).ToListAsync();
         return Ok(jobs);
     }
 }

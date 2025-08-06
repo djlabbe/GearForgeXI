@@ -20,8 +20,8 @@ export function ReactSelector<Option, IsMulti extends boolean = false, Group ext
             color: "var(--tw-text-opacity,1) #111827", // gray-900
             ...(window.matchMedia &&
               window.matchMedia("(prefers-color-scheme: dark)").matches && {
-                backgroundColor: "#1e293b", // slate-800
-                borderColor: state.isFocused ? "#2563eb" : "#374151", // blue-600 or gray-700
+                backgroundColor: "#374151", // gray-700 to match select components
+                borderColor: state.isFocused ? "#2563eb" : "#4b5563", // blue-600 or gray-600
                 color: "#f3f4f6", // gray-100
               }),
           }),
@@ -30,7 +30,7 @@ export function ReactSelector<Option, IsMulti extends boolean = false, Group ext
             backgroundColor:
               window.matchMedia &&
               window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? "#1e293b" // slate-800
+                ? "#374151" // gray-700 to match select components
                 : "#fff",
             color:
               window.matchMedia &&
@@ -46,7 +46,7 @@ export function ReactSelector<Option, IsMulti extends boolean = false, Group ext
               ? "rgba(37, 99, 235, 0.1)"
               : window.matchMedia &&
                 window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "#1e293b"
+              ? "#374151" // gray-700 to match select components
               : "#fff",
             color: state.isSelected
               ? "#fff"

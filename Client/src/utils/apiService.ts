@@ -1,5 +1,6 @@
 import type { Job } from '../models/Job';
 import type { Stat } from '../models/Stat';
+import type { GearItem } from '../models/GearItem';
 
 export interface GearItemSlotUpdateDto {
   slots: string[];
@@ -7,6 +8,19 @@ export interface GearItemSlotUpdateDto {
 
 export interface GearItemCategoryUpdateDto {
   categoryName: string | null;
+}
+
+export interface CreateGearItemDto {
+  name: string;
+  categoryName?: string;
+  stats: CreateGearStatDto[];
+  jobs: string[];         // e.g., ["WAR", "NIN"]
+  slots: string[];        // e.g., ["Main", "Sub"]
+}
+
+export interface CreateGearStatDto {
+  statName: string;
+  value: number;
 }
 
 class ApiService {
@@ -93,6 +107,23 @@ class ApiService {
     if (!response.ok) {
       throw new Error(`Failed to fetch available categories: ${response.statusText}`);
     }
+    return response.json();
+  }
+
+  static async createGearItem(gearItemData: CreateGearItemDto): Promise<GearItem> {
+    const response = await fetch(`${this.baseUrl}/gear`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(gearItemData),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to create gear item: ${errorText}`);
+    }
+
     return response.json();
   }
 

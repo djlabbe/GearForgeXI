@@ -56,6 +56,11 @@ const ComparePage = () => {
 
   return (
     <>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+          Compare Sets
+        </h1>
+      </div>
       <Card className="mb-4">
         {loadingAppData ? (
           <div className="text-gray-500">Loading...</div>

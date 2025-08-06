@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from "react";
 import type { GearItem } from "../models/GearItem";
 import Card from "../components/Card";
 import GearItemCard from "../components/GearItemCard";
+import CreateGearItemModal from "../components/CreateGearItemModal";
 import { useAppData } from "../contexts/AppDataContext";
 
 function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
@@ -17,7 +18,6 @@ function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
   }, {});
 }
 
-
 export function GearBrowser() {
   const { jobs, slots, loading: loadingAppData } = useAppData();
 
@@ -26,14 +26,16 @@ export function GearBrowser() {
   const [loading, setLoading] = useState(true);
   const [selectedSlot, setSelectedSlot] = useState<string>("Main");
   const [selectedJob, setSelectedJob] = useState<string>("");
-
+  const [showCreateModal, setShowCreateModal] = useState(false);
 
   const handleItemUpdate = (updatedItem: GearItem) => {
-    setGearItems(prevItems => 
-      prevItems.map(item => 
-        item.id === updatedItem.id ? updatedItem : item
-      )
+    setGearItems((prevItems) =>
+      prevItems.map((item) => (item.id === updatedItem.id ? updatedItem : item))
     );
+  };
+
+  const handleItemCreated = (newItem: GearItem) => {
+    setGearItems((prevItems) => [...prevItems, newItem]);
   };
 
   useEffect(() => {
@@ -58,11 +60,11 @@ export function GearBrowser() {
             item.jobs.length === 0)
       );
     }
-    
+
     if (selectedSlot === "" && filter === "" && selectedJob === "") {
       return gearItems; // Show all items when no filters are selected
     }
-    
+
     if (selectedSlot === "") {
       return gearItems.filter(
         (item) =>
@@ -72,7 +74,7 @@ export function GearBrowser() {
             item.jobs.length === 0)
       );
     }
-    
+
     return [];
   }, [gearItems, grouped, selectedSlot, filter, selectedJob]);
 
@@ -86,6 +88,17 @@ export function GearBrowser() {
 
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+          Gear Admin
+        </h1>
+        <button
+          onClick={() => setShowCreateModal(true)}
+          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium"
+        >
+          Add New Gear
+        </button>
+      </div>
       <Card className="mb-2">
         <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
           Filter
@@ -142,14 +155,21 @@ export function GearBrowser() {
 
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-2">
         {filteredItems.map((item) => (
-            <GearItemCard 
-              key={item.id} 
-              item={item} 
-              onItemUpdate={handleItemUpdate}
-              showEditButton={true}
-            />
+          <GearItemCard
+            key={item.id}
+            item={item}
+            onItemUpdate={handleItemUpdate}
+            showEditButton={true}
+          />
         ))}
       </div>
+
+      {/* Create Gear Item Modal */}
+      <CreateGearItemModal
+        isOpen={showCreateModal}
+        onClose={() => setShowCreateModal(false)}
+        onItemCreated={handleItemCreated}
+      />
     </div>
   );
 }
