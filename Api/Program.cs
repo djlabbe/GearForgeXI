@@ -18,6 +18,9 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 // Register your DbContext with PostgreSQL + EF Core
 builder.Services.AddDbContext<GearDbContext>(options => options.UseNpgsql(connectionString));
 
+// Add HttpClient for external URL fetching
+builder.Services.AddHttpClient();
+
 var app = builder.Build();
 
 // Seed data

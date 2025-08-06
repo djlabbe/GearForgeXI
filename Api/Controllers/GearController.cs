@@ -15,6 +15,7 @@ public class GearController(GearDbContext context) : ControllerBase
     public async Task<IActionResult> GetAvailableSlots()
     {
         var slots = await _context.GearSlots
+            .OrderBy(s => s.Id)
             .Select(s => s.Name)
             .ToListAsync();
 

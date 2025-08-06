@@ -36,8 +36,9 @@ const CreateGearItemModal = ({ isOpen, onClose, onItemCreated }: CreateGearItemM
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [statText, setStatText] = useState('');
-  const [parseWarnings, setParseWarnings] = useState<string[]>([]);
+  const [urlText, setUrlText] = useState('');
+  const [isImportingFromUrl, setIsImportingFromUrl] = useState(false);
+  const [urlParseWarnings, setUrlParseWarnings] = useState<string[]>([]);
 
   const handleSlotToggle = useCallback((slot: string) => {
     setFormData(prev => ({
@@ -106,110 +107,213 @@ const CreateGearItemModal = ({ isOpen, onClose, onItemCreated }: CreateGearItemM
     }));
   }, []);
 
-  // Function to parse stat text and populate stats
-  const parseStatText = useCallback((text: string) => {
+  // Function to parse BG-Wiki URL and populate all fields
+  const parseUrlData = useCallback(async (url: string) => {
     const warnings: string[] = [];
-    const parsedStats: CreateGearStatForm[] = [];
     
-    // Create a mapping of stat names and display names to actual stat names (case-insensitive)
-    const statNameMap = new Map<string, string>();
-    availableStats.forEach(stat => {
-      // Add the main name
-      statNameMap.set(stat.name.toLowerCase(), stat.name);
-      // Add the display name if it exists
-      if (stat.displayName) {
-        statNameMap.set(stat.displayName.toLowerCase(), stat.name);
-      }
-    });
-
-    // Split the text into potential stat entries
-    // First, let's find all numeric values with optional % and their positions
-    const valueMatches = Array.from(text.matchAll(/[+-]?\d+%?/g));
-    
-    if (valueMatches.length === 0) {
-      setParseWarnings(['No numeric values found in the provided text']);
+    // Validate URL is from bg-wiki.com
+    if (!url.includes('bg-wiki.com/ffxi/')) {
+      setUrlParseWarnings(['URL must be from bg-wiki.com/ffxi/']);
       return;
     }
 
-    // For each numeric value, try to extract the stat name that precedes it
-    for (let i = 0; i < valueMatches.length; i++) {
-      const valueMatch = valueMatches[i];
-      const value = parseInt(valueMatch[0], 10);
-      const valueStart = valueMatch.index!;
-      
-      if (isNaN(value)) continue;
-      
-      // Determine the start position for the stat name
-      // Either from the end of the previous value, or from the beginning of the text
-      const statStart = i > 0 ? valueMatches[i - 1].index! + valueMatches[i - 1][0].length : 0;
-      
-      // Extract the text between the stat start and the current value
-      const statText = text.substring(statStart, valueStart).trim();
-      
-      // Clean up the stat name by removing common separators and extra whitespace
-      let statName = statText
-        .replace(/^[:\s+\-,]+|[:\s+\-,]+$/g, '') // Remove leading/trailing separators
-        .replace(/\s+/g, ' ') // Normalize whitespace
-        .replace(/^["']|["']$/g, '') // Remove surrounding quotes
-        .trim();
-      
-      // Handle cases where the stat name might have quotes in the middle
-      // Remove quotes but preserve the content
-      statName = statName.replace(/["']/g, '');
-      
-      if (statName) {
-        // Try to find an exact matching stat (case-insensitive)
-        const normalizedStatName = statName.toLowerCase().trim();
-        const matchedStatName = statNameMap.get(normalizedStatName);
-        
-        if (matchedStatName) {
-          // Check if this stat is already in our parsed stats
-          const existingIndex = parsedStats.findIndex(s => s.statName === matchedStatName);
-          if (existingIndex >= 0) {
-            // Update existing stat value
-            parsedStats[existingIndex].value += value;
-          } else {
-            // Add new stat
-            parsedStats.push({ statName: matchedStatName, value });
+    setIsImportingFromUrl(true);
+    setUrlParseWarnings([]);
+
+    try {
+      // Fetch the webpage content via our API
+      const response = await fetch('/api/webpage/fetch', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url })
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // Parse the item name
+      if (data.name) {
+        setFormData(prev => ({ ...prev, name: data.name }));
+      }
+
+    // Equipment type only for armor right now
+    if (data.equipmentType) {
+      let slot = data.equipmentType;
+      setFormData(prev => ({ ...prev, selectedSlots: [slot] }));
+    }
+
+      // Parse job restrictions
+      const jobMap: { [key: string]: string } = {
+        'White Mage': 'WHM',
+        'Black Mage': 'BLM',
+        'Red Mage': 'RDM',
+        'Thief': 'THF',
+        'Paladin': 'PLD',
+        'Dark Knight': 'DRK',
+        'Beastmaster': 'BST',
+        'Bard': 'BRD',
+        'Ranger': 'RNG',
+        'Samurai': 'SAM',
+        'Ninja': 'NIN',
+        'Dragoon': 'DRG',
+        'Summoner': 'SMN',
+        'Blue Mage': 'BLU',
+        'Corsair': 'COR',
+        'Puppetmaster': 'PUP',
+        'Dancer': 'DNC',
+        'Scholar': 'SCH',
+        'Geomancer': 'GEO',
+        'Rune Fencer': 'RUN'
+      };
+
+      const parsedJobs: string[] = [];
+      Object.entries(jobMap).forEach(([longName, abbrev]) => {
+        if (data.jobs && data.jobs.includes(longName)) {
+          parsedJobs.push(abbrev);
+        }
+      });
+
+      if (parsedJobs.length > 0) {
+        setFormData(prev => ({ ...prev, selectedJobs: parsedJobs }));
+      }
+
+      // Parse stats from description using the existing parseStatText logic
+      if (data.description) {
+        // Use the same logic as parseStatText function for consistency
+        // Create a mapping of stat names and display names to actual stat names (case-insensitive)
+        const statNameMap = new Map<string, string>();
+        availableStats.forEach(stat => {
+          statNameMap.set(stat.name.toLowerCase(), stat.name);
+          if (stat.displayName) {
+            statNameMap.set(stat.displayName.toLowerCase(), stat.name);
           }
-        } else {
-          warnings.push(`Could not match stat: "${statName}"`);
+        });
+
+        const parsedStats: CreateGearStatForm[] = [];
+        
+        // Special handling for Unity Ranking stats first
+        const unityRankingMatches = Array.from(data.description.matchAll(/Unity Ranking:\s*"([^"]+)"\+(\d+)~(\d+)/g));
+        for (const unityMatch of unityRankingMatches) {
+          const match = unityMatch as RegExpMatchArray;
+          const statName = match[1]; // The stat name in quotes (e.g., "Refresh")
+          const maxValue = parseInt(match[3], 10); // The value after the ~ (e.g., 2 from +1~2)
+          
+          if (!isNaN(maxValue)) {
+            // Try to find a matching stat (case-insensitive)
+            const normalizedStatName = statName.toLowerCase().trim();
+            const matchedStatName = statNameMap.get(normalizedStatName);
+            
+            if (matchedStatName) {
+              // Check if this stat is already in our parsed stats
+              const existingIndex = parsedStats.findIndex(s => s.statName === matchedStatName);
+              if (existingIndex >= 0) {
+                // Update existing stat value with the max value
+                parsedStats[existingIndex].value += maxValue;
+              } else {
+                // Add new stat with the max value
+                parsedStats.push({ statName: matchedStatName, value: maxValue });
+              }
+            } else {
+              warnings.push(`Could not match Unity Ranking stat: "${statName}"`);
+            }
+          }
+        }
+
+        // Remove Unity Ranking patterns from description for regular parsing
+        let cleanedDescription = data.description;
+        cleanedDescription = cleanedDescription.replace(/Unity Ranking:\s*"[^"]+"\+\d+~\d+/g, '');
+
+        // Use the same approach as parseStatText: find numeric values first, then extract preceding text
+        const valueMatches = Array.from(cleanedDescription.matchAll(/[+-]?\d+%?/g));
+        
+        if (valueMatches.length > 0) {
+          // For each numeric value, try to extract the stat name that precedes it
+          for (let i = 0; i < valueMatches.length; i++) {
+            const valueMatch = valueMatches[i] as RegExpMatchArray;
+            const value = parseInt(valueMatch[0], 10);
+            const valueStart = valueMatch.index!;
+            
+            if (isNaN(value)) continue;
+            
+            // Determine the start position for the stat name
+            // Either from the end of the previous value, or from the beginning of the text
+            const prevMatch = valueMatches[i - 1] as RegExpMatchArray;
+            const statStart = i > 0 ? prevMatch.index! + prevMatch[0].length : 0;
+            
+            // Extract the text between the stat start and the current value
+            const statText = cleanedDescription.substring(statStart, valueStart).trim();
+            
+            // Clean up the stat name by removing common separators and extra whitespace
+            let statName = statText
+              .replace(/^[:\s+\-,]+|[:\s+\-,]+$/g, '') // Remove leading/trailing separators
+              .replace(/\s+/g, ' ') // Normalize whitespace
+              .replace(/^["']|["']$/g, '') // Remove surrounding quotes
+              .trim();
+            
+            // Handle cases where the stat name might have quotes in the middle
+            // Remove quotes but preserve the content
+            statName = statName.replace(/["']/g, '');
+            
+            if (statName) {
+              // Try to find an exact matching stat (case-insensitive)
+              const normalizedStatName = statName.toLowerCase().trim();
+              const matchedStatName = statNameMap.get(normalizedStatName);
+              
+              if (matchedStatName) {
+                // Check if this stat is already in our parsed stats
+                const existingIndex = parsedStats.findIndex(s => s.statName === matchedStatName);
+                if (existingIndex >= 0) {
+                  // Update existing stat value
+                  parsedStats[existingIndex].value += value;
+                } else {
+                  // Add new stat
+                  parsedStats.push({ statName: matchedStatName, value });
+                }
+              } else {
+                warnings.push(`Could not match stat: "${statName}"`);
+              }
+            }
+          }
+        }
+
+        // Update stats in form
+        if (parsedStats.length > 0) {
+          setFormData(prev => ({
+            ...prev,
+            stats: [
+              ...parsedStats,
+              ...Array(Math.max(0, 15 - parsedStats.length)).fill(null).map(() => ({ statName: '', value: 0 }))
+            ]
+          }));
         }
       }
-    }
 
-    // Update the form data with parsed stats
-    if (parsedStats.length > 0) {
-      setFormData(prev => ({
-        ...prev,
-        stats: [
-          ...parsedStats,
-          // Fill the rest with empty stats to maintain at least 15 slots
-          ...Array(Math.max(0, 15 - parsedStats.length)).fill(null).map(() => ({ statName: '', value: 0 }))
-        ]
-      }));
-      setParseWarnings(warnings);
-    } else {
-      setParseWarnings(['No valid stats found in the provided text']);
+      // Add any warnings from the backend
+      if (data.warnings && data.warnings.length > 0) {
+        warnings.push(...data.warnings);
+      }
+
+      setUrlParseWarnings(warnings);
+      
+      // Clear the URL field after successful import
+      setUrlText('');
+
+    } catch (error) {
+      console.error('Error parsing URL data:', error);
+      setUrlParseWarnings([`Failed to parse URL: ${error instanceof Error ? error.message : 'Unknown error'}`]);
+    } finally {
+      setIsImportingFromUrl(false);
     }
-    
-    // Clear the text area after parsing
-    setStatText('');
   }, [availableStats]);
 
-  const handleParseStats = useCallback(() => {
-    if (statText.trim()) {
-      parseStatText(statText.trim());
+  const handleUrlImport = useCallback(() => {
+    if (urlText.trim()) {
+      parseUrlData(urlText.trim());
     }
-  }, [statText, parseStatText]);
-
-  const clearStats = useCallback(() => {
-    setFormData(prev => ({
-      ...prev,
-      stats: Array(15).fill(null).map(() => ({ statName: '', value: 0 }))
-    }));
-    setParseWarnings([]);
-  }, []);
+  }, [urlText, parseUrlData]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -248,8 +352,8 @@ const CreateGearItemModal = ({ isOpen, onClose, onItemCreated }: CreateGearItemM
       stats: Array(15).fill(null).map(() => ({ statName: '', value: 0 })), // Reset to 15 blank stats
     });
     setError(null);
-    setStatText('');
-    setParseWarnings([]);
+    setUrlText('');
+    setUrlParseWarnings([]);
   };
 
   const handleClose = () => {
@@ -433,20 +537,20 @@ const CreateGearItemModal = ({ isOpen, onClose, onItemCreated }: CreateGearItemM
 
               {/* Right Column - Stats */}
               <div className="space-y-6 flex flex-col min-h-0">
-                {/* Stat Text Parser */}
+                {/* URL Import */}
                 <div>
                   <h4 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2 pb-2 border-b border-gray-200 dark:border-gray-700">
-                    Quick Stat Import
+                    🚀 URL Import
                   </h4>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
-                    Paste stat text from FFXI to automatically populate stats (e.g., Defense+66 STR+10 DEX+11):
+                    Paste a bg-wiki.com URL to automatically import ALL gear data (name, slots, jobs, stats):
                   </p>
                   <div className="space-y-2">
-                    <textarea
-                      value={statText}
-                      onChange={(e) => setStatText(e.target.value)}
-                      placeholder='Magic Accuracy+5 "Fast Cast"+4% Enfeebling magic duration +10% "Absorb" effect duration +10%'
-                      rows={3}
+                    <input
+                      type="url"
+                      value={urlText}
+                      onChange={(e) => setUrlText(e.target.value)}
+                      placeholder="https://www.bg-wiki.com/ffxi/Contemplator_%2B1"
                       className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-xs"
                       autoComplete="off"
                       data-lpignore="true"
@@ -455,28 +559,28 @@ const CreateGearItemModal = ({ isOpen, onClose, onItemCreated }: CreateGearItemM
                     <div className="flex space-x-2">
                       <button
                         type="button"
-                        onClick={handleParseStats}
-                        disabled={!statText.trim()}
-                        className="px-3 py-1 text-xs font-medium text-white bg-green-600 border border-transparent rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                        onClick={handleUrlImport}
+                        disabled={!urlText.trim() || isImportingFromUrl}
+                        className="px-3 py-1 text-xs font-medium text-white bg-purple-600 border border-transparent rounded hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        Parse Stats
-                      </button>
-                      <button
-                        type="button"
-                        onClick={clearStats}
-                        className="px-3 py-1 text-xs font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600"
-                      >
-                        Clear All Stats
+                        {isImportingFromUrl ? (
+                          <div className="flex items-center space-x-1">
+                            <div className="animate-spin rounded-full h-3 w-3 border-b border-white"></div>
+                            <span>Importing...</span>
+                          </div>
+                        ) : (
+                          'Import from URL'
+                        )}
                       </button>
                     </div>
                   </div>
                   
-                  {/* Parse Warnings */}
-                  {parseWarnings.length > 0 && (
+                  {/* URL Parse Warnings */}
+                  {urlParseWarnings.length > 0 && (
                     <div className="mt-2 p-2 bg-yellow-50 border border-yellow-200 rounded text-xs dark:bg-yellow-900/20 dark:border-yellow-700">
-                      <div className="font-medium text-yellow-800 dark:text-yellow-200 mb-1">Parsing Warnings:</div>
+                      <div className="font-medium text-yellow-800 dark:text-yellow-200 mb-1">URL Import Notes:</div>
                       <ul className="text-yellow-700 dark:text-yellow-300 space-y-1">
-                        {parseWarnings.map((warning, index) => (
+                        {urlParseWarnings.map((warning, index) => (
                           <li key={index}>• {warning}</li>
                         ))}
                       </ul>
