@@ -125,8 +125,6 @@ const CreateGearItemModal = ({
   // Function to parse BG-Wiki URL and populate all fields
   const parseUrlData = useCallback(
     async (url: string) => {
-      const warnings: string[] = [];
-
       // Validate URL is from bg-wiki.com
       if (!url.includes("bg-wiki.com/ffxi/")) {
         setUrlParseWarnings(["URL must be from bg-wiki.com/ffxi/"]);
@@ -155,188 +153,41 @@ const CreateGearItemModal = ({
           setFormData((prev) => ({ ...prev, name: data.name }));
         }
 
-        // Equipment type only for armor right now
-        if (data.equipmentType) {
-          const slot = data.equipmentType;
-          setFormData((prev) => ({ ...prev, selectedSlots: [slot] }));
+        // Parse equipment slot (now comes as a single slot name)
+        if (data.equipmentSlot) {
+          setFormData((prev) => ({ ...prev, selectedSlots: [data.equipmentSlot] }));
         }
 
-        // Parse job restrictions
-        const jobMap: { [key: string]: string } = {
-          "White Mage": "WHM",
-          "Black Mage": "BLM",
-          "Red Mage": "RDM",
-          Thief: "THF",
-          Paladin: "PLD",
-          "Dark Knight": "DRK",
-          Beastmaster: "BST",
-          Bard: "BRD",
-          Ranger: "RNG",
-          Samurai: "SAM",
-          Ninja: "NIN",
-          Dragoon: "DRG",
-          Summoner: "SMN",
-          "Blue Mage": "BLU",
-          Corsair: "COR",
-          Puppetmaster: "PUP",
-          Dancer: "DNC",
-          Scholar: "SCH",
-          Geomancer: "GEO",
-          "Rune Fencer": "RUN",
-        };
-
-        const parsedJobs: string[] = [];
-        Object.entries(jobMap).forEach(([longName, abbrev]) => {
-          if (data.jobs && data.jobs.includes(longName)) {
-            parsedJobs.push(abbrev);
-          }
-        });
-
-        if (parsedJobs.length > 0) {
-          setFormData((prev) => ({ ...prev, selectedJobs: parsedJobs }));
+        // Parse job restrictions (now comes as array of job abbreviations)
+        if (data.jobs && Array.isArray(data.jobs) && data.jobs.length > 0) {
+          setFormData((prev) => ({ ...prev, selectedJobs: data.jobs }));
         }
 
-        // Parse stats from description using the existing parseStatText logic
-        if (data.description) {
-          // Use the same logic as parseStatText function for consistency
-          // Create a mapping of stat names and display names to actual stat names (case-insensitive)
-          const statNameMap = new Map<string, string>();
-          availableStats.forEach((stat) => {
-            statNameMap.set(stat.name.toLowerCase(), stat.name);
-            if (stat.displayName) {
-              statNameMap.set(stat.displayName.toLowerCase(), stat.name);
-            }
-          });
+        // Parse stats (now comes pre-parsed from backend)
+        if (data.stats && Array.isArray(data.stats) && data.stats.length > 0) {
+          const parsedStats: CreateGearStatForm[] = data.stats.map((stat: any) => ({
+            statName: stat.statName,
+            value: stat.value
+          }));
 
-          const parsedStats: CreateGearStatForm[] = [];
-
-          // Special handling for Unity Ranking stats first
-          const unityRankingMatches = Array.from(
-            data.description.matchAll(
-              /Unity Ranking:\s*"([^"]+)"\+(\d+)~(\d+)/g
-            )
-          );
-          for (const unityMatch of unityRankingMatches) {
-            const match = unityMatch as RegExpMatchArray;
-            const statName = match[1]; // The stat name in quotes (e.g., "Refresh")
-            const maxValue = parseInt(match[3], 10); // The value after the ~ (e.g., 2 from +1~2)
-
-            if (!isNaN(maxValue)) {
-              // Try to find a matching stat (case-insensitive)
-              const normalizedStatName = statName.toLowerCase().trim();
-              const matchedStatName = statNameMap.get(normalizedStatName);
-
-              if (matchedStatName) {
-                // Check if this stat is already in our parsed stats
-                const existingIndex = parsedStats.findIndex(
-                  (s) => s.statName === matchedStatName
-                );
-                if (existingIndex >= 0) {
-                  // Update existing stat value with the max value
-                  parsedStats[existingIndex].value += maxValue;
-                } else {
-                  // Add new stat with the max value
-                  parsedStats.push({
-                    statName: matchedStatName,
-                    value: maxValue,
-                  });
-                }
-              } else {
-                warnings.push(
-                  `Could not match Unity Ranking stat: "${statName}"`
-                );
-              }
-            }
-          }
-
-          // Remove Unity Ranking patterns from description for regular parsing
-          let cleanedDescription = data.description;
-          cleanedDescription = cleanedDescription.replace(
-            /Unity Ranking:\s*"[^"]+"\+\d+~\d+/g,
-            ""
-          );
-
-          // Use the same approach as parseStatText: find numeric values first, then extract preceding text
-          const valueMatches = Array.from(
-            cleanedDescription.matchAll(/[+-]?\d+%?/g)
-          );
-
-          if (valueMatches.length > 0) {
-            // For each numeric value, try to extract the stat name that precedes it
-            for (let i = 0; i < valueMatches.length; i++) {
-              const valueMatch = valueMatches[i] as RegExpMatchArray;
-              const value = parseInt(valueMatch[0], 10);
-              const valueStart = valueMatch.index!;
-
-              if (isNaN(value)) continue;
-
-              // Determine the start position for the stat name
-              // Either from the end of the previous value, or from the beginning of the text
-              const prevMatch = valueMatches[i - 1] as RegExpMatchArray;
-              const statStart =
-                i > 0 ? prevMatch.index! + prevMatch[0].length : 0;
-
-              // Extract the text between the stat start and the current value
-              const statText = cleanedDescription
-                .substring(statStart, valueStart)
-                .trim();
-
-              // Clean up the stat name by removing common separators and extra whitespace
-              let statName = statText
-                .replace(/^[:\s+\-,]+|[:\s+\-,]+$/g, "") // Remove leading/trailing separators
-                .replace(/\s+/g, " ") // Normalize whitespace
-                .replace(/^["']|["']$/g, "") // Remove surrounding quotes
-                .trim();
-
-              // Handle cases where the stat name might have quotes in the middle
-              // Remove quotes but preserve the content
-              statName = statName.replace(/["']/g, "");
-
-              if (statName) {
-                // Try to find an exact matching stat (case-insensitive)
-                const normalizedStatName = statName.toLowerCase().trim();
-                const matchedStatName = statNameMap.get(normalizedStatName);
-
-                if (matchedStatName) {
-                  // Check if this stat is already in our parsed stats
-                  const existingIndex = parsedStats.findIndex(
-                    (s) => s.statName === matchedStatName
-                  );
-                  if (existingIndex >= 0) {
-                    // Update existing stat value
-                    parsedStats[existingIndex].value += value;
-                  } else {
-                    // Add new stat
-                    parsedStats.push({ statName: matchedStatName, value });
-                  }
-                } else {
-                  warnings.push(`Could not match stat: "${statName}"`);
-                }
-              }
-            }
-          }
-
-          // Update stats in form
-          if (parsedStats.length > 0) {
-            setFormData((prev) => ({
-              ...prev,
-              stats: [
-                ...parsedStats,
-                ...Array(Math.max(0, 15 - parsedStats.length))
-                  .fill(null)
-                  .map(() => ({ statName: "", value: 0 })),
-              ],
-            }));
-          }
+          setFormData((prev) => ({
+            ...prev,
+            stats: [
+              ...parsedStats,
+              ...Array(Math.max(0, 15 - parsedStats.length))
+                .fill(null)
+                .map(() => ({ statName: "", value: 0 }))
+            ]
+          }));
         }
 
         // Add any warnings from the backend
         if (data.warnings && data.warnings.length > 0) {
-          warnings.push(...data.warnings);
+          setUrlParseWarnings(data.warnings);
+        } else {
+          setUrlParseWarnings([]);
         }
-
-        setUrlParseWarnings(warnings);
-
+        
         // Clear the URL field after successful import
         setUrlText("");
       } catch (error) {
@@ -350,7 +201,7 @@ const CreateGearItemModal = ({
         setIsImportingFromUrl(false);
       }
     },
-    [availableStats]
+    [] // No longer depends on availableStats since parsing is done on backend
   );
 
   const handleUrlImport = useCallback(() => {
@@ -634,7 +485,7 @@ const CreateGearItemModal = ({
                 {/* URL Import */}
                 <div>
                   <h4 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2 pb-2 border-b border-gray-200 dark:border-gray-700">
-                    🚀 URL Import
+                    🚀 BG-Wiki Import
                   </h4>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
                     Paste a bg-wiki.com URL to automatically import ALL gear
@@ -674,7 +525,7 @@ const CreateGearItemModal = ({
                   {urlParseWarnings.length > 0 && (
                     <div className="mt-2 p-2 bg-yellow-50 border border-yellow-200 rounded text-xs dark:bg-yellow-900/20 dark:border-yellow-700">
                       <div className="font-medium text-yellow-800 dark:text-yellow-200 mb-1">
-                        URL Import Notes:
+                        Import Warnings:
                       </div>
                       <ul className="text-yellow-700 dark:text-yellow-300 space-y-1">
                         {urlParseWarnings.map((warning, index) => (
