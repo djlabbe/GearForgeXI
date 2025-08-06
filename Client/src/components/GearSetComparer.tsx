@@ -79,8 +79,8 @@ export function GearSetComparer({ job, subJob }: Props) {
     let filterSlot: string = slot.toLowerCase();
 
     // Normalize dual-slot cases
-    if (filterSlot === "ear1" || filterSlot === "ear2") filterSlot = "ear";
-    if (filterSlot === "ring1" || filterSlot === "ring2") filterSlot = "ring";
+    if (filterSlot === "ear1" || filterSlot === "ear2") filterSlot = "earrings";
+    if (filterSlot === "ring1" || filterSlot === "ring2") filterSlot = "rings";
 
     let items = gearItems.filter((item) =>
       item.slots.map((s) => s.toLowerCase()).includes(filterSlot)
@@ -95,7 +95,11 @@ export function GearSetComparer({ job, subJob }: Props) {
       }
 
       if (mainItem && mainItem.category === "1H") {
-        if (job.canDualWield || subJob?.abbreviation === "NIN" || subJob?.abbreviation === "DNC") {
+        if (
+          job.canDualWield ||
+          subJob?.abbreviation === "NIN" ||
+          subJob?.abbreviation === "DNC"
+        ) {
           items = items.filter(
             (item) => item.category === "1H" || item.category === "Shield"
           );
