@@ -23,6 +23,7 @@ interface AppDataContextType {
   resinOptions: CapeOption[];
   loading: boolean;
   error: string | null;
+  refreshStats: () => Promise<void>;
 }
 
 const AppDataContext = createContext<AppDataContextType | undefined>(undefined);
@@ -255,6 +256,15 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
     }
   };
 
+  const refreshStats = async () => {
+    try {
+      const statsData = await ApiService.getStats();
+      setStats(statsData);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to refresh stats data');
+    }
+  };
+
   useEffect(() => {
     fetchAllData();
   }, []);
@@ -279,6 +289,7 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
     resinOptions,
     loading,
     error,
+    refreshStats,
   };
 
   return (

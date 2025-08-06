@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { themeAlpine } from "ag-grid-community";
 import { colorSchemeDarkBlue } from "ag-grid-community";
 import ApiService from "../utils/apiService";
 import AddStatModal from "../components/AddStatModal";
+import { useAppData } from "../contexts/AppDataContext";
 
 import type { CellValueChangedEvent, ColDef } from "ag-grid-community";
 import type { Stat } from "../models/Stat";
@@ -11,7 +12,7 @@ import type { Stat } from "../models/Stat";
 const themeDarkBlue = themeAlpine.withPart(colorSchemeDarkBlue);
 
 export function Stats() {
-  const [rowData, setRowData] = useState<Stat[]>([]);
+  const { stats, loading: loadingAppData } = useAppData();
   const [showAddForm, setShowAddForm] = useState(false);
   const [quickFilterText, setQuickFilterText] = useState("");
   const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -26,9 +27,8 @@ export function Stats() {
     }
   };
 
-  const handleStatCreated = (newStat: Stat) => {
-    // Add the new stat to the grid
-    setRowData(prev => [...prev, newStat]);
+  const handleStatCreated = () => {
+    // The AddStatModal will handle refreshing the AppDataContext
     setShowAddForm(false);
   };
 
@@ -105,19 +105,13 @@ export function Stats() {
     },
   ];
 
-  useEffect(() => {
-    const loadStats = async () => {
-      try {
-        const stats = await ApiService.getStats();
-        setRowData(stats);
-      } catch (error) {
-        console.error("Failed to load stats:", error);
-        // You could add error state here if needed
-      }
-    };
-
-    loadStats();
-  }, []);
+  if (loadingAppData) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-gray-600 dark:text-gray-400">Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4">
@@ -183,7 +177,7 @@ export function Stats() {
       >
         <AgGridReact<Stat>
           theme={isDarkMode ? themeDarkBlue : themeAlpine}
-          rowData={rowData}
+          rowData={stats}
           columnDefs={columnDefs}
           onCellValueChanged={onCellValueChanged}
           quickFilterText={quickFilterText}

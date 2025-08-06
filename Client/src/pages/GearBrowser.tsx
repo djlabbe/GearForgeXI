@@ -110,12 +110,12 @@ export function GearBrowser() {
           onChange={(e) => setFilter(e.target.value)}
           className="mb-4 p-2 border border-gray-300 dark:border-gray-700 rounded w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
         />
-        <div className="flex space-x-2 mb-2">
+        <div className="flex space-x-2 mb-2 flex-wrap">
           {slots.map((slot) => (
             <button
               key={slot}
               onClick={() => setSelectedSlot(slot)}
-              className={`px-3 py-1 rounded w-24 text-center cursor-pointer ${
+              className={`px-3 py-1 my-1 rounded w-24 text-center cursor-pointer ${
                 selectedSlot === slot
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"

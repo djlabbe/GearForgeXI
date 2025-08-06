@@ -123,44 +123,57 @@ const CreateGearItemModal = ({ isOpen, onClose, onItemCreated }: CreateGearItemM
     });
 
     // Split the text into potential stat entries
-    // Look for patterns like "STAT+VALUE" or "STAT:VALUE" or "STAT +VALUE" or quoted stats
-    const statPattern = /(?:"([^"]+)"\+?([+-]?\d+)%?|([A-Za-z\s.]+?)[:+]?\s*([+-]?\d+)%?)/g;
+    // First, let's find all numeric values with optional % and their positions
+    const valueMatches = Array.from(text.matchAll(/[+-]?\d+%?/g));
     
-    let match;
-    while ((match = statPattern.exec(text)) !== null) {
-      let statName = '';
-      let valueStr = '';
+    if (valueMatches.length === 0) {
+      setParseWarnings(['No numeric values found in the provided text']);
+      return;
+    }
+
+    // For each numeric value, try to extract the stat name that precedes it
+    for (let i = 0; i < valueMatches.length; i++) {
+      const valueMatch = valueMatches[i];
+      const value = parseInt(valueMatch[0], 10);
+      const valueStart = valueMatch.index!;
       
-      if (match[1] && match[2]) {
-        // Quoted stat name
-        statName = match[1].trim();
-        valueStr = match[2];
-      } else if (match[3] && match[4]) {
-        // Regular stat name
-        statName = match[3].trim();
-        valueStr = match[4];
-      }
+      if (isNaN(value)) continue;
       
-      if (statName && valueStr) {
-        const value = parseInt(valueStr, 10);
-        if (!isNaN(value) && value !== 0) {
-          // Try to find an exact matching stat (case-insensitive)
-          const normalizedStatName = statName.toLowerCase().trim();
-          const matchedStatName = statNameMap.get(normalizedStatName);
-          
-          if (matchedStatName) {
-            // Check if this stat is already in our parsed stats
-            const existingIndex = parsedStats.findIndex(s => s.statName === matchedStatName);
-            if (existingIndex >= 0) {
-              // Update existing stat value
-              parsedStats[existingIndex].value += value;
-            } else {
-              // Add new stat
-              parsedStats.push({ statName: matchedStatName, value });
-            }
+      // Determine the start position for the stat name
+      // Either from the end of the previous value, or from the beginning of the text
+      const statStart = i > 0 ? valueMatches[i - 1].index! + valueMatches[i - 1][0].length : 0;
+      
+      // Extract the text between the stat start and the current value
+      const statText = text.substring(statStart, valueStart).trim();
+      
+      // Clean up the stat name by removing common separators and extra whitespace
+      let statName = statText
+        .replace(/^[:\s+\-,]+|[:\s+\-,]+$/g, '') // Remove leading/trailing separators
+        .replace(/\s+/g, ' ') // Normalize whitespace
+        .replace(/^["']|["']$/g, '') // Remove surrounding quotes
+        .trim();
+      
+      // Handle cases where the stat name might have quotes in the middle
+      // Remove quotes but preserve the content
+      statName = statName.replace(/["']/g, '');
+      
+      if (statName) {
+        // Try to find an exact matching stat (case-insensitive)
+        const normalizedStatName = statName.toLowerCase().trim();
+        const matchedStatName = statNameMap.get(normalizedStatName);
+        
+        if (matchedStatName) {
+          // Check if this stat is already in our parsed stats
+          const existingIndex = parsedStats.findIndex(s => s.statName === matchedStatName);
+          if (existingIndex >= 0) {
+            // Update existing stat value
+            parsedStats[existingIndex].value += value;
           } else {
-            warnings.push(`Could not match stat: "${statName}"`);
+            // Add new stat
+            parsedStats.push({ statName: matchedStatName, value });
           }
+        } else {
+          warnings.push(`Could not match stat: "${statName}"`);
         }
       }
     }
@@ -432,7 +445,7 @@ const CreateGearItemModal = ({ isOpen, onClose, onItemCreated }: CreateGearItemM
                     <textarea
                       value={statText}
                       onChange={(e) => setStatText(e.target.value)}
-                      placeholder='DEF:66 HP+13 MP+39 STR+10 DEX+11 VIT+10 AGI+33 INT+17 MND+19 CHR+34 Evasion+55 Magic Evasion+107 "Magic Def. Bonus"+5 Healing magic skill +11 Enhancing magic skill +11 Haste+3% "Fast Cast"+4% Unity Ranking: "Fast Cast"+1~3%'
+                      placeholder='Magic Accuracy+5 "Fast Cast"+4% Enfeebling magic duration +10% "Absorb" effect duration +10%'
                       rows={3}
                       className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-xs"
                       autoComplete="off"

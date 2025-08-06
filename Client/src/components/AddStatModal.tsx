@@ -18,7 +18,7 @@ interface NewStatForm {
 }
 
 const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => {
-  const { statCategories: availableStatCategories, loading: loadingAppData } = useAppData();
+  const { statCategories: availableStatCategories, loading: loadingAppData, refreshStats } = useAppData();
   const [newStatForm, setNewStatForm] = useState<NewStatForm>({
     name: "",
     displayName: "",
@@ -41,6 +41,9 @@ const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => 
         description: newStatForm.description || undefined,
       });
 
+      // Refresh the stats in the context so all components get the updated data
+      await refreshStats();
+      
       onStatCreated(newStat);
       resetForm();
       onClose();
