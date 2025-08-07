@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
-import type { GearItem } from '../models/GearItem';
-import ApiService from '../utils/apiService';
-import { useAppData } from '../contexts/AppDataContext';
+import { useState, useEffect, useCallback, useMemo } from "react";
+import type { GearItem } from "../models/GearItem";
+import ApiService from "../utils/apiService";
+import { useAppData } from "../contexts/AppDataContext";
 
 interface GearItemEditorProps {
   item: GearItem;
@@ -10,11 +10,22 @@ interface GearItemEditorProps {
   onClose?: () => void;
 }
 
-const GearItemEditor = ({ item, onUpdate, onCancel, onClose }: GearItemEditorProps) => {
-  const { slots: availableSlots, categories: availableCategories, loading: loadingAppData } = useAppData();
+const GearItemEditor = ({
+  item,
+  onUpdate,
+  onCancel,
+  onClose,
+}: GearItemEditorProps) => {
+  const {
+    slots: availableSlots,
+    categories: availableCategories,
+    loading: loadingAppData,
+  } = useAppData();
 
   const [selectedSlots, setSelectedSlots] = useState<string[]>(item.slots);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(item.category || null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(
+    item.category || null
+  );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -24,24 +35,24 @@ const GearItemEditor = ({ item, onUpdate, onCancel, onClose }: GearItemEditorPro
   }, [item.slots, item.category]);
 
   const handleSlotToggle = useCallback((slot: string) => {
-    setSelectedSlots(prev => {
+    setSelectedSlots((prev) => {
       const isCurrentlySelected = prev.includes(slot);
-      
+
       if (isCurrentlySelected) {
         // If currently selected, remove it
-        return prev.filter(s => s !== slot);
+        return prev.filter((s) => s !== slot);
       } else {
         // Special case: Main and Sub can be selected together
-        if (slot === 'Main' || slot === 'Sub') {
-          const hasMain = prev.includes('Main');
-          const hasSub = prev.includes('Sub');
-          
-          if (slot === 'Main' && hasSub) {
+        if (slot === "Main" || slot === "Sub") {
+          const hasMain = prev.includes("Main");
+          const hasSub = prev.includes("Sub");
+
+          if (slot === "Main" && hasSub) {
             // Selecting Main when Sub is already selected - allow both
-            return ['Main', 'Sub'];
-          } else if (slot === 'Sub' && hasMain) {
+            return ["Main", "Sub"];
+          } else if (slot === "Sub" && hasMain) {
             // Selecting Sub when Main is already selected - allow both
-            return ['Main', 'Sub'];
+            return ["Main", "Sub"];
           } else {
             // Selecting Main or Sub when the other isn't selected - replace all with this slot
             return [slot];
@@ -54,9 +65,11 @@ const GearItemEditor = ({ item, onUpdate, onCancel, onClose }: GearItemEditorPro
     });
   }, []);
 
-  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCategoryChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     const value = event.target.value;
-    setSelectedCategory(value === '' ? null : value);
+    setSelectedCategory(value === "" ? null : value);
   };
 
   // Memoize slot selection state for better performance
@@ -69,24 +82,24 @@ const GearItemEditor = ({ item, onUpdate, onCancel, onClose }: GearItemEditorPro
     try {
       setLoading(true);
       setError(null);
-      
+
       // Update slots
       await ApiService.updateGearItemSlots(item.id, selectedSlots);
-      
+
       // Update category
       await ApiService.updateGearItemCategory(item.id, selectedCategory);
-      
+
       // Update the item with new slots and category
       const updatedItem: GearItem = {
         ...item,
         slots: selectedSlots,
-        category: selectedCategory || undefined
+        category: selectedCategory || undefined,
       };
-      
+
       onUpdate(updatedItem);
       onClose?.();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to update item');
+      setError(err instanceof Error ? err.message : "Failed to update item");
     } finally {
       setLoading(false);
     }
@@ -103,13 +116,16 @@ const GearItemEditor = ({ item, onUpdate, onCancel, onClose }: GearItemEditorPro
     return (
       <div className="p-4 text-center">
         <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 mx-auto"></div>
-        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">Loading...</p>
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+          Loading...
+        </p>
       </div>
     );
   }
 
-  const hasChanges = 
-    JSON.stringify(selectedSlots.sort()) !== JSON.stringify(item.slots.sort()) ||
+  const hasChanges =
+    JSON.stringify(selectedSlots.sort()) !==
+      JSON.stringify(item.slots.sort()) ||
     selectedCategory !== (item.category || null);
 
   return (
@@ -136,19 +152,19 @@ const GearItemEditor = ({ item, onUpdate, onCancel, onClose }: GearItemEditorPro
             Category
           </label>
           <select
-            value={selectedCategory || ''}
+            value={selectedCategory || ""}
             onChange={handleCategoryChange}
             className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="">No Category</option>
-            {availableCategories.map(category => (
+            {availableCategories.map((category) => (
               <option key={category} value={category}>
                 {category}
               </option>
             ))}
           </select>
           <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-            Current: {item.category || 'No category'}
+            Current: {item.category || "No category"}
           </p>
         </div>
       </div>
@@ -165,16 +181,17 @@ const GearItemEditor = ({ item, onUpdate, onCancel, onClose }: GearItemEditorPro
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
-          {availableSlots.map(slot => {
+          {availableSlots.map((slot) => {
             const isSelected = slotSelectionMap.has(slot);
             return (
               <label
                 key={slot}
                 className={`
                   flex items-center space-x-2 p-2 rounded border cursor-pointer transition-colors
-                  ${isSelected
-                    ? 'bg-blue-50 border-blue-300 text-blue-900 dark:bg-blue-900/20 dark:border-blue-600 dark:text-blue-100'
-                    : 'bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700'
+                  ${
+                    isSelected
+                      ? "bg-blue-50 border-blue-300 text-blue-900 dark:bg-blue-900/20 dark:border-blue-600 dark:text-blue-100"
+                      : "bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
                   }
                 `}
               >
@@ -191,15 +208,16 @@ const GearItemEditor = ({ item, onUpdate, onCancel, onClose }: GearItemEditorPro
         </div>
 
         <div className="text-sm text-gray-600 dark:text-gray-400">
-          {selectedSlots.length} slot{selectedSlots.length !== 1 ? 's' : ''} selected
+          {selectedSlots.length} slot{selectedSlots.length !== 1 ? "s" : ""}{" "}
+          selected
         </div>
       </div>
 
       <div className="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
         <div className="text-sm text-gray-600 dark:text-gray-400">
-          {hasChanges ? 'You have unsaved changes' : 'No changes made'}
+          {hasChanges ? "You have unsaved changes" : "No changes made"}
         </div>
-        
+
         <div className="flex space-x-2">
           <button
             onClick={handleCancel}
@@ -219,7 +237,7 @@ const GearItemEditor = ({ item, onUpdate, onCancel, onClose }: GearItemEditorPro
                 <span>Saving...</span>
               </div>
             ) : (
-              'Save Changes'
+              "Save Changes"
             )}
           </button>
         </div>

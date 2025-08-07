@@ -90,9 +90,6 @@ export function Navbar() {
           </Link>
           {isAuthenticated ? (
             <div className="flex items-center space-x-2">
-              <span className="text-sm text-gray-600 dark:text-gray-400 hidden sm:inline">
-                Welcome back!
-              </span>
               <button
                 onClick={handleLogout}
                 className="px-4 py-2 rounded transition-colors duration-150 hover:bg-muted hover:text-foreground text-muted-foreground dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400"

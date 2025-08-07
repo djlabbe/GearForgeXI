@@ -5,7 +5,7 @@ export async function authFetch(input: RequestInfo, init: RequestInit = {}) {
 
   const headers = {
     ...(init.headers || {}),
-    ...(token ? { Authorization: `Bearer ${token}` } : {})
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
   };
 
   return fetch(input, { ...init, headers });

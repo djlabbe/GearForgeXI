@@ -4,6 +4,7 @@ import { ReactSelector } from "./ReactSelector";
 import ApiService, { type CreateGearItemDto } from "../utils/apiService";
 import { useAppData } from "../contexts/AppDataContext";
 import type { GearItem } from "../models/GearItem";
+import { authFetch } from "../utils/authFetch";
 
 interface GearItemModalProps {
   isOpen: boolean;
@@ -174,7 +175,7 @@ const GearItemModal = ({
 
       try {
         // Fetch the webpage content via our API
-        const response = await fetch("/api/webpage/fetch", {
+        const response = await authFetch("/api/webpage/fetch", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ url }),
@@ -556,7 +557,7 @@ const GearItemModal = ({
                   <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 ml-7">
                     Mark this item as verified if all stats have been confirmed
                     to match the in-game item
-                  </p>  
+                  </p>
                 </div>
               </div>
 

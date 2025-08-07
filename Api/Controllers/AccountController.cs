@@ -58,11 +58,11 @@ public class AccountController(
         if (!result.Succeeded)
             return Unauthorized("Invalid login");
 
-        var token = GenerateJwtToken(user);
+        var token = await GenerateJwtToken(user);
         return Ok(new { token });
     }
 
-    private string GenerateJwtToken(IdentityUser user)
+    private async Task<string> GenerateJwtToken(IdentityUser user)
     {
         var jwtSettings = new JwtSecurityTokenHandler();
 
@@ -74,12 +74,21 @@ public class AccountController(
 
         var key = Encoding.UTF8.GetBytes(jwtKey);
 
-        var claims = new[]
+        // Get user roles
+        var userRoles = await _userManager.GetRolesAsync(user);
+
+        var claims = new List<Claim>
         {
             new Claim(JwtRegisteredClaimNames.Sub, user.Id),
             new Claim(JwtRegisteredClaimNames.Email, user.Email!),
             new Claim(ClaimTypes.NameIdentifier, user.Id)
         };
+
+        // Add role claims
+        foreach (var role in userRoles)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, role));
+        }
 
         var token = new JwtSecurityToken(
             issuer: jwtIssuer,
