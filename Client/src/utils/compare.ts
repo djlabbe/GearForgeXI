@@ -4,7 +4,7 @@ import type { GearStat } from "../models/GearStat";
 export function getTotalStats(set: GearSet): Map<string, { stat: GearStat; value: number }> {
   const total = new Map<string, { stat: GearStat; value: number }>();
 
-  set.slots.forEach((slot) => {
+  set.gearSetItems.forEach((slot) => {
     slot.gearItem?.stats.forEach((stat: GearStat) => {
       const existing = total.get(stat.name);
       if (existing) {

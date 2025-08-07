@@ -3,6 +3,7 @@ using System;
 using FFXIComp.Api;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FFXIComp.Api.Migrations
 {
     [DbContext(typeof(GearDbContext))]
-    partial class GearDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250807171235_AppUser")]
+    partial class AppUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -308,7 +311,7 @@ namespace FFXIComp.Api.Migrations
                     b.ToTable("GearSets");
                 });
 
-            modelBuilder.Entity("FFXIComp.Api.Models.GearSetItem", b =>
+            modelBuilder.Entity("FFXIComp.Api.Models.GearSetSlot", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -322,6 +325,9 @@ namespace FFXIComp.Api.Migrations
                     b.Property<int>("GearSetId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("GearSlotId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Position")
                         .IsRequired()
                         .HasColumnType("text");
@@ -330,10 +336,12 @@ namespace FFXIComp.Api.Migrations
 
                     b.HasIndex("GearItemId");
 
+                    b.HasIndex("GearSlotId");
+
                     b.HasIndex("GearSetId", "Position")
                         .IsUnique();
 
-                    b.ToTable("GearSetItems");
+                    b.ToTable("GearSetSlots");
                 });
 
             modelBuilder.Entity("FFXIComp.Api.Models.GearSlot", b =>
@@ -2523,7 +2531,7 @@ namespace FFXIComp.Api.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("FFXIComp.Api.Models.GearSetItem", b =>
+            modelBuilder.Entity("FFXIComp.Api.Models.GearSetSlot", b =>
                 {
                     b.HasOne("FFXIComp.Api.Models.GearItem", "GearItem")
                         .WithMany()
@@ -2532,14 +2540,22 @@ namespace FFXIComp.Api.Migrations
                         .IsRequired();
 
                     b.HasOne("FFXIComp.Api.Models.GearSet", "GearSet")
-                        .WithMany("GearSetItems")
+                        .WithMany("GearSetSlots")
                         .HasForeignKey("GearSetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FFXIComp.Api.Models.GearSlot", "GearSlot")
+                        .WithMany()
+                        .HasForeignKey("GearSlotId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("GearItem");
 
                     b.Navigation("GearSet");
+
+                    b.Navigation("GearSlot");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -2614,7 +2630,7 @@ namespace FFXIComp.Api.Migrations
 
             modelBuilder.Entity("FFXIComp.Api.Models.GearSet", b =>
                 {
-                    b.Navigation("GearSetItems");
+                    b.Navigation("GearSetSlots");
                 });
 
             modelBuilder.Entity("FFXIComp.Api.Models.GearSlot", b =>

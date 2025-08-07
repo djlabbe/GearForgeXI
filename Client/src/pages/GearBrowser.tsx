@@ -146,7 +146,7 @@ export function GearBrowser() {
         {isAdmin && (
           <button
             onClick={() => setShowCreateModal(true)}
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium cursor-pointer"
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium "
           >
             Add New Gear
           </button>
@@ -166,7 +166,7 @@ export function GearBrowser() {
         <div className="flex space-x-2 mb-2 flex-wrap">
           <button
             onClick={() => setSelectedSlot("")}
-            className={`px-3 py-1 my-1 rounded w-24 cursor-pointer ${
+            className={`px-3 py-1 my-1 rounded w-24  ${
               selectedSlot === ""
                 ? "bg-blue-600 text-white"
                 : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
@@ -178,7 +178,7 @@ export function GearBrowser() {
             <button
               key={slot}
               onClick={() => setSelectedSlot(slot)}
-              className={`px-3 py-1 my-1 rounded w-24 text-center cursor-pointer ${
+              className={`px-3 py-1 my-1 rounded w-24 text-center  ${
                 selectedSlot === slot
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
@@ -192,7 +192,7 @@ export function GearBrowser() {
         <div className="flex space-x-2 mb-2 flex-wrap">
           <button
             onClick={() => setSelectedJob("")}
-            className={`px-3 py-1 my-1 rounded w-24 cursor-pointer ${
+            className={`px-3 py-1 my-1 rounded w-24  ${
               selectedJob === ""
                 ? "bg-blue-600 text-white"
                 : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
@@ -204,7 +204,7 @@ export function GearBrowser() {
             <button
               key={job.abbreviation}
               onClick={() => setSelectedJob(job.abbreviation)}
-              className={`px-3 py-1 my-1 rounded w-24 cursor-pointer ${
+              className={`px-3 py-1 my-1 rounded w-24  ${
                 selectedJob === job.abbreviation
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"

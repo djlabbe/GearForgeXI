@@ -1,0 +1,163 @@
+using FFXIComp.Api.Models;
+using FFXIComp.Api.Models.Dto;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+
+namespace FFXIComp.Api.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+[Authorize]
+public class GearSetController(
+    GearDbContext context
+) : ControllerBase
+{
+    private readonly GearDbContext _context = context;
+
+    [HttpGet]
+    public async Task<IActionResult> GetUserGearSets()
+    {
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (userId == null) return Unauthorized();
+
+        var gearSets = await _context.GearSets
+            .Include(gs => gs.GearSetItems)
+                .ThenInclude(gss => gss.GearItem)
+                    .ThenInclude(gi => gi.GearItemStats)
+                        .ThenInclude(gis => gis.Stat)
+            .Include(gs => gs.GearSetItems)
+                .ThenInclude(gss => gss.GearItem)
+                    .ThenInclude(gi => gi.GearItemJobs)
+                        .ThenInclude(gij => gij.Job)
+            .Include(gs => gs.GearSetItems)
+                .ThenInclude(gss => gss.GearItem)
+                    .ThenInclude(gi => gi.GearItemSlots)
+                        .ThenInclude(gis => gis.GearSlot)
+            .Include(gs => gs.GearSetItems)
+                .ThenInclude(gss => gss.GearItem)
+                    .ThenInclude(gi => gi.Category)
+            .Where(gs => gs.UserId == userId)
+            .Select(gs => new GearSetDto
+            {
+                Id = gs.Id,
+                Name = gs.Name,
+                Description = gs.Description,
+                GearSetItems = gs.GearSetItems.Select(gss => new GearSetItemDto
+                {
+                    Id = gss.Id,
+                    Position = gss.Position.ToString(),
+                    GearItem = new GearItemDto
+                    {
+                        Id = gss.GearItem.Id,
+                        Name = gss.GearItem.Name,
+                        Category = gss.GearItem.Category != null ? gss.GearItem.Category.Name : null,
+                        Verified = gss.GearItem.Verified,
+                        Stats = gss.GearItem.GearItemStats.Select(gis => new GearStatDto
+                        {
+                            Name = gis.Stat.Name,
+                            DisplayName = gis.Stat.DisplayName,
+                            Category = gis.Stat.Category != null ? gis.Stat.Category.ToString() : null,
+                            Description = gis.Stat.Description,
+                            Value = gis.Value
+                        }).ToList(),
+                        Jobs = gss.GearItem.GearItemJobs.Select(gij => gij.Job.Abbreviation).ToList(),
+                        Slots = gss.GearItem.GearItemSlots.Select(gis => gis.GearSlot.Name).ToList()
+                    }
+                }).ToList()
+            })
+            .ToListAsync();
+
+        return Ok(gearSets);
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> CreateGearSet(CreateGearSetDto dto)
+    {
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (userId == null) return Unauthorized();
+
+        var gearSet = new GearSet
+        {
+            Name = dto.Name,
+            Description = dto.Description,
+            UserId = userId
+        };
+
+        // Add the gear set first to get the ID
+        _context.GearSets.Add(gearSet);
+        await _context.SaveChangesAsync();
+
+        // Create gear set slots if provided
+        if (dto.GearSetSlots.Any())
+        {
+            foreach (var slotDto in dto.GearSetSlots)
+            {
+                var gearSetSlot = new GearSetItem
+                {
+                    GearSetId = gearSet.Id,
+                    GearItemId = slotDto.GearItemId,
+                    Position = (SetPosition)Enum.Parse(typeof(SetPosition), slotDto.Position)
+                };
+
+                _context.GearSetItems.Add(gearSetSlot);
+            }
+
+            await _context.SaveChangesAsync();
+        }
+
+        // Return simple DTO with empty slots list
+        return Ok(new GearSetDto
+        {
+            Id = gearSet.Id,
+            Name = gearSet.Name,
+            Description = gearSet.Description,
+            GearSetItems = new List<GearSetItemDto>()
+        });
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetGearSet(int id)
+    {
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (userId == null) return Unauthorized();
+
+        var gearSetDto = await _context.GearSets
+            .Where(gs => gs.Id == id && gs.UserId == userId)
+            .Select(gs => new GearSetDto
+            {
+                Id = gs.Id,
+                Name = gs.Name,
+                Description = gs.Description,
+                GearSetItems = gs.GearSetItems.Select(gss => new GearSetItemDto
+                {
+                    Id = gss.Id,
+                    Position = gss.Position.ToString(),
+                    GearItem = gss.GearItem != null ? new GearItemDto
+                    {
+                        Id = gss.GearItem.Id,
+                        Name = gss.GearItem.Name,
+                        Category = gss.GearItem.Category != null ? gss.GearItem.Category.Name : null,
+                        Verified = gss.GearItem.Verified,
+                        Stats = gss.GearItem.GearItemStats.Select(gis => new GearStatDto
+                        {
+                            Name = gis.Stat.Name,
+                            Value = gis.Value
+                        }).ToList(),
+                        Jobs = gss.GearItem.GearItemJobs.Select(gij => gij.Job.Abbreviation).ToList(),
+                        Slots = gss.GearItem.GearItemSlots.Select(gis => gis.GearSlot.Name).ToList()
+                    } : null
+                }).ToList()
+            })
+            .FirstOrDefaultAsync();
+
+        if (gearSetDto == null) return NotFound();
+
+        return Ok(gearSetDto);
+    }
+
+}
+

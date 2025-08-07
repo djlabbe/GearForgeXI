@@ -1,12 +1,13 @@
 import type { GearItem } from "./GearItem";
 import type { GearSetPosition } from "./GearSetPosition";
-import type { GearSetSlot } from "./GearSetSlot";
+import type { GearSetItem } from "./GearSetItem";
 
 export interface GearSet {
   id?: number;
   name: string;
   description?: string;
-  slots: GearSetSlot[];
+  userId?: string;
+  gearSetItems: GearSetItem[];
 }
 
 // Helper function to get item for a specific position
@@ -15,7 +16,7 @@ export const getItemAtPosition = (
   position: GearSetPosition
 ): GearItem | null => {
   return (
-    gearSet.slots.find((slot) => slot.position === position)?.gearItem || null
+    gearSet.gearSetItems.find((slot) => slot.position === position)?.gearItem || null
   );
 };
 
@@ -27,8 +28,14 @@ export const setItemAtPosition = (
 ): GearSet => {
   return {
     ...gearSet,
-    slots: gearSet.slots.map((slot) =>
-      slot.position === position ? { ...slot, gearItem: item } : slot
+    gearSetItems: gearSet.gearSetItems.map((slot) =>
+      slot.position === position 
+        ? { 
+            ...slot, 
+            gearItem: item,
+            gearItemId: item?.id || 0
+          } 
+        : slot
     ),
   };
 };

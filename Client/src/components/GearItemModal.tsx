@@ -462,7 +462,7 @@ const GearItemModal = ({
                         <label
                           key={slot}
                           className={`
-                            flex items-center space-x-2 p-2 rounded border cursor-pointer transition-colors
+                            flex items-center space-x-2 p-2 rounded border  transition-colors
                             ${
                               isSelected
                                 ? "bg-blue-50 border-blue-300 text-blue-900 dark:bg-blue-900/20 dark:border-blue-600 dark:text-blue-100"
@@ -504,7 +504,7 @@ const GearItemModal = ({
                         <label
                           key={job.abbreviation}
                           className={`
-                            flex items-center space-x-2 p-2 rounded border cursor-pointer transition-colors
+                            flex items-center space-x-2 p-2 rounded border  transition-colors
                             ${
                               isSelected
                                 ? "bg-green-50 border-green-300 text-green-900 dark:bg-green-900/20 dark:border-green-600 dark:text-green-100"
@@ -635,7 +635,7 @@ const GearItemModal = ({
                     <button
                       type="button"
                       onClick={addStat}
-                      className="px-2 py-1 text-xs font-medium text-blue-600 border border-blue-600 rounded hover:bg-blue-50 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-900/20 cursor-pointer"
+                      className="px-2 py-1 text-xs font-medium text-blue-600 border border-blue-600 rounded hover:bg-blue-50 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-900/20 "
                     >
                       Add Stat
                     </button>
@@ -740,14 +740,14 @@ const GearItemModal = ({
                   type="button"
                   onClick={handleClose}
                   disabled={isSubmitting}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 disabled:opacity-50 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600 cursor-pointer"
+                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 disabled:opacity-50 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600 "
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={!isFormValid || isSubmitting}
-                  className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+                  className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50  disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center space-x-2">

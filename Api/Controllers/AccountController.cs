@@ -1,8 +1,8 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using FFXIComp.Api.Models;
 using FFXIComp.Api.Models.Dto;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -12,17 +12,17 @@ namespace FFXIComp.Api.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 public class AccountController(
-    UserManager<IdentityUser> userManager,
-    SignInManager<IdentityUser> signInManager
+    UserManager<ApplicationUser> userManager,
+    SignInManager<ApplicationUser> signInManager
 ) : ControllerBase
 {
-    private readonly UserManager<IdentityUser> _userManager = userManager;
-    private readonly SignInManager<IdentityUser> _signInManager = signInManager;
+    private readonly UserManager<ApplicationUser> _userManager = userManager;
+    private readonly SignInManager<ApplicationUser> _signInManager = signInManager;
 
     [HttpPost("register")]
     public async Task<IActionResult> Register(UserRegisterDto dto)
     {
-        var user = new IdentityUser
+        var user = new ApplicationUser
         {
             UserName = dto.Email,
             Email = dto.Email
@@ -62,7 +62,7 @@ public class AccountController(
         return Ok(new { token });
     }
 
-    private async Task<string> GenerateJwtToken(IdentityUser user)
+    private async Task<string> GenerateJwtToken(ApplicationUser user)
     {
         var jwtSettings = new JwtSecurityTokenHandler();
 

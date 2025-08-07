@@ -61,7 +61,7 @@ export default function ConfirmationModal({
         <div className="relative z-10 inline-block w-full max-w-md p-0 mt-20 mb-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-lg dark:bg-gray-800">
           <button
             onClick={onCancel}
-            className="absolute top-4 right-4 p-1 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 dark:hover:text-gray-300 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+            className="absolute top-4 right-4 p-1 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 dark:hover:text-gray-300 dark:hover:bg-gray-700 transition-colors "
           >
             <svg
               className="w-5 h-5"

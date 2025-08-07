@@ -1,36 +1,36 @@
 export type GearSetPosition =
-  | "main"
-  | "sub"
-  | "range"
-  | "ammo"
-  | "head"
-  | "body"
-  | "hands"
-  | "legs"
-  | "feet"
-  | "neck"
-  | "waist"
-  | "ear1"
-  | "ear2"
-  | "ring1"
-  | "ring2"
-  | "back";
+  | "Main"
+  | "Sub"
+  | "Range"
+  | "Ammo"
+  | "Head"
+  | "Body"
+  | "Hands"
+  | "Legs"
+  | "Feet"
+  | "Neck"
+  | "Waist"
+  | "Ear1"
+  | "Ear2"
+  | "Ring1"
+  | "Ring2"
+  | "Back";
 
   export const ALL_GEAR_POSITIONS: readonly GearSetPosition[] = [
-    "main",
-    "sub", 
-    "range",
-    "ammo",
-    "head",
-    "neck",
-    "ear1",
-    "ear2", 
-    "body",
-    "hands",
-    "ring1",
-    "ring2",
-    "back",
-    "waist",
-    "legs",
-    "feet",
+    "Main",
+    "Sub", 
+    "Range",
+    "Ammo",
+    "Head",
+    "Neck",
+    "Ear1",
+    "Ear2",
+    "Body",
+    "Hands",
+    "Ring1",
+    "Ring2",
+    "Back",
+    "Waist",
+    "Legs",
+    "Feet",
   ];

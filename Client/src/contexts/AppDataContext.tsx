@@ -239,7 +239,7 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
         ApiService.getAvailableGearCategories(),
         ApiService.getAvailableStatCategories(),
         ApiService.getJobs(),
-        ApiService.getAvailableSlots(),
+        ApiService.getAvailableGearSlots(),
         ApiService.getStats()
       ]);
 

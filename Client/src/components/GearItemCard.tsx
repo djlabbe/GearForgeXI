@@ -59,7 +59,7 @@ const GearItemCard = memo(({ item: currentItem, onItemUpdate, onEditItem, showEd
                         {showEditButton && (
                             <button
                                 onClick={handleEditClick}
-                                className="p-1 text-gray-400 hover:text-blue-600 transition-colors cursor-pointer"
+                                className="p-1 text-gray-400 hover:text-blue-600 transition-colors "
                                 title="Edit item"
                             >
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -119,7 +119,7 @@ const SlotEditor = ({ item, onUpdate, onCancel, onClose }: SlotEditorProps) => {
             <label
               key={slot}
               className={`
-                flex items-center space-x-2 p-2 rounded border cursor-pointer transition-colors
+                flex items-center space-x-2 p-2 rounded border  transition-colors
                 ${isSelected
                   ? 'bg-blue-50 border-blue-300 text-blue-900 dark:bg-blue-900/20 dark:border-blue-600 dark:text-blue-100'
                   : 'bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700'
@@ -147,14 +147,14 @@ const SlotEditor = ({ item, onUpdate, onCancel, onClose }: SlotEditorProps) => {
           <button
             onClick={handleCancel}
             disabled={loading}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 disabled:opacity-50 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600 cursor-pointer"
+            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 disabled:opacity-50 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600 "
           >
             Cancel
           </button>
           <button
             onClick={handleSave}
             disabled={loading || selectedSlots.length === 0}
-            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 cursor-pointer"
+            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 "
           >
             {loading ? (
               <div className="flex items-center space-x-2">

@@ -1,5 +1,6 @@
 using System.Text;
 using FFXIComp.Api;
+using FFXIComp.Api.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -51,7 +52,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 // Register your DbContext with PostgreSQL + EF Core
 builder.Services.AddDbContext<GearDbContext>(options => options.UseNpgsql(connectionString));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<GearDbContext>()
     .AddDefaultTokenProviders();
 
@@ -80,6 +81,7 @@ builder.Services.AddAuthentication(options =>
 });
 
 builder.Services.AddAuthorization();
+
 
 // Add HttpClient for external URL fetching
 builder.Services.AddHttpClient();

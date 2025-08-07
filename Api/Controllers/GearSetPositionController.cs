@@ -10,7 +10,7 @@ public class GearSetPositionsController : ControllerBase
     [HttpGet]
     public IActionResult GetPositions()
     {
-        var positions = Enum.GetValues<GearSetPosition>()
+        var positions = Enum.GetValues<SetPosition>()
             .Select(p => p.ToString())
             .ToList();
 

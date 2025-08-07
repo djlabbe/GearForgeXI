@@ -1,6 +1,6 @@
 namespace FFXIComp.Api.Models;
 
-public enum GearSetPosition
+public enum SetPosition
 {
     Main,
     Sub,

@@ -1,3 +1,4 @@
+using FFXIComp.Api.Models;
 using FFXIComp.Api.Models.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -9,10 +10,10 @@ namespace FFXIComp.Api.Controllers;
 [Route("api/[controller]")]
 [Authorize] // All endpoints require authentication
 public class UsersController(
-    UserManager<IdentityUser> userManager
+    UserManager<ApplicationUser> userManager
 ) : ControllerBase
 {
-    private readonly UserManager<IdentityUser> _userManager = userManager;
+    private readonly UserManager<ApplicationUser> _userManager = userManager;
 
     [HttpGet]
     [Authorize(Roles = "Admin")]

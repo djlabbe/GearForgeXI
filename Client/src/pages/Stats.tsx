@@ -161,7 +161,7 @@ export function Stats() {
           <div className="flex justify-center items-center h-full">
             <button
               onClick={() => handleDeleteStat(stat.id, stat.name)}
-              className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors duration-200 cursor-pointer"
+              className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors duration-200 "
               title={`Delete ${stat.name}`}
             >
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -23,6 +23,17 @@ public class GearController(GearDbContext context) : ControllerBase
         return Ok(slots);
     }
 
+    [HttpGet("slots/mapping")]
+    public async Task<IActionResult> GetSlotMapping()
+    {
+        var slots = await _context.GearSlots
+            .OrderBy(s => s.Id)
+            .Select(s => new { Id = s.Id, Name = s.Name })
+            .ToListAsync();
+
+        return Ok(slots);
+    }
+
     [HttpGet("categories")]
     public async Task<IActionResult> GetAvailableCategories()
     {

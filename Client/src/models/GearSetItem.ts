@@ -1,7 +1,10 @@
 import type { GearItem } from "./GearItem";
 import type { GearSetPosition } from "./GearSetPosition";
 
-export interface GearSetSlot {
+export interface GearSetItem {
+  id?: number;
   position: GearSetPosition;
-  gearItem: GearItem | null;
+  gearSetId?: number;
+  gearItemId: number;
+  gearItem?: GearItem | null;
 }

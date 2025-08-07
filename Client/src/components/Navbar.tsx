@@ -22,9 +22,8 @@ export function Navbar() {
     <header className="bg-background text-foreground shadow mb-6 border-b border-border dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700">
       <div className="mx-auto px-4 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center space-x-3 w-full sm:w-auto">
-          <img src={logo} alt="FFXI Compare Logo" className="h-8 w-8" />
-          <h1 className="text-2xl">FFXI Compare</h1>
-          <small>(Alpha)</small>
+          <img src={logo} alt="GearForge XI Logo" className="h-8 w-8" />
+          <h1 className="text-2xl">GearForge XI</h1>
           {/* Hamburger button for mobile */}
           <button
             className="sm:hidden ml-auto p-2 rounded hover:bg-muted focus:outline-none"
@@ -93,7 +92,7 @@ export function Navbar() {
             <div className="flex items-center space-x-2">
               <button
                 onClick={handleLogout}
-                className="px-4 py-2 rounded transition-colors duration-150 hover:bg-muted hover:text-foreground text-muted-foreground dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400"
+                className="px-4 py-2 rounded transition-colors duration-150 hover:bg-muted hover:text-foreground text-muted-foreground dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400 cursor-pointer"
               >
                 Logout
               </button>

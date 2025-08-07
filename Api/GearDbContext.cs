@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace FFXIComp.Api
 {
-    public class GearDbContext : IdentityDbContext
+    public class GearDbContext : IdentityDbContext<ApplicationUser>
     {
         public GearDbContext(DbContextOptions<GearDbContext> options) : base(options) { }
         public DbSet<GearItem> GearItems { get; set; }
@@ -18,7 +18,7 @@ namespace FFXIComp.Api
         public DbSet<Stat> Stats { get; set; }
         public DbSet<GearItemStat> GearItemStats { get; set; }
         public DbSet<GearSet> GearSets { get; set; } = null!;
-        public DbSet<GearSetSlot> GearSetSlots { get; set; } = null!;
+        public DbSet<GearSetItem> GearSetItems { get; set; } = null!;
 
 
 
@@ -459,26 +459,20 @@ namespace FFXIComp.Api
                 .Property(s => s.Category)
                 .HasConversion<string>();
 
-            // GearSetSlot: many-to-one with GearSet
-            modelBuilder.Entity<GearSetSlot>()
+            // GearSetItem: many-to-one with GearSet
+            modelBuilder.Entity<GearSetItem>()
                 .HasOne(gss => gss.GearSet)
-                .WithMany(gs => gs.GearSetSlots)
+                .WithMany(gs => gs.GearSetItems)
                 .HasForeignKey(gss => gss.GearSetId);
 
-            // GearSetSlot: many-to-one with GearItem
-            modelBuilder.Entity<GearSetSlot>()
+            // GearSetItem: many-to-one with GearItem
+            modelBuilder.Entity<GearSetItem>()
                 .HasOne(gss => gss.GearItem)
                 .WithMany()  // No backref needed
                 .HasForeignKey(gss => gss.GearItemId);
 
-            // GearSetSlot: many-to-one with GearSlot
-            modelBuilder.Entity<GearSetSlot>()
-                .HasOne(gss => gss.GearSlot)
-                .WithMany()  // No backref needed
-                .HasForeignKey(gss => gss.GearSlotId);
-
-            // Store GearSetSlot.Position as string
-            modelBuilder.Entity<GearSetSlot>()
+            // Store GearSetItem.Position as string
+            modelBuilder.Entity<GearSetItem>()
                 .Property(gss => gss.Position)
                 .HasConversion<string>();
 
@@ -491,10 +485,16 @@ namespace FFXIComp.Api
                 .HasIndex(gij => new { gij.GearItemId, gij.JobId })
                 .IsUnique();
 
-            modelBuilder.Entity<GearSetSlot>()
+            modelBuilder.Entity<GearSetItem>()
                 .HasIndex(gss => new { gss.GearSetId, gss.Position })
                 .IsUnique();
 
+            // GearSet: many-to-one with User
+            modelBuilder.Entity<GearSet>()
+                .HasOne(gs => gs.User)
+                .WithMany(u => u.GearSets)  // Now we have the navigation property
+                .HasForeignKey(gs => gs.UserId)
+                .OnDelete(DeleteBehavior.Cascade); // Delete user's gear sets when user is deleted
 
         }
 
