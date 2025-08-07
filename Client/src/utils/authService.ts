@@ -26,6 +26,41 @@ export function getToken(): string | null {
   return localStorage.getItem("token");
 }
 
+export function getUserRoles(): string[] {
+  const token = getToken();
+  if (!token) return [];
+  
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    // JWT tokens typically store roles in 'role', 'roles', or a custom claim
+    const roles = payload.role || payload.roles || payload['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] || [];
+    
+    // Always return an array - convert single string to array if needed
+    return Array.isArray(roles) ? roles : [roles];
+  } catch (error) {
+    return [];
+  }
+}
+
+// Deprecated: Use getUserRoles() instead - kept for backward compatibility
+export function getUserRole(): string[] {
+  return getUserRoles();
+}
+
+export function getAllRoles(): string[] {
+  return getUserRoles();
+}
+
+export function hasRole(roleName: string): boolean {
+  const roles = getUserRoles();
+  return roles.some(r => r.toLowerCase() === roleName.toLowerCase());
+}
+
+export function isAdmin(): boolean {
+  const roles = getUserRoles();
+  return roles.some(r => r === 'Admin' || r === 'admin' || r === 'Administrator');
+}
+
 export function isAuthenticated(): boolean {
   const token = getToken();
   if (!token) return false;

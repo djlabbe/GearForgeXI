@@ -1,10 +1,13 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
-import { logout as authLogout, isAuthenticated as checkAuth } from '../utils/authService';
+import { logout as authLogout, isAuthenticated as checkAuth, getUserRoles, isAdmin, hasRole } from '../utils/authService';
 
 interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
+  userRoles: string[];
+  isAdmin: boolean;
+  hasRole: (roleName: string) => boolean;
   login: (token: string) => void;
   logout: () => void;
 }
@@ -19,6 +22,17 @@ export const useAuth = () => {
   return context;
 };
 
+// Custom hooks for common role checks
+export const useHasRole = (roleName: string): boolean => {
+  const { hasRole } = useAuth();
+  return hasRole(roleName);
+};
+
+export const useIsAdmin = (): boolean => {
+  const { isAdmin } = useAuth();
+  return isAdmin;
+};
+
 interface AuthProviderProps {
   children: ReactNode;
 }
@@ -26,12 +40,25 @@ interface AuthProviderProps {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [userRoles, setUserRoles] = useState<string[]>([]);
+  const [isAdminUser, setIsAdminUser] = useState(false);
 
   // Check authentication status on mount and when localStorage changes
   useEffect(() => {
     const checkAuthStatus = () => {
       const authenticated = checkAuth(); // Use the improved authentication check
       setIsAuthenticated(authenticated);
+      
+      if (authenticated) {
+        const roles = getUserRoles();
+        const adminStatus = isAdmin();
+        setUserRoles(roles);
+        setIsAdminUser(adminStatus);
+      } else {
+        setUserRoles([]);
+        setIsAdminUser(false);
+      }
+      
       setIsLoading(false);
     };
 
@@ -54,16 +81,27 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const login = (token: string) => {
     localStorage.setItem('token', token);
     setIsAuthenticated(true);
+    
+    // Update role information after login
+    const roles = getUserRoles();
+    const adminStatus = isAdmin();
+    setUserRoles(roles);
+    setIsAdminUser(adminStatus);
   };
 
   const logout = () => {
     authLogout(); // Call the existing logout function
     setIsAuthenticated(false);
+    setUserRoles([]);
+    setIsAdminUser(false);
   };
 
   const value = {
     isAuthenticated,
     isLoading,
+    userRoles,
+    isAdmin: isAdminUser,
+    hasRole,
     login,
     logout,
   };

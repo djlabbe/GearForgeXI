@@ -5,6 +5,7 @@ import Card from "../components/Card";
 import GearItemCard from "../components/GearItemCard";
 import GearItemModal from "../components/GearItemModal";
 import { useAppData } from "../contexts/AppDataContext";
+import { useAuth } from "../contexts/AuthContext";
 
 function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
   return items.reduce<Record<string, GearItem[]>>((acc, item) => {
@@ -22,6 +23,7 @@ function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
 // May want to add true virtual scrolling later
 export function GearBrowser() {
   const { jobs, slots, loading: loadingAppData } = useAppData();
+  const { isAdmin } = useAuth();
 
   const [gearItems, setGearItems] = useState<GearItem[]>([]);
   const [filter, setFilter] = useState("");
@@ -139,14 +141,16 @@ export function GearBrowser() {
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-          Gear Admin
+          {isAdmin ? "Gear Admin" : "Gear Browser"}
         </h1>
-        <button
-          onClick={() => setShowCreateModal(true)}
-          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium cursor-pointer"
-        >
-          Add New Gear
-        </button>
+        {isAdmin && (
+          <button
+            onClick={() => setShowCreateModal(true)}
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium cursor-pointer"
+          >
+            Add New Gear
+          </button>
+        )}
       </div>
       <Card className="mb-2">
         <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
@@ -237,19 +241,21 @@ export function GearBrowser() {
               item={item}
               onItemUpdate={handleItemUpdate}
               onEditItem={handleEditItem}
-              showEditButton={true}
+              showEditButton={isAdmin}
             />
           ))}
         </div>
       </InfiniteScroll>
 
-      {/* Create/Edit Gear Item Modal */}
-      <GearItemModal
-        isOpen={showCreateModal || editingItem !== null}
-        onClose={handleCloseModal}
-        onItemCreated={handleItemUpdatedOrCreated}
-        editingItem={editingItem}
-      />
+      {/* Create/Edit Gear Item Modal - Only for Admin users */}
+      {isAdmin && (
+        <GearItemModal
+          isOpen={showCreateModal || editingItem !== null}
+          onClose={handleCloseModal}
+          onItemCreated={handleItemUpdatedOrCreated}
+          editingItem={editingItem}
+        />
+      )}
     </div>
   );
 }

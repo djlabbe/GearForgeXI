@@ -6,6 +6,7 @@ import ApiService from "../utils/apiService";
 import AddStatModal from "../components/AddStatModal";
 import ConfirmationModal from "../components/ConfirmationModal";
 import { useAppData } from "../contexts/AppDataContext";
+import { useAuth } from "../contexts/AuthContext";
 
 import type { CellValueChangedEvent, ColDef } from "ag-grid-community";
 import type { Stat } from "../models/Stat";
@@ -14,6 +15,7 @@ const themeDarkBlue = themeAlpine.withPart(colorSchemeDarkBlue);
 
 export function Stats() {
   const { stats, loading: loadingAppData, refreshStats } = useAppData();
+  const { isAdmin } = useAuth();
   const [showAddForm, setShowAddForm] = useState(false);
   const [quickFilterText, setQuickFilterText] = useState("");
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -101,7 +103,7 @@ export function Stats() {
       field: "name",
       sortable: true,
       filter: true,
-      editable: true,
+      editable: isAdmin,
       enableCellChangeFlash: true,
     },
     {
@@ -110,7 +112,7 @@ export function Stats() {
       sortable: true,
       filter: true,
       width: 300,
-      editable: true,
+      editable: isAdmin,
       enableCellChangeFlash: true,
     },
     {
@@ -120,7 +122,7 @@ export function Stats() {
       filter: true,
       rowGroup: false,
       width: 500,
-      editable: true,
+      editable: isAdmin,
       enableCellChangeFlash: true,
     },
     {
@@ -129,7 +131,7 @@ export function Stats() {
       sortable: true,
       filter: true,
       rowGroup: false,
-      editable: true,
+      editable: isAdmin,
       enableCellChangeFlash: true,
     },
     {
@@ -150,8 +152,8 @@ export function Stats() {
       cellRenderer: (params: any) => {
         const stat = params.data as Stat;
         
-        // Only show delete button if the stat is not used by any gear items
-        if ((stat.gearItemCount || 0) > 0) {
+        // Only show delete button if the user is admin and the stat is not used by any gear items
+        if (!isAdmin || (stat.gearItemCount || 0) > 0) {
           return <></>
         }
         
@@ -184,13 +186,15 @@ export function Stats() {
     <div className="space-y-4">
       {/* Header with Add New Stat Button */}
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Stats Admin</h1>
-        <button
-          onClick={() => setShowAddForm(true)}
-          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium"
-        >
-          Add New Stat
-        </button>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{isAdmin ? "Stats Admin" : "Stats"}</h1>
+        {isAdmin && (
+          <button
+            onClick={() => setShowAddForm(true)}
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium"
+          >
+            Add New Stat
+          </button>
+        )}
       </div>
 
       {/* Quick Filter */}
@@ -226,23 +230,27 @@ export function Stats() {
         </div>
       </div>
 
-      {/* Add Stat Modal */}
-      <AddStatModal 
-        isOpen={showAddForm} 
-        onClose={() => setShowAddForm(false)} 
-        onStatCreated={handleStatCreated}
-      />
+      {/* Add Stat Modal - Only for Admin users */}
+      {isAdmin && (
+        <AddStatModal 
+          isOpen={showAddForm} 
+          onClose={() => setShowAddForm(false)} 
+          onStatCreated={handleStatCreated}
+        />
+      )}
 
-      {/* Delete Confirmation Modal */}
-      <ConfirmationModal
-        isOpen={showDeleteConfirm}
-        title="Delete Stat"
-        message={`Are you sure you want to delete the stat "${statToDelete?.name}"? This action cannot be undone.`}
-        confirmText="Delete"
-        cancelText="Cancel"
-        onConfirm={confirmDeleteStat}
-        onCancel={cancelDeleteStat}
-      />
+      {/* Delete Confirmation Modal - Only for Admin users */}
+      {isAdmin && (
+        <ConfirmationModal
+          isOpen={showDeleteConfirm}
+          title="Delete Stat"
+          message={`Are you sure you want to delete the stat "${statToDelete?.name}"? This action cannot be undone.`}
+          confirmText="Delete"
+          cancelText="Cancel"
+          onConfirm={confirmDeleteStat}
+          onCancel={cancelDeleteStat}
+        />
+      )}
 
       {/* AG Grid */}
       <div

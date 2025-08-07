@@ -71,6 +71,15 @@ export function Navbar() {
             Compare Sets
           </Link>
           <Link
+            to="/gear"
+            className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
+              "/gear"
+            )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
+            onClick={() => setMenuOpen(false)}
+          >
+            Browse Gear
+          </Link>
+          <Link
             to="/stats"
             className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
               "/stats"
@@ -79,15 +88,7 @@ export function Navbar() {
           >
             Stats
           </Link>
-          <Link
-            to="/gear"
-            className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
-              "/gear"
-            )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
-            onClick={() => setMenuOpen(false)}
-          >
-            Gear
-          </Link>
+
           {isAuthenticated ? (
             <div className="flex items-center space-x-2">
               <button
