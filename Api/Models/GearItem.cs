@@ -12,6 +12,7 @@ namespace FFXIComp.Api.Models
 
         public int? GearItemCategoryId { get; set; } // Nullable FK
         public GearItemCategory? Category { get; set; } // Navigation property to GearCategory
+        public bool Verified { get; set; } = false; // Indicates if the item stats have been verified.
 
         // Navigation properties
         [Required]

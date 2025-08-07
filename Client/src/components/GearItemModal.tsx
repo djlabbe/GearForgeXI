@@ -1,19 +1,21 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import Modal from "./Modal";
 import { ReactSelector } from "./ReactSelector";
 import ApiService, { type CreateGearItemDto } from "../utils/apiService";
 import { useAppData } from "../contexts/AppDataContext";
 import type { GearItem } from "../models/GearItem";
 
-interface CreateGearItemModalProps {
+interface GearItemModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onItemCreated: (newItem: GearItem) => void;
+  onItemCreated: (newItem: GearItem, isEdit: boolean) => void;
+  editingItem?: GearItem | null; // Optional existing item to edit
 }
 
 interface CreateGearItemForm {
   name: string;
   categoryName: string;
+  verified: boolean;
   selectedSlots: string[];
   selectedJobs: string[];
   stats: CreateGearStatForm[];
@@ -24,11 +26,12 @@ interface CreateGearStatForm {
   value: number;
 }
 
-const CreateGearItemModal = ({
+const GearItemModal = ({
   isOpen,
   onClose,
   onItemCreated,
-}: CreateGearItemModalProps) => {
+  editingItem,
+}: GearItemModalProps) => {
   const {
     jobs,
     slots: availableSlots,
@@ -37,20 +40,55 @@ const CreateGearItemModal = ({
     loading: loadingAppData,
   } = useAppData();
 
-  const [formData, setFormData] = useState<CreateGearItemForm>({
-    name: "",
-    categoryName: "",
-    selectedSlots: [],
-    selectedJobs: [],
-    stats: Array(15)
-      .fill(null)
-      .map(() => ({ statName: "", value: 0 })), // Start with 15 blank stats
-  });
+  //   const isEditing = Boolean(editingItem);
+
+  // Initialize form data based on whether we're editing or creating
+  const getInitialFormData = useCallback((): CreateGearItemForm => {
+    if (editingItem) {
+      return {
+        name: editingItem.name,
+        categoryName: editingItem.category || "",
+        verified: editingItem.verified || false,
+        selectedSlots: editingItem.slots,
+        selectedJobs: editingItem.jobs,
+        stats: [
+          ...editingItem.stats.map((stat: any) => ({
+            statName: stat.name,
+            value: stat.value,
+          })),
+          ...Array(Math.max(0, 15 - editingItem.stats.length))
+            .fill(null)
+            .map(() => ({ statName: "", value: 0 })),
+        ],
+      };
+    }
+    return {
+      name: "",
+      categoryName: "",
+      verified: false,
+      selectedSlots: [],
+      selectedJobs: [],
+      stats: Array(15)
+        .fill(null)
+        .map(() => ({ statName: "", value: 0 })),
+    };
+  }, [editingItem]);
+
+  const [formData, setFormData] =
+    useState<CreateGearItemForm>(getInitialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [urlText, setUrlText] = useState("");
   const [isImportingFromUrl, setIsImportingFromUrl] = useState(false);
   const [urlParseWarnings, setUrlParseWarnings] = useState<string[]>([]);
+
+  // Reset form data when editingItem changes
+  useEffect(() => {
+    setFormData(getInitialFormData());
+    setError(null);
+    setUrlText("");
+    setUrlParseWarnings([]);
+  }, [editingItem, getInitialFormData]);
 
   const handleSlotToggle = useCallback((slot: string) => {
     setFormData((prev) => ({
@@ -155,7 +193,10 @@ const CreateGearItemModal = ({
 
         // Parse equipment slot (now comes as a single slot name)
         if (data.equipmentSlot) {
-          setFormData((prev) => ({ ...prev, selectedSlots: [data.equipmentSlot] }));
+          setFormData((prev) => ({
+            ...prev,
+            selectedSlots: [data.equipmentSlot],
+          }));
         }
 
         // Parse job restrictions (now comes as array of job abbreviations)
@@ -165,10 +206,12 @@ const CreateGearItemModal = ({
 
         // Parse stats (now comes pre-parsed from backend)
         if (data.stats && Array.isArray(data.stats) && data.stats.length > 0) {
-          const parsedStats: CreateGearStatForm[] = data.stats.map((stat: any) => ({
-            statName: stat.statName,
-            value: stat.value
-          }));
+          const parsedStats: CreateGearStatForm[] = data.stats.map(
+            (stat: any) => ({
+              statName: stat.statName,
+              value: stat.value,
+            })
+          );
 
           setFormData((prev) => ({
             ...prev,
@@ -176,8 +219,8 @@ const CreateGearItemModal = ({
               ...parsedStats,
               ...Array(Math.max(0, 15 - parsedStats.length))
                 .fill(null)
-                .map(() => ({ statName: "", value: 0 }))
-            ]
+                .map(() => ({ statName: "", value: 0 })),
+            ],
           }));
         }
 
@@ -187,7 +230,7 @@ const CreateGearItemModal = ({
         } else {
           setUrlParseWarnings([]);
         }
-        
+
         // Clear the URL field after successful import
         setUrlText("");
       } catch (error) {
@@ -219,6 +262,7 @@ const CreateGearItemModal = ({
       const createData: CreateGearItemDto = {
         name: formData.name.trim(),
         categoryName: formData.categoryName || undefined,
+        verified: formData.verified,
         slots: formData.selectedSlots,
         jobs: formData.selectedJobs,
         stats: formData.stats
@@ -229,16 +273,33 @@ const CreateGearItemModal = ({
           })),
       };
 
-      const newItem = await ApiService.createGearItem(createData);
-      onItemCreated(newItem);
+      let updatedItem: GearItem;
+      const isEdit = Boolean(editingItem);
+      if (editingItem) {
+        // Update existing item
+        updatedItem = await ApiService.updateGearItem(
+          editingItem.id,
+          createData
+        );
+      } else {
+        // Create new item
+        updatedItem = await ApiService.createGearItem(createData);
+      }
+
+      onItemCreated(updatedItem, isEdit);
       resetForm();
       onClose();
     } catch (err) {
-      console.error("Error creating gear item:", err);
+      console.error(
+        `Error ${editingItem ? "updating" : "creating"} gear item:`,
+        err
+      );
       setError(
         err instanceof Error
           ? err.message
-          : "Failed to create gear item. Please try again."
+          : `Failed to ${
+              editingItem ? "update" : "create"
+            } gear item. Please try again.`
       );
     } finally {
       setIsSubmitting(false);
@@ -246,15 +307,7 @@ const CreateGearItemModal = ({
   };
 
   const resetForm = () => {
-    setFormData({
-      name: "",
-      categoryName: "",
-      selectedSlots: [],
-      selectedJobs: [],
-      stats: Array(15)
-        .fill(null)
-        .map(() => ({ statName: "", value: 0 })), // Reset to 15 blank stats
-    });
+    setFormData(getInitialFormData());
     setError(null);
     setUrlText("");
     setUrlParseWarnings([]);
@@ -305,11 +358,12 @@ const CreateGearItemModal = ({
         <div className="p-6 space-y-6 h-full flex flex-col">
           <div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-              Create New Gear Item
+              {editingItem ? "Edit Gear Item" : "Create New Gear Item"}
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Create a new gear item with name, category, slots, job
-              restrictions, and stats:
+              {editingItem
+                ? "Update the gear item with new information:"
+                : "Create a new gear item with name, category, slots, job restrictions, and stats:"}
             </p>
           </div>
 
@@ -477,6 +531,32 @@ const CreateGearItemModal = ({
                           formData.selectedJobs.length !== 1 ? "s" : ""
                         } selected`}
                   </div>
+                  {/* Verified Toggle */}
+                  <div className="flex items-center space-x-3 mt-4">
+                    <input
+                      type="checkbox"
+                      id="verified"
+                      name="gear-verified"
+                      checked={formData.verified}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          verified: e.target.checked,
+                        }))
+                      }
+                      className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:bg-gray-700 dark:border-gray-600"
+                    />
+                    <label
+                      htmlFor="verified"
+                      className="text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Admin Verified
+                    </label>
+                  </div>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 ml-7">
+                    Mark this item as verified if all stats have been confirmed
+                    to match the in-game item
+                  </p>  
                 </div>
               </div>
 
@@ -488,8 +568,9 @@ const CreateGearItemModal = ({
                     🚀 BG-Wiki Import
                   </h4>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
-                    Paste a bg-wiki.com URL to automatically import ALL gear
-                    data (name, slots, jobs, stats):
+                    {editingItem
+                      ? "Paste a bg-wiki.com URL to update ALL gear data from the wiki:"
+                      : "Paste a bg-wiki.com URL to automatically import ALL gear data (name, slots, jobs, stats):"}
                   </p>
                   <div className="space-y-2">
                     <input
@@ -512,8 +593,12 @@ const CreateGearItemModal = ({
                         {isImportingFromUrl ? (
                           <div className="flex items-center space-x-1">
                             <div className="animate-spin rounded-full h-3 w-3 border-b border-white"></div>
-                            <span>Importing...</span>
+                            <span>
+                              {editingItem ? "Updating..." : "Importing..."}
+                            </span>
                           </div>
+                        ) : editingItem ? (
+                          "Update from URL"
                         ) : (
                           "Import from URL"
                         )}
@@ -645,7 +730,7 @@ const CreateGearItemModal = ({
             <div className="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700 flex-shrink-0">
               <div className="text-sm text-gray-600 dark:text-gray-400">
                 {isFormValid
-                  ? "Ready to create gear item"
+                  ? `Ready to ${editingItem ? "update" : "create"} gear item`
                   : "Name, at least one slot, and one valid stat required"}
               </div>
 
@@ -666,8 +751,10 @@ const CreateGearItemModal = ({
                   {isSubmitting ? (
                     <div className="flex items-center space-x-2">
                       <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                      <span>Creating...</span>
+                      <span>{editingItem ? "Updating..." : "Creating..."}</span>
                     </div>
+                  ) : editingItem ? (
+                    "Update Gear Item"
                   ) : (
                     "Create Gear Item"
                   )}
@@ -681,4 +768,4 @@ const CreateGearItemModal = ({
   );
 };
 
-export default CreateGearItemModal;
+export default GearItemModal;

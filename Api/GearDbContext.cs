@@ -2,10 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using FFXIComp.Api.Models;
 using FFXIComp.Api.SeedData;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace FFXIComp.Api
 {
-    public class GearDbContext : DbContext
+    public class GearDbContext : IdentityDbContext
     {
         public GearDbContext(DbContextOptions<GearDbContext> options) : base(options) { }
         public DbSet<GearItem> GearItems { get; set; }

@@ -1,8 +1,9 @@
 import { useEffect, useState, useMemo } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import type { GearItem } from "../models/GearItem";
 import Card from "../components/Card";
 import GearItemCard from "../components/GearItemCard";
-import CreateGearItemModal from "../components/CreateGearItemModal";
+import GearItemModal from "../components/GearItemModal";
 import { useAppData } from "../contexts/AppDataContext";
 
 function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
@@ -18,6 +19,7 @@ function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
   }, {});
 }
 
+// May want to add true virtual scrolling later
 export function GearBrowser() {
   const { jobs, slots, loading: loadingAppData } = useAppData();
 
@@ -27,6 +29,12 @@ export function GearBrowser() {
   const [selectedSlot, setSelectedSlot] = useState<string>("Main");
   const [selectedJob, setSelectedJob] = useState<string>("");
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [editingItem, setEditingItem] = useState<GearItem | null>(null);
+  
+  // Infinite scroll state
+  const [displayedItems, setDisplayedItems] = useState<GearItem[]>([]);
+  const [hasMore, setHasMore] = useState(true);
+  const ITEMS_PER_PAGE = 50;
 
   const handleItemUpdate = (updatedItem: GearItem) => {
     setGearItems((prevItems) =>
@@ -34,8 +42,44 @@ export function GearBrowser() {
     );
   };
 
-  const handleItemCreated = (newItem: GearItem) => {
-    setGearItems((prevItems) => [...prevItems, newItem]);
+  const handleItemUpdatedOrCreated = (item: GearItem, isEdit: boolean) => {
+    if (isEdit) {
+      // Update existing item
+      setGearItems((prevItems) =>
+        prevItems.map((prevItem) => (prevItem.id === item.id ? item : prevItem))
+      );
+    } else {
+      // Add new item
+      setGearItems((prevItems) => [...prevItems, item]);
+    }
+  };
+
+  const handleEditItem = (item: GearItem) => {
+    setEditingItem(item);
+  };
+
+  const handleCloseModal = () => {
+    setShowCreateModal(false);
+    setEditingItem(null);
+  };
+
+  const loadMoreItems = () => {
+    const currentLength = displayedItems.length;
+    const moreItems = filteredItems.slice(currentLength, currentLength + ITEMS_PER_PAGE);
+    
+    if (moreItems.length === 0) {
+      setHasMore(false);
+      return;
+    }
+    
+    setDisplayedItems(prev => [...prev, ...moreItems]);
+    setHasMore(currentLength + moreItems.length < filteredItems.length);
+  };
+
+  const resetDisplayedItems = (items: GearItem[]) => {
+    const initialItems = items.slice(0, ITEMS_PER_PAGE);
+    setDisplayedItems(initialItems);
+    setHasMore(items.length > ITEMS_PER_PAGE);
   };
 
   useEffect(() => {
@@ -78,6 +122,11 @@ export function GearBrowser() {
     return [];
   }, [gearItems, grouped, selectedSlot, filter, selectedJob]);
 
+  // Reset displayed items when filters change
+  useEffect(() => {
+    resetDisplayedItems(filteredItems);
+  }, [filteredItems]);
+
   if (loading || loadingAppData) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -111,6 +160,16 @@ export function GearBrowser() {
           className="mb-4 p-2 border border-gray-300 dark:border-gray-700 rounded w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
         />
         <div className="flex space-x-2 mb-2 flex-wrap">
+          <button
+            onClick={() => setSelectedSlot("")}
+            className={`px-3 py-1 my-1 rounded w-24 cursor-pointer ${
+              selectedSlot === ""
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+            }`}
+          >
+            All Slots
+          </button>
           {slots.map((slot) => (
             <button
               key={slot}
@@ -153,22 +212,43 @@ export function GearBrowser() {
         </div>
       </Card>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-2">
-        {filteredItems.map((item) => (
-          <GearItemCard
-            key={item.id}
-            item={item}
-            onItemUpdate={handleItemUpdate}
-            showEditButton={true}
-          />
-        ))}
-      </div>
+      <InfiniteScroll
+        dataLength={displayedItems.length}
+        next={loadMoreItems}
+        hasMore={hasMore}
+        loader={
+          <div className="col-span-full flex justify-center py-4">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          </div>
+        }
+        endMessage={
+          <div className="col-span-full text-center py-4 text-gray-600 dark:text-gray-400">
+            {displayedItems.length === 0 
+              ? "No items found with current filters" 
+              : `Showing all ${displayedItems.length} items`
+            }
+          </div>
+        }
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+          {displayedItems.map((item) => (
+            <GearItemCard
+              key={item.id}
+              item={item}
+              onItemUpdate={handleItemUpdate}
+              onEditItem={handleEditItem}
+              showEditButton={true}
+            />
+          ))}
+        </div>
+      </InfiniteScroll>
 
-      {/* Create Gear Item Modal */}
-      <CreateGearItemModal
-        isOpen={showCreateModal}
-        onClose={() => setShowCreateModal(false)}
-        onItemCreated={handleItemCreated}
+      {/* Create/Edit Gear Item Modal */}
+      <GearItemModal
+        isOpen={showCreateModal || editingItem !== null}
+        onClose={handleCloseModal}
+        onItemCreated={handleItemUpdatedOrCreated}
+        editingItem={editingItem}
       />
     </div>
   );

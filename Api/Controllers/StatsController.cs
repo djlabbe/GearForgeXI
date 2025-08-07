@@ -3,6 +3,7 @@ using FFXIComp.Api.Models.Dto;
 using FFXIComp.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FFXIComp.Api.Controllers;
 
@@ -48,16 +49,8 @@ public class StatsController(GearDbContext context) : ControllerBase
         return Ok(stats);
     }
 
-    [HttpGet("categories")]
-    public IActionResult GetStatCategories()
-    {
-        var categories = Enum.GetNames<StatCategory>()
-            .ToArray();
-
-        return Ok(categories);
-    }
-
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateStat(int id, [FromBody] StatDto statDto)
     {
         if (id != statDto.Id)
@@ -115,6 +108,7 @@ public class StatsController(GearDbContext context) : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> CreateStat([FromBody] StatDto statDto)
     {
         // Check if a stat with the same name already exists
@@ -162,6 +156,7 @@ public class StatsController(GearDbContext context) : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteStat(int id)
     {
         var existingStat = await _context.Stats.FindAsync(id);
@@ -183,5 +178,14 @@ public class StatsController(GearDbContext context) : ControllerBase
         await _context.SaveChangesAsync();
 
         return NoContent();
+    }
+
+    [HttpGet("categories")]
+    public IActionResult GetStatCategories()
+    {
+        var categories = Enum.GetNames<StatCategory>()
+            .ToArray();
+
+        return Ok(categories);
     }
 }

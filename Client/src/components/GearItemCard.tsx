@@ -6,32 +6,56 @@ import GearItemEditor from "./GearItemEditor";
 
 interface GearItemCardProps {
     item: GearItem;
-    onItemUpdate?: (updatedItem: GearItem) => void;
+    onItemUpdate: (updatedItem: GearItem) => void;
+    onEditItem?: (item: GearItem) => void;
     showEditButton?: boolean;
 }
 
-const GearItemCard = memo(({ item, onItemUpdate, showEditButton = false }: GearItemCardProps) => {
-    const [currentItem, setCurrentItem] = useState<GearItem>(item);
+const GearItemCard = memo(({ item: currentItem, onItemUpdate, onEditItem, showEditButton = false }: GearItemCardProps) => {
     const [isEditingSlots, setIsEditingSlots] = useState(false);
 
     const handleItemUpdate = (updatedItem: GearItem) => {
-        setCurrentItem(updatedItem);
-        onItemUpdate?.(updatedItem);
+        onItemUpdate(updatedItem);
         setIsEditingSlots(false);
     };
 
     const handleEditClick = async () => {
-        setIsEditingSlots(true);
+        if (onEditItem) {
+            onEditItem(currentItem);
+        } else {
+            // Fallback to old slot-only editing
+            setIsEditingSlots(true);
+        }
     };
 
     return (
         <>
             <Card key={currentItem.id}>
                 <div className="flex items-baseline justify-between mb-2">
-                    <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100 mr-2">
-                        {currentItem.name}
-                    </h3>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-2 flex-1 mr-2">
+                        {currentItem.verified && (
+                            <span
+                                className="inline-flex items-center p-1 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200"
+                                title="Verified item"
+                            >
+                                <svg
+                                    className="w-3 h-3 text-green-600 dark:text-green-300"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M5 13l4 4L19 7"
+                                    />
+                                </svg>
+                            </span>
+                        )}
+                        <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100">
+                            {currentItem.name}
+                        </h3>
                         {showEditButton && (
                             <button
                                 onClick={handleEditClick}
@@ -43,10 +67,10 @@ const GearItemCard = memo(({ item, onItemUpdate, showEditButton = false }: GearI
                                 </svg>
                             </button>
                         )}
-                        <span className="text-sm text-gray-600 dark:text-gray-400 text-right">
-                            {currentItem.slots.join(", ")} {currentItem.category && `(${currentItem.category})`}
-                        </span>
                     </div>
+                    <span className="text-sm text-gray-600 dark:text-gray-400 text-right">
+                        {currentItem.slots.join(", ")} {currentItem.category && `(${currentItem.category})`}
+                    </span>
                 </div>
                 {currentItem.jobs.length > 0 && (
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">

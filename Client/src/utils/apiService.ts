@@ -1,6 +1,7 @@
 import type { Job } from '../models/Job';
 import type { Stat } from '../models/Stat';
 import type { GearItem } from '../models/GearItem';
+import { authFetch } from './authFetch';
 
 export interface GearItemSlotUpdateDto {
   slots: string[];
@@ -13,6 +14,7 @@ export interface GearItemCategoryUpdateDto {
 export interface CreateGearItemDto {
   name: string;
   categoryName?: string;
+  verified?: boolean;     // Admin verification flag
   stats: CreateGearStatDto[];
   jobs: string[];         // e.g., ["WAR", "NIN"]
   slots: string[];        // e.g., ["Main", "Sub"]
@@ -27,7 +29,7 @@ class ApiService {
   private static baseUrl = '/api';
 
   static async getStats(): Promise<Stat[]> {
-    const response = await fetch(`${this.baseUrl}/stats`);
+    const response = await authFetch(`${this.baseUrl}/stats`);
     if (!response.ok) {
       throw new Error(`Failed to fetch stats: ${response.statusText}`);
     }
@@ -35,7 +37,7 @@ class ApiService {
   }
 
   static async updateStat(stat: Stat): Promise<Stat> {
-    const response = await fetch(`${this.baseUrl}/stats/${stat.id}`, {
+    const response = await authFetch(`${this.baseUrl}/stats/${stat.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -51,7 +53,7 @@ class ApiService {
   }
 
   static async createStat(stat: Omit<Stat, 'id'>): Promise<Stat> {
-    const response = await fetch(`${this.baseUrl}/stats`, {
+    const response = await authFetch(`${this.baseUrl}/stats`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -68,7 +70,7 @@ class ApiService {
   }
 
   static async deleteStat(id: number): Promise<void> {
-    const response = await fetch(`${this.baseUrl}/stats/${id}`, {
+    const response = await authFetch(`${this.baseUrl}/stats/${id}`, {
       method: 'DELETE',
     });
 
@@ -79,7 +81,7 @@ class ApiService {
   }
 
   static async getAvailableStatCategories(): Promise<string[]> {
-    const response = await fetch(`${this.baseUrl}/stats/categories`);
+    const response = await authFetch(`${this.baseUrl}/stats/categories`);
     if (!response.ok) {
       throw new Error(`Failed to fetch stat categories: ${response.statusText}`);
     }
@@ -87,7 +89,7 @@ class ApiService {
   }
 
   static async getJobs(): Promise<Job[]> {
-    const response = await fetch(`${this.baseUrl}/jobs`);
+    const response = await authFetch(`${this.baseUrl}/jobs`);
     if (!response.ok) {
       throw new Error(`Failed to fetch jobs: ${response.statusText}`);
     }
@@ -95,7 +97,7 @@ class ApiService {
   }
 
   static async getAvailableSlots(): Promise<string[]> {
-    const response = await fetch(`${this.baseUrl}/gear/slots`);
+    const response = await authFetch(`${this.baseUrl}/gear/slots`);
     if (!response.ok) {
       throw new Error(`Failed to fetch available slots: ${response.statusText}`);
     }
@@ -103,7 +105,7 @@ class ApiService {
   }
 
   static async getAvailableGearCategories(): Promise<string[]> {
-    const response = await fetch(`${this.baseUrl}/gear/categories`);
+    const response = await authFetch(`${this.baseUrl}/gear/categories`);
     if (!response.ok) {
       throw new Error(`Failed to fetch available categories: ${response.statusText}`);
     }
@@ -111,7 +113,7 @@ class ApiService {
   }
 
   static async createGearItem(gearItemData: CreateGearItemDto): Promise<GearItem> {
-    const response = await fetch(`${this.baseUrl}/gear`, {
+    const response = await authFetch(`${this.baseUrl}/gear`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -127,8 +129,25 @@ class ApiService {
     return response.json();
   }
 
+  static async updateGearItem(itemId: number, gearItemData: CreateGearItemDto): Promise<GearItem> {
+    const response = await authFetch(`${this.baseUrl}/gear/${itemId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(gearItemData),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to update gear item: ${errorText}`);
+    }
+
+    return response.json();
+  }
+
   static async updateGearItemSlots(itemId: number, slots: string[]): Promise<void> {
-    const response = await fetch(`${this.baseUrl}/gear/${itemId}/slots`, {
+    const response = await authFetch(`${this.baseUrl}/gear/${itemId}/slots`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -143,7 +162,7 @@ class ApiService {
   }
 
   static async updateGearItemCategory(itemId: number, categoryName: string | null): Promise<void> {
-    const response = await fetch(`${this.baseUrl}/gear/${itemId}/category`, {
+    const response = await authFetch(`${this.baseUrl}/gear/${itemId}/category`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

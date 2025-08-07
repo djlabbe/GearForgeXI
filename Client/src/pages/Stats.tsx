@@ -4,6 +4,7 @@ import { themeAlpine } from "ag-grid-community";
 import { colorSchemeDarkBlue } from "ag-grid-community";
 import ApiService from "../utils/apiService";
 import AddStatModal from "../components/AddStatModal";
+import ConfirmationModal from "../components/ConfirmationModal";
 import { useAppData } from "../contexts/AppDataContext";
 
 import type { CellValueChangedEvent, ColDef } from "ag-grid-community";
@@ -12,9 +13,11 @@ import type { Stat } from "../models/Stat";
 const themeDarkBlue = themeAlpine.withPart(colorSchemeDarkBlue);
 
 export function Stats() {
-  const { stats, loading: loadingAppData } = useAppData();
+  const { stats, loading: loadingAppData, refreshStats } = useAppData();
   const [showAddForm, setShowAddForm] = useState(false);
   const [quickFilterText, setQuickFilterText] = useState("");
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [statToDelete, setStatToDelete] = useState<{ id: number; name: string } | null>(null);
   const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const updateStat = async (stat: Stat) => {
@@ -25,6 +28,40 @@ export function Stats() {
       console.error("Error updating stat:", error);
       throw error;
     }
+  };
+
+  const deleteStat = async (statId: number) => {
+    try {
+      await ApiService.deleteStat(statId);
+      console.log("Stat deleted successfully");
+    } catch (error) {
+      console.error("Error deleting stat:", error);
+      throw error;
+    }
+  };
+
+  const handleDeleteStat = (statId: number, statName: string) => {
+    setStatToDelete({ id: statId, name: statName });
+    setShowDeleteConfirm(true);
+  };
+
+  const confirmDeleteStat = async () => {
+    if (!statToDelete) return;
+    
+    try {
+      await deleteStat(statToDelete.id);
+      await refreshStats(); // Refresh the stats list after successful deletion
+    } catch (error) {
+      alert("Failed to delete stat. Please try again.");
+    } finally {
+      setShowDeleteConfirm(false);
+      setStatToDelete(null);
+    }
+  };
+
+  const cancelDeleteStat = () => {
+    setShowDeleteConfirm(false);
+    setStatToDelete(null);
   };
 
   const handleStatCreated = () => {
@@ -103,6 +140,36 @@ export function Stats() {
       width: 150,
       editable: false,
     },
+    {
+      headerName: "Actions",
+      field: "actions",
+      width: 120,
+      sortable: false,
+      filter: false,
+      editable: false,
+      cellRenderer: (params: any) => {
+        const stat = params.data as Stat;
+        
+        // Only show delete button if the stat is not used by any gear items
+        if ((stat.gearItemCount || 0) > 0) {
+          return <></>
+        }
+        
+        return (
+          <div className="flex justify-center items-center h-full">
+            <button
+              onClick={() => handleDeleteStat(stat.id, stat.name)}
+              className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors duration-200 cursor-pointer"
+              title={`Delete ${stat.name}`}
+            >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+            </button>
+          </div>
+        );
+      },
+    },
   ];
 
   if (loadingAppData) {
@@ -164,6 +231,17 @@ export function Stats() {
         isOpen={showAddForm} 
         onClose={() => setShowAddForm(false)} 
         onStatCreated={handleStatCreated}
+      />
+
+      {/* Delete Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={showDeleteConfirm}
+        title="Delete Stat"
+        message={`Are you sure you want to delete the stat "${statToDelete?.name}"? This action cannot be undone.`}
+        confirmText="Delete"
+        cancelText="Cancel"
+        onConfirm={confirmDeleteStat}
+        onCancel={cancelDeleteStat}
       />
 
       {/* AG Grid */}

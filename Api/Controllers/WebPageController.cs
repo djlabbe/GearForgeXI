@@ -1,25 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FFXIComp.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class WebPageController : ControllerBase
+public class WebPageController(HttpClient httpClient, ILogger<WebPageController> logger, GearDbContext context) : ControllerBase
 {
-    private readonly HttpClient _httpClient;
-    private readonly ILogger<WebPageController> _logger;
-    private readonly GearDbContext _context;
-
-    public WebPageController(HttpClient httpClient, ILogger<WebPageController> logger, GearDbContext context)
-    {
-        _httpClient = httpClient;
-        _logger = logger;
-        _context = context;
-    }
+    private readonly HttpClient _httpClient = httpClient;
+    private readonly ILogger<WebPageController> _logger = logger;
+    private readonly GearDbContext _context = context;
 
     [HttpPost("fetch")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> FetchWebPage([FromBody] FetchWebPageRequest request)
     {
         try
@@ -64,11 +59,11 @@ public class WebPageController : ControllerBase
         var description = ExtractDescription(htmlContent);
         var equipmentType = ExtractEquipmentType(htmlContent);
         var jobs = ExtractJobs(htmlContent);
-        var (stats, warnings) = ExtractStats(description);
+        var (baseStats, baseWarnings) = ExtractStats(description);
 
         // Log what we extracted for debugging
-        _logger.LogInformation("Extracted data - Name: '{Name}', Description: '{Description}', Type: '{Type}', Jobs: '{Jobs}', Stats: {StatCount}",
-            name, description, equipmentType, jobs, stats.Count);
+        _logger.LogInformation("Extracted data - Name: '{Name}', Description: '{Description}', Type: '{Type}', Jobs: '{Jobs}', Base Stats: {BaseStatCount}",
+            name, description, equipmentType, jobs, baseStats.Count);
 
         var result = new
         {
@@ -76,8 +71,8 @@ public class WebPageController : ControllerBase
             description,
             equipmentSlot = equipmentType, // Renamed to be more clear
             jobs = ParseJobList(jobs), // Return as array instead of string
-            stats,
-            warnings
+            stats = baseStats,
+            warnings = baseWarnings
         };
 
         return result;
@@ -144,7 +139,7 @@ public class WebPageController : ControllerBase
     {
         // Look for the specific Jobs table row structure
         // Pattern: <td class="item-info-header"...><b>Jobs:</b></td><td...>job content</td>
-        var jobsRowPattern = @"<td[^>]*class=""[^""]*item-info-header[^""]*""[^>]*><b>Jobs:</b>\s*</td>\s*<td[^>]*>([^<]*(?:<[^>]*>[^<]*)*)</td>";
+        var jobsRowPattern = @"<td[^>]*class=""[^""]*item-info-header[^""]*""[^>]*><b>Jobs:</b>\s*</td>\s*<td[^>]*>([^<]*(?:<[^>]*>[^<]*)*?)</td>";
         var jobsRowMatch = Regex.Match(htmlContent, jobsRowPattern, RegexOptions.IgnoreCase | RegexOptions.Singleline);
 
         if (jobsRowMatch.Success)
@@ -153,16 +148,35 @@ public class WebPageController : ControllerBase
             _logger.LogInformation("Found jobs content: {JobsContent}", jobsContent);
 
             // Extract job names from anchor tags within the jobs content
-            // Pattern: <a href="/ffxi/JobName" title="Job Name">Job Name</a>
-            var jobLinkPattern = @"<a\s+href=""/ffxi/[^""]*""\s+title=""([^""]+)""[^>]*>([^<]+)</a>";
+            // Be more specific - only match links that go to actual job pages
+            var jobLinkPattern = @"<a\s+href=""/ffxi/(Warrior|Monk|White_Mage|Black_Mage|Red_Mage|Thief|Paladin|Dark_Knight|Beastmaster|Bard|Ranger|Samurai|Ninja|Dragoon|Summoner|Blue_Mage|Corsair|Puppetmaster|Dancer|Scholar|Geomancer|Rune_Fencer)""[^>]*title=""([^""]+)""[^>]*>([^<]+)</a>";
             var jobMatches = Regex.Matches(jobsContent, jobLinkPattern, RegexOptions.IgnoreCase);
 
             var jobs = new List<string>();
             foreach (Match jobMatch in jobMatches)
             {
-                var jobName = jobMatch.Groups[2].Value.Trim(); // Use the link text
+                var jobName = jobMatch.Groups[3].Value.Trim(); // Use the link text
                 jobs.Add(jobName);
                 _logger.LogInformation("Found job: {JobName}", jobName);
+            }
+
+            // If no specific job links found, try a more general approach but within the jobs content only
+            if (jobs.Count == 0)
+            {
+                // Look for any links that match known job names in the title or text
+                var generalJobPattern = @"<a[^>]*title=""([^""]*(?:Warrior|Monk|White Mage|Black Mage|Red Mage|Thief|Paladin|Dark Knight|Beastmaster|Bard|Ranger|Samurai|Ninja|Dragoon|Summoner|Blue Mage|Corsair|Puppetmaster|Dancer|Scholar|Geomancer|Rune Fencer)[^""]*)""[^>]*>([^<]+)</a>";
+                var generalMatches = Regex.Matches(jobsContent, generalJobPattern, RegexOptions.IgnoreCase);
+
+                foreach (Match jobMatch in generalMatches)
+                {
+                    var titleText = jobMatch.Groups[1].Value.Trim();
+                    var linkText = jobMatch.Groups[2].Value.Trim();
+
+                    // Prefer the title text if it contains a job name, otherwise use link text
+                    var jobName = titleText.Length > linkText.Length ? titleText : linkText;
+                    jobs.Add(jobName);
+                    _logger.LogInformation("Found job (general): {JobName}", jobName);
+                }
             }
 
             return string.Join(" / ", jobs);
@@ -282,8 +296,15 @@ public class WebPageController : ControllerBase
 
             // Remove Unity Ranking patterns from description for regular parsing
             var cleanedDescription = description;
+            // Remove quoted Unity Ranking patterns first (more specific)
             cleanedDescription = Regex.Replace(cleanedDescription, @"Unity Ranking:\s*""[^""]+""\+\d+~\d+", "", RegexOptions.IgnoreCase);
-            cleanedDescription = Regex.Replace(cleanedDescription, @"Unity Ranking:\s*[^+\s]+\+\d+~\d+", "", RegexOptions.IgnoreCase);
+            // Then remove unquoted Unity Ranking patterns (but be more specific to avoid conflicts)
+            cleanedDescription = Regex.Replace(cleanedDescription, @"Unity Ranking:\s*[A-Za-z][A-Za-z\s]*\+\d+~\d+", "", RegexOptions.IgnoreCase);
+            // Also remove any trailing/leading whitespace that might be left
+            cleanedDescription = cleanedDescription.Trim();
+
+            _logger.LogInformation("Original description: {Original}", description);
+            _logger.LogInformation("Cleaned description: {Cleaned}", cleanedDescription);
 
             // Find numeric values first, then extract preceding text
             var valueMatches = Regex.Matches(cleanedDescription, @"[+-]?\d+%?");
