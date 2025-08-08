@@ -32,6 +32,20 @@ const GearItemCard = memo(({ item: currentItem, onEditItem, showEditButton = fal
                         <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100">
                             {currentItem.name}
                         </h3>
+                        {(currentItem.rank != null || currentItem.path) && (
+                            <div className="flex items-center space-x-1 text-sm">
+                                {currentItem.rank != null && (
+                                    <span className="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-xs font-medium dark:bg-blue-900 dark:text-blue-200">
+                                        R{currentItem.rank}
+                                    </span>
+                                )}
+                                {currentItem.path && (
+                                    <span className="bg-purple-100 text-purple-800 px-2 py-0.5 rounded text-xs font-medium dark:bg-purple-900 dark:text-purple-200">
+                                        {currentItem.path}
+                                    </span>
+                                )}
+                            </div>
+                        )}
                         {showEditButton && (
                             <button
                                 onClick={handleEditClick}

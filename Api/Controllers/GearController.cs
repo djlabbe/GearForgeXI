@@ -88,6 +88,8 @@ public class GearController(GearDbContext context) : ControllerBase
                 Id = g.Id,
                 Name = g.Name,
                 Category = g.Category != null ? g.Category.Name : null,
+                Rank = g.Rank,
+                Path = g.Path,
                 Verified = g.Verified,
                 Stats = g.GearItemStats.Select(s => new GearStatDto
                 {
@@ -116,6 +118,8 @@ public class GearController(GearDbContext context) : ControllerBase
                 Id = g.Id,
                 Name = g.Name,
                 Category = g.Category != null ? g.Category.Name : null,
+                Rank = g.Rank,
+                Path = g.Path,
                 Verified = g.Verified,
                 Stats = g.GearItemStats
                     .Select(s => new GearStatDto
@@ -146,12 +150,20 @@ public class GearController(GearDbContext context) : ControllerBase
         if (dto.Slots.Count == 0)
             return BadRequest("At least one slot must be specified.");
 
-        // Check if gear item name already exists
+        // Check if gear item with this combination of Name, Rank, and Path already exists
+        var trimmedName = dto.Name.Trim();
         var existingItem = await _context.GearItems
-            .FirstOrDefaultAsync(g => g.Name.ToLower() == dto.Name.Trim().ToLower());
+            .FirstOrDefaultAsync(g => g.Name.ToLower() == trimmedName.ToLower() &&
+                                    g.Rank == dto.Rank &&
+                                    g.Path == dto.Path);
 
         if (existingItem != null)
-            return BadRequest($"Gear item with name '{dto.Name}' already exists.");
+        {
+            var identifier = trimmedName;
+            if (dto.Rank.HasValue) identifier += $" R{dto.Rank}";
+            if (!string.IsNullOrEmpty(dto.Path)) identifier += $" {dto.Path}";
+            return BadRequest($"Gear item '{identifier}' already exists.");
+        }
 
         // Validate slots exist
         var slotNames = dto.Slots.Select(s => s.Trim().ToLower()).ToList();
@@ -241,6 +253,8 @@ public class GearController(GearDbContext context) : ControllerBase
         {
             Name = dto.Name.Trim(),
             GearItemCategoryId = category?.Id,
+            Rank = dto.Rank,
+            Path = dto.Path,
             Verified = dto.Verified ?? false
         };
 
@@ -289,6 +303,8 @@ public class GearController(GearDbContext context) : ControllerBase
                 Id = g.Id,
                 Name = g.Name,
                 Category = g.Category != null ? g.Category.Name : null,
+                Rank = g.Rank,
+                Path = g.Path,
                 Verified = g.Verified,
                 Stats = g.GearItemStats
                     .Select(s => new GearStatDto
@@ -424,15 +440,27 @@ public class GearController(GearDbContext context) : ControllerBase
         if (gearItem == null)
             return NotFound($"GearItem with ID {id} not found.");
 
-        // Check if name change would create a duplicate (only if name is different)
+        // Check if updating would create a duplicate with the composite key (Name, Rank, Path)
         var trimmedName = dto.Name.Trim();
-        if (gearItem.Name.ToLower() != trimmedName.ToLower())
+        var wouldBeDuplicate = gearItem.Name.ToLower() != trimmedName.ToLower() ||
+                              gearItem.Rank != dto.Rank ||
+                              gearItem.Path != dto.Path;
+
+        if (wouldBeDuplicate)
         {
             var existingItem = await _context.GearItems
-                .FirstOrDefaultAsync(g => g.Name.ToLower() == trimmedName.ToLower());
+                .FirstOrDefaultAsync(g => g.Id != id &&
+                                        g.Name.ToLower() == trimmedName.ToLower() &&
+                                        g.Rank == dto.Rank &&
+                                        g.Path == dto.Path);
 
             if (existingItem != null)
-                return BadRequest($"Gear item with name '{dto.Name}' already exists.");
+            {
+                var identifier = trimmedName;
+                if (dto.Rank.HasValue) identifier += $" R{dto.Rank}";
+                if (!string.IsNullOrEmpty(dto.Path)) identifier += $" {dto.Path}";
+                return BadRequest($"Gear item '{identifier}' already exists.");
+            }
         }
 
         // Validate slots exist
@@ -521,6 +549,8 @@ public class GearController(GearDbContext context) : ControllerBase
         // Update the gear item properties
         gearItem.Name = trimmedName;
         gearItem.GearItemCategoryId = category?.Id;
+        gearItem.Rank = dto.Rank;
+        gearItem.Path = dto.Path;
         gearItem.Verified = dto.Verified ?? false;
 
         // Remove existing slots, jobs, and stats
@@ -570,6 +600,8 @@ public class GearController(GearDbContext context) : ControllerBase
                 Id = g.Id,
                 Name = g.Name,
                 Category = g.Category != null ? g.Category.Name : null,
+                Rank = g.Rank,
+                Path = g.Path,
                 Verified = g.Verified,
                 Stats = g.GearItemStats
                     .Select(s => new GearStatDto

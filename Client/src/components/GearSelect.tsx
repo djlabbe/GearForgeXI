@@ -21,6 +21,8 @@ export function GearSelect({
     value: String(item.id),
     label: item.name,
     verified: item.verified || false,
+    rank: item.rank,
+    path: item.path,
   }));
 
   const selectedOption = value
@@ -28,10 +30,12 @@ export function GearSelect({
         value: String(value.id), 
         label: value.name,
         verified: value.verified || false,
+        rank: value.rank,
+        path: value.path,
       }
     : null;
 
-  const handleChange = (option: { value: string; label: string; verified?: boolean } | null) => {
+  const handleChange = (option: { value: string; label: string; verified?: boolean; rank?: number; path?: string } | null) => {
     if (!option || option.value === "") {
       onChange(undefined);
       return;

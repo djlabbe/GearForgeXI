@@ -6,9 +6,10 @@ interface ModalProps {
   onClose: () => void;
   children: ReactNode;
   size?: "sm" | "md" | "lg" | "xl";
+  customWidth?: string;
 }
 
-const Modal = ({ isOpen, onClose, children, size = "md" }: ModalProps) => {
+const Modal = ({ isOpen, onClose, children, size = "md", customWidth }: ModalProps) => {
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -41,6 +42,9 @@ const Modal = ({ isOpen, onClose, children, size = "md" }: ModalProps) => {
     xl: "max-w-7xl",
   };
 
+  const widthClass = customWidth ? "" : sizeClasses[size];
+  const widthStyle = customWidth ? { width: customWidth } : {};
+
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
       {/* Background overlay */}
@@ -53,8 +57,9 @@ const Modal = ({ isOpen, onClose, children, size = "md" }: ModalProps) => {
       <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
         {/* Modal panel */}
         <div
-          className={`relative z-10 inline-block w-full ${sizeClasses[size]} p-0 my-8 overflow-hidden text-left align-middle transition-all transform 
+          className={`relative z-10 inline-block w-full ${widthClass} p-0 my-8 overflow-hidden text-left align-middle transition-all transform 
   bg-white shadow-xl rounded-lg dark:bg-gray-800`}
+          style={widthStyle}
         >
           <button
             onClick={onClose}

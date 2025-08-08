@@ -10,6 +10,9 @@ namespace GearForgeXI.Models
         [Required]
         public string Name { get; set; } = null!;
 
+        public int? Rank { get; set; } // Augment rank (e.g., R0, R15, R20)
+        public string? Path { get; set; } // Path information
+
         public int? GearItemCategoryId { get; set; } // Nullable FK
         public GearItemCategory? Category { get; set; } // Navigation property to GearCategory
         public bool Verified { get; set; } = false; // Indicates if the item stats have been verified.

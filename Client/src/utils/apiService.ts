@@ -15,6 +15,8 @@ export interface GearItemCategoryUpdateDto {
 export interface CreateGearItemDto {
   name: string;
   categoryName?: string;
+  rank?: number;
+  path?: string;
   verified?: boolean;     // Admin verification flag
   stats: CreateGearStatDto[];
   jobs: string[];         // e.g., ["WAR", "NIN"]

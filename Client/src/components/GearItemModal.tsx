@@ -16,6 +16,8 @@ interface GearItemModalProps {
 interface CreateGearItemForm {
   name: string;
   categoryName: string;
+  rank?: number;
+  path?: string;
   verified: boolean;
   selectedSlots: string[];
   selectedJobs: string[];
@@ -49,6 +51,8 @@ const GearItemModal = ({
       return {
         name: editingItem.name,
         categoryName: editingItem.category || "",
+        rank: editingItem.rank,
+        path: editingItem.path,
         verified: editingItem.verified || false,
         selectedSlots: editingItem.slots,
         selectedJobs: editingItem.jobs,
@@ -66,6 +70,8 @@ const GearItemModal = ({
     return {
       name: "",
       categoryName: "",
+      rank: undefined,
+      path: "",
       verified: false,
       selectedSlots: [],
       selectedJobs: [],
@@ -263,6 +269,8 @@ const GearItemModal = ({
       const createData: CreateGearItemDto = {
         name: formData.name.trim(),
         categoryName: formData.categoryName || undefined,
+        rank: formData.rank,
+        path: formData.path || undefined,
         verified: formData.verified,
         slots: formData.selectedSlots,
         jobs: formData.selectedJobs,
@@ -347,7 +355,7 @@ const GearItemModal = ({
     formData.name.trim() && formData.selectedSlots.length > 0 && hasValidStats;
 
   return (
-    <Modal isOpen={isOpen} onClose={handleClose} size="xl">
+    <Modal isOpen={isOpen} onClose={handleClose} customWidth="80vw">
       {loadingAppData ? (
         <div className="p-4 text-center">
           <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 mx-auto"></div>
@@ -378,191 +386,10 @@ const GearItemModal = ({
             onSubmit={handleSubmit}
             className="space-y-6 flex flex-col flex-1 min-h-0"
           >
-            {/* Two Column Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 flex-1 min-h-0">
-              {/* Left Column - Basic Info */}
+            {/* Three Column Layout */}
+            <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 flex-1 min-h-0">
+              {/* First Column - Import & Basic Info */}
               <div className="space-y-6">
-                <div>
-                  <h4 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
-                    Basic Information
-                  </h4>
-
-                  {/* Name Field */}
-                  <div className="mb-4">
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                    >
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="gear-name"
-                      value={formData.name}
-                      onChange={(e) =>
-                        setFormData((prev) => ({
-                          ...prev,
-                          name: e.target.value,
-                        }))
-                      }
-                      required
-                      autoComplete="off"
-                      data-lpignore="true"
-                      data-form-type="other"
-                      className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      placeholder="e.g., Excalibur, Hauberk, etc."
-                    />
-                  </div>
-
-                  {/* Category Field */}
-                  <div>
-                    <label
-                      htmlFor="category"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                    >
-                      Category
-                    </label>
-                    <select
-                      id="category"
-                      name="gear-category"
-                      value={formData.categoryName}
-                      onChange={(e) =>
-                        setFormData((prev) => ({
-                          ...prev,
-                          categoryName: e.target.value,
-                        }))
-                      }
-                      autoComplete="off"
-                      data-lpignore="true"
-                      className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    >
-                      <option value="">No Category</option>
-                      {gearCategories.map((category) => (
-                        <option key={category} value={category}>
-                          {category}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Slots Section */}
-                <div>
-                  <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Equipment Slots *
-                  </h4>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
-                    Select which equipment slots this item can be used in:
-                  </p>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                    {availableSlots.map((slot) => {
-                      const isSelected = slotSelectionMap.has(slot);
-                      return (
-                        <label
-                          key={slot}
-                          className={`
-                            flex items-center space-x-2 p-2 rounded border  transition-colors
-                            ${
-                              isSelected
-                                ? "bg-blue-50 border-blue-300 text-blue-900 dark:bg-blue-900/20 dark:border-blue-600 dark:text-blue-100"
-                                : "bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
-                            }
-                          `}
-                        >
-                          <input
-                            type="checkbox"
-                            checked={isSelected}
-                            onChange={() => handleSlotToggle(slot)}
-                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
-                          />
-                          <span className="text-sm font-medium capitalize">
-                            {slot}
-                          </span>
-                        </label>
-                      );
-                    })}
-                  </div>
-                  <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
-                    {formData.selectedSlots.length} slot
-                    {formData.selectedSlots.length !== 1 ? "s" : ""} selected
-                  </div>
-                </div>
-
-                {/* Jobs Section */}
-                <div>
-                  <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Job Restrictions
-                  </h4>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
-                    Leave all jobs unselected if ALL jobs can use this item:
-                  </p>
-                  <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
-                    {jobs.map((job) => {
-                      const isSelected = jobSelectionMap.has(job.abbreviation);
-                      return (
-                        <label
-                          key={job.abbreviation}
-                          className={`
-                            flex items-center space-x-2 p-2 rounded border  transition-colors
-                            ${
-                              isSelected
-                                ? "bg-green-50 border-green-300 text-green-900 dark:bg-green-900/20 dark:border-green-600 dark:text-green-100"
-                                : "bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
-                            }
-                          `}
-                        >
-                          <input
-                            type="checkbox"
-                            checked={isSelected}
-                            onChange={() => handleJobToggle(job.abbreviation)}
-                            className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:bg-gray-700 dark:border-gray-600"
-                          />
-                          <span className="text-sm font-medium">
-                            {job.abbreviation}
-                          </span>
-                        </label>
-                      );
-                    })}
-                  </div>
-                  <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
-                    {formData.selectedJobs.length === 0
-                      ? "Available to ALL jobs"
-                      : `${formData.selectedJobs.length} job${
-                          formData.selectedJobs.length !== 1 ? "s" : ""
-                        } selected`}
-                  </div>
-                  {/* Verified Toggle */}
-                  <div className="flex items-center space-x-3 mt-4">
-                    <input
-                      type="checkbox"
-                      id="verified"
-                      name="gear-verified"
-                      checked={formData.verified}
-                      onChange={(e) =>
-                        setFormData((prev) => ({
-                          ...prev,
-                          verified: e.target.checked,
-                        }))
-                      }
-                      className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                      htmlFor="verified"
-                      className="text-sm font-medium text-gray-700 dark:text-gray-300"
-                    >
-                      Admin Verified
-                    </label>
-                  </div>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 ml-7">
-                    Mark this item as verified if all stats have been confirmed
-                    to match the in-game item
-                  </p>
-                </div>
-              </div>
-
-              {/* Right Column - Stats */}
-              <div className="space-y-6 flex flex-col min-h-0">
                 {/* URL Import */}
                 <div>
                   <h4 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2 pb-2 border-b border-gray-200 dark:border-gray-700">
@@ -622,6 +449,249 @@ const GearItemModal = ({
                   )}
                 </div>
 
+                {/* Basic Information */}
+                <div>
+                  <h4 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-4 pb-2 border-b border-gray-200 dark:border-gray-700">
+                    Basic Information
+                  </h4>
+
+                  {/* Name Field */}
+                  <div className="mb-4">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
+                      Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="gear-name"
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          name: e.target.value,
+                        }))
+                      }
+                      required
+                      autoComplete="off"
+                      data-lpignore="true"
+                      data-form-type="other"
+                      className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      placeholder="e.g., Excalibur, Hauberk, etc."
+                    />
+                  </div>
+
+                  {/* Rank Field */}
+                  <div className="mb-4">
+                    <label
+                      htmlFor="rank"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
+                      Rank
+                    </label>
+                    <input
+                      type="number"
+                      id="rank"
+                      name="gear-rank"
+                      value={formData.rank || ""}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          rank: e.target.value ? parseInt(e.target.value) : undefined,
+                        }))
+                      }
+                      autoComplete="off"
+                      min="0"
+                      max="30"
+                      className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      placeholder="e.g., 15, 20, 25, 30"
+                    />
+                  </div>
+
+                  {/* Path Field */}
+                  <div className="mb-4">
+                    <label
+                      htmlFor="path"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
+                      Path
+                    </label>
+                    <select
+                      id="path"
+                      name="gear-path"
+                      value={formData.path || ""}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          path: e.target.value || undefined,
+                        }))
+                      }
+                      autoComplete="off"
+                      data-lpignore="true"
+                      className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                      <option value="">No Path</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                    </select>
+                  </div>
+
+                  {/* Category Field */}
+                  <div className="mb-4">
+                    <label
+                      htmlFor="category"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
+                      Category
+                    </label>
+                    <select
+                      id="category"
+                      name="gear-category"
+                      value={formData.categoryName}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          categoryName: e.target.value,
+                        }))
+                      }
+                      autoComplete="off"
+                      data-lpignore="true"
+                      className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                      <option value="">No Category</option>
+                      {gearCategories.map((category) => (
+                        <option key={category} value={category}>
+                          {category}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Verified Toggle */}
+                  <div className="flex items-center space-x-3">
+                    <input
+                      type="checkbox"
+                      id="verified"
+                      name="gear-verified"
+                      checked={formData.verified}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          verified: e.target.checked,
+                        }))
+                      }
+                      className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:bg-gray-700 dark:border-gray-600"
+                    />
+                    <label
+                      htmlFor="verified"
+                      className="text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >
+                      Admin Verified
+                    </label>
+                  </div>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 ml-7">
+                    Mark this item as verified if all stats have been confirmed
+                    to match the in-game item
+                  </p>
+                </div>
+              </div>
+
+              {/* Second Column - Slots & Jobs */}
+              <div className="space-y-6">
+                {/* Slots Section */}
+                <div>
+                  <h4 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2 pb-2 border-b border-gray-200 dark:border-gray-700">
+                    Equipment Slots *
+                  </h4>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
+                    Select which equipment slots this item can be used in:
+                  </p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {availableSlots.map((slot) => {
+                      const isSelected = slotSelectionMap.has(slot);
+                      return (
+                        <label
+                          key={slot}
+                          className={`
+                            flex items-center space-x-2 p-2 rounded border  transition-colors
+                            ${
+                              isSelected
+                                ? "bg-blue-50 border-blue-300 text-blue-900 dark:bg-blue-900/20 dark:border-blue-600 dark:text-blue-100"
+                                : "bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+                            }
+                          `}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={isSelected}
+                            onChange={() => handleSlotToggle(slot)}
+                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+                          />
+                          <span className="text-sm font-medium capitalize">
+                            {slot}
+                          </span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                  <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+                    {formData.selectedSlots.length} slot
+                    {formData.selectedSlots.length !== 1 ? "s" : ""} selected
+                  </div>
+                </div>
+
+                {/* Jobs Section */}
+                <div>
+                  <h4 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2 pb-2 border-b border-gray-200 dark:border-gray-700">
+                    Job Restrictions
+                  </h4>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
+                    Leave all jobs unselected if ALL jobs can use this item:
+                  </p>
+                  <div className="grid grid-cols-3 gap-2">
+                    {jobs.map((job) => {
+                      const isSelected = jobSelectionMap.has(job.abbreviation);
+                      return (
+                        <label
+                          key={job.abbreviation}
+                          className={`
+                            flex items-center space-x-2 p-2 rounded border  transition-colors
+                            ${
+                              isSelected
+                                ? "bg-green-50 border-green-300 text-green-900 dark:bg-green-900/20 dark:border-green-600 dark:text-green-100"
+                                : "bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700"
+                            }
+                          `}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={isSelected}
+                            onChange={() => handleJobToggle(job.abbreviation)}
+                            className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 dark:bg-gray-700 dark:border-gray-600"
+                          />
+                          <span className="text-sm font-medium">
+                            {job.abbreviation}
+                          </span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                  <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+                    {formData.selectedJobs.length === 0
+                      ? "Available to ALL jobs"
+                      : `${formData.selectedJobs.length} job${
+                          formData.selectedJobs.length !== 1 ? "s" : ""
+                        } selected`}
+                  </div>
+                </div>
+              </div>
+
+              {/* Third Column - Stats */}
+              <div className="space-y-6 flex flex-col min-h-0">
                 <div className="flex flex-col flex-1 min-h-0">
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="text-base font-medium text-gray-900 dark:text-gray-100 pb-2 border-b border-gray-200 dark:border-gray-700 w-full">

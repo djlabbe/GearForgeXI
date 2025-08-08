@@ -5,6 +5,8 @@ public class GearItemDto
     public int Id { get; set; }
     public string Name { get; set; } = null!;
     public string? Category { get; set; }
+    public int? Rank { get; set; }
+    public string? Path { get; set; }
     public bool Verified { get; set; } = false;
     public List<GearStatDto> Stats { get; set; } = [];
     public List<string> Jobs { get; set; } = [];         // e.g., ["WAR", "NIN"]
