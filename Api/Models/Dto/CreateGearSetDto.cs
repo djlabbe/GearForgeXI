@@ -5,6 +5,7 @@ public class CreateGearSetDto
 {
     public string Name { get; set; } = null!;
     public string? Description { get; set; }
+    public int JobId { get; set; }
     public List<CreateGearSetItemDto> GearSetSlots { get; set; } = new();
 }
 

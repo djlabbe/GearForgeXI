@@ -16,12 +16,23 @@ import Card from "./Card";
 import Modal from "./Modal";
 import AmbuCape, { ambuCapes } from "./AmbuCape";
 import { useAuth } from "../contexts/AuthContext";
-import ApiService, { type CreateGearSetDto, type UpdateFullGearSetDto } from "../utils/apiService";
+import ApiService, {
+  type CreateGearSetDto,
+  type UpdateFullGearSetDto,
+} from "../utils/apiService";
 import { IoIosStats } from "react-icons/io";
 import { TbTargetArrow } from "react-icons/tb";
 import { RiSwordLine } from "react-icons/ri";
 import { IoSparklesSharp } from "react-icons/io5";
-import { FaCopy, FaShieldHalved, FaSuperpowers, FaFloppyDisk, FaFolderOpen, FaPlus, FaTrash } from "react-icons/fa6";
+import {
+  FaCopy,
+  FaShieldHalved,
+  FaSuperpowers,
+  FaFloppyDisk,
+  FaFolderOpen,
+  FaPlus,
+  FaTrash,
+} from "react-icons/fa6";
 import { MdOutlinePets } from "react-icons/md";
 import { GiBatteredAxe, GiPocketBow } from "react-icons/gi";
 import { BsBriefcase } from "react-icons/bs";
@@ -45,7 +56,6 @@ export function GearSetComparer({ job, subJob }: Props) {
   }));
   const [setAAugments, setSetAAugments] = useState<GearStat[]>([]);
 
-
   const [setB, setSetB] = useState<GearSet>(() => ({
     name: "Set B",
     gearSetItems: [],
@@ -68,6 +78,7 @@ export function GearSetComparer({ job, subJob }: Props) {
   }>({ isSetA: true, show: false });
 
   const [customSetName, setCustomSetName] = useState("");
+  const [isCreatingSet, setIsCreatingSet] = useState(false);
 
   useEffect(() => {
     if (!job) return;
@@ -79,6 +90,8 @@ export function GearSetComparer({ job, subJob }: Props) {
     // Initialize sets with all slots when job changes
     const initSet = (name: string): GearSet => ({
       name,
+      jobId: job.id,
+      job: job,
       gearSetItems: ALL_GEAR_POSITIONS.map((position) => ({
         id: 0, // temporary ID for frontend-only slots
         gearSetId: 0,
@@ -95,9 +108,7 @@ export function GearSetComparer({ job, subJob }: Props) {
 
     // Load saved gear sets if authenticated
     if (isAuthenticated) {
-      ApiService.getUserGearSets()
-        .then(setSavedGearSets)
-        .catch(console.error);
+      ApiService.getUserGearSets().then(setSavedGearSets).catch(console.error);
     }
   }, [job, isAuthenticated]);
 
@@ -207,8 +218,8 @@ export function GearSetComparer({ job, subJob }: Props) {
   // Save/Load handlers
   const convertGearSetToDto = (gearSet: GearSet): CreateGearSetDto => {
     const gearSetSlots = gearSet.gearSetItems
-      .filter(slot => slot.gearItem) // Only include slots with actual items
-      .map(slot => ({
+      .filter((slot) => slot.gearItem) // Only include slots with actual items
+      .map((slot) => ({
         gearItemId: slot.gearItem!.id,
         position: slot.position,
       }));
@@ -216,69 +227,76 @@ export function GearSetComparer({ job, subJob }: Props) {
     return {
       name: gearSet.name,
       description: gearSet.description,
+      jobId: job.id, // Use the current job from props
       gearSetSlots,
     };
   };
 
   const handleCreateNewSet = async (isSetA: boolean) => {
     const gearSet = isSetA ? setA : setB;
-    
+
+    setIsCreatingSet(true);
+
     try {
       // Create new gear set with custom name or default
       const setName = customSetName.trim() || gearSet.name;
-        
+
       const gearSetDto = convertGearSetToDto(gearSet);
       gearSetDto.name = setName;
-      
+
       const newGearSet = await ApiService.createGearSet(gearSetDto);
-      
+
       // Update the local state with the new ID and name, keeping existing slots
       if (isSetA) {
-        setSetA(prev => ({ ...prev, id: newGearSet.id, name: setName }));
+        setSetA((prev) => ({ ...prev, id: newGearSet.id, name: setName }));
       } else {
-        setSetB(prev => ({ ...prev, id: newGearSet.id, name: setName }));
+        setSetB((prev) => ({ ...prev, id: newGearSet.id, name: setName }));
       }
-      
+
       // Refresh saved gear sets list
       if (isAuthenticated) {
         const updatedSets = await ApiService.getUserGearSets();
         setSavedGearSets(updatedSets);
       }
-      
+
       setShowCreateNewDialog({ isSetA: false, show: false });
       setCustomSetName(""); // Clear the custom name
     } catch (error) {
-      console.error('Failed to create new gear set:', error);
+      console.error("Failed to create new gear set:", error);
+    } finally {
+      setIsCreatingSet(false);
     }
   };
 
   const handleUpdateSet = async (isSetA: boolean) => {
     const gearSet = isSetA ? setA : setB;
-    
+
     if (!gearSet.id) {
-      console.error('Cannot update set without ID');
+      console.error("Cannot update set without ID");
       return;
     }
-    
+
     try {
       // Update existing gear set using full replacement
       const gearSetDto: UpdateFullGearSetDto = convertGearSetToDto(gearSet);
-      
+
       await ApiService.updateFullGearSet(gearSet.id, gearSetDto);
-      
+
       // Refresh saved gear sets list
       if (isAuthenticated) {
         const updatedSets = await ApiService.getUserGearSets();
         setSavedGearSets(updatedSets);
       }
     } catch (error) {
-      console.error('Failed to update gear set:', error);
+      console.error("Failed to update gear set:", error);
     }
   };
 
   const handleClearSet = (isSetA: boolean) => {
     const initSet = (name: string): GearSet => ({
       name,
+      jobId: job.id,
+      job: job,
       gearSetItems: ALL_GEAR_POSITIONS.map((position) => ({
         id: 0, // temporary ID for frontend-only slots
         gearSetId: 0,
@@ -303,8 +321,10 @@ export function GearSetComparer({ job, subJob }: Props) {
       ...gearSet,
       gearSetItems: ALL_GEAR_POSITIONS.map((position) => {
         // Find existing slot for this position
-        const existingSlot = gearSet.gearSetItems.find(slot => slot.position === position);
-        
+        const existingSlot = gearSet.gearSetItems.find(
+          (slot) => slot.position === position
+        );
+
         if (existingSlot) {
           // Use the existing slot if it exists
           return existingSlot;
@@ -318,7 +338,7 @@ export function GearSetComparer({ job, subJob }: Props) {
             gearItem: null,
           };
         }
-      })
+      }),
     };
 
     if (isSetA) {
@@ -402,14 +422,18 @@ export function GearSetComparer({ job, subJob }: Props) {
           <div className="absolute top-6 right-6 flex gap-2">
             {isAuthenticated && (
               <>
-                <button
-                  className="text-gray-500 hover:text-green-600"
-                  title="Create new gear set"
-                  onClick={() => setShowCreateNewDialog({ isSetA: true, show: true })}
-                  type="button"
-                >
-                  <FaPlus className="h-5 w-5" />
-                </button>
+                {!setA.gearSetItems.every((slot) => !slot.gearItem) && (
+                  <button
+                    className="text-gray-500 hover:text-green-600"
+                    title="Create new gear set"
+                    onClick={() =>
+                      setShowCreateNewDialog({ isSetA: true, show: true })
+                    }
+                    type="button"
+                  >
+                    <FaPlus className="h-5 w-5" />
+                  </button>
+                )}
                 {setA.id && (
                   <button
                     className="text-gray-500 hover:text-yellow-600"
@@ -423,29 +447,35 @@ export function GearSetComparer({ job, subJob }: Props) {
                 <button
                   className="text-gray-500 hover:text-blue-600"
                   title="Load gear set"
-                  onClick={() => setShowLoadDialog({ isSetA: true, show: true })}
+                  onClick={() =>
+                    setShowLoadDialog({ isSetA: true, show: true })
+                  }
                   type="button"
                 >
                   <FaFolderOpen className="h-5 w-5" />
                 </button>
               </>
             )}
-            <button
-              className="text-gray-500 hover:text-red-600"
-              title="Clear gear set"
-              onClick={() => handleClearSet(true)}
-              type="button"
-            >
-              <FaTrash className="h-5 w-5" />
-            </button>
-            <button
-              className="text-gray-500 hover:text-purple-600"
-              title="Copy lua to clipboard"
-              onClick={() => handleCopyLua(setA, setAAugments)}
-              type="button"
-            >
-              <FaCopy className="h-5 w-5" />
-            </button>
+            {!setA.gearSetItems.every((slot) => !slot.gearItem) && (
+              <button
+                className="text-gray-500 hover:text-red-600"
+                title="Clear gear set"
+                onClick={() => handleClearSet(true)}
+                type="button"
+              >
+                <FaTrash className="h-5 w-5" />
+              </button>
+            )}
+            {!setA.gearSetItems.every((slot) => !slot.gearItem) && (
+              <button
+                className="text-gray-500 hover:text-purple-600"
+                title="Copy lua to clipboard"
+                onClick={() => handleCopyLua(setA, setAAugments)}
+                type="button"
+              >
+                <FaCopy className="h-5 w-5" />
+              </button>
+            )}
           </div>
           <h3 className="font-semibold mb-2">
             Set A{setA.id && setA.name !== "Set A" ? ` - ${setA.name}` : ""}
@@ -465,52 +495,62 @@ export function GearSetComparer({ job, subJob }: Props) {
           <div className="absolute top-6 right-6 flex gap-2">
             {isAuthenticated && (
               <>
-                <button
-                  className="text-gray-500 hover:text-green-600"
-                  title="Create new gear set"
-                  onClick={() => setShowCreateNewDialog({ isSetA: false, show: true })}
-                  type="button"
-                >
-                  <FaPlus className="h-5 w-5" />
-                </button>
-                {setB.id && (
-                  <button
-                    className="text-gray-500 hover:text-yellow-600"
-                    title="Update current gear set"
-                    onClick={() => handleUpdateSet(false)}
-                    type="button"
-                  >
-                    <FaFloppyDisk className="h-5 w-5" />
-                  </button>
-                )}
-                <button
-                  className="text-gray-500 hover:text-blue-600"
-                  title="Load gear set"
-                  onClick={() => setShowLoadDialog({ isSetA: false, show: true })}
-                  type="button"
-                >
-                  <FaFolderOpen className="h-5 w-5" />
-                </button>
+          {!setB.gearSetItems.every((slot) => !slot.gearItem) && (
+            <button
+              className="text-gray-500 hover:text-green-600"
+              title="Create new gear set"
+              onClick={() =>
+                setShowCreateNewDialog({ isSetA: false, show: true })
+              }
+              type="button"
+            >
+              <FaPlus className="h-5 w-5" />
+            </button>
+          )}
+          {setB.id && (
+            <button
+              className="text-gray-500 hover:text-yellow-600"
+              title="Update current gear set"
+              onClick={() => handleUpdateSet(false)}
+              type="button"
+            >
+              <FaFloppyDisk className="h-5 w-5" />
+            </button>
+          )}
+          <button
+            className="text-gray-500 hover:text-blue-600"
+            title="Load gear set"
+            onClick={() =>
+              setShowLoadDialog({ isSetA: false, show: true })
+            }
+            type="button"
+          >
+            <FaFolderOpen className="h-5 w-5" />
+          </button>
               </>
             )}
-            <button
-              className="text-gray-500 hover:text-red-600"
-              title="Clear gear set"
-              onClick={() => handleClearSet(false)}
-              type="button"
-            >
-              <FaTrash className="h-5 w-5" />
-            </button>
-            <button
-              className="text-gray-500 hover:text-purple-600"
-              title="Copy lua to clipboard"
-              onClick={() => handleCopyLua(setB, setBAugments)}
-              type="button"
-            >
-              <FaCopy className="h-5 w-5" />
-            </button>
+            {!setB.gearSetItems.every((slot) => !slot.gearItem) && (
+              <button
+          className="text-gray-500 hover:text-red-600"
+          title="Clear gear set"
+          onClick={() => handleClearSet(false)}
+          type="button"
+              >
+          <FaTrash className="h-5 w-5" />
+              </button>
+            )}
+            {!setB.gearSetItems.every((slot) => !slot.gearItem) && (
+              <button
+          className="text-gray-500 hover:text-purple-600"
+          title="Copy lua to clipboard"
+          onClick={() => handleCopyLua(setB, setBAugments)}
+          type="button"
+              >
+          <FaCopy className="h-5 w-5" />
+              </button>
+            )}
           </div>
-          <h3 className="text-lg font-semibold mb-3">
+          <h3 className="font-semibold mb-2">
             Set B{setB.id && setB.name !== "Set B" ? ` - ${setB.name}` : ""}
           </h3>
           {renderGearGrid(false)}
@@ -519,7 +559,7 @@ export function GearSetComparer({ job, subJob }: Props) {
             return (
               backItem?.name &&
               ambuCapes.includes(backItem.name) && (
-                <AmbuCape onAugmentChange={setSetBAugments} />
+          <AmbuCape onAugmentChange={setSetBAugments} />
               )
             );
           })()}
@@ -540,8 +580,8 @@ export function GearSetComparer({ job, subJob }: Props) {
       )}
 
       {/* Create New Set Dialog */}
-      <Modal 
-        isOpen={showCreateNewDialog.show} 
+      <Modal
+        isOpen={showCreateNewDialog.show}
         onClose={() => {
           setShowCreateNewDialog({ isSetA: false, show: false });
           setCustomSetName("");
@@ -550,9 +590,12 @@ export function GearSetComparer({ job, subJob }: Props) {
       >
         <div className="p-6">
           <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
-            Create New Gear Set from {showCreateNewDialog.isSetA ? "Set A" : "Set B"}
+            Create New Gear Set{" "}
+            <span className="text-sm text-blue-500 dark:text-blue-300 ml-2">
+              ({job.fullName})
+            </span>
           </h3>
-          
+
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Gear Set Name
@@ -566,70 +609,109 @@ export function GearSetComparer({ job, subJob }: Props) {
               autoFocus
             />
           </div>
-          
+
           <div className="flex justify-end gap-3 pt-4 border-t border-gray-200 dark:border-gray-600">
             <button
               onClick={() => {
                 setShowCreateNewDialog({ isSetA: false, show: false });
                 setCustomSetName("");
               }}
-              className="px-4 py-2 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+              disabled={isCreatingSet}
+              className="px-4 py-2 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Cancel
             </button>
             <button
               onClick={() => handleCreateNewSet(showCreateNewDialog.isSetA)}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+              disabled={isCreatingSet}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Create Gear Set
+              {isCreatingSet ? (
+                <span className="flex items-center">
+                  <svg
+                    className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  Creating...
+                </span>
+              ) : (
+                "Create Gear Set"
+              )}
             </button>
           </div>
         </div>
       </Modal>
 
       {/* Load Dialog */}
-      <Modal 
-        isOpen={showLoadDialog.show} 
+      <Modal
+        isOpen={showLoadDialog.show}
         onClose={() => setShowLoadDialog({ isSetA: false, show: false })}
         size="md"
       >
         <div className="p-6">
           <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
-            Load {showLoadDialog.isSetA ? "Set A" : "Set B"}
+            Load {showLoadDialog.isSetA ? "Set A" : "Set B"}{" "}
+            <span className="text-sm text-blue-500 dark:text-blue-300 ml-2">
+              ({job.fullName})
+            </span>
           </h3>
-          
+
           <div className="max-h-96 overflow-y-auto mb-6">
-            {savedGearSets.length === 0 ? (
+            {savedGearSets.filter((gearSet) => gearSet.jobId === job.id)
+              .length === 0 ? (
               <div className="text-center py-8">
                 <div className="text-gray-400 dark:text-gray-500 mb-2">
                   <FaFolderOpen className="h-12 w-12 mx-auto" />
                 </div>
-                <p className="text-gray-500 dark:text-gray-400">No saved gear sets found.</p>
+                <p className="text-gray-500 dark:text-gray-400">
+                  No saved gear sets found for {job.fullName}.
+                </p>
                 <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">
                   Save a gear set first to load it later.
                 </p>
               </div>
             ) : (
               <div className="space-y-2">
-                {savedGearSets.map((gearSet) => (
-                  <button
-                    key={gearSet.id}
-                    onClick={() => handleLoadGearSet(showLoadDialog.isSetA, gearSet)}
-                    className="block w-full text-left p-4 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-blue-300 dark:hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
-                  >
-                    <div className="font-medium text-gray-900 dark:text-white">{gearSet.name}</div>
-                    {gearSet.description && (
-                      <div className="text-sm text-gray-600 dark:text-gray-300 mt-1">{gearSet.description}</div>
-                    )}
-                    <div className="text-xs text-gray-400 dark:text-gray-500 mt-2">
-                      {gearSet.gearSetItems.filter(slot => slot.gearItem).length} items equipped
-                    </div>
-                  </button>
-                ))}
+                {savedGearSets
+                  .filter((gearSet) => gearSet.jobId === job.id)
+                  .map((gearSet) => (
+                    <button
+                      key={gearSet.id}
+                      onClick={() =>
+                        handleLoadGearSet(showLoadDialog.isSetA, gearSet)
+                      }
+                      className="block w-full text-left p-3 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-blue-300 dark:hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                    >
+                      <div className="font-medium text-gray-900 dark:text-white">
+                        {gearSet.name}
+                      </div>
+                      {gearSet.description && (
+                        <div className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+                          {gearSet.description}
+                        </div>
+                      )}
+                    </button>
+                  ))}
               </div>
             )}
           </div>
-          
+
           <div className="flex justify-end pt-4 border-t border-gray-200 dark:border-gray-600">
             <button
               onClick={() => setShowLoadDialog({ isSetA: false, show: false })}

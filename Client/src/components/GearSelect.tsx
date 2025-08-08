@@ -36,7 +36,7 @@ export function GearSelect({
   };
 
   return (
-    <div className="p-2">
+    <div className="p-2 my-2">
       <label className="text-xs block font-semibold capitalize mb-1">{label}</label>
       <ReactSelector
         options={selectOptions}

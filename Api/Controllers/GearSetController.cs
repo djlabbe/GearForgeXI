@@ -24,6 +24,7 @@ public class GearSetController(
         if (userId == null) return Unauthorized();
 
         var gearSets = await _context.GearSets
+            .Include(gs => gs.Job) // Include Job navigation property
             .Include(gs => gs.GearSetItems)
                 .ThenInclude(gss => gss.GearItem)
                     .ThenInclude(gi => gi.GearItemStats)
@@ -45,6 +46,14 @@ public class GearSetController(
                 Id = gs.Id,
                 Name = gs.Name,
                 Description = gs.Description,
+                JobId = gs.JobId,
+                Job = new JobDto
+                {
+                    Id = gs.Job.Id,
+                    Abbreviation = gs.Job.Abbreviation,
+                    FullName = gs.Job.FullName,
+                    CanDualWield = gs.Job.CanDualWield
+                },
                 GearSetItems = gs.GearSetItems.Select(gss => new GearSetItemDto
                 {
                     Id = gss.Id,
@@ -84,7 +93,8 @@ public class GearSetController(
         {
             Name = dto.Name,
             Description = dto.Description,
-            UserId = userId
+            UserId = userId,
+            JobId = dto.JobId
         };
 
         // Add the gear set first to get the ID

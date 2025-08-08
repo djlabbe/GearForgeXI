@@ -29,11 +29,7 @@ export interface CreateGearStatDto {
 export interface CreateGearSetDto {
   name: string;
   description?: string;
-}
-
-export interface CreateGearSetDto {
-  name: string;
-  description?: string;
+  jobId: number;
   gearSetSlots: CreateGearSetSlotDto[];
 }
 

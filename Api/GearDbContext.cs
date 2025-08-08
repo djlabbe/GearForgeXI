@@ -496,6 +496,13 @@ namespace FFXIComp.Api
                 .HasForeignKey(gs => gs.UserId)
                 .OnDelete(DeleteBehavior.Cascade); // Delete user's gear sets when user is deleted
 
+            // GearSet: many-to-one with Job
+            modelBuilder.Entity<GearSet>()
+                .HasOne(gs => gs.Job)
+                .WithMany()
+                .HasForeignKey(gs => gs.JobId)
+                .OnDelete(DeleteBehavior.Restrict); // Don't allow job deletion if gear sets exist
+
         }
 
         public static void SeedInitialData(GearDbContext context)

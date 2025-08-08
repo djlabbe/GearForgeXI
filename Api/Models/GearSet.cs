@@ -15,8 +15,13 @@ public class GearSet
     [Required]
     public string UserId { get; set; } = null!;
 
+    // Foreign key to Job
+    [Required]
+    public int JobId { get; set; }
+
     // Navigation properties
     public ApplicationUser User { get; set; } = null!;
+    public Job Job { get; set; } = null!;
 
     public ICollection<GearSetItem> GearSetItems { get; set; } = new List<GearSetItem>();
 

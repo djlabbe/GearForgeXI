@@ -1,12 +1,15 @@
 import type { GearItem } from "./GearItem";
 import type { GearSetPosition } from "./GearSetPosition";
 import type { GearSetItem } from "./GearSetItem";
+import type { Job } from "./Job";
 
 export interface GearSet {
   id?: number;
   name: string;
   description?: string;
   userId?: string;
+  jobId?: number;
+  job?: Job;
   gearSetItems: GearSetItem[];
 }
 
