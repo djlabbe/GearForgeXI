@@ -3,6 +3,7 @@ using System;
 using GearForgeXI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GearForgeXI.Migrations
 {
     [DbContext(typeof(GearDbContext))]
-    partial class GearDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250808230012_RemoveStatSeed")]
+    partial class RemoveStatSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -117,7 +120,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasIndex("GearItemCategoryId");
 
-                    b.ToTable("GearItems", (string)null);
+                    b.ToTable("GearItems");
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.GearItemCategory", b =>
@@ -134,7 +137,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GearItemCategories", (string)null);
+                    b.ToTable("GearItemCategories");
 
                     b.HasData(
                         new
@@ -235,7 +238,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("GearItemId", "JobId")
                         .IsUnique();
 
-                    b.ToTable("GearItemJobs", (string)null);
+                    b.ToTable("GearItemJobs");
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.GearItemSlot", b =>
@@ -259,7 +262,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("GearItemId", "GearSlotId")
                         .IsUnique();
 
-                    b.ToTable("GearItemSlots", (string)null);
+                    b.ToTable("GearItemSlots");
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.GearItemStat", b =>
@@ -285,7 +288,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasIndex("StatId");
 
-                    b.ToTable("GearItemStats", (string)null);
+                    b.ToTable("GearItemStats");
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.GearSet", b =>
@@ -316,7 +319,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("GearSets", (string)null);
+                    b.ToTable("GearSets");
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.GearSetItem", b =>
@@ -344,7 +347,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("GearSetId", "Position")
                         .IsUnique();
 
-                    b.ToTable("GearSetItems", (string)null);
+                    b.ToTable("GearSetItems");
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.GearSlot", b =>
@@ -361,7 +364,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GearSlots", (string)null);
+                    b.ToTable("GearSlots");
 
                     b.HasData(
                         new
@@ -457,7 +460,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Jobs", (string)null);
+                    b.ToTable("Jobs");
 
                     b.HasData(
                         new
@@ -642,7 +645,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Stats", (string)null);
+                    b.ToTable("Stats");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

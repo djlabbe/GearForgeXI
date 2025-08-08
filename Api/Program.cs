@@ -104,12 +104,22 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-// using (var scope = app.Services.CreateScope())
-// {
-//     var context = scope.ServiceProvider.GetRequiredService<GearDbContext>();
-//     context.Database.Migrate();
-//     GearDbContext.SeedInitialData(context);
-// }
+// Run database migrations on startup
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<GearDbContext>();
+    try
+    {
+        Console.WriteLine("Applying database migrations...");
+        context.Database.Migrate();
+        Console.WriteLine("Database migrations completed successfully.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error during database migration: {ex.Message}");
+        throw; // Re-throw to prevent app startup if migration fails
+    }
+}
 
 // ✅ Serve static files from wwwroot
 app.UseDefaultFiles(); // optional, but helps serve index.html
