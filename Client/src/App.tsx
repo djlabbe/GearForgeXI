@@ -4,6 +4,7 @@ import ComparePage from "./pages/Compare";
 import { Navbar } from "./components/Navbar";
 import { Stats } from "./pages/Stats";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
 import { AppDataProvider } from "./contexts/AppDataContext";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/gear" element={<GearBrowser />} />
                     <Route path="/stats" element={<Stats />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
                   </Routes>
                 </main>
               </Router>

@@ -7,19 +7,6 @@ import GearItemModal from "../components/GearItemModal";
 import { useAppData } from "../contexts/AppDataContext";
 import { useAuth } from "../contexts/AuthContext";
 
-function groupBySlot(items: GearItem[]): Record<string, GearItem[]> {
-  return items.reduce<Record<string, GearItem[]>>((acc, item) => {
-    item.slots.forEach((slot) => {
-      const normalizedSlot = slot.toLowerCase(); // optional: lowercase for consistent keys
-      if (!acc[normalizedSlot]) {
-        acc[normalizedSlot] = [];
-      }
-      acc[normalizedSlot].push(item);
-    });
-    return acc;
-  }, {});
-}
-
 // May want to add true virtual scrolling later
 export function GearBrowser() {
   const { jobs, slots, loading: loadingAppData } = useAppData();
@@ -27,8 +14,8 @@ export function GearBrowser() {
 
   const [gearItems, setGearItems] = useState<GearItem[]>([]);
   const [filter, setFilter] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [selectedSlot, setSelectedSlot] = useState<string>("Main");
+  const [loading, setLoading] = useState(false);
+  const [selectedSlot, setSelectedSlot] = useState<string>("");
   const [selectedJob, setSelectedJob] = useState<string>("");
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [editingItem, setEditingItem] = useState<GearItem | null>(null);
@@ -37,12 +24,6 @@ export function GearBrowser() {
   const [displayedItems, setDisplayedItems] = useState<GearItem[]>([]);
   const [hasMore, setHasMore] = useState(true);
   const ITEMS_PER_PAGE = 50;
-
-  const handleItemUpdate = (updatedItem: GearItem) => {
-    setGearItems((prevItems) =>
-      prevItems.map((item) => (item.id === updatedItem.id ? updatedItem : item))
-    );
-  };
 
   const handleItemUpdatedOrCreated = (item: GearItem, isEdit: boolean) => {
     if (isEdit) {
@@ -85,51 +66,34 @@ export function GearBrowser() {
   };
 
   useEffect(() => {
+    // Only fetch data if both job and slot are selected
+    if (!selectedJob || !selectedSlot) {
+      setGearItems([]);
+      return;
+    }
+
     setLoading(true);
-    fetch("/api/gear")
+    fetch(`/api/gear?job=${encodeURIComponent(selectedJob)}&slot=${encodeURIComponent(selectedSlot)}`)
       .then((res) => res.json())
       .then((items: GearItem[]) => {
         setGearItems(items);
       })
       .finally(() => setLoading(false));
-  }, []);
-
-  const grouped = useMemo(() => groupBySlot(gearItems), [gearItems]);
+  }, [selectedJob, selectedSlot]);
 
   const filteredItems = useMemo(() => {
-    if (selectedSlot && grouped[selectedSlot.toLowerCase()]) {
-      return grouped[selectedSlot.toLowerCase()].filter(
-        (item) =>
-          item.name.toLowerCase().includes(filter.toLowerCase()) &&
-          (selectedJob === "" ||
-            item.jobs.some((j) => j === selectedJob) ||
-            item.jobs.length === 0)
-      );
-    }
-
-    if (selectedSlot === "" && filter === "" && selectedJob === "") {
-      return gearItems; // Show all items when no filters are selected
-    }
-
-    if (selectedSlot === "") {
-      return gearItems.filter(
-        (item) =>
-          item.name.toLowerCase().includes(filter.toLowerCase()) &&
-          (selectedJob === "" ||
-            item.jobs.some((j) => j === selectedJob) ||
-            item.jobs.length === 0)
-      );
-    }
-
-    return [];
-  }, [gearItems, grouped, selectedSlot, filter, selectedJob]);
+    // Since we're fetching filtered data from API, just apply name filter
+    return gearItems.filter((item) =>
+      item.name.toLowerCase().includes(filter.toLowerCase())
+    );
+  }, [gearItems, filter]);
 
   // Reset displayed items when filters change
   useEffect(() => {
     resetDisplayedItems(filteredItems);
   }, [filteredItems]);
 
-  if (loading || loadingAppData) {
+  if (loadingAppData) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-gray-600 dark:text-gray-400">Loading...</div>
@@ -146,7 +110,7 @@ export function GearBrowser() {
         {isAdmin && (
           <button
             onClick={() => setShowCreateModal(true)}
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium "
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Add New Gear
           </button>
@@ -164,21 +128,11 @@ export function GearBrowser() {
           className="mb-4 p-2 border border-gray-300 dark:border-gray-700 rounded w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
         />
         <div className="flex space-x-2 mb-2 flex-wrap">
-          <button
-            onClick={() => setSelectedSlot("")}
-            className={`px-3 py-1 my-1 rounded w-24  ${
-              selectedSlot === ""
-                ? "bg-blue-600 text-white"
-                : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-            }`}
-          >
-            All Slots
-          </button>
           {slots.map((slot) => (
             <button
               key={slot}
               onClick={() => setSelectedSlot(slot)}
-              className={`px-3 py-1 my-1 rounded w-24 text-center  ${
+              className={`px-3 py-1 my-1 rounded w-24 text-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed ${
                 selectedSlot === slot
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
@@ -190,21 +144,11 @@ export function GearBrowser() {
           ))}
         </div>
         <div className="flex space-x-2 mb-2 flex-wrap">
-          <button
-            onClick={() => setSelectedJob("")}
-            className={`px-3 py-1 my-1 rounded w-24  ${
-              selectedJob === ""
-                ? "bg-blue-600 text-white"
-                : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-            }`}
-          >
-            All Jobs
-          </button>
           {jobs.map((job) => (
             <button
               key={job.abbreviation}
               onClick={() => setSelectedJob(job.abbreviation)}
-              className={`px-3 py-1 my-1 rounded w-24  ${
+              className={`px-3 py-1 my-1 rounded w-24 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed ${
                 selectedJob === job.abbreviation
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
@@ -216,36 +160,61 @@ export function GearBrowser() {
         </div>
       </Card>
 
-      <InfiniteScroll
-        dataLength={displayedItems.length}
-        next={loadMoreItems}
-        hasMore={hasMore}
-        loader={
-          <div className="col-span-full flex justify-center py-4">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+      {/* Selection Prompt */}
+      {!selectedJob || !selectedSlot ? (
+        <Card className="text-center py-12">
+          <div className="text-gray-600 dark:text-gray-400">
+            <h3 className="text-lg font-medium mb-2">Select Job and Slot</h3>
+            <p>Please select both a job and a slot to view available gear items.</p>
+            {!selectedJob && !selectedSlot && (
+              <p className="mt-2 text-sm">Start by choosing a job and slot above.</p>
+            )}
+            {selectedJob && !selectedSlot && (
+              <p className="mt-2 text-sm">Now select a slot to see {selectedJob} gear.</p>
+            )}
+            {!selectedJob && selectedSlot && (
+              <p className="mt-2 text-sm">Now select a job to see {selectedSlot} gear.</p>
+            )}
           </div>
-        }
-        endMessage={
-          <div className="col-span-full text-center py-4 text-gray-600 dark:text-gray-400">
-            {displayedItems.length === 0 
-              ? "No items found with current filters" 
-              : `Showing all ${displayedItems.length} items`
-            }
+        </Card>
+      ) : loading ? (
+        <Card className="text-center py-12">
+          <div className="text-gray-600 dark:text-gray-400">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-2"></div>
+            Loading {selectedJob} {selectedSlot} gear...
           </div>
-        }
-      >
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
-          {displayedItems.map((item) => (
-            <GearItemCard
-              key={item.id}
-              item={item}
-              onItemUpdate={handleItemUpdate}
-              onEditItem={handleEditItem}
-              showEditButton={isAdmin}
-            />
-          ))}
-        </div>
-      </InfiniteScroll>
+        </Card>
+      ) : (
+        <InfiniteScroll
+          dataLength={displayedItems.length}
+          next={loadMoreItems}
+          hasMore={hasMore}
+          loader={
+            <div className="col-span-full flex justify-center py-4">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+            </div>
+          }
+          endMessage={
+            <div className="col-span-full text-center py-4 text-gray-600 dark:text-gray-400">
+              {displayedItems.length === 0 
+                ? `No ${selectedSlot} gear found for ${selectedJob}` 
+                : `Showing all ${displayedItems.length} items`
+              }
+            </div>
+          }
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+            {displayedItems.map((item) => (
+              <GearItemCard
+                key={item.id}
+                item={item}
+                onEditItem={handleEditItem}
+                showEditButton={isAdmin}
+              />
+            ))}
+          </div>
+        </InfiniteScroll>
+      )}
 
       {/* Create/Edit Gear Item Modal - Only for Admin users */}
       {isAdmin && (

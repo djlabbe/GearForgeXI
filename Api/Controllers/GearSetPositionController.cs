@@ -1,7 +1,7 @@
-using FFXIComp.Api.Models;
+using GearForgeXI.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FFXIComp.Api.Controllers;
+namespace GearForgeXI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

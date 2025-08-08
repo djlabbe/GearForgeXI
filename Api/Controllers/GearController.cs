@@ -1,10 +1,10 @@
-using FFXIComp.Api.Models;
-using FFXIComp.Api.Models.Dto;
+using GearForgeXI.Models;
+using GearForgeXI.Models.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace FFXIComp.Api.Controllers;
+namespace GearForgeXI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -45,11 +45,30 @@ public class GearController(GearDbContext context) : ControllerBase
         return Ok(categories);
     }
 
-    [HttpGet]
-    public async Task<IActionResult> GetGear([FromQuery] string? job, [FromQuery] string? slot)
+    // Helper method to map position names to database slot names
+    private static string MapPositionToSlotName(string position)
     {
-        var jobNormalized = job?.Trim().ToUpper();
-        var slotNormalized = slot?.Trim().ToLower();
+        var normalized = position.Trim().ToLower();
+        return normalized switch
+        {
+            "ear" => "earrings",
+            "ring" => "rings",
+            _ => normalized
+        };
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetGear([FromQuery] string job, [FromQuery] string slot)
+    {
+        // Validate required parameters
+        if (string.IsNullOrWhiteSpace(job))
+            return BadRequest("Job parameter is required.");
+
+        if (string.IsNullOrWhiteSpace(slot))
+            return BadRequest("Slot parameter is required.");
+
+        var jobNormalized = job.Trim().ToUpper();
+        var slotNormalized = MapPositionToSlotName(slot);
 
         var query = _context.GearItems
             .Include(g => g.GearItemStats)
@@ -60,11 +79,9 @@ public class GearController(GearDbContext context) : ControllerBase
                 .ThenInclude(gs => gs.GearSlot)
             .Include(g => g.Category)
             .Where(g =>
-                (string.IsNullOrWhiteSpace(jobNormalized) ||
-                    g.GearItemJobs.Any(j => j.Job.Abbreviation == jobNormalized) ||
-                    g.GearItemJobs.Count == 0) &&
-                (string.IsNullOrWhiteSpace(slotNormalized) ||
-                    g.GearItemSlots.Any(s => s.GearSlot.Name.ToLower() == slotNormalized)))
+                (g.GearItemJobs.Any(j => j.Job.Abbreviation == jobNormalized) ||
+                 g.GearItemJobs.Count == 0) &&
+                g.GearItemSlots.Any(s => s.GearSlot.Name.ToLower() == slotNormalized))
             .OrderBy(g => g.Name)
             .Select(g => new GearItemDto
             {
@@ -183,14 +200,27 @@ public class GearController(GearDbContext context) : ControllerBase
         if (dto.Stats.Count > 0)
         {
             var statNames = dto.Stats.Select(s => s.StatName.Trim().ToLower()).ToList();
+
+            // Check for duplicate stats in the request
+            var duplicateStats = statNames.GroupBy(s => s)
+                .Where(g => g.Count() > 1)
+                .Select(g => g.Key)
+                .ToList();
+
+            if (duplicateStats.Count > 0)
+            {
+                return BadRequest($"Duplicate stat(s) in request: {string.Join(", ", duplicateStats)}. Each stat can only be specified once per item.");
+            }
+
+            var uniqueStatNames = statNames.Distinct().ToList();
             validStats = await _context.Stats
-                .Where(s => statNames.Contains(s.Name.ToLower()))
+                .Where(s => uniqueStatNames.Contains(s.Name.ToLower()))
                 .ToListAsync();
 
-            if (validStats.Count != statNames.Count)
+            if (validStats.Count != uniqueStatNames.Count)
             {
                 var foundNames = validStats.Select(s => s.Name.ToLower());
-                var missing = statNames.Except(foundNames);
+                var missing = uniqueStatNames.Except(foundNames);
                 return BadRequest($"Invalid stat(s): {string.Join(", ", missing)}");
             }
         }
@@ -452,14 +482,27 @@ public class GearController(GearDbContext context) : ControllerBase
         if (dto.Stats.Count > 0)
         {
             var statNames = dto.Stats.Select(s => s.StatName.Trim().ToLower()).ToList();
+
+            // Check for duplicate stats in the request
+            var duplicateStats = statNames.GroupBy(s => s)
+                .Where(g => g.Count() > 1)
+                .Select(g => g.Key)
+                .ToList();
+
+            if (duplicateStats.Count > 0)
+            {
+                return BadRequest($"Duplicate stat(s) in request: {string.Join(", ", duplicateStats)}. Each stat can only be specified once per item.");
+            }
+
+            var uniqueStatNames = statNames.Distinct().ToList();
             validStats = await _context.Stats
-                .Where(s => statNames.Contains(s.Name.ToLower()))
+                .Where(s => uniqueStatNames.Contains(s.Name.ToLower()))
                 .ToListAsync();
 
-            if (validStats.Count != statNames.Count)
+            if (validStats.Count != uniqueStatNames.Count)
             {
                 var foundNames = validStats.Select(s => s.Name.ToLower());
-                var missing = statNames.Except(foundNames);
+                var missing = uniqueStatNames.Except(foundNames);
                 return BadRequest($"Invalid stat(s): {string.Join(", ", missing)}");
             }
         }

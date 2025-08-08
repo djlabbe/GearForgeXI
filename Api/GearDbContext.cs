@@ -1,10 +1,10 @@
 
 using Microsoft.EntityFrameworkCore;
-using FFXIComp.Api.Models;
-using FFXIComp.Api.SeedData;
+using GearForgeXI.Models;
+using GearForgeXI.SeedData;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace FFXIComp.Api
+namespace GearForgeXI
 {
     public class GearDbContext : IdentityDbContext<ApplicationUser>
     {

@@ -1,0 +1,8 @@
+bin/
+obj/
+Client/node_modules/
+Client/.vite/
+Client/dist/
+.git/
+.vscode/
+*.user

@@ -60,9 +60,24 @@ export function GearSetComparer({ job, subJob }: Props) {
   useEffect(() => {
     if (!job) return;
 
-    fetch(`/api/gear?job=${job.abbreviation}`)
-      .then((res) => res.json())
-      .then(setGearItems);
+    // Get all available slots and fetch gear for each
+    const slots = ["Head", "Neck", "Ear", "Body", "Hands", "Ring", "Back", "Waist", "Legs", "Feet", "Main", "Sub", "Range", "Ammo"];
+    
+    Promise.all(
+      slots.map(slot => 
+        fetch(`/api/gear?job=${job.abbreviation}&slot=${slot}`)
+          .then(res => res.json())
+          .catch(() => []) // Return empty array if slot has no gear
+      )
+    )
+    .then(results => {
+      // Flatten all results and remove duplicates
+      const allItems = results.flat();
+      const uniqueItems = allItems.filter((item, index, self) => 
+        index === self.findIndex(i => i.id === item.id)
+      );
+      setGearItems(uniqueItems);
+    });
   }, [job]);
 
   useEffect(() => {

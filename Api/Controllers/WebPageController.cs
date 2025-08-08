@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 
-namespace FFXIComp.Api.Controllers;
+namespace GearForgeXI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

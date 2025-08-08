@@ -5,6 +5,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
+
+    <!-- Always run npm from the Client folder -->
+    <SpaRoot>$(MSBuildProjectDirectory)/../Client/</SpaRoot>
+
+    <!-- Let Docker skip the client build -->
+    <SkipClientBuild>false</SkipClientBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,5 +29,16 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
+
+  <Target Name="BuildClient" BeforeTargets="Publish" Condition="'$(SkipClientBuild)' != 'true'">
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm ci" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist/**" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DistFiles)"
+          DestinationFolder="$(MSBuildProjectDirectory)/wwwroot/%(RecursiveDir)"
+          SkipUnchangedFiles="true" />
+  </Target>
 
 </Project>

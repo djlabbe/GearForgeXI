@@ -1,11 +1,11 @@
 
-using FFXIComp.Api.Models.Dto;
-using FFXIComp.Api.Models;
+using GearForgeXI.Models.Dto;
+using GearForgeXI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 
-namespace FFXIComp.Api.Controllers;
+namespace GearForgeXI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

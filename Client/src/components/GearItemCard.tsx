@@ -1,30 +1,18 @@
-import { memo, useState } from "react";
+import { memo } from "react";
 import type { GearItem } from "../models/GearItem";
 import Card from "./Card";
-import Modal from "./Modal";
-import GearItemEditor from "./GearItemEditor";
 
 interface GearItemCardProps {
     item: GearItem;
-    onItemUpdate: (updatedItem: GearItem) => void;
     onEditItem?: (item: GearItem) => void;
     showEditButton?: boolean;
 }
 
-const GearItemCard = memo(({ item: currentItem, onItemUpdate, onEditItem, showEditButton = false }: GearItemCardProps) => {
-    const [isEditingSlots, setIsEditingSlots] = useState(false);
-
-    const handleItemUpdate = (updatedItem: GearItem) => {
-        onItemUpdate(updatedItem);
-        setIsEditingSlots(false);
-    };
+const GearItemCard = memo(({ item: currentItem, onEditItem, showEditButton = false }: GearItemCardProps) => {
 
     const handleEditClick = async () => {
         if (onEditItem) {
             onEditItem(currentItem);
-        } else {
-            // Fallback to old slot-only editing
-            setIsEditingSlots(true);
         }
     };
 
@@ -34,23 +22,11 @@ const GearItemCard = memo(({ item: currentItem, onItemUpdate, onEditItem, showEd
                 <div className="flex items-baseline justify-between mb-2">
                     <div className="flex items-center space-x-2 flex-1 mr-2">
                         {currentItem.verified && (
-                            <span
-                                className="inline-flex items-center p-1 rounded-full bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200"
-                                title="Verified item"
+                            <span 
+                                className="text-green-500 text-sm flex-shrink-0" 
+                                title="Admin Verified"
                             >
-                                <svg
-                                    className="w-3 h-3 text-green-600 dark:text-green-300"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M5 13l4 4L19 7"
-                                    />
-                                </svg>
+                                ✓
                             </span>
                         )}
                         <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100">
@@ -88,15 +64,6 @@ const GearItemCard = memo(({ item: currentItem, onItemUpdate, onEditItem, showEd
                     ))}
                 </ul>
             </Card>
-
-            <Modal isOpen={isEditingSlots} onClose={() => setIsEditingSlots(false)} size="lg">
-                <GearItemEditor
-                    item={currentItem}
-                    onUpdate={handleItemUpdate}
-                    onCancel={() => setIsEditingSlots(false)}
-                    onClose={() => setIsEditingSlots(false)}
-                />
-            </Modal>
         </>
     );
 });

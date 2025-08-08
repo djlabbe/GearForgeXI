@@ -18,6 +18,29 @@ export async function login(email: string, password: string) {
   return data.token;
 }
 
+export async function register(email: string, password: string, confirmPassword: string) {
+  if (password !== confirmPassword) {
+    throw new Error("Passwords do not match");
+  }
+
+  const response = await fetch(`${API_BASE}/account/register`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({ message: "Registration failed" }));
+    throw new Error(errorData.message || "Registration failed");
+  }
+
+  const data = await response.json();
+  localStorage.setItem("token", data.token); // store JWT
+  return data.token;
+}
+
 export function logout() {
   localStorage.removeItem("token");
 }

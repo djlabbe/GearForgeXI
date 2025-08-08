@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace FFXIComp.Api.Migrations
+namespace GearForgeXI.Migrations
 {
     /// <inheritdoc />
     public partial class Identity : Migration

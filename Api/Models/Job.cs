@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-namespace FFXIComp.Api.Models;
+namespace GearForgeXI.Models;
 
 public class Job
 {

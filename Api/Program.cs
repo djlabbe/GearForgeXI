@@ -1,6 +1,6 @@
 using System.Text;
-using FFXIComp.Api;
-using FFXIComp.Api.Models;
+using GearForgeXI;
+using GearForgeXI.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { Title = "FFXIComp API", Version = "v1" });
+    c.SwaggerDoc("v1", new() { Title = "GearForgeXI API", Version = "v1" });
 
     // Add JWT bearer auth to Swagger
     c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
@@ -47,7 +47,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Configuration.AddEnvironmentVariables();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")?
-    .Replace("{FFXICOMP_DB_PASSWORD}", Environment.GetEnvironmentVariable("FFXICOMP_DB_PASSWORD") ?? throw new Exception("FFXICOMP_DB_PASSWORD not set"));
+    .Replace("{GEARFORGEXI_DB_PASSWORD}", Environment.GetEnvironmentVariable("GEARFORGEXI_DB_PASSWORD") ?? throw new Exception("GEARFORGEXI_DB_PASSWORD not set"));
 
 // Register your DbContext with PostgreSQL + EF Core
 builder.Services.AddDbContext<GearDbContext>(options => options.UseNpgsql(connectionString));
@@ -56,10 +56,10 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<GearDbContext>()
     .AddDefaultTokenProviders();
 
-var jwtKey = Environment.GetEnvironmentVariable("FFXICOMP_JWT_KEY")
-    ?? throw new Exception("FFXICOMP_JWT_KEY not set");
-var jwtIssuer = Environment.GetEnvironmentVariable("FFXICOMP_JWT_ISSUER")
-    ?? throw new Exception("FFXICOMP_JWT_ISSUER not set");
+var jwtKey = Environment.GetEnvironmentVariable("GEARFORGEXI_JWT_KEY")
+    ?? throw new Exception("GEARFORGEXI_JWT_KEY not set");
+var jwtIssuer = Environment.GetEnvironmentVariable("GEARFORGEXI_JWT_ISSUER")
+    ?? throw new Exception("GEARFORGEXI_JWT_ISSUER not set");
 
 builder.Services.AddAuthentication(options =>
 {

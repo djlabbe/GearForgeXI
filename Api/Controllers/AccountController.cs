@@ -1,13 +1,13 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using FFXIComp.Api.Models;
-using FFXIComp.Api.Models.Dto;
+using GearForgeXI.Models;
+using GearForgeXI.Models.Dto;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
-namespace FFXIComp.Api.Controllers;
+namespace GearForgeXI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -44,7 +44,9 @@ public class AccountController(
             return BadRequest(new { Message = "User created but role assignment failed", roleResult.Errors });
         }
 
-        return Ok("User registered successfully");
+        // Generate JWT token for immediate login
+        var token = await GenerateJwtToken(user);
+        return Ok(new { token, message = "User registered successfully" });
     }
 
     [HttpPost("login")]
@@ -66,11 +68,11 @@ public class AccountController(
     {
         var jwtSettings = new JwtSecurityTokenHandler();
 
-        var jwtKey = Environment.GetEnvironmentVariable("FFXICOMP_JWT_KEY")
-            ?? throw new Exception("FFXICOMP_JWT_KEY not set");
+        var jwtKey = Environment.GetEnvironmentVariable("GEARFORGEXI_JWT_KEY")
+            ?? throw new Exception("GEARFORGEXI_JWT_KEY not set");
 
-        var jwtIssuer = Environment.GetEnvironmentVariable("FFXICOMP_JWT_ISSUER")
-            ?? throw new Exception("FFXICOMP_JWT_ISSUER not set");
+        var jwtIssuer = Environment.GetEnvironmentVariable("GEARFORGEXI_JWT_ISSUER")
+            ?? throw new Exception("GEARFORGEXI_JWT_ISSUER not set");
 
         var key = Encoding.UTF8.GetBytes(jwtKey);
 

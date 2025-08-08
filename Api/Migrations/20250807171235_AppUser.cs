@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace FFXIComp.Api.Migrations
+namespace GearForgeXI.Migrations
 {
     /// <inheritdoc />
     public partial class AppUser : Migration

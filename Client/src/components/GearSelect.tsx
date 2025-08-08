@@ -1,5 +1,6 @@
 import type { GearItem } from "../models/GearItem";
 import { ReactSelector } from "./ReactSelector";
+import { VerifiedGearOption, VerifiedGearSingleValue } from "./VerifiedGearOption";
 
 interface GearSelectProps {
   label: string;
@@ -19,13 +20,18 @@ export function GearSelect({
   const selectOptions = options.map((item) => ({
     value: String(item.id),
     label: item.name,
+    verified: item.verified || false,
   }));
 
   const selectedOption = value
-    ? { value: String(value.id), label: value.name }
+    ? { 
+        value: String(value.id), 
+        label: value.name,
+        verified: value.verified || false,
+      }
     : null;
 
-  const handleChange = (option: { value: string; label: string } | null) => {
+  const handleChange = (option: { value: string; label: string; verified?: boolean } | null) => {
     if (!option || option.value === "") {
       onChange(undefined);
       return;
@@ -44,6 +50,10 @@ export function GearSelect({
         onChange={handleChange}
         placeholder={placeholder}
         isClearable
+        components={{
+          Option: VerifiedGearOption,
+          SingleValue: VerifiedGearSingleValue,
+        }}
       />
     </div>
   );

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace FFXIComp.Api.Models.Dto
+namespace GearForgeXI.Models.Dto
 {
     public class StatDto
     {

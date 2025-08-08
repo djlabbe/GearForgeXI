@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Card from "../components/Card";
 import { login as authLogin } from "../utils/authService";
 import { useAuth } from "../contexts/AuthContext";
@@ -163,12 +163,12 @@ export function Login() {
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600 dark:text-gray-400">
               Don't have an account?{" "}
-              <a
-                href="#"
+              <Link
+                to="/register"
                 className="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
               >
-                Contact an administrator
-              </a>
+                Create one here
+              </Link>
             </p>
           </div>
         </Card>

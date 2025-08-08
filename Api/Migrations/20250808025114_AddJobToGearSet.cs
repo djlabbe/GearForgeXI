@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace FFXIComp.Api.Migrations
+namespace GearForgeXI.Migrations
 {
     /// <inheritdoc />
     public partial class AddJobToGearSet : Migration

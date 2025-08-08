@@ -1,6 +1,6 @@
-using FFXIComp.Api.Models;
+using GearForgeXI.Models;
 
-namespace FFXIComp.Api.SeedData
+namespace GearForgeXI.SeedData
 {
     public static class NeckSeedData
     {

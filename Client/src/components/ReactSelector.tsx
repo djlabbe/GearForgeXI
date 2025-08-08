@@ -2,11 +2,8 @@ import Select, { type GroupBase, type Props } from "react-select";
 
 export function ReactSelector<Option, IsMulti extends boolean = false, Group extends GroupBase<Option> = GroupBase<Option>>(props: Props<Option, IsMulti, Group>) {
 
-  return (
-      <Select
-        {...props}
-        styles={{
-          control: (base, state) => ({
+  const defaultStyles = {
+          control: (base: any, state: any) => ({
             ...base,
             backgroundColor: state.isDisabled
               ? "rgba(243, 244, 246, 0.5)" // gray-100
@@ -25,7 +22,7 @@ export function ReactSelector<Option, IsMulti extends boolean = false, Group ext
                 color: "#f3f4f6", // gray-100
               }),
           }),
-          menu: (base) => ({
+          menu: (base: any) => ({
             ...base,
             backgroundColor:
               window.matchMedia &&
@@ -38,7 +35,7 @@ export function ReactSelector<Option, IsMulti extends boolean = false, Group ext
                 ? "#f3f4f6" // gray-100
                 : "#111827", // gray-900
           }),
-          option: (base, state) => ({
+          option: (base: any, state: any) => ({
             ...base,
             backgroundColor: state.isSelected
               ? "#2563eb"
@@ -55,7 +52,7 @@ export function ReactSelector<Option, IsMulti extends boolean = false, Group ext
               ? "#f3f4f6"
               : "#111827",
           }),
-          singleValue: (base) => ({
+          singleValue: (base: any) => ({
             ...base,
             color:
               window.matchMedia &&
@@ -63,7 +60,7 @@ export function ReactSelector<Option, IsMulti extends boolean = false, Group ext
                 ? "#f3f4f6"
                 : "#111827",
           }),
-          input: (base) => ({
+          input: (base: any) => ({
             ...base,
             color:
               window.matchMedia &&
@@ -71,7 +68,7 @@ export function ReactSelector<Option, IsMulti extends boolean = false, Group ext
                 ? "#f3f4f6"
                 : "#111827",
           }),
-          placeholder: (base) => ({
+          placeholder: (base: any) => ({
             ...base,
             color:
               window.matchMedia &&
@@ -79,7 +76,7 @@ export function ReactSelector<Option, IsMulti extends boolean = false, Group ext
                 ? "#9ca3af" // gray-400
                 : "#6b7280", // gray-500
           }),
-          dropdownIndicator: (base) => ({
+          dropdownIndicator: (base: any) => ({
             ...base,
             color:
               window.matchMedia &&
@@ -87,7 +84,7 @@ export function ReactSelector<Option, IsMulti extends boolean = false, Group ext
                 ? "#9ca3af"
                 : "#6b7280",
           }),
-          clearIndicator: (base) => ({
+          clearIndicator: (base: any) => ({
             ...base,
             color:
               window.matchMedia &&
@@ -95,7 +92,28 @@ export function ReactSelector<Option, IsMulti extends boolean = false, Group ext
                 ? "#9ca3af"
                 : "#6b7280",
           }),
-        }}
+        };
+
+  // Merge custom styles with default styles
+  const mergedStyles = props.styles ? {
+    ...defaultStyles,
+    ...Object.fromEntries(
+      Object.entries(props.styles).map(([key, customStyleFn]) => [
+        key,
+        (base: any, state: any) => {
+          const defaultStyle = (defaultStyles as any)[key]?.(base, state) || base;
+          return typeof customStyleFn === 'function' 
+            ? customStyleFn(defaultStyle, state) 
+            : customStyleFn;
+        }
+      ])
+    )
+  } : defaultStyles;
+
+  return (
+      <Select
+        {...props}
+        styles={mergedStyles}
       />
   );
 }

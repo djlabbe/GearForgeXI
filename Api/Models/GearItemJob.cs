@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace FFXIComp.Api.Models
+namespace GearForgeXI.Models
 {
     // Many-to-many join table: GearItem <-> Job
     public class GearItemJob

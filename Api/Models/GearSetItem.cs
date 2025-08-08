@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace FFXIComp.Api.Models;
+namespace GearForgeXI.Models;
 
 // Represents an item in a gear set, linking a gear item to a specific position.
 public class GearSetItem
