@@ -18,6 +18,7 @@ namespace GearForgeXI
         public DbSet<GearItemStat> GearItemStats { get; set; }
         public DbSet<GearSet> GearSets { get; set; } = null!;
         public DbSet<GearSetItem> GearSetItems { get; set; } = null!;
+        public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
 
 
 

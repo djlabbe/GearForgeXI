@@ -8,8 +8,8 @@ interface AuthContextType {
   userRoles: string[];
   isAdmin: boolean;
   hasRole: (roleName: string) => boolean;
-  login: (token: string) => void;
-  logout: () => void;
+  login: () => void;
+  logout: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     // Listen for storage changes (e.g., token added/removed in another tab)
     const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === 'token') {
+      if (e.key === 'access_token' || e.key === 'refresh_token') {
         checkAuthStatus();
       }
     };
@@ -78,8 +78,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     };
   }, []);
 
-  const login = (token: string) => {
-    localStorage.setItem('token', token);
+  const login = () => {
+    // The login logic is now handled by the authService login function
+    // This function just updates the local state after successful login
     setIsAuthenticated(true);
     
     // Update role information after login
@@ -89,8 +90,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setIsAdminUser(adminStatus);
   };
 
-  const logout = () => {
-    authLogout(); // Call the existing logout function
+  const logout = async () => {
+    await authLogout(); // Call the updated logout function that revokes tokens
     setIsAuthenticated(false);
     setUserRoles([]);
     setIsAdminUser(false);

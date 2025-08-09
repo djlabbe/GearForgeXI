@@ -3,6 +3,7 @@ import type { Stat } from '../models/Stat';
 import type { GearItem } from '../models/GearItem';
 import type { GearSet } from '../models/GearSet';
 import { authFetch } from './authFetch';
+import { publicFetch } from './publicFetch';
 
 export interface GearItemSlotUpdateDto {
   slots: string[];
@@ -61,7 +62,7 @@ class ApiService {
   private static baseUrl = '/api';
 
   static async getStats(): Promise<Stat[]> {
-    const response = await authFetch(`${this.baseUrl}/stats`);
+    const response = await publicFetch(`${this.baseUrl}/stats`);
     if (!response.ok) {
       throw new Error(`Failed to fetch stats: ${response.statusText}`);
     }
@@ -113,7 +114,7 @@ class ApiService {
   }
 
   static async getAvailableStatCategories(): Promise<string[]> {
-    const response = await authFetch(`${this.baseUrl}/stats/categories`);
+    const response = await publicFetch(`${this.baseUrl}/stats/categories`);
     if (!response.ok) {
       throw new Error(`Failed to fetch stat categories: ${response.statusText}`);
     }
@@ -121,7 +122,7 @@ class ApiService {
   }
 
   static async getJobs(): Promise<Job[]> {
-    const response = await authFetch(`${this.baseUrl}/jobs`);
+    const response = await publicFetch(`${this.baseUrl}/jobs`);
     if (!response.ok) {
       throw new Error(`Failed to fetch jobs: ${response.statusText}`);
     }
@@ -129,7 +130,7 @@ class ApiService {
   }
 
   static async getAvailableGearSlots(): Promise<string[]> {
-    const response = await authFetch(`${this.baseUrl}/gear/slots`);
+    const response = await publicFetch(`${this.baseUrl}/gear/slots`);
     if (!response.ok) {
       throw new Error(`Failed to fetch available slots: ${response.statusText}`);
     }
@@ -137,7 +138,7 @@ class ApiService {
   }
 
   static async getGearSlotMapping(): Promise<{ id: number; name: string }[]> {
-    const response = await authFetch(`${this.baseUrl}/gear/slots/mapping`);
+    const response = await publicFetch(`${this.baseUrl}/gear/slots/mapping`);
     if (!response.ok) {
       throw new Error(`Failed to fetch slot mapping: ${response.statusText}`);
     }
@@ -145,7 +146,7 @@ class ApiService {
   }
 
   static async getAvailableGearCategories(): Promise<string[]> {
-    const response = await authFetch(`${this.baseUrl}/gear/categories`);
+    const response = await publicFetch(`${this.baseUrl}/gear/categories`);
     if (!response.ok) {
       throw new Error(`Failed to fetch available categories: ${response.statusText}`);
     }

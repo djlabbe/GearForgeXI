@@ -93,7 +93,8 @@ const GearItemModal = ({
   useEffect(() => {
     setFormData(getInitialFormData());
     setError(null);
-    setUrlText("");
+    // When editing an item, default the BG-Wiki input to the item's name
+    setUrlText(editingItem ? editingItem.name : "");
     setUrlParseWarnings([]);
   }, [editingItem, getInitialFormData]);
 
@@ -169,10 +170,20 @@ const GearItemModal = ({
 
   // Function to parse BG-Wiki URL and populate all fields
   const parseUrlData = useCallback(
-    async (url: string) => {
+    async (input: string) => {
+      let url = input.trim();
+      
+      // If input doesn't look like a URL, treat it as an item name and construct the URL
+      if (!url.startsWith('http') && !url.startsWith('www.')) {
+        // Replace spaces with underscores and encode special characters for URL
+        // Handle common FFXI naming patterns like +1, +2, etc.
+        const itemName = url.replace(/\s+/g, '_').replace(/\+/g, '%2B');
+        url = `https://www.bg-wiki.com/ffxi/${encodeURIComponent(itemName)}`;
+      }
+      
       // Validate URL is from bg-wiki.com
       if (!url.includes("bg-wiki.com/ffxi/")) {
-        setUrlParseWarnings(["URL must be from bg-wiki.com/ffxi/"]);
+        setUrlParseWarnings(["URL must be from bg-wiki.com/ffxi/ or provide a valid item name"]);
         return;
       }
 
@@ -397,15 +408,15 @@ const GearItemModal = ({
                   </h4>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">
                     {editingItem
-                      ? "Paste a bg-wiki.com URL to update ALL gear data from the wiki:"
-                      : "Paste a bg-wiki.com URL to automatically import ALL gear data (name, slots, jobs, stats):"}
+                      ? "Paste a bg-wiki.com URL or just the item name to update ALL gear data from the wiki:"
+                      : "Paste a bg-wiki.com URL or just the item name to automatically import ALL gear data (name, slots, jobs, stats):"}
                   </p>
                   <div className="space-y-2">
                     <input
-                      type="url"
+                      type="text"
                       value={urlText}
                       onChange={(e) => setUrlText(e.target.value)}
-                      placeholder="https://www.bg-wiki.com/ffxi/Contemplator_%2B1"
+                      placeholder="Contemplator +1  or  https://www.bg-wiki.com/ffxi/Contemplator_%2B1"
                       className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-xs"
                       autoComplete="off"
                       data-lpignore="true"

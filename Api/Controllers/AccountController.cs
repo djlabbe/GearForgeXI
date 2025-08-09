@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using GearForgeXI.Models;
 using GearForgeXI.Models.Dto;
+using GearForgeXI.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -13,11 +14,13 @@ namespace GearForgeXI.Controllers;
 [Route("api/[controller]")]
 public class AccountController(
     UserManager<ApplicationUser> userManager,
-    SignInManager<ApplicationUser> signInManager
+    SignInManager<ApplicationUser> signInManager,
+    RefreshTokenService refreshTokenService
 ) : ControllerBase
 {
     private readonly UserManager<ApplicationUser> _userManager = userManager;
     private readonly SignInManager<ApplicationUser> _signInManager = signInManager;
+    private readonly RefreshTokenService _refreshTokenService = refreshTokenService;
 
     [HttpPost("register")]
     public async Task<IActionResult> Register(UserRegisterDto dto)
@@ -45,8 +48,9 @@ public class AccountController(
         }
 
         // Generate JWT token for immediate login
-        var token = await GenerateJwtToken(user);
-        return Ok(new { token, message = "User registered successfully" });
+        var tokenResponse = await GenerateTokenResponseAsync(user);
+        tokenResponse.Message = "User registered successfully";
+        return Ok(tokenResponse);
     }
 
     [HttpPost("login")]
@@ -61,7 +65,15 @@ public class AccountController(
             return Unauthorized("Invalid login");
 
         var token = await GenerateJwtToken(user);
-        return Ok(new { token });
+        var refreshToken = await _refreshTokenService.GenerateRefreshTokenAsync(user.Id);
+
+        return Ok(new TokenResponseDto
+        {
+            AccessToken = token,
+            RefreshToken = refreshToken.Token,
+            ExpiresAt = DateTime.UtcNow.AddMinutes(30),
+            Message = "Login successful"
+        });
     }
 
     private async Task<string> GenerateJwtToken(ApplicationUser user)
@@ -96,12 +108,50 @@ public class AccountController(
             issuer: jwtIssuer,
             audience: null,
             claims: claims,
-            expires: DateTime.UtcNow.AddHours(6),
+            expires: DateTime.UtcNow.AddMinutes(30),
             signingCredentials: new SigningCredentials(
                 new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256
             )
         );
 
         return jwtSettings.WriteToken(token);
+    }
+
+    private async Task<TokenResponseDto> GenerateTokenResponseAsync(ApplicationUser user)
+    {
+        var accessToken = await GenerateJwtToken(user);
+        var refreshToken = await _refreshTokenService.GenerateRefreshTokenAsync(user.Id);
+
+        return new TokenResponseDto
+        {
+            AccessToken = accessToken,
+            RefreshToken = refreshToken.Token,
+            ExpiresAt = DateTime.UtcNow.AddMinutes(30),
+            Message = "Authentication successful"
+        };
+    }
+
+    [HttpPost("refresh")]
+    public async Task<IActionResult> RefreshToken(RefreshTokenDto dto)
+    {
+        var refreshToken = await _refreshTokenService.GetValidRefreshTokenAsync(dto.RefreshToken);
+        if (refreshToken == null)
+            return Unauthorized("Invalid or expired refresh token");
+
+        var user = refreshToken.User;
+
+        // Revoke the used refresh token
+        await _refreshTokenService.RevokeRefreshTokenAsync(dto.RefreshToken);
+
+        // Generate new tokens
+        var tokenResponse = await GenerateTokenResponseAsync(user);
+        return Ok(tokenResponse);
+    }
+
+    [HttpPost("revoke")]
+    public async Task<IActionResult> RevokeToken(RefreshTokenDto dto)
+    {
+        await _refreshTokenService.RevokeRefreshTokenAsync(dto.RefreshToken);
+        return Ok(new { message = "Token revoked successfully" });
     }
 }
