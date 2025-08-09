@@ -83,7 +83,7 @@ public class GearController(GearDbContext context) : ControllerBase
                  g.GearItemJobs.Count == 0) &&
                 g.GearItemSlots.Any(s => s.GearSlot.Name.ToLower() == slotNormalized))
             .OrderBy(g => g.Name)
-                .ThenBy(g => g.Rank ?? int.MaxValue) // Put null ranks at the end
+                .ThenBy(g => g.Rank ?? int.MinValue) // Put null ranks at the start
                     .ThenBy(g => g.Path)
             .Select(g => new GearItemDto
             {
