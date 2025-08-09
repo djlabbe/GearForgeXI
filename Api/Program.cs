@@ -1,6 +1,8 @@
 using System.Text;
 using GearForgeXI;
+using GearForgeXI.BackgroundServices;
 using GearForgeXI.Models;
+using GearForgeXI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -82,6 +84,11 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
+// Register custom services
+builder.Services.AddScoped<RefreshTokenService>();
+
+// Register background services
+builder.Services.AddHostedService<RefreshTokenCleanupService>();
 
 // Add HttpClient for external URL fetching
 builder.Services.AddHttpClient();

@@ -38,9 +38,9 @@ export function Login() {
     setError(null);
 
     try {
-      const token = await authLogin(formData.email, formData.password);
-      // Update the global auth state
-      login(token);
+      await authLogin(formData.email, formData.password);
+      // Update the global auth state (tokens are now handled by authService)
+      login();
       // Redirect to the main page after successful login
       navigate("/");
     } catch (err) {

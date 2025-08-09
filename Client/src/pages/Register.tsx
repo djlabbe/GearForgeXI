@@ -39,9 +39,9 @@ export function Register() {
     setError(null);
 
     try {
-      const token = await authRegister(formData.email, formData.password, formData.confirmPassword);
-      // Update the global auth state
-      login(token);
+      await authRegister(formData.email, formData.password, formData.confirmPassword);
+      // Update the global auth state (tokens are now handled by authService)
+      login();
       // Redirect to the main page after successful registration
       navigate("/");
     } catch (err) {

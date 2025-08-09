@@ -1,3 +1,5 @@
+import TokenManager, { type TokenResponse } from './tokenManager';
+
 const API_BASE = "/api";
 
 export async function login(email: string, password: string) {
@@ -13,9 +15,9 @@ export async function login(email: string, password: string) {
     throw new Error("Login failed");
   }
 
-  const data = await response.json();
-  localStorage.setItem("token", data.token); // store JWT
-  return data.token;
+  const data: TokenResponse = await response.json();
+  TokenManager.saveTokens(data);
+  return data.accessToken;
 }
 
 export async function register(email: string, password: string, confirmPassword: string) {
@@ -36,17 +38,23 @@ export async function register(email: string, password: string, confirmPassword:
     throw new Error(errorData.message || "Registration failed");
   }
 
-  const data = await response.json();
-  localStorage.setItem("token", data.token); // store JWT
-  return data.token;
+  const data: TokenResponse = await response.json();
+  TokenManager.saveTokens(data);
+  return data.accessToken;
 }
 
-export function logout() {
-  localStorage.removeItem("token");
+export async function logout() {
+  await TokenManager.revokeRefreshToken();
+  TokenManager.clearTokens();
 }
 
 export function getToken(): string | null {
-  return localStorage.getItem("token");
+  // Return access token
+  return TokenManager.getAccessToken();
+}
+
+export async function getValidToken(): Promise<string | null> {
+  return await TokenManager.getValidAccessToken();
 }
 
 export function getUserRoles(): string[] {
@@ -65,15 +73,6 @@ export function getUserRoles(): string[] {
   }
 }
 
-// Deprecated: Use getUserRoles() instead - kept for backward compatibility
-export function getUserRole(): string[] {
-  return getUserRoles();
-}
-
-export function getAllRoles(): string[] {
-  return getUserRoles();
-}
-
 export function hasRole(roleName: string): boolean {
   const roles = getUserRoles();
   return roles.some(r => r.toLowerCase() === roleName.toLowerCase());
@@ -85,7 +84,12 @@ export function isAdmin(): boolean {
 }
 
 export function isAuthenticated(): boolean {
-  const token = getToken();
+  // Check if we have tokens
+  if (!TokenManager.hasValidTokens()) {
+    return false;
+  }
+
+  const token = TokenManager.getAccessToken();
   if (!token) return false;
   
   try {
@@ -93,16 +97,14 @@ export function isAuthenticated(): boolean {
     const payload = JSON.parse(atob(token.split('.')[1]));
     const currentTime = Math.floor(Date.now() / 1000);
     
-    // If token has an expiration time and it's expired, remove it
+    // If token has an expiration time and it's expired, return false
     if (payload.exp && payload.exp < currentTime) {
-      logout();
       return false;
     }
     
     return true;
   } catch (error) {
-    // If token is malformed, remove it
-    logout();
+    // If token is malformed, return false
     return false;
   }
 }
