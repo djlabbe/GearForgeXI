@@ -187,6 +187,9 @@ const GearItemModal = ({
         return;
       }
 
+      // Open the final URL in a new tab
+      window.open(url, '_blank', 'noopener,noreferrer');
+
       setIsImportingFromUrl(true);
       setUrlParseWarnings([]);
 
