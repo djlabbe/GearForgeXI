@@ -90,21 +90,24 @@ export function isAuthenticated(): boolean {
   }
 
   const token = TokenManager.getAccessToken();
-  if (!token) return false;
+  if (!token) {
+    // If we have a refresh token but no access token, we can still refresh
+    return TokenManager.getRefreshToken() !== null;
+  }
   
   try {
     // Basic JWT token validation - check if it's not expired
     const payload = JSON.parse(atob(token.split('.')[1]));
     const currentTime = Math.floor(Date.now() / 1000);
     
-    // If token has an expiration time and it's expired, return false
+    // If token has an expiration time and it's expired, check if we can refresh
     if (payload.exp && payload.exp < currentTime) {
-      return false;
+      return TokenManager.getRefreshToken() !== null;
     }
     
     return true;
   } catch (error) {
-    // If token is malformed, return false
-    return false;
+    // If token is malformed, check if we can refresh
+    return TokenManager.getRefreshToken() !== null;
   }
 }
