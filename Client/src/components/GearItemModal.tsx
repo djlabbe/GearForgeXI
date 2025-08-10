@@ -175,9 +175,9 @@ const GearItemModal = ({
       
       // If input doesn't look like a URL, treat it as an item name and construct the URL
       if (!url.startsWith('http') && !url.startsWith('www.')) {
-        // Replace spaces with underscores and encode special characters for URL
-        // Handle common FFXI naming patterns like +1, +2, etc.
-        const itemName = url.replace(/\s+/g, '_').replace(/\+/g, '%2B');
+        // Replace spaces with underscores, then encode the entire string
+        // encodeURIComponent will properly handle +, ', and other special characters
+        const itemName = url.replace(/\s+/g, '_');
         url = `https://www.bg-wiki.com/ffxi/${encodeURIComponent(itemName)}`;
       }
       
