@@ -4,6 +4,7 @@ import type { GearItem } from "../models/GearItem";
 import Card from "../components/Card";
 import GearItemCard from "../components/GearItemCard";
 import GearItemModal from "../components/GearItemModal";
+import LoadingSpinner from "../components/LoadingSpinner";
 import { useAppData } from "../contexts/AppDataContext";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -179,10 +180,10 @@ export function GearBrowser() {
         </Card>
       ) : loading ? (
         <Card className="text-center py-12">
-          <div className="text-gray-600 dark:text-gray-400">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-2"></div>
-            Loading {selectedJob} {selectedSlot} gear...
-          </div>
+          <LoadingSpinner 
+            message={`Loading ${selectedJob} ${selectedSlot} gear...`}
+            size="md"
+          />
         </Card>
       ) : (
         <InfiniteScroll

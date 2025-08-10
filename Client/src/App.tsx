@@ -8,7 +8,7 @@ import Register from "./pages/Register";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
 import { AppDataProvider } from "./contexts/AppDataContext";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
-import { AuthLoadingScreen } from "./components/LoadingSpinner";
+import { AuthLoadingScreen } from "./pages/AuthLoadingScreen";
 
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
