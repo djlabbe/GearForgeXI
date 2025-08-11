@@ -19,7 +19,10 @@ export function Stats() {
   const [showAddForm, setShowAddForm] = useState(false);
   const [quickFilterText, setQuickFilterText] = useState("");
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [statToDelete, setStatToDelete] = useState<{ id: number; name: string } | null>(null);
+  const [statToDelete, setStatToDelete] = useState<{
+    id: number;
+    name: string;
+  } | null>(null);
   const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const updateStat = async (stat: Stat) => {
@@ -49,7 +52,7 @@ export function Stats() {
 
   const confirmDeleteStat = async () => {
     if (!statToDelete) return;
-    
+
     try {
       await deleteStat(statToDelete.id);
       await refreshStats(); // Refresh the stats list after successful deletion
@@ -76,11 +79,11 @@ export function Stats() {
     try {
       await updateStat(updatedStat);
       console.log("Stat updated successfully");
-      
+
       // Flash the cell green to indicate successful save
       event.api.flashCells({
         rowNodes: [event.node],
-        columns: [event.column.getColId()]
+        columns: [event.column.getColId()],
       });
     } catch (error) {
       // Revert the change if the update failed
@@ -109,6 +112,24 @@ export function Stats() {
     {
       headerName: "Display Name",
       field: "displayName",
+      sortable: true,
+      filter: true,
+      width: 300,
+      editable: isAdmin,
+      enableCellChangeFlash: true,
+    },
+    {
+      headerName: "Alt Name 1",
+      field: "altName1",
+      sortable: true,
+      filter: true,
+      width: 300,
+      editable: isAdmin,
+      enableCellChangeFlash: true,
+    },
+    {
+      headerName: "Alt Name 2",
+      field: "altName2",
       sortable: true,
       filter: true,
       width: 300,
@@ -151,12 +172,12 @@ export function Stats() {
       editable: false,
       cellRenderer: (params: any) => {
         const stat = params.data as Stat;
-        
+
         // Only show delete button if the user is admin and the stat is not used by any gear items
         if (!isAdmin || (stat.gearItemCount || 0) > 0) {
-          return <></>
+          return <></>;
         }
-        
+
         return (
           <div className="flex justify-center items-center h-full">
             <button
@@ -164,8 +185,18 @@ export function Stats() {
               className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors duration-200 "
               title={`Delete ${stat.name}`}
             >
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                />
               </svg>
             </button>
           </div>
@@ -186,7 +217,9 @@ export function Stats() {
     <div className="space-y-4">
       {/* Header with Add New Stat Button */}
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{isAdmin ? "Stats Admin" : "Stats"}</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+          {isAdmin ? "Stats Admin" : "Stats"}
+        </h1>
         {isAdmin && (
           <button
             onClick={() => setShowAddForm(true)}
@@ -202,8 +235,18 @@ export function Stats() {
         <div className="flex-1">
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <svg className="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              <svg
+                className="h-4 w-4 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
               </svg>
             </div>
             <input
@@ -221,8 +264,18 @@ export function Stats() {
                 onClick={() => setQuickFilterText("")}
                 className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
               >
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             )}
@@ -232,9 +285,9 @@ export function Stats() {
 
       {/* Add Stat Modal - Only for Admin users */}
       {isAdmin && (
-        <AddStatModal 
-          isOpen={showAddForm} 
-          onClose={() => setShowAddForm(false)} 
+        <AddStatModal
+          isOpen={showAddForm}
+          onClose={() => setShowAddForm(false)}
           onStatCreated={handleStatCreated}
         />
       )}
