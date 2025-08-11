@@ -127,6 +127,9 @@ public class GearController(GearDbContext context) : ControllerBase
                     .Select(s => new GearStatDto
                     {
                         Name = s.Stat.Name,
+                        DisplayName = s.Stat.DisplayName,
+                        Category = s.Stat.Category != null ? s.Stat.Category.ToString() : null,
+                        Description = s.Stat.Description,
                         Value = s.Value
                     }).ToList(),
                 Jobs = g.GearItemJobs

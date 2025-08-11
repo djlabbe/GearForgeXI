@@ -40,6 +40,8 @@ public class StatsController(GearDbContext context) : ControllerBase
                 Id = s.Id,
                 Name = s.Name,
                 DisplayName = s.DisplayName,
+                AlternateName1 = s.AlternateName1,
+                AlternateName2 = s.AlternateName2,
                 Category = s.Category != null ? s.Category.ToString() : null,
                 Description = s.Description,
                 GearItemCount = s.GearItemStats.Count,
@@ -67,6 +69,8 @@ public class StatsController(GearDbContext context) : ControllerBase
         // Update the properties
         existingStat.Name = statDto.Name;
         existingStat.DisplayName = statDto.DisplayName;
+        existingStat.AlternateName1 = statDto.AlternateName1;
+        existingStat.AlternateName2 = statDto.AlternateName2;
 
         // Convert string category to enum
         if (string.IsNullOrWhiteSpace(statDto.Category))
@@ -92,6 +96,8 @@ public class StatsController(GearDbContext context) : ControllerBase
                 Id = existingStat.Id,
                 Name = existingStat.Name,
                 DisplayName = existingStat.DisplayName,
+                AlternateName1 = existingStat.AlternateName1,
+                AlternateName2 = existingStat.AlternateName2,
                 Category = existingStat.Category?.ToString(),
                 Description = existingStat.Description
             });
@@ -124,6 +130,8 @@ public class StatsController(GearDbContext context) : ControllerBase
         {
             Name = statDto.Name,
             DisplayName = statDto.DisplayName,
+            AlternateName1 = statDto.AlternateName1,
+            AlternateName2 = statDto.AlternateName2,
             Description = statDto.Description
         };
 
@@ -148,6 +156,8 @@ public class StatsController(GearDbContext context) : ControllerBase
             Id = newStat.Id,
             Name = newStat.Name,
             DisplayName = newStat.DisplayName,
+            AlternateName1 = newStat.AlternateName1,
+            AlternateName2 = newStat.AlternateName2,
             Category = newStat.Category?.ToString(),
             Description = newStat.Description
         };

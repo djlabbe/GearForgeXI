@@ -155,6 +155,9 @@ public class GearSetController(
                         Stats = gss.GearItem.GearItemStats.Select(gis => new GearStatDto
                         {
                             Name = gis.Stat.Name,
+                            DisplayName = gis.Stat.DisplayName,
+                            Category = gis.Stat.Category != null ? gis.Stat.Category.ToString() : null,
+                            Description = gis.Stat.Description,
                             Value = gis.Value
                         }).ToList(),
                         Jobs = gss.GearItem.GearItemJobs.Select(gij => gij.Job.Abbreviation).ToList(),
