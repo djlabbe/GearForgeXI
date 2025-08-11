@@ -85,27 +85,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       }
     };
 
-    // Set up periodic token refresh check (every 5 minutes)
-    const refreshInterval = setInterval(async () => {
-      if (TokenManager.hasValidTokens() && TokenManager.isTokenExpired()) {
-        await TokenManager.refreshAccessToken();
-        // Update auth state after refresh
-        const authenticated = checkAuth();
-        setIsAuthenticated(authenticated);
-        if (authenticated) {
-          const roles = getUserRoles();
-          const adminStatus = isAdmin();
-          setUserRoles(roles);
-          setIsAdminUser(adminStatus);
-        }
-      }
-    }, 5 * 60 * 1000); // 5 minutes
-
     window.addEventListener('storage', handleStorageChange);
 
     return () => {
       window.removeEventListener('storage', handleStorageChange);
-      clearInterval(refreshInterval);
     };
   }, []);
 

@@ -121,12 +121,13 @@ public class AccountController(
     {
         var accessToken = await GenerateJwtToken(user);
         var refreshToken = await _refreshTokenService.GenerateRefreshTokenAsync(user.Id);
+        var expiresAt = DateTime.UtcNow.AddMinutes(30); // Match the JWT expiration exactly
 
         return new TokenResponseDto
         {
             AccessToken = accessToken,
             RefreshToken = refreshToken.Token,
-            ExpiresAt = DateTime.UtcNow.AddMinutes(30),
+            ExpiresAt = expiresAt,
             Message = "Authentication successful"
         };
     }

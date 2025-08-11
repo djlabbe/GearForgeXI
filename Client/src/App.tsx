@@ -9,6 +9,7 @@ import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
 import { AppDataProvider } from "./contexts/AppDataContext";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { AuthLoadingScreen } from "./pages/AuthLoadingScreen";
+import TokenRefreshManager from "./components/TokenRefreshManager";
 
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -43,6 +44,7 @@ function App() {
   return (
     <div className="font-inter bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen transition-colors">
       <AuthProvider>
+        <TokenRefreshManager />
         <AppContent />
       </AuthProvider>
     </div>

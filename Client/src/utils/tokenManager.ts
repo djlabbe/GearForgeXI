@@ -16,13 +16,18 @@ const REFRESH_TOKEN_KEY = 'refresh_token';
 const TOKEN_EXPIRY_KEY = 'token_expiry';
 
 export class TokenManager {
-  private static isRefreshing = false;
+  private static refreshPromise: Promise<boolean> | null = null;
 
   // Save tokens to localStorage
   static saveTokens(tokenResponse: TokenResponse): void {
     localStorage.setItem(ACCESS_TOKEN_KEY, tokenResponse.accessToken);
     localStorage.setItem(REFRESH_TOKEN_KEY, tokenResponse.refreshToken);
     localStorage.setItem(TOKEN_EXPIRY_KEY, tokenResponse.expiresAt);
+    
+    console.log('TokenManager: Tokens saved', {
+      expiresAt: tokenResponse.expiresAt,
+      expiresIn: Math.round((new Date(tokenResponse.expiresAt).getTime() - Date.now()) / 1000 / 60) + ' minutes'
+    });
   }
 
   // Get current access token
@@ -41,15 +46,27 @@ export class TokenManager {
     return expiryString ? new Date(expiryString) : null;
   }
 
-  // Check if token is expired or will expire soon (1 minute buffer)
+  // Check if token is expired or will expire soon (5 minute buffer for better UX)
   static isTokenExpired(): boolean {
     const expiry = this.getTokenExpiry();
-    if (!expiry) return true;
+    if (!expiry) {
+      console.log('TokenManager: No expiry found, considering expired');
+      return true;
+    }
 
     const now = new Date();
-    const oneMinuteFromNow = new Date(now.getTime() + 1 * 60 * 1000);
+    const fiveMinutesFromNow = new Date(now.getTime() + 5 * 60 * 1000);
+    const isExpired = expiry <= fiveMinutesFromNow;
+    
+    if (isExpired) {
+      console.log('TokenManager: Token is expired or expiring soon', {
+        expiry: expiry.toISOString(),
+        now: now.toISOString(),
+        minutesUntilExpiry: Math.round((expiry.getTime() - now.getTime()) / 1000 / 60)
+      });
+    }
 
-    return expiry <= oneMinuteFromNow;
+    return isExpired;
   }
 
   // Clear all tokens
@@ -61,17 +78,29 @@ export class TokenManager {
 
   // Refresh access token using refresh token
   static async refreshAccessToken(): Promise<boolean> {
-    // Prevent multiple simultaneous refresh attempts
-    if (this.isRefreshing) {
-      return false;
+    // If already refreshing, wait for the existing refresh to complete
+    if (this.refreshPromise) {
+      return await this.refreshPromise;
     }
 
     const refreshToken = this.getRefreshToken();
     if (!refreshToken) return false;
 
-    this.isRefreshing = true;
-
+    // Create and store the refresh promise
+    this.refreshPromise = this.performRefresh(refreshToken);
+    
     try {
+      const result = await this.refreshPromise;
+      return result;
+    } finally {
+      this.refreshPromise = null;
+    }
+  }
+
+  private static async performRefresh(refreshToken: string): Promise<boolean> {
+    try {
+      console.log('TokenManager: Starting token refresh...');
+      
       const response = await fetch('/api/account/refresh', {
         method: 'POST',
         headers: {
@@ -83,17 +112,21 @@ export class TokenManager {
       if (response.ok) {
         const tokenResponse: TokenResponse = await response.json();
         this.saveTokens(tokenResponse);
+        console.log('TokenManager: Token refresh successful');
         return true;
       } else {
+        console.log('TokenManager: Token refresh failed', {
+          status: response.status,
+          statusText: response.statusText
+        });
         // Refresh token is invalid, clear all tokens
         this.clearTokens();
         return false;
       }
     } catch (error) {
-      console.error('Error refreshing token:', error);
+      console.error('TokenManager: Error refreshing token:', error);
+      this.clearTokens();
       return false;
-    } finally {
-      this.isRefreshing = false;
     }
   }
 

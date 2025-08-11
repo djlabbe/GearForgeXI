@@ -29,8 +29,8 @@ export function useTokenRefresh() {
     // Check token immediately
     checkAndRefreshToken();
 
-    // Set up interval to check token every 5 minutes
-    const interval = setInterval(checkAndRefreshToken, 5 * 60 * 1000);
+    // Set up interval to check token every 2 minutes for more aggressive refresh
+    const interval = setInterval(checkAndRefreshToken, 2 * 60 * 1000);
 
     return () => clearInterval(interval);
   }, [checkAndRefreshToken]);
