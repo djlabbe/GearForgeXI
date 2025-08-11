@@ -92,7 +92,7 @@ export function Stats() {
     }
   };
 
-  const columnDefs: ColDef[] = [
+  const columnDefs: ColDef<Stat>[] = [
     {
       headerName: "Id",
       field: "id",
@@ -120,7 +120,7 @@ export function Stats() {
     },
     {
       headerName: "Alt Name 1",
-      field: "altName1",
+      field: "alternateName1",
       sortable: true,
       filter: true,
       width: 300,
@@ -129,7 +129,7 @@ export function Stats() {
     },
     {
       headerName: "Alt Name 2",
-      field: "altName2",
+      field: "alternateName2",
       sortable: true,
       filter: true,
       width: 300,
