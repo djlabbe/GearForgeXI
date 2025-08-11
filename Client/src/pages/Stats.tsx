@@ -165,7 +165,6 @@ export function Stats() {
     },
     {
       headerName: "Actions",
-      field: "actions",
       width: 120,
       sortable: false,
       filter: false,
