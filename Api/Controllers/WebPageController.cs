@@ -314,23 +314,6 @@ public class WebPageController(HttpClient httpClient, ILogger<WebPageController>
             _logger.LogInformation("Original description: {Original}", description);
             _logger.LogInformation("Cleaned description: {Cleaned}", cleanedDescription);
 
-            // Special handling for Pet stats
-            // Pattern: "Pet: Accuracy+50 Ranged Acc.+50 Magic Acc.+50"
-            var petMatch = Regex.Match(cleanedDescription, @"Pet:\s*(.+?)(?=\s+[A-Z][a-z]|$)", RegexOptions.IgnoreCase);
-            if (petMatch.Success)
-            {
-                var petStatsText = petMatch.Groups[1].Value.Trim();
-                _logger.LogInformation("Found Pet stats text: {PetStats}", petStatsText);
-
-                // Extract pet stats and add them with "Pet " prefix
-                var petStats = ExtractPetStats(petStatsText, statNameMap);
-                stats.AddRange(petStats.stats);
-                warnings.AddRange(petStats.warnings);
-
-                // Remove the Pet section from the description for normal processing
-                cleanedDescription = Regex.Replace(cleanedDescription, @"Pet:\s*[^A-Z]*", "", RegexOptions.IgnoreCase).Trim();
-            }
-
             // Find numeric values first, then extract preceding text
             var valueMatches = Regex.Matches(cleanedDescription, @"[+-]?\d+%?");
 
@@ -396,77 +379,6 @@ public class WebPageController(HttpClient httpClient, ILogger<WebPageController>
         }
 
         return (stats, warnings);
-    }
-
-    private (List<object> stats, List<string> warnings) ExtractPetStats(string petStatsText, Dictionary<string, string> statNameMap)
-    {
-        var petStats = new List<object>();
-        var petWarnings = new List<string>();
-
-        try
-        {
-            // Find all stat+value patterns in the pet stats text
-            // Pattern matches things like "Accuracy+50", "Ranged Acc.+50", "Magic Acc.+50"
-            var petStatMatches = Regex.Matches(petStatsText, @"([A-Za-z][A-Za-z\s\.]*?)\+(\d+)", RegexOptions.IgnoreCase);
-
-            foreach (Match match in petStatMatches)
-            {
-                var rawStatName = match.Groups[1].Value.Trim();
-                var value = int.Parse(match.Groups[2].Value);
-
-                // Clean up the stat name
-                var cleanStatName = rawStatName
-                    .Replace(".", "") // Remove periods (e.g., "Acc." -> "Acc")
-                    .Trim();
-
-                // Add "Pet " prefix to the stat name
-                var petStatName = $"Pet {cleanStatName}";
-
-                _logger.LogInformation("Processing pet stat: '{RawStat}' -> '{PetStat}' = {Value}", rawStatName, petStatName, value);
-
-                // Try to find a matching stat with the "Pet " prefix
-                if (statNameMap.TryGetValue(petStatName.ToLower(), out var matchedStatName))
-                {
-                    petStats.Add(new { statName = matchedStatName, value = value });
-                    _logger.LogInformation("Matched pet stat: '{PetStat}' -> '{MatchedStat}'", petStatName, matchedStatName);
-                }
-                else
-                {
-                    // Also try some common alternate formats for pet stats
-                    var alternateFormats = new[]
-                    {
-                        $"Pet: {cleanStatName}",
-                        $"Pet {cleanStatName.Replace("Acc", "Accuracy")}",
-                        $"Pet {cleanStatName.Replace(" Acc", " Accuracy")}"
-                    };
-
-                    bool found = false;
-                    foreach (var altFormat in alternateFormats)
-                    {
-                        if (statNameMap.TryGetValue(altFormat.ToLower(), out var altMatchedStatName))
-                        {
-                            petStats.Add(new { statName = altMatchedStatName, value = value });
-                            _logger.LogInformation("Matched pet stat with alternate format: '{PetStat}' -> '{AltFormat}' -> '{MatchedStat}'", petStatName, altFormat, altMatchedStatName);
-                            found = true;
-                            break;
-                        }
-                    }
-
-                    if (!found)
-                    {
-                        petWarnings.Add($"Could not match pet stat: \"{petStatName}\" (from \"{rawStatName}\")");
-                        _logger.LogWarning("No match found for pet stat: '{PetStat}'", petStatName);
-                    }
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error parsing pet stats from text: {PetStatsText}", petStatsText);
-            petWarnings.Add("Error occurred while parsing pet stats");
-        }
-
-        return (petStats, petWarnings);
     }
 }
 
