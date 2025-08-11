@@ -255,6 +255,14 @@ public class WebPageController(HttpClient httpClient, ILogger<WebPageController>
                 {
                     statNameMap[stat.DisplayName.ToLower()] = stat.Name;
                 }
+                if (!string.IsNullOrEmpty(stat.AlternateName1))
+                {
+                    statNameMap[stat.AlternateName1.ToLower()] = stat.Name;
+                }
+                if (!string.IsNullOrEmpty(stat.AlternateName2))
+                {
+                    statNameMap[stat.AlternateName2.ToLower()] = stat.Name;
+                }
             }
 
             // Special handling for Unity Ranking stats first
