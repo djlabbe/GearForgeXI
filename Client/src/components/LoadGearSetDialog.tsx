@@ -8,6 +8,7 @@ interface LoadGearSetDialogProps {
   job: Job;
   savedGearSets: GearSet[];
   targetSet: "A" | "B";
+  isLoading?: boolean;
   onClose: () => void;
   onLoadGearSet: (gearSet: GearSet) => void;
 }
@@ -17,6 +18,7 @@ export function LoadGearSetDialog({
   job,
   savedGearSets,
   targetSet,
+  isLoading = false,
   onClose,
   onLoadGearSet,
 }: LoadGearSetDialogProps) {
@@ -51,7 +53,10 @@ export function LoadGearSetDialog({
                 <button
                   key={gearSet.id}
                   onClick={() => onLoadGearSet(gearSet)}
-                  className="block w-full text-left p-3 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-blue-300 dark:hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  disabled={isLoading}
+                  className={`block w-full text-left p-3 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-blue-300 dark:hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors ${
+                    isLoading ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
                 >
                   <div className="font-medium text-gray-900 dark:text-white">
                     {gearSet.name}

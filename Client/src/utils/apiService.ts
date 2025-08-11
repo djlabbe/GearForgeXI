@@ -36,9 +36,10 @@ export interface CreateGearSetDto {
   gearSetSlots: CreateGearSetSlotDto[];
 }
 
-export interface UpdateFullGearSetDto {
+export interface UpdateGearSetDto {
   name: string;
   description?: string;
+  jobId: number;
   gearSetSlots: CreateGearSetSlotDto[];
 }
 
@@ -219,7 +220,7 @@ class ApiService {
 
   // GearSet methods
   static async getUserGearSets(): Promise<GearSet[]> {
-    const response = await authFetch(`${this.baseUrl}/gearset`);
+    const response = await authFetch(`${this.baseUrl}/gearsets`);
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`Failed to fetch user gear sets: ${errorText}`);
@@ -229,7 +230,7 @@ class ApiService {
 
 
   static async createGearSet(gearSetData: CreateGearSetDto): Promise<GearSet> {
-    const response = await authFetch(`${this.baseUrl}/gearset`, {
+    const response = await authFetch(`${this.baseUrl}/gearsets`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -245,8 +246,8 @@ class ApiService {
     return response.json();
   }
 
-  static async updateFullGearSet(id: number, gearSetData: UpdateFullGearSetDto): Promise<GearSet> {
-    const response = await authFetch(`${this.baseUrl}/gearset/${id}/full`, {
+  static async updateGearSet(id: number, gearSetData: UpdateGearSetDto): Promise<GearSet> {
+    const response = await authFetch(`${this.baseUrl}/gearsets/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -256,14 +257,14 @@ class ApiService {
 
     if (!response.ok) {
       const errorText = await response.text();
-      throw new Error(`Failed to update full gear set: ${errorText}`);
+      throw new Error(`Failed to update gear set: ${errorText}`);
     }
 
     return response.json();
   }
 
   static async getGearSet(id: number): Promise<GearSet> {
-    const response = await authFetch(`${this.baseUrl}/gearset/${id}`);
+    const response = await authFetch(`${this.baseUrl}/gearsets/${id}`);
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`Failed to fetch gear set: ${errorText}`);
@@ -272,7 +273,7 @@ class ApiService {
   }
 
   static async addSlotToGearSet(gearSetId: number, slotData: AddGearSetSlotDto): Promise<void> {
-    const response = await authFetch(`${this.baseUrl}/gearset/${gearSetId}/slots`, {
+    const response = await authFetch(`${this.baseUrl}/gearsets/${gearSetId}/slots`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -287,7 +288,7 @@ class ApiService {
   }
 
   static async updateSlotInGearSet(gearSetId: number, position: string, slotData: UpdateGearSetSlotDto): Promise<void> {
-    const response = await authFetch(`${this.baseUrl}/gearset/${gearSetId}/slots/${position}`, {
+    const response = await authFetch(`${this.baseUrl}/gearsets/${gearSetId}/slots/${position}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -302,7 +303,7 @@ class ApiService {
   }
 
   static async removeSlotFromGearSet(gearSetId: number, position: string): Promise<void> {
-    const response = await authFetch(`${this.baseUrl}/gearset/${gearSetId}/slots/${position}`, {
+    const response = await authFetch(`${this.baseUrl}/gearsets/${gearSetId}/slots/${position}`, {
       method: 'DELETE',
     });
 

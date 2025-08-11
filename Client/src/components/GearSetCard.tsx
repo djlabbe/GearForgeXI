@@ -18,6 +18,9 @@ interface GearSetCardProps {
   subJob?: Job;
   isAuthenticated: boolean;
   setName: string;
+  isCreating?: boolean;
+  isUpdating?: boolean;
+  isLoading?: boolean;
   onSelect: (slot: GearSetPosition, item: GearItem | undefined) => void;
   onAugmentChange: (augments: GearStat[]) => void;
   onCreateNew: () => void;
@@ -35,6 +38,9 @@ export function GearSetCard({
   subJob,
   isAuthenticated,
   setName,
+  isCreating = false,
+  isUpdating = false,
+  isLoading = false,
   onSelect,
   onAugmentChange,
   onCreateNew,
@@ -56,6 +62,9 @@ export function GearSetCard({
         gearSet={gearSet}
         augments={augments}
         isAuthenticated={isAuthenticated}
+        isCreating={isCreating}
+        isUpdating={isUpdating}
+        isLoading={isLoading}
         onCreateNew={onCreateNew}
         onUpdate={onUpdate}
         onLoad={onLoad}

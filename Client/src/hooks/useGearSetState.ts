@@ -47,6 +47,12 @@ export function useGearSetState(job: Job, isAuthenticated: boolean) {
   }>({ isSetA: true, show: false });
 
   const [isCreatingSet, setIsCreatingSet] = useState(false);
+  const [isUpdatingSet, setIsUpdatingSet] = useState(false);
+  const [isLoadingSet, setIsLoadingSet] = useState(false);
+  
+  // Success/Error states
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   // Initialize sets when job changes
   useEffect(() => {
@@ -78,6 +84,20 @@ export function useGearSetState(job: Job, isAuthenticated: boolean) {
     }
   };
 
+  // Utility function to show success message with auto-clear
+  const showSuccess = (message: string) => {
+    setSuccessMessage(message);
+    setErrorMessage(null);
+    setTimeout(() => setSuccessMessage(null), 3000);
+  };
+
+  // Utility function to show error message with auto-clear
+  const showError = (message: string) => {
+    setErrorMessage(message);
+    setSuccessMessage(null);
+    setTimeout(() => setErrorMessage(null), 5000);
+  };
+
   return {
     // Set states
     setA,
@@ -98,11 +118,25 @@ export function useGearSetState(job: Job, isAuthenticated: boolean) {
     setShowCreateNewDialog,
     showLoadDialog,
     setShowLoadDialog,
+    
+    // Loading states
     isCreatingSet,
     setIsCreatingSet,
+    isUpdatingSet,
+    setIsUpdatingSet,
+    isLoadingSet,
+    setIsLoadingSet,
+    
+    // Success/Error states
+    successMessage,
+    setSuccessMessage,
+    errorMessage,
+    setErrorMessage,
     
     // Utility functions
     clearSet,
     createEmptySet: (name: string) => createEmptySet(name, job),
+    showSuccess,
+    showError,
   };
 }

@@ -18,7 +18,7 @@ import { LoadGearSetDialog } from "./LoadGearSetDialog";
 import { useAuth } from "../contexts/AuthContext";
 import { useGearSetState } from "../hooks/useGearSetState";
 import ApiService, {
-  type UpdateFullGearSetDto,
+  type UpdateGearSetDto,
 } from "../utils/apiService";
 import type { Job } from "../models/Job";
 import type { GearStat } from "../models/GearStat";
@@ -50,6 +50,14 @@ export function GearSetComparer({ job, subJob }: Props) {
     setShowLoadDialog,
     isCreatingSet,
     setIsCreatingSet,
+    isUpdatingSet,
+    setIsUpdatingSet,
+    isLoadingSet,
+    setIsLoadingSet,
+    successMessage,
+    errorMessage,
+    showSuccess,
+    showError,
     clearSet,
   } = useGearSetState(job, isAuthenticated);
 
@@ -149,9 +157,11 @@ export function GearSetComparer({ job, subJob }: Props) {
         setSavedGearSets(updatedSets);
       }
 
+      showSuccess(`"${setName}" created successfully!`);
       setShowCreateNewDialog({ isSetA: false, show: false });
     } catch (error) {
       console.error("Failed to create new gear set:", error);
+      showError("Failed to create gear set. Please try again.");
     } finally {
       setIsCreatingSet(false);
     }
@@ -162,22 +172,30 @@ export function GearSetComparer({ job, subJob }: Props) {
 
     if (!gearSet.id) {
       console.error("Cannot update set without ID");
+      showError("Cannot update gear set: No ID found");
       return;
     }
 
+    setIsUpdatingSet(true);
+
     try {
       // Update existing gear set using full replacement
-      const gearSetDto: UpdateFullGearSetDto = convertGearSetToDto(gearSet, job);
+      const gearSetDto: UpdateGearSetDto = convertGearSetToDto(gearSet, job);
 
-      await ApiService.updateFullGearSet(gearSet.id, gearSetDto);
+      await ApiService.updateGearSet(gearSet.id, gearSetDto);
 
       // Refresh saved gear sets list
       if (isAuthenticated) {
         const updatedSets = await ApiService.getUserGearSets();
         setSavedGearSets(updatedSets);
       }
+
+      showSuccess(`"${gearSet.name}" updated successfully!`);
     } catch (error) {
       console.error("Failed to update gear set:", error);
+      showError("Failed to update gear set. Please try again.");
+    } finally {
+      setIsUpdatingSet(false);
     }
   };
 
@@ -186,14 +204,24 @@ export function GearSetComparer({ job, subJob }: Props) {
   };
 
   const handleLoadGearSet = (isSetA: boolean, gearSet: GearSet) => {
-    const completeGearSet = createCompleteGearSet(gearSet);
+    setIsLoadingSet(true);
+    
+    try {
+      const completeGearSet = createCompleteGearSet(gearSet);
 
-    if (isSetA) {
-      setSetA(completeGearSet);
-    } else {
-      setSetB(completeGearSet);
+      if (isSetA) {
+        setSetA(completeGearSet);
+      } else {
+        setSetB(completeGearSet);
+      }
+      
+      setShowLoadDialog({ isSetA: false, show: false });
+    } catch (error) {
+      console.error("Failed to load gear set:", error);
+      showError("Failed to load gear set. Please try again.");
+    } finally {
+      setIsLoadingSet(false);
     }
-    setShowLoadDialog({ isSetA: false, show: false });
   };
 
   const statCategories = createStatCategories();
@@ -216,6 +244,29 @@ export function GearSetComparer({ job, subJob }: Props) {
 
   return (
     <div>
+      {/* Success/Error Messages */}
+      {successMessage && (
+        <div className="mb-4 p-4 bg-green-100 border-l-4 border-green-500 text-green-700 rounded">
+          <div className="flex items-center">
+            <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            {successMessage}
+          </div>
+        </div>
+      )}
+
+      {errorMessage && (
+        <div className="mb-4 p-4 bg-red-100 border-l-4 border-red-500 text-red-700 rounded">
+          <div className="flex items-center">
+            <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+            </svg>
+            {errorMessage}
+          </div>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 mb-4 gap-4">
         <GearSetCard
           gearSet={setA}
@@ -225,6 +276,9 @@ export function GearSetComparer({ job, subJob }: Props) {
           subJob={subJob}
           isAuthenticated={isAuthenticated}
           setName="Set A"
+          isCreating={isCreatingSet}
+          isUpdating={isUpdatingSet}
+          isLoading={isLoadingSet}
           onSelect={handleSelectA}
           onAugmentChange={setSetAAugments}
           onCreateNew={() => setShowCreateNewDialog({ isSetA: true, show: true })}
@@ -242,6 +296,9 @@ export function GearSetComparer({ job, subJob }: Props) {
           subJob={subJob}
           isAuthenticated={isAuthenticated}
           setName="Set B"
+          isCreating={isCreatingSet}
+          isUpdating={isUpdatingSet}
+          isLoading={isLoadingSet}
           onSelect={handleSelectB}
           onAugmentChange={setSetBAugments}
           onCreateNew={() => setShowCreateNewDialog({ isSetA: false, show: true })}
@@ -280,6 +337,7 @@ export function GearSetComparer({ job, subJob }: Props) {
         job={job}
         savedGearSets={savedGearSets}
         targetSet={showLoadDialog.isSetA ? "A" : "B"}
+        isLoading={isLoadingSet}
         onClose={() => setShowLoadDialog({ isSetA: false, show: false })}
         onLoadGearSet={(gearSet) => handleLoadGearSet(showLoadDialog.isSetA, gearSet)}
       />
