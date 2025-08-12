@@ -312,6 +312,15 @@ class ApiService {
       throw new Error(`Failed to remove slot from gear set: ${errorText}`);
     }
   }
+
+  static async getGearItemsByStat(statId: number): Promise<GearItem[]> {
+    const response = await authFetch(`${this.baseUrl}/gear?statId=${statId}`);
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to fetch gear items by stat: ${errorText}`);
+    }
+    return response.json();
+  }
 }
 
 export default ApiService;

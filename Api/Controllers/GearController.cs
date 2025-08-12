@@ -63,9 +63,36 @@ public class GearController(GearDbContext context) : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetGear([FromQuery] string job, [FromQuery] string slot)
+    public async Task<IActionResult> GetGear([FromQuery] string? job, [FromQuery] string? slot, [FromQuery] int? statId)
     {
-        // Validate required parameters
+        // Handle stat-only filtering for admin pages
+        if (statId.HasValue && string.IsNullOrWhiteSpace(job) && string.IsNullOrWhiteSpace(slot))
+        {
+            var gearItems = await _context.GearItems
+                .AsNoTracking()
+                .Include(g => g.Category)
+                .Where(g => g.GearItemStats.Any(gis => gis.StatId == statId.Value))
+                .OrderBy(g => g.Name)
+                .ThenBy(g => g.Rank ?? int.MinValue)
+                .ThenBy(g => g.Path)
+                .Select(g => new GearItemDto
+                {
+                    Id = g.Id,
+                    Name = g.Name,
+                    Category = g.Category != null ? g.Category.Name : null,
+                    Rank = g.Rank,
+                    Path = g.Path,
+                    Verified = g.Verified,
+                    Stats = new List<GearStatDto>(), // Empty for admin view
+                    Jobs = new List<string>(),       // Empty for admin view
+                    Slots = new List<string>()       // Empty for admin view
+                })
+                .ToListAsync();
+
+            return Ok(gearItems);
+        }
+
+        // Original job+slot filtering logic
         if (string.IsNullOrWhiteSpace(job))
             return BadRequest("Job parameter is required.");
 
@@ -633,5 +660,39 @@ public class GearController(GearDbContext context) : ControllerBase
             .FirstOrDefaultAsync();
 
         return Ok(updatedItemDto);
+    }
+
+    [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> DeleteGearItem(int id)
+    {
+        var gearItem = await _context.GearItems
+            .Include(g => g.GearItemStats)
+            .Include(g => g.GearItemJobs)
+            .Include(g => g.GearItemSlots)
+            .Where(g => g.Id == id)
+            .FirstOrDefaultAsync();
+
+        if (gearItem == null)
+            return NotFound($"Gear item with ID {id} not found.");
+
+        // Check if this gear item is being used in any gear sets
+        var isUsedInGearSets = await _context.GearSetItems
+            .AnyAsync(gsi => gsi.GearItemId == id);
+
+        if (isUsedInGearSets)
+            return BadRequest("Cannot delete gear item as it is currently being used in one or more gear sets.");
+
+        // Remove related entities first
+        _context.GearItemStats.RemoveRange(gearItem.GearItemStats);
+        _context.GearItemJobs.RemoveRange(gearItem.GearItemJobs);
+        _context.GearItemSlots.RemoveRange(gearItem.GearItemSlots);
+
+        // Remove the gear item itself
+        _context.GearItems.Remove(gearItem);
+
+        await _context.SaveChangesAsync();
+
+        return NoContent();
     }
 }

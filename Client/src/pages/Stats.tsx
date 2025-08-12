@@ -5,6 +5,7 @@ import { colorSchemeDarkBlue } from "ag-grid-community";
 import ApiService from "../utils/apiService";
 import AddStatModal from "../components/AddStatModal";
 import ConfirmationModal from "../components/ConfirmationModal";
+import StatGearItemsModal from "../components/StatGearItemsModal";
 import { useAppData } from "../contexts/AppDataContext";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -23,6 +24,8 @@ export function Stats() {
     id: number;
     name: string;
   } | null>(null);
+  const [showGearItemsModal, setShowGearItemsModal] = useState(false);
+  const [selectedStat, setSelectedStat] = useState<Stat | null>(null);
   const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const updateStat = async (stat: Stat) => {
@@ -48,6 +51,11 @@ export function Stats() {
   const handleDeleteStat = (statId: number, statName: string) => {
     setStatToDelete({ id: statId, name: statName });
     setShowDeleteConfirm(true);
+  };
+
+  const handleViewGearItems = (stat: Stat) => {
+    setSelectedStat(stat);
+    setShowGearItemsModal(true);
   };
 
   const confirmDeleteStat = async () => {
@@ -165,39 +173,66 @@ export function Stats() {
     },
     {
       headerName: "Actions",
-      width: 120,
+      width: 180,
       sortable: false,
       filter: false,
       editable: false,
       cellRenderer: (params: any) => {
         const stat = params.data as Stat;
 
-        // Only show delete button if the user is admin and the stat is not used by any gear items
-        if (!isAdmin || (stat.gearItemCount || 0) > 0) {
-          return <></>;
-        }
-
         return (
-          <div className="flex justify-center items-center h-full">
-            <button
-              onClick={() => handleDeleteStat(stat.id, stat.name)}
-              className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors duration-200 "
-              title={`Delete ${stat.name}`}
-            >
-              <svg
-                className="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+          <div className="flex justify-center items-center h-full space-x-2">
+            {/* View Items Button - Always show if there are gear items */}
+            {(stat.gearItemCount || 0) > 0 && (
+              <button
+                onClick={() => handleViewGearItems(stat)}
+                className="p-2 text-blue-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded transition-colors duration-200"
+                title={`View ${stat.gearItemCount} gear items with ${stat.name}`}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                />
-              </svg>
-            </button>
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
+                </svg>
+              </button>
+            )}
+
+            {/* Delete Button - Only show if admin and no gear items use this stat */}
+            {isAdmin && (stat.gearItemCount || 0) === 0 && (
+              <button
+                onClick={() => handleDeleteStat(stat.id, stat.name)}
+                className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors duration-200"
+                title={`Delete ${stat.name}`}
+              >
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  />
+                </svg>
+              </button>
+            )}
           </div>
         );
       },
@@ -303,6 +338,13 @@ export function Stats() {
           onCancel={cancelDeleteStat}
         />
       )}
+
+      {/* Stat Gear Items Modal */}
+      <StatGearItemsModal
+        isOpen={showGearItemsModal}
+        onClose={() => setShowGearItemsModal(false)}
+        stat={selectedStat}
+      />
 
       {/* AG Grid */}
       <div
