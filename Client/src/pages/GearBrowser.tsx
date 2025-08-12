@@ -18,6 +18,7 @@ export function GearBrowser() {
   const [loading, setLoading] = useState(false);
   const [selectedSlot, setSelectedSlot] = useState<string>("");
   const [selectedJob, setSelectedJob] = useState<string>("");
+  const [showUnverifiedOnly, setShowUnverifiedOnly] = useState(false);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [editingItem, setEditingItem] = useState<GearItem | null>(null);
   
@@ -83,11 +84,13 @@ export function GearBrowser() {
   }, [selectedJob, selectedSlot]);
 
   const filteredItems = useMemo(() => {
-    // Since we're fetching filtered data from API, just apply name filter
-    return gearItems.filter((item) =>
-      item.name.toLowerCase().includes(filter.toLowerCase())
-    );
-  }, [gearItems, filter]);
+    // Since we're fetching filtered data from API, just apply name filter and verification filter
+    return gearItems.filter((item) => {
+      const matchesName = item.name.toLowerCase().includes(filter.toLowerCase());
+      const matchesVerification = showUnverifiedOnly ? !item.verified : true;
+      return matchesName && matchesVerification;
+    });
+  }, [gearItems, filter, showUnverifiedOnly]);
 
   // Reset displayed items when filters change
   useEffect(() => {
@@ -128,6 +131,31 @@ export function GearBrowser() {
           onChange={(e) => setFilter(e.target.value)}
           className="mb-4 p-2 border border-gray-300 dark:border-gray-700 rounded w-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
         />
+        
+        {/* Unverified items filter - Only show for admin users */}
+        {isAdmin && (
+          <div className="mb-4 flex items-center">
+            <input
+              type="checkbox"
+              id="showUnverifiedOnly"
+              checked={showUnverifiedOnly}
+              onChange={(e) => setShowUnverifiedOnly(e.target.checked)}
+              className="mr-2 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            />
+            <label 
+              htmlFor="showUnverifiedOnly" 
+              className="text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer"
+            >
+              Show only unverified items
+            </label>
+            {showUnverifiedOnly && (
+              <span className="ml-2 px-2 py-1 text-xs bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300 rounded-full">
+                Unverified only
+              </span>
+            )}
+          </div>
+        )}
+        
         <div className="flex space-x-2 mb-2 flex-wrap">
           {slots.map((slot) => (
             <button
@@ -198,8 +226,8 @@ export function GearBrowser() {
           endMessage={
             <div className="col-span-full text-center py-4 text-gray-600 dark:text-gray-400">
               {displayedItems.length === 0 
-                ? `No ${selectedSlot} gear found for ${selectedJob}` 
-                : `Showing all ${displayedItems.length} items`
+                ? `No ${showUnverifiedOnly ? 'unverified ' : ''}${selectedSlot} gear found for ${selectedJob}` 
+                : `Showing all ${displayedItems.length} ${showUnverifiedOnly ? 'unverified ' : ''}items`
               }
             </div>
           }
