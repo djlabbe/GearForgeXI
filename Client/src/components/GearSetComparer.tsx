@@ -7,7 +7,7 @@ import {
 import {
   type GearSetPosition,
 } from "../models/GearSetPosition";
-import { compareGearSets } from "../utils/compare";
+import { compareGearSets, type StatComparison } from "../utils/compare";
 import { createAugmentedGearSet } from "../utils/gearFiltering";
 import { createStatCategories } from "../constants/statCategories";
 import { convertGearSetToDto, createCompleteGearSet, generateAndCopyLua } from "../utils/gearSetUtils";
@@ -61,9 +61,7 @@ export function GearSetComparer({ job, subJob }: Props) {
     clearSet,
   } = useGearSetState(job, isAuthenticated);
 
-  const [comparison, setComparison] = useState<
-    { stat: GearStat; a: number; b: number; diff: number }[]
-  >([]);
+  const [comparison, setComparison] = useState<StatComparison[]>([]);
 
   useEffect(() => {
     if (!job) return;

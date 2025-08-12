@@ -70,10 +70,15 @@ const GearItemCard = memo(({ item: currentItem, onEditItem, showEditButton = fal
                 <ul className="text-sm">
                     {currentItem.stats.map((stat) => (
                         <li key={stat.name} className="text-gray-800 dark:text-gray-200">
-                            {stat.displayName || stat.name}:{" "}
-                            <span className="font-semibold text-gray-900 dark:text-gray-100">
-                                {stat.value}
-                            </span>
+                            {stat.displayName || stat.name}
+                            {stat.value !== null && (
+                                <>
+                                    :{" "}
+                                    <span className="font-semibold text-gray-900 dark:text-gray-100">
+                                        {stat.value}
+                                    </span>
+                                </>
+                            )}
                         </li>
                     ))}
                 </ul>

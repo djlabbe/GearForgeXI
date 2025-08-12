@@ -1,16 +1,17 @@
-import type { GearStat } from "../models/GearStat";
+import type { StatComparison } from "../utils/compare";
 import Card from "./Card";
 
 interface Props {
   title: string;
   icon?: React.ReactNode;
-  statComparison: { stat: GearStat; a: number; b: number; diff: number }[];
+  statComparison: StatComparison[];
 }
 
 const StatTable = ({ title, statComparison, icon }: Props) => {
   if (statComparison.length === 0) {
     return null;
   }
+  
   return (
     <Card>
       <h4 className="text-md font-semibold mb-2 flex items-center gap-2">
@@ -28,38 +29,73 @@ const StatTable = ({ title, statComparison, icon }: Props) => {
         </thead>
         <tbody>
           {statComparison.map((comparison) => {
-            const isNegativeStat = comparison.a < 0 || comparison.b < 0;
-            let diffClass = "";
-            if (comparison.diff !== 0) {
-              if (isNegativeStat) {
-                diffClass =
-                  comparison.diff > 0
-                    ? "text-red-600 dark:text-red-400"
-                    : comparison.diff < 0
-                    ? "text-green-600 dark:text-green-400"
-                    : "";
-              } else {
-                diffClass =
-                  comparison.diff > 0
-                    ? "text-green-600 dark:text-green-400"
-                    : comparison.diff < 0
-                    ? "text-red-600 dark:text-red-400"
-                    : "";
+            if (comparison.type === 'numeric') {
+              const isNegativeStat = comparison.a < 0 || comparison.b < 0;
+              let diffClass = "";
+              if (comparison.diff !== 0) {
+                if (isNegativeStat) {
+                  diffClass =
+                    comparison.diff > 0
+                      ? "text-red-600 dark:text-red-400"
+                      : comparison.diff < 0
+                      ? "text-green-600 dark:text-green-400"
+                      : "";
+                } else {
+                  diffClass =
+                    comparison.diff > 0
+                      ? "text-green-600 dark:text-green-400"
+                      : comparison.diff < 0
+                      ? "text-red-600 dark:text-red-400"
+                      : "";
+                }
               }
+              return (
+                <tr
+                  key={comparison.stat.name}
+                  className="bg-gray-50 dark:bg-slate-800 border-t border-gray-400 dark:border-gray-700"
+                >
+                  <td className="p-2">{comparison.stat.displayName || comparison.stat.name}</td>
+                  <td className="text-right p-2">{comparison.a}</td>
+                  <td className="text-right p-2">{comparison.b}</td>
+                  <td className={`text-right p-2 ${diffClass}`}>
+                    {comparison.diff !== 0 && `${comparison.diff > 0 ? "+" : ""}${comparison.diff}`}
+                  </td>
+                </tr>
+              );
+            } else {
+              // Non-numeric comparison - show checkmarks/X marks
+              return (
+                <tr
+                  key={comparison.stat.name}
+                  className="bg-gray-50 dark:bg-slate-800 border-t border-gray-400 dark:border-gray-700"
+                >
+                  <td className="p-2">{comparison.stat.displayName || comparison.stat.name}</td>
+                  <td className="text-right p-2">
+                    {comparison.aHasIt ? (
+                      <span className="text-green-600 dark:text-green-400">✓</span>
+                    ) : (
+                      <span className="text-gray-400">✗</span>
+                    )}
+                  </td>
+                  <td className="text-right p-2">
+                    {comparison.bHasIt ? (
+                      <span className="text-green-600 dark:text-green-400">✓</span>
+                    ) : (
+                      <span className="text-gray-400">✗</span>
+                    )}
+                  </td>
+                  <td className="text-right p-2">
+                    {comparison.aHasIt === comparison.bHasIt ? (
+                      <span className="text-gray-400">—</span>
+                    ) : comparison.bHasIt ? (
+                      <span className="text-green-600 dark:text-green-400">+</span>
+                    ) : (
+                      <span className="text-red-600 dark:text-red-400">−</span>
+                    )}
+                  </td>
+                </tr>
+              );
             }
-            return (
-              <tr
-                key={comparison.stat.name}
-                className="bg-gray-50 dark:bg-slate-800 border-t border-gray-400 dark:border-gray-700"
-              >
-                <td className="p-2">{comparison.stat.displayName || comparison.stat.name}</td>
-                <td className="text-right p-2">{comparison.a}</td>
-                <td className="text-right p-2">{comparison.b}</td>
-                <td className={`text-right p-2 ${diffClass}`}>
-                  {comparison.diff !== 0 && `${comparison.diff > 0 ? "+" : ""}${comparison.diff}`}
-                </td>
-              </tr>
-            );
           })}
         </tbody>
       </table>
