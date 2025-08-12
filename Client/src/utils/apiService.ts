@@ -26,7 +26,7 @@ export interface CreateGearItemDto {
 
 export interface CreateGearStatDto {
   statName: string;
-  value: number;
+  value: number | null;
 }
 
 export interface CreateGearSetDto {

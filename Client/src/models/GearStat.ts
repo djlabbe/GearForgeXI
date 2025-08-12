@@ -6,5 +6,5 @@ export interface GearStat {
     alternateName2?: string;
     category?: string;
     description?: string;
-    value: number;
+    value: number | null;
 }

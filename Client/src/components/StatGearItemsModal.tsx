@@ -98,26 +98,6 @@ const StatGearItemsModal = ({ isOpen, onClose, stat }: StatGearItemsModalProps) 
                             </span>
                           )}
                         </h3>
-                        
-                        <div className="mt-2 space-y-1">
-                          {item.category && (
-                            <div className="text-sm text-gray-600 dark:text-gray-400">
-                              <span className="font-medium">Category:</span> {item.category}
-                            </div>
-                          )}
-                          
-                          {item.jobs.length > 0 && (
-                            <div className="text-sm text-gray-600 dark:text-gray-400">
-                              <span className="font-medium">Jobs:</span> {item.jobs.join(", ")}
-                            </div>
-                          )}
-                          
-                          {item.slots.length > 0 && (
-                            <div className="text-sm text-gray-600 dark:text-gray-400">
-                              <span className="font-medium">Slots:</span> {item.slots.join(", ")}
-                            </div>
-                          )}
-                        </div>
                       </div>
                       
                       <div className="flex items-center ml-4">

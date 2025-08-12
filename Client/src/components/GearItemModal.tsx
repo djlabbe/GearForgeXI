@@ -26,7 +26,7 @@ interface CreateGearItemForm {
 
 interface CreateGearStatForm {
   statName: string;
-  value: number;
+  value: number | null;
 }
 
 const GearItemModal = ({
@@ -63,7 +63,7 @@ const GearItemModal = ({
           })),
           ...Array(Math.max(0, 15 - editingItem.stats.length))
             .fill(null)
-            .map(() => ({ statName: "", value: 0 })),
+            .map(() => ({ statName: "", value: null })),
         ],
       };
     }
@@ -77,7 +77,7 @@ const GearItemModal = ({
       selectedJobs: [],
       stats: Array(15)
         .fill(null)
-        .map(() => ({ statName: "", value: 0 })),
+        .map(() => ({ statName: "", value: null })),
     };
   }, [editingItem]);
 
@@ -143,7 +143,7 @@ const GearItemModal = ({
   }, []);
 
   const handleStatChange = useCallback(
-    (index: number, field: "statName" | "value", value: string | number) => {
+    (index: number, field: "statName" | "value", value: string | number | null) => {
       setFormData((prev) => ({
         ...prev,
         stats: prev.stats.map((stat, i) =>
@@ -157,7 +157,7 @@ const GearItemModal = ({
   const addStat = useCallback(() => {
     setFormData((prev) => ({
       ...prev,
-      stats: [...prev.stats, { statName: "", value: 0 }],
+      stats: [...prev.stats, { statName: "", value: null }],
     }));
   }, []);
 
@@ -289,7 +289,7 @@ const GearItemModal = ({
         slots: formData.selectedSlots,
         jobs: formData.selectedJobs,
         stats: formData.stats
-          .filter((stat) => stat.statName.trim() && stat.value !== 0)
+          .filter((stat) => stat.statName.trim()) // Include stats with a name, regardless of value
           .map((stat) => ({
             statName: stat.statName.trim(),
             value: stat.value,
@@ -757,12 +757,12 @@ const GearItemModal = ({
                         <div className="w-24">
                           <input
                             type="number"
-                            value={stat.value}
+                            value={stat.value ?? ""}
                             onChange={(e) =>
                               handleStatChange(
                                 index,
                                 "value",
-                                parseInt(e.target.value, 10) || 0
+                                e.target.value === "" ? null : parseInt(e.target.value, 10) || null
                               )
                             }
                             placeholder="Value"
