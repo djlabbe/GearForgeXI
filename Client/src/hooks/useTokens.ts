@@ -1,15 +1,20 @@
-import { useEffect, useCallback } from 'react';
-import TokenManager from '../utils/tokenManager';
-import { useAuth } from '../contexts/AuthContext';
+import { useEffect, useCallback } from "react";
+import TokenManager from "../utils/tokenManager";
+import { useAuth } from "../contexts/AuthContext";
 
 /**
  * Hook that sets up automatic token refresh
  * This ensures tokens are refreshed before they expire
  */
 export function useTokenRefresh() {
-  const { logout } = useAuth();
+  const { logout, isAuthenticated } = useAuth();
 
   const checkAndRefreshToken = useCallback(async () => {
+    // Only try to refresh if user is authenticated and has tokens
+    if (!isAuthenticated || !TokenManager.hasValidTokens()) {
+      return;
+    }
+
     try {
       // If token is expired or will expire soon, refresh it
       if (TokenManager.isTokenExpired()) {
@@ -20,12 +25,17 @@ export function useTokenRefresh() {
         }
       }
     } catch (error) {
-      console.error('Error during token refresh:', error);
+      console.error("Error during token refresh:", error);
       await logout();
     }
-  }, [logout]);
+  }, [logout, isAuthenticated]);
 
   useEffect(() => {
+    // Only set up token refresh if user is authenticated
+    if (!isAuthenticated) {
+      return;
+    }
+
     // Check token immediately
     checkAndRefreshToken();
 
@@ -33,7 +43,7 @@ export function useTokenRefresh() {
     const interval = setInterval(checkAndRefreshToken, 2 * 60 * 1000);
 
     return () => clearInterval(interval);
-  }, [checkAndRefreshToken]);
+  }, [checkAndRefreshToken, isAuthenticated]);
 }
 
 /**

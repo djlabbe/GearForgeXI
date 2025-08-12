@@ -1,7 +1,12 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import type { ReactNode } from 'react';
-import { logout as authLogout, isAuthenticated as checkAuth, getUserRoles, isAdmin, hasRole } from '../utils/authService';
-import TokenManager from '../utils/tokenManager';
+import { createContext, useContext, useEffect, useState } from "react";
+import type { ReactNode } from "react";
+import {
+  logout as authLogout,
+  isAuthenticated as checkAuth,
+  getUserRoles,
+  isAdmin,
+} from "../utils/authService";
+import TokenManager from "../utils/tokenManager";
 
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -15,10 +20,11 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+/* eslint-disable react-refresh/only-export-components */
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 };
@@ -48,19 +54,25 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   useEffect(() => {
     const checkAuthStatus = async () => {
       setIsLoading(true);
-      
-      // First, try to refresh tokens if they exist but are expired
+
+      // Only try to refresh tokens if we have both access and refresh tokens
+      // and the access token is expired
       if (TokenManager.hasValidTokens() && TokenManager.isTokenExpired()) {
         try {
-          await TokenManager.refreshAccessToken();
+          const refreshResult = await TokenManager.refreshAccessToken();
+          if (!refreshResult) {
+            // Refresh failed, clear tokens
+            TokenManager.clearTokens();
+          }
         } catch (error) {
-          console.error('Token refresh failed during initialization:', error);
+          console.error("Token refresh failed during initialization:", error);
+          TokenManager.clearTokens();
         }
       }
-      
+
       const authenticated = checkAuth(); // Use the improved authentication check
       setIsAuthenticated(authenticated);
-      
+
       if (authenticated) {
         const roles = getUserRoles();
         const adminStatus = isAdmin();
@@ -70,9 +82,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         setUserRoles([]);
         setIsAdminUser(false);
       }
-      
+
       // Small delay to prevent loading flash for very quick operations
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise((resolve) => setTimeout(resolve, 100));
       setIsLoading(false);
     };
 
@@ -80,15 +92,15 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     // Listen for storage changes (e.g., token added/removed in another tab)
     const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === 'access_token' || e.key === 'refresh_token') {
+      if (e.key === "access_token" || e.key === "refresh_token") {
         checkAuthStatus();
       }
     };
 
-    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener("storage", handleStorageChange);
 
     return () => {
-      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener("storage", handleStorageChange);
     };
   }, []);
 
@@ -96,7 +108,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     // The login logic is now handled by the authService login function
     // This function just updates the local state after successful login
     setIsAuthenticated(true);
-    
+
     // Update role information after login
     const roles = getUserRoles();
     const adminStatus = isAdmin();
@@ -111,21 +123,21 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setIsAdminUser(false);
   };
 
+  const hasRoleFunction = (roleName: string): boolean => {
+    return userRoles.some((r) => r.toLowerCase() === roleName.toLowerCase());
+  };
+
   const value = {
     isAuthenticated,
     isLoading,
     userRoles,
     isAdmin: isAdminUser,
-    hasRole,
+    hasRole: hasRoleFunction,
     login,
     logout,
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;
