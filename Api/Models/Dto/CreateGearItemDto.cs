@@ -15,5 +15,5 @@ public class CreateGearItemDto
 public class CreateGearStatDto
 {
     public string StatName { get; set; } = null!;
-    public int Value { get; set; }
+    public int? Value { get; set; }
 }

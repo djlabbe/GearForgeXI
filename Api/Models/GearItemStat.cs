@@ -10,5 +10,5 @@ public class GearItemStat
     public int StatId { get; set; }
     public Stat Stat { get; set; } = null!;
 
-    public int Value { get; set; }
+    public int? Value { get; set; }
 }
