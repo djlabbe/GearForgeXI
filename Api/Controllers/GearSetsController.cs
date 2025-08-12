@@ -24,6 +24,7 @@ public class GearSetsController(
         if (userId == null) return Unauthorized();
 
         var gearSets = await _context.GearSets
+            .AsNoTracking()
             .Include(gs => gs.Job) // Include Job navigation property
             .Include(gs => gs.GearSetItems)
                 .ThenInclude(gss => gss.GearItem)

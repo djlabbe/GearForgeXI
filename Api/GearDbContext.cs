@@ -134,6 +134,32 @@ namespace GearForgeXI
                 .HasIndex(s => s.Name)
                 .IsUnique();
 
+            // Add performance indexes for frequently queried columns
+            modelBuilder.Entity<GearItem>()
+                .HasIndex(g => g.Name);
+
+            modelBuilder.Entity<GearItem>()
+                .HasIndex(g => g.Verified);
+
+            modelBuilder.Entity<Job>()
+                .HasIndex(j => j.Abbreviation);
+
+            modelBuilder.Entity<GearSlot>()
+                .HasIndex(gs => gs.Name);
+
+            modelBuilder.Entity<GearSet>()
+                .HasIndex(gs => gs.UserId);
+
+            // Composite indexes for common query patterns
+            modelBuilder.Entity<GearItemJob>()
+                .HasIndex(gij => new { gij.GearItemId, gij.JobId });
+
+            modelBuilder.Entity<GearItemSlot>()
+                .HasIndex(gis => new { gis.GearItemId, gis.GearSlotId });
+
+            modelBuilder.Entity<GearSetItem>()
+                .HasIndex(gsi => new { gsi.GearSetId, gsi.Position });
+
             // Store Stat.Category as string
             modelBuilder.Entity<Stat>()
                 .Property(s => s.Category)

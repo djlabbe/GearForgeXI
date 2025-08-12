@@ -14,6 +14,10 @@ builder.Services.AddControllers();
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+// Add response caching
+builder.Services.AddResponseCaching();
+builder.Services.AddMemoryCache();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new() { Title = "GearForgeXI API", Version = "v1" });
@@ -52,7 +56,21 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
     .Replace("{GEARFORGEXI_DB_PASSWORD}", Environment.GetEnvironmentVariable("GEARFORGEXI_DB_PASSWORD") ?? throw new Exception("GEARFORGEXI_DB_PASSWORD not set"));
 
 // Register your DbContext with PostgreSQL + EF Core
-builder.Services.AddDbContext<GearDbContext>(options => options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<GearDbContext>(options =>
+{
+    options.UseNpgsql(connectionString, npgsqlOptions =>
+    {
+        // Enable connection pooling for better performance
+        npgsqlOptions.EnableRetryOnFailure(maxRetryCount: 3, maxRetryDelay: TimeSpan.FromSeconds(5), errorCodesToAdd: null);
+    });
+
+    // Disable sensitive data logging in production
+    if (!builder.Environment.IsDevelopment())
+    {
+        options.EnableSensitiveDataLogging(false);
+        options.EnableDetailedErrors(false);
+    }
+});
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<GearDbContext>()
@@ -142,6 +160,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Add response caching middleware
+app.UseResponseCaching();
 
 if (app.Environment.IsDevelopment())
 {

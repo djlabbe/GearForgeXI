@@ -13,9 +13,11 @@ public class GearController(GearDbContext context) : ControllerBase
     private readonly GearDbContext _context = context;
 
     [HttpGet("slots")]
+    [ResponseCache(Duration = 3600)] // Cache for 1 hour - slots rarely change
     public async Task<IActionResult> GetAvailableSlots()
     {
         var slots = await _context.GearSlots
+            .AsNoTracking()
             .OrderBy(s => s.Id)
             .Select(s => s.Name)
             .ToListAsync();
@@ -24,9 +26,11 @@ public class GearController(GearDbContext context) : ControllerBase
     }
 
     [HttpGet("slots/mapping")]
+    [ResponseCache(Duration = 3600)] // Cache for 1 hour - slot mappings rarely change
     public async Task<IActionResult> GetSlotMapping()
     {
         var slots = await _context.GearSlots
+            .AsNoTracking()
             .OrderBy(s => s.Id)
             .Select(s => new { Id = s.Id, Name = s.Name })
             .ToListAsync();
@@ -35,6 +39,7 @@ public class GearController(GearDbContext context) : ControllerBase
     }
 
     [HttpGet("categories")]
+    [ResponseCache(Duration = 3600)] // Cache for 1 hour - categories rarely change
     public async Task<IActionResult> GetAvailableCategories()
     {
         var categories = await _context.GearItemCategories
@@ -71,6 +76,7 @@ public class GearController(GearDbContext context) : ControllerBase
         var slotNormalized = MapPositionToSlotName(slot);
 
         var query = _context.GearItems
+            .AsNoTracking()
             .Include(g => g.GearItemStats)
                 .ThenInclude(gis => gis.Stat)
             .Include(g => g.GearItemJobs)
