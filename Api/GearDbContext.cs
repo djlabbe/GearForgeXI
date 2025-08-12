@@ -19,6 +19,8 @@ namespace GearForgeXI
         public DbSet<GearSet> GearSets { get; set; } = null!;
         public DbSet<GearSetItem> GearSetItems { get; set; } = null!;
         public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
+        public DbSet<CharacterProfile> CharacterProfiles { get; set; } = null!;
+        public DbSet<CharacterJob> CharacterJobs { get; set; } = null!;
 
 
 
@@ -208,6 +210,47 @@ namespace GearForgeXI
                 .WithMany()
                 .HasForeignKey(gs => gs.JobId)
                 .OnDelete(DeleteBehavior.Restrict); // Don't allow job deletion if gear sets exist
+
+            // CharacterProfile relationships
+            modelBuilder.Entity<CharacterProfile>()
+                .HasOne(cp => cp.User)
+                .WithMany(u => u.CharacterProfiles)
+                .HasForeignKey(cp => cp.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // CharacterJob relationships
+            modelBuilder.Entity<CharacterJob>()
+                .HasOne(cj => cj.CharacterProfile)
+                .WithMany(cp => cp.CharacterJobs)
+                .HasForeignKey(cj => cj.CharacterProfileId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<CharacterJob>()
+                .HasOne(cj => cj.Job)
+                .WithMany()
+                .HasForeignKey(cj => cj.JobId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Character profile indexes for performance
+            modelBuilder.Entity<CharacterProfile>()
+                .HasIndex(cp => cp.UserId);
+
+            modelBuilder.Entity<CharacterProfile>()
+                .HasIndex(cp => new { cp.CharacterName, cp.Server })
+                .IsUnique(); // Prevent duplicate character names on same server
+
+            modelBuilder.Entity<CharacterJob>()
+                .HasIndex(cj => new { cj.CharacterProfileId, cj.JobId })
+                .IsUnique(); // One character job record per job per character
+
+            // Convert enums to string for database storage
+            modelBuilder.Entity<CharacterProfile>()
+                .Property(cp => cp.Race)
+                .HasConversion<string>();
+
+            modelBuilder.Entity<CharacterProfile>()
+                .Property(cp => cp.Server)
+                .HasConversion<string>();
 
         }
     }
