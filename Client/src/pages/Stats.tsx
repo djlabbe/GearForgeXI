@@ -26,6 +26,7 @@ export function Stats() {
   } | null>(null);
   const [showGearItemsModal, setShowGearItemsModal] = useState(false);
   const [selectedStat, setSelectedStat] = useState<Stat | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
   const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const updateStat = async (stat: Stat) => {
@@ -61,18 +62,21 @@ export function Stats() {
   const confirmDeleteStat = async () => {
     if (!statToDelete) return;
 
+    setIsDeleting(true);
     try {
       await deleteStat(statToDelete.id);
       await refreshStats(); // Refresh the stats list after successful deletion
+      setShowDeleteConfirm(false);
+      setStatToDelete(null);
     } catch (error) {
       alert("Failed to delete stat. Please try again.");
     } finally {
-      setShowDeleteConfirm(false);
-      setStatToDelete(null);
+      setIsDeleting(false);
     }
   };
 
   const cancelDeleteStat = () => {
+    if (isDeleting) return; // Don't allow canceling while deleting
     setShowDeleteConfirm(false);
     setStatToDelete(null);
   };
@@ -334,6 +338,7 @@ export function Stats() {
           message={`Are you sure you want to delete the stat "${statToDelete?.name}"? This action cannot be undone.`}
           confirmText="Delete"
           cancelText="Cancel"
+          isLoading={isDeleting}
           onConfirm={confirmDeleteStat}
           onCancel={cancelDeleteStat}
         />

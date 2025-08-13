@@ -64,6 +64,8 @@ public class GearSetsController(
                         Id = gss.GearItem.Id,
                         Name = gss.GearItem.Name,
                         Category = gss.GearItem.Category != null ? gss.GearItem.Category.Name : null,
+                        Rank = gss.GearItem.Rank,
+                        Path = gss.GearItem.Path,
                         Verified = gss.GearItem.Verified,
                         Stats = gss.GearItem.GearItemStats.Select(gis => new GearStatDto
                         {
@@ -152,6 +154,8 @@ public class GearSetsController(
                         Id = gss.GearItem.Id,
                         Name = gss.GearItem.Name,
                         Category = gss.GearItem.Category != null ? gss.GearItem.Category.Name : null,
+                        Rank = gss.GearItem.Rank,
+                        Path = gss.GearItem.Path,
                         Verified = gss.GearItem.Verified,
                         Stats = gss.GearItem.GearItemStats.Select(gis => new GearStatDto
                         {
@@ -237,6 +241,8 @@ public class GearSetsController(
                         Id = gss.GearItem.Id,
                         Name = gss.GearItem.Name,
                         Category = gss.GearItem.Category != null ? gss.GearItem.Category.Name : null,
+                        Rank = gss.GearItem.Rank,
+                        Path = gss.GearItem.Path,
                         Verified = gss.GearItem.Verified,
                         Stats = gss.GearItem.GearItemStats.Select(gis => new GearStatDto
                         {
