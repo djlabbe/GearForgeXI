@@ -18,7 +18,8 @@ public class CharacterProfile
     public Server Server { get; set; }
 
     // Race information
-    public Race? Race { get; set; }
+    [Required]
+    public Race Race { get; set; }
 
     // Timestamps
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;

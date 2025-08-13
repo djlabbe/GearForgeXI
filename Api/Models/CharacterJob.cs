@@ -13,9 +13,9 @@ public class CharacterJob
     [Required]
     public int JobId { get; set; }
 
-    // Job level (1-99)
+    // Job level (0-99)
     [Range(0, 99)]
-    public int JobLevel { get; set; } = 1;
+    public int JobLevel { get; set; } = 0;
 
     // Master levels (0-50)
     [Range(0, 50)]

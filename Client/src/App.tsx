@@ -3,6 +3,7 @@ import { GearBrowser } from "./pages/GearBrowser";
 import ComparePage from "./pages/Compare";
 import { Navbar } from "./components/Navbar";
 import { Stats } from "./pages/Stats";
+import { CharacterProfiles } from "./pages/CharacterProfiles";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
@@ -31,6 +32,7 @@ function AppContent() {
             <Route path="/" element={<ComparePage />} />
             <Route path="/gear" element={<GearBrowser />} />
             <Route path="/stats" element={<Stats />} />
+            <Route path="/profiles" element={<CharacterProfiles />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>

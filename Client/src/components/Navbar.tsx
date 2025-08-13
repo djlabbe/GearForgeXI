@@ -67,7 +67,7 @@ export function Navbar() {
             )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
             onClick={() => setMenuOpen(false)}
           >
-            Compare Sets
+            Build / Compare Sets
           </Link>
           <Link
             to="/gear"
@@ -76,7 +76,7 @@ export function Navbar() {
             )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
             onClick={() => setMenuOpen(false)}
           >
-            Browse Gear
+            Browse Equipment
           </Link>
           <Link
             to="/stats"
@@ -85,8 +85,20 @@ export function Navbar() {
             )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
             onClick={() => setMenuOpen(false)}
           >
-            Stats
+            Item Stats
           </Link>
+
+          {isAuthenticated && (
+            <Link
+              to="/profiles"
+              className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
+                "/profiles"
+              )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
+              onClick={() => setMenuOpen(false)}
+            >
+              My Characters
+            </Link>
+          )}
 
           {isAuthenticated ? (
             <div className="flex items-center space-x-2">

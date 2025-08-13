@@ -5,7 +5,7 @@ public class CharacterProfileDto
     public int Id { get; set; }
     public string CharacterName { get; set; } = null!;
     public string Server { get; set; } = null!;
-    public string? Race { get; set; }
+    public string Race { get; set; } = null!;
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
     public List<CharacterJobDto> CharacterJobs { get; set; } = new();
@@ -15,7 +15,7 @@ public class CreateCharacterProfileDto
 {
     public string CharacterName { get; set; } = null!;
     public int Server { get; set; }
-    public int? Race { get; set; }
+    public int Race { get; set; }
 }
 
 public class UpdateCharacterProfileDto

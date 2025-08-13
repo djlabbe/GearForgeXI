@@ -256,7 +256,7 @@ export function Stats() {
       {/* Header with Add New Stat Button */}
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-          {isAdmin ? "Stats Admin" : "Stats"}
+          Item Stats
         </h1>
         {isAdmin && (
           <button

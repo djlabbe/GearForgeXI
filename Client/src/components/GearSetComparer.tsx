@@ -31,6 +31,7 @@ interface Props {
 export function GearSetComparer({ job, subJob }: Props) {
   const { isAuthenticated } = useAuth();
   const [gearItems, setGearItems] = useState<GearItem[]>([]);
+  const [isLoadingGearData, setIsLoadingGearData] = useState(true);
 
   // Use custom hook for gear set state management
   const {
@@ -66,6 +67,8 @@ export function GearSetComparer({ job, subJob }: Props) {
   useEffect(() => {
     if (!job) return;
 
+    setIsLoadingGearData(true);
+
     // Get all available slots and fetch gear for each
     const slots = ["Head", "Neck", "Ear", "Body", "Hands", "Ring", "Back", "Waist", "Legs", "Feet", "Main", "Sub", "Range", "Ammo"];
     
@@ -83,6 +86,9 @@ export function GearSetComparer({ job, subJob }: Props) {
         index === self.findIndex(i => i.id === item.id)
       );
       setGearItems(uniqueItems);
+    })
+    .finally(() => {
+      setIsLoadingGearData(false);
     });
   }, [job]);
 
@@ -266,48 +272,59 @@ export function GearSetComparer({ job, subJob }: Props) {
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 mb-4 gap-4">
-        <GearSetCard
-          gearSet={setA}
-          augments={setAAugments}
-          gearItems={gearItems}
-          job={job}
-          subJob={subJob}
-          isAuthenticated={isAuthenticated}
-          setName="Set A"
-          isCreating={isCreatingSet}
-          isUpdating={isUpdatingSet}
-          isLoading={isLoadingSet}
-          onSelect={handleSelectA}
-          onAugmentChange={setSetAAugments}
-          onCreateNew={() => setShowCreateNewDialog({ isSetA: true, show: true })}
-          onUpdate={() => handleUpdateSet(true)}
-          onLoad={() => setShowLoadDialog({ isSetA: true, show: true })}
-          onClear={() => handleClearSet(true)}
-          onCopyLua={handleCopyLua}
-        />
-        
-        <GearSetCard
-          gearSet={setB}
-          augments={setBAugments}
-          gearItems={gearItems}
-          job={job}
-          subJob={subJob}
-          isAuthenticated={isAuthenticated}
-          setName="Set B"
-          isCreating={isCreatingSet}
-          isUpdating={isUpdatingSet}
-          isLoading={isLoadingSet}
-          onSelect={handleSelectB}
-          onAugmentChange={setSetBAugments}
-          onCreateNew={() => setShowCreateNewDialog({ isSetA: false, show: true })}
-          onUpdate={() => handleUpdateSet(false)}
-          onLoad={() => setShowLoadDialog({ isSetA: false, show: true })}
-          onClear={() => handleClearSet(false)}
-          onCopyLua={handleCopyLua}
-        />
+        {isLoadingGearData ? (
+          <div className="col-span-1 md:col-span-2 flex items-center justify-center py-12">
+            <div className="text-center">
+              <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mb-4"></div>
+              <p className="text-gray-600 dark:text-gray-400">Loading gear data...</p>
+            </div>
+          </div>
+        ) : (
+          <>
+            <GearSetCard
+              gearSet={setA}
+              augments={setAAugments}
+              gearItems={gearItems}
+              job={job}
+              subJob={subJob}
+              isAuthenticated={isAuthenticated}
+              setName="Set A"
+              isCreating={isCreatingSet}
+              isUpdating={isUpdatingSet}
+              isLoading={isLoadingSet}
+              onSelect={handleSelectA}
+              onAugmentChange={setSetAAugments}
+              onCreateNew={() => setShowCreateNewDialog({ isSetA: true, show: true })}
+              onUpdate={() => handleUpdateSet(true)}
+              onLoad={() => setShowLoadDialog({ isSetA: true, show: true })}
+              onClear={() => handleClearSet(true)}
+              onCopyLua={handleCopyLua}
+            />
+            
+            <GearSetCard
+              gearSet={setB}
+              augments={setBAugments}
+              gearItems={gearItems}
+              job={job}
+              subJob={subJob}
+              isAuthenticated={isAuthenticated}
+              setName="Set B"
+              isCreating={isCreatingSet}
+              isUpdating={isUpdatingSet}
+              isLoading={isLoadingSet}
+              onSelect={handleSelectB}
+              onAugmentChange={setSetBAugments}
+              onCreateNew={() => setShowCreateNewDialog({ isSetA: false, show: true })}
+              onUpdate={() => handleUpdateSet(false)}
+              onLoad={() => setShowLoadDialog({ isSetA: false, show: true })}
+              onClear={() => handleClearSet(false)}
+              onCopyLua={handleCopyLua}
+            />
+          </>
+        )}
       </div>
 
-      {comparison.length > 0 && (
+      {!isLoadingGearData && comparison.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           {categorizedStats.map((category) => (
             <StatTable

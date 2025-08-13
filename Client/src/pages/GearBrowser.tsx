@@ -109,7 +109,7 @@ export function GearBrowser() {
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-          {isAdmin ? "Gear Admin" : "Gear Browser"}
+          Equipment
         </h1>
         {isAdmin && (
           <button

@@ -30,7 +30,7 @@ public class CharacterProfileController(GearDbContext context) : ControllerBase
                 Id = cp.Id,
                 CharacterName = cp.CharacterName,
                 Server = cp.Server.ToString(),
-                Race = cp.Race != null ? cp.Race.ToString() : null,
+                Race = cp.Race.ToString(),
                 CreatedAt = cp.CreatedAt,
                 UpdatedAt = cp.UpdatedAt,
                 CharacterJobs = cp.CharacterJobs.Select(cj => new CharacterJobDto
@@ -73,7 +73,7 @@ public class CharacterProfileController(GearDbContext context) : ControllerBase
             Id = profile.Id,
             CharacterName = profile.CharacterName,
             Server = profile.Server.ToString(),
-            Race = profile.Race?.ToString(),
+            Race = profile.Race.ToString(),
             CreatedAt = profile.CreatedAt,
             UpdatedAt = profile.UpdatedAt,
             CharacterJobs = profile.CharacterJobs.Select(cj => new CharacterJobDto
@@ -106,7 +106,7 @@ public class CharacterProfileController(GearDbContext context) : ControllerBase
             UserId = userId,
             CharacterName = dto.CharacterName,
             Server = (Server)dto.Server,
-            Race = dto.Race.HasValue ? (Race)dto.Race.Value : null,
+            Race = (Race)dto.Race,
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
         };
