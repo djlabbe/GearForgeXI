@@ -21,6 +21,9 @@ public class CharacterJob
     [Range(0, 50)]
     public int MasterLevel { get; set; } = 0;
 
+    // Simple boolean: if JobLevel = 99 AND MasterLevel > 0, then they get ALL JP bonuses
+    public bool IsMastered => JobLevel == 99 && MasterLevel > 0;
+
     // Timestamps
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
