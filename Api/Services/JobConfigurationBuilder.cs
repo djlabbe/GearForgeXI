@@ -64,13 +64,13 @@ public class JobConfigurationBuilder
             },
             MasterLevelBonuses = new()
             {
-                [GetStatId("STR")] = 1,
-                [GetStatId("DEX")] = 1,
-                [GetStatId("VIT")] = 1,
-                [GetStatId("AGI")] = 1,
-                [GetStatId("INT")] = 1,
-                [GetStatId("MND")] = 1,
-                [GetStatId("CHR")] = 1
+                [GetStatId("STR")] = 50,
+                [GetStatId("DEX")] = 50,
+                [GetStatId("VIT")] = 50,
+                [GetStatId("AGI")] = 50,
+                [GetStatId("INT")] = 50,
+                [GetStatId("MND")] = 50,
+                [GetStatId("CHR")] = 50
             }
         };
 
@@ -87,13 +87,59 @@ public class JobConfigurationBuilder
             },
             MasterLevelBonuses = new()
             {
-                [GetStatId("STR")] = 1,
-                [GetStatId("DEX")] = 1,
-                [GetStatId("VIT")] = 1,
-                [GetStatId("AGI")] = 1,
-                [GetStatId("INT")] = 1,
-                [GetStatId("MND")] = 1,
-                [GetStatId("CHR")] = 1
+                [GetStatId("STR")] = 50,
+                [GetStatId("DEX")] = 50,
+                [GetStatId("VIT")] = 50,
+                [GetStatId("AGI")] = 50,
+                [GetStatId("INT")] = 50,
+                [GetStatId("MND")] = 50,
+                [GetStatId("CHR")] = 50
+            }
+        };
+
+        // BLM
+        configs[4] = new JobStaticData
+        {
+            Traits = new List<JobTrait>
+            {
+
+            },
+            JobPointBonuses = new()
+            {
+
+            },
+            MasterLevelBonuses = new()
+            {
+                [GetStatId("STR")] = 50,
+                [GetStatId("DEX")] = 50,
+                [GetStatId("VIT")] = 50,
+                [GetStatId("AGI")] = 50,
+                [GetStatId("INT")] = 50,
+                [GetStatId("MND")] = 50,
+                [GetStatId("CHR")] = 50
+            }
+        };
+
+        // BST
+        configs[9] = new JobStaticData
+        {
+            Traits = new List<JobTrait>
+            {
+
+            },
+            JobPointBonuses = new()
+            {
+
+            },
+            MasterLevelBonuses = new()
+            {
+                [GetStatId("STR")] = 50,
+                [GetStatId("DEX")] = 50,
+                [GetStatId("VIT")] = 50,
+                [GetStatId("AGI")] = 50,
+                [GetStatId("INT")] = 50,
+                [GetStatId("MND")] = 50,
+                [GetStatId("CHR")] = 50
             }
         };
 

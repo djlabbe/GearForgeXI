@@ -46,32 +46,40 @@ public class CharacterSimulationController(GearDbContext context, CharacterSimul
             // .FirstOrDefaultAsync(gs => gs.Id == request.GearSetId && gs.UserId == GetUserId());
 
             // Validate main job exists in character profile
-            if (!profile.CharacterJobs.Any(cj => cj.JobId == request.MainJobId))
+            var mainJob = profile.CharacterJobs.FirstOrDefault(cj => cj.JobId == request.MainJobId);
+            var subJob = profile.CharacterJobs.FirstOrDefault(cj => cj.JobId == request.SubJobId);
+
+            if (mainJob == null)
             {
                 return BadRequest("Main job not found in character profile");
             }
 
+            if (mainJob.JobLevel < 99)
+            {
+                return BadRequest("Simulation only supports jobs at level 99");
+            }
+
             // Validate subjob exists in character profile (if specified)
-            if (!profile.CharacterJobs.Any(cj => cj.JobId == request.SubJobId))
+            if (subJob == null)
             {
                 return BadRequest("Sub job not found in character profile");
             }
 
             // Calculate stats
-            var characterStats = await _simulationService.CalculateStatsAsync(profile, request.MainJobId, request.SubJobId, gearSet);
+            var characterStatsDto = await _simulationService.CalculateCharacterStats(profile, request.MainJobId, request.SubJobId, gearSet);
 
             // Convert to response DTO
             var response = new CalculateStatsResponse
             {
                 CharacterName = profile.CharacterName,
                 Race = profile.Race.ToString(),
-                MainJob = profile.CharacterJobs.First(cj => cj.JobId == request.MainJobId).Job.Abbreviation,
-                MainJobLevel = profile.CharacterJobs.First(cj => cj.JobId == request.MainJobId).JobLevel,
-                MainJobMasterLevel = profile.CharacterJobs.First(cj => cj.JobId == request.MainJobId).MasterLevel,
-                SubJob = profile.CharacterJobs.First(cj => cj.JobId == request.SubJobId).Job.Abbreviation,
-                SubJobLevel = profile.CharacterJobs.First(cj => cj.JobId == request.SubJobId).JobLevel,
+                MainJob = mainJob.Job.Abbreviation,
+                MainJobLevel = mainJob.JobLevel,
+                MainJobMasterLevel = mainJob.MasterLevel,
+                SubJob = subJob.Job.Abbreviation,
+                SubJobLevel = Math.Min(49 + (subJob.MasterLevel / 5), subJob.JobLevel),
                 GearSetName = gearSet?.Name ?? "",
-                Stats = await characterStats.ToDtoAsync(_statLookupService),
+                Stats = characterStatsDto,
                 CalculatedAt = DateTime.UtcNow
             };
 
@@ -116,7 +124,7 @@ public class CharacterSimulationController(GearDbContext context, CharacterSimul
             };
 
             // Calculate stats
-            var characterStats = await _simulationService.CalculateStatsAsync(mockProfile, 1, 6, mockGearSet);
+            var characterStatsDto = await _simulationService.CalculateCharacterStats(mockProfile, 1, 6, mockGearSet);
 
             var response = new
             {
@@ -133,7 +141,7 @@ public class CharacterSimulationController(GearDbContext context, CharacterSimul
                     Name = mockGearSet.Name,
                     ItemCount = mockGearSet.GearSetItems.Count
                 },
-                Stats = await characterStats.ToDtoAsync(_statLookupService),
+                Stats = characterStatsDto,
                 Notes = new[]
                 {
                     "SIMPLIFIED SYSTEM: Main jobs are always treated as level 99",

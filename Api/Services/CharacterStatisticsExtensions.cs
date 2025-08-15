@@ -21,8 +21,26 @@ public static class CharacterStatisticsExtensions
             StatBreakdown = new Dictionary<string, List<StatModifierDto>>()
         };
 
-        // Convert all stat values using database stat names
-        foreach (var statValue in stats.StatValues)
+        // Define the desired stat order for consistent JSON output
+        var desiredStatOrder = new[] { "STR", "DEX", "VIT", "AGI", "INT", "MND", "CHR" };
+
+        // Convert stat values in the desired order first (core stats)
+        foreach (var statName in desiredStatOrder)
+        {
+            var statId = statIdToNameMap.FirstOrDefault(kvp => kvp.Value == statName).Key;
+            if (statId != 0 && stats.StatValues.TryGetValue(statId, out var value))
+            {
+                dto.Stats[statName] = value;
+            }
+        }
+
+        // Then add any remaining stats (non-core stats) in alphabetical order
+        var remainingStats = stats.StatValues
+            .Where(sv => statIdToNameMap.TryGetValue(sv.Key, out var name) && !desiredStatOrder.Contains(name))
+            .OrderBy(sv => statIdToNameMap[sv.Key])
+            .ToList();
+
+        foreach (var statValue in remainingStats)
         {
             if (statIdToNameMap.TryGetValue(statValue.Key, out var statName))
             {
@@ -30,8 +48,25 @@ public static class CharacterStatisticsExtensions
             }
         }
 
-        // Convert stat breakdown
-        foreach (var statModifier in stats.StatModifiers)
+        // Convert stat breakdown in the same order
+        foreach (var statName in desiredStatOrder)
+        {
+            var statId = statIdToNameMap.FirstOrDefault(kvp => kvp.Value == statName).Key;
+            if (statId != 0 && stats.StatModifiers.TryGetValue(statId, out var modifiers))
+            {
+                dto.StatBreakdown[statName] = modifiers
+                    .Select(m => new StatModifierDto { Value = m.Value, Source = m.Source })
+                    .ToList();
+            }
+        }
+
+        // Then add any remaining stat breakdowns in alphabetical order
+        var remainingBreakdowns = stats.StatModifiers
+            .Where(sm => statIdToNameMap.TryGetValue(sm.Key, out var name) && !desiredStatOrder.Contains(name))
+            .OrderBy(sm => statIdToNameMap[sm.Key])
+            .ToList();
+
+        foreach (var statModifier in remainingBreakdowns)
         {
             if (statIdToNameMap.TryGetValue(statModifier.Key, out var statName))
             {
