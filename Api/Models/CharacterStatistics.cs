@@ -28,7 +28,7 @@ public class CharacterStatistics
         // Add to modifiers tracking
         if (!StatModifiers.ContainsKey(statId))
         {
-            StatModifiers[statId] = new List<StatModifier>();
+            StatModifiers[statId] = [];
         }
 
         StatModifiers[statId].Add(new StatModifier
@@ -59,7 +59,7 @@ public class CharacterStatistics
     /// </summary>
     public List<StatModifier> GetStatModifiers(int statId)
     {
-        return StatModifiers.TryGetValue(statId, out var modifiers) ? modifiers : new List<StatModifier>();
+        return StatModifiers.TryGetValue(statId, out var modifiers) ? modifiers : [];
     }
 
     /// <summary>
@@ -69,4 +69,10 @@ public class CharacterStatistics
     {
         return StatValues.ContainsKey(statId) && StatValues[statId] != 0;
     }
+}
+
+public class StatModifier
+{
+    public int Value { get; set; }
+    public string Source { get; set; } = null!;
 }

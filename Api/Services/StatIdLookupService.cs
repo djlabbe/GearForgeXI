@@ -7,15 +7,10 @@ namespace GearForgeXI.Services;
 /// Service to manage stat ID lookups and job configurations
 /// This bridges the gap between static job data and dynamic database stats
 /// </summary>
-public class StatIdLookupService
+public class StatIdLookupService(GearDbContext context)
 {
-    private readonly GearDbContext _context;
+    private readonly GearDbContext _context = context;
     private Dictionary<string, int>? _statNameToIdCache;
-
-    public StatIdLookupService(GearDbContext context)
-    {
-        _context = context;
-    }
 
     /// <summary>
     /// Get stat ID by name, with caching for performance

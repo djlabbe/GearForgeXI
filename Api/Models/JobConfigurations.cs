@@ -6,18 +6,14 @@ namespace GearForgeXI.Models;
 /// </summary>
 public static class JobConfigurations
 {
-    public static readonly Dictionary<int, JobStaticData> Data = new()
-    {
-
-
-    };
+    public static readonly Dictionary<int, JobStaticData> _data = [];
 
     /// <summary>
     /// Gets the static job configuration for a given job ID
     /// </summary>
     public static JobStaticData? GetJobConfiguration(int jobId)
     {
-        return Data.TryGetValue(jobId, out var config) ? config : null;
+        return _data.TryGetValue(jobId, out var config) ? config : null;
     }
 
     /// <summary>
@@ -25,7 +21,7 @@ public static class JobConfigurations
     /// </summary>
     public static bool HasConfiguration(int jobId)
     {
-        return Data.ContainsKey(jobId);
+        return _data.ContainsKey(jobId);
     }
 
     /// <summary>
@@ -33,6 +29,6 @@ public static class JobConfigurations
     /// </summary>
     public static IEnumerable<int> GetConfiguredJobIds()
     {
-        return Data.Keys;
+        return _data.Keys;
     }
 }

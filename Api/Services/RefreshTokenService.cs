@@ -4,14 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GearForgeXI.Services;
 
-public class RefreshTokenService
+public class RefreshTokenService(GearDbContext context)
 {
-    private readonly GearDbContext _context;
-
-    public RefreshTokenService(GearDbContext context)
-    {
-        _context = context;
-    }
+    private readonly GearDbContext _context = context;
 
     public async Task<RefreshToken> GenerateRefreshTokenAsync(string userId)
     {
