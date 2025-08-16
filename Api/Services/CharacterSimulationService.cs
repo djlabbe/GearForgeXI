@@ -8,8 +8,10 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
     private readonly StatIdLookupService _statIdLookupService = statIdLookupService;
     private readonly JobConfigurationBuilder _jobConfigurationBuilder = jobConfigurationBuilder;
 
+    #region Constants and Data Tables
+
     /// <summary>
-    /// Core stat names in the order they appear in ranking tables
+    /// Core stat names in the order they appear in stat tables
     /// </summary>
     private static readonly string[] _statNames = ["STR", "DEX", "VIT", "AGI", "INT", "MND", "CHR"];
 
@@ -56,12 +58,29 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
         { "RUN", new[] { 72, 72, 69, 74, 69, 72, 63 } }
     };
 
+    #endregion
+
+    #region Public Methods
+
     /// <summary>
-    /// Main method to calculate character stats using FFXI ranking system
+    /// Main method to calculate character stats using FFXI stat system
     /// </summary>
     public async Task<CharacterStatsDto> CalculateCharacterStats(CharacterProfile profile, int mainJobId, int subJobId, GearSet? gearSet = null)
     {
-        var stats = new CharacterStatistics();
+        var mainJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == mainJobId);
+        var subJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == subJobId);
+
+        if (mainJob == null)
+        {
+            throw new ArgumentException("Main job not found in character profile");
+        }
+
+        if (subJob == null)
+        {
+            throw new ArgumentException("Sub job not found in character profile");
+        }
+
+        var characterStatistics = new CharacterStatistics();
 
         // Get core stat IDs from database for mapping
         var coreStatIds = await _statIdLookupService.GetStatIdsByNamesAsync("STR", "DEX", "VIT", "AGI", "INT", "MND", "CHR");
@@ -69,146 +88,112 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
         // Get job configurations for traits and bonuses
         var jobConfigurations = await _jobConfigurationBuilder.BuildJobConfigurationsAsync();
 
-        // Apply base stats first using FFXI ranking system
-        ApplyBaseStats(stats, profile, mainJobId, subJobId, coreStatIds);
+        ApplyBaseStats(characterStatistics, profile.Race, mainJob, subJob, coreStatIds);
 
-        // Apply merits (15 points each for core stats)
-        ApplyMerits(stats, coreStatIds);
+        ApplyMerits(characterStatistics, coreStatIds);
 
-        // Apply master level bonuses
-        ApplyMasterLevelBonuses(stats, profile, mainJobId, jobConfigurations);
+        ApplyJobTraits(characterStatistics, mainJob, subJob, jobConfigurations);
 
-        // Apply job traits
-        ApplyJobTraits(stats, profile, mainJobId, subJobId, jobConfigurations);
+        ApplyJobPointBonuses(characterStatistics, mainJob, jobConfigurations);
 
-        // Apply job point bonuses
-        ApplyJobPointBonuses(stats, profile, mainJobId, subJobId, jobConfigurations);
+        ApplyMasterLevelBonuses(characterStatistics, mainJob, jobConfigurations);
 
-        // Apply gear stats if gear set is provided
-        if (gearSet != null)
-        {
-            ApplyGearStats(stats, gearSet);
-        }
+        ApplyGearStats(characterStatistics, gearSet);
 
         // Build and return the response DTO
-        return await stats.ToDtoAsync(_statIdLookupService);
+        return await characterStatistics.ToDtoAsync(_statIdLookupService);
+    }
+
+    #endregion
+
+    #region Private Stat Calculation Methods
+
+    /// <summary>
+    /// Applies base character stats using race, job, and subjob calculations
+    /// </summary>
+    private void ApplyBaseStats(CharacterStatistics stats, Race race, CharacterJob mainJob, CharacterJob subJob, Dictionary<string, int> coreStatIds)
+    {
+        var raceCode = ConvertRaceToCode(race);
+        var mainJobCode = ConvertJobIdToCode(mainJob.Id);
+        var subJobCode = ConvertJobIdToCode(subJob.Id);
+
+        var raceStats = CalculateRaceStats(raceCode);
+        ApplyStatCategory(stats, raceStats, coreStatIds, statName => $"Race: {raceCode}");
+
+        var mainJobStats = CalculateMainJobStats(mainJobCode);
+        ApplyStatCategory(stats, mainJobStats, coreStatIds, statName => $"Main Job: {mainJobCode}");
+
+        // Calculate effective subjob level based on main job master level
+        var effectiveSubJobLevel = Math.Min(49 + (mainJob.MasterLevel / 5), subJob.JobLevel);
+        var subJobStats = CalculateSubJobStats(subJobCode, effectiveSubJobLevel);
+        ApplyStatCategory(stats, subJobStats, coreStatIds, statName => $"Sub Job: {subJobCode}");
     }
 
     /// <summary>
-    /// Applies base character stats using the FFXI ranking system
-    /// Uses race + main job + subjob level calculations from the ranking tables
+    /// Helper method to apply a category of stats with consistent logic
     /// </summary>
-    private void ApplyBaseStats(CharacterStatistics stats, CharacterProfile profile, int mainJobId, int subJobId, Dictionary<string, int> coreStatIds)
+    private void ApplyStatCategory(CharacterStatistics stats, Dictionary<string, int> statValues,
+        Dictionary<string, int> coreStatIds, Func<string, string> sourceNameGenerator)
     {
-        // Helper method to safely get stat ID
-        int GetStatId(string statName) => coreStatIds.TryGetValue(statName, out var id) ? id : 0;
-
-        // Get the main job and subjob data
-        var mainJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == mainJobId);
-        var subJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == subJobId);
-
-        if (mainJob == null) return;
-
-        // Convert race enum to string code
-        var raceCode = ConvertRaceToCode(profile.Race);
-        var mainJobCode = ConvertJobIdToCode(mainJobId);
-        var subJobCode = subJob != null ? ConvertJobIdToCode(subJobId) : null;
-
-        // Calculate base stats using the FFXI ranking system
-        var (raceStats, mainJobStats, subJobStats) = CalculateBaseStatsBreakdown(
-            raceCode,
-            mainJobCode,
-            mainJob.JobLevel,
-            subJobCode,
-            subJob?.JobLevel ?? 0);
-
-        // Apply main job stats
-        foreach (var (statName, value) in mainJobStats)
+        foreach (var (statName, value) in statValues)
         {
-            var statId = GetStatId(statName);
-            if (statId > 0 && value > 0)
+            if (coreStatIds.TryGetValue(statName, out var statId) && statId > 0 && value > 0)
             {
-                stats.AddModifier(statId, value, $"Main Job: {mainJobCode}");
-            }
-        }
-
-        // Apply subjob stats (if any)
-        if (subJob != null)
-        {
-            foreach (var (statName, value) in subJobStats)
-            {
-                var statId = GetStatId(statName);
-                if (statId > 0 && value > 0)
-                {
-                    stats.AddModifier(statId, value, $"Sub Job: {subJobCode}");
-                }
-            }
-        }
-
-        // Apply race stats
-        foreach (var (statName, value) in raceStats)
-        {
-            var statId = GetStatId(statName);
-            if (statId > 0 && value > 0)
-            {
-                stats.AddModifier(statId, value, $"Race: {profile.Race}");
+                stats.AddModifier(statId, value, sourceNameGenerator(statName));
             }
         }
     }
 
     /// <summary>
-    /// Calculates base character stats using the FFXI ranking system with separate components
-    /// Formula: RaceStats + JobStats + SubJobStats
-    /// Where each component = floor(Scale * (Level-1) + Base)
-    /// SubJob component is further divided by 2 with special rounding
-    /// Returns (raceStats, mainJobStats, subJobStats) separately for transparency
+    /// Calculate race-based stat bonuses
     /// </summary>
-    private (Dictionary<string, int> raceStats, Dictionary<string, int> mainJobStats, Dictionary<string, int> subJobStats)
-        CalculateBaseStatsBreakdown(string race, string mainJob, int mainLevel, string? subJob = null, int subLevel = 0)
+    private static Dictionary<string, int> CalculateRaceStats(string race)
     {
-        var raceStats = new Dictionary<string, int>();
-        var mainJobStats = new Dictionary<string, int>();
-        var subJobStats = new Dictionary<string, int>();
-
-        // Validate inputs
         if (!_raceStatBonuses.ContainsKey(race))
             throw new ArgumentException($"Invalid race: {race}");
 
+        var raceStats = new Dictionary<string, int>();
+        for (int i = 0; i < _statNames.Length; i++)
+        {
+            raceStats[_statNames[i]] = _raceStatBonuses[race][i];
+        }
+        return raceStats;
+    }
+
+    /// <summary>
+    /// Calculate main job base stats at level 99
+    /// </summary>
+    private static Dictionary<string, int> CalculateMainJobStats(string mainJob)
+    {
         if (!_jobBaseStats.ContainsKey(mainJob))
             throw new ArgumentException($"Invalid main job: {mainJob}");
 
-        // Calculate stats for each core stat
+        var mainJobStats = new Dictionary<string, int>();
         for (int i = 0; i < _statNames.Length; i++)
         {
-            var statName = _statNames[i];
-
-            // Race stats: Use fixed bonuses from the race table
-            var raceStatValue = _raceStatBonuses[race][i];
-            raceStats[statName] = raceStatValue;
-
-            // Main job stats: Use job-specific base stats
-            var mainJobStatValue = _jobBaseStats[mainJob][i];
-            mainJobStats[statName] = mainJobStatValue;
-
-            // Sub job stats: Level-based bonus system
-            // No stats for level 49 or below
-            // +1 all stats for every 2 levels between 50-59
-            int subJobStatValue = 0;
-            // if (subLevel > 49 && subLevel <= 59)
-            // {
-            //     // Calculate bonus: (level - 49) / 2
-            //     subJobStatValue = (subLevel - 49) / 2;
-            // }
-            subJobStats[statName] = subJobStatValue;
+            mainJobStats[_statNames[i]] = _jobBaseStats[mainJob][i];
         }
+        return mainJobStats;
+    }
 
-        return (raceStats, mainJobStats, subJobStats);
+    // Master Level 50 RNG / Sub 59 WAR - sub job adds 17/13/11/14/8/8/10
+    // Master Level 48 DRK / Sub 58 WAR - sub job adds 17/13/11/13/8/8/10
+    // Master Level 42 SCH / Sub 57 WAR - sub job adds 16/13/11/13/8/8/9
+
+    // Master Level 48 DRK / Sub 58 BLM - sub job adds 8/13/8/13/17/10/11
+    // Master Level 42 SCH / Sub 57 BLM - sub job adds 8/12/8/13/16/7/11
+
+    private static Dictionary<string, int> CalculateSubJobStats(string subJob, int subJobLevel)
+    {
+        var subJobStats = new Dictionary<string, int>();
+
+        return subJobStats;
     }
 
     /// <summary>
     /// Apply merit points to core stats (15 points each)
     /// </summary>
-    private void ApplyMerits(CharacterStatistics stats, Dictionary<string, int> coreStatIds)
+    private static void ApplyMerits(CharacterStatistics stats, Dictionary<string, int> coreStatIds)
     {
         foreach (var (statName, statId) in coreStatIds)
         {
@@ -218,16 +203,16 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
 
     /// <summary>
     /// Apply job traits based on character job levels and configurations
+    /// Only applies the highest tier of each trait that the character qualifies for
     /// </summary>
-    private void ApplyJobTraits(CharacterStatistics stats, CharacterProfile profile, int mainJobId, int subJobId, Dictionary<int, JobStaticData> jobConfigurations)
+    private static void ApplyJobTraits(CharacterStatistics stats, CharacterJob mainJob, CharacterJob subJob, Dictionary<int, JobStaticData> jobConfigurations)
     {
-        // Apply main job traits (level 99, all traits active)
-        var mainJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == mainJobId);
-        if (mainJob != null && jobConfigurations.TryGetValue(mainJobId, out var mainJobConfig))
+        // Apply main job traits (level 99, highest tier only)
+        if (jobConfigurations.TryGetValue(mainJob.Id, out var mainJobConfig))
         {
-            foreach (var trait in mainJobConfig.Traits)
+            var highestTierTraits = GetHighestTierTraits(mainJobConfig.Traits, mainJob.JobLevel);
+            foreach (var trait in highestTierTraits)
             {
-                // All traits are active for level 99 main jobs
                 foreach (var (statId, value) in trait.StatModifiers)
                 {
                     stats.AddModifier(statId, value, $"Main Job Trait: {trait.Name}");
@@ -236,20 +221,15 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
             }
         }
 
-        // Apply subjob traits (reduced effectiveness)
-        var subJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == subJobId);
-        if (subJob != null && jobConfigurations.TryGetValue(subJobId, out var subJobConfig))
+        // Apply subjob traits (highest tier only, based on subjob level)
+        if (jobConfigurations.TryGetValue(subJob.Id, out var subJobConfig))
         {
-            foreach (var trait in subJobConfig.Traits.Where(t => t.Level <= subJob.JobLevel))
+            var highestTierTraits = GetHighestTierTraits(subJobConfig.Traits, subJob.JobLevel);
+            foreach (var trait in highestTierTraits)
             {
                 foreach (var (statId, value) in trait.StatModifiers)
                 {
-                    // Subjob traits are at 50% effectiveness
-                    var subJobValue = value / 2;
-                    if (subJobValue > 0)
-                    {
-                        stats.AddModifier(statId, subJobValue, $"Sub Job Trait: {trait.Name}");
-                    }
+                    stats.AddModifier(statId, value, $"Sub Job Trait: {trait.Name}");
                 }
                 stats.ActiveTraits.Add($"Sub: {trait.Name}");
             }
@@ -257,30 +237,64 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
     }
 
     /// <summary>
-    /// Apply job point bonuses for mastered jobs
+    /// Gets the highest tier of each trait family that the character qualifies for
     /// </summary>
-    private void ApplyJobPointBonuses(CharacterStatistics stats, CharacterProfile profile, int mainJobId, int subJobId, Dictionary<int, JobStaticData> jobConfigurations)
+    private static List<JobTrait> GetHighestTierTraits(List<JobTrait> allTraits, int characterLevel)
     {
-        // Apply main job point bonuses (full effectiveness if mastered)
-        var mainJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == mainJobId);
-        if (mainJob != null && mainJob.IsMastered && jobConfigurations.TryGetValue(mainJobId, out var mainJobConfig))
+        var result = new List<JobTrait>();
+
+        // Group traits by their base name (removing tier indicators like " I", " II", etc.)
+        var traitFamilies = allTraits
+            .Where(t => t.Level <= characterLevel)
+            .GroupBy(t => GetTraitBaseName(t.Name))
+            .ToList();
+
+        foreach (var family in traitFamilies)
         {
-            foreach (var (statId, value) in mainJobConfig.JobPointBonuses)
+            // Get the highest level trait in this family
+            var highestTrait = family
+                .OrderByDescending(t => t.Level)
+                .First();
+
+            result.Add(highestTrait);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Extracts the base trait name by removing tier indicators
+    /// e.g., "Double Attack III" -> "Double Attack"
+    /// </summary>
+    private static string GetTraitBaseName(string traitName)
+    {
+        // Remove common tier indicators
+        var tierIndicators = new[] { " I", " II", " III", " IV", " V", " VI", " VII", " VIII", " IX", " X" };
+
+        foreach (var indicator in tierIndicators)
+        {
+            if (traitName.EndsWith(indicator))
             {
-                stats.AddModifier(statId, value, "Main Job Points");
+                return traitName.Substring(0, traitName.Length - indicator.Length);
             }
         }
 
-        // Apply subjob point bonuses (50% effectiveness if mastered)
-        var subJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == subJobId);
-        if (subJob != null && subJob.IsMastered && jobConfigurations.TryGetValue(subJobId, out var subJobConfig))
+        return traitName;
+    }
+
+    /// <summary>
+    /// Apply job point bonuses for mastered jobs
+    /// </summary>
+    private void ApplyJobPointBonuses(CharacterStatistics stats, CharacterJob mainJob, Dictionary<int, JobStaticData> jobConfigurations)
+    {
+        if (jobConfigurations.TryGetValue(mainJob.Id, out var mainJobConfig))
         {
-            foreach (var (statId, value) in subJobConfig.JobPointBonuses)
+            // Apply main job point bonuses (full effectiveness if mastered)
+            if (mainJob.IsMastered)
             {
-                var subJobValue = value / 2;
-                if (subJobValue > 0)
+                foreach (var (statId, value) in mainJobConfig.JobPointBonuses)
                 {
-                    stats.AddModifier(statId, subJobValue, "Sub Job Points");
+                    stats.AddModifier(statId, value, "Main Job Points");
                 }
             }
         }
@@ -289,29 +303,40 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
     /// <summary>
     /// Apply master level bonuses scaled by current master level
     /// </summary>
-    private void ApplyMasterLevelBonuses(CharacterStatistics stats, CharacterProfile profile, int mainJobId, Dictionary<int, JobStaticData> jobConfigurations)
+    private static void ApplyMasterLevelBonuses(CharacterStatistics stats, CharacterJob mainJob, Dictionary<int, JobStaticData> jobConfigurations)
     {
-        // Apply main job master level bonuses (scaled by ML)
-        var mainJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == mainJobId);
-        if (mainJob != null && mainJob.MasterLevel > 0 && jobConfigurations.TryGetValue(mainJobId, out var mainJobConfig))
+        if (jobConfigurations.TryGetValue(mainJob.Id, out var mainJobConfig))
         {
-            foreach (var (statId, maxValue) in mainJobConfig.MasterLevelBonuses)
+            // Apply main job master level bonuses (scaled by ML)
+            if (mainJob.MasterLevel > 0)
             {
-                // Scale bonus based on current master level (ML0-50)
-                var scaledValue = maxValue * mainJob.MasterLevel / 50;
-                if (scaledValue > 0)
+                foreach (var (statId, maxValue) in mainJobConfig.MasterLevelBonuses)
                 {
-                    stats.AddModifier(statId, scaledValue, $"Main ML{mainJob.MasterLevel}");
+                    // Scale bonus based on current master level (ML0-50)
+                    var scaledValue = maxValue * mainJob.MasterLevel / 50;
+                    if (scaledValue > 0)
+                    {
+                        stats.AddModifier(statId, scaledValue, $"Main ML{mainJob.MasterLevel}");
+                    }
                 }
             }
+        }
+        else
+        {
+            throw new InvalidOperationException($"No job configuration found for job ID {mainJob.Id}");
         }
     }
 
     /// <summary>
     /// Apply gear stats from the equipped gear set
     /// </summary>
-    private void ApplyGearStats(CharacterStatistics stats, GearSet gearSet)
+    private static void ApplyGearStats(CharacterStatistics stats, GearSet? gearSet)
     {
+        if (gearSet == null)
+        {
+            return; // No gear set provided, nothing to apply
+        }
+
         foreach (var gearSetItem in gearSet.GearSetItems.Where(gsi => gsi.GearItem != null))
         {
             var item = gearSetItem.GearItem;
@@ -327,6 +352,10 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
             }
         }
     }
+
+    #endregion
+
+    #region Utility Methods
 
     /// <summary>
     /// Converts Race enum to string code for lookup tables
@@ -377,4 +406,6 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
             _ => throw new ArgumentException($"Unknown job ID: {jobId}")
         };
     }
+
+    #endregion
 }

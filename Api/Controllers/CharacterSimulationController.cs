@@ -77,7 +77,7 @@ public class CharacterSimulationController(GearDbContext context, CharacterSimul
                 MainJobLevel = mainJob.JobLevel,
                 MainJobMasterLevel = mainJob.MasterLevel,
                 SubJob = subJob.Job.Abbreviation,
-                SubJobLevel = Math.Min(49 + (subJob.MasterLevel / 5), subJob.JobLevel),
+                SubJobLevel = Math.Min(49 + (mainJob.MasterLevel / 5), subJob.JobLevel),
                 GearSetName = gearSet?.Name ?? "",
                 Stats = characterStatsDto,
                 CalculatedAt = DateTime.UtcNow
