@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import type { Job } from "../models/Job";
 import type { Stat } from "../models/Stat";
 import type { GearStat } from "../models/GearStat";
-import ApiService from "../utils/apiService";
+import { GearService, StatsService, JobsService } from "../services";
 
 export interface CapeOption {
   label: string;
@@ -435,11 +435,11 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
         slotsData,
         statsData,
       ] = await Promise.all([
-        ApiService.getAvailableGearCategories(),
-        ApiService.getAvailableStatCategories(),
-        ApiService.getJobs(),
-        ApiService.getAvailableGearSlots(),
-        ApiService.getStats(),
+        GearService.getAvailableGearCategories(),
+        StatsService.getAvailableStatCategories(),
+        JobsService.getJobs(),
+        GearService.getAvailableGearSlots(),
+        StatsService.getStats(),
       ]);
 
       // Set all data
@@ -459,7 +459,7 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
 
   const refreshStats = async () => {
     try {
-      const statsData = await ApiService.getStats();
+      const statsData = await StatsService.getStats();
       setStats(statsData);
     } catch (err) {
       setError(
@@ -470,7 +470,7 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
 
   const refreshJobs = async () => {
     try {
-      const jobsData = await ApiService.getJobs();
+      const jobsData = await JobsService.getJobs();
       setJobs(jobsData);
     } catch (err) {
       setError(

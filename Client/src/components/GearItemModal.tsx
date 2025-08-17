@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
 import Modal from "./Modal";
 import { ReactSelector } from "./ReactSelector";
-import ApiService, { type CreateGearItemDto } from "../utils/apiService";
+import { GearService, type CreateGearItemDto } from "../services";
 import { useAppData } from "../contexts/AppDataContext";
 import type { GearItem } from "../models/GearItem";
 import { authFetch } from "../utils/authFetch";
@@ -300,13 +300,13 @@ const GearItemModal = ({
       const isEdit = Boolean(editingItem);
       if (editingItem) {
         // Update existing item
-        updatedItem = await ApiService.updateGearItem(
+        updatedItem = await GearService.updateGearItem(
           editingItem.id,
           createData
         );
       } else {
         // Create new item
-        updatedItem = await ApiService.createGearItem(createData);
+        updatedItem = await GearService.createGearItem(createData);
       }
 
       onItemCreated(updatedItem, isEdit);

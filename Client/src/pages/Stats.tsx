@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { themeAlpine } from "ag-grid-community";
 import { colorSchemeDarkBlue } from "ag-grid-community";
-import ApiService from "../utils/apiService";
+import { StatsService } from "../services";
 import AddStatModal from "../components/AddStatModal";
 import ConfirmationModal from "../components/ConfirmationModal";
 import StatGearItemsModal from "../components/StatGearItemsModal";
@@ -36,7 +36,7 @@ export function Stats() {
 
   const updateStat = async (stat: Stat) => {
     try {
-      const updatedStat = await ApiService.updateStat(stat);
+      const updatedStat = await StatsService.updateStat(stat);
       return updatedStat;
     } catch (error) {
       console.error("Error updating stat:", error);
@@ -46,7 +46,7 @@ export function Stats() {
 
   const deleteStat = async (statId: number) => {
     try {
-      await ApiService.deleteStat(statId);
+      await StatsService.deleteStat(statId);
       console.log("Stat deleted successfully");
     } catch (error) {
       console.error("Error deleting stat:", error);

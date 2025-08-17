@@ -3,7 +3,7 @@ import type { GearStat } from "../models/GearStat";
 import type { Job } from "../models/Job";
 import { getItemAtPosition } from "../models/GearSet";
 import { ALL_GEAR_POSITIONS } from "../models/GearSetPosition";
-import type { CreateGearSetDto } from "./apiService";
+import type { CreateGearSetDto } from "../services";
 
 /**
  * Converts a GearSet to a CreateGearSetDto for API operations

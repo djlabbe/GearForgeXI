@@ -116,7 +116,7 @@ export function Navbar() {
                   onClick={() => setAdminDropdownOpen(!adminDropdownOpen)}
                   className={`px-4 py-2 rounded transition-colors duration-150 flex items-center space-x-1 ${
                     location.pathname === "/stats" ||
-                    location.pathname === "/admin/races" ||
+                    location.pathname === "/admin/raceConfigurations" ||
                     location.pathname === "/admin/jobs"
                       ? "bg-primary text-primary-foreground"
                       : "hover:bg-muted hover:text-foreground text-muted-foreground"
@@ -153,7 +153,19 @@ export function Navbar() {
                           setMenuOpen(false);
                         }}
                       >
-                        Item Stats
+                        Stats
+                      </Link>
+                      <Link
+                        to="/admin/raceConfigurations"
+                        className={`block px-4 py-2 text-sm transition-colors duration-150 ${isActive(
+                          "/admin/raceConfigurations"
+                        )} dark:hover:bg-gray-700 dark:text-gray-300`}
+                        onClick={() => {
+                          setAdminDropdownOpen(false);
+                          setMenuOpen(false);
+                        }}
+                      >
+                        Race Configurations
                       </Link>
                       <Link
                         to="/admin/jobs"
@@ -166,18 +178,6 @@ export function Navbar() {
                         }}
                       >
                         Jobs
-                      </Link>
-                      <Link
-                        to="/admin/races"
-                        className={`block px-4 py-2 text-sm transition-colors duration-150 ${isActive(
-                          "/admin/races"
-                        )} dark:hover:bg-gray-700 dark:text-gray-300`}
-                        onClick={() => {
-                          setAdminDropdownOpen(false);
-                          setMenuOpen(false);
-                        }}
-                      >
-                        Races
                       </Link>
                     </div>
                   </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import ApiService from '../utils/apiService';
+import { CharacterProfileService } from '../services';
 import type { CharacterProfile, CreateCharacterProfileDto, UpdateCharacterProfileDto } from '../models/CharacterProfile';
 import ConfirmationModal from '../components/ConfirmationModal';
 import { LoadingSpinner } from '../components/LoadingSpinner';
@@ -30,7 +30,7 @@ export function CharacterProfiles() {
     try {
       setLoading(true);
       setError(null);
-      const data = await ApiService.getCharacterProfiles();
+      const data = await CharacterProfileService.getCharacterProfiles();
       setProfiles(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load character profiles');
@@ -41,7 +41,7 @@ export function CharacterProfiles() {
 
   const handleCreateProfile = async (profileData: CreateCharacterProfileDto) => {
     try {
-      await ApiService.createCharacterProfile(profileData);
+      await CharacterProfileService.createCharacterProfile(profileData);
       setShowCreateModal(false);
       await loadProfiles();
     } catch (err) {
@@ -53,7 +53,7 @@ export function CharacterProfiles() {
     if (!selectedProfile) return;
     
     try {
-      await ApiService.updateCharacterProfile(selectedProfile.id, profileData);
+      await CharacterProfileService.updateCharacterProfile(selectedProfile.id, profileData);
       setShowEditModal(false);
       setSelectedProfile(null);
       await loadProfiles();
@@ -66,7 +66,7 @@ export function CharacterProfiles() {
     if (!selectedProfile) return;
     
     try {
-      await ApiService.deleteCharacterProfile(selectedProfile.id);
+      await CharacterProfileService.deleteCharacterProfile(selectedProfile.id);
       setShowDeleteModal(false);
       setSelectedProfile(null);
       await loadProfiles();

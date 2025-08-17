@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Modal from './Modal';
-import ApiService from '../utils/apiService';
+import { JobsService, CharacterProfileService } from '../services';
 import type { CharacterProfile, UpdateCharacterJobDto } from '../models/CharacterProfile';
 import type { Job } from '../models/Job';
 
@@ -30,7 +30,7 @@ export function ManageJobsModal({ profile, onClose, onUpdate }: ManageJobsModalP
   const loadJobs = async () => {
     try {
       setLoading(true);
-      const allJobs = await ApiService.getJobs();
+      const allJobs = await JobsService.getJobs();
       setJobs(allJobs);
       
       // Initialize form data with existing character jobs
@@ -89,7 +89,7 @@ export function ManageJobsModal({ profile, onClose, onUpdate }: ManageJobsModalP
     
     setIsSubmitting(true);
     try {
-      await ApiService.updateCharacterJobs(profile.id, jobsToUpdate);
+      await CharacterProfileService.updateCharacterJobs(profile.id, jobsToUpdate);
       onUpdate();
       onClose();
     } catch (err) {

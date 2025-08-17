@@ -2,12 +2,12 @@ import { useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { themeAlpine } from "ag-grid-community";
 import { colorSchemeDarkBlue } from "ag-grid-community";
-import ApiService from "../utils/apiService";
+import { JobsService } from "../services";
 import ConfirmationModal from "../components/ConfirmationModal";
 import { useAppData } from "../contexts/AppDataContext";
 import { useAuth } from "../contexts/AuthContext";
 
-import type { CellValueChangedEvent, ColDef } from "ag-grid-community";
+import type { CellValueChangedEvent, ColDef, ICellRendererParams } from "ag-grid-community";
 import type { Job } from "../models/Job";
 
 const themeDarkBlue = themeAlpine.withPart(colorSchemeDarkBlue);
@@ -27,7 +27,7 @@ export function Jobs() {
 
   const updateJob = async (job: Job) => {
     try {
-      const updatedJob = await ApiService.updateJob(job);
+      const updatedJob = await JobsService.updateJob(job);
       return updatedJob;
     } catch (error) {
       console.error("Error updating job:", error);
@@ -37,7 +37,7 @@ export function Jobs() {
 
   const deleteJob = async (jobId: number) => {
     try {
-      await ApiService.deleteJob(jobId);
+      await JobsService.deleteJob(jobId);
       console.log("Job deleted successfully");
     } catch (error) {
       console.error("Error deleting job:", error);
@@ -122,15 +122,28 @@ export function Jobs() {
       enableCellChangeFlash: true,
     },
     {
-      headerName: "Can Dual Wield",
+      headerName: "Dual Wield",
       field: "canDualWield",
       sortable: true,
       filter: true,
       width: 150,
       editable: isAdmin,
       enableCellChangeFlash: true,
-      cellRenderer: (params: { value: boolean }) => {
-        return params.value ? "Yes" : "No";
+      cellRenderer: (params: ICellRendererParams<Job>) => {
+        const canDualWield = params.value;
+        return (
+          <div className="flex justify-center items-center h-full">
+            <span
+              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                canDualWield
+                  ? "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400"
+                  : "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400"
+              }`}
+            >
+              {canDualWield ? "Yes" : "No"}
+            </span>
+          </div>
+        );
       },
       cellEditor: "agSelectCellEditor",
       cellEditorParams: {

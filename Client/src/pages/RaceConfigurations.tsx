@@ -3,7 +3,7 @@ import { AgGridReact } from "ag-grid-react";
 import { themeAlpine } from "ag-grid-community";
 import { colorSchemeDarkBlue } from "ag-grid-community";
 import { useAuth } from "../contexts/AuthContext";
-import ApiService from "../utils/apiService";
+import { RaceConfigurationService, StatsService } from "../services";
 import type { Stat } from "../models/Stat";
 import type {
   RaceConfiguration,
@@ -20,7 +20,7 @@ import type {
 
 const themeDarkBlue = themeAlpine.withPart(colorSchemeDarkBlue);
 
-export function RaceManagement() {
+export function RaceConfigurations() {
   const { isAuthenticated, isAdmin } = useAuth();
   const [baseStats, setBaseStats] = useState<Stat[]>([]);
   const [loadingBaseStats, setLoadingBaseStats] = useState(true);
@@ -54,22 +54,6 @@ export function RaceManagement() {
   }>({});
   const [isUpdatingStats, setIsUpdatingStats] = useState(false);
 
-  // // Memoized ordered base stats for race base stats
-  // const orderedRaceStats = useMemo(() => {
-  //   const raceBaseStatsOrder = [
-  //     "STR",
-  //     "DEX",
-  //     "VIT",
-  //     "AGI",
-  //     "INT",
-  //     "MND",
-  //     "CHR",
-  //   ];
-  //   return raceBaseStatsOrder
-  //     .map((statName) => baseStats.find((stat) => stat.name === statName))
-  //     .filter((stat) => stat !== undefined);
-  // }, [baseStats]);
-
   useEffect(() => {
     if (isAuthenticated) {
       loadData();
@@ -80,7 +64,7 @@ export function RaceManagement() {
   const loadBaseStats = async () => {
     try {
       setLoadingBaseStats(true);
-      const stats = await ApiService.getBaseStats();
+      const stats = await StatsService.getBaseStats();
       setBaseStats(stats);
     } catch (err) {
       console.error("Failed to load base stats:", err);
@@ -92,7 +76,7 @@ export function RaceManagement() {
 
   const updateRace = async (race: RaceConfiguration) => {
     try {
-      const updatedRace = await ApiService.updateRaceConfiguration({
+      const updatedRace = await RaceConfigurationService.updateRaceConfiguration({
         id: race.id,
         name: race.name,
         abbreviation: race.abbreviation,
@@ -108,7 +92,7 @@ export function RaceManagement() {
     try {
       setLoading(true);
       setError(null);
-      const racesData = await ApiService.getRaceConfigurations();
+      const racesData = await RaceConfigurationService.getRaceConfigurations();
       setRaceConfigurations(racesData);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to load data");
@@ -140,7 +124,7 @@ export function RaceManagement() {
 
   const handleCreateRace = async () => {
     try {
-      const newRace = await ApiService.createRaceConfiguration(createForm);
+      const newRace = await RaceConfigurationService.createRaceConfiguration(createForm);
       setShowCreateModal(false);
       setCreateForm({ name: "", abbreviation: "" });
 
@@ -163,7 +147,7 @@ export function RaceManagement() {
   const handleDeleteRace = async () => {
     if (!selectedRace) return;
     try {
-      await ApiService.deleteRaceConfiguration(selectedRace.id);
+      await RaceConfigurationService.deleteRaceConfiguration(selectedRace.id);
       setShowDeleteModal(false);
 
       // Remove the race from local state
@@ -217,7 +201,7 @@ export function RaceManagement() {
         if (newValue === null || newValue === 0) {
           // Delete the stat if it exists and value is null/0
           if (existingStatIndex !== -1) {
-            await ApiService.deleteRaceBaseStat(
+            await RaceConfigurationService.deleteRaceBaseStat(
               selectedRace.id,
               parseInt(statId)
             );
@@ -226,7 +210,7 @@ export function RaceManagement() {
         } else {
           // Update or create the stat
           if (existingStatIndex !== -1) {
-            await ApiService.updateRaceBaseStat(
+            await RaceConfigurationService.updateRaceBaseStat(
               selectedRace.id,
               parseInt(statId),
               newValue
@@ -240,7 +224,7 @@ export function RaceManagement() {
               statId: parseInt(statId),
               value: newValue,
             };
-            await ApiService.addRaceBaseStat(selectedRace.id, createDto);
+            await RaceConfigurationService.addRaceBaseStat(selectedRace.id, createDto);
 
             // Find the stat to add the complete object
             const stat = baseStats.find((s) => s.id === parseInt(statId));
@@ -406,7 +390,7 @@ export function RaceManagement() {
       {/* Header with Create Button */}
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-          Races
+          Race Configurations
         </h1>
         {isAdmin && (
           <button
@@ -505,31 +489,46 @@ export function RaceManagement() {
         }}
         size="md"
       >
-        <div className="p-6">
-          <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">
-            Create New Race
-          </h3>
+        <div className="p-4 space-y-6">
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+              Create New Race
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              Create a new race configuration with name and abbreviation:
+            </p>
+          </div>
+
           <div className="space-y-4">
             <div>
-              <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-2">
-                Name
+              <label
+                htmlFor="race-name"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
+                Name *
               </label>
               <input
                 type="text"
+                id="race-name"
                 value={createForm.name}
                 onChange={(e) =>
                   setCreateForm({ ...createForm, name: e.target.value })
                 }
                 className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Enter race name"
+                placeholder="e.g., Human, Elvaan, Tarutaru"
               />
             </div>
+            
             <div>
-              <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-2">
-                Abbreviation
+              <label
+                htmlFor="race-abbreviation"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
+                Abbreviation *
               </label>
               <input
                 type="text"
+                id="race-abbreviation"
                 value={createForm.abbreviation}
                 onChange={(e) =>
                   setCreateForm({
@@ -538,28 +537,40 @@ export function RaceManagement() {
                   })
                 }
                 className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="e.g., HUM"
+                placeholder="e.g., HUM, ELV, TAR"
                 maxLength={3}
               />
+              <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                Maximum 3 characters, automatically converted to uppercase
+              </p>
             </div>
           </div>
-          <div className="flex justify-end space-x-2 mt-6">
-            <button
-              onClick={() => {
-                setShowCreateModal(false);
-                setCreateForm({ name: "", abbreviation: "" });
-              }}
-              className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white font-medium rounded-md transition-colors duration-200"
-            >
-              Cancel
-            </button>
-            <button
-              onClick={handleCreateRace}
-              disabled={!createForm.name || !createForm.abbreviation}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Create
-            </button>
+
+          <div className="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="text-sm text-gray-600 dark:text-gray-400">
+              {createForm.name && createForm.abbreviation
+                ? "Ready to create race"
+                : "Both name and abbreviation are required"}
+            </div>
+
+            <div className="flex space-x-2">
+              <button
+                onClick={() => {
+                  setShowCreateModal(false);
+                  setCreateForm({ name: "", abbreviation: "" });
+                }}
+                className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600 cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleCreateRace}
+                disabled={!createForm.name || !createForm.abbreviation}
+                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Create Race
+              </button>
+            </div>
           </div>
         </div>
       </Modal>

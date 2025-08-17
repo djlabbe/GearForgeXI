@@ -3,7 +3,7 @@ import type { GearSet } from "../models/GearSet";
 import type { GearStat } from "../models/GearStat";
 import type { Job } from "../models/Job";
 import { ALL_GEAR_POSITIONS } from "../models/GearSetPosition";
-import ApiService from "../utils/apiService";
+import { GearSetsService } from "../services";
 
 const createEmptySet = (name: string, job: Job): GearSet => ({
   name,
@@ -67,7 +67,7 @@ export function useGearSetState(job: Job, isAuthenticated: boolean) {
 
     // Load saved gear sets if authenticated
     if (isAuthenticated) {
-      ApiService.getUserGearSets().then(setSavedGearSets).catch(console.error);
+      GearSetsService.getUserGearSets().then(setSavedGearSets).catch(console.error);
     }
   }, [job, isAuthenticated]);
 

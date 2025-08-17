@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Modal from "./Modal";
-import ApiService from "../utils/apiService";
+import { GearService } from "../services";
 import type { GearItem } from "../models/GearItem";
 import type { Stat } from "../models/Stat";
 
@@ -28,7 +28,7 @@ const StatGearItemsModal = ({ isOpen, onClose, stat }: StatGearItemsModalProps) 
     setError(null);
     
     try {
-      const items = await ApiService.getGearItemsByStat(stat.id);
+      const items = await GearService.getGearItemsByStat(stat.id);
       setGearItems(items);
     } catch (error) {
       console.error("Error fetching gear items:", error);

@@ -1,4 +1,5 @@
 using GearForgeXI.Models;
+using GearForgeXI.Models.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,14 +10,9 @@ namespace GearForgeXI.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 [Authorize] // Add authorization as needed for admin operations
-public class JobConfigurationsController : ControllerBase
+public class JobConfigurationsController(GearDbContext context) : ControllerBase
 {
-    private readonly GearDbContext _context;
-
-    public JobConfigurationsController(GearDbContext context)
-    {
-        _context = context;
-    }
+    private readonly GearDbContext _context = context;
 
     /// <summary>
     /// Get all job configurations with their related data
@@ -40,7 +36,7 @@ public class JobConfigurationsController : ControllerBase
         {
             Id = jc.Id,
             JobId = jc.JobId,
-            Job = new GearForgeXI.Models.Dto.JobDto
+            Job = new JobDto
             {
                 Id = jc.Job.Id,
                 FullName = jc.Job.FullName,

@@ -5,7 +5,7 @@ import { Navbar } from "./components/Navbar";
 import { Stats } from "./pages/Stats";
 import { Jobs } from "./pages/Jobs";
 import { CharacterProfiles } from "./pages/CharacterProfiles";
-import { RaceManagement } from "./pages/RaceManagement";
+import { RaceConfigurations } from "./pages/RaceConfigurations";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
@@ -36,7 +36,7 @@ function AppContent() {
             <Route path="/stats" element={<Stats />} />
             <Route path="/admin/jobs" element={<Jobs />} />
             <Route path="/profiles" element={<CharacterProfiles />} />
-            <Route path="/admin/races" element={<RaceManagement />} />
+            <Route path="/admin/raceConfigurations" element={<RaceConfigurations />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>

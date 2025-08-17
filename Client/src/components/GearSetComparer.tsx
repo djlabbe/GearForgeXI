@@ -17,9 +17,7 @@ import { CreateGearSetDialog } from "./CreateGearSetDialog";
 import { LoadGearSetDialog } from "./LoadGearSetDialog";
 import { useAuth } from "../contexts/AuthContext";
 import { useGearSetState } from "../hooks/useGearSetState";
-import ApiService, {
-  type UpdateGearSetDto,
-} from "../utils/apiService";
+import { GearSetsService, type UpdateGearSetDto } from "../services";
 import type { Job } from "../models/Job";
 import type { GearStat } from "../models/GearStat";
 
@@ -146,7 +144,7 @@ export function GearSetComparer({ job, subJob }: Props) {
       const gearSetDto = convertGearSetToDto(gearSet, job);
       gearSetDto.name = setName;
 
-      const newGearSet = await ApiService.createGearSet(gearSetDto);
+      const newGearSet = await GearSetsService.createGearSet(gearSetDto);
 
       // Update the local state with the new ID and name, keeping existing slots
       if (isSetA) {
@@ -157,7 +155,7 @@ export function GearSetComparer({ job, subJob }: Props) {
 
       // Refresh saved gear sets list
       if (isAuthenticated) {
-        const updatedSets = await ApiService.getUserGearSets();
+        const updatedSets = await GearSetsService.getUserGearSets();
         setSavedGearSets(updatedSets);
       }
 
@@ -186,11 +184,11 @@ export function GearSetComparer({ job, subJob }: Props) {
       // Update existing gear set using full replacement
       const gearSetDto: UpdateGearSetDto = convertGearSetToDto(gearSet, job);
 
-      await ApiService.updateGearSet(gearSet.id, gearSetDto);
+      await GearSetsService.updateGearSet(gearSet.id, gearSetDto);
 
       // Refresh saved gear sets list
       if (isAuthenticated) {
-        const updatedSets = await ApiService.getUserGearSets();
+        const updatedSets = await GearSetsService.getUserGearSets();
         setSavedGearSets(updatedSets);
       }
 

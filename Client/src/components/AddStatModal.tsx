@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Modal from "./Modal";
-import ApiService from "../utils/apiService";
+import { StatsService } from "../services";
 import { useAppData } from "../contexts/AppDataContext";
 import type { Stat } from "../models/Stat";
 
@@ -42,7 +42,7 @@ const AddStatModal = ({
     setError(null);
 
     try {
-      const newStat = await ApiService.createStat({
+      const newStat = await StatsService.createStat({
         name: newStatForm.name,
         displayName: newStatForm.displayName || undefined,
         category: newStatForm.category || undefined,
