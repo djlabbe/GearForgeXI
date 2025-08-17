@@ -3,6 +3,7 @@ using System;
 using GearForgeXI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GearForgeXI.Migrations
 {
     [DbContext(typeof(GearDbContext))]
-    partial class GearDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250816213454_AddBaseStatsToJobConfiguration")]
+    partial class AddBaseStatsToJobConfiguration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -701,32 +704,6 @@ namespace GearForgeXI.Migrations
                         });
                 });
 
-            modelBuilder.Entity("GearForgeXI.Models.JobBaseStat", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("JobConfigurationId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("StatId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Value")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("JobConfigurationId");
-
-                    b.HasIndex("StatId");
-
-                    b.ToTable("JobBaseStats");
-                });
-
             modelBuilder.Entity("GearForgeXI.Models.JobConfiguration", b =>
                 {
                     b.Property<int>("Id")
@@ -734,6 +711,27 @@ namespace GearForgeXI.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BaseAgi")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("BaseChr")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("BaseDex")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("BaseInt")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("BaseMnd")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("BaseStr")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("BaseVit")
+                        .HasColumnType("integer");
 
                     b.Property<int>("JobId")
                         .HasColumnType("integer");
@@ -791,6 +789,24 @@ namespace GearForgeXI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.HasKey("Id");
+
+                    b.HasIndex("JobConfigurationId", "Level");
+
+                    b.ToTable("JobTraits");
+                });
+
+            modelBuilder.Entity("GearForgeXI.Models.JobTraitStat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("JobTraitId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("StatId")
                         .HasColumnType("integer");
 
@@ -801,12 +817,10 @@ namespace GearForgeXI.Migrations
 
                     b.HasIndex("StatId");
 
-                    b.HasIndex("JobConfigurationId", "Level");
-
-                    b.HasIndex("JobConfigurationId", "StatId")
+                    b.HasIndex("JobTraitId", "StatId")
                         .IsUnique();
 
-                    b.ToTable("JobTraits");
+                    b.ToTable("JobTraitStats");
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.MasterLevelBonus", b =>
@@ -834,53 +848,6 @@ namespace GearForgeXI.Migrations
                         .IsUnique();
 
                     b.ToTable("MasterLevelBonuses");
-                });
-
-            modelBuilder.Entity("GearForgeXI.Models.RaceBaseStat", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("RaceConfigurationId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("StatId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Value")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RaceConfigurationId");
-
-                    b.HasIndex("StatId");
-
-                    b.ToTable("RaceBaseStats");
-                });
-
-            modelBuilder.Entity("GearForgeXI.Models.RaceConfiguration", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Abbreviation")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RaceConfigurations");
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.RefreshToken", b =>
@@ -1216,25 +1183,6 @@ namespace GearForgeXI.Migrations
                     b.Navigation("GearSet");
                 });
 
-            modelBuilder.Entity("GearForgeXI.Models.JobBaseStat", b =>
-                {
-                    b.HasOne("GearForgeXI.Models.JobConfiguration", "JobConfiguration")
-                        .WithMany("JobBaseStats")
-                        .HasForeignKey("JobConfigurationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GearForgeXI.Models.Stat", "Stat")
-                        .WithMany()
-                        .HasForeignKey("StatId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("JobConfiguration");
-
-                    b.Navigation("Stat");
-                });
-
             modelBuilder.Entity("GearForgeXI.Models.JobConfiguration", b =>
                 {
                     b.HasOne("GearForgeXI.Models.Job", "Job")
@@ -1273,13 +1221,24 @@ namespace GearForgeXI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("JobConfiguration");
+                });
+
+            modelBuilder.Entity("GearForgeXI.Models.JobTraitStat", b =>
+                {
+                    b.HasOne("GearForgeXI.Models.JobTrait", "JobTrait")
+                        .WithMany("JobTraitStats")
+                        .HasForeignKey("JobTraitId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("GearForgeXI.Models.Stat", "Stat")
                         .WithMany()
                         .HasForeignKey("StatId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("JobConfiguration");
+                    b.Navigation("JobTrait");
 
                     b.Navigation("Stat");
                 });
@@ -1299,25 +1258,6 @@ namespace GearForgeXI.Migrations
                         .IsRequired();
 
                     b.Navigation("JobConfiguration");
-
-                    b.Navigation("Stat");
-                });
-
-            modelBuilder.Entity("GearForgeXI.Models.RaceBaseStat", b =>
-                {
-                    b.HasOne("GearForgeXI.Models.RaceConfiguration", "RaceConfiguration")
-                        .WithMany("RaceBaseStats")
-                        .HasForeignKey("RaceConfigurationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GearForgeXI.Models.Stat", "Stat")
-                        .WithMany()
-                        .HasForeignKey("StatId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("RaceConfiguration");
 
                     b.Navigation("Stat");
                 });
@@ -1429,8 +1369,6 @@ namespace GearForgeXI.Migrations
 
             modelBuilder.Entity("GearForgeXI.Models.JobConfiguration", b =>
                 {
-                    b.Navigation("JobBaseStats");
-
                     b.Navigation("JobPointBonuses");
 
                     b.Navigation("JobTraits");
@@ -1438,9 +1376,9 @@ namespace GearForgeXI.Migrations
                     b.Navigation("MasterLevelBonuses");
                 });
 
-            modelBuilder.Entity("GearForgeXI.Models.RaceConfiguration", b =>
+            modelBuilder.Entity("GearForgeXI.Models.JobTrait", b =>
                 {
-                    b.Navigation("RaceBaseStats");
+                    b.Navigation("JobTraitStats");
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.Stat", b =>

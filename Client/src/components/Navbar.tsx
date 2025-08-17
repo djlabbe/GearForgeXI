@@ -89,15 +89,26 @@ export function Navbar() {
           </Link>
 
           {isAuthenticated && (
-            <Link
-              to="/profiles"
-              className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
-                "/profiles"
-              )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
-              onClick={() => setMenuOpen(false)}
-            >
-              My Characters
-            </Link>
+            <>
+              <Link
+                to="/profiles"
+                className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
+                  "/profiles"
+                )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
+                onClick={() => setMenuOpen(false)}
+              >
+                My Characters
+              </Link>
+              <Link
+                to="/admin/races"
+                className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
+                  "/admin/races"
+                )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
+                onClick={() => setMenuOpen(false)}
+              >
+                Admin: Races
+              </Link>
+            </>
           )}
 
           {isAuthenticated ? (

@@ -4,6 +4,7 @@ import ComparePage from "./pages/Compare";
 import { Navbar } from "./components/Navbar";
 import { Stats } from "./pages/Stats";
 import { CharacterProfiles } from "./pages/CharacterProfiles";
+import { RaceManagement } from "./pages/RaceManagement";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
@@ -33,6 +34,7 @@ function AppContent() {
             <Route path="/gear" element={<GearBrowser />} />
             <Route path="/stats" element={<Stats />} />
             <Route path="/profiles" element={<CharacterProfiles />} />
+            <Route path="/admin/races" element={<RaceManagement />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>

@@ -22,6 +22,17 @@ namespace GearForgeXI
         public DbSet<CharacterProfile> CharacterProfiles { get; set; } = null!;
         public DbSet<CharacterJob> CharacterJobs { get; set; } = null!;
 
+        // Job Configuration System
+        public DbSet<JobConfiguration> JobConfigurations { get; set; } = null!;
+        public DbSet<JobBaseStat> JobBaseStats { get; set; } = null!;
+        public DbSet<JobTrait> JobTraits { get; set; } = null!;
+        public DbSet<JobPointBonus> JobPointBonuses { get; set; } = null!;
+        public DbSet<MasterLevelBonus> MasterLevelBonuses { get; set; } = null!;
+
+        // Race Configuration System
+        public DbSet<RaceConfiguration> RaceConfigurations { get; set; } = null!;
+        public DbSet<RaceBaseStat> RaceBaseStats { get; set; } = null!;
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -251,6 +262,75 @@ namespace GearForgeXI
             modelBuilder.Entity<CharacterProfile>()
                 .Property(cp => cp.Server)
                 .HasConversion<string>();
+
+            // Job Configuration System relationships
+
+            // JobConfiguration: one-to-one with Job
+            modelBuilder.Entity<JobConfiguration>()
+                .HasOne(jc => jc.Job)
+                .WithMany()
+                .HasForeignKey(jc => jc.JobId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<JobConfiguration>()
+                .HasIndex(jc => jc.JobId)
+                .IsUnique(); // One configuration per job
+
+            // JobTrait: many-to-one with JobConfiguration
+            modelBuilder.Entity<JobTrait>()
+                .HasOne(jt => jt.JobConfiguration)
+                .WithMany(jc => jc.JobTraits)
+                .HasForeignKey(jt => jt.JobConfigurationId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // JobTrait: many-to-one with Stat
+            modelBuilder.Entity<JobTrait>()
+                .HasOne(jt => jt.Stat)
+                .WithMany()
+                .HasForeignKey(jt => jt.StatId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // JobPointBonus: many-to-one with JobConfiguration and Stat
+            modelBuilder.Entity<JobPointBonus>()
+                .HasOne(jpb => jpb.JobConfiguration)
+                .WithMany(jc => jc.JobPointBonuses)
+                .HasForeignKey(jpb => jpb.JobConfigurationId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<JobPointBonus>()
+                .HasOne(jpb => jpb.Stat)
+                .WithMany()
+                .HasForeignKey(jpb => jpb.StatId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // MasterLevelBonus: many-to-one with JobConfiguration and Stat
+            modelBuilder.Entity<MasterLevelBonus>()
+                .HasOne(mlb => mlb.JobConfiguration)
+                .WithMany(jc => jc.MasterLevelBonuses)
+                .HasForeignKey(mlb => mlb.JobConfigurationId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<MasterLevelBonus>()
+                .HasOne(mlb => mlb.Stat)
+                .WithMany()
+                .HasForeignKey(mlb => mlb.StatId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Performance indexes for job configuration queries
+            modelBuilder.Entity<JobTrait>()
+                .HasIndex(jt => new { jt.JobConfigurationId, jt.Level });
+
+            modelBuilder.Entity<JobTrait>()
+                .HasIndex(jt => new { jt.JobConfigurationId, jt.StatId })
+                .IsUnique(); // One trait per job per stat
+
+            modelBuilder.Entity<JobPointBonus>()
+                .HasIndex(jpb => new { jpb.JobConfigurationId, jpb.StatId })
+                .IsUnique(); // One job point bonus per job per stat
+
+            modelBuilder.Entity<MasterLevelBonus>()
+                .HasIndex(mlb => new { mlb.JobConfigurationId, mlb.StatId })
+                .IsUnique(); // One master level bonus per job per stat
 
         }
     }

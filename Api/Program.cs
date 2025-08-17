@@ -105,7 +105,6 @@ builder.Services.AddAuthorization();
 // Register custom services
 builder.Services.AddScoped<RefreshTokenService>();
 builder.Services.AddScoped<StatIdLookupService>();
-builder.Services.AddScoped<JobConfigurationBuilder>();
 builder.Services.AddScoped<CharacterSimulationService>();
 
 // Register background services

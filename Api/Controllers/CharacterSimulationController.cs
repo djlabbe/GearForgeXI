@@ -92,121 +92,27 @@ public class CharacterSimulationController(GearDbContext context, CharacterSimul
     }
 
     /// <summary>
-    /// Example calculation with mock data for testing purposes
-    /// </summary>
-    [HttpGet("example")]
-    public async Task<IActionResult> GetExampleCalculation()
-    {
-        try
-        {
-            // Create a mock character profile for demonstration
-            var mockProfile = new CharacterProfile
-            {
-                Id = 0,
-                CharacterName = "Example Character",
-                Race = Race.HumeMale,
-                UserId = "example",
-                CharacterJobs = new List<CharacterJob>
-                {
-                    new() { JobId = 1, JobLevel = 99, MasterLevel = 25 }, // WAR - Always 99
-                    new() { JobId = 6, JobLevel = 45, MasterLevel = 10 }   // THF subjob with master levels
-                }
-            };
-
-            // Create a mock gear set (empty for this example)
-            var mockGearSet = new GearSet
-            {
-                Id = 0,
-                Name = "Example Gear Set",
-                UserId = "example",
-                JobId = 1,
-                GearSetItems = new List<GearSetItem>()
-            };
-
-            // Calculate stats
-            var characterStatsDto = await _simulationService.CalculateCharacterStats(mockProfile, 1, 6, mockGearSet);
-
-            var response = new
-            {
-                Message = "Simplified character simulation - main jobs are always level 99",
-                Character = new
-                {
-                    Name = mockProfile.CharacterName,
-                    Race = mockProfile.Race.ToString(),
-                    MainJob = "WAR (99/25)", // Always level 99, Master Level 25
-                    SubJob = "THF (45/10)"   // Subjob can vary, with master levels
-                },
-                GearSet = new
-                {
-                    Name = mockGearSet.Name,
-                    ItemCount = mockGearSet.GearSetItems.Count
-                },
-                Stats = characterStatsDto,
-                Notes = new[]
-                {
-                    "SIMPLIFIED SYSTEM: Main jobs are always treated as level 99",
-                    "WAR gets all job traits, job point bonuses (since mastered), and scaled master level bonuses",
-                    "THF subjob at level 45 with 10 master levels - gets reduced benefits",
-                    "Subjobs can have master levels and get reduced job point bonuses if mastered",
-                    "No gear equipped in this example, so only job/race stats are shown",
-                    "Job level calculations are now fixed bonuses rather than per-level scaling"
-                }
-            };
-
-            return Ok(response);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Error generating example: {ex.Message}");
-        }
-    }
-
-    /// <summary>
     /// Get available job configurations
     /// </summary>
     [HttpGet("job-configurations")]
-    public IActionResult GetJobConfigurations()
+    public async Task<IActionResult> GetJobConfigurations()
     {
-        var configurations = JobConfigurations.GetConfiguredJobIds()
-            .Select(jobId => new
+        var configurations = await _context.JobConfigurations
+            .Include(jc => jc.JobTraits)
+            .Include(jc => jc.JobPointBonuses)
+            .Include(jc => jc.MasterLevelBonuses)
+            .Select(jc => new
             {
-                JobId = jobId,
-                HasTraits = JobConfigurations.GetJobConfiguration(jobId)?.Traits.Count > 0,
-                HasJobPointBonuses = JobConfigurations.GetJobConfiguration(jobId)?.JobPointBonuses.Count > 0,
-                HasMasterLevelBonuses = JobConfigurations.GetJobConfiguration(jobId)?.MasterLevelBonuses.Count > 0
-            });
+                JobId = jc.JobId,
+                HasTraits = jc.JobTraits.Any(),
+                HasJobPointBonuses = jc.JobPointBonuses.Any(),
+                HasMasterLevelBonuses = jc.MasterLevelBonuses.Any()
+            })
+            .ToListAsync();
 
         return Ok(configurations);
     }
 
-    /// <summary>
-    /// Get detailed job configuration for a specific job
-    /// </summary>
-    [HttpGet("job-configurations/{jobId}")]
-    public async Task<IActionResult> GetJobConfiguration(int jobId)
-    {
-        var job = await _context.Jobs.FindAsync(jobId);
-        if (job == null)
-        {
-            return NotFound("Job not found");
-        }
-
-        var config = JobConfigurations.GetJobConfiguration(jobId);
-        if (config == null)
-        {
-            return NotFound("Job configuration not found");
-        }
-
-        var response = new
-        {
-            Job = new { job.Id, job.Abbreviation, job.FullName, job.CanDualWield },
-            Traits = config.Traits.Select(t => new { t.Name, t.Level, t.StatModifiers }),
-            JobPointBonuses = config.JobPointBonuses,
-            MasterLevelBonuses = config.MasterLevelBonuses
-        };
-
-        return Ok(response);
-    }
 
     private string GetUserId()
     {
