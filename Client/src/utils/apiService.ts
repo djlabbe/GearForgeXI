@@ -82,6 +82,14 @@ class ApiService {
     return response.json();
   }
 
+  static async getBaseStats(): Promise<Stat[]> {
+    const response = await publicFetch(`${this.baseUrl}/stats/base`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch base stats: ${response.statusText}`);
+    }
+    return response.json();
+  }
+
   static async updateStat(stat: Stat): Promise<Stat> {
     const response = await authFetch(`${this.baseUrl}/stats/${stat.id}`, {
       method: "PUT",

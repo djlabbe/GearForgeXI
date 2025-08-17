@@ -381,6 +381,12 @@ public class JobConfigurationsController : ControllerBase
             return BadRequest("Invalid stat ID");
         }
 
+        // Verify the stat is a base stat (STR, DEX, VIT, AGI, INT, MND, CHR)
+        if (!stat.IsBaseStat)
+        {
+            return BadRequest("Only base stats (STR, DEX, VIT, AGI, INT, MND, CHR) can be used for job base stats");
+        }
+
         // Check if this job already has this stat
         if (await _context.JobBaseStats.AnyAsync(jbs => jbs.JobConfigurationId == id && jbs.StatId == createDto.StatId))
         {

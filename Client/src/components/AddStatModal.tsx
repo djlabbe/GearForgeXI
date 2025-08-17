@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import Modal from './Modal';
-import ApiService from '../utils/apiService';
-import { useAppData } from '../contexts/AppDataContext';
-import type { Stat } from '../models/Stat';
+import { useState } from "react";
+import Modal from "./Modal";
+import ApiService from "../utils/apiService";
+import { useAppData } from "../contexts/AppDataContext";
+import type { Stat } from "../models/Stat";
 
 interface AddStatModalProps {
   isOpen: boolean;
@@ -17,8 +17,16 @@ interface NewStatForm {
   description: string;
 }
 
-const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => {
-  const { statCategories: availableStatCategories, loading: loadingAppData, refreshStats } = useAppData();
+const AddStatModal = ({
+  isOpen,
+  onClose,
+  onStatCreated,
+}: AddStatModalProps) => {
+  const {
+    statCategories: availableStatCategories,
+    loading: loadingAppData,
+    refreshStats,
+  } = useAppData();
   const [newStatForm, setNewStatForm] = useState<NewStatForm>({
     name: "",
     displayName: "",
@@ -43,32 +51,38 @@ const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => 
 
       // Refresh the stats in the context so all components get the updated data
       await refreshStats();
-      
+
       onStatCreated(newStat);
       resetForm();
       onClose();
-      
+
       console.log("Stat created successfully");
     } catch (err) {
       console.error("Error creating stat:", err);
-      setError(err instanceof Error ? err.message : 'Failed to create stat. Please try again.');
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Failed to create stat. Please try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const handleFormChange = (field: keyof NewStatForm, value: string) => {
-    setNewStatForm(prev => ({
+    setNewStatForm((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
-  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCategoryChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     const value = event.target.value;
-    setNewStatForm(prev => ({
+    setNewStatForm((prev) => ({
       ...prev,
-      category: value
+      category: value,
     }));
   };
 
@@ -92,7 +106,9 @@ const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => 
       {loadingAppData ? (
         <div className="p-4 text-center">
           <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">Loading...</p>
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            Loading...
+          </p>
         </div>
       ) : (
         <div className="p-4 space-y-6">
@@ -101,7 +117,8 @@ const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => 
               Add New Stat
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Create a new stat with name, display name, category, and description:
+              Create a new stat with name, display name, category, and
+              description:
             </p>
           </div>
 
@@ -110,10 +127,17 @@ const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => 
               {error}
             </div>
           )}
-          
-          <form onSubmit={handleAddStat} className="space-y-4" autoComplete="off">
+
+          <form
+            onSubmit={handleAddStat}
+            className="space-y-4"
+            autoComplete="off"
+          >
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
                 Name *
               </label>
               <input
@@ -132,7 +156,10 @@ const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => 
             </div>
 
             <div>
-              <label htmlFor="displayName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="displayName"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
                 Display Name
               </label>
               <input
@@ -140,7 +167,9 @@ const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => 
                 id="displayName"
                 name="stat-display-name"
                 value={newStatForm.displayName}
-                onChange={(e) => handleFormChange("displayName", e.target.value)}
+                onChange={(e) =>
+                  handleFormChange("displayName", e.target.value)
+                }
                 autoComplete="off"
                 data-lpignore="true"
                 data-form-type="other"
@@ -150,7 +179,10 @@ const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => 
             </div>
 
             <div>
-              <label htmlFor="category" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="category"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
                 Category
               </label>
               <select
@@ -163,7 +195,7 @@ const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => 
                 className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
                 <option value="">No Category</option>
-                {availableStatCategories.map(category => (
+                {availableStatCategories.map((category) => (
                   <option key={category} value={category}>
                     {category}
                   </option>
@@ -172,14 +204,19 @@ const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => 
             </div>
 
             <div>
-              <label htmlFor="description" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="description"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
                 Description
               </label>
               <textarea
                 id="description"
                 name="stat-description"
                 value={newStatForm.description}
-                onChange={(e) => handleFormChange("description", e.target.value)}
+                onChange={(e) =>
+                  handleFormChange("description", e.target.value)
+                }
                 rows={3}
                 autoComplete="off"
                 data-lpignore="true"
@@ -191,9 +228,9 @@ const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => 
 
             <div className="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                {newStatForm.name ? 'Ready to create stat' : 'Name is required'}
+                {newStatForm.name ? "Ready to create stat" : "Name is required"}
               </div>
-              
+
               <div className="flex space-x-2">
                 <button
                   type="button"
@@ -214,7 +251,7 @@ const AddStatModal = ({ isOpen, onClose, onStatCreated }: AddStatModalProps) => 
                       <span>Creating...</span>
                     </div>
                   ) : (
-                    'Create Stat'
+                    "Create Stat"
                   )}
                 </button>
               </div>

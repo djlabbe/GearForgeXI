@@ -1,4 +1,3 @@
-
 using GearForgeXI.Models.Dto;
 using GearForgeXI.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -44,11 +43,38 @@ public class StatsController(GearDbContext context) : ControllerBase
                 AlternateName2 = s.AlternateName2,
                 Category = s.Category != null ? s.Category.ToString() : null,
                 Description = s.Description,
+                IsBaseStat = s.IsBaseStat,
                 GearItemCount = s.GearItemStats.Count,
             })
             .ToListAsync();
 
         return Ok(stats);
+    }
+
+    /// <summary>
+    /// Get only base stats (STR, DEX, VIT, AGI, INT, MND, CHR) for use in race/job configurations
+    /// </summary>
+    [HttpGet("base")]
+    public async Task<IActionResult> GetBaseStats()
+    {
+        var baseStats = await _context.Stats
+            .Where(s => s.IsBaseStat)
+            .OrderBy(s => s.Id)
+            .Select(s => new StatDto
+            {
+                Id = s.Id,
+                Name = s.Name,
+                DisplayName = s.DisplayName,
+                AlternateName1 = s.AlternateName1,
+                AlternateName2 = s.AlternateName2,
+                Category = s.Category != null ? s.Category.ToString() : null,
+                Description = s.Description,
+                IsBaseStat = s.IsBaseStat,
+                GearItemCount = s.GearItemStats.Count,
+            })
+            .ToListAsync();
+
+        return Ok(baseStats);
     }
 
     [HttpPut("{id}")]
@@ -87,6 +113,7 @@ public class StatsController(GearDbContext context) : ControllerBase
         }
 
         existingStat.Description = statDto.Description;
+        existingStat.IsBaseStat = statDto.IsBaseStat;
 
         try
         {
@@ -99,7 +126,8 @@ public class StatsController(GearDbContext context) : ControllerBase
                 AlternateName1 = existingStat.AlternateName1,
                 AlternateName2 = existingStat.AlternateName2,
                 Category = existingStat.Category?.ToString(),
-                Description = existingStat.Description
+                Description = existingStat.Description,
+                IsBaseStat = existingStat.IsBaseStat
             });
         }
         catch (DbUpdateConcurrencyException)
@@ -132,7 +160,8 @@ public class StatsController(GearDbContext context) : ControllerBase
             DisplayName = statDto.DisplayName,
             AlternateName1 = statDto.AlternateName1,
             AlternateName2 = statDto.AlternateName2,
-            Description = statDto.Description
+            Description = statDto.Description,
+            IsBaseStat = statDto.IsBaseStat
         };
 
         // Convert string category to enum
@@ -159,7 +188,8 @@ public class StatsController(GearDbContext context) : ControllerBase
             AlternateName1 = newStat.AlternateName1,
             AlternateName2 = newStat.AlternateName2,
             Category = newStat.Category?.ToString(),
-            Description = newStat.Description
+            Description = newStat.Description,
+            IsBaseStat = newStat.IsBaseStat
         };
 
         return CreatedAtAction(nameof(GetAllStats), new { id = newStat.Id }, createdStatDto);

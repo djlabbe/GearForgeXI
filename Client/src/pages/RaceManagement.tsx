@@ -1,10 +1,10 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { themeAlpine } from "ag-grid-community";
 import { colorSchemeDarkBlue } from "ag-grid-community";
 import { useAuth } from "../contexts/AuthContext";
-import { useAppData } from "../contexts/AppDataContext";
 import ApiService from "../utils/apiService";
+import type { Stat } from "../models/Stat";
 import type {
   RaceConfiguration,
   CreateRaceConfigurationDto,
@@ -22,7 +22,8 @@ const themeDarkBlue = themeAlpine.withPart(colorSchemeDarkBlue);
 
 export function RaceManagement() {
   const { isAuthenticated, isAdmin } = useAuth();
-  const { stats } = useAppData();
+  const [baseStats, setBaseStats] = useState<Stat[]>([]);
+  const [loadingBaseStats, setLoadingBaseStats] = useState(true);
   const [raceConfigurations, setRaceConfigurations] = useState<
     RaceConfiguration[]
   >([]);
@@ -53,22 +54,41 @@ export function RaceManagement() {
   }>({});
   const [isUpdatingStats, setIsUpdatingStats] = useState(false);
 
-  // Memoized filtered and ordered stats for race base stats
-  const raceBaseStatsOrder = ["STR", "DEX", "VIT", "AGI", "INT", "MND", "CHR"];
-  const orderedRaceStats = useMemo(() => {
-    const filteredStats = stats.filter((stat) =>
-      raceBaseStatsOrder.includes(stat.name)
-    );
-    return raceBaseStatsOrder
-      .map((statName) => filteredStats.find((stat) => stat.name === statName))
-      .filter((stat) => stat !== undefined);
-  }, [stats]);
+  // // Memoized ordered base stats for race base stats
+  // const orderedRaceStats = useMemo(() => {
+  //   const raceBaseStatsOrder = [
+  //     "STR",
+  //     "DEX",
+  //     "VIT",
+  //     "AGI",
+  //     "INT",
+  //     "MND",
+  //     "CHR",
+  //   ];
+  //   return raceBaseStatsOrder
+  //     .map((statName) => baseStats.find((stat) => stat.name === statName))
+  //     .filter((stat) => stat !== undefined);
+  // }, [baseStats]);
 
   useEffect(() => {
     if (isAuthenticated) {
       loadData();
+      loadBaseStats();
     }
   }, [isAuthenticated]);
+
+  const loadBaseStats = async () => {
+    try {
+      setLoadingBaseStats(true);
+      const stats = await ApiService.getBaseStats();
+      setBaseStats(stats);
+    } catch (err) {
+      console.error("Failed to load base stats:", err);
+      setError("Failed to load base stats");
+    } finally {
+      setLoadingBaseStats(false);
+    }
+  };
 
   const updateRace = async (race: RaceConfiguration) => {
     try {
@@ -111,7 +131,7 @@ export function RaceManagement() {
         rowNodes: [event.node],
         columns: [event.column.getColId()],
       });
-    } catch (error) {
+    } catch {
       // Revert the change if the update failed
       event.node.setData(event.oldValue);
       setError("Failed to update. Please try again.");
@@ -169,7 +189,7 @@ export function RaceManagement() {
     setSelectedRace(race);
     // Initialize editing stats with current values for only the main stats
     const currentStats: { [key: number]: number | null } = {};
-    orderedRaceStats.forEach((stat) => {
+    baseStats.forEach((stat) => {
       const existingStat = race.raceBaseStats.find(
         (rs) => rs.statId === stat.id
       );
@@ -223,9 +243,7 @@ export function RaceManagement() {
             await ApiService.addRaceBaseStat(selectedRace.id, createDto);
 
             // Find the stat to add the complete object
-            const stat = orderedRaceStats.find(
-              (s) => s.id === parseInt(statId)
-            );
+            const stat = baseStats.find((s) => s.id === parseInt(statId));
             if (stat) {
               updatedRaceBaseStats.push({
                 id: 0, // Temporary ID, will be correct on next full reload if needed
@@ -373,7 +391,7 @@ export function RaceManagement() {
     );
   }
 
-  if (loading) {
+  if (loading || loadingBaseStats) {
     return (
       <div className="space-y-4">
         <div className="flex justify-center items-center p-8">
@@ -574,7 +592,7 @@ export function RaceManagement() {
             </div>
 
             <div className="space-y-4 max-h-96 overflow-y-auto">
-              {orderedRaceStats.map((stat) => {
+              {baseStats.map((stat) => {
                 const currentValue = editingStats[stat.id];
                 return (
                   <div key={stat.id}>
@@ -613,7 +631,7 @@ export function RaceManagement() {
                 <button
                   onClick={handleCancelStats}
                   disabled={isUpdatingStats}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 disabled:opacity-50 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Cancel
                 </button>

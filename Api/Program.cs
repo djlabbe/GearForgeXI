@@ -16,8 +16,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 // Add response caching
-builder.Services.AddResponseCaching();
-builder.Services.AddMemoryCache();
+// builder.Services.AddResponseCaching();
+// builder.Services.AddMemoryCache();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new() { Title = "GearForgeXI API", Version = "v1" });
@@ -164,7 +164,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Add response caching middleware
-app.UseResponseCaching();
+// app.UseResponseCaching();
 
 if (app.Environment.IsDevelopment())
 {

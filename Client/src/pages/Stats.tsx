@@ -9,7 +9,12 @@ import StatGearItemsModal from "../components/StatGearItemsModal";
 import { useAppData } from "../contexts/AppDataContext";
 import { useAuth } from "../contexts/AuthContext";
 
-import type { CellValueChangedEvent, ColDef } from "ag-grid-community";
+import type {
+  CellValueChangedEvent,
+  ColDef,
+  ICellRendererParams,
+  ValueSetterParams,
+} from "ag-grid-community";
 import type { Stat } from "../models/Stat";
 
 const themeDarkBlue = themeAlpine.withPart(colorSchemeDarkBlue);
@@ -68,7 +73,7 @@ export function Stats() {
       await refreshStats(); // Refresh the stats list after successful deletion
       setShowDeleteConfirm(false);
       setStatToDelete(null);
-    } catch (error) {
+    } catch {
       alert("Failed to delete stat. Please try again.");
     } finally {
       setIsDeleting(false);
@@ -97,7 +102,7 @@ export function Stats() {
         rowNodes: [event.node],
         columns: [event.column.getColId()],
       });
-    } catch (error) {
+    } catch {
       // Revert the change if the update failed
       event.node.setData(event.oldValue);
       alert("Failed to update stat. Please try again.");
@@ -168,6 +173,42 @@ export function Stats() {
       enableCellChangeFlash: true,
     },
     {
+      headerName: "Base Stat",
+      field: "isBaseStat",
+      sortable: true,
+      filter: true,
+      width: 120,
+      editable: isAdmin,
+      enableCellChangeFlash: true,
+      cellRenderer: (params: ICellRendererParams<Stat>) => {
+        const isBaseStat = params.value;
+        return (
+          <div className="flex justify-center items-center h-full">
+            <span
+              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                isBaseStat
+                  ? "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400"
+                  : "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400"
+              }`}
+            >
+              {isBaseStat ? "Yes" : "No"}
+            </span>
+          </div>
+        );
+      },
+      cellEditor: "agSelectCellEditor",
+      cellEditorParams: {
+        values: [true, false],
+        formatValue: (value: boolean) => (value ? "Yes" : "No"),
+      },
+      valueSetter: (params: ValueSetterParams<Stat>) => {
+        // Convert the string value back to boolean
+        const newValue = params.newValue === "Yes" || params.newValue === true;
+        params.data.isBaseStat = newValue;
+        return true;
+      },
+    },
+    {
       headerName: "Gear Count",
       field: "gearItemCount",
       sortable: true,
@@ -181,7 +222,7 @@ export function Stats() {
       sortable: false,
       filter: false,
       editable: false,
-      cellRenderer: (params: any) => {
+      cellRenderer: (params: ICellRendererParams<Stat>) => {
         const stat = params.data as Stat;
 
         return (

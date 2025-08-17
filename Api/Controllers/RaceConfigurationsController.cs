@@ -249,6 +249,12 @@ public class RaceConfigurationsController : ControllerBase
             return BadRequest("Invalid stat ID");
         }
 
+        // Verify the stat is a base stat (STR, DEX, VIT, AGI, INT, MND, CHR)
+        if (!stat.IsBaseStat)
+        {
+            return BadRequest("Only base stats (STR, DEX, VIT, AGI, INT, MND, CHR) can be used for race base stats");
+        }
+
         // Check if this race already has this stat
         if (await _context.RaceBaseStats.AnyAsync(rbs => rbs.RaceConfigurationId == id && rbs.StatId == createDto.StatId))
         {

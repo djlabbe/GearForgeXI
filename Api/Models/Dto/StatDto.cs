@@ -19,6 +19,8 @@ namespace GearForgeXI.Models.Dto
 
         public string? Description { get; set; }        // Optional tooltip text
 
+        public bool IsBaseStat { get; set; }           // True for base stats (STR, DEX, VIT, AGI, INT, MND, CHR)
+
         public int GearItemCount { get; set; }
     }
 }
