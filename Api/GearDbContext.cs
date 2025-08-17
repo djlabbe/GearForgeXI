@@ -268,8 +268,8 @@ namespace GearForgeXI
             // JobConfiguration: one-to-one with Job
             modelBuilder.Entity<JobConfiguration>()
                 .HasOne(jc => jc.Job)
-                .WithMany()
-                .HasForeignKey(jc => jc.JobId)
+                .WithOne(j => j.Configuration)
+                .HasForeignKey<JobConfiguration>(jc => jc.JobId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<JobConfiguration>()

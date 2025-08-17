@@ -122,7 +122,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("CharacterProfileId", "JobId")
                         .IsUnique();
 
-                    b.ToTable("CharacterJobs");
+                    b.ToTable("CharacterJobs", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.CharacterProfile", b =>
@@ -163,7 +163,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("CharacterName", "Server")
                         .IsUnique();
 
-                    b.ToTable("CharacterProfiles");
+                    b.ToTable("CharacterProfiles", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.GearItem", b =>
@@ -198,7 +198,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasIndex("Verified");
 
-                    b.ToTable("GearItems");
+                    b.ToTable("GearItems", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.GearItemCategory", b =>
@@ -215,7 +215,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GearItemCategories");
+                    b.ToTable("GearItemCategories", (string)null);
 
                     b.HasData(
                         new
@@ -316,7 +316,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("GearItemId", "JobId")
                         .IsUnique();
 
-                    b.ToTable("GearItemJobs");
+                    b.ToTable("GearItemJobs", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.GearItemSlot", b =>
@@ -340,7 +340,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("GearItemId", "GearSlotId")
                         .IsUnique();
 
-                    b.ToTable("GearItemSlots");
+                    b.ToTable("GearItemSlots", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.GearItemStat", b =>
@@ -366,7 +366,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasIndex("StatId");
 
-                    b.ToTable("GearItemStats");
+                    b.ToTable("GearItemStats", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.GearSet", b =>
@@ -397,7 +397,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("GearSets");
+                    b.ToTable("GearSets", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.GearSetItem", b =>
@@ -425,7 +425,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("GearSetId", "Position")
                         .IsUnique();
 
-                    b.ToTable("GearSetItems");
+                    b.ToTable("GearSetItems", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.GearSlot", b =>
@@ -444,7 +444,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasIndex("Name");
 
-                    b.ToTable("GearSlots");
+                    b.ToTable("GearSlots", (string)null);
 
                     b.HasData(
                         new
@@ -542,7 +542,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasIndex("Abbreviation");
 
-                    b.ToTable("Jobs");
+                    b.ToTable("Jobs", (string)null);
 
                     b.HasData(
                         new
@@ -724,7 +724,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasIndex("StatId");
 
-                    b.ToTable("JobBaseStats");
+                    b.ToTable("JobBaseStats", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.JobConfiguration", b =>
@@ -743,7 +743,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("JobId")
                         .IsUnique();
 
-                    b.ToTable("JobConfigurations");
+                    b.ToTable("JobConfigurations", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.JobPointBonus", b =>
@@ -770,7 +770,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("JobConfigurationId", "StatId")
                         .IsUnique();
 
-                    b.ToTable("JobPointBonuses");
+                    b.ToTable("JobPointBonuses", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.JobTrait", b =>
@@ -806,7 +806,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("JobConfigurationId", "StatId")
                         .IsUnique();
 
-                    b.ToTable("JobTraits");
+                    b.ToTable("JobTraits", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.MasterLevelBonus", b =>
@@ -833,7 +833,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("JobConfigurationId", "StatId")
                         .IsUnique();
 
-                    b.ToTable("MasterLevelBonuses");
+                    b.ToTable("MasterLevelBonuses", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.RaceBaseStat", b =>
@@ -859,7 +859,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasIndex("StatId");
 
-                    b.ToTable("RaceBaseStats");
+                    b.ToTable("RaceBaseStats", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.RaceConfiguration", b =>
@@ -880,7 +880,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RaceConfigurations");
+                    b.ToTable("RaceConfigurations", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.RefreshToken", b =>
@@ -912,7 +912,7 @@ namespace GearForgeXI.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("RefreshTokens");
+                    b.ToTable("RefreshTokens", (string)null);
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.Stat", b =>
@@ -947,7 +947,7 @@ namespace GearForgeXI.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Stats");
+                    b.ToTable("Stats", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -3,108 +3,98 @@ import { AgGridReact } from "ag-grid-react";
 import { themeAlpine } from "ag-grid-community";
 import { colorSchemeDarkBlue } from "ag-grid-community";
 import ApiService from "../utils/apiService";
-import AddStatModal from "../components/AddStatModal";
 import ConfirmationModal from "../components/ConfirmationModal";
-import StatGearItemsModal from "../components/StatGearItemsModal";
 import { useAppData } from "../contexts/AppDataContext";
 import { useAuth } from "../contexts/AuthContext";
 
 import type { CellValueChangedEvent, ColDef } from "ag-grid-community";
-import type { Stat } from "../models/Stat";
+import type { Job } from "../models/Job";
 
 const themeDarkBlue = themeAlpine.withPart(colorSchemeDarkBlue);
 
-export function Stats() {
-  const { stats, loading: loadingAppData, refreshStats } = useAppData();
+export function Jobs() {
+  const { jobs, loading: loadingAppData, refreshJobs } = useAppData();
   const { isAdmin } = useAuth();
-  const [showAddForm, setShowAddForm] = useState(false);
   const [quickFilterText, setQuickFilterText] = useState("");
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [statToDelete, setStatToDelete] = useState<{
+  const [jobToDelete, setJobToDelete] = useState<{
     id: number;
-    name: string;
+    abbreviation: string;
+    fullName: string;
   } | null>(null);
-  const [showGearItemsModal, setShowGearItemsModal] = useState(false);
-  const [selectedStat, setSelectedStat] = useState<Stat | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  const updateStat = async (stat: Stat) => {
+  const updateJob = async (job: Job) => {
     try {
-      const updatedStat = await ApiService.updateStat(stat);
-      return updatedStat;
+      const updatedJob = await ApiService.updateJob(job);
+      return updatedJob;
     } catch (error) {
-      console.error("Error updating stat:", error);
+      console.error("Error updating job:", error);
       throw error;
     }
   };
 
-  const deleteStat = async (statId: number) => {
+  const deleteJob = async (jobId: number) => {
     try {
-      await ApiService.deleteStat(statId);
-      console.log("Stat deleted successfully");
+      await ApiService.deleteJob(jobId);
+      console.log("Job deleted successfully");
     } catch (error) {
-      console.error("Error deleting stat:", error);
+      console.error("Error deleting job:", error);
       throw error;
     }
   };
 
-  const handleDeleteStat = (statId: number, statName: string) => {
-    setStatToDelete({ id: statId, name: statName });
+  const handleDeleteJob = (
+    jobId: number,
+    abbreviation: string,
+    fullName: string
+  ) => {
+    setJobToDelete({ id: jobId, abbreviation, fullName });
     setShowDeleteConfirm(true);
   };
 
-  const handleViewGearItems = (stat: Stat) => {
-    setSelectedStat(stat);
-    setShowGearItemsModal(true);
-  };
-
-  const confirmDeleteStat = async () => {
-    if (!statToDelete) return;
+  const confirmDeleteJob = async () => {
+    if (!jobToDelete) return;
 
     setIsDeleting(true);
     try {
-      await deleteStat(statToDelete.id);
-      await refreshStats(); // Refresh the stats list after successful deletion
+      await deleteJob(jobToDelete.id);
+      await refreshJobs(); // Refresh the jobs list after successful deletion
       setShowDeleteConfirm(false);
-      setStatToDelete(null);
-    } catch (error) {
-      alert("Failed to delete stat. Please try again.");
+      setJobToDelete(null);
+    } catch {
+      alert("Failed to delete job. Please try again.");
     } finally {
       setIsDeleting(false);
     }
   };
 
-  const cancelDeleteStat = () => {
+  const cancelDeleteJob = () => {
     if (isDeleting) return; // Don't allow canceling while deleting
     setShowDeleteConfirm(false);
-    setStatToDelete(null);
+    setJobToDelete(null);
   };
 
-  const handleStatCreated = () => {
-    // The AddStatModal will handle refreshing the AppDataContext
-    setShowAddForm(false);
-  };
-
-  const onCellValueChanged = async (event: CellValueChangedEvent<Stat>) => {
-    const updatedStat = event.data;
+  const onCellValueChanged = async (event: CellValueChangedEvent<Job>) => {
+    const updatedJob = event.data;
     try {
-      await updateStat(updatedStat);
-      console.log("Stat updated successfully");
+      await updateJob(updatedJob);
+      console.log("Job updated successfully");
 
       // Flash the cell green to indicate successful save
       event.api.flashCells({
         rowNodes: [event.node],
         columns: [event.column.getColId()],
       });
-    } catch (error) {
+    } catch {
       // Revert the change if the update failed
       event.node.setData(event.oldValue);
-      alert("Failed to update stat. Please try again.");
+      alert("Failed to update job. Please try again.");
     }
   };
 
-  const columnDefs: ColDef<Stat>[] = [
+  const columnDefs: ColDef<Job>[] = [
     {
       headerName: "Id",
       field: "id",
@@ -114,113 +104,60 @@ export function Stats() {
       editable: false,
     },
     {
-      headerName: "Name",
-      field: "name",
-      sortable: true,
-      filter: true,
-      editable: isAdmin,
-      enableCellChangeFlash: true,
-    },
-    {
-      headerName: "Display Name",
-      field: "displayName",
-      sortable: true,
-      filter: true,
-      width: 300,
-      editable: isAdmin,
-      enableCellChangeFlash: true,
-    },
-    {
-      headerName: "Alt Name 1",
-      field: "alternateName1",
-      sortable: true,
-      filter: true,
-      width: 300,
-      editable: isAdmin,
-      enableCellChangeFlash: true,
-    },
-    {
-      headerName: "Alt Name 2",
-      field: "alternateName2",
-      sortable: true,
-      filter: true,
-      width: 300,
-      editable: isAdmin,
-      enableCellChangeFlash: true,
-    },
-    {
-      headerName: "Description",
-      field: "description",
-      sortable: true,
-      filter: true,
-      rowGroup: false,
-      width: 500,
-      editable: isAdmin,
-      enableCellChangeFlash: true,
-    },
-    {
-      headerName: "Category",
-      field: "category",
-      sortable: true,
-      filter: true,
-      rowGroup: false,
-      editable: isAdmin,
-      enableCellChangeFlash: true,
-    },
-    {
-      headerName: "Gear Count",
-      field: "gearItemCount",
+      headerName: "Abbreviation",
+      field: "abbreviation",
       sortable: true,
       filter: true,
       width: 150,
-      editable: false,
+      editable: isAdmin,
+      enableCellChangeFlash: true,
+    },
+    {
+      headerName: "Full Name",
+      field: "fullName",
+      sortable: true,
+      filter: true,
+      width: 250,
+      editable: isAdmin,
+      enableCellChangeFlash: true,
+    },
+    {
+      headerName: "Can Dual Wield",
+      field: "canDualWield",
+      sortable: true,
+      filter: true,
+      width: 150,
+      editable: isAdmin,
+      enableCellChangeFlash: true,
+      cellRenderer: (params: { value: boolean }) => {
+        return params.value ? "Yes" : "No";
+      },
+      cellEditor: "agSelectCellEditor",
+      cellEditorParams: {
+        values: [true, false],
+        valueListMaxHeight: 100,
+        formatValue: (value: boolean) => (value ? "Yes" : "No"),
+      },
     },
     {
       headerName: "Actions",
-      width: 180,
+      width: 120,
       sortable: false,
       filter: false,
       editable: false,
-      cellRenderer: (params: any) => {
-        const stat = params.data as Stat;
+      cellRenderer: (params: { data: Job }) => {
+        const job = params.data;
 
         return (
           <div className="flex justify-center items-center h-full space-x-2">
-            {/* View Items Button - Always show if there are gear items */}
-            {(stat.gearItemCount || 0) > 0 && (
+            {/* Delete Button - Only show if admin */}
+            {isAdmin && (
               <button
-                onClick={() => handleViewGearItems(stat)}
-                className="p-2 text-blue-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded transition-colors duration-200"
-                title={`View ${stat.gearItemCount} gear items with ${stat.name}`}
-              >
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                  />
-                </svg>
-              </button>
-            )}
-
-            {/* Delete Button - Only show if admin and no gear items use this stat */}
-            {isAdmin && (stat.gearItemCount || 0) === 0 && (
-              <button
-                onClick={() => handleDeleteStat(stat.id, stat.name)}
+                onClick={() =>
+                  handleDeleteJob(job.id, job.abbreviation, job.fullName)
+                }
                 className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors duration-200"
-                title={`Delete ${stat.name}`}
+                title={`Delete ${job.abbreviation} (${job.fullName})`}
               >
                 <svg
                   className="h-4 w-4"
@@ -253,19 +190,12 @@ export function Stats() {
 
   return (
     <div className="space-y-4">
-      {/* Header with Add New Stat Button */}
+      {/* Header */}
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-          Stats
+          Jobs
         </h1>
-        {isAdmin && (
-          <button
-            onClick={() => setShowAddForm(true)}
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Add New Stat
-          </button>
-        )}
+        {/* TODO: Add New Job button when AddJobModal is implemented */}
       </div>
 
       {/* Quick Filter */}
@@ -292,7 +222,7 @@ export function Stats() {
               id="quick-filter"
               value={quickFilterText}
               onChange={(e) => setQuickFilterText(e.target.value)}
-              placeholder="Filter stats by name, display name, category, or description..."
+              placeholder="Filter jobs by abbreviation or full name..."
               className="w-full pl-10 p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               autoComplete="off"
             />
@@ -321,35 +251,28 @@ export function Stats() {
         </div>
       </div>
 
-      {/* Add Stat Modal - Only for Admin users */}
-      {isAdmin && (
-        <AddStatModal
+      {/* TODO: Add Job Modal - Only for Admin users */}
+      {/* {isAdmin && (
+        <AddJobModal
           isOpen={showAddForm}
           onClose={() => setShowAddForm(false)}
-          onStatCreated={handleStatCreated}
+          onJobCreated={handleJobCreated}
         />
-      )}
+      )} */}
 
       {/* Delete Confirmation Modal - Only for Admin users */}
       {isAdmin && (
         <ConfirmationModal
           isOpen={showDeleteConfirm}
-          title="Delete Stat"
-          message={`Are you sure you want to delete the stat "${statToDelete?.name}"? This action cannot be undone.`}
+          title="Delete Job"
+          message={`Are you sure you want to delete the job "${jobToDelete?.abbreviation}" (${jobToDelete?.fullName})? This action cannot be undone and may fail if the job is referenced by other data.`}
           confirmText="Delete"
           cancelText="Cancel"
           isLoading={isDeleting}
-          onConfirm={confirmDeleteStat}
-          onCancel={cancelDeleteStat}
+          onConfirm={confirmDeleteJob}
+          onCancel={cancelDeleteJob}
         />
       )}
-
-      {/* Stat Gear Items Modal */}
-      <StatGearItemsModal
-        isOpen={showGearItemsModal}
-        onClose={() => setShowGearItemsModal(false)}
-        stat={selectedStat}
-      />
 
       {/* AG Grid */}
       <div
@@ -360,9 +283,9 @@ export function Stats() {
           minHeight: 300,
         }}
       >
-        <AgGridReact<Stat>
+        <AgGridReact<Job>
           theme={isDarkMode ? themeDarkBlue : themeAlpine}
-          rowData={stats}
+          rowData={jobs}
           columnDefs={columnDefs}
           onCellValueChanged={onCellValueChanged}
           quickFilterText={quickFilterText}

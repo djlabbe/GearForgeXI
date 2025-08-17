@@ -1,11 +1,21 @@
-import type { Job } from '../models/Job';
-import type { Stat } from '../models/Stat';
-import type { GearItem } from '../models/GearItem';
-import type { GearSet } from '../models/GearSet';
-import type { CharacterProfile, CreateCharacterProfileDto, UpdateCharacterProfileDto, UpdateCharacterJobDto } from '../models/CharacterProfile';
-import type { RaceConfiguration, CreateRaceConfigurationDto, UpdateRaceConfigurationDto, CreateRaceBaseStatDto } from '../models/RaceConfiguration';
-import { authFetch } from './authFetch';
-import { publicFetch } from './publicFetch';
+import type { Job } from "../models/Job";
+import type { Stat } from "../models/Stat";
+import type { GearItem } from "../models/GearItem";
+import type { GearSet } from "../models/GearSet";
+import type {
+  CharacterProfile,
+  CreateCharacterProfileDto,
+  UpdateCharacterProfileDto,
+  UpdateCharacterJobDto,
+} from "../models/CharacterProfile";
+import type {
+  RaceConfiguration,
+  CreateRaceConfigurationDto,
+  UpdateRaceConfigurationDto,
+  CreateRaceBaseStatDto,
+} from "../models/RaceConfiguration";
+import { authFetch } from "./authFetch";
+import { publicFetch } from "./publicFetch";
 
 export interface GearItemSlotUpdateDto {
   slots: string[];
@@ -20,10 +30,10 @@ export interface CreateGearItemDto {
   categoryName?: string;
   rank?: number;
   path?: string;
-  verified?: boolean;     // Admin verification flag
+  verified?: boolean; // Admin verification flag
   stats: CreateGearStatDto[];
-  jobs: string[];         // e.g., ["WAR", "NIN"]
-  slots: string[];        // e.g., ["Main", "Sub"]
+  jobs: string[]; // e.g., ["WAR", "NIN"]
+  slots: string[]; // e.g., ["Main", "Sub"]
 }
 
 export interface CreateGearStatDto {
@@ -62,7 +72,7 @@ export interface UpdateGearSetSlotDto {
 }
 
 class ApiService {
-  private static baseUrl = '/api';
+  private static baseUrl = "/api";
 
   static async getStats(): Promise<Stat[]> {
     const response = await publicFetch(`${this.baseUrl}/stats`);
@@ -74,9 +84,9 @@ class ApiService {
 
   static async updateStat(stat: Stat): Promise<Stat> {
     const response = await authFetch(`${this.baseUrl}/stats/${stat.id}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(stat),
     });
@@ -88,11 +98,11 @@ class ApiService {
     return response.json();
   }
 
-  static async createStat(stat: Omit<Stat, 'id'>): Promise<Stat> {
+  static async createStat(stat: Omit<Stat, "id">): Promise<Stat> {
     const response = await authFetch(`${this.baseUrl}/stats`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(stat),
     });
@@ -107,7 +117,7 @@ class ApiService {
 
   static async deleteStat(id: number): Promise<void> {
     const response = await authFetch(`${this.baseUrl}/stats/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
 
     if (!response.ok) {
@@ -119,7 +129,9 @@ class ApiService {
   static async getAvailableStatCategories(): Promise<string[]> {
     const response = await publicFetch(`${this.baseUrl}/stats/categories`);
     if (!response.ok) {
-      throw new Error(`Failed to fetch stat categories: ${response.statusText}`);
+      throw new Error(
+        `Failed to fetch stat categories: ${response.statusText}`
+      );
     }
     return response.json();
   }
@@ -132,10 +144,90 @@ class ApiService {
     return response.json();
   }
 
+  static async getJob(id: number): Promise<Job> {
+    const response = await publicFetch(`${this.baseUrl}/jobs/${id}`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch job: ${response.statusText}`);
+    }
+    return response.json();
+  }
+
+  static async createJob(job: Omit<Job, "id">): Promise<Job> {
+    const response = await authFetch(`/api/jobs`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(job),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to create job: ${errorText}`);
+    }
+
+    return response.json();
+  }
+
+  static async updateJob(job: Job): Promise<Job> {
+    const response = await authFetch(`/api/jobs/${job.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        abbreviation: job.abbreviation,
+        fullName: job.fullName,
+        canDualWield: job.canDualWield,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to update job: ${errorText}`);
+    }
+
+    return job; // Return the updated job since PUT returns 204 No Content
+  }
+
+  static async deleteJob(id: number): Promise<void> {
+    const response = await authFetch(`/api/jobs/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to delete job: ${errorText}`);
+    }
+  }
+
+  static async checkJobAbbreviationAvailable(
+    abbreviation: string,
+    excludeId?: number
+  ): Promise<boolean> {
+    const url = excludeId
+      ? `${this.baseUrl}/jobs/check-abbreviation/${encodeURIComponent(
+          abbreviation
+        )}?excludeId=${excludeId}`
+      : `${this.baseUrl}/jobs/check-abbreviation/${encodeURIComponent(
+          abbreviation
+        )}`;
+
+    const response = await publicFetch(url);
+    if (!response.ok) {
+      throw new Error(
+        `Failed to check abbreviation availability: ${response.statusText}`
+      );
+    }
+    return response.json();
+  }
+
   static async getAvailableGearSlots(): Promise<string[]> {
     const response = await publicFetch(`${this.baseUrl}/gear/slots`);
     if (!response.ok) {
-      throw new Error(`Failed to fetch available slots: ${response.statusText}`);
+      throw new Error(
+        `Failed to fetch available slots: ${response.statusText}`
+      );
     }
     return response.json();
   }
@@ -151,16 +243,20 @@ class ApiService {
   static async getAvailableGearCategories(): Promise<string[]> {
     const response = await publicFetch(`${this.baseUrl}/gear/categories`);
     if (!response.ok) {
-      throw new Error(`Failed to fetch available categories: ${response.statusText}`);
+      throw new Error(
+        `Failed to fetch available categories: ${response.statusText}`
+      );
     }
     return response.json();
   }
 
-  static async createGearItem(gearItemData: CreateGearItemDto): Promise<GearItem> {
+  static async createGearItem(
+    gearItemData: CreateGearItemDto
+  ): Promise<GearItem> {
     const response = await authFetch(`${this.baseUrl}/gear`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(gearItemData),
     });
@@ -173,11 +269,14 @@ class ApiService {
     return response.json();
   }
 
-  static async updateGearItem(itemId: number, gearItemData: CreateGearItemDto): Promise<GearItem> {
+  static async updateGearItem(
+    itemId: number,
+    gearItemData: CreateGearItemDto
+  ): Promise<GearItem> {
     const response = await authFetch(`${this.baseUrl}/gear/${itemId}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(gearItemData),
     });
@@ -190,11 +289,14 @@ class ApiService {
     return response.json();
   }
 
-  static async updateGearItemSlots(itemId: number, slots: string[]): Promise<void> {
+  static async updateGearItemSlots(
+    itemId: number,
+    slots: string[]
+  ): Promise<void> {
     const response = await authFetch(`${this.baseUrl}/gear/${itemId}/slots`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ slots } as GearItemSlotUpdateDto),
     });
@@ -205,14 +307,20 @@ class ApiService {
     }
   }
 
-  static async updateGearItemCategory(itemId: number, categoryName: string | null): Promise<void> {
-    const response = await authFetch(`${this.baseUrl}/gear/${itemId}/category`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ categoryName } as GearItemCategoryUpdateDto),
-    });
+  static async updateGearItemCategory(
+    itemId: number,
+    categoryName: string | null
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/gear/${itemId}/category`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ categoryName } as GearItemCategoryUpdateDto),
+      }
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -230,12 +338,11 @@ class ApiService {
     return response.json();
   }
 
-
   static async createGearSet(gearSetData: CreateGearSetDto): Promise<GearSet> {
     const response = await authFetch(`${this.baseUrl}/gearsets`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(gearSetData),
     });
@@ -248,11 +355,14 @@ class ApiService {
     return response.json();
   }
 
-  static async updateGearSet(id: number, gearSetData: UpdateGearSetDto): Promise<GearSet> {
+  static async updateGearSet(
+    id: number,
+    gearSetData: UpdateGearSetDto
+  ): Promise<GearSet> {
     const response = await authFetch(`${this.baseUrl}/gearsets/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(gearSetData),
     });
@@ -274,14 +384,20 @@ class ApiService {
     return response.json();
   }
 
-  static async addSlotToGearSet(gearSetId: number, slotData: AddGearSetSlotDto): Promise<void> {
-    const response = await authFetch(`${this.baseUrl}/gearsets/${gearSetId}/slots`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(slotData),
-    });
+  static async addSlotToGearSet(
+    gearSetId: number,
+    slotData: AddGearSetSlotDto
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/gearsets/${gearSetId}/slots`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(slotData),
+      }
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -289,14 +405,21 @@ class ApiService {
     }
   }
 
-  static async updateSlotInGearSet(gearSetId: number, position: string, slotData: UpdateGearSetSlotDto): Promise<void> {
-    const response = await authFetch(`${this.baseUrl}/gearsets/${gearSetId}/slots/${position}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(slotData),
-    });
+  static async updateSlotInGearSet(
+    gearSetId: number,
+    position: string,
+    slotData: UpdateGearSetSlotDto
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/gearsets/${gearSetId}/slots/${position}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(slotData),
+      }
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -304,10 +427,16 @@ class ApiService {
     }
   }
 
-  static async removeSlotFromGearSet(gearSetId: number, position: string): Promise<void> {
-    const response = await authFetch(`${this.baseUrl}/gearsets/${gearSetId}/slots/${position}`, {
-      method: 'DELETE',
-    });
+  static async removeSlotFromGearSet(
+    gearSetId: number,
+    position: string
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/gearsets/${gearSetId}/slots/${position}`,
+      {
+        method: "DELETE",
+      }
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -326,7 +455,7 @@ class ApiService {
 
   // Character Profile API methods
   static async getCharacterProfiles(): Promise<CharacterProfile[]> {
-    const response = await authFetch('/api/characterprofile');
+    const response = await authFetch("/api/characterprofile");
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`Failed to fetch character profiles: ${errorText}`);
@@ -343,15 +472,17 @@ class ApiService {
     return response.json();
   }
 
-  static async createCharacterProfile(profile: CreateCharacterProfileDto): Promise<{ id: number }> {
-    const response = await authFetch('/api/characterprofile', {
-      method: 'POST',
+  static async createCharacterProfile(
+    profile: CreateCharacterProfileDto
+  ): Promise<{ id: number }> {
+    const response = await authFetch("/api/characterprofile", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(profile),
     });
-    
+
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`Failed to create character profile: ${errorText}`);
@@ -359,15 +490,18 @@ class ApiService {
     return response.json();
   }
 
-  static async updateCharacterProfile(id: number, profile: UpdateCharacterProfileDto): Promise<void> {
+  static async updateCharacterProfile(
+    id: number,
+    profile: UpdateCharacterProfileDto
+  ): Promise<void> {
     const response = await authFetch(`/api/characterprofile/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(profile),
     });
-    
+
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`Failed to update character profile: ${errorText}`);
@@ -376,24 +510,30 @@ class ApiService {
 
   static async deleteCharacterProfile(id: number): Promise<void> {
     const response = await authFetch(`/api/characterprofile/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
-    
+
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`Failed to delete character profile: ${errorText}`);
     }
   }
 
-  static async updateCharacterJobs(profileId: number, characterJobs: UpdateCharacterJobDto[]): Promise<void> {
-    const response = await authFetch(`/api/characterprofile/${profileId}/character-jobs`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(characterJobs),
-    });
-    
+  static async updateCharacterJobs(
+    profileId: number,
+    characterJobs: UpdateCharacterJobDto[]
+  ): Promise<void> {
+    const response = await authFetch(
+      `/api/characterprofile/${profileId}/character-jobs`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(characterJobs),
+      }
+    );
+
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`Failed to update character jobs: ${errorText}`);
@@ -404,32 +544,46 @@ class ApiService {
   static async getRaceConfigurations(): Promise<RaceConfiguration[]> {
     const response = await authFetch(`${this.baseUrl}/raceconfigurations`);
     if (!response.ok) {
-      throw new Error(`Failed to fetch race configurations: ${response.statusText}`);
+      throw new Error(
+        `Failed to fetch race configurations: ${response.statusText}`
+      );
     }
     return response.json();
   }
 
   static async getRaceConfiguration(id: number): Promise<RaceConfiguration> {
-    const response = await authFetch(`${this.baseUrl}/raceconfigurations/${id}`);
+    const response = await authFetch(
+      `${this.baseUrl}/raceconfigurations/${id}`
+    );
     if (!response.ok) {
-      throw new Error(`Failed to fetch race configuration: ${response.statusText}`);
+      throw new Error(
+        `Failed to fetch race configuration: ${response.statusText}`
+      );
     }
     return response.json();
   }
 
-  static async getRaceConfigurationByAbbreviation(abbreviation: string): Promise<RaceConfiguration> {
-    const response = await authFetch(`${this.baseUrl}/raceconfigurations/by-abbreviation/${abbreviation}`);
+  static async getRaceConfigurationByAbbreviation(
+    abbreviation: string
+  ): Promise<RaceConfiguration> {
+    const response = await authFetch(
+      `${this.baseUrl}/raceconfigurations/by-abbreviation/${abbreviation}`
+    );
     if (!response.ok) {
-      throw new Error(`Failed to fetch race configuration: ${response.statusText}`);
+      throw new Error(
+        `Failed to fetch race configuration: ${response.statusText}`
+      );
     }
     return response.json();
   }
 
-  static async createRaceConfiguration(raceConfiguration: CreateRaceConfigurationDto): Promise<RaceConfiguration> {
+  static async createRaceConfiguration(
+    raceConfiguration: CreateRaceConfigurationDto
+  ): Promise<RaceConfiguration> {
     const response = await authFetch(`${this.baseUrl}/raceconfigurations`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(raceConfiguration),
     });
@@ -442,14 +596,19 @@ class ApiService {
     return response.json();
   }
 
-  static async updateRaceConfiguration(raceConfiguration: UpdateRaceConfigurationDto): Promise<void> {
-    const response = await authFetch(`${this.baseUrl}/raceconfigurations/${raceConfiguration.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(raceConfiguration),
-    });
+  static async updateRaceConfiguration(
+    raceConfiguration: UpdateRaceConfigurationDto
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/raceconfigurations/${raceConfiguration.id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(raceConfiguration),
+      }
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -458,23 +617,34 @@ class ApiService {
   }
 
   static async deleteRaceConfiguration(id: number): Promise<void> {
-    const response = await authFetch(`${this.baseUrl}/raceconfigurations/${id}`, {
-      method: 'DELETE',
-    });
+    const response = await authFetch(
+      `${this.baseUrl}/raceconfigurations/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
 
     if (!response.ok) {
-      throw new Error(`Failed to delete race configuration: ${response.statusText}`);
+      throw new Error(
+        `Failed to delete race configuration: ${response.statusText}`
+      );
     }
   }
 
-  static async addRaceBaseStat(raceId: number, baseStat: CreateRaceBaseStatDto): Promise<void> {
-    const response = await authFetch(`${this.baseUrl}/raceconfigurations/${raceId}/base-stats`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(baseStat),
-    });
+  static async addRaceBaseStat(
+    raceId: number,
+    baseStat: CreateRaceBaseStatDto
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/raceconfigurations/${raceId}/base-stats`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(baseStat),
+      }
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -482,14 +652,21 @@ class ApiService {
     }
   }
 
-  static async updateRaceBaseStat(raceId: number, statId: number, value: number): Promise<void> {
-    const response = await authFetch(`${this.baseUrl}/raceconfigurations/${raceId}/base-stats/${statId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(value),
-    });
+  static async updateRaceBaseStat(
+    raceId: number,
+    statId: number,
+    value: number
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/raceconfigurations/${raceId}/base-stats/${statId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(value),
+      }
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -497,13 +674,21 @@ class ApiService {
     }
   }
 
-  static async deleteRaceBaseStat(raceId: number, statId: number): Promise<void> {
-    const response = await authFetch(`${this.baseUrl}/raceconfigurations/${raceId}/base-stats/${statId}`, {
-      method: 'DELETE',
-    });
+  static async deleteRaceBaseStat(
+    raceId: number,
+    statId: number
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/raceconfigurations/${raceId}/base-stats/${statId}`,
+      {
+        method: "DELETE",
+      }
+    );
 
     if (!response.ok) {
-      throw new Error(`Failed to delete race base stat: ${response.statusText}`);
+      throw new Error(
+        `Failed to delete race base stat: ${response.statusText}`
+      );
     }
   }
 }

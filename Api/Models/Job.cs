@@ -13,6 +13,7 @@ public class Job
 
     public bool CanDualWield { get; set; } = false; // Can this job dual wield?
 
-    // Navigation
+    // Navigation properties
+    public JobConfiguration? Configuration { get; set; }
     public ICollection<GearItemJob> GearItemJobs { get; set; } = new List<GearItemJob>();
 }

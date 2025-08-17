@@ -24,6 +24,7 @@ interface AppDataContextType {
   loading: boolean;
   error: string | null;
   refreshStats: () => Promise<void>;
+  refreshJobs: () => Promise<void>;
 }
 
 const AppDataContext = createContext<AppDataContextType | undefined>(undefined);
@@ -467,6 +468,17 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
     }
   };
 
+  const refreshJobs = async () => {
+    try {
+      const jobsData = await ApiService.getJobs();
+      setJobs(jobsData);
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Failed to refresh jobs data"
+      );
+    }
+  };
+
   useEffect(() => {
     fetchAllData();
   }, []);
@@ -492,6 +504,7 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
     loading,
     error,
     refreshStats,
+    refreshJobs,
   };
 
   return (

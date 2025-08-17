@@ -3,6 +3,7 @@ import { GearBrowser } from "./pages/GearBrowser";
 import ComparePage from "./pages/Compare";
 import { Navbar } from "./components/Navbar";
 import { Stats } from "./pages/Stats";
+import { Jobs } from "./pages/Jobs";
 import { CharacterProfiles } from "./pages/CharacterProfiles";
 import { RaceManagement } from "./pages/RaceManagement";
 import Login from "./pages/Login";
@@ -33,6 +34,7 @@ function AppContent() {
             <Route path="/" element={<ComparePage />} />
             <Route path="/gear" element={<GearBrowser />} />
             <Route path="/stats" element={<Stats />} />
+            <Route path="/admin/jobs" element={<Jobs />} />
             <Route path="/profiles" element={<CharacterProfiles />} />
             <Route path="/admin/races" element={<RaceManagement />} />
             <Route path="/login" element={<Login />} />
@@ -53,4 +55,5 @@ function App() {
       </AuthProvider>
     </div>
   );
-}export default App;
+}
+export default App;

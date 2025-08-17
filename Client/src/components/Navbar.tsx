@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/icon.png";
 import { useAuth } from "../contexts/AuthContext";
@@ -6,7 +6,26 @@ import { useAuth } from "../contexts/AuthContext";
 export function Navbar() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [adminDropdownOpen, setAdminDropdownOpen] = useState(false);
   const { isAuthenticated, logout } = useAuth();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setAdminDropdownOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const isActive = (path: string) =>
     location.pathname === path
@@ -78,15 +97,6 @@ export function Navbar() {
           >
             Browse Equipment
           </Link>
-          <Link
-            to="/stats"
-            className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
-              "/stats"
-            )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
-            onClick={() => setMenuOpen(false)}
-          >
-            Item Stats
-          </Link>
 
           {isAuthenticated && (
             <>
@@ -99,15 +109,80 @@ export function Navbar() {
               >
                 My Characters
               </Link>
-              <Link
-                to="/admin/races"
-                className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
-                  "/admin/races"
-                )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
-                onClick={() => setMenuOpen(false)}
-              >
-                Admin: Races
-              </Link>
+
+              {/* Admin Dropdown */}
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  onClick={() => setAdminDropdownOpen(!adminDropdownOpen)}
+                  className={`px-4 py-2 rounded transition-colors duration-150 flex items-center space-x-1 ${
+                    location.pathname === "/stats" ||
+                    location.pathname === "/admin/races" ||
+                    location.pathname === "/admin/jobs"
+                      ? "bg-primary text-primary-foreground"
+                      : "hover:bg-muted hover:text-foreground text-muted-foreground"
+                  } dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
+                >
+                  <span>Admin</span>
+                  <svg
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      adminDropdownOpen ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                {adminDropdownOpen && (
+                  <div className="absolute top-full left-0 mt-1 w-48 bg-background border border-border rounded-md shadow-lg z-50 dark:bg-gray-800 dark:border-gray-600">
+                    <div className="py-1">
+                      <Link
+                        to="/stats"
+                        className={`block px-4 py-2 text-sm transition-colors duration-150 ${isActive(
+                          "/stats"
+                        )} dark:hover:bg-gray-700 dark:text-gray-300`}
+                        onClick={() => {
+                          setAdminDropdownOpen(false);
+                          setMenuOpen(false);
+                        }}
+                      >
+                        Item Stats
+                      </Link>
+                      <Link
+                        to="/admin/jobs"
+                        className={`block px-4 py-2 text-sm transition-colors duration-150 ${isActive(
+                          "/admin/jobs"
+                        )} dark:hover:bg-gray-700 dark:text-gray-300`}
+                        onClick={() => {
+                          setAdminDropdownOpen(false);
+                          setMenuOpen(false);
+                        }}
+                      >
+                        Jobs
+                      </Link>
+                      <Link
+                        to="/admin/races"
+                        className={`block px-4 py-2 text-sm transition-colors duration-150 ${isActive(
+                          "/admin/races"
+                        )} dark:hover:bg-gray-700 dark:text-gray-300`}
+                        onClick={() => {
+                          setAdminDropdownOpen(false);
+                          setMenuOpen(false);
+                        }}
+                      >
+                        Races
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
             </>
           )}
 

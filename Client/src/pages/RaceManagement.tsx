@@ -48,16 +48,20 @@ export function RaceManagement() {
   });
 
   // Stats editing state
-  const [editingStats, setEditingStats] = useState<{ [key: number]: number | null }>({});
+  const [editingStats, setEditingStats] = useState<{
+    [key: number]: number | null;
+  }>({});
   const [isUpdatingStats, setIsUpdatingStats] = useState(false);
 
   // Memoized filtered and ordered stats for race base stats
-  const raceBaseStatsOrder = ['STR', 'DEX', 'VIT', 'AGI', 'INT', 'MND', 'CHR'];
+  const raceBaseStatsOrder = ["STR", "DEX", "VIT", "AGI", "INT", "MND", "CHR"];
   const orderedRaceStats = useMemo(() => {
-    const filteredStats = stats.filter(stat => raceBaseStatsOrder.includes(stat.name));
+    const filteredStats = stats.filter((stat) =>
+      raceBaseStatsOrder.includes(stat.name)
+    );
     return raceBaseStatsOrder
-      .map(statName => filteredStats.find(stat => stat.name === statName))
-      .filter(stat => stat !== undefined);
+      .map((statName) => filteredStats.find((stat) => stat.name === statName))
+      .filter((stat) => stat !== undefined);
   }, [stats]);
 
   useEffect(() => {
@@ -165,8 +169,10 @@ export function RaceManagement() {
     setSelectedRace(race);
     // Initialize editing stats with current values for only the main stats
     const currentStats: { [key: number]: number | null } = {};
-    orderedRaceStats.forEach(stat => {
-      const existingStat = race.raceBaseStats.find(rs => rs.statId === stat.id);
+    orderedRaceStats.forEach((stat) => {
+      const existingStat = race.raceBaseStats.find(
+        (rs) => rs.statId === stat.id
+      );
       currentStats[stat.id] = existingStat ? existingStat.value : null;
     });
     setEditingStats(currentStats);
@@ -180,42 +186,53 @@ export function RaceManagement() {
     try {
       // Keep track of changes to update local state
       const updatedRaceBaseStats = [...selectedRace.raceBaseStats];
-      
+
       // Process each stat
       for (const statId in editingStats) {
         const newValue = editingStats[parseInt(statId)];
-        const existingStatIndex = updatedRaceBaseStats.findIndex(rs => rs.statId === parseInt(statId));
+        const existingStatIndex = updatedRaceBaseStats.findIndex(
+          (rs) => rs.statId === parseInt(statId)
+        );
 
         if (newValue === null || newValue === 0) {
           // Delete the stat if it exists and value is null/0
           if (existingStatIndex !== -1) {
-            await ApiService.deleteRaceBaseStat(selectedRace.id, parseInt(statId));
+            await ApiService.deleteRaceBaseStat(
+              selectedRace.id,
+              parseInt(statId)
+            );
             updatedRaceBaseStats.splice(existingStatIndex, 1);
           }
         } else {
           // Update or create the stat
           if (existingStatIndex !== -1) {
-            await ApiService.updateRaceBaseStat(selectedRace.id, parseInt(statId), newValue);
+            await ApiService.updateRaceBaseStat(
+              selectedRace.id,
+              parseInt(statId),
+              newValue
+            );
             updatedRaceBaseStats[existingStatIndex] = {
               ...updatedRaceBaseStats[existingStatIndex],
-              value: newValue
+              value: newValue,
             };
           } else {
             const createDto: CreateRaceBaseStatDto = {
               statId: parseInt(statId),
-              value: newValue
+              value: newValue,
             };
             await ApiService.addRaceBaseStat(selectedRace.id, createDto);
-            
+
             // Find the stat to add the complete object
-            const stat = orderedRaceStats.find(s => s.id === parseInt(statId));
+            const stat = orderedRaceStats.find(
+              (s) => s.id === parseInt(statId)
+            );
             if (stat) {
               updatedRaceBaseStats.push({
                 id: 0, // Temporary ID, will be correct on next full reload if needed
                 raceConfigurationId: selectedRace.id,
                 statId: parseInt(statId),
                 stat: stat,
-                value: newValue
+                value: newValue,
               });
             }
           }
@@ -223,9 +240,9 @@ export function RaceManagement() {
       }
 
       // Update local state instead of reloading all data
-      setRaceConfigurations(prevRaces => 
-        prevRaces.map(race => 
-          race.id === selectedRace.id 
+      setRaceConfigurations((prevRaces) =>
+        prevRaces.map((race) =>
+          race.id === selectedRace.id
             ? { ...race, raceBaseStats: updatedRaceBaseStats }
             : race
         )
@@ -235,7 +252,7 @@ export function RaceManagement() {
       setSelectedRace(null);
       setEditingStats({});
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to update stats');
+      setError(err instanceof Error ? err.message : "Failed to update stats");
     } finally {
       setIsUpdatingStats(false);
     }
@@ -371,7 +388,7 @@ export function RaceManagement() {
       {/* Header with Create Button */}
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-          Race Management
+          Races
         </h1>
         {isAdmin && (
           <button
@@ -545,11 +562,7 @@ export function RaceManagement() {
 
       {/* Edit Stats Modal */}
       {showStatsModal && selectedRace && (
-        <Modal
-          isOpen={showStatsModal}
-          onClose={handleCancelStats}
-          size="md"
-        >
+        <Modal isOpen={showStatsModal} onClose={handleCancelStats} size="md">
           <div className="p-4 space-y-6">
             <div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
@@ -559,7 +572,7 @@ export function RaceManagement() {
                 Set the base stat values for this race configuration:
               </p>
             </div>
-            
+
             <div className="space-y-4 max-h-96 overflow-y-auto">
               {orderedRaceStats.map((stat) => {
                 const currentValue = editingStats[stat.id];
@@ -572,12 +585,15 @@ export function RaceManagement() {
                       type="number"
                       min="0"
                       max="999"
-                      value={currentValue || ''}
+                      value={currentValue || ""}
                       onChange={(e) => {
-                        const value = e.target.value === '' ? null : parseInt(e.target.value);
-                        setEditingStats(prev => ({
+                        const value =
+                          e.target.value === ""
+                            ? null
+                            : parseInt(e.target.value);
+                        setEditingStats((prev) => ({
                           ...prev,
-                          [stat.id]: value
+                          [stat.id]: value,
                         }));
                       }}
                       className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -587,12 +603,12 @@ export function RaceManagement() {
                 );
               })}
             </div>
-            
+
             <div className="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
               <div className="text-sm text-gray-600 dark:text-gray-400">
                 Leave empty or set to 0 to remove stat
               </div>
-              
+
               <div className="flex space-x-2">
                 <button
                   onClick={handleCancelStats}
@@ -612,7 +628,7 @@ export function RaceManagement() {
                       <span>Updating...</span>
                     </div>
                   ) : (
-                    'Save Stats'
+                    "Save Stats"
                   )}
                 </button>
               </div>
