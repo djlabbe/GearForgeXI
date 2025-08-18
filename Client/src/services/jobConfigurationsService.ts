@@ -1,4 +1,9 @@
-import type { JobConfiguration, JobBaseStat, JobTrait } from "../models/JobConfiguration";
+import type {
+  JobConfiguration,
+  JobBaseStat,
+  JobTrait,
+  MasterLevelBonus,
+} from "../models/JobConfiguration";
 import { authFetch } from "../utils/authFetch";
 
 interface CreateJobBaseStatDto {
@@ -9,6 +14,11 @@ interface CreateJobBaseStatDto {
 interface CreateJobTraitDto {
   name: string;
   level?: number;
+  statId: number;
+  value: number;
+}
+
+interface CreateMasterLevelBonusDto {
   statId: number;
   value: number;
 }
@@ -158,6 +168,69 @@ class JobConfigurationsService {
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`Failed to delete job trait: ${errorText}`);
+    }
+  }
+
+  // Master Level Bonuses Management
+  static async addMasterLevelBonus(
+    jobConfigurationId: number,
+    createDto: CreateMasterLevelBonusDto
+  ): Promise<MasterLevelBonus> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/master-level-bonuses`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(createDto),
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to add master level bonus: ${errorText}`);
+    }
+
+    return response.json();
+  }
+
+  static async updateMasterLevelBonus(
+    jobConfigurationId: number,
+    statId: number,
+    value: number
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/master-level-bonuses/${statId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(value),
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to update master level bonus: ${errorText}`);
+    }
+  }
+
+  static async deleteMasterLevelBonus(
+    jobConfigurationId: number,
+    statId: number
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/master-level-bonuses/${statId}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to delete master level bonus: ${errorText}`);
     }
   }
 }
