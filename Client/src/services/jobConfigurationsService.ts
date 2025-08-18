@@ -12,7 +12,9 @@ class JobConfigurationsService {
   static async getJobConfigurations(): Promise<JobConfiguration[]> {
     const response = await authFetch(`${this.baseUrl}/jobconfigurations`);
     if (!response.ok) {
-      throw new Error(`Failed to fetch job configurations: ${response.statusText}`);
+      throw new Error(
+        `Failed to fetch job configurations: ${response.statusText}`
+      );
     }
     return response.json();
   }
@@ -20,19 +22,27 @@ class JobConfigurationsService {
   static async getJobConfiguration(id: number): Promise<JobConfiguration> {
     const response = await authFetch(`${this.baseUrl}/jobconfigurations/${id}`);
     if (!response.ok) {
-      throw new Error(`Failed to fetch job configuration: ${response.statusText}`);
+      throw new Error(
+        `Failed to fetch job configuration: ${response.statusText}`
+      );
     }
     return response.json();
   }
 
-  static async addJobBaseStat(jobConfigurationId: number, createDto: CreateJobBaseStatDto): Promise<JobBaseStat> {
-    const response = await authFetch(`${this.baseUrl}/jobconfigurations/${jobConfigurationId}/base-stats`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(createDto),
-    });
+  static async addJobBaseStat(
+    jobConfigurationId: number,
+    createDto: CreateJobBaseStatDto
+  ): Promise<JobBaseStat> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/base-stats`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(createDto),
+      }
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -42,18 +52,42 @@ class JobConfigurationsService {
     return response.json();
   }
 
-  static async updateJobBaseStat(jobConfigurationId: number, statId: number, value: number): Promise<void> {
-    const response = await authFetch(`${this.baseUrl}/jobconfigurations/${jobConfigurationId}/base-stats/${statId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(value),
-    });
+  static async updateJobBaseStat(
+    jobConfigurationId: number,
+    statId: number,
+    value: number
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/base-stats/${statId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(value),
+      }
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`Failed to update job base stat: ${errorText}`);
+    }
+  }
+
+  static async deleteJobBaseStat(
+    jobConfigurationId: number,
+    statId: number
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/base-stats/${statId}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to delete job base stat: ${errorText}`);
     }
   }
 }

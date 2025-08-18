@@ -4,8 +4,13 @@ import { themeAlpine } from "ag-grid-community";
 import { colorSchemeDarkBlue } from "ag-grid-community";
 import { JobConfigurationsService } from "../services";
 import AddJobBaseStatModal from "./AddJobBaseStatModal";
+import ConfirmationModal from "./ConfirmationModal";
 
-import type { CellValueChangedEvent, ColDef } from "ag-grid-community";
+import type {
+  CellValueChangedEvent,
+  ColDef,
+  ICellRendererParams,
+} from "ag-grid-community";
 import type { JobBaseStat } from "../models/JobConfiguration";
 
 const themeDarkBlue = themeAlpine.withPart(colorSchemeDarkBlue);
@@ -26,6 +31,12 @@ export function JobBaseStatsGrid({
   isDarkMode,
 }: JobBaseStatsGridProps) {
   const [isAddBaseStatModalOpen, setIsAddBaseStatModalOpen] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [baseStatToDelete, setBaseStatToDelete] = useState<{
+    statId: number;
+    statName: string;
+  } | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   // Column definitions for Job Base Stats
   const baseStatsColumnDefs: ColDef<JobBaseStat>[] = [
@@ -33,6 +44,12 @@ export function JobBaseStatsGrid({
       headerName: "ID",
       field: "id",
       width: 80,
+      editable: false,
+    },
+    {
+      headerName: "Stat ID",
+      field: "stat.id",
+      width: 150,
       editable: false,
     },
     {
@@ -65,6 +82,49 @@ export function JobBaseStatsGrid({
         return true;
       },
     },
+    {
+      headerName: "Actions",
+      width: 120,
+      sortable: false,
+      filter: false,
+      editable: false,
+      cellRenderer: (params: ICellRendererParams<JobBaseStat>) => {
+        const baseStat = params.data;
+        if (!baseStat) return null;
+
+        const statName =
+          baseStat.stat?.displayName ||
+          baseStat.stat?.name ||
+          `Stat ID ${baseStat.statId}`;
+
+        return (
+          <div className="flex justify-center items-center h-full space-x-2">
+            {/* Delete Button - Only show if admin */}
+            {isAdmin && (
+              <button
+                onClick={() => handleDeleteBaseStat(baseStat.statId, statName)}
+                className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors duration-200"
+                title={`Delete ${statName}`}
+              >
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  />
+                </svg>
+              </button>
+            )}
+          </div>
+        );
+      },
+    },
   ];
 
   const handleAddBaseStat = () => {
@@ -87,7 +147,7 @@ export function JobBaseStatsGrid({
     try {
       await JobConfigurationsService.updateJobBaseStat(
         jobConfigurationId,
-        updatedStat.id,
+        updatedStat.statId,
         updatedStat.value
       );
       console.log("Stat updated successfully");
@@ -102,6 +162,44 @@ export function JobBaseStatsGrid({
       event.node.setData(event.oldValue);
       alert("Failed to update stat. Please try again.");
     }
+  };
+
+  const handleDeleteBaseStat = (statId: number, statName: string) => {
+    setBaseStatToDelete({ statId, statName });
+    setShowDeleteConfirm(true);
+  };
+
+  const confirmDeleteBaseStat = async () => {
+    if (!baseStatToDelete) return;
+
+    setIsDeleting(true);
+    try {
+      await JobConfigurationsService.deleteJobBaseStat(
+        jobConfigurationId,
+        baseStatToDelete.statId
+      );
+
+      // Update the local state by removing the deleted base stat
+      const updatedJobBaseStats = jobBaseStats.filter(
+        (baseStat) => baseStat.statId !== baseStatToDelete.statId
+      );
+      onJobBaseStatsChange(updatedJobBaseStats);
+
+      setShowDeleteConfirm(false);
+      setBaseStatToDelete(null);
+      console.log("Base stat deleted successfully");
+    } catch (error) {
+      console.error("Error deleting base stat:", error);
+      alert("Failed to delete base stat. Please try again.");
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
+  const cancelDeleteBaseStat = () => {
+    if (isDeleting) return; // Don't allow canceling while deleting
+    setShowDeleteConfirm(false);
+    setBaseStatToDelete(null);
   };
 
   return (
@@ -146,6 +244,20 @@ export function JobBaseStatsGrid({
         jobConfigurationId={jobConfigurationId}
         existingStatIds={getExistingBaseStatIds()}
       />
+
+      {/* Confirmation Modal for Deletion */}
+      {showDeleteConfirm && baseStatToDelete && (
+        <ConfirmationModal
+          isOpen={showDeleteConfirm}
+          onConfirm={confirmDeleteBaseStat}
+          onCancel={cancelDeleteBaseStat}
+          title="Delete Base Stat"
+          message={`Are you sure you want to delete the base stat "${baseStatToDelete.statName}"? This action cannot be undone.`}
+          confirmText="Delete"
+          cancelText="Cancel"
+          isLoading={isDeleting}
+        />
+      )}
     </>
   );
 }
