@@ -76,6 +76,14 @@ public class JobsController(GearDbContext context) : ControllerBase
         _context.Jobs.Add(job);
         await _context.SaveChangesAsync();
 
+        // Auto-create JobConfiguration for the new job
+        var jobConfiguration = new JobConfiguration
+        {
+            JobId = job.Id
+        };
+        _context.JobConfigurations.Add(jobConfiguration);
+        await _context.SaveChangesAsync();
+
         var jobDto = new JobDto
         {
             Id = job.Id,

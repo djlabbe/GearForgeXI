@@ -1,6 +1,7 @@
 // Barrel exports for all services
 export { default as StatsService } from './statsService';
 export { default as JobsService } from './jobsService';
+export { default as JobConfigurationsService } from './jobConfigurationsService';
 export { default as GearService } from './gearService';
 export { default as GearSetsService } from './gearSetsService';
 export { default as CharacterProfileService } from './characterProfileService';

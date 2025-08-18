@@ -288,57 +288,6 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
     }
 
     /// <summary>
-    /// Create a new job configuration
-    /// </summary>
-    [HttpPost]
-    public async Task<ActionResult<JobConfigurationDto>> CreateJobConfiguration(CreateJobConfigurationDto createDto)
-    {
-        // Validate that job exists
-        if (!await _context.Jobs.AnyAsync(j => j.Id == createDto.JobId))
-        {
-            return BadRequest("Invalid job ID");
-        }
-
-        // Validate that job doesn't already have a configuration
-        if (await _context.JobConfigurations.AnyAsync(jc => jc.JobId == createDto.JobId))
-        {
-            return BadRequest($"Job with ID {createDto.JobId} already has a configuration.");
-        }
-
-        var jobConfiguration = new JobConfiguration
-        {
-            JobId = createDto.JobId
-        };
-
-        _context.JobConfigurations.Add(jobConfiguration);
-        await _context.SaveChangesAsync();
-
-        // Load the created configuration with related data
-        var createdConfiguration = await _context.JobConfigurations
-            .Include(jc => jc.Job)
-            .FirstAsync(jc => jc.Id == jobConfiguration.Id);
-
-        var result = new JobConfigurationDto
-        {
-            Id = createdConfiguration.Id,
-            JobId = createdConfiguration.JobId,
-            Job = new GearForgeXI.Models.Dto.JobDto
-            {
-                Id = createdConfiguration.Job.Id,
-                FullName = createdConfiguration.Job.FullName,
-                Abbreviation = createdConfiguration.Job.Abbreviation,
-                CanDualWield = createdConfiguration.Job.CanDualWield
-            },
-            JobBaseStats = new List<JobBaseStatDto>(),
-            JobTraits = new List<JobTraitDto>(),
-            JobPointBonuses = new List<JobPointBonusDto>(),
-            MasterLevelBonuses = new List<MasterLevelBonusDto>()
-        };
-
-        return CreatedAtAction(nameof(GetJobConfiguration), new { id = jobConfiguration.Id }, result);
-    }
-
-    /// <summary>
     /// Delete a job configuration
     /// </summary>
     [HttpDelete("{id}")]

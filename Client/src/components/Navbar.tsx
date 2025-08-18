@@ -117,7 +117,8 @@ export function Navbar() {
                   className={`px-4 py-2 rounded transition-colors duration-150 flex items-center space-x-1 ${
                     location.pathname === "/stats" ||
                     location.pathname === "/admin/raceConfigurations" ||
-                    location.pathname === "/admin/jobs"
+                    location.pathname === "/admin/jobs" ||
+                    location.pathname === "/admin/jobConfigurations"
                       ? "bg-primary text-primary-foreground"
                       : "hover:bg-muted hover:text-foreground text-muted-foreground"
                   } dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
@@ -178,6 +179,18 @@ export function Navbar() {
                         }}
                       >
                         Jobs
+                      </Link>
+                      <Link
+                        to="/admin/jobConfigurations"
+                        className={`block px-4 py-2 text-sm transition-colors duration-150 ${isActive(
+                          "/admin/jobConfigurations"
+                        )} dark:hover:bg-gray-700 dark:text-gray-300`}
+                        onClick={() => {
+                          setAdminDropdownOpen(false);
+                          setMenuOpen(false);
+                        }}
+                      >
+                        Job Configurations
                       </Link>
                     </div>
                   </div>

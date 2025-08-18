@@ -4,6 +4,7 @@ import ComparePage from "./pages/Compare";
 import { Navbar } from "./components/Navbar";
 import { Stats } from "./pages/Stats";
 import { Jobs } from "./pages/Jobs";
+import JobConfigurations from "./pages/JobConfigurations";
 import { CharacterProfiles } from "./pages/CharacterProfiles";
 import { RaceConfigurations } from "./pages/RaceConfigurations";
 import Login from "./pages/Login";
@@ -35,6 +36,7 @@ function AppContent() {
             <Route path="/gear" element={<GearBrowser />} />
             <Route path="/stats" element={<Stats />} />
             <Route path="/admin/jobs" element={<Jobs />} />
+            <Route path="/admin/jobConfigurations" element={<JobConfigurations />} />
             <Route path="/profiles" element={<CharacterProfiles />} />
             <Route path="/admin/raceConfigurations" element={<RaceConfigurations />} />
             <Route path="/login" element={<Login />} />
