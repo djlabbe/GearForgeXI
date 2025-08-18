@@ -61,6 +61,7 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                 Id = jt.Id,
                 JobConfigurationId = jt.JobConfigurationId,
                 Name = jt.Name,
+                Level = jt.Level,
                 StatId = jt.StatId,
                 Stat = new StatDto
                 {

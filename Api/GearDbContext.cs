@@ -319,19 +319,6 @@ namespace GearForgeXI
             // Performance indexes for job configuration queries
             modelBuilder.Entity<JobTrait>()
                 .HasIndex(jt => new { jt.JobConfigurationId, jt.Level });
-
-            modelBuilder.Entity<JobTrait>()
-                .HasIndex(jt => new { jt.JobConfigurationId, jt.StatId })
-                .IsUnique(); // One trait per job per stat
-
-            modelBuilder.Entity<JobPointBonus>()
-                .HasIndex(jpb => new { jpb.JobConfigurationId, jpb.StatId })
-                .IsUnique(); // One job point bonus per job per stat
-
-            modelBuilder.Entity<MasterLevelBonus>()
-                .HasIndex(mlb => new { mlb.JobConfigurationId, mlb.StatId })
-                .IsUnique(); // One master level bonus per job per stat
-
         }
     }
 }
