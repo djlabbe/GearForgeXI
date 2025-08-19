@@ -21,6 +21,7 @@ interface JobBaseStatsGridProps {
   jobConfigurationId: number;
   isAdmin: boolean;
   isDarkMode: boolean;
+  height?: number;
 }
 
 export function JobBaseStatsGrid({
@@ -29,6 +30,7 @@ export function JobBaseStatsGrid({
   jobConfigurationId,
   isAdmin,
   isDarkMode,
+  height = 400,
 }: JobBaseStatsGridProps) {
   const [isAddBaseStatModalOpen, setIsAddBaseStatModalOpen] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -220,7 +222,7 @@ export function JobBaseStatsGrid({
         </div>
         <div
           className="ag-theme-alpine dark:ag-theme-alpine-dark rounded-xl shadow-md border border-gray-200 dark:border-gray-700"
-          style={{ height: 300, width: "100%" }}
+          style={{ height, width: "100%" }}
         >
           <AgGridReact<JobBaseStat>
             theme={isDarkMode ? themeDarkBlue : themeAlpine}

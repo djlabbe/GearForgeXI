@@ -21,6 +21,7 @@ interface JobTraitsGridProps {
   jobConfigurationId: number;
   isAdmin: boolean;
   isDarkMode: boolean;
+  height?: number;
 }
 
 export function JobTraitsGrid({
@@ -29,6 +30,7 @@ export function JobTraitsGrid({
   jobConfigurationId,
   isAdmin,
   isDarkMode,
+  height = 400,
 }: JobTraitsGridProps) {
   const [isAddTraitModalOpen, setIsAddTraitModalOpen] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -48,7 +50,7 @@ export function JobTraitsGrid({
     {
       headerName: "Name",
       field: "name",
-      width: 200,
+      width: 250,
       editable: isAdmin,
       enableCellChangeFlash: true,
     },
@@ -76,7 +78,7 @@ export function JobTraitsGrid({
     {
       headerName: "Stat",
       field: "stat.displayName",
-      width: 150,
+      width: 300,
       editable: false,
       valueGetter: (params) =>
         params.data?.stat?.displayName || params.data?.stat?.name,
@@ -236,7 +238,7 @@ export function JobTraitsGrid({
         </div>
         <div
           className="ag-theme-alpine dark:ag-theme-alpine-dark rounded-xl shadow-md border border-gray-200 dark:border-gray-700"
-          style={{ height: 300, width: "100%" }}
+          style={{ height, width: "100%" }}
         >
           <AgGridReact<JobTrait>
             theme={isDarkMode ? themeDarkBlue : themeAlpine}

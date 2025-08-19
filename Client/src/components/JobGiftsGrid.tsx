@@ -3,7 +3,7 @@ import { AgGridReact } from "ag-grid-react";
 import { themeAlpine } from "ag-grid-community";
 import { colorSchemeDarkBlue } from "ag-grid-community";
 import { JobConfigurationsService } from "../services";
-import AddJobPointBonusModal from "./AddJobPointBonusModal";
+import AddJobGiftModal from "./AddJobGiftModal";
 import ConfirmationModal from "./ConfirmationModal";
 
 import type {
@@ -11,37 +11,37 @@ import type {
   ColDef,
   ICellRendererParams,
 } from "ag-grid-community";
-import type { JobPointBonus } from "../models/JobConfiguration";
+import type { JobGift } from "../models/JobConfiguration";
 
 const themeDarkBlue = themeAlpine.withPart(colorSchemeDarkBlue);
 
-interface JobPointBonusesGridProps {
-  jobPointBonuses: JobPointBonus[];
-  onJobPointBonusesChange: (newJobPointBonuses: JobPointBonus[]) => void;
+interface JobGiftsGridProps {
+  jobGifts: JobGift[];
+  onJobGiftsChange: (newJobGifts: JobGift[]) => void;
   jobConfigurationId: number;
   isAdmin: boolean;
   isDarkMode: boolean;
   height?: number;
 }
 
-export function JobPointBonusesGrid({
-  jobPointBonuses,
-  onJobPointBonusesChange,
+export function JobGiftsGrid({
+  jobGifts,
+  onJobGiftsChange,
   jobConfigurationId,
   isAdmin,
   isDarkMode,
   height = 400,
-}: JobPointBonusesGridProps) {
-  const [isAddJobPointBonusModalOpen, setIsAddJobPointBonusModalOpen] = useState(false);
+}: JobGiftsGridProps) {
+  const [isAddJobGiftModalOpen, setIsAddJobGiftModalOpen] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [jobPointBonusToDelete, setJobPointBonusToDelete] = useState<{
+  const [jobGiftToDelete, setJobGiftToDelete] = useState<{
     id: number;
     statName: string;
   } | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  // Column definitions for Job Point Bonuses
-  const jpBonusesColumnDefs: ColDef<JobPointBonus>[] = [
+  // Column definitions for Job Gifts
+  const jobGiftsColumnDefs: ColDef<JobGift>[] = [
     {
       headerName: "ID",
       field: "id",
@@ -83,18 +83,18 @@ export function JobPointBonusesGrid({
       sortable: false,
       filter: false,
       editable: false,
-      cellRenderer: (params: ICellRendererParams<JobPointBonus>) => {
-        const jobPointBonus = params.data;
-        if (!jobPointBonus) return null;
+      cellRenderer: (params: ICellRendererParams<JobGift>) => {
+        const jobGift = params.data;
+        if (!jobGift) return null;
 
         return (
           <div className="flex justify-center items-center h-full space-x-2">
             {/* Delete Button - Only show if admin */}
             {isAdmin && (
               <button
-                onClick={() => handleDeleteJobPointBonus(jobPointBonus.id, jobPointBonus.stat?.displayName || jobPointBonus.stat?.name || 'Unknown')}
+                onClick={() => handleDeleteJobGift(jobGift.id, jobGift.stat?.displayName || jobGift.stat?.name || 'Unknown')}
                 className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors duration-200"
-                title={`Delete ${jobPointBonus.stat?.displayName || jobPointBonus.stat?.name || 'Unknown'} bonus`}
+                title={`Delete ${jobGift.stat?.displayName || jobGift.stat?.name || 'Unknown'} gift`}
               >
                 <svg
                   className="h-4 w-4"
@@ -117,26 +117,26 @@ export function JobPointBonusesGrid({
     },
   ];
 
-  const handleAddJobPointBonus = () => {
-    setIsAddJobPointBonusModalOpen(true);
+  const handleAddJobGift = () => {
+    setIsAddJobGiftModalOpen(true);
   };
 
-  const handleJobPointBonusCreated = (newJobPointBonus: JobPointBonus) => {
-    const updatedJobPointBonuses = [...jobPointBonuses, newJobPointBonus];
-    onJobPointBonusesChange(updatedJobPointBonuses);
+  const handleJobGiftCreated = (newJobGift: JobGift) => {
+    const updatedJobGifts = [...jobGifts, newJobGift];
+    onJobGiftsChange(updatedJobGifts);
   };
 
-  const handleJobPointBonusCellValueChanged = async (
-    event: CellValueChangedEvent<JobPointBonus>
+  const handleJobGiftCellValueChanged = async (
+    event: CellValueChangedEvent<JobGift>
   ) => {
-    const updatedJobPointBonus = event.data;
+    const updatedJobGift = event.data;
     try {
-      await JobConfigurationsService.updateJobPointBonus(
+      await JobConfigurationsService.updateJobGift(
         jobConfigurationId,
-        updatedJobPointBonus.statId,
-        updatedJobPointBonus.value
+        updatedJobGift.statId,
+        updatedJobGift.value
       );
-      console.log("Job point bonus updated successfully");
+      console.log("Job gift updated successfully");
 
       // Flash the cell green to indicate successful save
       event.api.flashCells({
@@ -146,52 +146,52 @@ export function JobPointBonusesGrid({
     } catch {
       // Revert the change if the update failed
       event.node.setData(event.oldValue);
-      alert("Failed to update job point bonus. Please try again.");
+      alert("Failed to update job gift. Please try again.");
     }
   };
 
-  const handleDeleteJobPointBonus = (id: number, statName: string) => {
-    setJobPointBonusToDelete({ id, statName });
+  const handleDeleteJobGift = (id: number, statName: string) => {
+    setJobGiftToDelete({ id, statName });
     setShowDeleteConfirm(true);
   };
 
-  const confirmDeleteJobPointBonus = async () => {
-    if (!jobPointBonusToDelete) return;
+  const confirmDeleteJobGift = async () => {
+    if (!jobGiftToDelete) return;
 
     setIsDeleting(true);
     try {
-      // Find the job point bonus to get its statId
-      const jobPointBonusData = jobPointBonuses.find(jpb => jpb.id === jobPointBonusToDelete.id);
-      if (!jobPointBonusData) {
-        throw new Error("Job point bonus not found");
+      // Find the job gift to get its statId
+      const jobGiftData = jobGifts.find(jg => jg.id === jobGiftToDelete.id);
+      if (!jobGiftData) {
+        throw new Error("Job gift not found");
       }
 
-      await JobConfigurationsService.deleteJobPointBonus(
+      await JobConfigurationsService.deleteJobGift(
         jobConfigurationId,
-        jobPointBonusData.statId
+        jobGiftData.statId
       );
 
-      // Update the local state by removing the deleted job point bonus
-      const updatedJobPointBonuses = jobPointBonuses.filter(
-        (jpb) => jpb.id !== jobPointBonusToDelete.id
+      // Update the local state by removing the deleted job gift
+      const updatedJobGifts = jobGifts.filter(
+        (jg) => jg.id !== jobGiftToDelete.id
       );
-      onJobPointBonusesChange(updatedJobPointBonuses);
+      onJobGiftsChange(updatedJobGifts);
 
       setShowDeleteConfirm(false);
-      setJobPointBonusToDelete(null);
-      console.log("Job point bonus deleted successfully");
+      setJobGiftToDelete(null);
+      console.log("Job gift deleted successfully");
     } catch (error) {
-      console.error("Error deleting job point bonus:", error);
-      alert("Failed to delete job point bonus. Please try again.");
+      console.error("Error deleting job gift:", error);
+      alert("Failed to delete job gift. Please try again.");
     } finally {
       setIsDeleting(false);
     }
   };
 
-  const cancelDeleteJobPointBonus = () => {
+  const cancelDeleteJobGift = () => {
     if (isDeleting) return; // Don't allow canceling while deleting
     setShowDeleteConfirm(false);
-    setJobPointBonusToDelete(null);
+    setJobGiftToDelete(null);
   };
 
   return (
@@ -199,14 +199,14 @@ export function JobPointBonusesGrid({
       <div className="space-y-2">
         <div className="flex justify-between items-center">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-            Job Point Bonuses ({jobPointBonuses.length})
+            Job Gifts ({jobGifts.length})
           </h3>
           {isAdmin && (
             <button
-              onClick={handleAddJobPointBonus}
+              onClick={handleAddJobGift}
               className="px-3 py-1 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors duration-200 font-medium cursor-pointer"
             >
-              Add Job Point Bonus
+              Add Job Gift
             </button>
           )}
         </div>
@@ -214,11 +214,11 @@ export function JobPointBonusesGrid({
           className="ag-theme-alpine dark:ag-theme-alpine-dark rounded-xl shadow-md border border-gray-200 dark:border-gray-700"
           style={{ height, width: "100%" }}
         >
-          <AgGridReact<JobPointBonus>
+          <AgGridReact<JobGift>
             theme={isDarkMode ? themeDarkBlue : themeAlpine}
-            rowData={jobPointBonuses}
-            columnDefs={jpBonusesColumnDefs}
-            onCellValueChanged={handleJobPointBonusCellValueChanged}
+            rowData={jobGifts}
+            columnDefs={jobGiftsColumnDefs}
+            onCellValueChanged={handleJobGiftCellValueChanged}
             defaultColDef={{
               resizable: true,
               sortable: true,
@@ -228,22 +228,22 @@ export function JobPointBonusesGrid({
         </div>
       </div>
 
-      {/* Add Job Point Bonus Modal */}
-      <AddJobPointBonusModal
-        isOpen={isAddJobPointBonusModalOpen}
-        onClose={() => setIsAddJobPointBonusModalOpen(false)}
-        onJobPointBonusCreated={handleJobPointBonusCreated}
+      {/* Add Job Gift Modal */}
+      <AddJobGiftModal
+        isOpen={isAddJobGiftModalOpen}
+        onClose={() => setIsAddJobGiftModalOpen(false)}
+        onJobGiftCreated={handleJobGiftCreated}
         jobConfigurationId={jobConfigurationId}
       />
 
       {/* Confirmation Modal for Deletion */}
-      {showDeleteConfirm && jobPointBonusToDelete && (
+      {showDeleteConfirm && jobGiftToDelete && (
         <ConfirmationModal
           isOpen={showDeleteConfirm}
-          onConfirm={confirmDeleteJobPointBonus}
-          onCancel={cancelDeleteJobPointBonus}
-          title="Delete Job Point Bonus"
-          message={`Are you sure you want to delete the job point bonus for "${jobPointBonusToDelete.statName}"? This action cannot be undone.`}
+          onConfirm={confirmDeleteJobGift}
+          onCancel={cancelDeleteJobGift}
+          title="Delete Job Gift"
+          message={`Are you sure you want to delete the job gift for "${jobGiftToDelete.statName}"? This action cannot be undone.`}
           confirmText="Delete"
           cancelText="Cancel"
           isLoading={isDeleting}
@@ -253,4 +253,4 @@ export function JobPointBonusesGrid({
   );
 }
 
-export default JobPointBonusesGrid;
+export default JobGiftsGrid;

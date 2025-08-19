@@ -2,6 +2,8 @@ import type {
   JobConfiguration,
   JobBaseStat,
   JobTrait,
+  JobPointBonus,
+  JobGift,
   MasterLevelBonus,
 } from "../models/JobConfiguration";
 import { authFetch } from "../utils/authFetch";
@@ -14,6 +16,16 @@ interface CreateJobBaseStatDto {
 interface CreateJobTraitDto {
   name: string;
   level?: number;
+  statId: number;
+  value: number;
+}
+
+interface CreateJobPointBonusDto {
+  statId: number;
+  value: number;
+}
+
+interface CreateJobGiftDto {
   statId: number;
   value: number;
 }
@@ -168,6 +180,132 @@ class JobConfigurationsService {
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`Failed to delete job trait: ${errorText}`);
+    }
+  }
+
+  // Job Point Bonuses Management
+  static async addJobPointBonus(
+    jobConfigurationId: number,
+    createDto: CreateJobPointBonusDto
+  ): Promise<JobPointBonus> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/job-point-bonuses`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(createDto),
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to add job point bonus: ${errorText}`);
+    }
+
+    return response.json();
+  }
+
+  static async updateJobPointBonus(
+    jobConfigurationId: number,
+    statId: number,
+    value: number
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/job-point-bonuses/${statId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(value),
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to update job point bonus: ${errorText}`);
+    }
+  }
+
+  static async deleteJobPointBonus(
+    jobConfigurationId: number,
+    statId: number
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/job-point-bonuses/${statId}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to delete job point bonus: ${errorText}`);
+    }
+  }
+
+  // Job Gifts Management
+  static async addJobGift(
+    jobConfigurationId: number,
+    createDto: CreateJobGiftDto
+  ): Promise<JobGift> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/job-gifts`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(createDto),
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to add job gift: ${errorText}`);
+    }
+
+    return response.json();
+  }
+
+  static async updateJobGift(
+    jobConfigurationId: number,
+    statId: number,
+    value: number
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/job-gifts/${statId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(value),
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to update job gift: ${errorText}`);
+    }
+  }
+
+  static async deleteJobGift(
+    jobConfigurationId: number,
+    statId: number
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/job-gifts/${statId}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to delete job gift: ${errorText}`);
     }
   }
 

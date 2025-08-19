@@ -36,6 +36,7 @@ export function RaceConfigurations() {
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showStatsModal, setShowStatsModal] = useState(false);
+  const [isCreatingRace, setIsCreatingRace] = useState(false);
 
   // Form states
   const [selectedRace, setSelectedRace] = useState<RaceConfiguration | null>(
@@ -123,6 +124,7 @@ export function RaceConfigurations() {
   };
 
   const handleCreateRace = async () => {
+    setIsCreatingRace(true);
     try {
       const newRace = await RaceConfigurationService.createRaceConfiguration(createForm);
       setShowCreateModal(false);
@@ -141,6 +143,8 @@ export function RaceConfigurations() {
           ? err.message
           : "Failed to create race configuration"
       );
+    } finally {
+      setIsCreatingRace(false);
     }
   };
 
@@ -484,8 +488,10 @@ export function RaceConfigurations() {
       <Modal
         isOpen={showCreateModal}
         onClose={() => {
-          setShowCreateModal(false);
-          setCreateForm({ name: "", abbreviation: "" });
+          if (!isCreatingRace) {
+            setShowCreateModal(false);
+            setCreateForm({ name: "", abbreviation: "" });
+          }
         }}
         size="md"
       >
@@ -514,8 +520,9 @@ export function RaceConfigurations() {
                 onChange={(e) =>
                   setCreateForm({ ...createForm, name: e.target.value })
                 }
-                className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="e.g., Human, Elvaan, Tarutaru"
+                disabled={isCreatingRace}
+                className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                placeholder="e.g., Hume, Elvaan, Tarutaru"
               />
             </div>
             
@@ -536,7 +543,8 @@ export function RaceConfigurations() {
                     abbreviation: e.target.value.toUpperCase(),
                   })
                 }
-                className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                disabled={isCreatingRace}
+                className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder="e.g., HUM, ELV, TAR"
                 maxLength={3}
               />
@@ -559,16 +567,24 @@ export function RaceConfigurations() {
                   setShowCreateModal(false);
                   setCreateForm({ name: "", abbreviation: "" });
                 }}
-                className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600 cursor-pointer"
+                disabled={isCreatingRace}
+                className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Cancel
               </button>
               <button
                 onClick={handleCreateRace}
-                disabled={!createForm.name || !createForm.abbreviation}
+                disabled={!createForm.name || !createForm.abbreviation || isCreatingRace}
                 className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Create Race
+                {isCreatingRace ? (
+                  <div className="flex items-center space-x-2">
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                    <span>Creating...</span>
+                  </div>
+                ) : (
+                  "Create Race"
+                )}
               </button>
             </div>
           </div>

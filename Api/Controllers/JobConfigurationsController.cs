@@ -28,6 +28,8 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                 .ThenInclude(jt => jt.Stat)
             .Include(jc => jc.JobPointBonuses)
                 .ThenInclude(jpb => jpb.Stat)
+            .Include(jc => jc.JobGifts)
+                .ThenInclude(jg => jg.Stat)
             .Include(jc => jc.MasterLevelBonuses)
                 .ThenInclude(mlb => mlb.Stat)
             .ToListAsync();
@@ -84,6 +86,19 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                 },
                 Value = jpb.Value
             }).ToList(),
+            JobGifts = jc.JobGifts.Select(jg => new JobGiftDto
+            {
+                Id = jg.Id,
+                JobConfigurationId = jg.JobConfigurationId,
+                StatId = jg.StatId,
+                Stat = new StatDto
+                {
+                    Id = jg.Stat.Id,
+                    Name = jg.Stat.Name,
+                    DisplayName = jg.Stat.DisplayName
+                },
+                Value = jg.Value
+            }).ToList(),
             MasterLevelBonuses = jc.MasterLevelBonuses.Select(mlb => new MasterLevelBonusDto
             {
                 Id = mlb.Id,
@@ -116,6 +131,8 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                 .ThenInclude(jt => jt.Stat)
             .Include(jc => jc.JobPointBonuses)
                 .ThenInclude(jpb => jpb.Stat)
+            .Include(jc => jc.JobGifts)
+                .ThenInclude(jg => jg.Stat)
             .Include(jc => jc.MasterLevelBonuses)
                 .ThenInclude(mlb => mlb.Stat)
             .FirstOrDefaultAsync(jc => jc.Id == id);
@@ -209,6 +226,8 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                 .ThenInclude(jts => jts.Stat)
             .Include(jc => jc.JobPointBonuses)
                 .ThenInclude(jpb => jpb.Stat)
+            .Include(jc => jc.JobGifts)
+                .ThenInclude(jg => jg.Stat)
             .Include(jc => jc.MasterLevelBonuses)
                 .ThenInclude(mlb => mlb.Stat)
             .FirstOrDefaultAsync(jc => jc.JobId == jobId);
@@ -590,6 +609,102 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
         }
 
         _context.JobPointBonuses.Remove(jobPointBonus);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+    #endregion
+
+    #region Job Gifts Management
+
+    /// <summary>
+    /// Add a job gift to a job configuration
+    /// </summary>
+    [HttpPost("{id}/job-gifts")]
+    public async Task<ActionResult<JobGiftDto>> AddJobGift(int id, CreateJobGiftDto createDto)
+    {
+        // Verify the job configuration exists
+        if (!await _context.JobConfigurations.AnyAsync(jc => jc.Id == id))
+        {
+            return NotFound("Job configuration not found");
+        }
+
+        // Verify the stat exists
+        var stat = await _context.Stats.FindAsync(createDto.StatId);
+        if (stat == null)
+        {
+            return BadRequest("Invalid stat ID");
+        }
+
+        // Check if this job already has this stat
+        if (await _context.JobGifts.AnyAsync(jg => jg.JobConfigurationId == id && jg.StatId == createDto.StatId))
+        {
+            return BadRequest("This job already has a job gift for this stat type");
+        }
+
+        var jobGift = new JobGift
+        {
+            JobConfigurationId = id,
+            StatId = createDto.StatId,
+            Value = createDto.Value
+        };
+
+        _context.JobGifts.Add(jobGift);
+        await _context.SaveChangesAsync();
+
+        var result = new JobGiftDto
+        {
+            Id = jobGift.Id,
+            JobConfigurationId = jobGift.JobConfigurationId,
+            StatId = jobGift.StatId,
+            Stat = new StatDto
+            {
+                Id = stat.Id,
+                Name = stat.Name,
+                DisplayName = stat.DisplayName
+            },
+            Value = jobGift.Value
+        };
+
+        return CreatedAtAction(nameof(GetJobConfiguration), new { id = id }, result);
+    }
+
+    /// <summary>
+    /// Update a job gift
+    /// </summary>
+    [HttpPut("{jobConfigId}/job-gifts/{statId}")]
+    public async Task<IActionResult> UpdateJobGift(int jobConfigId, int statId, [FromBody] int value)
+    {
+        var jobGift = await _context.JobGifts
+            .FirstOrDefaultAsync(jg => jg.JobConfigurationId == jobConfigId && jg.StatId == statId);
+
+        if (jobGift == null)
+        {
+            return NotFound();
+        }
+
+        jobGift.Value = value;
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+    /// <summary>
+    /// Remove a job gift from a job configuration
+    /// </summary>
+    [HttpDelete("{jobConfigId}/job-gifts/{statId}")]
+    public async Task<IActionResult> DeleteJobGift(int jobConfigId, int statId)
+    {
+        var jobGift = await _context.JobGifts
+            .FirstOrDefaultAsync(jg => jg.JobConfigurationId == jobConfigId && jg.StatId == statId);
+
+        if (jobGift == null)
+        {
+            return NotFound();
+        }
+
+        _context.JobGifts.Remove(jobGift);
         await _context.SaveChangesAsync();
 
         return NoContent();

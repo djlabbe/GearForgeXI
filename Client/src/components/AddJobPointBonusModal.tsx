@@ -3,32 +3,28 @@ import Modal from "./Modal";
 import { ReactSelector } from "./ReactSelector";
 import { JobConfigurationsService } from "../services";
 import { useAppData } from "../contexts/AppDataContext";
-import type { JobTrait } from "../models/JobConfiguration";
+import type { JobPointBonus } from "../models/JobConfiguration";
 
-interface AddJobTraitModalProps {
+interface AddJobPointBonusModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onJobTraitCreated: (newJobTrait: JobTrait) => void;
+  onJobPointBonusCreated: (newJobPointBonus: JobPointBonus) => void;
   jobConfigurationId: number;
 }
 
-interface NewJobTraitForm {
-  name: string;
-  level: number;
+interface NewJobPointBonusForm {
   statId: number | null;
   value: number;
 }
 
-const AddJobTraitModal = ({
+const AddJobPointBonusModal = ({
   isOpen,
   onClose,
-  onJobTraitCreated,
+  onJobPointBonusCreated,
   jobConfigurationId,
-}: AddJobTraitModalProps) => {
+}: AddJobPointBonusModalProps) => {
   const { stats, loading: loadingAppData } = useAppData();
-  const [newJobTraitForm, setNewJobTraitForm] = useState<NewJobTraitForm>({
-    name: "",
-    level: 1,
+  const [newJobPointBonusForm, setNewJobPointBonusForm] = useState<NewJobPointBonusForm>({
     statId: null,
     value: 0,
   });
@@ -55,16 +51,11 @@ const AddJobTraitModal = ({
     [stats]
   );
 
-  const handleAddJobTrait = async (e: React.FormEvent) => {
+  const handleAddJobPointBonus = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!newJobTraitForm.statId) {
+    if (!newJobPointBonusForm.statId) {
       setError("Please select a stat");
-      return;
-    }
-
-    if (!newJobTraitForm.name.trim()) {
-      setError("Please enter a trait name");
       return;
     }
 
@@ -72,31 +63,29 @@ const AddJobTraitModal = ({
     setError(null);
 
     try {
-      const newJobTrait = await JobConfigurationsService.addJobTrait(jobConfigurationId, {
-        name: newJobTraitForm.name.trim(),
-        level: newJobTraitForm.level,
-        statId: newJobTraitForm.statId,
-        value: newJobTraitForm.value,
+      const newJobPointBonus = await JobConfigurationsService.addJobPointBonus(jobConfigurationId, {
+        statId: newJobPointBonusForm.statId,
+        value: newJobPointBonusForm.value,
       });
 
-      onJobTraitCreated(newJobTrait);
+      onJobPointBonusCreated(newJobPointBonus);
       resetForm();
       onClose();
-      console.log("Job trait created successfully");
+      console.log("Job point bonus created successfully");
     } catch (err) {
-      console.error("Error creating job trait:", err);
+      console.error("Error creating job point bonus:", err);
       setError(
         err instanceof Error
           ? err.message
-          : "Failed to create job trait. Please try again."
+          : "Failed to create job point bonus. Please try again."
       );
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleFormChange = (field: keyof NewJobTraitForm, value: string | number | null) => {
-    setNewJobTraitForm(prev => ({
+  const handleFormChange = (field: keyof NewJobPointBonusForm, value: string | number | null) => {
+    setNewJobPointBonusForm(prev => ({
       ...prev,
       [field]: value,
     }));
@@ -108,9 +97,7 @@ const AddJobTraitModal = ({
   };
 
   const resetForm = () => {
-    setNewJobTraitForm({
-      name: "",
-      level: 1,
+    setNewJobPointBonusForm({
       statId: null,
       value: 0,
     });
@@ -132,14 +119,14 @@ const AddJobTraitModal = ({
         <div className="p-4 space-y-6">
           <div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-              Add New Job Trait
+              Add New Job Point Bonus
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Add a trait to this job configuration. Traits are abilities that provide stat bonuses at specific levels.
+              Add a job point bonus to this job configuration. Job point bonuses provide stat improvements from spending job points.
             </p>
           </div>
           
-          <div className="flex flex-col items-center justify-center" style={{ minHeight: '380px' }}>
+          <div className="flex flex-col items-center justify-center" style={{ minHeight: '250px' }}>
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
             <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
               Loading stats...
@@ -150,10 +137,10 @@ const AddJobTraitModal = ({
         <div className="p-4 space-y-6">
           <div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-              Add New Job Trait
+              Add New Job Point Bonus
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Add a trait to this job configuration. Traits are abilities that provide stat bonuses at specific levels.
+              Add a job point bonus to this job configuration. Job point bonuses provide stat improvements from spending job points.
             </p>
           </div>
 
@@ -164,66 +151,10 @@ const AddJobTraitModal = ({
           )}
 
           <form
-            onSubmit={handleAddJobTrait}
+            onSubmit={handleAddJobPointBonus}
             className="space-y-4"
             autoComplete="off"
           >
-            {/* Trait Name */}
-            <div>
-              <label
-                htmlFor="trait-name"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-              >
-                Trait Name *
-              </label>
-              <input
-                id="trait-name"
-                name="job-trait-name"
-                type="text"
-                value={newJobTraitForm.name}
-                onChange={(e) => handleFormChange("name", e.target.value)}
-                required
-                autoComplete="off"
-                data-lpignore="true"
-                data-form-type="other"
-                className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="e.g., Attack Boost"
-                disabled={isSubmitting}
-              />
-              <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                Enter a descriptive name for this trait
-              </p>
-            </div>
-
-            {/* Level */}
-            <div>
-              <label
-                htmlFor="trait-level"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-              >
-                Level *
-              </label>
-              <input
-                id="trait-level"
-                name="job-trait-level"
-                type="number"
-                min="1"
-                max="99"
-                value={newJobTraitForm.level}
-                onChange={(e) => handleFormChange("level", parseInt(e.target.value) || 1)}
-                required
-                autoComplete="off"
-                data-lpignore="true"
-                data-form-type="other"
-                className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="e.g., 10"
-                disabled={isSubmitting}
-              />
-              <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                Level when this trait becomes available (1-99)
-              </p>
-            </div>
-
             {/* Stat Selection */}
             <div>
               <label
@@ -235,7 +166,7 @@ const AddJobTraitModal = ({
               <ReactSelector
                 value={
                   statOptions.find(
-                    (option) => option.value === newJobTraitForm.statId
+                    (option) => option.value === newJobPointBonusForm.statId
                   ) || null
                 }
                 onChange={(selectedOption) =>
@@ -253,25 +184,25 @@ const AddJobTraitModal = ({
                 }}
               />
               <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                Select which stat this trait affects
+                Select which stat this job point bonus affects
               </p>
             </div>
 
             {/* Value */}
             <div>
               <label
-                htmlFor="trait-value"
+                htmlFor="jpb-value"
                 className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
               >
                 Value *
               </label>
               <input
-                id="trait-value"
-                name="job-trait-value"
+                id="jpb-value"
+                name="job-point-bonus-value"
                 type="number"
                 min="0"
                 max="999"
-                value={newJobTraitForm.value}
+                value={newJobPointBonusForm.value}
                 onChange={(e) => handleFormChange("value", parseInt(e.target.value) || 0)}
                 required
                 autoComplete="off"
@@ -282,15 +213,15 @@ const AddJobTraitModal = ({
                 disabled={isSubmitting}
               />
               <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                Bonus value provided by this trait
+                Bonus value provided by this job point bonus
               </p>
             </div>
 
             <div className="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                {newJobTraitForm.statId && newJobTraitForm.name.trim() 
-                  ? "Ready to add trait" 
-                  : "Fill required fields to continue"}
+                {newJobPointBonusForm.statId 
+                  ? "Ready to add job point bonus" 
+                  : "Select a stat to continue"}
               </div>
 
               <div className="flex space-x-2">
@@ -304,7 +235,7 @@ const AddJobTraitModal = ({
                 </button>
                 <button
                   type="submit"
-                  disabled={!newJobTraitForm.statId || !newJobTraitForm.name.trim() || isSubmitting}
+                  disabled={!newJobPointBonusForm.statId || isSubmitting}
                   className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
@@ -313,7 +244,7 @@ const AddJobTraitModal = ({
                       <span>Adding...</span>
                     </div>
                   ) : (
-                    "Add Trait"
+                    "Add Job Point Bonus"
                   )}
                 </button>
               </div>
@@ -325,4 +256,4 @@ const AddJobTraitModal = ({
   );
 };
 
-export default AddJobTraitModal;
+export default AddJobPointBonusModal;

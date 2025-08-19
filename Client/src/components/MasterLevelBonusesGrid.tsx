@@ -23,6 +23,7 @@ interface MasterLevelBonusesGridProps {
   jobConfigurationId: number;
   isAdmin: boolean;
   isDarkMode: boolean;
+  height?: number;
 }
 
 export function MasterLevelBonusesGrid({
@@ -31,6 +32,7 @@ export function MasterLevelBonusesGrid({
   jobConfigurationId,
   isAdmin,
   isDarkMode,
+  height = 300,
 }: MasterLevelBonusesGridProps) {
   const [isAddMasterLevelBonusModalOpen, setIsAddMasterLevelBonusModalOpen] =
     useState(false);
@@ -222,7 +224,7 @@ export function MasterLevelBonusesGrid({
         </div>
         <div
           className="ag-theme-alpine dark:ag-theme-alpine-dark rounded-xl shadow-md border border-gray-200 dark:border-gray-700"
-          style={{ height: 300, width: "100%" }}
+          style={{ height, width: "100%" }}
         >
           <AgGridReact<MasterLevelBonus>
             theme={isDarkMode ? themeDarkBlue : themeAlpine}

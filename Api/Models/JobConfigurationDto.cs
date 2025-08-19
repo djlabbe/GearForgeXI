@@ -13,6 +13,7 @@ public class JobConfigurationDto
     public List<JobBaseStatDto> JobBaseStats { get; set; } = new();
     public List<JobTraitDto> JobTraits { get; set; } = new();
     public List<JobPointBonusDto> JobPointBonuses { get; set; } = new();
+    public List<JobGiftDto> JobGifts { get; set; } = new();
     public List<MasterLevelBonusDto> MasterLevelBonuses { get; set; } = new();
 }
 
@@ -66,6 +67,18 @@ public class MasterLevelBonusDto
     public int Value { get; set; }
 }
 
+/// <summary>
+/// DTO for job gift responses
+/// </summary>
+public class JobGiftDto
+{
+    public int Id { get; set; }
+    public int JobConfigurationId { get; set; }
+    public int StatId { get; set; }
+    public StatDto Stat { get; set; } = null!;
+    public int Value { get; set; }
+}
+
 // Create DTOs
 /// <summary>
 /// DTO for creating a job configuration
@@ -110,6 +123,15 @@ public class UpdateJobTraitDto
 /// DTO for creating a job point bonus
 /// </summary>
 public class CreateJobPointBonusDto
+{
+    public int StatId { get; set; }
+    public int Value { get; set; }
+}
+
+/// <summary>
+/// DTO for creating a job gift
+/// </summary>
+public class CreateJobGiftDto
 {
     public int StatId { get; set; }
     public int Value { get; set; }

@@ -8,6 +8,7 @@ export interface JobConfiguration {
   jobBaseStats: JobBaseStat[];
   jobTraits: JobTrait[];
   jobPointBonuses: JobPointBonus[];
+  jobGifts: JobGift[];
   masterLevelBonuses: MasterLevelBonus[];
 }
 
@@ -32,7 +33,14 @@ export interface JobTrait {
 export interface JobPointBonus {
   id: number;
   jobConfigurationId: number;
-  category: string;
+  statId: number;
+  stat: Stat;
+  value: number;
+}
+
+export interface JobGift {
+  id: number;
+  jobConfigurationId: number;
   statId: number;
   stat: Stat;
   value: number;

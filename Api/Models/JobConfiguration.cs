@@ -29,6 +29,11 @@ public class JobConfiguration
     public List<JobPointBonus> JobPointBonuses { get; set; } = new();
 
     /// <summary>
+    /// Stat bonuses gained from job gifts
+    /// </summary>
+    public List<JobGift> JobGifts { get; set; } = new();
+
+    /// <summary>
     /// Stat bonuses gained from master levels
     /// </summary>
     public List<MasterLevelBonus> MasterLevelBonuses { get; set; } = new();

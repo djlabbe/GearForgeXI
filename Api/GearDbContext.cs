@@ -27,6 +27,7 @@ namespace GearForgeXI
         public DbSet<JobBaseStat> JobBaseStats { get; set; } = null!;
         public DbSet<JobTrait> JobTraits { get; set; } = null!;
         public DbSet<JobPointBonus> JobPointBonuses { get; set; } = null!;
+        public DbSet<JobGift> JobGifts { get; set; } = null!;
         public DbSet<MasterLevelBonus> MasterLevelBonuses { get; set; } = null!;
 
         // Race Configuration System
@@ -314,6 +315,19 @@ namespace GearForgeXI
                 .HasOne(mlb => mlb.Stat)
                 .WithMany()
                 .HasForeignKey(mlb => mlb.StatId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // JobGift: many-to-one with JobConfiguration and Stat
+            modelBuilder.Entity<JobGift>()
+                .HasOne(jg => jg.JobConfiguration)
+                .WithMany(jc => jc.JobGifts)
+                .HasForeignKey(jg => jg.JobConfigurationId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<JobGift>()
+                .HasOne(jg => jg.Stat)
+                .WithMany()
+                .HasForeignKey(jg => jg.StatId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Performance indexes for job configuration queries
