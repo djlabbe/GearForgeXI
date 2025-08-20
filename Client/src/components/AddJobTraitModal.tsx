@@ -269,7 +269,7 @@ const AddJobTraitModal = ({
                 id="trait-value"
                 name="job-trait-value"
                 type="number"
-                min="0"
+                min="-999"
                 max="999"
                 value={newJobTraitForm.value}
                 onChange={(e) => handleFormChange("value", parseInt(e.target.value) || 0)}

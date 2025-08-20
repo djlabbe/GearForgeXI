@@ -470,7 +470,7 @@ export function RaceConfigurations() {
       <div
         className={`ag-theme-alpine dark:ag-theme-alpine-dark rounded-xl shadow-md border border-gray-200 dark:border-gray-700`}
         style={{
-          height: "calc(100vh - 200px)",
+          height: "calc(100vh - 220px)",
           width: "100%",
           minHeight: 300,
         }}

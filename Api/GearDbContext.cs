@@ -287,8 +287,21 @@ namespace GearForgeXI
             // JobTrait: many-to-one with Stat
             modelBuilder.Entity<JobTrait>()
                 .HasOne(jt => jt.Stat)
-                .WithMany()
+                .WithMany(s => s.JobTraits)
                 .HasForeignKey(jt => jt.StatId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // JobBaseStat: many-to-one with JobConfiguration and Stat
+            modelBuilder.Entity<JobBaseStat>()
+                .HasOne(jbs => jbs.JobConfiguration)
+                .WithMany(jc => jc.JobBaseStats)
+                .HasForeignKey(jbs => jbs.JobConfigurationId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<JobBaseStat>()
+                .HasOne(jbs => jbs.Stat)
+                .WithMany(s => s.JobBaseStats)
+                .HasForeignKey(jbs => jbs.StatId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // JobPointBonus: many-to-one with JobConfiguration and Stat
@@ -300,7 +313,7 @@ namespace GearForgeXI
 
             modelBuilder.Entity<JobPointBonus>()
                 .HasOne(jpb => jpb.Stat)
-                .WithMany()
+                .WithMany(s => s.JobPointBonuses)
                 .HasForeignKey(jpb => jpb.StatId)
                 .OnDelete(DeleteBehavior.Restrict);
 
@@ -313,7 +326,7 @@ namespace GearForgeXI
 
             modelBuilder.Entity<MasterLevelBonus>()
                 .HasOne(mlb => mlb.Stat)
-                .WithMany()
+                .WithMany(s => s.MasterLevelBonuses)
                 .HasForeignKey(mlb => mlb.StatId)
                 .OnDelete(DeleteBehavior.Restrict);
 
@@ -326,7 +339,7 @@ namespace GearForgeXI
 
             modelBuilder.Entity<JobGift>()
                 .HasOne(jg => jg.Stat)
-                .WithMany()
+                .WithMany(s => s.JobGifts)
                 .HasForeignKey(jg => jg.StatId)
                 .OnDelete(DeleteBehavior.Restrict);
 

@@ -22,5 +22,12 @@ namespace GearForgeXI.Models.Dto
         public bool IsBaseStat { get; set; }           // True for base stats (STR, DEX, VIT, AGI, INT, MND, CHR)
 
         public int GearItemCount { get; set; }
+        public int BaseStatCount { get; set; }
+        public int JobTraitCount { get; set; }
+        public int JobPointBonusCount { get; set; }
+        public int JobGiftCount { get; set; }
+        public int MasterLevelBonusCount { get; set; }
+
+        public bool CanDelete { get; set; }
     }
 }

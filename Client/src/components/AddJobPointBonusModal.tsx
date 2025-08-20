@@ -200,7 +200,7 @@ const AddJobPointBonusModal = ({
                 id="jpb-value"
                 name="job-point-bonus-value"
                 type="number"
-                min="0"
+                min="-999"
                 max="999"
                 value={newJobPointBonusForm.value}
                 onChange={(e) => handleFormChange("value", parseInt(e.target.value) || 0)}

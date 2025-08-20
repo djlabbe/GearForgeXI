@@ -64,13 +64,13 @@ export function JobGiftsGrid({
       enableCellChangeFlash: true,
       cellEditor: "agNumberCellEditor",
       cellEditorParams: {
-        min: 0,
+        min: -999,
         max: 999,
         precision: 0,
       },
       valueSetter: (params) => {
         const newValue = parseInt(params.newValue);
-        if (isNaN(newValue) || newValue < 0 || newValue > 999) {
+        if (isNaN(newValue) || newValue < -999 || newValue > 999) {
           return false; // Reject invalid values
         }
         params.data.value = newValue;

@@ -217,6 +217,46 @@ export function Stats() {
       editable: false,
     },
     {
+      headerName: "Base Stat Count",
+      field: "baseStatCount",
+      sortable: true,
+      filter: true,
+      width: 150,
+      editable: false,
+    },
+    {
+      headerName: "Job Trait Count",
+      field: "jobTraitCount",
+      sortable: true,
+      filter: true,
+      width: 150,
+      editable: false,
+    },
+    {
+      headerName: "Job Point Bonus Count",
+      field: "jobPointBonusCount",
+      sortable: true,
+      filter: true,
+      width: 180,
+      editable: false,
+    },
+    {
+      headerName: "Job Gift Count",
+      field: "jobGiftCount",
+      sortable: true,
+      filter: true,
+      width: 150,
+      editable: false,
+    },
+    {
+      headerName: "ML Bonus Count",
+      field: "masterLevelBonusCount",
+      sortable: true,
+      filter: true,
+      width: 170,
+      editable: false,
+    },
+    {
       headerName: "Actions",
       width: 180,
       sortable: false,
@@ -257,7 +297,7 @@ export function Stats() {
             )}
 
             {/* Delete Button - Only show if admin and no gear items use this stat */}
-            {isAdmin && (stat.gearItemCount || 0) === 0 && (
+            {isAdmin && stat.canDelete && (
               <button
                 onClick={() => handleDeleteStat(stat.id, stat.name)}
                 className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors duration-200"
@@ -396,7 +436,7 @@ export function Stats() {
       <div
         className={`ag-theme-alpine dark:ag-theme-alpine-dark rounded-xl shadow-md border border-gray-200 dark:border-gray-700`}
         style={{
-          height: "calc(100vh - 200px)",
+          height: "calc(100vh - 220px)",
           width: "100%",
           minHeight: 300,
         }}

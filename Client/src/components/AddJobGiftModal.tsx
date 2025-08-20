@@ -200,7 +200,7 @@ const AddJobGiftModal = ({
                 id="jg-value"
                 name="job-gift-value"
                 type="number"
-                min="0"
+                min="-999"
                 max="999"
                 value={newJobGiftForm.value}
                 onChange={(e) => handleFormChange("value", parseInt(e.target.value) || 0)}

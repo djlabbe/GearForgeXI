@@ -32,6 +32,8 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                 .ThenInclude(jg => jg.Stat)
             .Include(jc => jc.MasterLevelBonuses)
                 .ThenInclude(mlb => mlb.Stat)
+            .AsNoTracking()
+            .AsSplitQuery()
             .ToListAsync();
 
         var result = jobConfigurations.Select(jc => new JobConfigurationDto
@@ -72,7 +74,7 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                     DisplayName = jt.Stat.DisplayName
                 },
                 Value = jt.Value
-            }).ToList(),
+            }).OrderBy(jt => jt.Level).ToList(),
             JobPointBonuses = jc.JobPointBonuses.Select(jpb => new JobPointBonusDto
             {
                 Id = jpb.Id,

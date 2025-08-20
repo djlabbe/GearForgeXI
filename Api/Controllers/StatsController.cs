@@ -45,6 +45,11 @@ public class StatsController(GearDbContext context) : ControllerBase
                 Description = s.Description,
                 IsBaseStat = s.IsBaseStat,
                 GearItemCount = s.GearItemStats.Count,
+                BaseStatCount = s.JobBaseStats.Count,
+                JobTraitCount = s.JobTraits.Count,
+                JobPointBonusCount = s.JobPointBonuses.Count,
+                JobGiftCount = s.JobGifts.Count,
+                MasterLevelBonusCount = s.MasterLevelBonuses.Count,
             })
             .ToListAsync();
 

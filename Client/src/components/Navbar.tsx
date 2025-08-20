@@ -38,7 +38,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="bg-background text-foreground shadow mb-6 border-b border-border dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700">
+    <header className="bg-background text-foreground shadow border-b border-border dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700">
       <div className="mx-auto px-4 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center space-x-3 w-full sm:w-auto">
           <img src={logo} alt="GearForge XI Logo" className="h-8 w-8" />
