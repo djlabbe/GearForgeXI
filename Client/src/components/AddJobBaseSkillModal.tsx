@@ -3,31 +3,31 @@ import Modal from "./Modal";
 import { ReactSelector } from "./ReactSelector";
 import { JobConfigurationsService } from "../services";
 import { useAppData } from "../contexts/AppDataContext";
-import type { JobBaseStat } from "../models/JobConfiguration";
+import type { JobBaseSkill } from "../models/JobConfiguration";
 
-interface AddJobBaseStatModalProps {
+interface AddJobBaseSkillModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onJobBaseStatCreated: (newJobBaseStat: JobBaseStat) => void;
+  onJobBaseSkillCreated: (newJobBaseSkill: JobBaseSkill) => void;
   jobConfigurationId: number;
   existingStatIds?: number[];
 }
 
-interface NewJobBaseStatForm {
+interface NewJobBaseSkillForm {
   statId: number | null;
   value: number;
 }
 
-const AddJobBaseStatModal = ({
+const AddJobBaseSkillModal = ({
   isOpen,
   onClose,
-  onJobBaseStatCreated,
+  onJobBaseSkillCreated,
   jobConfigurationId,
   existingStatIds = [],
-}: AddJobBaseStatModalProps) => {
+}: AddJobBaseSkillModalProps) => {
   const { stats, loading: loadingAppData } = useAppData();
-  const [newJobBaseStatForm, setNewJobBaseStatForm] =
-    useState<NewJobBaseStatForm>({
+  const [newJobBaseSkillForm, setNewJobBaseSkillForm] =
+    useState<NewJobBaseSkillForm>({
       statId: null,
       value: 0,
     });
@@ -35,21 +35,21 @@ const AddJobBaseStatModal = ({
   const [error, setError] = useState<string | null>(null);
   const [hasLoaded, setHasLoaded] = useState(false);
 
-  // Filter stats to only include base stats that aren't already used
-  const availableBaseStats = useMemo(() => {
+  // Filter stats to only include skill stats that aren't already used
+  const availableBaseSkills = useMemo(() => {
     return stats.filter(
-      (stat) => stat.category === "Base" && !existingStatIds.includes(stat.id)
+      (stat) => stat.category === "Skill" && !existingStatIds.includes(stat.id)
     );
   }, [stats, existingStatIds]);
 
   // Memoize stat options for ReactSelector
   const statOptions = useMemo(
     () =>
-      availableBaseStats.map((stat) => ({
+      availableBaseSkills.map((stat) => ({
         value: stat.id,
         label: stat.displayName || stat.name,
       })),
-    [availableBaseStats]
+    [availableBaseSkills]
   );
 
   useEffect(() => {
@@ -61,11 +61,11 @@ const AddJobBaseStatModal = ({
     }
   }, [isOpen, loadingAppData]);
 
-  const handleAddJobBaseStat = async (e: React.FormEvent) => {
+  const handleAddJobBaseSkill = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!newJobBaseStatForm.statId) {
-      setError("Please select a stat");
+    if (!newJobBaseSkillForm.statId) {
+      setError("Please select a skill");
       return;
     }
 
@@ -73,24 +73,24 @@ const AddJobBaseStatModal = ({
     setError(null);
 
     try {
-      const newJobBaseStat = await JobConfigurationsService.addJobBaseStat(
+      const newJobBaseSkill = await JobConfigurationsService.addJobBaseSkill(
         jobConfigurationId,
         {
-          statId: newJobBaseStatForm.statId,
-          value: newJobBaseStatForm.value,
+          statId: newJobBaseSkillForm.statId,
+          value: newJobBaseSkillForm.value,
         }
       );
 
-      onJobBaseStatCreated(newJobBaseStat);
+      onJobBaseSkillCreated(newJobBaseSkill);
       resetForm();
       onClose();
-      console.log("Job base stat created successfully");
+      console.log("Job base skill created successfully");
     } catch (err) {
-      console.error("Error creating job base stat:", err);
+      console.error("Error creating job base skill:", err);
       setError(
         err instanceof Error
           ? err.message
-          : "Failed to create job base stat. Please try again."
+          : "Failed to create job base skill. Please try again."
       );
     } finally {
       setIsSubmitting(false);
@@ -98,10 +98,10 @@ const AddJobBaseStatModal = ({
   };
 
   const handleFormChange = (
-    field: keyof NewJobBaseStatForm,
+    field: keyof NewJobBaseSkillForm,
     value: string | number | null
   ) => {
-    setNewJobBaseStatForm((prev) => ({
+    setNewJobBaseSkillForm((prev) => ({
       ...prev,
       [field]: value,
     }));
@@ -113,7 +113,7 @@ const AddJobBaseStatModal = ({
   };
 
   const resetForm = () => {
-    setNewJobBaseStatForm({
+    setNewJobBaseSkillForm({
       statId: null,
       value: 0,
     });
@@ -131,11 +131,11 @@ const AddJobBaseStatModal = ({
         <div className="p-4 space-y-6">
           <div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-              Add New Base Stat
+              Add New Base Skill
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Add a base stat value to this job configuration. Base stats
-              include STR, DEX, VIT, AGI, INT, MND, and CHR.
+              Add a base skill value to this job configuration. Skills include
+              weapon skills, magic skills, and other job-specific abilities.
             </p>
           </div>
 
@@ -145,7 +145,7 @@ const AddJobBaseStatModal = ({
           >
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
             <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-              Loading base stats...
+              Loading base skills...
             </p>
           </div>
         </div>
@@ -153,11 +153,11 @@ const AddJobBaseStatModal = ({
         <div className="p-4 space-y-6">
           <div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-              Add New Base Stat
+              Add New Base Skill
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Add a base stat value to this job configuration. Base stats
-              include STR, DEX, VIT, AGI, INT, MND, and CHR.
+              Add a base skill value to this job configuration. Skills include
+              weapon skills, magic skills, and other job-specific abilities.
             </p>
           </div>
 
@@ -167,7 +167,7 @@ const AddJobBaseStatModal = ({
             </div>
           )}
 
-          {availableBaseStats.length === 0 ? (
+          {availableBaseSkills.length === 0 ? (
             <div className="text-center py-6">
               <div className="text-gray-500 dark:text-gray-400">
                 <svg
@@ -184,17 +184,17 @@ const AddJobBaseStatModal = ({
                   />
                 </svg>
                 <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                  No available base stats
+                  No available base skills
                 </h3>
                 <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                  All base stats have already been added to this job
+                  All base skills have already been added to this job
                   configuration.
                 </p>
               </div>
             </div>
           ) : (
             <form
-              onSubmit={handleAddJobBaseStat}
+              onSubmit={handleAddJobBaseSkill}
               className="space-y-4"
               autoComplete="off"
             >
@@ -203,19 +203,19 @@ const AddJobBaseStatModal = ({
                   htmlFor="stat-select"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  Base Stat *
+                  Base Skill *
                 </label>
                 <ReactSelector
                   value={
                     statOptions.find(
-                      (option) => option.value === newJobBaseStatForm.statId
+                      (option) => option.value === newJobBaseSkillForm.statId
                     ) || null
                   }
                   onChange={(selectedOption) =>
                     handleFormChange("statId", selectedOption?.value || null)
                   }
                   options={statOptions}
-                  placeholder="Choose a base stat..."
+                  placeholder="Choose a base skill..."
                   isClearable
                   isSearchable
                   menuPlacement="auto"
@@ -226,7 +226,7 @@ const AddJobBaseStatModal = ({
                   }}
                 />
                 <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                  Select which base stat to configure for this job
+                  Select which base skill to configure for this job
                 </p>
               </div>
 
@@ -240,8 +240,8 @@ const AddJobBaseStatModal = ({
                 <input
                   type="number"
                   id="value"
-                  name="job-base-stat-value"
-                  value={newJobBaseStatForm.value}
+                  name="job-base-skill-value"
+                  value={newJobBaseSkillForm.value}
                   onChange={(e) =>
                     handleFormChange("value", parseInt(e.target.value) || 0)
                   }
@@ -252,18 +252,18 @@ const AddJobBaseStatModal = ({
                   data-lpignore="true"
                   data-form-type="other"
                   className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="e.g., 37"
+                  placeholder="e.g., 275"
                 />
                 <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                  Enter the base stat value at level 99
+                  Enter the base skill value at level 99
                 </p>
               </div>
 
               <div className="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {newJobBaseStatForm.statId
-                    ? "Ready to add base stat"
-                    : "Select a stat to continue"}
+                  {newJobBaseSkillForm.statId
+                    ? "Ready to add base skill"
+                    : "Select a skill to continue"}
                 </div>
 
                 <div className="flex space-x-2">
@@ -271,13 +271,13 @@ const AddJobBaseStatModal = ({
                     type="button"
                     onClick={handleClose}
                     disabled={isSubmitting}
-                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 disabled:opacity-50 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600 cursor-pointer disabled:cursor-not-allowed"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    disabled={!newJobBaseStatForm.statId || isSubmitting}
+                    disabled={!newJobBaseSkillForm.statId || isSubmitting}
                     className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
@@ -286,7 +286,7 @@ const AddJobBaseStatModal = ({
                         <span>Adding...</span>
                       </div>
                     ) : (
-                      "Add Base Stat"
+                      "Add Base Skill"
                     )}
                   </button>
                 </div>
@@ -299,4 +299,4 @@ const AddJobBaseStatModal = ({
   );
 };
 
-export default AddJobBaseStatModal;
+export default AddJobBaseSkillModal;

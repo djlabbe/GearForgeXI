@@ -1,6 +1,7 @@
 import type {
   JobConfiguration,
   JobBaseStat,
+  JobBaseSkill,
   JobTrait,
   JobPointBonus,
   JobGift,
@@ -9,6 +10,11 @@ import type {
 import { authFetch } from "../utils/authFetch";
 
 interface CreateJobBaseStatDto {
+  statId: number;
+  value: number;
+}
+
+interface CreateJobBaseSkillDto {
   statId: number;
   value: number;
 }
@@ -117,6 +123,69 @@ class JobConfigurationsService {
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(`Failed to delete job base stat: ${errorText}`);
+    }
+  }
+
+  // Job Base Skills Management
+  static async addJobBaseSkill(
+    jobConfigurationId: number,
+    createDto: CreateJobBaseSkillDto
+  ): Promise<JobBaseSkill> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/base-skills`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(createDto),
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to add job base skill: ${errorText}`);
+    }
+
+    return response.json();
+  }
+
+  static async updateJobBaseSkill(
+    jobConfigurationId: number,
+    statId: number,
+    value: number
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/base-skills/${statId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(value),
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to update job base skill: ${errorText}`);
+    }
+  }
+
+  static async deleteJobBaseSkill(
+    jobConfigurationId: number,
+    statId: number
+  ): Promise<void> {
+    const response = await authFetch(
+      `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/base-skills/${statId}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to delete job base skill: ${errorText}`);
     }
   }
 

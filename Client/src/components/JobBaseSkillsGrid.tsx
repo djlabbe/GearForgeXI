@@ -10,38 +10,38 @@ import type {
   ColDef,
   ICellRendererParams,
 } from "ag-grid-community";
-import type { JobBaseStat } from "../models/JobConfiguration";
-import AddJobBaseStatModal from "./AddJobBaseStatModal";
+import type { JobBaseSkill } from "../models/JobConfiguration";
+import AddJobBaseSkillModal from "./AddJobBaseSkillModal";
 
 const themeDarkBlue = themeAlpine.withPart(colorSchemeDarkBlue);
 
-interface JobBaseStatsGridProps {
-  jobBaseStats: JobBaseStat[];
-  onJobBaseStatsChange: (newJobBaseStats: JobBaseStat[]) => void;
+interface JobBaseSkillsGridProps {
+  jobBaseSkills: JobBaseSkill[];
+  onJobBaseSkillsChange: (newJobBaseSkills: JobBaseSkill[]) => void;
   jobConfigurationId: number;
   isAdmin: boolean;
   isDarkMode: boolean;
   height?: number;
 }
 
-export function JobBaseStatsGrid({
-  jobBaseStats,
-  onJobBaseStatsChange,
+export function JobBaseSkillsGrid({
+  jobBaseSkills,
+  onJobBaseSkillsChange,
   jobConfigurationId,
   isAdmin,
   isDarkMode,
   height = 400,
-}: JobBaseStatsGridProps) {
-  const [isAddBaseStatModalOpen, setIsAddBaseStatModalOpen] = useState(false);
+}: JobBaseSkillsGridProps) {
+  const [isAddBaseSkillModalOpen, setIsAddBaseSkillModalOpen] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [baseStatToDelete, setBaseStatToDelete] = useState<{
+  const [baseSkillToDelete, setBaseSkillToDelete] = useState<{
     statId: number;
     statName: string;
   } | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  // Column definitions for Job Base Stats
-  const baseStatsColumnDefs: ColDef<JobBaseStat>[] = [
+  // Column definitions for Job Base Skills
+  const baseSkillsColumnDefs: ColDef<JobBaseSkill>[] = [
     {
       headerName: "ID",
       field: "id",
@@ -90,21 +90,23 @@ export function JobBaseStatsGrid({
       sortable: false,
       filter: false,
       editable: false,
-      cellRenderer: (params: ICellRendererParams<JobBaseStat>) => {
-        const baseStat = params.data;
-        if (!baseStat) return null;
+      cellRenderer: (params: ICellRendererParams<JobBaseSkill>) => {
+        const baseSkill = params.data;
+        if (!baseSkill) return null;
 
         const statName =
-          baseStat.stat?.displayName ||
-          baseStat.stat?.name ||
-          `Stat ID ${baseStat.statId}`;
+          baseSkill.stat?.displayName ||
+          baseSkill.stat?.name ||
+          `Stat ID ${baseSkill.statId}`;
 
         return (
           <div className="flex justify-center items-center h-full space-x-2">
             {/* Delete Button - Only show if admin */}
             {isAdmin && (
               <button
-                onClick={() => handleDeleteBaseStat(baseStat.statId, statName)}
+                onClick={() =>
+                  handleDeleteBaseSkill(baseSkill.statId, statName)
+                }
                 className="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors duration-200"
                 title={`Delete ${statName}`}
               >
@@ -129,30 +131,30 @@ export function JobBaseStatsGrid({
     },
   ];
 
-  const handleAddBaseStat = () => {
-    setIsAddBaseStatModalOpen(true);
+  const handleAddBaseSkill = () => {
+    setIsAddBaseSkillModalOpen(true);
   };
 
-  const handleJobBaseStatCreated = (newJobBaseStat: JobBaseStat) => {
-    const updatedJobBaseStats = [...jobBaseStats, newJobBaseStat];
-    onJobBaseStatsChange(updatedJobBaseStats);
+  const handleJobBaseSkillCreated = (newJobBaseSkill: JobBaseSkill) => {
+    const updatedJobBaseSkills = [...jobBaseSkills, newJobBaseSkill];
+    onJobBaseSkillsChange(updatedJobBaseSkills);
   };
 
-  const getExistingBaseStatIds = (): number[] => {
-    return jobBaseStats.map((baseStat) => baseStat.statId);
+  const getExistingBaseSkillIds = (): number[] => {
+    return jobBaseSkills.map((baseSkill) => baseSkill.statId);
   };
 
-  const handleBaseStatCellValueChanged = async (
-    event: CellValueChangedEvent<JobBaseStat>
+  const handleBaseSkillCellValueChanged = async (
+    event: CellValueChangedEvent<JobBaseSkill>
   ) => {
-    const updatedStat = event.data;
+    const updatedSkill = event.data;
     try {
-      await JobConfigurationsService.updateJobBaseStat(
+      await JobConfigurationsService.updateJobBaseSkill(
         jobConfigurationId,
-        updatedStat.statId,
-        updatedStat.value
+        updatedSkill.statId,
+        updatedSkill.value
       );
-      console.log("Stat updated successfully");
+      console.log("Skill updated successfully");
 
       // Flash the cell green to indicate successful save
       event.api.flashCells({
@@ -162,46 +164,46 @@ export function JobBaseStatsGrid({
     } catch {
       // Revert the change if the update failed
       event.node.setData(event.oldValue);
-      alert("Failed to update stat. Please try again.");
+      alert("Failed to update skill. Please try again.");
     }
   };
 
-  const handleDeleteBaseStat = (statId: number, statName: string) => {
-    setBaseStatToDelete({ statId, statName });
+  const handleDeleteBaseSkill = (statId: number, statName: string) => {
+    setBaseSkillToDelete({ statId, statName });
     setShowDeleteConfirm(true);
   };
 
-  const confirmDeleteBaseStat = async () => {
-    if (!baseStatToDelete) return;
+  const confirmDeleteBaseSkill = async () => {
+    if (!baseSkillToDelete) return;
 
     setIsDeleting(true);
     try {
-      await JobConfigurationsService.deleteJobBaseStat(
+      await JobConfigurationsService.deleteJobBaseSkill(
         jobConfigurationId,
-        baseStatToDelete.statId
+        baseSkillToDelete.statId
       );
 
-      // Update the local state by removing the deleted base stat
-      const updatedJobBaseStats = jobBaseStats.filter(
-        (baseStat) => baseStat.statId !== baseStatToDelete.statId
+      // Update the local state by removing the deleted base skill
+      const updatedJobBaseSkills = jobBaseSkills.filter(
+        (baseSkill) => baseSkill.statId !== baseSkillToDelete.statId
       );
-      onJobBaseStatsChange(updatedJobBaseStats);
+      onJobBaseSkillsChange(updatedJobBaseSkills);
 
       setShowDeleteConfirm(false);
-      setBaseStatToDelete(null);
-      console.log("Base stat deleted successfully");
+      setBaseSkillToDelete(null);
+      console.log("Base skill deleted successfully");
     } catch (error) {
-      console.error("Error deleting base stat:", error);
-      alert("Failed to delete base stat. Please try again.");
+      console.error("Error deleting base skill:", error);
+      alert("Failed to delete base skill. Please try again.");
     } finally {
       setIsDeleting(false);
     }
   };
 
-  const cancelDeleteBaseStat = () => {
+  const cancelDeleteBaseSkill = () => {
     if (isDeleting) return; // Don't allow canceling while deleting
     setShowDeleteConfirm(false);
-    setBaseStatToDelete(null);
+    setBaseSkillToDelete(null);
   };
 
   return (
@@ -209,14 +211,14 @@ export function JobBaseStatsGrid({
       <div className="space-y-2">
         <div className="flex justify-between items-center">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-            Base Stats ({jobBaseStats.length})
+            Base Skills ({jobBaseSkills.length})
           </h3>
           {isAdmin && (
             <button
-              onClick={handleAddBaseStat}
+              onClick={handleAddBaseSkill}
               className="px-3 py-1 text-sm bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors duration-200 font-medium cursor-pointer"
             >
-              Add Base Stat
+              Add Base Skill
             </button>
           )}
         </div>
@@ -224,11 +226,11 @@ export function JobBaseStatsGrid({
           className="ag-theme-alpine dark:ag-theme-alpine-dark rounded-xl shadow-md border border-gray-200 dark:border-gray-700"
           style={{ height, width: "100%" }}
         >
-          <AgGridReact<JobBaseStat>
+          <AgGridReact<JobBaseSkill>
             theme={isDarkMode ? themeDarkBlue : themeAlpine}
-            rowData={jobBaseStats}
-            columnDefs={baseStatsColumnDefs}
-            onCellValueChanged={handleBaseStatCellValueChanged}
+            rowData={jobBaseSkills}
+            columnDefs={baseSkillsColumnDefs}
+            onCellValueChanged={handleBaseSkillCellValueChanged}
             defaultColDef={{
               resizable: true,
               sortable: true,
@@ -238,23 +240,23 @@ export function JobBaseStatsGrid({
         </div>
       </div>
 
-      {/* Add Job Base Stat Modal */}
-      <AddJobBaseStatModal
-        isOpen={isAddBaseStatModalOpen}
-        onClose={() => setIsAddBaseStatModalOpen(false)}
-        onJobBaseStatCreated={handleJobBaseStatCreated}
+      {/* Add Job Base Skill Modal */}
+      <AddJobBaseSkillModal
+        isOpen={isAddBaseSkillModalOpen}
+        onClose={() => setIsAddBaseSkillModalOpen(false)}
+        onJobBaseSkillCreated={handleJobBaseSkillCreated}
         jobConfigurationId={jobConfigurationId}
-        existingStatIds={getExistingBaseStatIds()}
+        existingStatIds={getExistingBaseSkillIds()}
       />
 
       {/* Confirmation Modal for Deletion */}
-      {showDeleteConfirm && baseStatToDelete && (
+      {showDeleteConfirm && baseSkillToDelete && (
         <ConfirmationModal
           isOpen={showDeleteConfirm}
-          onConfirm={confirmDeleteBaseStat}
-          onCancel={cancelDeleteBaseStat}
-          title="Delete Base Stat"
-          message={`Are you sure you want to delete the base stat "${baseStatToDelete.statName}"? This action cannot be undone.`}
+          onConfirm={confirmDeleteBaseSkill}
+          onCancel={cancelDeleteBaseSkill}
+          title="Delete Base Skill"
+          message={`Are you sure you want to delete the base skill "${baseSkillToDelete.statName}"? This action cannot be undone.`}
           confirmText="Delete"
           cancelText="Cancel"
           isLoading={isDeleting}
@@ -264,4 +266,4 @@ export function JobBaseStatsGrid({
   );
 }
 
-export default JobBaseStatsGrid;
+export default JobBaseSkillsGrid;

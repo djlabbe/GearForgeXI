@@ -19,6 +19,11 @@ public class JobConfiguration
     public List<JobBaseStat> JobBaseStats { get; set; } = new();
 
     /// <summary>
+    /// Base skills at level 99 for this job
+    /// </summary>
+    public List<JobBaseSkill> JobBaseSkills { get; set; } = new();
+
+    /// <summary>
     /// Job traits that are learned at specific levels
     /// </summary>
     public List<JobTrait> JobTraits { get; set; } = new();

@@ -11,6 +11,7 @@ public class JobConfigurationDto
     public int JobId { get; set; }
     public JobDto Job { get; set; } = null!;
     public List<JobBaseStatDto> JobBaseStats { get; set; } = new();
+    public List<JobBaseSkillDto> JobBaseSkills { get; set; } = new();
     public List<JobTraitDto> JobTraits { get; set; } = new();
     public List<JobPointBonusDto> JobPointBonuses { get; set; } = new();
     public List<JobGiftDto> JobGifts { get; set; } = new();
@@ -21,6 +22,18 @@ public class JobConfigurationDto
 /// DTO for job base stat responses
 /// </summary>
 public class JobBaseStatDto
+{
+    public int Id { get; set; }
+    public int JobConfigurationId { get; set; }
+    public int StatId { get; set; }
+    public StatDto Stat { get; set; } = null!;
+    public int Value { get; set; }
+}
+
+/// <summary>
+/// DTO for job base skill responses
+/// </summary>
+public class JobBaseSkillDto
 {
     public int Id { get; set; }
     public int JobConfigurationId { get; set; }
@@ -92,6 +105,15 @@ public class CreateJobConfigurationDto
 /// DTO for creating a job base stat
 /// </summary>
 public class CreateJobBaseStatDto
+{
+    public int StatId { get; set; }
+    public int Value { get; set; }
+}
+
+/// <summary>
+/// DTO for creating a job base skill
+/// </summary>
+public class CreateJobBaseSkillDto
 {
     public int StatId { get; set; }
     public int Value { get; set; }

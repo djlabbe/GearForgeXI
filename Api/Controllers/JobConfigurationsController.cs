@@ -24,6 +24,8 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
             .Include(jc => jc.Job)
             .Include(jc => jc.JobBaseStats)
                 .ThenInclude(jbs => jbs.Stat)
+            .Include(jc => jc.JobBaseSkills)
+                .ThenInclude(jbs => jbs.Stat)
             .Include(jc => jc.JobTraits)
                 .ThenInclude(jt => jt.Stat)
             .Include(jc => jc.JobPointBonuses)
@@ -48,6 +50,19 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                 CanDualWield = jc.Job.CanDualWield
             },
             JobBaseStats = jc.JobBaseStats.Select(jbs => new JobBaseStatDto
+            {
+                Id = jbs.Id,
+                JobConfigurationId = jbs.JobConfigurationId,
+                StatId = jbs.StatId,
+                Stat = new StatDto
+                {
+                    Id = jbs.Stat.Id,
+                    Name = jbs.Stat.Name,
+                    DisplayName = jbs.Stat.DisplayName
+                },
+                Value = jbs.Value
+            }).ToList(),
+            JobBaseSkills = jc.JobBaseSkills.Select(jbs => new JobBaseSkillDto
             {
                 Id = jbs.Id,
                 JobConfigurationId = jbs.JobConfigurationId,
@@ -129,6 +144,8 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
             .Include(jc => jc.Job)
             .Include(jc => jc.JobBaseStats)
                 .ThenInclude(jbs => jbs.Stat)
+            .Include(jc => jc.JobBaseSkills)
+                .ThenInclude(jbs => jbs.Stat)
             .Include(jc => jc.JobTraits)
                 .ThenInclude(jt => jt.Stat)
             .Include(jc => jc.JobPointBonuses)
@@ -156,6 +173,19 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                 CanDualWield = jobConfiguration.Job.CanDualWield
             },
             JobBaseStats = jobConfiguration.JobBaseStats.Select(jbs => new JobBaseStatDto
+            {
+                Id = jbs.Id,
+                JobConfigurationId = jbs.JobConfigurationId,
+                StatId = jbs.StatId,
+                Stat = new StatDto
+                {
+                    Id = jbs.Stat.Id,
+                    Name = jbs.Stat.Name,
+                    DisplayName = jbs.Stat.DisplayName
+                },
+                Value = jbs.Value
+            }).ToList(),
+            JobBaseSkills = jobConfiguration.JobBaseSkills.Select(jbs => new JobBaseSkillDto
             {
                 Id = jbs.Id,
                 JobConfigurationId = jbs.JobConfigurationId,
@@ -224,6 +254,8 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
             .Include(jc => jc.Job)
             .Include(jc => jc.JobBaseStats)
                 .ThenInclude(jbs => jbs.Stat)
+            .Include(jc => jc.JobBaseSkills)
+                .ThenInclude(jbs => jbs.Stat)
             .Include(jc => jc.JobTraits)
                 .ThenInclude(jts => jts.Stat)
             .Include(jc => jc.JobPointBonuses)
@@ -251,6 +283,19 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                 CanDualWield = jobConfiguration.Job.CanDualWield
             },
             JobBaseStats = jobConfiguration.JobBaseStats.Select(jbs => new JobBaseStatDto
+            {
+                Id = jbs.Id,
+                JobConfigurationId = jbs.JobConfigurationId,
+                StatId = jbs.StatId,
+                Stat = new StatDto
+                {
+                    Id = jbs.Stat.Id,
+                    Name = jbs.Stat.Name,
+                    DisplayName = jbs.Stat.DisplayName
+                },
+                Value = jbs.Value
+            }).ToList(),
+            JobBaseSkills = jobConfiguration.JobBaseSkills.Select(jbs => new JobBaseSkillDto
             {
                 Id = jbs.Id,
                 JobConfigurationId = jbs.JobConfigurationId,
@@ -803,6 +848,108 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
         }
 
         _context.MasterLevelBonuses.Remove(masterLevelBonus);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+    #endregion
+
+    #region Job Base Skills Management
+
+    /// <summary>
+    /// Add a base skill to a job configuration
+    /// </summary>
+    [HttpPost("{id}/base-skills")]
+    public async Task<ActionResult<JobBaseSkillDto>> AddJobBaseSkill(int id, CreateJobBaseSkillDto createDto)
+    {
+        // Verify the job configuration exists
+        if (!await _context.JobConfigurations.AnyAsync(jc => jc.Id == id))
+        {
+            return NotFound("Job configuration not found");
+        }
+
+        // Verify the stat exists
+        var stat = await _context.Stats.FindAsync(createDto.StatId);
+        if (stat == null)
+        {
+            return BadRequest("Invalid stat ID");
+        }
+
+        // Verify the stat is a skill stat
+        if (stat.Category != StatCategory.Skill)
+        {
+            return BadRequest("Only skill stats can be used for job base skills");
+        }
+
+        // Check if this job already has this skill
+        if (await _context.JobBaseSkills.AnyAsync(jbs => jbs.JobConfigurationId == id && jbs.StatId == createDto.StatId))
+        {
+            return BadRequest("This job already has a base skill for this skill type");
+        }
+
+        var jobBaseSkill = new JobBaseSkill
+        {
+            JobConfigurationId = id,
+            StatId = createDto.StatId,
+            Value = createDto.Value
+        };
+
+        _context.JobBaseSkills.Add(jobBaseSkill);
+        await _context.SaveChangesAsync();
+
+        var result = new JobBaseSkillDto
+        {
+            Id = jobBaseSkill.Id,
+            JobConfigurationId = jobBaseSkill.JobConfigurationId,
+            StatId = jobBaseSkill.StatId,
+            Stat = new StatDto
+            {
+                Id = stat.Id,
+                Name = stat.Name,
+                DisplayName = stat.DisplayName
+            },
+            Value = jobBaseSkill.Value
+        };
+
+        return CreatedAtAction(nameof(GetJobConfiguration), new { id = id }, result);
+    }
+
+    /// <summary>
+    /// Update a base skill for a job configuration
+    /// </summary>
+    [HttpPut("{jobConfigId}/base-skills/{statId}")]
+    public async Task<IActionResult> UpdateJobBaseSkill(int jobConfigId, int statId, [FromBody] int value)
+    {
+        var jobBaseSkill = await _context.JobBaseSkills
+            .FirstOrDefaultAsync(jbs => jbs.JobConfigurationId == jobConfigId && jbs.StatId == statId);
+
+        if (jobBaseSkill == null)
+        {
+            return NotFound();
+        }
+
+        jobBaseSkill.Value = value;
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+    /// <summary>
+    /// Remove a base skill from a job configuration
+    /// </summary>
+    [HttpDelete("{jobConfigId}/base-skills/{statId}")]
+    public async Task<IActionResult> DeleteJobBaseSkill(int jobConfigId, int statId)
+    {
+        var jobBaseSkill = await _context.JobBaseSkills
+            .FirstOrDefaultAsync(jbs => jbs.JobConfigurationId == jobConfigId && jbs.StatId == statId);
+
+        if (jobBaseSkill == null)
+        {
+            return NotFound();
+        }
+
+        _context.JobBaseSkills.Remove(jobBaseSkill);
         await _context.SaveChangesAsync();
 
         return NoContent();

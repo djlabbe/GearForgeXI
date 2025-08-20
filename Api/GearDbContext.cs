@@ -25,6 +25,7 @@ namespace GearForgeXI
         // Job Configuration System
         public DbSet<JobConfiguration> JobConfigurations { get; set; } = null!;
         public DbSet<JobBaseStat> JobBaseStats { get; set; } = null!;
+        public DbSet<JobBaseSkill> JobBaseSkills { get; set; } = null!;
         public DbSet<JobTrait> JobTraits { get; set; } = null!;
         public DbSet<JobPointBonus> JobPointBonuses { get; set; } = null!;
         public DbSet<JobGift> JobGifts { get; set; } = null!;

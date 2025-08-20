@@ -6,6 +6,7 @@ export interface JobConfiguration {
   jobId: number;
   job: Job;
   jobBaseStats: JobBaseStat[];
+  jobBaseSkills: JobBaseSkill[];
   jobTraits: JobTrait[];
   jobPointBonuses: JobPointBonus[];
   jobGifts: JobGift[];
@@ -13,6 +14,14 @@ export interface JobConfiguration {
 }
 
 export interface JobBaseStat {
+  id: number;
+  jobConfigurationId: number;
+  statId: number;
+  stat: Stat;
+  value: number;
+}
+
+export interface JobBaseSkill {
   id: number;
   jobConfigurationId: number;
   statId: number;

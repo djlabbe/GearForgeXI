@@ -14,20 +14,23 @@ import type {
   JobPointBonus,
   JobGift,
   MasterLevelBonus,
+  JobBaseSkill,
 } from "../models/JobConfiguration";
+import JobBaseSkillsGrid from "../components/JobBaseSkillsGrid";
 
 export function JobConfigurations() {
   const { isAdmin } = useAuth();
-  
+
   // Grid height configuration - centralized for easy adjustment
   const GRID_HEIGHTS = {
     baseStats: 400,
+    baseSkills: 400,
     traits: 400,
     pointBonuses: 400,
     gifts: 400,
     masterLevelBonuses: 400,
   };
-  
+
   const [jobConfigurations, setJobConfigurations] = useState<
     JobConfiguration[]
   >([]);
@@ -36,6 +39,7 @@ export function JobConfigurations() {
 
   // Separate state for each grid to prevent unnecessary re-renders
   const [jobBaseStats, setJobBaseStats] = useState<JobBaseStat[]>([]);
+  const [jobBaseSkills, setJobBaseSkills] = useState<JobBaseSkill[]>([]);
   const [jobTraits, setJobTraits] = useState<JobTrait[]>([]);
   const [jobPointBonuses, setJobPointBonuses] = useState<JobPointBonus[]>([]);
   const [jobGifts, setJobGifts] = useState<JobGift[]>([]);
@@ -61,6 +65,7 @@ export function JobConfigurations() {
           setSelectedJobConfig(firstConfig);
           // Initialize separate grid state
           setJobBaseStats(firstConfig.jobBaseStats || []);
+          setJobBaseSkills(firstConfig.jobBaseSkills || []);
           setJobTraits(firstConfig.jobTraits || []);
           setJobPointBonuses(firstConfig.jobPointBonuses || []);
           setJobGifts(firstConfig.jobGifts || []);
@@ -91,12 +96,14 @@ export function JobConfigurations() {
     // Update separate grid state when job configuration changes
     if (config) {
       setJobBaseStats(config.jobBaseStats || []);
+      setJobBaseSkills(config.jobBaseSkills || []);
       setJobTraits(config.jobTraits || []);
       setJobPointBonuses(config.jobPointBonuses || []);
       setJobGifts(config.jobGifts || []);
       setMasterLevelBonus(config.masterLevelBonuses || []);
     } else {
       setJobBaseStats([]);
+      setJobBaseSkills([]);
       setJobTraits([]);
       setJobPointBonuses([]);
       setJobGifts([]);
@@ -182,7 +189,16 @@ export function JobConfigurations() {
               isDarkMode={isDarkMode}
               height={GRID_HEIGHTS.baseStats}
             />
-
+            <JobBaseSkillsGrid
+              jobBaseSkills={jobBaseSkills}
+              onJobBaseSkillsChange={setJobBaseSkills}
+              jobConfigurationId={selectedJobConfig.id}
+              isAdmin={isAdmin}
+              isDarkMode={isDarkMode}
+              height={GRID_HEIGHTS.baseStats}
+            />
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <JobTraitsGrid
               jobTraits={jobTraits}
               onJobTraitsChange={setJobTraits}
@@ -191,9 +207,6 @@ export function JobConfigurations() {
               isDarkMode={isDarkMode}
               height={GRID_HEIGHTS.traits}
             />
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <JobPointBonusesGrid
               jobPointBonuses={jobPointBonuses}
               onJobPointBonusesChange={setJobPointBonuses}
@@ -202,7 +215,9 @@ export function JobConfigurations() {
               isDarkMode={isDarkMode}
               height={GRID_HEIGHTS.pointBonuses}
             />
+          </div>
 
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <JobGiftsGrid
               jobGifts={jobGifts}
               onJobGiftsChange={setJobGifts}
@@ -211,16 +226,15 @@ export function JobConfigurations() {
               isDarkMode={isDarkMode}
               height={GRID_HEIGHTS.gifts}
             />
+            <MasterLevelBonusesGrid
+              masterLevelBonuses={masterLevelBonuses}
+              onMasterLevelBonusesChange={setMasterLevelBonus}
+              jobConfigurationId={selectedJobConfig.id}
+              isAdmin={isAdmin}
+              isDarkMode={isDarkMode}
+              height={GRID_HEIGHTS.masterLevelBonuses}
+            />
           </div>
-
-          <MasterLevelBonusesGrid
-            masterLevelBonuses={masterLevelBonuses}
-            onMasterLevelBonusesChange={setMasterLevelBonus}
-            jobConfigurationId={selectedJobConfig.id}
-            isAdmin={isAdmin}
-            isDarkMode={isDarkMode}
-            height={GRID_HEIGHTS.masterLevelBonuses}
-          />
         </div>
       )}
 
