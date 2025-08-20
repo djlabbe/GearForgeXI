@@ -397,6 +397,8 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
                 .ThenInclude(jg => jg.Stat)
             .Include(jc => jc.MasterLevelBonuses)
                 .ThenInclude(mlb => mlb.Stat)
+            .AsNoTracking()
+            .AsSplitQuery()
             .FirstAsync(jc => jc.JobId == jobId);
     }
 

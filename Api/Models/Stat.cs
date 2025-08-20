@@ -17,7 +17,7 @@ public class Stat
 
     public StatCategory? Category { get; set; }     // e.g. "Base", "Combat", "Magic", etc.
 
-    public bool IsBaseStat { get; set; } = false;   // True for STR, DEX, VIT, AGI, INT, MND, CHR
+    public bool IsBaseStat => Category == StatCategory.Base;   // True for STR, DEX, VIT, AGI, INT, MND, CHR
 
     public string? Description { get; set; }        // Optional tooltip text
 

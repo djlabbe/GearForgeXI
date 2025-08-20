@@ -43,7 +43,6 @@ public class StatsController(GearDbContext context) : ControllerBase
                 AlternateName2 = s.AlternateName2,
                 Category = s.Category != null ? s.Category.ToString() : null,
                 Description = s.Description,
-                IsBaseStat = s.IsBaseStat,
                 GearItemCount = s.GearItemStats.Count,
                 BaseStatCount = s.JobBaseStats.Count,
                 JobTraitCount = s.JobTraits.Count,
@@ -63,7 +62,7 @@ public class StatsController(GearDbContext context) : ControllerBase
     public async Task<IActionResult> GetBaseStats()
     {
         var baseStats = await _context.Stats
-            .Where(s => s.IsBaseStat)
+            .Where(s => s.Category == StatCategory.Base)
             .OrderBy(s => s.Id)
             .Select(s => new StatDto
             {
@@ -74,7 +73,6 @@ public class StatsController(GearDbContext context) : ControllerBase
                 AlternateName2 = s.AlternateName2,
                 Category = s.Category != null ? s.Category.ToString() : null,
                 Description = s.Description,
-                IsBaseStat = s.IsBaseStat,
                 GearItemCount = s.GearItemStats.Count,
             })
             .ToListAsync();
@@ -118,7 +116,6 @@ public class StatsController(GearDbContext context) : ControllerBase
         }
 
         existingStat.Description = statDto.Description;
-        existingStat.IsBaseStat = statDto.IsBaseStat;
 
         try
         {
@@ -132,7 +129,6 @@ public class StatsController(GearDbContext context) : ControllerBase
                 AlternateName2 = existingStat.AlternateName2,
                 Category = existingStat.Category?.ToString(),
                 Description = existingStat.Description,
-                IsBaseStat = existingStat.IsBaseStat
             });
         }
         catch (DbUpdateConcurrencyException)
@@ -166,7 +162,6 @@ public class StatsController(GearDbContext context) : ControllerBase
             AlternateName1 = statDto.AlternateName1,
             AlternateName2 = statDto.AlternateName2,
             Description = statDto.Description,
-            IsBaseStat = statDto.IsBaseStat
         };
 
         // Convert string category to enum
@@ -194,7 +189,6 @@ public class StatsController(GearDbContext context) : ControllerBase
             AlternateName2 = newStat.AlternateName2,
             Category = newStat.Category?.ToString(),
             Description = newStat.Description,
-            IsBaseStat = newStat.IsBaseStat
         };
 
         return CreatedAtAction(nameof(GetAllStats), new { id = newStat.Id }, createdStatDto);

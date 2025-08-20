@@ -13,7 +13,6 @@ import type {
   CellValueChangedEvent,
   ColDef,
   ICellRendererParams,
-  ValueSetterParams,
 } from "ag-grid-community";
 import type { Stat } from "../models/Stat";
 
@@ -171,42 +170,6 @@ export function Stats() {
       rowGroup: false,
       editable: isAdmin,
       enableCellChangeFlash: true,
-    },
-    {
-      headerName: "Base Stat",
-      field: "isBaseStat",
-      sortable: true,
-      filter: true,
-      width: 120,
-      editable: isAdmin,
-      enableCellChangeFlash: true,
-      cellRenderer: (params: ICellRendererParams<Stat>) => {
-        const isBaseStat = params.value;
-        return (
-          <div className="flex justify-center items-center h-full">
-            <span
-              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                isBaseStat
-                  ? "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400"
-                  : "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400"
-              }`}
-            >
-              {isBaseStat ? "Yes" : "No"}
-            </span>
-          </div>
-        );
-      },
-      cellEditor: "agSelectCellEditor",
-      cellEditorParams: {
-        values: [true, false],
-        formatValue: (value: boolean) => (value ? "Yes" : "No"),
-      },
-      valueSetter: (params: ValueSetterParams<Stat>) => {
-        // Convert the string value back to boolean
-        const newValue = params.newValue === "Yes" || params.newValue === true;
-        params.data.isBaseStat = newValue;
-        return true;
-      },
     },
     {
       headerName: "Gear Count",

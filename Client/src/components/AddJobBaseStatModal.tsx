@@ -37,7 +37,7 @@ const AddJobBaseStatModal = ({
   // Filter stats to only include base stats that aren't already used
   const availableBaseStats = useMemo(() => {
     return stats
-      .filter(stat => stat.isBaseStat && !existingStatIds.includes(stat.id));
+      .filter(stat => stat.category === "Base" && !existingStatIds.includes(stat.id));
   }, [stats, existingStatIds]);
 
   // Memoize stat options for ReactSelector

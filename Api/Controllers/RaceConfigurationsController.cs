@@ -250,7 +250,7 @@ public class RaceConfigurationsController : ControllerBase
         }
 
         // Verify the stat is a base stat (STR, DEX, VIT, AGI, INT, MND, CHR)
-        if (!stat.IsBaseStat)
+        if (stat.Category != StatCategory.Base)
         {
             return BadRequest("Only base stats (STR, DEX, VIT, AGI, INT, MND, CHR) can be used for race base stats");
         }

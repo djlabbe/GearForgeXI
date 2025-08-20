@@ -12,6 +12,5 @@ export interface Stat {
   jobPointBonusCount?: number;
   jobGiftCount?: number;
   masterLevelBonusCount?: number;
-  isBaseStat?: boolean;
   canDelete?: boolean;
 }
