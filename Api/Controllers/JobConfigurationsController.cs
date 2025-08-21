@@ -60,7 +60,8 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                     Name = jbs.Stat.Name,
                     DisplayName = jbs.Stat.DisplayName
                 },
-                Value = jbs.Value
+                BaseStatRank = jbs.BaseStatRank.ToString(),
+                MaxValue = jbs.MaxValue
             }).ToList(),
             JobBaseSkills = jc.JobBaseSkills.Select(jbs => new JobBaseSkillDto
             {
@@ -73,7 +74,7 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                     Name = jbs.Stat.Name,
                     DisplayName = jbs.Stat.DisplayName
                 },
-                Value = jbs.Value
+                SkillRank = jbs.SkillRank.ToString(),
             }).ToList(),
             JobTraits = jc.JobTraits.Select(jt => new JobTraitDto
             {
@@ -183,7 +184,8 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                     Name = jbs.Stat.Name,
                     DisplayName = jbs.Stat.DisplayName
                 },
-                Value = jbs.Value
+                BaseStatRank = jbs.BaseStatRank.ToString(),
+                MaxValue = jbs.MaxValue
             }).ToList(),
             JobBaseSkills = jobConfiguration.JobBaseSkills.Select(jbs => new JobBaseSkillDto
             {
@@ -196,7 +198,7 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                     Name = jbs.Stat.Name,
                     DisplayName = jbs.Stat.DisplayName
                 },
-                Value = jbs.Value
+                SkillRank = jbs.SkillRank.ToString()
             }).ToList(),
             JobTraits = jobConfiguration.JobTraits.Select(jt => new JobTraitDto
             {
@@ -293,7 +295,8 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                     Name = jbs.Stat.Name,
                     DisplayName = jbs.Stat.DisplayName
                 },
-                Value = jbs.Value
+                BaseStatRank = jbs.BaseStatRank.ToString(),
+                MaxValue = jbs.MaxValue
             }).ToList(),
             JobBaseSkills = jobConfiguration.JobBaseSkills.Select(jbs => new JobBaseSkillDto
             {
@@ -306,7 +309,7 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                     Name = jbs.Stat.Name,
                     DisplayName = jbs.Stat.DisplayName
                 },
-                Value = jbs.Value
+                SkillRank = jbs.SkillRank.ToString()
             }).ToList(),
             JobTraits = jobConfiguration.JobTraits.Select(jt => new JobTraitDto
             {
@@ -409,7 +412,8 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
         {
             JobConfigurationId = id,
             StatId = createDto.StatId,
-            Value = createDto.Value
+            BaseStatRank = Enum.Parse<BaseStatRank>(createDto.BaseStatRank),
+            MaxValue = createDto.MaxValue
         };
 
         _context.JobBaseStats.Add(jobBaseStat);
@@ -426,7 +430,8 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                 Name = stat.Name,
                 DisplayName = stat.DisplayName
             },
-            Value = jobBaseStat.Value
+            BaseStatRank = jobBaseStat.BaseStatRank.ToString(),
+            MaxValue = jobBaseStat.MaxValue
         };
 
         return CreatedAtAction(nameof(GetJobConfiguration), new { id = id }, result);
@@ -436,7 +441,7 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
     /// Update a base stat for a job configuration
     /// </summary>
     [HttpPut("{jobConfigId}/base-stats/{statId}")]
-    public async Task<IActionResult> UpdateJobBaseStat(int jobConfigId, int statId, [FromBody] int value)
+    public async Task<IActionResult> UpdateJobBaseStat(int jobConfigId, int statId, UpdateJobBaseStatDto updateDto)
     {
         var jobBaseStat = await _context.JobBaseStats
             .FirstOrDefaultAsync(jbs => jbs.JobConfigurationId == jobConfigId && jbs.StatId == statId);
@@ -446,7 +451,9 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
             return NotFound();
         }
 
-        jobBaseStat.Value = value;
+        jobBaseStat.BaseStatRank = Enum.Parse<BaseStatRank>(updateDto.BaseStatRank);
+        jobBaseStat.MaxValue = updateDto.MaxValue;
+
         await _context.SaveChangesAsync();
 
         return NoContent();
@@ -892,7 +899,7 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
         {
             JobConfigurationId = id,
             StatId = createDto.StatId,
-            Value = createDto.Value
+            SkillRank = Enum.Parse<SkillRank>(createDto.SkillRank),
         };
 
         _context.JobBaseSkills.Add(jobBaseSkill);
@@ -909,7 +916,7 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
                 Name = stat.Name,
                 DisplayName = stat.DisplayName
             },
-            Value = jobBaseSkill.Value
+            SkillRank = jobBaseSkill.SkillRank.ToString()
         };
 
         return CreatedAtAction(nameof(GetJobConfiguration), new { id = id }, result);
@@ -919,7 +926,7 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
     /// Update a base skill for a job configuration
     /// </summary>
     [HttpPut("{jobConfigId}/base-skills/{statId}")]
-    public async Task<IActionResult> UpdateJobBaseSkill(int jobConfigId, int statId, [FromBody] int value)
+    public async Task<IActionResult> UpdateJobBaseSkill(int jobConfigId, int statId, [FromBody] string value)
     {
         var jobBaseSkill = await _context.JobBaseSkills
             .FirstOrDefaultAsync(jbs => jbs.JobConfigurationId == jobConfigId && jbs.StatId == statId);
@@ -929,7 +936,7 @@ public class JobConfigurationsController(GearDbContext context) : ControllerBase
             return NotFound();
         }
 
-        jobBaseSkill.Value = value;
+        jobBaseSkill.SkillRank = Enum.Parse<SkillRank>(value);
         await _context.SaveChangesAsync();
 
         return NoContent();

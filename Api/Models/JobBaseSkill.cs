@@ -1,7 +1,7 @@
 namespace GearForgeXI.Models;
 
 /// <summary>
-/// Base skill value for a job at level 99, following the same pattern as other stat modifiers
+/// Base skill ranking for a job, which combined with character level determines the actual skill value
 /// </summary>
 public class JobBaseSkill
 {
@@ -20,7 +20,8 @@ public class JobBaseSkill
     public Stat Stat { get; set; } = null!;
 
     /// <summary>
-    /// The base value of this skill at level 99
+    /// The skill ranking for this job/skill combination (A+, A-, B+, etc.)
+    /// This will be combined with the character's job level to look up the actual skill value
     /// </summary>
-    public int Value { get; set; }
+    public SkillRank SkillRank { get; set; }
 }

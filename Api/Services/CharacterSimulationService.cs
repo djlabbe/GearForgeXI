@@ -8,7 +8,6 @@ namespace GearForgeXI.Services;
 // TODO:
 // --Merits other than Core stats.
 // --Ambu cape augments
-// --Base Combat Skills
 // --Base HP
 // --Core stats from subjob
 public class CharacterSimulationService(StatIdLookupService statIdLookupService, GearDbContext context)
@@ -26,17 +25,17 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
     /// <summary>
     /// Main method to calculate character stats using FFXI stat system
     /// </summary>
-    public async Task<CharacterStatsDto> CalculateCharacterStats(CharacterProfile profile, int mainJobId, int subJobId, GearSet? gearSet = null)
+    public async Task<CharacterSimulation> CalculateCharacterStats(CharacterProfile profile, int mainJobId, int subJobId, GearSet? gearSet = null)
     {
-        var mainJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == mainJobId);
-        var subJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == subJobId);
+        var profileMainJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == mainJobId);
+        var profileSubJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == subJobId);
 
-        if (mainJob == null)
+        if (profileMainJob == null)
         {
             throw new ArgumentException("Main job not found in character profile");
         }
 
-        if (subJob == null)
+        if (profileSubJob == null)
         {
             throw new ArgumentException("Sub job not found in character profile");
         }
@@ -47,22 +46,136 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
         var mainJobConfig = await GetJobConfigurationAsync(mainJobId);
         var subJobConfig = await GetJobConfigurationAsync(subJobId);
 
-        await ApplyBaseStats(characterStatistics, profile.Race, mainJob, subJob, mainJobConfig, subJobConfig);
+        await ApplyBaseStats(characterStatistics, profile.Race, profileMainJob, profileSubJob, mainJobConfig, subJobConfig);
+
+        await ApplyCombatSkills(characterStatistics, profileMainJob, profileSubJob, mainJobConfig, subJobConfig);
 
         await ApplyMerits(characterStatistics);
 
-        ApplyJobTraits(characterStatistics, mainJob, mainJobConfig, subJob, subJobConfig);
+        ApplyJobTraits(characterStatistics, profileMainJob, mainJobConfig, profileSubJob, subJobConfig);
 
-        ApplyJobPointBonuses(characterStatistics, mainJob, mainJobConfig);
+        ApplyJobPointBonuses(characterStatistics, profileMainJob, mainJobConfig);
 
-        ApplyJobGifts(characterStatistics, mainJob, mainJobConfig);
+        ApplyJobGifts(characterStatistics, profileMainJob, mainJobConfig);
 
-        ApplyMasterLevelBonuses(characterStatistics, mainJob, mainJobConfig);
+        ApplyMasterLevelBonuses(characterStatistics, profileMainJob, mainJobConfig);
 
         ApplyGearStats(characterStatistics, gearSet);
 
-        // Build and return the response DTO
-        return await characterStatistics.ToDtoAsync(_statIdLookupService);
+        // Build the response
+        var allStats = await _statIdLookupService.GetAllStatsAsync();
+        var statIdToNameMap = allStats.ToDictionary(s => s.Id, s => s.Name);
+
+        var stats = new Dictionary<string, int>();
+        var statBreakdown = new Dictionary<string, List<StatModifierDto>>();
+
+        // Define the desired stat order for consistent JSON output
+        var desiredStatOrder = new[] { "STR", "DEX", "VIT", "AGI", "INT", "MND", "CHR" };
+
+        // Convert stat values in the desired order first (core stats)
+        foreach (var statName in desiredStatOrder)
+        {
+            var statId = statIdToNameMap.FirstOrDefault(kvp => kvp.Value == statName).Key;
+            if (statId != 0 && characterStatistics.StatValues.TryGetValue(statId, out var value))
+            {
+                stats[statName] = value;
+            }
+        }
+
+        // Then add any remaining stats (non-core stats) in alphabetical order
+        var remainingStats = characterStatistics.StatValues
+            .Where(sv => statIdToNameMap.TryGetValue(sv.Key, out var name) && !desiredStatOrder.Contains(name))
+            .OrderBy(sv => statIdToNameMap[sv.Key])
+            .ToList();
+
+        foreach (var statValue in remainingStats)
+        {
+            if (statIdToNameMap.TryGetValue(statValue.Key, out var statName))
+            {
+                stats[statName] = statValue.Value;
+            }
+        }
+
+        // Convert stat breakdown in the same order
+        foreach (var statName in desiredStatOrder)
+        {
+            var statId = statIdToNameMap.FirstOrDefault(kvp => kvp.Value == statName).Key;
+            if (statId != 0 && characterStatistics.StatModifiers.TryGetValue(statId, out var modifiers))
+            {
+                statBreakdown[statName] = modifiers
+                    .Select(m => new StatModifierDto { Value = m.Value, Source = m.Source })
+                    .ToList();
+            }
+        }
+
+        // Then add any remaining stat breakdowns in alphabetical order
+        var remainingBreakdowns = characterStatistics.StatModifiers
+            .Where(sm => statIdToNameMap.TryGetValue(sm.Key, out var name) && !desiredStatOrder.Contains(name))
+            .OrderBy(sm => statIdToNameMap[sm.Key])
+            .ToList();
+
+        foreach (var statModifier in remainingBreakdowns)
+        {
+            if (statIdToNameMap.TryGetValue(statModifier.Key, out var statName))
+            {
+                statBreakdown[statName] = statModifier.Value
+                    .Select(m => new StatModifierDto { Value = m.Value, Source = m.Source })
+                    .ToList();
+            }
+        }
+
+        var mhWeaponSkillName = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Main)?.GearItem?.GearItemStats
+            .Where(gis => gis.Stat.Name.Contains("Skill")).Select(gis => gis.Stat.Name).FirstOrDefault();
+
+        var primaryAccuracy = 0;
+        if (mhWeaponSkillName != null)
+        {
+            var totalDex = (stats.TryGetValue("DEX", out var dex) ? dex : 0);
+            var mhWeaponSkill = stats.TryGetValue(mhWeaponSkillName!, out var mhSkillValue) ? mhSkillValue : 0;
+            var bonusAcc = (stats.TryGetValue("Accuracy", out var acc) ? acc : 0);
+            primaryAccuracy = CalculatePrimaryAccuracy(totalDex, mhWeaponSkill, bonusAcc);
+        }
+
+        var simulation = new CharacterSimulation
+        {
+            CharacterName = profile.CharacterName,
+            Race = profile.Race.ToString(),
+            MainJob = profileMainJob.Job.Abbreviation,
+            MainJobLevel = profileMainJob.JobLevel,
+            MasterLevel = profileMainJob.MasterLevel,
+            SubJob = profileSubJob.Job.Abbreviation,
+            SubJobLevel = Math.Min(49 + (profileMainJob.MasterLevel / 5), profileSubJob.JobLevel),
+            GearSetName = gearSet?.Name,
+            Gear = new GearSetResponse()
+            {
+                Main = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Main)?.GearItem?.Name,
+                Sub = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Sub)?.GearItem?.Name,
+                Range = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Range)?.GearItem?.Name,
+                Ammo = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Ammo)?.GearItem?.Name,
+                Head = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Head)?.GearItem?.Name,
+                Neck = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Neck)?.GearItem?.Name,
+                Ear1 = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Ear1)?.GearItem?.Name,
+                Ear2 = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Ear2)?.GearItem?.Name,
+                Body = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Body)?.GearItem?.Name,
+                Hands = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Hands)?.GearItem?.Name,
+                Ring1 = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Ring1)?.GearItem?.Name,
+                Ring2 = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Ring2)?.GearItem?.Name,
+                Back = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Back)?.GearItem?.Name,
+                Waist = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Waist)?.GearItem?.Name,
+                Legs = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Legs)?.GearItem?.Name,
+                Feet = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Feet)?.GearItem?.Name
+            },
+            DerivedStats = new DerivedStats()
+            {
+                PrimaryAccuracy = primaryAccuracy,
+            },
+            ActiveTraits = [.. characterStatistics.ActiveTraits],
+            Stats = stats,
+            StatBreakdown = statBreakdown,
+            CalculatedAt = DateTime.UtcNow,
+        };
+
+        return simulation;
     }
 
     #endregion
@@ -89,9 +202,9 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
         // Apply main job stats directly using database configuration
         foreach (var baseStat in mainJobConfig.JobBaseStats)
         {
-            if (baseStat.Value > 0)
+            if (baseStat.BaseStatRank > 0)
             {
-                stats.AddModifier(baseStat.StatId, baseStat.Value, $"Main Job: {ConvertJobIdToCode(mainJob.JobId)}");
+                // stats.AddModifier(baseStat.StatId, baseStat.BaseStatRank, $"Main Job: {ConvertJobIdToCode(mainJob.JobId)}");
             }
         }
 
@@ -111,6 +224,82 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
     }
 
     /// <summary>
+    /// Apply combat skills using SkillRankMapping table to lookup numeric values
+    /// </summary>
+    private async Task ApplyCombatSkills(CharacterStatistics stats, CharacterJob mainJob, CharacterJob subJob, JobConfiguration mainJobConfig, JobConfiguration subJobConfig)
+    {
+        // Get all skill rank mappings from database for efficient lookup
+        var skillRankMappings = await _context.SkillRankMappings
+            .ToListAsync();
+
+        // Create lookup dictionary for faster access: (SkillRank, Level) -> SkillValue
+        var skillLookup = skillRankMappings
+            .ToDictionary(srm => (srm.SkillRank, srm.Level), srm => srm.SkillValue);
+
+        // Collect all skills from main job and sub job
+        var allSkills = new Dictionary<int, (int value, string source)>();
+
+        // Process main job skills
+        foreach (var jobBaseSkill in mainJobConfig.JobBaseSkills)
+        {
+            var skillValue = GetSkillValue(skillLookup, jobBaseSkill.SkillRank, mainJob.JobLevel);
+            if (skillValue > 0)
+            {
+                allSkills[jobBaseSkill.StatId] = (skillValue, $"Main Job: {ConvertJobIdToCode(mainJob.JobId)}");
+            }
+        }
+
+        // Process sub job skills - only take higher value if skill exists on both jobs
+        foreach (var jobBaseSkill in subJobConfig.JobBaseSkills)
+        {
+            // Sub job level is capped at 49 + (main job master level / 5) or sub job level, whichever is lower
+            var effectiveSubJobLevel = Math.Min(49 + (mainJob.MasterLevel / 5), subJob.JobLevel);
+            var skillValue = GetSkillValue(skillLookup, jobBaseSkill.SkillRank, effectiveSubJobLevel);
+
+            if (skillValue > 0)
+            {
+                // If main job already has this skill, take the higher value
+                if (allSkills.ContainsKey(jobBaseSkill.StatId))
+                {
+                    if (skillValue > allSkills[jobBaseSkill.StatId].value)
+                    {
+                        allSkills[jobBaseSkill.StatId] = (skillValue, $"Sub Job: {ConvertJobIdToCode(subJob.JobId)}");
+                    }
+                    // If main job value is higher or equal, keep it (no change needed)
+                }
+                else
+                {
+                    // Sub job has a skill that main job doesn't have
+                    allSkills[jobBaseSkill.StatId] = (skillValue, $"Sub Job: {ConvertJobIdToCode(subJob.JobId)}");
+                }
+            }
+        }
+
+        // Apply all collected skills to character stats
+        foreach (var kvp in allSkills)
+        {
+            stats.AddModifier(kvp.Key, kvp.Value.value, kvp.Value.source);
+        }
+    }
+
+    /// <summary>
+    /// Helper method to lookup skill value from the mapping table
+    /// </summary>
+    private static int GetSkillValue(Dictionary<(SkillRank, int), int> skillLookup, SkillRank skillRank, int level)
+    {
+        // Ensure level is within valid range
+        level = Math.Max(1, Math.Min(99, level));
+
+        if (skillLookup.TryGetValue((skillRank, level), out var skillValue))
+        {
+            return skillValue;
+        }
+
+        // If exact level not found (shouldn't happen with complete data), return 0
+        return 0;
+    }
+
+    /// <summary>
     /// Apply merit points to core stats (15 points each)
     /// </summary>
     private async Task ApplyMerits(CharacterStatistics stats)
@@ -121,6 +310,59 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
         foreach (var (statName, statId) in coreStatIds)
         {
             stats.AddModifier(statId, 15, "Merit Points");
+        }
+
+        var hpStatId = await _statIdLookupService.GetStatIdByNameAsync("HP") ?? throw new InvalidOperationException("HP stat ID not found");
+        stats.AddModifier(hpStatId, 150, "Merit Points");
+
+        var mpStatId = await _statIdLookupService.GetStatIdByNameAsync("MP") ?? throw new InvalidOperationException("MP stat ID not found");
+        stats.AddModifier(mpStatId, 150, "Merit Points");
+
+        var skillStatIds = await _statIdLookupService.GetStatIdsByNamesAsync(
+            "Hand-to-Hand Skill",
+            "Dagger Skill",
+            "Sword Skill",
+            "Great Sword Skill",
+            "Axe Skill",
+            "Great Axe Skill",
+            "Scythe Skill",
+            "Polearm Skill",
+            "Katana Skill",
+            "Great Katana Skill",
+            "Club Skill",
+            "Staff Skill",
+            "Archery Skill",
+            "Marksmanship Skill",
+            "Throwing Skill",
+            "Guarding Skill",
+            "Evasion Skill",
+            "Shield Skill",
+            "Parrying Skill",
+            "Divine Magic Skill",
+            "Healing Magic Skill",
+            "Enhancing Magic Skill",
+            "Enfeebling Magic Skill",
+            "Elemental Magic Skill",
+            "Dark Magic Skill",
+            "Summoning Magic Skill",
+            "Ninjutsu Skill",
+            "Singing Skill",
+            "String Instrument Skill",
+            "Wind Instrument Skill",
+            "Blue Magic Skill",
+            "Geomancy Skill",
+            "Handbell Skill"
+            );
+
+        if (skillStatIds.Count != 33)
+        {
+            throw new InvalidOperationException("Not all skill stat IDs found");
+        }
+
+        // Apply all collected skills to character stats
+        foreach (var (statName, statId) in skillStatIds)
+        {
+            stats.AddModifier(statId, 16, "Merit Points");
         }
     }
 
@@ -389,6 +631,8 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
         return await _context.JobConfigurations
             .Include(jc => jc.JobBaseStats)
                 .ThenInclude(jbs => jbs.Stat)
+            .Include(jc => jc.JobBaseSkills)
+                .ThenInclude(jbs => jbs.Stat)
             .Include(jc => jc.JobTraits)
                 .ThenInclude(jt => jt.Stat)
             .Include(jc => jc.JobPointBonuses)
@@ -412,6 +656,32 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
             .Include(rc => rc.RaceBaseStats)
                 .ThenInclude(rbs => rbs.Stat)
             .FirstAsync(rc => rc.Abbreviation == raceAbbreviation);
+    }
+
+    public static int CalculatePrimaryAccuracy(int dex, int skill, int accuracyFromTraitsAndGear)
+    {
+        var accuracyFromDex = (int)Math.Floor((dex + 12) * 0.75);
+
+        int accuracyFromSkill;
+
+        if (skill <= 200)
+        {
+            accuracyFromSkill = skill;
+        }
+        else if (skill > 200 && skill <= 400)
+        {
+            accuracyFromSkill = (int)Math.Floor((skill - 200) * 0.9) + 200;
+        }
+        else if (skill > 400 && skill <= 600)
+        {
+            accuracyFromSkill = (int)Math.Floor((skill - 400) * 0.8) + 380;
+        }
+        else // Skill > 600
+        {
+            accuracyFromSkill = (int)Math.Floor((skill - 600) * 0.9) + 540;
+        }
+
+        return accuracyFromDex + accuracyFromSkill + accuracyFromTraitsAndGear;
     }
 
     #endregion

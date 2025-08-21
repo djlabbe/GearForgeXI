@@ -11,12 +11,18 @@ import { authFetch } from "../utils/authFetch";
 
 interface CreateJobBaseStatDto {
   statId: number;
-  value: number;
+  baseStatRank: string;
+  maxValue: number;
+}
+
+interface UpdateJobBaseStatDto {
+  baseStatRank: string;
+  maxValue: number;
 }
 
 interface CreateJobBaseSkillDto {
   statId: number;
-  value: number;
+  skillRank: string;
 }
 
 interface CreateJobTraitDto {
@@ -90,7 +96,7 @@ class JobConfigurationsService {
   static async updateJobBaseStat(
     jobConfigurationId: number,
     statId: number,
-    value: number
+    updateDto: UpdateJobBaseStatDto
   ): Promise<void> {
     const response = await authFetch(
       `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/base-stats/${statId}`,
@@ -99,7 +105,7 @@ class JobConfigurationsService {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(value),
+        body: JSON.stringify(updateDto),
       }
     );
 
@@ -153,7 +159,7 @@ class JobConfigurationsService {
   static async updateJobBaseSkill(
     jobConfigurationId: number,
     statId: number,
-    value: number
+    skillRank: string
   ): Promise<void> {
     const response = await authFetch(
       `${this.baseUrl}/jobconfigurations/${jobConfigurationId}/base-skills/${statId}`,
@@ -162,7 +168,7 @@ class JobConfigurationsService {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(value),
+        body: JSON.stringify(skillRank),
       }
     );
 

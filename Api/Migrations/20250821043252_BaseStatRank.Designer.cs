@@ -3,6 +3,7 @@ using System;
 using GearForgeXI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GearForgeXI.Migrations
 {
     [DbContext(typeof(GearDbContext))]
-    partial class GearDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250821043252_BaseStatRank")]
+    partial class BaseStatRank
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -763,9 +766,6 @@ namespace GearForgeXI.Migrations
                         .HasColumnType("text");
 
                     b.Property<int>("JobConfigurationId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("MaxValue")
                         .HasColumnType("integer");
 
                     b.Property<int>("StatId")

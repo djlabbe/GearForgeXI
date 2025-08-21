@@ -66,24 +66,9 @@ public class CharacterSimulationController(GearDbContext context, CharacterSimul
             }
 
             // Calculate stats
-            var characterStatsDto = await _simulationService.CalculateCharacterStats(profile, request.MainJobId, request.SubJobId, gearSet);
+            var characterSimulation = await _simulationService.CalculateCharacterStats(profile, request.MainJobId, request.SubJobId, gearSet);
 
-            // Convert to response DTO
-            var response = new CalculateStatsResponse
-            {
-                CharacterName = profile.CharacterName,
-                Race = profile.Race.ToString(),
-                MainJob = mainJob.Job.Abbreviation,
-                MainJobLevel = mainJob.JobLevel,
-                MainJobMasterLevel = mainJob.MasterLevel,
-                SubJob = subJob.Job.Abbreviation,
-                SubJobLevel = Math.Min(49 + (mainJob.MasterLevel / 5), subJob.JobLevel),
-                GearSetName = gearSet?.Name ?? "",
-                Stats = characterStatsDto,
-                CalculatedAt = DateTime.UtcNow
-            };
-
-            return Ok(response);
+            return Ok(characterSimulation);
         }
         catch (Exception ex)
         {
@@ -129,16 +114,7 @@ public class CalculateStatsRequest
     public int? GearSetId { get; set; }
 }
 
-public class CalculateStatsResponse
-{
-    public string CharacterName { get; set; } = null!;
-    public string Race { get; set; } = null!;
-    public string MainJob { get; set; } = null!;
-    public int MainJobLevel { get; set; }
-    public int MainJobMasterLevel { get; set; }
-    public string? SubJob { get; set; }
-    public int? SubJobLevel { get; set; }
-    public string GearSetName { get; set; } = null!;
-    public CharacterStatsDto Stats { get; set; } = null!;
-    public DateTime CalculatedAt { get; set; }
-}
+
+
+
+

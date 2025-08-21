@@ -20,7 +20,9 @@ public class JobBaseStat
     public Stat Stat { get; set; } = null!;
 
     /// <summary>
-    /// The base value of this stat at level 99
+    /// The BaseStatRank (letter grade) of this stat at level 99
     /// </summary>
-    public int Value { get; set; }
+    public BaseStatRank BaseStatRank { get; set; }
+
+    public int MaxValue { get; set; }
 }

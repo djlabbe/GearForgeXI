@@ -27,7 +27,8 @@ public class JobBaseStatDto
     public int JobConfigurationId { get; set; }
     public int StatId { get; set; }
     public StatDto Stat { get; set; } = null!;
-    public int Value { get; set; }
+    public string BaseStatRank { get; set; } = string.Empty;
+    public int MaxValue { get; set; }
 }
 
 /// <summary>
@@ -39,7 +40,7 @@ public class JobBaseSkillDto
     public int JobConfigurationId { get; set; }
     public int StatId { get; set; }
     public StatDto Stat { get; set; } = null!;
-    public int Value { get; set; }
+    public string SkillRank { get; set; } = string.Empty;
 }
 
 /// <summary>
@@ -107,7 +108,15 @@ public class CreateJobConfigurationDto
 public class CreateJobBaseStatDto
 {
     public int StatId { get; set; }
-    public int Value { get; set; }
+    public string BaseStatRank { get; set; } = string.Empty;
+    public int MaxValue { get; set; }
+}
+
+public class UpdateJobBaseStatDto
+{
+    public int StatId { get; set; }
+    public string BaseStatRank { get; set; } = string.Empty;
+    public int MaxValue { get; set; }
 }
 
 /// <summary>
@@ -116,7 +125,7 @@ public class CreateJobBaseStatDto
 public class CreateJobBaseSkillDto
 {
     public int StatId { get; set; }
-    public int Value { get; set; }
+    public string SkillRank { get; set; } = string.Empty;
 }
 
 /// <summary>

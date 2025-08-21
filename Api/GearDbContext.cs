@@ -35,6 +35,10 @@ namespace GearForgeXI
         public DbSet<RaceConfiguration> RaceConfigurations { get; set; } = null!;
         public DbSet<RaceBaseStat> RaceBaseStats { get; set; } = null!;
 
+        // Skill Ranking System
+        public DbSet<SkillRankMapping> SkillRankMappings { get; set; } = null!;
+        public DbSet<BaseStatRankMapping> BaseStatRankMappings { get; set; } = null!;
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -305,6 +309,29 @@ namespace GearForgeXI
                 .HasForeignKey(jbs => jbs.StatId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            // Store JobBaseStat.BaseStatRank enum as string
+            modelBuilder.Entity<JobBaseStat>()
+                .Property(jbs => jbs.BaseStatRank)
+                .HasConversion<string>();
+
+            // JobBaseSkill: many-to-one with JobConfiguration and Stat
+            modelBuilder.Entity<JobBaseSkill>()
+                .HasOne(jbs => jbs.JobConfiguration)
+                .WithMany(jc => jc.JobBaseSkills)
+                .HasForeignKey(jbs => jbs.JobConfigurationId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<JobBaseSkill>()
+                .HasOne(jbs => jbs.Stat)
+                .WithMany(s => s.JobBaseSkills)
+                .HasForeignKey(jbs => jbs.StatId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Store JobBaseSkill.SkillRank enum as string
+            modelBuilder.Entity<JobBaseSkill>()
+                .Property(jbs => jbs.SkillRank)
+                .HasConversion<string>();
+
             // JobPointBonus: many-to-one with JobConfiguration and Stat
             modelBuilder.Entity<JobPointBonus>()
                 .HasOne(jpb => jpb.JobConfiguration)
@@ -347,6 +374,24 @@ namespace GearForgeXI
             // Performance indexes for job configuration queries
             modelBuilder.Entity<JobTrait>()
                 .HasIndex(jt => new { jt.JobConfigurationId, jt.Level });
+
+            // SkillRankMapping configuration
+            modelBuilder.Entity<SkillRankMapping>()
+                .HasIndex(srm => new { srm.SkillRank, srm.Level })
+                .IsUnique(); // Each rank+level combination should have exactly one skill value
+
+            // Add performance index for skill rank lookups
+            modelBuilder.Entity<SkillRankMapping>()
+                .HasIndex(srm => srm.SkillRank);
+
+            // Store SkillRank enum as string
+            modelBuilder.Entity<SkillRankMapping>()
+                .Property(srm => srm.SkillRank)
+                .HasConversion<string>();
+
+            // Seed skill rank mapping data
+            modelBuilder.Entity<SkillRankMapping>()
+                .HasData(Data.SkillRankMappingSeedData.GetSeedData());
         }
     }
 }

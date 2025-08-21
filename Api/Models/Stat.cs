@@ -23,10 +23,11 @@ public class Stat
 
     public ICollection<GearItemStat> GearItemStats { get; set; } = [];
     public ICollection<JobBaseStat> JobBaseStats { get; set; } = [];
+    public ICollection<JobBaseSkill> JobBaseSkills { get; set; } = [];
     public ICollection<JobTrait> JobTraits { get; set; } = [];
     public ICollection<JobPointBonus> JobPointBonuses { get; set; } = [];
     public ICollection<JobGift> JobGifts { get; set; } = [];
     public ICollection<MasterLevelBonus> MasterLevelBonuses { get; set; } = [];
 
-    public bool CanDelete => GearItemStats.Count == 0 && JobBaseStats.Count == 0 && JobTraits.Count == 0 && JobPointBonuses.Count == 0 && JobGifts.Count == 0 && MasterLevelBonuses.Count == 0;
+    public bool CanDelete => GearItemStats.Count == 0 && JobBaseStats.Count == 0 && JobBaseSkills.Count == 0 && JobTraits.Count == 0 && JobPointBonuses.Count == 0 && JobGifts.Count == 0 && MasterLevelBonuses.Count == 0;
 }

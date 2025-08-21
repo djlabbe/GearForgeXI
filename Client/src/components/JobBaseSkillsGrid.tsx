@@ -15,6 +15,27 @@ import AddJobBaseSkillModal from "./AddJobBaseSkillModal";
 
 const themeDarkBlue = themeAlpine.withPart(colorSchemeDarkBlue);
 
+// Skill rank options for the dropdown
+const SKILL_RANK_OPTIONS = [
+  { value: "APlus", label: "A+" },
+  { value: "AMinus", label: "A-" },
+  { value: "BPlus", label: "B+" },
+  { value: "B", label: "B" },
+  { value: "BMinus", label: "B-" },
+  { value: "CPlus", label: "C+" },
+  { value: "C", label: "C" },
+  { value: "CMinus", label: "C-" },
+  { value: "D", label: "D" },
+  { value: "E", label: "E" },
+  { value: "F", label: "F" },
+];
+
+// Convert enum value to display label
+const getSkillRankDisplayLabel = (enumValue: string): string => {
+  const option = SKILL_RANK_OPTIONS.find(opt => opt.value === enumValue);
+  return option ? option.label : enumValue;
+};
+
 interface JobBaseSkillsGridProps {
   jobBaseSkills: JobBaseSkill[];
   onJobBaseSkillsChange: (newJobBaseSkills: JobBaseSkill[]) => void;
@@ -51,37 +72,31 @@ export function JobBaseSkillsGrid({
     {
       headerName: "Stat ID",
       field: "stat.id",
-      width: 150,
+      width: 100,
       editable: false,
     },
     {
       headerName: "Stat",
       field: "stat.displayName",
-      width: 150,
+      width: 200,
       editable: false,
       valueGetter: (params) =>
         params.data?.stat?.displayName || params.data?.stat?.name,
     },
     {
-      headerName: "Value",
-      field: "value",
+      headerName: "Rank",
+      field: "skillRank",
       width: 100,
       editable: isAdmin,
       enableCellChangeFlash: true,
       cellEditorPopup: false,
-      cellEditor: "agNumberCellEditor",
+      cellEditor: "agSelectCellEditor",
       cellEditorParams: {
-        min: 0,
-        max: 999,
-        precision: 0,
+        values: SKILL_RANK_OPTIONS.map(option => option.value),
+        formatValue: (value: string) => getSkillRankDisplayLabel(value),
       },
-      valueSetter: (params) => {
-        const newValue = parseInt(params.newValue);
-        if (isNaN(newValue) || newValue < 0 || newValue > 999) {
-          return false; // Reject invalid values
-        }
-        params.data.value = newValue;
-        return true;
+      valueFormatter: (params) => {
+        return getSkillRankDisplayLabel(params.value);
       },
     },
     {
@@ -152,7 +167,7 @@ export function JobBaseSkillsGrid({
       await JobConfigurationsService.updateJobBaseSkill(
         jobConfigurationId,
         updatedSkill.statId,
-        updatedSkill.value
+        updatedSkill.skillRank
       );
       console.log("Skill updated successfully");
 

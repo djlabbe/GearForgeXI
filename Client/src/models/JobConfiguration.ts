@@ -18,7 +18,8 @@ export interface JobBaseStat {
   jobConfigurationId: number;
   statId: number;
   stat: Stat;
-  value: number;
+  baseStatRank: string;
+  maxValue: number;
 }
 
 export interface JobBaseSkill {
@@ -26,7 +27,7 @@ export interface JobBaseSkill {
   jobConfigurationId: number;
   statId: number;
   stat: Stat;
-  value: number;
+  skillRank: string;
 }
 
 export interface JobTrait {

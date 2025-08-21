@@ -3,6 +3,7 @@ using System;
 using GearForgeXI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GearForgeXI.Migrations
 {
     [DbContext(typeof(GearDbContext))]
-    partial class GearDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250820161244_SeedSkillRankMappings")]
+    partial class SeedSkillRankMappings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,28 +90,6 @@ namespace GearForgeXI.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("GearForgeXI.Models.BaseStatRankMapping", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("BaseStatRank")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("BaseStatValue")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Level")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BaseStatRankMappings");
                 });
 
             modelBuilder.Entity("GearForgeXI.Models.CharacterJob", b =>
@@ -734,11 +715,10 @@ namespace GearForgeXI.Migrations
                     b.Property<int>("JobConfigurationId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("SkillRank")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<int>("StatId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Value")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -758,17 +738,13 @@ namespace GearForgeXI.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("BaseStatRank")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<int>("JobConfigurationId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("MaxValue")
+                    b.Property<int>("StatId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("StatId")
+                    b.Property<int>("Value")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -8952,9 +8928,9 @@ namespace GearForgeXI.Migrations
                         .IsRequired();
 
                     b.HasOne("GearForgeXI.Models.Stat", "Stat")
-                        .WithMany("JobBaseSkills")
+                        .WithMany()
                         .HasForeignKey("StatId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("JobConfiguration");
@@ -9217,8 +9193,6 @@ namespace GearForgeXI.Migrations
             modelBuilder.Entity("GearForgeXI.Models.Stat", b =>
                 {
                     b.Navigation("GearItemStats");
-
-                    b.Navigation("JobBaseSkills");
 
                     b.Navigation("JobBaseStats");
 

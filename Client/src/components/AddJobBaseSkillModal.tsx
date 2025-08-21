@@ -5,6 +5,21 @@ import { JobConfigurationsService } from "../services";
 import { useAppData } from "../contexts/AppDataContext";
 import type { JobBaseSkill } from "../models/JobConfiguration";
 
+// Skill rank options for the dropdown
+const SKILL_RANK_OPTIONS = [
+  { value: "APlus", label: "A+" },
+  { value: "AMinus", label: "A-" },
+  { value: "BPlus", label: "B+" },
+  { value: "B", label: "B" },
+  { value: "BMinus", label: "B-" },
+  { value: "CPlus", label: "C+" },
+  { value: "C", label: "C" },
+  { value: "CMinus", label: "C-" },
+  { value: "D", label: "D" },
+  { value: "E", label: "E" },
+  { value: "F", label: "F" },
+];
+
 interface AddJobBaseSkillModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -15,7 +30,7 @@ interface AddJobBaseSkillModalProps {
 
 interface NewJobBaseSkillForm {
   statId: number | null;
-  value: number;
+  skillRank: string | null;
 }
 
 const AddJobBaseSkillModal = ({
@@ -29,7 +44,7 @@ const AddJobBaseSkillModal = ({
   const [newJobBaseSkillForm, setNewJobBaseSkillForm] =
     useState<NewJobBaseSkillForm>({
       statId: null,
-      value: 0,
+      skillRank: null,
     });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -69,6 +84,11 @@ const AddJobBaseSkillModal = ({
       return;
     }
 
+    if (!newJobBaseSkillForm.skillRank) {
+      setError("Please enter a skill rank");
+      return;
+    }
+
     setIsSubmitting(true);
     setError(null);
 
@@ -77,7 +97,7 @@ const AddJobBaseSkillModal = ({
         jobConfigurationId,
         {
           statId: newJobBaseSkillForm.statId,
-          value: newJobBaseSkillForm.value,
+          skillRank: newJobBaseSkillForm.skillRank,
         }
       );
 
@@ -115,7 +135,7 @@ const AddJobBaseSkillModal = ({
   const resetForm = () => {
     setNewJobBaseSkillForm({
       statId: null,
-      value: 0,
+      skillRank: null,
     });
     setError(null);
   };
@@ -232,30 +252,30 @@ const AddJobBaseSkillModal = ({
 
               <div>
                 <label
-                  htmlFor="value"
+                  htmlFor="skillRank"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  Base Value *
+                  Skill Rank *
                 </label>
-                <input
-                  type="number"
-                  id="value"
-                  name="job-base-skill-value"
-                  value={newJobBaseSkillForm.value}
+                <select
+                  id="skillRank"
+                  name="job-base-skill-rank"
+                  value={newJobBaseSkillForm.skillRank || ""}
                   onChange={(e) =>
-                    handleFormChange("value", parseInt(e.target.value) || 0)
+                    handleFormChange("skillRank", e.target.value)
                   }
                   required
-                  min="0"
-                  max="999"
-                  autoComplete="off"
-                  data-lpignore="true"
-                  data-form-type="other"
                   className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="e.g., 275"
-                />
+                >
+                  <option value="">Select a skill rank...</option>
+                  {SKILL_RANK_OPTIONS.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
                 <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                  Enter the base skill value at level 99
+                  Select the skill rank for this job
                 </p>
               </div>
 

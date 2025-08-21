@@ -30,6 +30,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="Data\SkillRankMappings.csv" />
+  </ItemGroup>
+
   <Target Name="BuildClient" BeforeTargets="Publish" Condition="'$(SkipClientBuild)' != 'true'">
     <Exec WorkingDirectory="$(SpaRoot)" Command="npm ci" />
     <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />

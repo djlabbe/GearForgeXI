@@ -63,9 +63,21 @@ export function JobBaseStatsGrid({
         params.data?.stat?.displayName || params.data?.stat?.name,
     },
     {
-      headerName: "Value",
-      field: "value",
+      headerName: "Rank",
+      field: "baseStatRank",
       width: 100,
+      editable: isAdmin,
+      enableCellChangeFlash: true,
+      cellEditorPopup: false,
+      cellEditor: "agSelectCellEditor",
+      cellEditorParams: {
+        values: ["A", "B", "C", "D", "E", "F", "G"],
+      },
+    },
+    {
+      headerName: "Max Value",
+      field: "maxValue",
+      width: 130,
       editable: isAdmin,
       enableCellChangeFlash: true,
       cellEditorPopup: false,
@@ -80,7 +92,7 @@ export function JobBaseStatsGrid({
         if (isNaN(newValue) || newValue < 0 || newValue > 999) {
           return false; // Reject invalid values
         }
-        params.data.value = newValue;
+        params.data.maxValue = newValue;
         return true;
       },
     },
@@ -150,7 +162,10 @@ export function JobBaseStatsGrid({
       await JobConfigurationsService.updateJobBaseStat(
         jobConfigurationId,
         updatedStat.statId,
-        updatedStat.value
+        {
+          baseStatRank: updatedStat.baseStatRank,
+          maxValue: updatedStat.maxValue,
+        }
       );
       console.log("Stat updated successfully");
 
