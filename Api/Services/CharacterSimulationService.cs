@@ -202,25 +202,60 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
         // Apply main job stats directly using database configuration
         foreach (var baseStat in mainJobConfig.JobBaseStats)
         {
-            if (baseStat.BaseStatRank > 0)
-            {
-                // stats.AddModifier(baseStat.StatId, baseStat.BaseStatRank, $"Main Job: {ConvertJobIdToCode(mainJob.JobId)}");
-            }
+            stats.AddModifier(baseStat.StatId, baseStat.MaxValue, $"Main Job: {ConvertJobIdToCode(mainJob.JobId)}");
         }
 
-        // Calculate effective subjob level based on main job master level
-        // var effectiveSubJobLevel = Math.Min(49 + (mainJob.MasterLevel / 5), subJob.JobLevel);
-        // var levelRatio = (double)effectiveSubJobLevel / 99.0;
+        // Get all skill rank mappings from database for efficient lookup
+        var baseStatRankMappings = await _context.BaseStatRankMappings.ToListAsync();
 
-        // Apply subjob stats directly using database configuration
-        // foreach (var baseStat in subJobConfig.JobBaseStats)
-        // {
-        //     var subJobValue = (int)(baseStat.Value * levelRatio * 0.5); // 50% of scaled base stats
-        //     if (subJobValue > 0)
-        //     {
-        //         stats.AddModifier(baseStat.StatId, subJobValue, $"Sub Job: {ConvertJobIdToCode(subJob.JobId)}");
-        //     }
-        // }
+        // Create lookup dictionary for faster access: (SkillRank, Level) -> SkillValue
+        var baseStatLookup = baseStatRankMappings
+            .ToDictionary(srm => (srm.BaseStatRank, srm.Level), srm => srm.BaseStatValue);
+
+        // Calculate effective subjob level based on main job master level
+        var effectiveSubJobLevel = Math.Min(49 + (mainJob.MasterLevel / 5), subJob.JobLevel);
+
+        foreach (var baseStat in subJobConfig.JobBaseStats)
+        {
+            var subJobRank = baseStat.BaseStatRank;
+
+            // // Lookup the sub job base stat value using the effective level
+            // var subJobValue = baseStatLookup.GetValueOrDefault((subJobRank, effectiveSubJobLevel), 0);
+
+
+            var subJobValue = 0;
+            switch (subJobRank)
+            {
+                case BaseStatRank.A:
+                    subJobValue = (int)Math.Floor(5 + (effectiveSubJobLevel - 1) * 0.50);
+                    break;
+                case BaseStatRank.B:
+                    subJobValue = (int)Math.Floor(4 + (effectiveSubJobLevel - 1) * 0.45);
+                    break;
+                case BaseStatRank.C:
+                    subJobValue = (int)Math.Floor(4 + (effectiveSubJobLevel - 1) * 0.40);
+                    break;
+                case BaseStatRank.D:
+                    subJobValue = (int)Math.Floor(3 + (effectiveSubJobLevel - 1) * 0.35);
+                    break;
+                case BaseStatRank.E:
+                    subJobValue = (int)Math.Floor(3 + (effectiveSubJobLevel - 1) * 0.30);
+                    break;
+                case BaseStatRank.F:
+                    subJobValue = (int)Math.Floor(2 + (effectiveSubJobLevel - 1) * 0.25);
+                    break;
+                case BaseStatRank.G:
+                    subJobValue = (int)Math.Floor(2 + (effectiveSubJobLevel - 1) * 0.20);
+                    break;
+            }
+
+            subJobValue = (int)Math.Floor(subJobValue * 0.5);
+
+            if (subJobValue > 0)
+            {
+                stats.AddModifier(baseStat.StatId, subJobValue, $"Sub Job: {ConvertJobIdToCode(subJob.JobId)}");
+            }
+        }
     }
 
     /// <summary>
