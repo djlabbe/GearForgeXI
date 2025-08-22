@@ -122,13 +122,22 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
         var mhWeaponSkillName = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Main)?.GearItem?.GearItemStats
             .Where(gis => gis.Stat.Name.Contains("Skill")).Select(gis => gis.Stat.Name).FirstOrDefault();
 
+        if (gearSet == null || gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Main) == null)
+        {
+            mhWeaponSkillName = "Hand-to-Hand Skill";
+        }
+
         var primaryAccuracy = 0;
         if (mhWeaponSkillName != null)
         {
             var totalDex = stats.TryGetValue("DEX", out var dex) ? dex : 0;
             var mhWeaponSkill = stats.TryGetValue(mhWeaponSkillName!, out var mhSkillValue) ? mhSkillValue : 0;
             var bonusAcc = stats.TryGetValue("Accuracy", out var acc) ? acc : 0;
-            primaryAccuracy = CalculatePrimaryAccuracy(totalDex, mhWeaponSkill, bonusAcc);
+
+            var accuracyFromDex = CalculateAccuracyFromDex(totalDex);
+            var accuracyFromSkill = CalculateAccuracyFromSkill(mhWeaponSkill);
+
+            primaryAccuracy = CalculatePrimaryAccuracy(accuracyFromDex, accuracyFromSkill, bonusAcc);
         }
 
         var simulation = new CharacterSimulation
@@ -702,30 +711,34 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
             .FirstAsync(rc => rc.Abbreviation == raceAbbreviation);
     }
 
-    public static int CalculatePrimaryAccuracy(int dex, int skill, int accuracyFromTraitsAndGear)
+    public static int CalculatePrimaryAccuracy(int accFromDex, int accFromSkill, int bonusAcc)
     {
-        var accuracyFromDex = (int)Math.Floor((dex + 12) * 0.75);
+        return accFromDex + accFromSkill + bonusAcc;
+    }
 
-        int accuracyFromSkill;
+    public static int CalculateAccuracyFromDex(int dex)
+    {
+        return (int)Math.Floor(dex * 0.75);
+    }
 
+    public static int CalculateAccuracyFromSkill(int skill)
+    {
         if (skill <= 200)
         {
-            accuracyFromSkill = skill;
+            return skill;
         }
         else if (skill > 200 && skill <= 400)
         {
-            accuracyFromSkill = (int)Math.Floor((skill - 200) * 0.9) + 200;
+            return (int)Math.Floor((skill - 200) * 0.9) + 200;
         }
         else if (skill > 400 && skill <= 600)
         {
-            accuracyFromSkill = (int)Math.Floor((skill - 400) * 0.8) + 380;
+            return (int)Math.Floor((skill - 400) * 0.8) + 380;
         }
         else // Skill > 600
         {
-            accuracyFromSkill = (int)Math.Floor((skill - 600) * 0.9) + 540;
+            return (int)Math.Floor((skill - 600) * 0.9) + 540;
         }
-
-        return accuracyFromDex + accuracyFromSkill + accuracyFromTraitsAndGear;
     }
 
     #endregion
