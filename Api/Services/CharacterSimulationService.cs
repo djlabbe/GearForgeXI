@@ -25,30 +25,25 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
     /// <summary>
     /// Main method to calculate character stats using FFXI stat system
     /// </summary>
-    public async Task<CharacterSimulation> CalculateCharacterStats(CharacterProfile profile, int mainJobId, int subJobId, GearSet? gearSet = null)
+    public async Task<CharacterSimulation> CalculateCharacterStats(CharacterProfile profile, int mainJobId, int? subJobId, GearSet? gearSet = null)
     {
         var profileMainJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == mainJobId);
-        var profileSubJob = profile.CharacterJobs.FirstOrDefault(j => j.JobId == subJobId);
+        var profileSubJob = subJobId.HasValue ? profile.CharacterJobs.FirstOrDefault(j => j.JobId == subJobId.Value) : null;
 
         if (profileMainJob == null)
         {
             throw new ArgumentException("Main job not found in character profile");
         }
 
-        if (profileSubJob == null)
-        {
-            throw new ArgumentException("Sub job not found in character profile");
-        }
-
         var characterStatistics = new CharacterStatistics();
 
         // Get job configurations from database
         var mainJobConfig = await GetJobConfigurationAsync(mainJobId);
-        var subJobConfig = await GetJobConfigurationAsync(subJobId);
+        var subJobConfig = subJobId.HasValue ? await GetJobConfigurationAsync(subJobId.Value) : null;
 
-        await ApplyBaseStats(characterStatistics, profile.Race, profileMainJob, profileSubJob, mainJobConfig, subJobConfig);
+        await ApplyBaseStats(characterStatistics, profile.Race, profileMainJob, mainJobConfig, profileSubJob, subJobConfig);
 
-        await ApplyCombatSkills(characterStatistics, profileMainJob, profileSubJob, mainJobConfig, subJobConfig);
+        await ApplyCombatSkills(characterStatistics, profileMainJob, mainJobConfig, profileSubJob, subJobConfig);
 
         await ApplyMerits(characterStatistics);
 
@@ -130,9 +125,9 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
         var primaryAccuracy = 0;
         if (mhWeaponSkillName != null)
         {
-            var totalDex = (stats.TryGetValue("DEX", out var dex) ? dex : 0);
+            var totalDex = stats.TryGetValue("DEX", out var dex) ? dex : 0;
             var mhWeaponSkill = stats.TryGetValue(mhWeaponSkillName!, out var mhSkillValue) ? mhSkillValue : 0;
-            var bonusAcc = (stats.TryGetValue("Accuracy", out var acc) ? acc : 0);
+            var bonusAcc = stats.TryGetValue("Accuracy", out var acc) ? acc : 0;
             primaryAccuracy = CalculatePrimaryAccuracy(totalDex, mhWeaponSkill, bonusAcc);
         }
 
@@ -143,8 +138,8 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
             MainJob = profileMainJob.Job.Abbreviation,
             MainJobLevel = profileMainJob.JobLevel,
             MasterLevel = profileMainJob.MasterLevel,
-            SubJob = profileSubJob.Job.Abbreviation,
-            SubJobLevel = Math.Min(49 + (profileMainJob.MasterLevel / 5), profileSubJob.JobLevel),
+            SubJob = profileSubJob?.Job.Abbreviation,
+            SubJobLevel = profileSubJob != null ? Math.Min(49 + (profileMainJob.MasterLevel / 5), profileSubJob.JobLevel) : 0,
             GearSetName = gearSet?.Name,
             Gear = new GearSetResponse()
             {
@@ -185,7 +180,7 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
     /// <summary>
     /// Applies base character stats using race, job, and subjob calculations
     /// </summary>
-    private async Task ApplyBaseStats(CharacterStatistics stats, Race race, CharacterJob mainJob, CharacterJob subJob, JobConfiguration mainJobConfig, JobConfiguration subJobConfig)
+    private async Task ApplyBaseStats(CharacterStatistics stats, Race race, CharacterJob mainJob, JobConfiguration mainJobConfig, CharacterJob? subJob, JobConfiguration? subJobConfig)
     {
         var raceCode = ConvertRaceToCode(race);
 
@@ -212,48 +207,53 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
         var baseStatLookup = baseStatRankMappings
             .ToDictionary(srm => (srm.BaseStatRank, srm.Level), srm => srm.BaseStatValue);
 
-        // Calculate effective subjob level based on main job master level
-        var effectiveSubJobLevel = Math.Min(49 + (mainJob.MasterLevel / 5), subJob.JobLevel);
 
-        foreach (var baseStat in subJobConfig.JobBaseStats)
+        if (subJob != null && subJobConfig != null)
         {
-            var subJobRank = baseStat.BaseStatRank;
-
-            // // Lookup the sub job base stat value using the effective level
-            // var subJobValue = baseStatLookup.GetValueOrDefault((subJobRank, effectiveSubJobLevel), 0);
+            // Calculate effective subjob level based on main job master level
+            var effectiveSubJobLevel = Math.Min(49 + (mainJob.MasterLevel / 5), subJob.JobLevel);
 
 
-            var subJobValue = 0;
-            switch (subJobRank)
+            foreach (var baseStat in subJobConfig.JobBaseStats)
             {
-                case BaseStatRank.A:
-                    subJobValue = (int)Math.Floor(5 + (effectiveSubJobLevel - 1) * 0.50);
-                    break;
-                case BaseStatRank.B:
-                    subJobValue = (int)Math.Floor(4 + (effectiveSubJobLevel - 1) * 0.45);
-                    break;
-                case BaseStatRank.C:
-                    subJobValue = (int)Math.Floor(4 + (effectiveSubJobLevel - 1) * 0.40);
-                    break;
-                case BaseStatRank.D:
-                    subJobValue = (int)Math.Floor(3 + (effectiveSubJobLevel - 1) * 0.35);
-                    break;
-                case BaseStatRank.E:
-                    subJobValue = (int)Math.Floor(3 + (effectiveSubJobLevel - 1) * 0.30);
-                    break;
-                case BaseStatRank.F:
-                    subJobValue = (int)Math.Floor(2 + (effectiveSubJobLevel - 1) * 0.25);
-                    break;
-                case BaseStatRank.G:
-                    subJobValue = (int)Math.Floor(2 + (effectiveSubJobLevel - 1) * 0.20);
-                    break;
-            }
+                var subJobRank = baseStat.BaseStatRank;
 
-            subJobValue = (int)Math.Floor(subJobValue * 0.5);
+                // // Lookup the sub job base stat value using the effective level
+                // var subJobValue = baseStatLookup.GetValueOrDefault((subJobRank, effectiveSubJobLevel), 0);
 
-            if (subJobValue > 0)
-            {
-                stats.AddModifier(baseStat.StatId, subJobValue, $"Sub Job: {ConvertJobIdToCode(subJob.JobId)}");
+
+                var subJobValue = 0;
+                switch (subJobRank)
+                {
+                    case BaseStatRank.A:
+                        subJobValue = (int)Math.Floor(5 + (effectiveSubJobLevel - 1) * 0.50);
+                        break;
+                    case BaseStatRank.B:
+                        subJobValue = (int)Math.Floor(4 + (effectiveSubJobLevel - 1) * 0.45);
+                        break;
+                    case BaseStatRank.C:
+                        subJobValue = (int)Math.Floor(4 + (effectiveSubJobLevel - 1) * 0.40);
+                        break;
+                    case BaseStatRank.D:
+                        subJobValue = (int)Math.Floor(3 + (effectiveSubJobLevel - 1) * 0.35);
+                        break;
+                    case BaseStatRank.E:
+                        subJobValue = (int)Math.Floor(3 + (effectiveSubJobLevel - 1) * 0.30);
+                        break;
+                    case BaseStatRank.F:
+                        subJobValue = (int)Math.Floor(2 + (effectiveSubJobLevel - 1) * 0.25);
+                        break;
+                    case BaseStatRank.G:
+                        subJobValue = (int)Math.Floor(2 + (effectiveSubJobLevel - 1) * 0.20);
+                        break;
+                }
+
+                subJobValue = (int)Math.Floor(subJobValue * 0.5);
+
+                if (subJobValue > 0)
+                {
+                    stats.AddModifier(baseStat.StatId, subJobValue, $"Sub Job: {ConvertJobIdToCode(subJob.JobId)}");
+                }
             }
         }
     }
@@ -261,7 +261,7 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
     /// <summary>
     /// Apply combat skills using SkillRankMapping table to lookup numeric values
     /// </summary>
-    private async Task ApplyCombatSkills(CharacterStatistics stats, CharacterJob mainJob, CharacterJob subJob, JobConfiguration mainJobConfig, JobConfiguration subJobConfig)
+    private async Task ApplyCombatSkills(CharacterStatistics stats, CharacterJob mainJob, JobConfiguration mainJobConfig, CharacterJob? subJob, JobConfiguration? subJobConfig)
     {
         // Get all skill rank mappings from database for efficient lookup
         var skillRankMappings = await _context.SkillRankMappings
@@ -284,28 +284,31 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
             }
         }
 
-        // Process sub job skills - only take higher value if skill exists on both jobs
-        foreach (var jobBaseSkill in subJobConfig.JobBaseSkills)
+        if (subJob != null && subJobConfig != null)
         {
-            // Sub job level is capped at 49 + (main job master level / 5) or sub job level, whichever is lower
-            var effectiveSubJobLevel = Math.Min(49 + (mainJob.MasterLevel / 5), subJob.JobLevel);
-            var skillValue = GetSkillValue(skillLookup, jobBaseSkill.SkillRank, effectiveSubJobLevel);
-
-            if (skillValue > 0)
+            // Process sub job skills - only take higher value if skill exists on both jobs
+            foreach (var jobBaseSkill in subJobConfig.JobBaseSkills)
             {
-                // If main job already has this skill, take the higher value
-                if (allSkills.ContainsKey(jobBaseSkill.StatId))
+                // Sub job level is capped at 49 + (main job master level / 5) or sub job level, whichever is lower
+                var effectiveSubJobLevel = Math.Min(49 + (mainJob.MasterLevel / 5), subJob.JobLevel);
+                var skillValue = GetSkillValue(skillLookup, jobBaseSkill.SkillRank, effectiveSubJobLevel);
+
+                if (skillValue > 0)
                 {
-                    if (skillValue > allSkills[jobBaseSkill.StatId].value)
+                    // If main job already has this skill, take the higher value
+                    if (allSkills.ContainsKey(jobBaseSkill.StatId))
                     {
+                        if (skillValue > allSkills[jobBaseSkill.StatId].value)
+                        {
+                            allSkills[jobBaseSkill.StatId] = (skillValue, $"Sub Job: {ConvertJobIdToCode(subJob.JobId)}");
+                        }
+                        // If main job value is higher or equal, keep it (no change needed)
+                    }
+                    else
+                    {
+                        // Sub job has a skill that main job doesn't have
                         allSkills[jobBaseSkill.StatId] = (skillValue, $"Sub Job: {ConvertJobIdToCode(subJob.JobId)}");
                     }
-                    // If main job value is higher or equal, keep it (no change needed)
-                }
-                else
-                {
-                    // Sub job has a skill that main job doesn't have
-                    allSkills[jobBaseSkill.StatId] = (skillValue, $"Sub Job: {ConvertJobIdToCode(subJob.JobId)}");
                 }
             }
         }
@@ -405,13 +408,11 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
     /// Apply job traits from both main job and sub job, ensuring no duplicate traits
     /// Sub job traits are only applied if main job doesn't have the same trait at same or higher tier
     /// </summary>
-    private static void ApplyJobTraits(CharacterStatistics stats, CharacterJob mainJob, JobConfiguration mainJobConfig, CharacterJob subJob, JobConfiguration subJobConfig)
+    private static void ApplyJobTraits(CharacterStatistics stats, CharacterJob mainJob, JobConfiguration mainJobConfig, CharacterJob? subJob, JobConfiguration? subJobConfig)
     {
         // Get highest tier traits for main job
         var mainJobTraits = GetHighestTierTraits(mainJobConfig.JobTraits.ToList(), mainJob.JobLevel);
 
-        // Get highest tier traits for sub job
-        var subJobTraits = GetHighestTierTraits(subJobConfig.JobTraits.ToList(), subJob.JobLevel);
 
         // Apply all main job traits first
         foreach (var trait in mainJobTraits)
@@ -419,6 +420,14 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
             stats.AddModifier(trait.StatId, trait.Value, $"Main Job Trait: {trait.Name}");
             stats.ActiveTraits.Add($"Main: {trait.Name}");
         }
+
+        if (subJob == null || subJobConfig == null)
+        {
+            return; // No sub job to process
+        }
+
+        // Get highest tier traits for sub job
+        var subJobTraits = GetHighestTierTraits(subJobConfig.JobTraits.ToList(), subJob.JobLevel);
 
         // Apply sub job traits only if they don't conflict with main job traits
         foreach (var subTrait in subJobTraits)

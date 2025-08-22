@@ -47,7 +47,6 @@ public class CharacterSimulationController(GearDbContext context, CharacterSimul
 
             // Validate main job exists in character profile
             var mainJob = profile.CharacterJobs.FirstOrDefault(cj => cj.JobId == request.MainJobId);
-            var subJob = profile.CharacterJobs.FirstOrDefault(cj => cj.JobId == request.SubJobId);
 
             if (mainJob == null)
             {
@@ -59,10 +58,13 @@ public class CharacterSimulationController(GearDbContext context, CharacterSimul
                 return BadRequest("Simulation only supports jobs at level 99");
             }
 
-            // Validate subjob exists in character profile (if specified)
-            if (subJob == null)
+            if (request.SubJobId != null)
             {
-                return BadRequest("Sub job not found in character profile");
+                var subJob = profile.CharacterJobs.FirstOrDefault(cj => cj.JobId == request.SubJobId);
+                if (subJob == null)
+                {
+                    return BadRequest("Sub job not found in character profile");
+                }
             }
 
             // Calculate stats
@@ -110,7 +112,7 @@ public class CalculateStatsRequest
 {
     public int CharacterProfileId { get; set; }
     public int MainJobId { get; set; }
-    public int SubJobId { get; set; }
+    public int? SubJobId { get; set; }
     public int? GearSetId { get; set; }
 }
 
