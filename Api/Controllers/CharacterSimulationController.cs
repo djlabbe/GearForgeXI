@@ -9,11 +9,10 @@ namespace GearForgeXI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class CharacterSimulationController(GearDbContext context, CharacterSimulationService simulationService, StatIdLookupService statLookupService) : ControllerBase
+public class CharacterSimulationController(GearDbContext context, CharacterSimulationService simulationService) : ControllerBase
 {
     private readonly GearDbContext _context = context;
     private readonly CharacterSimulationService _simulationService = simulationService;
-    private readonly StatIdLookupService _statLookupService = statLookupService;
 
     /// <summary>
     /// Calculate complete character stats for a given character profile and gear set

@@ -37,8 +37,6 @@ namespace GearForgeXI
 
         // Skill Ranking System
         public DbSet<SkillRankMapping> SkillRankMappings { get; set; } = null!;
-        public DbSet<BaseStatRankMapping> BaseStatRankMappings { get; set; } = null!;
-
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

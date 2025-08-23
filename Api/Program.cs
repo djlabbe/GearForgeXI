@@ -103,6 +103,13 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 
 // Register custom services
+// Register SkillRankMappingCache as singleton, loading from DB at startup
+builder.Services.AddSingleton<SkillRankMappingCache>(provider =>
+{
+    var dbContext = provider.GetRequiredService<GearDbContext>();
+    return new SkillRankMappingCache(dbContext);
+});
+
 builder.Services.AddScoped<RefreshTokenService>();
 builder.Services.AddScoped<StatIdLookupService>();
 builder.Services.AddScoped<CharacterSimulationService>();
