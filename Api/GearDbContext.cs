@@ -146,6 +146,13 @@ namespace GearForgeXI
                 .WithMany(s => s.GearItemStats)
                 .HasForeignKey(gis => gis.StatId);
 
+            // GearItem -> ApplicationUser (custom items only)
+            modelBuilder.Entity<GearItem>()
+                .HasOne(gi => gi.CreatedByUser)
+                .WithMany() // No navigation property needed on ApplicationUser
+                .HasForeignKey(gi => gi.CreatedByUserId)
+                .OnDelete(DeleteBehavior.Cascade); // Delete custom items when user is deleted
+
             // Optional: Unique constraint on Stat.Name
             modelBuilder.Entity<Stat>()
                 .HasIndex(s => s.Name)
@@ -157,6 +164,9 @@ namespace GearForgeXI
 
             modelBuilder.Entity<GearItem>()
                 .HasIndex(g => g.Verified);
+
+            modelBuilder.Entity<GearItem>()
+                .HasIndex(g => g.CreatedByUserId); // Index for filtering custom items
 
             modelBuilder.Entity<Job>()
                 .HasIndex(j => j.Abbreviation);

@@ -3,6 +3,7 @@ using GearForgeXI.Models.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace GearForgeXI.Controllers;
 
@@ -11,6 +12,30 @@ namespace GearForgeXI.Controllers;
 public class GearController(GearDbContext context) : ControllerBase
 {
     private readonly GearDbContext _context = context;
+
+    // Helper method to get current user ID
+    private string? GetCurrentUserId()
+    {
+        return User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+    }
+
+    // Helper method to check if current user is admin
+    private bool IsCurrentUserAdmin()
+    {
+        return User.IsInRole("Admin");
+    }
+
+    // Helper method to check if user can access/modify a gear item
+    private bool CanUserModifyGearItem(GearItem gearItem)
+    {
+        // Admins can modify all items
+        if (IsCurrentUserAdmin()) return true;
+
+        // Users can only modify their own custom items
+        var currentUserId = GetCurrentUserId();
+        return !string.IsNullOrEmpty(currentUserId) &&
+               gearItem.CreatedByUserId == currentUserId;
+    }
 
     [HttpGet("slots")]
     [ResponseCache(Duration = 3600)] // Cache for 1 hour - slots rarely change
@@ -65,13 +90,31 @@ public class GearController(GearDbContext context) : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetGear([FromQuery] string? job, [FromQuery] string? slot, [FromQuery] int? statId)
     {
+        var currentUserId = GetCurrentUserId();
+        var isAdmin = IsCurrentUserAdmin();
+
         // Handle stat-only filtering for admin pages
         if (statId.HasValue && string.IsNullOrWhiteSpace(job) && string.IsNullOrWhiteSpace(slot))
         {
-            var gearItems = await _context.GearItems
+            // Build the base query with minimal includes for better performance
+            IQueryable<GearItem> gearQuery = _context.GearItems
                 .AsNoTracking()
+                .Where(g => g.GearItemStats.Any(gis => gis.StatId == statId.Value));
+
+            // Apply user filtering upfront to reduce dataset
+            if (!isAdmin && !string.IsNullOrEmpty(currentUserId))
+            {
+                // Non-admins: system items OR their own custom items
+                gearQuery = gearQuery.Where(g => g.CreatedByUserId == null || g.CreatedByUserId == currentUserId);
+            }
+            else if (!isAdmin)
+            {
+                // Anonymous users: only system items
+                gearQuery = gearQuery.Where(g => g.CreatedByUserId == null);
+            }
+
+            var gearItems = await gearQuery
                 .Include(g => g.Category)
-                .Where(g => g.GearItemStats.Any(gis => gis.StatId == statId.Value))
                 .OrderBy(g => g.Name)
                 .ThenBy(g => g.Rank ?? int.MinValue)
                 .ThenBy(g => g.Path)
@@ -83,6 +126,8 @@ public class GearController(GearDbContext context) : ControllerBase
                     Rank = g.Rank,
                     Path = g.Path,
                     Verified = g.Verified,
+                    IsCustom = g.CreatedByUserId != null,
+                    CreatedByUserId = isAdmin ? g.CreatedByUserId : null, // Only expose to admins
                     Stats = new List<GearStatDto>(), // Empty for admin view
                     Jobs = new List<string>(),       // Empty for admin view
                     Slots = new List<string>()       // Empty for admin view
@@ -102,8 +147,28 @@ public class GearController(GearDbContext context) : ControllerBase
         var jobNormalized = job.Trim().ToUpper();
         var slotNormalized = MapPositionToSlotName(slot);
 
-        var query = _context.GearItems
-            .AsNoTracking()
+        // Build base query with user filtering applied early
+        IQueryable<GearItem> query = _context.GearItems.AsNoTracking();
+
+        // Apply user filtering first to reduce dataset size
+        if (!isAdmin && !string.IsNullOrEmpty(currentUserId))
+        {
+            // Non-admins: system items OR their own custom items
+            query = query.Where(g => g.CreatedByUserId == null || g.CreatedByUserId == currentUserId);
+        }
+        else if (!isAdmin)
+        {
+            // Anonymous users: only system items
+            query = query.Where(g => g.CreatedByUserId == null);
+        }
+
+        // Apply job and slot filtering
+        query = query.Where(g =>
+            (g.GearItemJobs.Any(j => j.Job.Abbreviation == jobNormalized) ||
+             g.GearItemJobs.Count == 0) &&
+            g.GearItemSlots.Any(s => s.GearSlot.Name.ToLower() == slotNormalized));
+
+        var gearResult = await query
             .Include(g => g.GearItemStats)
                 .ThenInclude(gis => gis.Stat)
             .Include(g => g.GearItemJobs)
@@ -111,13 +176,9 @@ public class GearController(GearDbContext context) : ControllerBase
             .Include(g => g.GearItemSlots)
                 .ThenInclude(gs => gs.GearSlot)
             .Include(g => g.Category)
-            .Where(g =>
-                (g.GearItemJobs.Any(j => j.Job.Abbreviation == jobNormalized) ||
-                 g.GearItemJobs.Count == 0) &&
-                g.GearItemSlots.Any(s => s.GearSlot.Name.ToLower() == slotNormalized))
             .OrderBy(g => g.Name)
-                .ThenBy(g => g.Rank ?? int.MinValue) // Put null ranks at the start
-                    .ThenBy(g => g.Path)
+                .ThenBy(g => g.Rank ?? int.MinValue)
+                .ThenBy(g => g.Path)
             .Select(g => new GearItemDto
             {
                 Id = g.Id,
@@ -126,6 +187,8 @@ public class GearController(GearDbContext context) : ControllerBase
                 Rank = g.Rank,
                 Path = g.Path,
                 Verified = g.Verified,
+                IsCustom = g.CreatedByUserId != null,
+                CreatedByUserId = isAdmin ? g.CreatedByUserId : null, // Only expose to admins
                 Stats = g.GearItemStats.Select(s => new GearStatDto
                 {
                     Name = s.Stat.Name,
@@ -136,16 +199,33 @@ public class GearController(GearDbContext context) : ControllerBase
                 }).ToList(),
                 Jobs = g.GearItemJobs.Select(j => j.Job.Abbreviation).ToList(),
                 Slots = g.GearItemSlots.Select(s => s.GearSlot.Name).ToList(),
-            });
+            })
+            .ToListAsync();
 
-        var result = await query.ToListAsync();
-        return Ok(result);
+        return Ok(gearResult);
     }
 
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetGearItem(int id)
     {
+        var currentUserId = GetCurrentUserId();
+        var isAdmin = IsCurrentUserAdmin();
+
+        var gearItem = await _context.GearItems
+            .AsNoTracking()
+            .Where(g => g.Id == id)
+            .FirstOrDefaultAsync();
+
+        if (gearItem == null)
+            return NotFound();
+
+        // Check permissions
+        if (!isAdmin && gearItem.CreatedByUserId != null && gearItem.CreatedByUserId != currentUserId)
+        {
+            return NotFound(); // Hide existence of custom items from other users
+        }
+
         var itemDto = await _context.GearItems
             .Where(g => g.Id == id)
             .Select(g => new GearItemDto
@@ -156,6 +236,8 @@ public class GearController(GearDbContext context) : ControllerBase
                 Rank = g.Rank,
                 Path = g.Path,
                 Verified = g.Verified,
+                IsCustom = g.IsCustom,
+                CreatedByUserId = g.CreatedByUserId,
                 Stats = g.GearItemStats
                     .Select(s => new GearStatDto
                     {
@@ -174,13 +256,20 @@ public class GearController(GearDbContext context) : ControllerBase
             })
             .FirstOrDefaultAsync();
 
-        return itemDto is null ? NotFound() : Ok(itemDto);
+        return Ok(itemDto);
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize] // Allow authenticated users (both admins and regular users)
     public async Task<IActionResult> CreateGearItem([FromBody] CreateGearItemDto dto)
     {
+        var currentUserId = GetCurrentUserId();
+        var isAdmin = IsCurrentUserAdmin();
+
+        // Only authenticated users can create items
+        if (string.IsNullOrEmpty(currentUserId))
+            return Unauthorized();
+
         // Validate required fields
         if (string.IsNullOrWhiteSpace(dto.Name))
             return BadRequest("Name is required.");
@@ -188,12 +277,23 @@ public class GearController(GearDbContext context) : ControllerBase
         if (dto.Slots.Count == 0)
             return BadRequest("At least one slot must be specified.");
 
-        // Check if gear item with this combination of Name, Rank, and Path already exists
+        // Check if gear item with this combination already exists
+        // For system items (admin), check all items
+        // For custom items (user), only check their own items
         var trimmedName = dto.Name.Trim();
-        var existingItem = await _context.GearItems
-            .FirstOrDefaultAsync(g => g.Name.ToLower() == trimmedName.ToLower() &&
-                                    g.Rank == dto.Rank &&
-                                    g.Path == dto.Path);
+        IQueryable<GearItem> existingQuery = _context.GearItems
+            .Where(g => g.Name.ToLower() == trimmedName.ToLower() &&
+                       g.Rank == dto.Rank &&
+                       g.Path == dto.Path);
+
+        if (!isAdmin)
+        {
+            // For users, only check against system items and their own custom items
+            existingQuery = existingQuery.Where(g => g.CreatedByUserId == null ||
+                                                    g.CreatedByUserId == currentUserId);
+        }
+
+        var existingItem = await existingQuery.FirstOrDefaultAsync();
 
         if (existingItem != null)
         {
@@ -293,7 +393,8 @@ public class GearController(GearDbContext context) : ControllerBase
             GearItemCategoryId = category?.Id,
             Rank = dto.Rank,
             Path = dto.Path,
-            Verified = dto.Verified ?? false
+            Verified = isAdmin ? (dto.Verified ?? false) : false, // Only admins can create verified items
+            CreatedByUserId = isAdmin ? null : currentUserId // System item if admin, custom item if user
         };
 
         _context.GearItems.Add(gearItem);
@@ -344,6 +445,8 @@ public class GearController(GearDbContext context) : ControllerBase
                 Rank = g.Rank,
                 Path = g.Path,
                 Verified = g.Verified,
+                IsCustom = g.IsCustom,
+                CreatedByUserId = g.CreatedByUserId,
                 Stats = g.GearItemStats
                     .Select(s => new GearStatDto
                     {
@@ -366,7 +469,7 @@ public class GearController(GearDbContext context) : ControllerBase
     }
 
     [HttpPut("{id}/slots")]
-    [Authorize(Roles = "Admin")]
+    [Authorize] // Allow authenticated users
     public async Task<IActionResult> UpdateGearItemSlots(int id, [FromBody] GearItemSlotUpdateDto dto)
     {
         var gearItem = await _context.GearItems
@@ -375,6 +478,10 @@ public class GearController(GearDbContext context) : ControllerBase
 
         if (gearItem == null)
             return NotFound($"GearItem with ID {id} not found.");
+
+        // Check permissions
+        if (!CanUserModifyGearItem(gearItem))
+            return Forbid("You can only modify system items as an admin or your own custom items.");
 
         // Validate that all slots exist
         var allSlotNames = dto.Slots.Select(s => s.Trim().ToLower()).ToList();
@@ -427,7 +534,7 @@ public class GearController(GearDbContext context) : ControllerBase
     }
 
     [HttpPut("{id}/category")]
-    [Authorize(Roles = "Admin")]
+    [Authorize] // Allow authenticated users
     public async Task<IActionResult> UpdateGearItemCategory(int id, [FromBody] GearItemCategoryUpdateDto dto)
     {
         var gearItem = await _context.GearItems
@@ -435,6 +542,10 @@ public class GearController(GearDbContext context) : ControllerBase
 
         if (gearItem == null)
             return NotFound($"GearItem with ID {id} not found.");
+
+        // Check permissions
+        if (!CanUserModifyGearItem(gearItem))
+            return Forbid("You can only modify system items as an admin or your own custom items.");
 
         // If categoryName is null or empty, remove the category
         if (string.IsNullOrWhiteSpace(dto.CategoryName))
@@ -458,9 +569,12 @@ public class GearController(GearDbContext context) : ControllerBase
     }
 
     [HttpPut("{id}")]
-    [Authorize(Roles = "Admin")]
+    [Authorize] // Allow authenticated users
     public async Task<IActionResult> UpdateGearItem(int id, [FromBody] CreateGearItemDto dto)
     {
+        var currentUserId = GetCurrentUserId();
+        var isAdmin = IsCurrentUserAdmin();
+
         // Validate required fields
         if (string.IsNullOrWhiteSpace(dto.Name))
             return BadRequest("Name is required.");
@@ -478,6 +592,10 @@ public class GearController(GearDbContext context) : ControllerBase
         if (gearItem == null)
             return NotFound($"GearItem with ID {id} not found.");
 
+        // Check permissions
+        if (!CanUserModifyGearItem(gearItem))
+            return Forbid("You can only modify system items as an admin or your own custom items.");
+
         // Check if updating would create a duplicate with the composite key (Name, Rank, Path)
         var trimmedName = dto.Name.Trim();
         var wouldBeDuplicate = gearItem.Name.ToLower() != trimmedName.ToLower() ||
@@ -486,11 +604,20 @@ public class GearController(GearDbContext context) : ControllerBase
 
         if (wouldBeDuplicate)
         {
-            var existingItem = await _context.GearItems
-                .FirstOrDefaultAsync(g => g.Id != id &&
-                                        g.Name.ToLower() == trimmedName.ToLower() &&
-                                        g.Rank == dto.Rank &&
-                                        g.Path == dto.Path);
+            IQueryable<GearItem> existingQuery = _context.GearItems
+                .Where(g => g.Id != id &&
+                           g.Name.ToLower() == trimmedName.ToLower() &&
+                           g.Rank == dto.Rank &&
+                           g.Path == dto.Path);
+
+            if (!isAdmin && gearItem.IsCustom)
+            {
+                // For custom items, only check against system items and their own custom items
+                existingQuery = existingQuery.Where(g => g.CreatedByUserId == null ||
+                                                        g.CreatedByUserId == currentUserId);
+            }
+
+            var existingItem = await existingQuery.FirstOrDefaultAsync();
 
             if (existingItem != null)
             {
@@ -589,7 +716,13 @@ public class GearController(GearDbContext context) : ControllerBase
         gearItem.GearItemCategoryId = category?.Id;
         gearItem.Rank = dto.Rank;
         gearItem.Path = dto.Path;
-        gearItem.Verified = dto.Verified ?? false;
+
+        // Only admins can modify the verified flag
+        if (isAdmin)
+        {
+            gearItem.Verified = dto.Verified ?? false;
+        }
+        // Users cannot modify the verified status of their custom items
 
         // Remove existing slots, jobs, and stats
         _context.GearItemSlots.RemoveRange(gearItem.GearItemSlots);
@@ -641,6 +774,8 @@ public class GearController(GearDbContext context) : ControllerBase
                 Rank = g.Rank,
                 Path = g.Path,
                 Verified = g.Verified,
+                IsCustom = g.IsCustom,
+                CreatedByUserId = g.CreatedByUserId,
                 Stats = g.GearItemStats
                     .Select(s => new GearStatDto
                     {
@@ -663,7 +798,7 @@ public class GearController(GearDbContext context) : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    [Authorize(Roles = "Admin")]
+    [Authorize] // Allow authenticated users
     public async Task<IActionResult> DeleteGearItem(int id)
     {
         var gearItem = await _context.GearItems
@@ -675,6 +810,10 @@ public class GearController(GearDbContext context) : ControllerBase
 
         if (gearItem == null)
             return NotFound($"Gear item with ID {id} not found.");
+
+        // Check permissions
+        if (!CanUserModifyGearItem(gearItem))
+            return Forbid("You can only delete system items as an admin or your own custom items.");
 
         // Check if this gear item is being used in any gear sets
         var isUsedInGearSets = await _context.GearSetItems
@@ -694,5 +833,99 @@ public class GearController(GearDbContext context) : ControllerBase
         await _context.SaveChangesAsync();
 
         return NoContent();
+    }
+
+    // New endpoint for users to get their custom items
+    [HttpGet("custom")]
+    [Authorize] // Authenticated users only
+    public async Task<IActionResult> GetMyCustomGearItems()
+    {
+        var currentUserId = GetCurrentUserId();
+        if (string.IsNullOrEmpty(currentUserId))
+            return Unauthorized();
+
+        var customItems = await _context.GearItems
+            .AsNoTracking()
+            .Include(g => g.Category)
+            .Include(g => g.GearItemStats)
+                .ThenInclude(gis => gis.Stat)
+            .Include(g => g.GearItemJobs)
+                .ThenInclude(gj => gj.Job)
+            .Include(g => g.GearItemSlots)
+                .ThenInclude(gs => gs.GearSlot)
+            .Where(g => g.CreatedByUserId == currentUserId)
+            .OrderBy(g => g.Name)
+                .ThenBy(g => g.Rank ?? int.MinValue)
+                .ThenBy(g => g.Path)
+            .Select(g => new GearItemDto
+            {
+                Id = g.Id,
+                Name = g.Name,
+                Category = g.Category != null ? g.Category.Name : null,
+                Rank = g.Rank,
+                Path = g.Path,
+                Verified = g.Verified,
+                IsCustom = g.IsCustom,
+                CreatedByUserId = g.CreatedByUserId,
+                Stats = g.GearItemStats.Select(s => new GearStatDto
+                {
+                    Name = s.Stat.Name,
+                    DisplayName = s.Stat.DisplayName,
+                    Category = s.Stat.Category != null ? s.Stat.Category.ToString() : null,
+                    Description = s.Stat.Description,
+                    Value = s.Value
+                }).ToList(),
+                Jobs = g.GearItemJobs.Select(j => j.Job.Abbreviation).ToList(),
+                Slots = g.GearItemSlots.Select(s => s.GearSlot.Name).ToList(),
+            })
+            .ToListAsync();
+
+        return Ok(customItems);
+    }
+
+    // New endpoint for admins to get all custom items
+    [HttpGet("custom/all")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> GetAllCustomGearItems()
+    {
+        var customItems = await _context.GearItems
+            .AsNoTracking()
+            .Include(g => g.Category)
+            .Include(g => g.CreatedByUser)
+            .Include(g => g.GearItemStats)
+                .ThenInclude(gis => gis.Stat)
+            .Include(g => g.GearItemJobs)
+                .ThenInclude(gj => gj.Job)
+            .Include(g => g.GearItemSlots)
+                .ThenInclude(gs => gs.GearSlot)
+            .Where(g => g.CreatedByUserId != null)
+            .OrderBy(g => g.CreatedByUser!.UserName)
+                .ThenBy(g => g.Name)
+                .ThenBy(g => g.Rank ?? int.MinValue)
+                .ThenBy(g => g.Path)
+            .Select(g => new GearItemDto
+            {
+                Id = g.Id,
+                Name = g.Name,
+                Category = g.Category != null ? g.Category.Name : null,
+                Rank = g.Rank,
+                Path = g.Path,
+                Verified = g.Verified,
+                IsCustom = g.IsCustom,
+                CreatedByUserId = g.CreatedByUserId,
+                Stats = g.GearItemStats.Select(s => new GearStatDto
+                {
+                    Name = s.Stat.Name,
+                    DisplayName = s.Stat.DisplayName,
+                    Category = s.Stat.Category != null ? s.Stat.Category.ToString() : null,
+                    Description = s.Stat.Description,
+                    Value = s.Value
+                }).ToList(),
+                Jobs = g.GearItemJobs.Select(j => j.Job.Abbreviation).ToList(),
+                Slots = g.GearItemSlots.Select(s => s.GearSlot.Name).ToList(),
+            })
+            .ToListAsync();
+
+        return Ok(customItems);
     }
 }

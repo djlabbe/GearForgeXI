@@ -1,12 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GearBrowser } from "./pages/GearBrowser";
 import ComparePage from "./pages/Compare";
+import BuildGearSetPage from "./pages/BuildGearSet";
+import HomePage from "./pages/HomePage";
 import { Navbar } from "./components/Navbar";
 import { Stats } from "./pages/Stats";
 import { Jobs } from "./pages/Jobs";
 import JobConfigurations from "./pages/JobConfigurations";
 import { CharacterProfiles } from "./pages/CharacterProfiles";
 import { RaceConfigurations } from "./pages/RaceConfigurations";
+import { Simulator } from "./pages/Simulator";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
@@ -32,8 +35,11 @@ function AppContent() {
         <Navbar />
         <main className="p-4 max-w-8xl mx-auto">
           <Routes>
-            <Route path="/" element={<ComparePage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/compare" element={<ComparePage />} />
+            <Route path="/build" element={<BuildGearSetPage />} />
             <Route path="/gear" element={<GearBrowser />} />
+            <Route path="/simulator" element={<Simulator />} />
             <Route path="/stats" element={<Stats />} />
             <Route path="/admin/jobs" element={<Jobs />} />
             <Route path="/admin/jobConfigurations" element={<JobConfigurations />} />

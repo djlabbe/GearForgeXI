@@ -41,8 +41,10 @@ export function Navbar() {
     <header className="bg-background text-foreground shadow border-b border-border dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700">
       <div className="mx-auto px-4 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center space-x-3 w-full sm:w-auto">
-          <img src={logo} alt="GearForge XI Logo" className="h-8 w-8" />
-          <h1 className="text-2xl">GearForge XI</h1>
+          <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-150">
+            <img src={logo} alt="GearForge XI Logo" className="h-8 w-8" />
+            <h1 className="text-2xl">GearForge XI</h1>
+          </Link>
           {/* Hamburger button for mobile */}
           <button
             className="sm:hidden ml-auto p-2 rounded hover:bg-muted focus:outline-none"
@@ -80,22 +82,31 @@ export function Navbar() {
           } sm:items-center`}
         >
           <Link
-            to="/"
+            to="/build"
             className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
-              "/"
+              "/build"
             )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
             onClick={() => setMenuOpen(false)}
           >
-            Build / Compare Sets
+            Build Set
           </Link>
           <Link
-            to="/gear"
+            to="/compare"
             className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
-              "/gear"
+              "/compare"
             )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
             onClick={() => setMenuOpen(false)}
           >
-            Browse Equipment
+            Compare Sets
+          </Link>
+          <Link
+            to="/simulator"
+            className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
+              "/simulator"
+            )} dark:hover:bg-gray-800 dark:hover:text-white dark:text-gray-400`}
+            onClick={() => setMenuOpen(false)}
+          >
+            Simulator
           </Link>
 
           {isAuthenticated && (
@@ -116,6 +127,7 @@ export function Navbar() {
                   onClick={() => setAdminDropdownOpen(!adminDropdownOpen)}
                   className={`px-4 py-2 rounded transition-colors duration-150 flex items-center space-x-1 ${
                     location.pathname === "/stats" ||
+                    location.pathname === "/gear" ||
                     location.pathname === "/admin/raceConfigurations" ||
                     location.pathname === "/admin/jobs" ||
                     location.pathname === "/admin/jobConfigurations"
@@ -144,6 +156,18 @@ export function Navbar() {
                 {adminDropdownOpen && (
                   <div className="absolute top-full left-0 mt-1 w-48 bg-background border border-border rounded-md shadow-lg z-50 dark:bg-gray-800 dark:border-gray-600">
                     <div className="py-1">
+                      <Link
+                        to="/gear"
+                        className={`block px-4 py-2 text-sm transition-colors duration-150 ${isActive(
+                          "/gear"
+                        )} dark:hover:bg-gray-700 dark:text-gray-300`}
+                        onClick={() => {
+                          setAdminDropdownOpen(false);
+                          setMenuOpen(false);
+                        }}
+                      >
+                        Equipment
+                      </Link>
                       <Link
                         to="/stats"
                         className={`block px-4 py-2 text-sm transition-colors duration-150 ${isActive(

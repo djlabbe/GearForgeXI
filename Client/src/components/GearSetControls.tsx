@@ -7,6 +7,7 @@ import {
 import type { GearSet } from "../models/GearSet";
 import type { GearStat } from "../models/GearStat";
 import { RiResetLeftFill } from "react-icons/ri";
+import { BsLightningChargeFill } from "react-icons/bs";
 
 // Loading spinner component
 const LoadingSpinner = () => (
@@ -61,57 +62,100 @@ export function GearSetControls({
       {isAuthenticated && (
         <>
           {hasGearItems && (
-            <button
-              className={`text-gray-500 hover:text-green-600 ${isCreating ? 'opacity-50 cursor-not-allowed' : ''}`}
-              title="Create new gear set"
-              onClick={onCreateNew}
-              disabled={isCreating || isUpdating || isLoading}
-              type="button"
-            >
-              {isCreating ? <LoadingSpinner /> : <FaPlus className="h-5 w-5" />}
-            </button>
+            <div className="relative group">
+              <button
+                className={`text-gray-500 hover:text-green-600 ${isCreating ? 'opacity-50 cursor-not-allowed' : ''}`}
+                onClick={onCreateNew}
+                disabled={isCreating || isUpdating || isLoading}
+                type="button"
+              >
+                {isCreating ? <LoadingSpinner /> : <FaPlus className="h-5 w-5" />}
+              </button>
+              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+                Create new gear set
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+              </div>
+            </div>
           )}
           {gearSet.id && (
+            <div className="relative group">
+              <button
+                className={`text-gray-500 hover:text-yellow-600 ${isUpdating ? 'opacity-50 cursor-not-allowed' : ''}`}
+                onClick={onUpdate}
+                disabled={isCreating || isUpdating || isLoading}
+                type="button"
+              >
+                {isUpdating ? <LoadingSpinner /> : <FaFloppyDisk className="h-5 w-5" />}
+              </button>
+              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+                Update current gear set
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+              </div>
+            </div>
+          )}
+          <div className="relative group">
             <button
-              className={`text-gray-500 hover:text-yellow-600 ${isUpdating ? 'opacity-50 cursor-not-allowed' : ''}`}
-              title="Update current gear set"
-              onClick={onUpdate}
+              className={`text-gray-500 hover:text-blue-600 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              onClick={onLoad}
               disabled={isCreating || isUpdating || isLoading}
               type="button"
             >
-              {isUpdating ? <LoadingSpinner /> : <FaFloppyDisk className="h-5 w-5" />}
+              {isLoading ? <LoadingSpinner /> : <FaFolderOpen className="h-5 w-5" />}
             </button>
-          )}
-          <button
-            className={`text-gray-500 hover:text-blue-600 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
-            title="Load gear set"
-            onClick={onLoad}
-            disabled={isCreating || isUpdating || isLoading}
-            type="button"
-          >
-            {isLoading ? <LoadingSpinner /> : <FaFolderOpen className="h-5 w-5" />}
-          </button>
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+              Load gear set
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+            </div>
+          </div>
         </>
       )}
       {hasGearItems && (
-        <button
-          className="text-gray-500 hover:text-red-600"
-          title="Clear gear set"
-          onClick={onClear}
-          type="button"
-        >
-          <RiResetLeftFill className="h-5 w-5" />
-        </button>
+        <div className="relative group">
+          <button
+            className="text-gray-500 hover:text-red-600"
+            onClick={onClear}
+            type="button"
+          >
+            <RiResetLeftFill className="h-5 w-5" />
+          </button>
+          <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+            Clear gear set
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+          </div>
+        </div>
       )}
       {hasGearItems && (
-        <button
-          className="text-gray-500 hover:text-purple-600"
-          title="Copy lua to clipboard"
-          onClick={() => onCopyLua(gearSet, augments)}
-          type="button"
-        >
-          <FaCopy className="h-5 w-5" />
-        </button>
+        <div className="relative group">
+          <button
+            className="text-gray-500 hover:text-purple-600"
+            onClick={() => onCopyLua(gearSet, augments)}
+            type="button"
+          >
+            <FaCopy className="h-5 w-5" />
+          </button>
+          <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+            Copy lua to clipboard
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+          </div>
+        </div>
+      )}
+      {hasGearItems && (
+        <div className="relative group">
+          <button
+            className="flex items-center gap-1 px-2 py-1 text-xs font-medium text-gray-500 hover:text-white bg-transparent hover:bg-gradient-to-r hover:from-purple-600 hover:to-indigo-600 rounded border border-gray-300 hover:border-purple-500 transition-all duration-200 hover:shadow-md dark:border-gray-600 dark:hover:border-purple-400"
+            onClick={() => {
+              // TODO: Implement simulation functionality
+            }}
+            type="button"
+          >
+            <BsLightningChargeFill className="h-3 w-3" />
+            <span>Run Sim</span>
+          </button>
+          <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+            Simulate gear set
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+          </div>
+        </div>
       )}
     </div>
   );

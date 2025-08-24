@@ -17,6 +17,13 @@ namespace GearForgeXI.Models
         public GearItemCategory? Category { get; set; } // Navigation property to GearCategory
         public bool Verified { get; set; } = false; // Indicates if the item stats have been verified.
 
+        // User ownership - NULL = official/system gear, NOT NULL = user-created custom gear
+        public string? CreatedByUserId { get; set; }
+        public ApplicationUser? CreatedByUser { get; set; }
+
+        // Helper property to identify custom items
+        public bool IsCustom => !string.IsNullOrEmpty(CreatedByUserId);
+
         // Navigation properties
         [Required]
         public ICollection<GearItemSlot> GearItemSlots { get; set; } = new List<GearItemSlot>(); // Many-to-many relationship with GearSlot

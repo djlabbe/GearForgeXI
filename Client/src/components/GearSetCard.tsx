@@ -9,6 +9,7 @@ import { GearSelect } from "./GearSelect";
 import Card from "./Card";
 import AmbuCape, { ambuCapes } from "./AmbuCape";
 import { GearSetControls } from "./GearSetControls";
+import { BsLightningChargeFill } from "react-icons/bs";
 
 interface GearSetCardProps {
   gearSet: GearSet;
@@ -94,6 +95,7 @@ export function GearSetCard({
       {showAmbuCape && (
         <AmbuCape onAugmentChange={onAugmentChange} />
       )}
+      
     </Card>
   );
 }
