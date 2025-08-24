@@ -1,6 +1,9 @@
 import { getItemAtPosition } from "../models/GearSet";
 import { getItemsBySlot } from "../utils/gearFiltering";
-import { ALL_GEAR_POSITIONS, type GearSetPosition } from "../models/GearSetPosition";
+import {
+  ALL_GEAR_POSITIONS,
+  type GearSetPosition,
+} from "../models/GearSetPosition";
 import type { GearItem } from "../models/GearItem";
 import type { GearSet } from "../models/GearSet";
 import type { GearStat } from "../models/GearStat";
@@ -9,7 +12,6 @@ import { GearSelect } from "./GearSelect";
 import Card from "./Card";
 import AmbuCape, { ambuCapes } from "./AmbuCape";
 import { GearSetControls } from "./GearSetControls";
-import { BsLightningChargeFill } from "react-icons/bs";
 
 interface GearSetCardProps {
   gearSet: GearSet;
@@ -50,9 +52,10 @@ export function GearSetCard({
   onClear,
   onCopyLua,
 }: GearSetCardProps) {
-  const displayName = gearSet.id && gearSet.name !== setName 
-    ? `${setName} - ${gearSet.name}` 
-    : setName;
+  const displayName =
+    gearSet.id && gearSet.name !== setName
+      ? `${setName} - ${gearSet.name}`
+      : setName;
 
   const backItem = getItemAtPosition(gearSet, "Back");
   const showAmbuCape = backItem?.name && ambuCapes.includes(backItem.name);
@@ -72,9 +75,9 @@ export function GearSetCard({
         onClear={onClear}
         onCopyLua={onCopyLua}
       />
-      
+
       <h3 className="font-semibold mb-2">{displayName}</h3>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-4">
         {ALL_GEAR_POSITIONS.map((slot) => {
           const options = getItemsBySlot(gearItems, gearSet, slot, job, subJob);
@@ -91,11 +94,8 @@ export function GearSetCard({
           );
         })}
       </div>
-      
-      {showAmbuCape && (
-        <AmbuCape onAugmentChange={onAugmentChange} />
-      )}
-      
+
+      {showAmbuCape && <AmbuCape onAugmentChange={onAugmentChange} />}
     </Card>
   );
 }
