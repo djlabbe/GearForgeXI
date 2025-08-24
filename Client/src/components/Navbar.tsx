@@ -111,7 +111,7 @@ export function Navbar() {
 
           {isAuthenticated && (
             <>
-              <Link
+              {/* <Link
                 to="/profiles"
                 className={`px-4 py-2 rounded transition-colors duration-150 ${isActive(
                   "/profiles"
@@ -119,7 +119,7 @@ export function Navbar() {
                 onClick={() => setMenuOpen(false)}
               >
                 My Characters
-              </Link>
+              </Link> */}
 
               {/* Admin Dropdown */}
               <div className="relative" ref={dropdownRef}>
