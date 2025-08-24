@@ -2,7 +2,6 @@ namespace GearForgeXI.Models;
 
 public class CharacterSimulation
 {
-    public string CharacterName { get; set; } = null!;
     public string Race { get; set; } = null!;
     public string MainJob { get; set; } = null!;
     public int MainJobLevel { get; set; }

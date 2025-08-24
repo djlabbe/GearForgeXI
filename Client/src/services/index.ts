@@ -6,6 +6,7 @@ export { default as GearService } from './gearService';
 export { default as GearSetsService } from './gearSetsService';
 export { default as CharacterProfileService } from './characterProfileService';
 export { default as RaceConfigurationService } from './raceConfigurationService';
+export { default as CharacterSimulationService } from './characterSimulationService';
 
 // Re-export types that are used by consumers
 export type {
@@ -21,6 +22,13 @@ export type {
   CreateGearSetSlotDto,
   AddGearSetSlotDto,
   UpdateGearSetSlotDto,
+  
 } from './gearSetsService';
+
+export type {
+  CalculateStatsRequest,
+  CharacterSimulationResponse,
+  SimulationError,
+} from '../models/CharacterSimulation';
 
 // Additional exports for any other DTOs that might be needed

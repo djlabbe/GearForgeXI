@@ -106,7 +106,8 @@ builder.Services.AddAuthorization();
 // Register SkillRankMappingCache as singleton, loading from DB at startup
 builder.Services.AddSingleton<SkillRankMappingCache>(provider =>
 {
-    var dbContext = provider.GetRequiredService<GearDbContext>();
+    using var scope = provider.CreateScope();
+    var dbContext = scope.ServiceProvider.GetRequiredService<GearDbContext>();
     return new SkillRankMappingCache(dbContext);
 });
 

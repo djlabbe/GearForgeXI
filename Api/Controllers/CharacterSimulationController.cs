@@ -1,9 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GearForgeXI.Models;
-using GearForgeXI.Models.Dto;
 using GearForgeXI.Services;
-using Microsoft.AspNetCore.Authorization;
 
 namespace GearForgeXI.Controllers;
 
@@ -23,57 +21,47 @@ public class CharacterSimulationController(GearDbContext context, CharacterSimul
     {
         try
         {
-            // Validate character profile belongs to user
-            var profile = await _context.CharacterProfiles
-                .Include(p => p.CharacterJobs)
-                    .ThenInclude(cj => cj.Job)
-                // .FirstOrDefaultAsync(p => p.Id == request.CharacterProfileId && p.UserId == GetUserId());
-                .FirstOrDefaultAsync(p => p.Id == request.CharacterProfileId);
-
-            if (profile == null)
+            // Validate request
+            if (request == null)
             {
-                return NotFound("Character profile not found");
+                return BadRequest("Request body is required");
             }
 
-            // Validate gear set belongs to user
-            var gearSet = await _context.GearSets
-                .Include(gs => gs.GearSetItems)
-                    .ThenInclude(gsi => gsi.GearItem)
-                        .ThenInclude(gi => gi.GearItemStats)
-                            .ThenInclude(gis => gis.Stat)
-                .FirstOrDefaultAsync(gs => gs.Id == request.GearSetId);
-            // .FirstOrDefaultAsync(gs => gs.Id == request.GearSetId && gs.UserId == GetUserId());
-
-            // Validate main job exists in character profile
-            var mainJob = profile.CharacterJobs.FirstOrDefault(cj => cj.JobId == request.MainJobId);
-
-            if (mainJob == null)
+            // Validate required fields
+            if (request.MainJobId <= 0)
             {
-                return BadRequest("Main job not found in character profile");
+                return BadRequest("MainJobId is required and must be greater than 0");
             }
 
-            if (mainJob.JobLevel < 99)
+            if (request.RaceId <= 0)
             {
-                return BadRequest("Simulation only supports jobs at level 99");
+                return BadRequest("RaceId is required and must be greater than 0");
             }
 
-            if (request.SubJobId != null)
+            if (request.MasterLevel < 0 || request.MasterLevel > 50)
             {
-                var subJob = profile.CharacterJobs.FirstOrDefault(cj => cj.JobId == request.SubJobId);
-                if (subJob == null)
-                {
-                    return BadRequest("Sub job not found in character profile");
-                }
+                return BadRequest("MasterLevel must be between 0 and 50");
             }
+
+            // Log the request for debugging
+            Console.WriteLine($"Processing request: RaceId={request.RaceId}, MainJobId={request.MainJobId}, MasterLevel={request.MasterLevel}, SubJobId={request.SubJobId}, GearSetId={request.GearSetId}");
 
             // Calculate stats
-            var characterSimulation = await _simulationService.CalculateCharacterStats(profile, request.MainJobId, request.SubJobId, gearSet);
+            var characterSimulation = await _simulationService.CalculateCharacterStats(request, null!);
 
             return Ok(characterSimulation);
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Error calculating character stats: {ex.Message}");
+            // Log full exception details
+            Console.WriteLine($"Exception in CalculateCharacterStats: {ex}");
+            return StatusCode(500, new
+            {
+                message = "Error calculating character stats",
+                error = ex.Message,
+                stackTrace = ex.StackTrace,
+                innerException = ex.InnerException?.Message
+            });
         }
     }
 
@@ -107,13 +95,7 @@ public class CharacterSimulationController(GearDbContext context, CharacterSimul
 }
 
 // DTOs for the API
-public class CalculateStatsRequest
-{
-    public int CharacterProfileId { get; set; }
-    public int MainJobId { get; set; }
-    public int? SubJobId { get; set; }
-    public int? GearSetId { get; set; }
-}
+
 
 
 
