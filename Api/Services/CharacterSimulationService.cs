@@ -123,6 +123,7 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
             }
         }
 
+        // MH Acc + Attack
         var mhWeaponSkillName = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Main)?.GearItem?.GearItemStats
             .Where(gis => gis.Stat.Name.Contains("Skill")).Select(gis => gis.Stat.Name).FirstOrDefault();
 
@@ -132,6 +133,8 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
         }
 
         var primaryAccuracy = 0;
+        var primaryAttack = 0;
+
         if (mhWeaponSkillName != null)
         {
             var totalDex = stats.TryGetValue("DEX", out var dex) ? dex : 0;
@@ -142,7 +145,49 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
             var accuracyFromSkill = CalculateAccuracyFromSkill(mhWeaponSkill);
 
             primaryAccuracy = CalculatePrimaryAccuracy(accuracyFromDex, accuracyFromSkill, bonusAcc);
+
+            var totalStr = stats.TryGetValue("STR", out var str) ? str : 0;
+            var bonusAttack = stats.TryGetValue("Attack", out var attack) ? attack : 0;
+            primaryAttack = CalculateAttack(mhWeaponSkill, totalStr, bonusAttack);
         }
+
+        // OH Acc
+        var ohWeaponSkillName = gearSet?.GearSetItems.FirstOrDefault(gsi => gsi.Position == SetPosition.Sub)?.GearItem?.GearItemStats
+           .Where(gis => gis.Stat.Name.Contains("Skill") && gis.Stat.Name != "Shield Skill").Select(gis => gis.Stat.Name).FirstOrDefault();
+
+
+        var auxiliaryAccuracy = 0;
+        var auxiliaryAttack = 0;
+        if (ohWeaponSkillName != null)
+        {
+            var totalDex = stats.TryGetValue("DEX", out var dex) ? dex : 0;
+            var ohWeaponSkill = stats.TryGetValue(ohWeaponSkillName!, out var ohSkillValue) ? ohSkillValue : 0;
+            var bonusAcc = stats.TryGetValue("Accuracy", out var acc) ? acc : 0;
+
+            var accuracyFromDex = CalculateAccuracyFromDex(totalDex);
+            var accuracyFromSkill = CalculateAccuracyFromSkill(ohWeaponSkill);
+
+            auxiliaryAccuracy = CalculatePrimaryAccuracy(accuracyFromDex, accuracyFromSkill, bonusAcc);
+
+            var totalStr = stats.TryGetValue("STR", out var str) ? str : 0;
+            auxiliaryAttack = CalculateAuxiliaryAttack(ohWeaponSkill, totalStr);
+        }
+
+
+        // Evasion
+        var agi = stats.TryGetValue("AGI", out var agiValue) ? agiValue : 0;
+        var evasionFromAgi = CalculateEvasionFromAgi(agi);
+        var evasionSkill = stats.TryGetValue("Evasion Skill", out var evasionSkillValue) ? evasionSkillValue : 0;
+        var evasionFromSkill = CalculateEvasionFromSkill(evasionSkill);
+        var evasion = stats.TryGetValue("Evasion", out var evasionValue) ? evasionValue : 0;
+        var totalEvasion = CalculateEvasion(evasionFromAgi, evasionFromSkill, evasion);
+
+        // Defense
+        var vit = stats.TryGetValue("VIT", out var vitValue) ? vitValue : 0;
+        var level = 99; // Assuming level 99 for calculation
+        var baseDefense = CalculateBaseDefense(vit, level);
+        var bonusDefense = stats.TryGetValue("Defense", out var defenseValue) ? defenseValue : 0;
+        var totalDefense = baseDefense + bonusDefense;
 
         var simulation = new CharacterSimulation
         {
@@ -176,6 +221,11 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
             DerivedStats = new DerivedStats()
             {
                 PrimaryAccuracy = primaryAccuracy,
+                PrimaryAttack = primaryAttack,
+                AuxiliaryAccuracy = auxiliaryAccuracy,
+                AuxiliaryAttack = auxiliaryAttack,
+                TotalEvasion = totalEvasion,
+                TotalDefense = totalDefense
             },
             ActiveTraits = [.. characterStatistics.ActiveTraits],
             Stats = stats,
@@ -211,6 +261,7 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
             stats.AddModifier(baseStat.StatId, baseStat.MaxValue, $"Main Job: {ConvertJobIdToCode(mainJobConfig.JobId)}");
         }
 
+        // TODO: Some stats are still +/- 1. I think usually -1 due to changing scaling at higher subjob levels 58/59?
         if (subJobConfig != null && subJobLevel.HasValue && subJobLevel > 0)
         {
             // Calculate effective subjob level based on main job master level
@@ -257,7 +308,7 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
                         break;
                 }
 
-                var subJobValue = (int)Math.Floor(baseValue + (effectiveSubJobLevel - 1) * multiplier);
+                var subJobValue = (int)Math.Floor(baseValue + (effectiveSubJobLevel - 1) * multiplier) / 2;
 
                 if (subJobValue > 0)
                 {
@@ -688,9 +739,20 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
         return accFromDex + accFromSkill + bonusAcc;
     }
 
+    public static int CalculateEvasion(int agi, int evasionSkill, int evasion)
+    {
+        var evasionFromAgi = (int)Math.Floor(agi * 0.75);
+        return evasionFromAgi + evasionSkill + evasion;
+    }
+
     public static int CalculateAccuracyFromDex(int dex)
     {
         return (int)Math.Floor(dex * 0.75);
+    }
+
+    public static int CalculateEvasionFromAgi(int agi)
+    {
+        return (int)Math.Floor(agi * 0.75);
     }
 
     public static int CalculateAccuracyFromSkill(int skill)
@@ -711,6 +773,42 @@ public class CharacterSimulationService(StatIdLookupService statIdLookupService,
         {
             return (int)Math.Floor((skill - 600) * 0.9) + 540;
         }
+    }
+
+    public static int CalculateEvasionFromSkill(int skill)
+    {
+        if (skill <= 200)
+        {
+            return skill;
+        }
+        else if (skill > 200 && skill <= 400)
+        {
+            return (int)Math.Floor((skill - 200) * 0.9) + 200;
+        }
+        else if (skill > 400 && skill <= 600)
+        {
+            return (int)Math.Floor((skill - 400) * 0.8) + 380;
+        }
+        else // Skill > 600
+        {
+            return (int)Math.Floor((skill - 600) * 0.9) + 540;
+        }
+    }
+
+    public static int CalculateBaseDefense(int vit, int level)
+    {
+        return (int)Math.Floor(vit * 1.5) + level + 18 + (int)Math.Floor((level - 89) * 0.5);
+    }
+
+    public static int CalculateAttack(int combatSkill, int str, int bonusAttack)
+    {
+        return 8 + combatSkill + str + bonusAttack;
+    }
+
+
+    public static int CalculateAuxiliaryAttack(int combatSkill, int str)
+    {
+        return 8 + combatSkill + (int)Math.Floor(str * 0.5);
     }
 
     #endregion

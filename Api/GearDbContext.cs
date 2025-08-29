@@ -322,6 +322,11 @@ namespace GearForgeXI
                 .Property(jbs => jbs.BaseStatRank)
                 .HasConversion<string>();
 
+            // Unique constraint for JobBaseStat: one base stat per job configuration per stat
+            modelBuilder.Entity<JobBaseStat>()
+                .HasIndex(jbs => new { jbs.JobConfigurationId, jbs.StatId })
+                .IsUnique();
+
             // JobBaseSkill: many-to-one with JobConfiguration and Stat
             modelBuilder.Entity<JobBaseSkill>()
                 .HasOne(jbs => jbs.JobConfiguration)

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAppData } from "../contexts/AppDataContext";
+import { useAuth } from "../contexts/AuthContext";
 import { useGearSetState } from "../hooks/useGearSetState";
 import { ReactSelector } from "../components/ReactSelector";
 import Card from "../components/Card";
@@ -18,6 +19,7 @@ import type {
 } from "../services";
 
 export function Simulator() {
+  const { isAuthenticated } = useAuth();
   const { jobs, loading: loadingAppData, error } = useAppData();
   const [selectedJob, setSelectedJob] = useState<Job | undefined>();
   const [masterLevel, setMasterLevel] = useState<number | undefined>(undefined);
@@ -147,218 +149,285 @@ export function Simulator() {
 
   return (
     <div className="max-w-6xl mx-auto">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-          Character Simulator
-        </h1>
-      </div>
+      {/* Authentication Required Banner */}
+      {!isAuthenticated && (
+        <Card className="mb-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-blue-200 dark:border-blue-800">
+          <div className="text-center py-8">
+            <div className="max-w-2xl mx-auto">
+              <div className="mb-4">
+                <BsLightningChargeFill className="h-16 w-16 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  Character Simulator
+                </h2>
+                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                  Optimize your FFXI character builds with detailed stat
+                  calculations
+                </p>
+              </div>
 
-      <Card className="mb-4">
-        {/* Collapsible Header */}
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-            Simulation Configuration
-          </h2>
-          <button
-            onClick={() => setIsFormCollapsed(!isFormCollapsed)}
-            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-            aria-label={isFormCollapsed ? "Expand form" : "Collapse form"}
-          >
-            {isFormCollapsed ? (
-              <BsChevronDown className="h-5 w-5 text-gray-500" />
-            ) : (
-              <BsChevronUp className="h-5 w-5 text-gray-500" />
-            )}
-          </button>
-        </div>
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                  Account Required
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  To use the Character Simulator, you need to create an account
+                  and save gear sets. The simulator calculates stats based on
+                  your saved equipment configurations.
+                </p>
+                <div className="space-y-3 text-sm text-gray-500 dark:text-gray-400 mb-6">
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    <span>Create and save custom gear sets</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    <span>Calculate detailed character statistics</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    <span>Compare different job and race combinations</span>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <button
+                    onClick={() => (window.location.href = "/login")}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                  >
+                    Sign In to Your Account
+                  </button>
+                  <button
+                    onClick={() => (window.location.href = "/register")}
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                  >
+                    Create New Account
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+      )}
 
-        {/* Collapsible Content */}
-        {!isFormCollapsed && (
-          <>
-            {loadingAppData ? (
-              <div className="text-gray-500">Loading...</div>
-            ) : error ? (
-              <div className="text-red-500">Error: {error}</div>
-            ) : (
-              <div className="space-y-6">
-                {/* Form Controls in Clean 2-Column Layout */}
-                <div className="space-y-4">
-                  {/* Row 1: Main Job and Sub Job */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200">
-                        Main Job *
-                      </label>
-                      <ReactSelector
-                        value={jobOptions.find(
-                          (opt) => opt.value === selectedJob?.abbreviation
-                        )}
-                        onChange={handleJobChange}
-                        options={jobOptions}
-                        placeholder="Select main job..."
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200">
-                        Sub Job
-                      </label>
-                      <ReactSelector
-                        value={
-                          selectedSubJob &&
-                          availableSubJobOptions.find(
-                            (opt) => opt.value === selectedSubJob.abbreviation
-                          )
-                            ? availableSubJobOptions.find(
+      {isAuthenticated && (
+        <>
+          <div className="flex justify-between items-center mb-4">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+              Character Simulator
+            </h1>
+          </div>
+          <Card className="mb-4">
+            {/* Collapsible Header */}
+            <div
+              className={`flex items-center justify-between ${
+                isFormCollapsed ? "mb-0" : "mb-4"
+              }`}
+            >
+              <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                Character Parameters
+              </h2>
+              <button
+                onClick={() => setIsFormCollapsed(!isFormCollapsed)}
+                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                aria-label={isFormCollapsed ? "Expand form" : "Collapse form"}
+              >
+                {isFormCollapsed ? (
+                  <BsChevronDown className="h-5 w-5 text-gray-500" />
+                ) : (
+                  <BsChevronUp className="h-5 w-5 text-gray-500" />
+                )}
+              </button>
+            </div>
+
+            {/* Collapsible Content */}
+            {!isFormCollapsed && (
+              <>
+                {loadingAppData ? (
+                  <div className="text-gray-500">Loading...</div>
+                ) : error ? (
+                  <div className="text-red-500">Error: {error}</div>
+                ) : (
+                  <div className="space-y-6">
+                    {/* Form Controls in Clean 2-Column Layout */}
+                    <div className="space-y-4">
+                      {/* Row 1: Main Job and Sub Job */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200">
+                            Main Job *
+                          </label>
+                          <ReactSelector
+                            value={jobOptions.find(
+                              (opt) => opt.value === selectedJob?.abbreviation
+                            )}
+                            onChange={handleJobChange}
+                            options={jobOptions}
+                            placeholder="Select main job..."
+                          />
+                        </div>
+                        <div>
+                          <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200">
+                            Sub Job
+                          </label>
+                          <ReactSelector
+                            value={
+                              selectedSubJob &&
+                              availableSubJobOptions.find(
                                 (opt) =>
                                   opt.value === selectedSubJob.abbreviation
                               )
-                            : null
-                        }
-                        onChange={handleSubJobChange}
-                        options={availableSubJobOptions}
-                        placeholder="Select sub job..."
-                        isClearable
-                      />
-                    </div>
-                  </div>
-
-                  {/* Row 2: Race and Master Level */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200">
-                        Race *
-                      </label>
-                      <ReactSelector
-                        value={
-                          selectedRace
-                            ? raceOptions.find(
-                                (race) => race.value === selectedRace
-                              ) || null
-                            : null
-                        }
-                        onChange={(option) => {
-                          setSelectedRace(option?.value);
-                        }}
-                        options={raceOptions}
-                        placeholder="Select a race..."
-                        isClearable
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200 flex items-center gap-1">
-                        Master Level *
-                        <div className="relative group">
-                          <svg
-                            className="w-4 h-4 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 cursor-help"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                          <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
-                            Sub Job Level is calculated based on master level
-                            (assumed max)
-                            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
-                          </div>
-                        </div>
-                      </label>
-                      <input
-                        type="number"
-                        min="0"
-                        max="50"
-                        value={masterLevel ?? ""}
-                        onChange={(e) =>
-                          setMasterLevel(
-                            e.target.value
-                              ? parseInt(e.target.value)
-                              : undefined
-                          )
-                        }
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:focus:ring-blue-600 dark:focus:border-blue-600"
-                        placeholder="0-50"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Row 3: Gear Set (Full Width) */}
-                  <div>
-                    <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200">
-                      Gear Set *
-                    </label>
-                    <ReactSelector
-                      value={
-                        selectedGearSet
-                          ? {
-                              value: selectedGearSet.id?.toString() || "",
-                              label: selectedGearSet.name,
+                                ? availableSubJobOptions.find(
+                                    (opt) =>
+                                      opt.value === selectedSubJob.abbreviation
+                                  )
+                                : null
                             }
-                          : null
-                      }
-                      onChange={(option) => {
-                        if (option) {
-                          const gearSet = savedGearSets.find(
-                            (set) => set.id?.toString() === option.value
-                          );
-                          setSelectedGearSet(gearSet);
-                        } else {
-                          setSelectedGearSet(undefined);
-                        }
-                      }}
-                      options={savedGearSets.map((set) => ({
-                        value: set.id?.toString() || "",
-                        label: set.name,
-                      }))}
-                      placeholder={
-                        selectedJob
-                          ? "Select a gear set..."
-                          : "Select main job first..."
-                      }
-                      isClearable
-                      isDisabled={!selectedJob}
-                    />
-                  </div>
+                            onChange={handleSubJobChange}
+                            options={availableSubJobOptions}
+                            placeholder="Select sub job..."
+                            isClearable
+                          />
+                        </div>
+                      </div>
 
-                  {/* Row 4: Submit Button (Full Width) */}
-                  <div className="pt-2">
-                    <button
-                      onClick={handleSubmit}
-                      disabled={!canSubmit || isSimulating}
-                      className={`w-full px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform flex items-center justify-center gap-3 shadow-lg ${
-                        canSubmit && !isSimulating
-                          ? "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white cursor-pointer hover:scale-105 hover:shadow-xl active:scale-95"
-                          : "bg-gray-300 text-gray-500 cursor-not-allowed dark:bg-gray-600 dark:text-gray-400 shadow-sm"
-                      }`}
-                    >
-                      <BsLightningChargeFill
-                        className={`h-5 w-5 ${
-                          canSubmit && !isSimulating ? "animate-pulse" : ""
-                        } ${isSimulating ? "animate-spin" : ""}`}
-                      />
-                      {isSimulating ? "Simulating..." : "Start Simulation"}
-                    </button>
-                  </div>
-                </div>
+                      {/* Row 2: Race and Master Level */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200">
+                            Race *
+                          </label>
+                          <ReactSelector
+                            value={
+                              selectedRace
+                                ? raceOptions.find(
+                                    (race) => race.value === selectedRace
+                                  ) || null
+                                : null
+                            }
+                            onChange={(option) => {
+                              setSelectedRace(option?.value);
+                            }}
+                            options={raceOptions}
+                            placeholder="Select a race..."
+                            isClearable
+                          />
+                        </div>
+                        <div>
+                          <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200 flex items-center gap-1">
+                            Master Level *
+                            <div className="relative group">
+                              <svg
+                                className="w-4 h-4 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 cursor-help"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+                                Sub Job Level is calculated based on master
+                                level (assumed max)
+                                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                              </div>
+                            </div>
+                          </label>
+                          <input
+                            type="number"
+                            min="0"
+                            max="50"
+                            value={masterLevel ?? ""}
+                            onChange={(e) =>
+                              setMasterLevel(
+                                e.target.value
+                                  ? parseInt(e.target.value)
+                                  : undefined
+                              )
+                            }
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:focus:ring-blue-600 dark:focus:border-blue-600"
+                            placeholder="0-50"
+                          />
+                        </div>
+                      </div>
 
-                {/* Simulation Error */}
-                {simulationError && (
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 dark:bg-red-900/20 dark:border-red-800">
-                    <h3 className="text-lg font-semibold text-red-800 dark:text-red-200 mb-2">
-                      Simulation Error
-                    </h3>
-                    <p className="text-red-700 dark:text-red-300">
-                      {simulationError}
-                    </p>
+                      {/* Row 3: Gear Set (Full Width) */}
+                      <div>
+                        <label className="block font-semibold mb-2 text-gray-800 dark:text-gray-200">
+                          Gear Set *
+                        </label>
+                        <ReactSelector
+                          value={
+                            selectedGearSet
+                              ? {
+                                  value: selectedGearSet.id?.toString() || "",
+                                  label: selectedGearSet.name,
+                                }
+                              : null
+                          }
+                          onChange={(option) => {
+                            if (option) {
+                              const gearSet = savedGearSets.find(
+                                (set) => set.id?.toString() === option.value
+                              );
+                              setSelectedGearSet(gearSet);
+                            } else {
+                              setSelectedGearSet(undefined);
+                            }
+                          }}
+                          options={savedGearSets.map((set) => ({
+                            value: set.id?.toString() || "",
+                            label: set.name,
+                          }))}
+                          placeholder={
+                            selectedJob
+                              ? "Select a gear set..."
+                              : "Select main job first..."
+                          }
+                          isClearable
+                          isDisabled={!selectedJob}
+                        />
+                      </div>
+
+                      {/* Row 4: Submit Button (Full Width) */}
+                      <div className="pt-2">
+                        <button
+                          onClick={handleSubmit}
+                          disabled={!canSubmit || isSimulating}
+                          className={`w-full px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform flex items-center justify-center gap-3 shadow-lg ${
+                            canSubmit && !isSimulating
+                              ? "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white cursor-pointer hover:scale-105 hover:shadow-xl active:scale-95"
+                              : "bg-gray-300 text-gray-500 cursor-not-allowed dark:bg-gray-600 dark:text-gray-400 shadow-sm"
+                          }`}
+                        >
+                          <BsLightningChargeFill
+                            className={`h-5 w-5 ${
+                              canSubmit && !isSimulating ? "animate-pulse" : ""
+                            } ${isSimulating ? "animate-spin" : ""}`}
+                          />
+                          {isSimulating ? "Simulating..." : "Start Simulation"}
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Simulation Error */}
+                    {simulationError && (
+                      <div className="bg-red-50 border border-red-200 rounded-lg p-4 dark:bg-red-900/20 dark:border-red-800">
+                        <h3 className="text-lg font-semibold text-red-800 dark:text-red-200 mb-2">
+                          Simulation Error
+                        </h3>
+                        <p className="text-red-700 dark:text-red-300">
+                          {simulationError}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )}
-              </div>
+              </>
             )}
-          </>
-        )}
-      </Card>
+          </Card>
+        </>
+      )}
 
       {/* Simulation Results Card */}
       {simulationResult && (
