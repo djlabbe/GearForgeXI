@@ -169,11 +169,11 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       },
       {
         label: "Critical Hit Rate",
-        stats: [createGearStat("CritRate", 10)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Critical Hit Rate", 10)].filter(Boolean) as GearStat[],
       },
       {
         label: "Store TP",
-        stats: [createGearStat("StoreTP", 10)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Store TP", 10)].filter(Boolean) as GearStat[],
       },
       {
         label: "Double Attack",
@@ -379,7 +379,7 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       },
       {
         label: "Blocking rate",
-        stats: [createGearStat("BlockSuccessRate", 5)].filter(
+        stats: [createGearStat("Shield Block Rate", 5)].filter(
           Boolean
         ) as GearStat[],
       },
@@ -403,7 +403,7 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       },
       {
         label: "Pet: Magic damage taken",
-        stats: [createGearStat("PetMDT", -10)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Pet MDT", -10)].filter(Boolean) as GearStat[],
       },
       {
         label: "Pet: Damage taken",
