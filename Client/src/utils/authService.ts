@@ -35,6 +35,13 @@ export async function register(email: string, password: string, confirmPassword:
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({ message: "Registration failed" }));
+    
+    // Handle array of identity errors from backend
+    if (Array.isArray(errorData)) {
+      const descriptions = errorData.map((err: any) => err.description || err.message).join("; ");
+      throw new Error(descriptions || "Registration failed");
+    }
+    
     throw new Error(errorData.message || "Registration failed");
   }
 

@@ -112,17 +112,17 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       {
         label: "Pet: Accuracy/Attack",
         stats: [
-          createGearStat("PetAccuracy", 20),
-          createGearStat("PetRangedAccuracy", 20),
-          createGearStat("PetAttack", 20),
-          createGearStat("PetRangedAttack", 20),
+          createGearStat("Pet Accuracy", 20),
+          createGearStat("Pet Ranged Accuracy", 20),
+          createGearStat("Pet Attack", 20),
+          createGearStat("Pet Ranged Attack", 20),
         ].filter(Boolean) as GearStat[],
       },
       {
         label: "Pet: Magic Accuracy/Damage",
         stats: [
-          createGearStat("PetMagicAccuracy", 20),
-          createGearStat("PetMagicDamage", 20),
+          createGearStat("Pet Magic Accuracy", 20),
+          createGearStat("Pet Magic Damage", 20),
         ].filter(Boolean) as GearStat[],
       },
     ];
@@ -139,22 +139,22 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       {
         label: "RangedAccuracy/RangedAttack",
         stats: [
-          createGearStat("RangedAccuracy", 20),
-          createGearStat("RangedAttack", 20),
+          createGearStat("Ranged Accuracy", 20),
+          createGearStat("Ranged Attack", 20),
         ].filter(Boolean) as GearStat[],
       },
       {
         label: "MagicAccuracy/MagicDamage",
         stats: [
-          createGearStat("MagicAccuracy", 20),
-          createGearStat("MagicDamage", 20),
+          createGearStat("Magic Accuracy", 20),
+          createGearStat("Magic Damage", 20),
         ].filter(Boolean) as GearStat[],
       },
       {
         label: "Evasion/MagicEvasion",
         stats: [
           createGearStat("Evasion", 20),
-          createGearStat("MagicEvasion", 20),
+          createGearStat("Magic Evasion", 20),
         ].filter(Boolean) as GearStat[],
       },
     ];
@@ -162,8 +162,8 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
     // Sap options
     const sapOpts: CapeOption[] = [
       {
-        label: "Weaponskill Damage",
-        stats: [createGearStat("WeaponSkillDamage", 10)].filter(
+        label: "Weapon Skill Damage",
+        stats: [createGearStat("Weapon Skill Damage", 10)].filter(
           Boolean
         ) as GearStat[],
       },
@@ -177,7 +177,7 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       },
       {
         label: "Double Attack",
-        stats: [createGearStat("DoubleAttack", 10)].filter(
+        stats: [createGearStat("Double Attack", 10)].filter(
           Boolean
         ) as GearStat[],
       },
@@ -187,7 +187,7 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       },
       {
         label: "Dual Wield",
-        stats: [createGearStat("DualWield", 10)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Dual Wield", 10)].filter(Boolean) as GearStat[],
       },
       {
         label: "Enmity +",
@@ -203,33 +203,33 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       },
       {
         label: "Magic Attack",
-        stats: [createGearStat("MagicAttackBonus", 10)].filter(
+        stats: [createGearStat("Magic Attack Bonus", 10)].filter(
           Boolean
         ) as GearStat[],
       },
       {
         label: "Fast Cast",
-        stats: [createGearStat("FastCast", 10)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Fast Cast", 10)].filter(Boolean) as GearStat[],
       },
       {
         label: "Cure Potency",
-        stats: [createGearStat("CurePotency", 10)].filter(
+        stats: [createGearStat("Cure Potency", 10)].filter(
           Boolean
         ) as GearStat[],
       },
       {
         label: "Waltz Potency",
-        stats: [createGearStat("WaltzPotency", 10)].filter(
+        stats: [createGearStat("Waltz Potency", 10)].filter(
           Boolean
         ) as GearStat[],
       },
       {
         label: "Pet: Regen",
-        stats: [createGearStat("PetRegen", 10)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Pet Regen", 10)].filter(Boolean) as GearStat[],
       },
       {
         label: "Pet: Haste",
-        stats: [createGearStat("PetHaste", 10)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Pet Haste", 10)].filter(Boolean) as GearStat[],
       },
     ];
 
@@ -281,25 +281,25 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       },
       {
         label: "Ranged Accuracy",
-        stats: [createGearStat("RangedAccuracy", 10)].filter(
+        stats: [createGearStat("Ranged Accuracy", 10)].filter(
           Boolean
         ) as GearStat[],
       },
       {
         label: "Ranged Attack",
-        stats: [createGearStat("RangedAttack", 10)].filter(
+        stats: [createGearStat("Ranged Attack", 10)].filter(
           Boolean
         ) as GearStat[],
       },
       {
         label: "Magic Accuracy",
-        stats: [createGearStat("MagicAccuracy", 10)].filter(
+        stats: [createGearStat("Magic Accuracy", 10)].filter(
           Boolean
         ) as GearStat[],
       },
       {
         label: "Magic Damage",
-        stats: [createGearStat("MagicDamage", 10)].filter(
+        stats: [createGearStat("Magic Damage", 10)].filter(
           Boolean
         ) as GearStat[],
       },
@@ -309,33 +309,33 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       },
       {
         label: "Magic Evasion",
-        stats: [createGearStat("MagicEvasion", 20)].filter(
+        stats: [createGearStat("Magic Evasion", 20)].filter(
           Boolean
         ) as GearStat[],
       },
       {
         label: "Pet: Accuracy/Ranged Accuracy",
         stats: [
-          createGearStat("PetAccuracy", 20),
-          createGearStat("PetRangedAccuracy", 20),
+          createGearStat("Pet Accuracy", 20),
+          createGearStat("Pet Ranged Accuracy", 20),
         ].filter(Boolean) as GearStat[],
       },
       {
         label: "Pet: Attack/Ranged Attack",
         stats: [
-          createGearStat("PetAttack", 20),
-          createGearStat("PetRangedAttack", 20),
+          createGearStat("Pet Attack", 20),
+          createGearStat("Pet Ranged Attack", 20),
         ].filter(Boolean) as GearStat[],
       },
       {
         label: "Pet: Magic Accuracy",
-        stats: [createGearStat("PetMagicAccuracy", 20)].filter(
+        stats: [createGearStat("Pet Magic Accuracy", 20)].filter(
           Boolean
         ) as GearStat[],
       },
       {
         label: "Pet: Magic Damage",
-        stats: [createGearStat("PetMagicDamage", 20)].filter(
+        stats: [createGearStat("Pet Magic Damage", 20)].filter(
           Boolean
         ) as GearStat[],
       },
@@ -353,21 +353,21 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       },
       {
         label: "Magic Evasion",
-        stats: [createGearStat("MagicEvasion", 15)].filter(
+        stats: [createGearStat("Magic Evasion", 15)].filter(
           Boolean
         ) as GearStat[],
       },
       {
         label: "Physical damage taken",
-        stats: [createGearStat("PDT", -10)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Physical Damage Taken", -10)].filter(Boolean) as GearStat[],
       },
       {
         label: "Magic damage taken",
-        stats: [createGearStat("MDT", -10)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Magic Damage Taken", -10)].filter(Boolean) as GearStat[],
       },
       {
         label: "Damage taken",
-        stats: [createGearStat("DT", -5)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Damage Taken", -5)].filter(Boolean) as GearStat[],
       },
       {
         label: "Regen",
@@ -385,7 +385,7 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       },
       {
         label: "Parrying rate",
-        stats: [createGearStat("ParryRate", 5)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Parry", 5)].filter(Boolean) as GearStat[],
       },
       {
         label: "Status ailment resistance",
@@ -395,11 +395,11 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       },
       {
         label: "Casting interruption rate",
-        stats: [createGearStat("SIRD", -10)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Spell Interruption Rate Down", -10)].filter(Boolean) as GearStat[],
       },
       {
         label: "Pet: Physical damage taken",
-        stats: [createGearStat("Pet:PDT", -10)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Pet PDT", -10)].filter(Boolean) as GearStat[],
       },
       {
         label: "Pet: Magic damage taken",
@@ -407,11 +407,11 @@ export const AppDataProvider = ({ children }: AppDataProviderProps) => {
       },
       {
         label: "Pet: Damage taken",
-        stats: [createGearStat("PetDT", -5)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Pet DT", -5)].filter(Boolean) as GearStat[],
       },
       {
         label: "Pet: Regen",
-        stats: [createGearStat("PetRegen", 5)].filter(Boolean) as GearStat[],
+        stats: [createGearStat("Pet Regen", 5)].filter(Boolean) as GearStat[],
       },
     ];
 
